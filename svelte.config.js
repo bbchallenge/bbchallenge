@@ -9,8 +9,11 @@ const config = {
 	preprocess: [preprocess(), windi({})],
 
 	kit: {
-		adapter: adapter()
-	}
+		adapter: adapter(),
+
+	},
+
+
 };
 
 export default config;

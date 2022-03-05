@@ -38,7 +38,7 @@
 <header class="flex flex-col">
 	{#if machineID !== null}
 		<div class="text-lg">
-			Machine <a class="underline" href={'/machine/index/' + machineID}
+			Machine <a class="underline" href={'/' + machineID}
 				>#{numberWithCommas(machineID)}</a
 			>
 		</div>
