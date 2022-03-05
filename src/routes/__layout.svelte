@@ -10,6 +10,7 @@
 		<ul class="flex items-end">
 			<li class="pr-8"><a href="/">Machine</a></li>
 			<li class="pr-8"><a href="/story">The Story</a></li>
+			<li class="pr-8"><a href="/zoology">Zoology</a></li>
 			<li class="pr-8"><a href="/contribute">Contribute</a></li>
 			<li class="pr-8"><a href="https://discuss.bbchallenge.org">Forum</a></li>
 		</ul>
