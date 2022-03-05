@@ -30,7 +30,7 @@
 </script>
 
 <div>
-	<div class="mt-6 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
+	<div class="mt-4 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
 		<div class="bg-black">
 			<canvas class="mr-5" bind:this={canvasEl} width={canvas.width} height={canvas.height} />
 		</div>
