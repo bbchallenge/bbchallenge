@@ -1,6 +1,6 @@
 <script lang="ts">
 	// import type { TM } from './tm';
-	import { TMDecisionStatus } from './tm';
+	import { TMDecisionStatus, tmTob64URLSafe } from './tm';
 
 	import { numberWithCommas } from './utils';
 
@@ -71,7 +71,8 @@
 </header>
 <div class:mt-1={machineID !== null}>
 	<div>Machine code:</div>
-	<table class="w-[200px] text-left" class:ml-3={machineID !== null}>
+
+	<table class="w-[200px] text-left ml-3">
 		<thead class="font-normal border-b-1">
 			<th class="font-normal">state</th>
 			<th class="font-normal">0</th>
@@ -87,4 +88,7 @@
 			{/each}
 		</tbody>
 	</table>
+	<div class="text-xs">
+		b64: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
+	</div>
 </div>
