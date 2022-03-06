@@ -8,7 +8,7 @@ export enum TMDecisionStatus {
 	DECIDED_NON_HALT
 }
 
-export function tm_trace_to_image(ctx: CanvasRenderingContext2D, canvas, machine, width = 900, height = 1000) {
+export function tm_trace_to_image(ctx: CanvasRenderingContext2D, canvas, machine, width = 900, height = 1000, offset = 0.5) {
 	let imgData = ctx.createImageData(width, height);
 
 	let tape = {};
@@ -23,7 +23,7 @@ export function tm_trace_to_image(ctx: CanvasRenderingContext2D, canvas, machine
 		}
 
 		for (let col = 0; col < width; col += 1) {
-			const pos = col - width * 0.5
+			const pos = col - width * offset
 
 
 			if (tape[pos] != undefined) {

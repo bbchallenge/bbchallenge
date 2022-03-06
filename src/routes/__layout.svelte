@@ -35,4 +35,8 @@
 	:global(a):hover:not(.disabled) {
 		@apply text-gray-200;
 	}
+
+	:global(input) {
+		@apply text-black px-1 py-0.5;
+	}
 </style>

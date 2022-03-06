@@ -27,20 +27,26 @@
 		return toReturn;
 	}
 
+	function machineLink() {
+		if (simulationLink === null) {
+			return '/' + machineID;
+		}
+		return simulationLink;
+	}
+
 	// export let machine: TM; //
 	// export let machineID: number | null = null;
 	// export let decisionStatus: TMDecisionStatus | null = null;
 	export let machine; //
 	export let machineID = null;
 	export let decisionStatus = null;
+	export let simulationLink = null;
 </script>
 
 <header class="flex flex-col">
 	{#if machineID !== null}
 		<div class="text-lg">
-			Machine <a class="underline" href={'/' + machineID}
-				>#{numberWithCommas(machineID)}</a
-			>
+			Machine <a class="underline" href={machineLink()}>#{numberWithCommas(machineID)}</a>
 		</div>
 	{/if}
 	{#if decisionStatus !== null}
