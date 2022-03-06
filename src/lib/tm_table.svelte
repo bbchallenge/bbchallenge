@@ -70,12 +70,8 @@
 	{/if}
 </header>
 <div class:mt-1={machineID !== null}>
-	<div>Description:</div>
-	<table
-		class="w-[200px] text-left"
-		class:ml-3={machineID !== null}
-		class:mt-1={machineID !== null}
-	>
+	<div>Machine code:</div>
+	<table class="w-[200px] text-left" class:ml-3={machineID !== null}>
 		<thead class="font-normal border-b-1">
 			<th class="font-normal">state</th>
 			<th class="font-normal">0</th>

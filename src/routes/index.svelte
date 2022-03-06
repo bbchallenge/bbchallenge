@@ -25,6 +25,7 @@
 	let nbIter = 10000;
 	let tapeWidth = 500;
 	let offset = 0.5;
+	let fitCanvas = true;
 
 	function getSimulationLink(forCopy = true) {
 		let prefix = 'https://bbchalenge.org';
@@ -37,7 +38,7 @@
 	function draw() {
 		const context = canvasEl.getContext('2d');
 		drawRect(context);
-		tm_trace_to_image(context, canvas, machine, tapeWidth, nbIter, offset);
+		tm_trace_to_image(context, canvas, machine, tapeWidth, nbIter, offset, fitCanvas);
 	}
 
 	onMount(() => {
@@ -54,14 +55,14 @@
 			</div>
 
 			<div class="text-xs pt-0 ">
-				<a
-					class="text-blue-400 hover:text-blue-300"
+				<div
+					class="text-blue-400 hover:text-blue-300 cursor-pointer"
 					on:click={() => {
 						navigator.clipboard.writeText(getSimulationLink());
 					}}
 				>
 					Copy simulation link
-				</a>
+				</div>
 			</div>
 		</div>
 		<div class="<sm:mt-3 sm:ml-10 xl:ml-20">
@@ -74,7 +75,7 @@
 				/>
 			</div>
 			<div class="mt-2 flex flex-col">
-				<div>Tune simulation:</div>
+				<div>Simulation parameters:</div>
 				<div class="flex space-x-3 pl-2 ">
 					<label class="flex flex-col">
 						steps
@@ -96,6 +97,10 @@
 						/></label
 					>
 				</div>
+				<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+					<input type="checkbox" bind:checked={fitCanvas} on:change={draw} />
+					<div>Resize to canvas</div>
+				</label>
 			</div>
 		</div>
 	</div>
