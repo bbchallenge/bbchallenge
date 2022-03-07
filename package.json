@@ -34,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-static": "^1.0.0-next.29",
 		"axios": "^0.26.0",
 		"svelte-seo": "^1.4.0"
 	}

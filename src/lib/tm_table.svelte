@@ -52,10 +52,16 @@
 		{#if decisionStatus == TMDecisionStatus.UNDECIDED}
 			<div>Status: <span class="text-orange-400 font-bold">Undecided</span></div>
 		{:else if decisionStatus == TMDecisionStatus.HEURISTICALLY_DECIDED_HALT}
-			<div>Status: <span class="text-purple-400 font-bold">Heuristically decided (Halt)</span></div>
+			<div>
+				Status: <span class="text-purple-400 font-bold text-sm"
+					>Heuristically decided <span class="text-xs">(Halt)</span></span
+				>
+			</div>
 		{:else if decisionStatus == TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT}
 			<div>
-				Status: <span class="text-purple-400 font-bold">Heuristically decided (Non Halt)</span>
+				Status: <span class="text-purple-400 font-bold text-sm"
+					>Heuristically decided <span class="text-xs">(Non Halt)</span></span
+				>
 			</div>
 		{:else if decisionStatus == TMDecisionStatus.DECIDED_NON_HALT}
 			<div>

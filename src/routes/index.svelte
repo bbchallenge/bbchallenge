@@ -336,21 +336,33 @@
 				{/if}
 			</div>
 
-			<div class="mt-4 flex flex-col">
+			<div class="mt-4 flex flex-col items-start">
 				<div>Change machine:</div>
 				<div class="ml-3 mt-1 text-sm">
 					<div>Random machine from the database:</div>
 
-					<div class="ml-2 flex flex-col space-y-1 ">
-						<!-- {#if !preSeed} -->
+					<!-- {#if !preSeed} -->
+					<div class="flex flex-col items-end mx-3 ">
 						<button
-							class="bg-blue-500 p-1 mx-3 mt-1"
+							class="bg-blue-500 p-1 mt-1 w-full ml-2 "
 							on:click={async () => {
 								await getRandomMachine();
 								draw();
 								window.history.replaceState({}, '', getSimulationLink());
 							}}>Go Random</button
 						>
+						<div
+							class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+							on:click={() => {
+								showRandomOptions = !showRandomOptions;
+							}}
+						>
+							{#if !showRandomOptions}More{:else}Less{/if} options
+						</div>
+					</div>
+				</div>
+				<div class="ml-3 mt-1 text-sm">
+					<div class="ml-2 flex flex-col space-y-1 ">
 						<!-- {:else}
 							<button
 								class="bg-blue-500 p-1 mx-3 mt-1"
@@ -359,14 +371,6 @@
 								}}>Go Random</button
 							>
 						{/if} -->
-						<div
-							class="text-xs text-right mx-3 text-blue-400 hover:text-blue-300 cursor-pointer select-none"
-							on:click={() => {
-								showRandomOptions = !showRandomOptions;
-							}}
-						>
-							{#if !showRandomOptions}More{:else}Less{/if} options
-						</div>
 
 						{#if showRandomOptions}
 							<div class="mx-3">
