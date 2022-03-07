@@ -164,6 +164,7 @@
 		}
 	}
 
+	let metrics = null;
 	onMount(async () => {
 		if (!preSeed) {
 			await getRandomMachine();
@@ -174,13 +175,40 @@
 			await loadMachineFromB64(machineB64);
 		}
 		draw();
+
+		const response = await API.get(`/metrics`, {});
+		metrics = response.data;
+		//console.log(metrics);
 	});
 </script>
 
 <SvelteSeo title="bbchallenge" />
 
 <div>
-	<div class="mt-4 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
+	{#if metrics != null}
+		<div class="text-xs mb-1 mt-2 ml-3 <md:ml-0">
+			<div class="flex md:flex-col space-x-2">
+				<span class="underline">Challenge goal</span>
+				<div class="flex flex-col">
+					<div>
+						There remains <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines
+						to decide (out of {numberWithCommas(metrics['total'])})
+					</div>
+					<div style="font-size:0.65rem">
+						Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
+					</div>
+					<a
+						href="/contribute"
+						style="font-size:0.6rem"
+						class="text-blue-400 hover:text-blue-300 cursor-pointer"
+					>
+						You can help!!
+					</a>
+				</div>
+			</div>
+		</div>
+	{/if}
+	<div class="mt-5 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
 		<div class="flex flex-col">
 			<div class="bg-black mr-5">
 				<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
@@ -329,7 +357,11 @@
 										name="randomType"
 										value="all_undecided"
 									/>
-									<div>only undecided machine (2,322,122)</div>
+									<div>
+										only undecided machine {#if metrics !== null}({numberWithCommas(
+												metrics['total_undecided']
+											)}){/if}
+									</div>
 								</label>
 								<label
 									class="mt-2 flex space-x-2 items-center select-none cursor-pointer w-[300px]"
@@ -340,7 +372,11 @@
 										name="randomType"
 										value="all_undecided_apply_heuristics"
 									/>
-									<div>only undecided machine not heuristically decided (206,784)</div>
+									<div>
+										only undecided machine not heuristically decided {#if metrics !== null}({numberWithCommas(
+												metrics['total_undecided_with_heuristcs']
+											)}){/if}
+									</div>
 								</label>
 							</div>
 						{/if}
@@ -394,7 +430,7 @@
 			</div>
 
 			{#if history}
-				<div class="mt-4 flex flex-col">
+				<div class="mt-0 flex flex-col">
 					<div class="ml-3 mt-4 text-sm ">
 						<div
 							class="text-blue-400
