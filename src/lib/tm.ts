@@ -1,6 +1,6 @@
-import { base } from '$app/paths';
-
 export type TM = Uint8Array;
+
+export const DB_SIZE = 88664064;
 
 export function tmTob64URLSafe(machine: TM) {
 	let binary = '';
@@ -12,6 +12,8 @@ export function tmTob64URLSafe(machine: TM) {
 }
 
 export function b64URLSafetoTM(base64URLSafe: string) {
+	if (base64URLSafe[0] != 'm') throw "Invalid TM base64 description: must start with 'm'.";
+
 	const base64 = base64URLSafe.substring(1).replace('-', '+').replace('_', '/');
 	const binary = atob(base64);
 	const tm = new Uint8Array(binary.length);
@@ -41,12 +43,12 @@ export function tm_trace_to_image(
 ) {
 	const imgData = ctx.createImageData(width, height);
 
-	for (let i = 0; i < imgData.data.length; i += 4) {
-		imgData.data[i] = 22;
-		imgData.data[i + 1] = 22;
-		imgData.data[i + 2] = 22;
-		imgData.data[i + 3] = 255;
-	}
+	// for (let i = 0; i < imgData.data.length; i += 4) {
+	// 	imgData.data[i] = 22;
+	// 	imgData.data[i + 1] = 22;
+	// 	imgData.data[i + 2] = 22;
+	// 	imgData.data[i + 3] = 255;
+	// }
 
 	const tape = {};
 	let curr_state = 0;

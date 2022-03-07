@@ -32,5 +32,9 @@
 		"vite": "^2.8.6",
 		"vite-plugin-wasm-pack": "^0.1.9"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"axios": "^0.26.0",
+		"svelte-seo": "^1.4.0"
+	}
 }

@@ -1,15 +1,29 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import TmTable from '$lib/tm_table.svelte';
-	import { TMDecisionStatus, tm_trace_to_image, b64URLSafetoTM } from '$lib/tm';
+	import { API } from '$lib/api_server';
+	import { addToHistory, getHistory, numberWithCommas } from '$lib/utils';
+	import { goto } from '$app/navigation';
+	const _goto = goto;
+	import {
+		TMDecisionStatus,
+		tm_trace_to_image,
+		b64URLSafetoTM,
+		DB_SIZE,
+		tmTob64URLSafe
+	} from '$lib/tm';
+	import SvelteSeo from 'svelte-seo';
 
-	let machine = new Uint8Array([
-		1, 0, 2, 1, 1, 2, 1, 1, 3, 0, 0, 5, 0, 1, 4, 0, 0, 1, 1, 0, 1, 0, 1, 4, 0, 0, 0, 0, 0, 3
-	]); // Chaotic machine #67279052
+	let machine = null;
+	export let machineID = null;
+	export let machineB64 = null;
+	export let preSeed = false;
+	let machineStatus = null;
+	let history = getHistory();
+	let showHistory = false;
 
-	machine = b64URLSafetoTM('mAQACAQECAQEDAAAFAAEEAAABAQABAAEEAAAAAAAD');
-	console.log(machine);
-	let machineID = 67279052;
+	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
+	//console.log(machine);
 
 	let canvasEl;
 
@@ -24,18 +38,34 @@
 		context.fill();
 	};
 
-	let nbIter = 10000;
-	let tapeWidth = 300;
-	let origin_x = 0.5;
-	let fitCanvas = true;
-	let showHeadMove = false;
+	export let nbIter = 3000;
+	export let tapeWidth = 300;
+	export let origin_x = 0.5;
 
-	function getSimulationLink(forCopy = true) {
-		let prefix = 'https://bbchalenge.org';
+	// Default the params if called with null
+	if (nbIter == null) {
+		nbIter = 3000;
+	}
+	if (tapeWidth == null) {
+		tapeWidth = 300;
+	}
+	if (origin_x == null) {
+		origin_x = 0.5;
+	}
+
+	let fitCanvas = true;
+	let showHeadMove = true;
+
+	function getSimulationLink(forCopy = false) {
+		let prefix = 'https://bbchalenge.org/';
 		if (!forCopy) {
 			prefix = '/';
 		}
-		return prefix + `${machineID}&s=${nbIter}&w=${tapeWidth}&amp;ox=${origin_x}`;
+		let secondPrefix = tmTob64URLSafe(machine);
+		if (machineID != null) {
+			secondPrefix = machineID;
+		}
+		return prefix + `${secondPrefix}&s=${nbIter}&w=${tapeWidth}&ox=${origin_x}`;
 	}
 
 	let showRandomOptions = false;
@@ -55,11 +85,99 @@
 		);
 	}
 
-	onMount(() => {
-		console.log('Onmount');
+	let randomType = 'all_undecided_apply_heuristics';
+
+	async function getRandomMachine() {
+		try {
+			const response = await API.post('/machine/random', { type: randomType });
+
+			machine = b64URLSafetoTM(response.data['machine']);
+			machineID = response.data['machine_id'];
+
+			addToHistory(machineID);
+			history = getHistory();
+
+			if (response.data['status'] !== undefined) {
+				if (response.data['status'] == 'decided') {
+					machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
+				} else if (response.data['status'] == 'heuristic') {
+					machineStatus = TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
+				} else {
+					machineStatus = TMDecisionStatus.UNDECIDED;
+				}
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	let typedMachineID = null;
+	let typedMachineError = null;
+	async function loadMachineFromID(localMachineID) {
+		if (localMachineID == null || localMachineID < 0 || localMachineID >= DB_SIZE) {
+			typedMachineError = 'Machine ID must be a number between 0 and 88664063.';
+			return;
+		}
+
+		typedMachineError = null;
+		try {
+			const response = await API.get(`/machine/${localMachineID}`, {});
+
+			machine = b64URLSafetoTM(response.data['machine']);
+			localMachineID = response.data['machine_id'];
+			machineID = localMachineID;
+
+			addToHistory(localMachineID);
+			history = getHistory();
+
+			if (response.data['status'] !== undefined) {
+				if (response.data['status'] == 'decided') {
+					machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
+				} else if (response.data['status'] == 'heuristic') {
+					machineStatus = TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
+				} else {
+					machineStatus = TMDecisionStatus.UNDECIDED;
+				}
+			}
+
+			console.log(machine, machineID);
+		} catch (error) {
+			typedMachineError = error;
+			console.log(error);
+		}
+	}
+
+	let typedb64 = null;
+	let b64Error = null;
+	function loadMachineFromB64(b64) {
+		machine = null;
+		machineID = null;
+		machineStatus = null;
+		try {
+			b64Error = null;
+			machine = b64URLSafetoTM(b64);
+			addToHistory(b64);
+			history = getHistory();
+			draw();
+		} catch (error) {
+			b64Error = error;
+		}
+	}
+
+	onMount(async () => {
+		if (!preSeed) {
+			await getRandomMachine();
+			window.history.replaceState({}, '', getSimulationLink());
+		} else if (machineID != null) {
+			await loadMachineFromID(machineID);
+		} else if (machineB64 != null) {
+			await loadMachineFromB64(machineB64);
+		}
 		draw();
 	});
 </script>
+
+<SvelteSeo title="bbchallenge" />
 
 <div>
 	<div class="mt-4 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
@@ -68,16 +186,32 @@
 				<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
 			</div>
 
-			<div class="mt-0 flex flex-col">
+			<div class="mt-1 flex flex-col">
 				<div>Simulation parameters:</div>
 				<div class="flex space-x-3 pl-2 text-sm ">
 					<label class="flex flex-col ">
 						steps
-						<input class="w-[70px]" type="number" bind:value={nbIter} on:change={draw} /></label
+						<input
+							class="w-[70px]"
+							type="number"
+							bind:value={nbIter}
+							on:change={() => {
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+						/></label
 					>
 					<label class="flex flex-col">
 						tape width
-						<input class="w-[70px]" type="number" bind:value={tapeWidth} on:change={draw} /></label
+						<input
+							class="w-[70px]"
+							type="number"
+							bind:value={tapeWidth}
+							on:change={() => {
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+						/></label
 					>
 					<label class="flex flex-col">
 						origin x
@@ -85,7 +219,10 @@
 							class="w-[70px]"
 							type="number"
 							bind:value={origin_x}
-							on:change={draw}
+							on:change={() => {
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
 							min="0"
 							max="1"
 							step="0.1"
@@ -105,7 +242,7 @@
 				<div
 					class="text-blue-400 hover:text-blue-300 cursor-pointer"
 					on:click={() => {
-						navigator.clipboard.writeText(getSimulationLink());
+						navigator.clipboard.writeText(getSimulationLink(true));
 					}}
 				>
 					Copy simulation link
@@ -128,12 +265,23 @@
 		</div>
 		<div class="<sm:mt-3 sm:ml-10 xl:ml-20">
 			<div>
-				<TmTable
-					{machine}
-					simulationLink={getSimulationLink(false)}
-					{machineID}
-					decisionStatus={TMDecisionStatus.UNDECIDED}
-				/>
+				{#if machine !== null}
+					<div
+						class="text-lg cursor-pointer select-none"
+						on:click={() => {
+							_goto(getSimulationLink());
+						}}
+					>
+						{#if machineID !== null}
+							Machine #<span class="underline">{numberWithCommas(machineID)}</span>
+						{:else}
+							Machine <span class="underline text-xs" href={getSimulationLink()}
+								>{tmTob64URLSafe(machine)}</span
+							>
+						{/if}
+					</div>
+					<TmTable {machine} {machineID} decisionStatus={machineStatus} />
+				{/if}
 			</div>
 
 			<div class="mt-4 flex flex-col">
@@ -142,7 +290,23 @@
 					<div>Random machine from the database:</div>
 
 					<div class="ml-2 flex flex-col space-y-1 ">
-						<button class="bg-blue-500 p-1 mx-3 mt-1">Go Random</button>
+						<!-- {#if !preSeed} -->
+						<button
+							class="bg-blue-500 p-1 mx-3 mt-1"
+							on:click={async () => {
+								await getRandomMachine();
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}>Go Random</button
+						>
+						<!-- {:else}
+							<button
+								class="bg-blue-500 p-1 mx-3 mt-1"
+								on:click={async () => {
+									_goto('/');
+								}}>Go Random</button
+							>
+						{/if} -->
 						<div
 							class="text-xs text-right mx-3 text-blue-400 hover:text-blue-300 cursor-pointer select-none"
 							on:click={() => {
@@ -155,42 +319,104 @@
 						{#if showRandomOptions}
 							<div class="mx-3">
 								<label class="flex space-x-2 items-center select-none cursor-pointer">
-									<input type="radio" />
+									<input type="radio" bind:group={randomType} name="randomType" value="all" />
 									<div>any machine (88,664,064)</div>
 								</label>
 								<label class="flex space-x-2 items-center select-none cursor-pointer">
-									<input type="radio" />
-									<div>any undecided machine (2,322,122)</div>
+									<input
+										type="radio"
+										bind:group={randomType}
+										name="randomType"
+										value="all_undecided"
+									/>
+									<div>only undecided machine (2,322,122)</div>
 								</label>
-								<label class="flex space-x-2 items-center select-none cursor-pointer w-[300px]">
-									<input type="radio" />
-									<div>any undecided machine not heuristically decided (206,784)</div>
+								<label
+									class="mt-2 flex space-x-2 items-center select-none cursor-pointer w-[300px]"
+								>
+									<input
+										type="radio"
+										bind:group={randomType}
+										name="randomType"
+										value="all_undecided_apply_heuristics"
+									/>
+									<div>only undecided machine not heuristically decided (206,784)</div>
 								</label>
 							</div>
 						{/if}
 					</div>
 				</div>
-				<div class="ml-3 mt-3 text-sm">
+				<div class="ml-3 mt-2 text-sm">
 					<div>From id in the database:</div>
+					{#if typedMachineError}
+						<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
+					{/if}
 					<div class="ml-5 flex items-center  space-x-4 ">
 						<input
 							type="number"
 							class="w-[200px]"
-							placeholder="Between 0 and 88664063"
+							placeholder="max 88664063"
 							min="0"
 							max="88664063"
+							bind:value={typedMachineID}
+							on:change={async () => {
+								await loadMachineFromID(typedMachineID);
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
 						/>
 						<button class="bg-blue-500 p-1 px-2 ">Go </button>
 					</div>
 				</div>
 				<div class="ml-3 mt-1 text-sm">
 					<div>From machine b64:</div>
+					{#if b64Error}
+						<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
+					{/if}
 					<div class="ml-5 flex items-center  space-x-4 ">
-						<input type="text" class="w-[200px]" placeholder="Starts with m" />
-						<button class="bg-blue-500 p-1 px-2 ">Go </button>
+						<input
+							type="text"
+							class="w-[200px]"
+							placeholder="Starts with m"
+							bind:value={typedb64}
+						/>
+						<button
+							class="bg-blue-500 p-1 px-2 "
+							on:click={() => {
+								loadMachineFromB64(typedb64);
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+							>Go
+						</button>
 					</div>
 				</div>
 			</div>
+
+			{#if history}
+				<div class="mt-4 flex flex-col">
+					<div class="ml-3 mt-4 text-sm ">
+						<div
+							class="text-blue-400
+				hover:text-blue-300
+				cursor-pointer
+				select-none underline"
+							on:click={() => {
+								showHistory = !showHistory;
+							}}
+						>
+							{#if !showHistory}Show{:else}Hide{/if} History
+						</div>
+						{#if showHistory}
+							<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
+								{#each history as entry}
+									{entry}&nbsp;
+								{/each}
+							</div>
+						{/if}
+					</div>
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
