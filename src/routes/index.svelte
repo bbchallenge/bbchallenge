@@ -18,7 +18,7 @@
 	export let machineID = null;
 	export let machineB64 = null;
 	export let preSeed = false;
-	let machineStatus = null;
+	export let machineStatus = null;
 	let history = getHistory();
 	let showHistory = false;
 
@@ -38,7 +38,7 @@
 		context.fill();
 	};
 
-	export let nbIter = 3000;
+	export let nbIter = 10000;
 	export let tapeWidth = 300;
 	export let origin_x = 0.5;
 
@@ -65,7 +65,13 @@
 		if (machineID != null) {
 			secondPrefix = machineID;
 		}
-		return prefix + `${secondPrefix}&s=${nbIter}&w=${tapeWidth}&ox=${origin_x}`;
+
+		let last_add = '';
+		if (machineStatus == TMDecisionStatus.DECIDED_HALT) {
+			last_add = '&status=halt';
+		}
+
+		return prefix + `${secondPrefix}&s=${nbIter}&w=${tapeWidth}&ox=${origin_x}` + last_add;
 	}
 
 	let showRandomOptions = false;
@@ -149,10 +155,10 @@
 
 	let typedb64 = null;
 	let b64Error = null;
-	function loadMachineFromB64(b64) {
+	function loadMachineFromB64(b64, status = null) {
 		machine = null;
 		machineID = null;
-		machineStatus = null;
+		machineStatus = status;
 		try {
 			b64Error = null;
 			machine = b64URLSafetoTM(b64);
@@ -165,6 +171,7 @@
 	}
 
 	let metrics = null;
+	let highlighted = null;
 	onMount(async () => {
 		if (!preSeed) {
 			await getRandomMachine();
@@ -172,14 +179,29 @@
 		} else if (machineID != null) {
 			await loadMachineFromID(machineID);
 		} else if (machineB64 != null) {
-			await loadMachineFromB64(machineB64);
+			await loadMachineFromB64(machineB64, machineStatus);
 		}
 		draw();
 
-		const response = await API.get(`/metrics`, {});
+		let response = await API.get(`/metrics`, {});
 		metrics = response.data;
+		response = await API.get(`/highlighted`, {});
+		highlighted = response.data;
 		//console.log(metrics);
 	});
+
+	function updateSimulationParameters(link) {
+		const urlParams = new URLSearchParams(link);
+		if (urlParams.get('s') != null) {
+			nbIter = Number(urlParams.get('s'));
+		}
+		if (urlParams.get('w') != null) {
+			tapeWidth = Number(urlParams.get('w'));
+		}
+		if (urlParams.get('ox') != null) {
+			origin_x = Number(urlParams.get('ox'));
+		}
+	}
 </script>
 
 <SvelteSeo title="bbchallenge" />
@@ -208,8 +230,8 @@
 			</div>
 		</div>
 	{/if}
-	<div class="mt-5 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
-		<div class="flex flex-col">
+	<div class="mt-3 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
+		<div class="flex flex-col items-start">
 			<div class="bg-black mr-5">
 				<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
 			</div>
@@ -296,8 +318,10 @@
 				{#if machine !== null}
 					<div
 						class="text-lg cursor-pointer select-none"
-						on:click={() => {
-							_goto(getSimulationLink());
+						on:click={async () => {
+							await loadMachineFromID(machineID);
+							draw();
+							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					>
 						{#if machineID !== null}
@@ -451,6 +475,91 @@
 							</div>
 						{/if}
 					</div>
+				</div>
+			{/if}
+		</div>
+	</div>
+
+	<div class="mt-5 w-full mb-10 flex space-x-2 justify-center">
+		<div>
+			{#if highlighted != null && highlighted['highlighted_undecided'] != null}
+				<div class="text-lg">Highlighted undecided machines</div>
+				<div class="text-sm w-[400px] mt-1 ml-2">
+					Here are some interesting machines that are still undecided:
+				</div>
+				<div class="mt-1 ml-8 w-full flex flex-col  ">
+					{#each highlighted['highlighted_undecided'] as m}
+						{#if m['machine_id'] !== undefined}
+							<div
+								class="cursor-pointer select-none"
+								on:click={async () => {
+									await loadMachineFromID(m['machine_id']);
+									updateSimulationParameters(m['link']);
+									draw();
+									window.history.replaceState({}, '', m['link']);
+								}}
+							>
+								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
+										class="underline">{numberWithCommas(m['machine_id'])}</span
+									>{/if}
+							</div>
+						{:else if m['b64'] !== undefined}
+							<div
+								class="cursor-pointer select-none"
+								on:click={async () => {
+									await loadMachineFromB64(m['b64']);
+									updateSimulationParameters(m['link']);
+									draw();
+									window.history.replaceState({}, '', m['link']);
+								}}
+							>
+								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine <span
+										class="underline">{m['b64']}</span
+									>{/if}
+							</div>
+						{/if}
+					{/each}
+				</div>
+			{/if}
+		</div>
+		<div>
+			{#if highlighted != null && highlighted['highlighted_halt'] != null}
+				<div class="text-lg ">Highlighted halting machines</div>
+				<div class="text-sm w-[400px] mt-1 ml-2">
+					The following 5-state machines halt after quite some steps:
+				</div>
+				<div class="mt-2 ml-8 w-full flex flex-col space-y-1">
+					{#each highlighted['highlighted_halt'] as m}
+						{#if m['machine_id'] !== undefined}
+							<div
+								class="cursor-pointer select-none"
+								on:click={async () => {
+									await loadMachineFromID(m['machine_id']);
+									updateSimulationParameters(m['link']);
+									draw();
+									window.history.replaceState({}, '', m['link']);
+								}}
+							>
+								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
+										class="underline">{numberWithCommas(m['machine_id'])}</span
+									>{/if}
+							</div>
+						{:else if m['b64'] !== undefined}
+							<div
+								class="cursor-pointer select-none"
+								on:click={async () => {
+									await loadMachineFromB64(m['b64'], TMDecisionStatus.DECIDED_HALT);
+									updateSimulationParameters(m['link']);
+									draw();
+									window.history.replaceState({}, '', m['link']);
+								}}
+							>
+								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine {m[
+										'b64'
+									]}{/if}
+							</div>
+						{/if}
+					{/each}
 				</div>
 			{/if}
 		</div>
