@@ -234,9 +234,9 @@
 						There remains <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines
 						to decide (out of {numberWithCommas(metrics['total'])})
 					</div>
-					<div style="font-size:0.65rem">
+					<!-- <div style="font-size:0.65rem">
 						Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
-					</div>
+					</div> -->
 					<a
 						href="/contribute"
 						style="font-size:0.6rem"
