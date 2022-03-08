@@ -25,6 +25,9 @@ export function addToHistory(machineIDorb64) {
 
 export function getHistory() {
 	if (typeof localStorage !== 'undefined') {
+		if (localStorage.getItem('bbchallenge') == null) {
+			localStorage.setItem('bbchallenge', JSON.stringify({ history: [] }));
+		}
 		return JSON.parse(localStorage.getItem('bbchallenge'))['history'].reverse();
 	} else {
 		return [];
