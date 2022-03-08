@@ -172,21 +172,31 @@
 
 	let metrics = null;
 	let highlighted = null;
+	let apiDown = false;
 	onMount(async () => {
-		if (!preSeed) {
-			await getRandomMachine();
-			window.history.replaceState({}, '', getSimulationLink());
-		} else if (machineID != null) {
-			await loadMachineFromID(machineID);
-		} else if (machineB64 != null) {
-			await loadMachineFromB64(machineB64, machineStatus);
-		}
-		draw();
+		try {
+			if (!preSeed) {
+				await getRandomMachine();
+				window.history.replaceState({}, '', getSimulationLink());
+			} else if (machineID != null) {
+				await loadMachineFromID(machineID);
+			} else if (machineB64 != null) {
+			}
+			draw();
 
-		let response = await API.get(`/metrics`, {});
-		metrics = response.data;
-		response = await API.get(`/highlighted`, {});
-		highlighted = response.data;
+			let response = await API.get(`/metrics`, {});
+			metrics = response.data;
+			response = await API.get(`/highlighted`, {});
+			highlighted = response.data;
+		} catch (error) {
+			apiDown = true;
+			await loadMachineFromB64(
+				'mAQACAAAEAQEDAQECAQABAAECAAAFAQAEAAAAAQAB',
+				TMDecisionStatus.UNDECIDED
+			);
+			origin_x = 0.65;
+			draw();
+		}
 		//console.log(metrics);
 	});
 
@@ -207,6 +217,14 @@
 <SvelteSeo title="bbchallenge" />
 
 <div>
+	{#if apiDown}
+		<div class="text-xs mb-1 mt-2 ml-3 <md:ml-0 ">
+			<div class="flex flex-col">
+				<div class="text-red-500">The API is down.</div>
+				<div>However you can still load machines from their b64 description.</div>
+			</div>
+		</div>
+	{/if}
 	{#if metrics != null}
 		<div class="text-xs mb-1 mt-2 ml-3 <md:ml-0">
 			<div class="flex md:flex-col space-x-2">
