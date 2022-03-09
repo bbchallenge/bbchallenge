@@ -91,7 +91,7 @@
 		);
 	}
 
-	let randomType = 'all_undecided_apply_heuristics';
+	let randomType = 'all_undecided';
 
 	async function getRandomMachine() {
 		try {
