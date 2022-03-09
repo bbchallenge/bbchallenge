@@ -4,13 +4,13 @@
 	import { API } from '$lib/api_server';
 	import { addToHistory, getHistory, numberWithCommas } from '$lib/utils';
 	import { goto } from '$app/navigation';
-	const _goto = goto;
 	import {
 		TMDecisionStatus,
 		tm_trace_to_image,
 		b64URLSafetoTM,
 		DB_SIZE,
-		tmTob64URLSafe
+		tmTob64URLSafe,
+		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
 	import SvelteSeo from 'svelte-seo';
 
@@ -104,13 +104,7 @@
 			history = getHistory();
 
 			if (response.data['status'] !== undefined) {
-				if (response.data['status'] == 'decided') {
-					machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
-				} else if (response.data['status'] == 'heuristic') {
-					machineStatus = TMDecisionStatus.UNDECIDED; //TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
-				} else {
-					machineStatus = TMDecisionStatus.UNDECIDED;
-				}
+				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 			}
 		} catch (error) {
 			console.log(error);
@@ -137,13 +131,7 @@
 			history = getHistory();
 
 			if (response.data['status'] !== undefined) {
-				if (response.data['status'] == 'decided') {
-					machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
-				} else if (response.data['status'] == 'heuristic') {
-					machineStatus = TMDecisionStatus.UNDECIDED; //TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
-				} else {
-					machineStatus = TMDecisionStatus.UNDECIDED;
-				}
+				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 			}
 
 			console.log(machine, machineID);

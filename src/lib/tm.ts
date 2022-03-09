@@ -31,6 +31,22 @@ export enum TMDecisionStatus {
 	DECIDED_NON_HALT
 }
 
+export function APIDecisionStatusToTMDecisionStatus(status) {
+	if (status === null) {
+		return null;
+	}
+
+	let machineStatus = TMDecisionStatus.UNDECIDED;
+	if (status == 'decided') {
+		machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
+	} else if (status == 'heuristic') {
+		machineStatus = TMDecisionStatus.UNDECIDED; //TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
+	} else {
+		machineStatus = TMDecisionStatus.UNDECIDED;
+	}
+	return machineStatus;
+}
+
 export function tm_trace_to_image(
 	ctx: CanvasRenderingContext2D,
 	canvas,
