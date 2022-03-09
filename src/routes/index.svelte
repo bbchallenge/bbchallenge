@@ -322,22 +322,30 @@
 		<div class="<sm:mt-3 sm:ml-10 xl:ml-20">
 			<div>
 				{#if machine !== null}
-					<div
-						class="text-lg cursor-pointer select-none"
-						on:click={async () => {
-							await loadMachineFromID(machineID);
-							draw();
-							window.history.replaceState({}, '', getSimulationLink());
-						}}
-					>
-						{#if machineID !== null}
+					{#if machineID !== null}
+						<div
+							class="text-lg cursor-pointer select-none"
+							on:click={async () => {
+								await loadMachineFromID(machineID);
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+						>
 							Machine #<span class="underline">{numberWithCommas(machineID)}</span>
-						{:else}
-							Machine <span class="underline text-xs" href={getSimulationLink()}
-								>{tmTob64URLSafe(machine)}</span
-							>
-						{/if}
-					</div>
+						</div>
+					{:else}
+						<div
+							class="text-lg cursor-pointer select-none"
+							on:click={async () => {
+								await loadMachineFromB64(tmTob64URLSafe(machine), machineStatus);
+								draw();
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+						>
+							Machine <div class="underline text-xs ml-2 mb-1">{tmTob64URLSafe(machine)}</div>
+						</div>
+					{/if}
+
 					<TmTable {machine} {machineID} decisionStatus={machineStatus} />
 				{/if}
 			</div>
