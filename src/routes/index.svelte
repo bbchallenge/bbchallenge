@@ -107,7 +107,7 @@
 				if (response.data['status'] == 'decided') {
 					machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
 				} else if (response.data['status'] == 'heuristic') {
-					machineStatus = TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
+					machineStatus = TMDecisionStatus.UNDECIDED; //TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
 				} else {
 					machineStatus = TMDecisionStatus.UNDECIDED;
 				}
@@ -140,7 +140,7 @@
 				if (response.data['status'] == 'decided') {
 					machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
 				} else if (response.data['status'] == 'heuristic') {
-					machineStatus = TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
+					machineStatus = TMDecisionStatus.UNDECIDED; //TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT;
 				} else {
 					machineStatus = TMDecisionStatus.UNDECIDED;
 				}
