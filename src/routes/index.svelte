@@ -673,7 +673,7 @@
 						<div>
 							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
 								<div class="text-xl">Highlighted machines</div>
-								<div class="text-sm w-[400px] mt-1 ml-2">These machines are still undecided:</div>
+								<div class="text-sm w-[400px] mt-1 ml-2">Scary undecided machines:</div>
 								<div class="mt-1 ml-8 w-full flex flex-col  ">
 									{#each highlighted['highlighted_undecided'] as m}
 										{#if m['machine_id'] !== undefined}
