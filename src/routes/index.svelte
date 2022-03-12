@@ -648,10 +648,10 @@
 									</div>
 								</div>
 								<div class="text-xs">
-									Not classed yet
+									Not classed yet:
 									<div class="ml-8 text-xs">
 										e.g:
-										{#each [2693691, 6490892, 9390305] as m}
+										{#each [6490892, 11274026, 9390305] as m}
 											<span
 												class="cursor-pointer select-none underline"
 												on:click={async () => {
