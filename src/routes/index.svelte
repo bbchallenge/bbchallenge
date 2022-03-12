@@ -610,7 +610,26 @@
 									</div>
 								</div>
 								<div>
-									6. Bells: <span class="text-yellow-400 font-bold">WIP</span>
+									6. Exponential counters: <span class="text-yellow-400 font-bold">WIP</span>
+									<div class="ml-8 text-xs">
+										e.g:
+										{#each [14244805, 10936909, 3840180] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div>
+									7. Bells: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [73261028, 58360621, 8527536] as m}
@@ -629,7 +648,7 @@
 									</div>
 								</div>
 								<div class="text-xs">
-									7. Not classed yet
+									Not classed yet
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [2693691, 6490892, 9390305] as m}
