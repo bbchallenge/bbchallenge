@@ -503,7 +503,7 @@
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
 				<div class="flex space-x-20">
 					<div id="zoology">
-						<div class="text-lg">Zoology</div>
+						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
 							This zoology is <a
 								href="https://discuss.bbchallenge.org"
@@ -653,7 +653,7 @@
 					<div class="max-w-[450px] flex flex-col space-y-2">
 						<div>
 							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
-								<div class="text-lg">Highlighted machines</div>
+								<div class="text-xl">Highlighted machines</div>
 								<div class="text-sm w-[400px] mt-1 ml-2">
 									These machines that are still undecided:
 								</div>
