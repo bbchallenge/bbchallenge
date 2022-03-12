@@ -23,7 +23,7 @@
 		</ul>
 
 		<!-- to bar right  -->
-		<ul class="flex items-end space-x-4 <md:space-x-2 <md:text-sm main-menu">
+		<ul class="flex items-center space-x-4 <md:space-x-2 <md:text-sm main-menu">
 			<li>
 				<a href="/" class="active" class:active={currentRoute() == 'root'}>Machines </a>
 			</li>
@@ -37,6 +37,11 @@
 				<a href="/contribute" class:active={currentRoute() == 'contribute'}>Contribute </a>
 			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
+			<li>
+				<a href="https://github.com/bbchallenge" class="cursor-pointer"
+					><img src="/GitHub-Mark-Light-32px.png" width="26" alt="Github logo" /></a
+				>
+			</li>
 		</ul>
 	</nav>
 
