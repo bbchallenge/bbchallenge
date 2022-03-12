@@ -515,7 +515,7 @@
 								<div>
 									1. Cyclers: <span class="text-green-400 font-bold">Decided</span>
 									<span class="text-[0.6rem]">(11,229,238 machines)</span>
-									<div class="ml-8 text-sm">
+									<div class="ml-8 text-xs">
 										e.g:
 										{#each [279081, 4231819, 279081] as m}
 											<span
@@ -535,7 +535,7 @@
 								<div>
 									2. Translated Cyclers: <span class="text-green-400 font-bold">Decided</span>
 									<span class="text-[0.6rem]">(73,859,286 machines)</span>
-									<div class="ml-8 text-sm">
+									<div class="ml-8 text-xs">
 										e.g:
 										{#each [59645887, 15167997, 59090563] as m}
 											<span
@@ -554,7 +554,7 @@
 								</div>
 								<div>
 									3. Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-sm">
+									<div class="ml-8 text-xs">
 										e.g:
 										{#each [1897885, 524224, 9281450] as m}
 											<span
@@ -573,7 +573,7 @@
 								</div>
 								<div>
 									4. Bilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-sm">
+									<div class="ml-8 text-xs">
 										e.g:
 										{#each [12785688, 8929416, 76727755] as m}
 											<span
@@ -592,7 +592,7 @@
 								</div>
 								<div>
 									5. Translated Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-sm">
+									<div class="ml-8 text-xs">
 										e.g:
 										{#each [6164147, 42255, 20076854] as m}
 											<span
@@ -611,7 +611,7 @@
 								</div>
 								<div>
 									6. Bells: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-sm">
+									<div class="ml-8 text-xs">
 										e.g:
 										{#each [73261028, 58360621, 8527536] as m}
 											<span
