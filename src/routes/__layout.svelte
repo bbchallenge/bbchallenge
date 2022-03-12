@@ -23,7 +23,7 @@
 		</ul>
 
 		<!-- to bar right  -->
-		<ul class="flex items-center space-x-4 <md:space-x-2 <md:text-sm main-menu">
+		<ul class="flex items-end space-x-4 <md:space-x-2 <md:text-sm main-menu">
 			<li>
 				<a href="/" class="active" class:active={currentRoute() == 'root'}>Machines </a>
 			</li>
