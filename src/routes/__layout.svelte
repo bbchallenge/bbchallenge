@@ -30,9 +30,9 @@
 			<li>
 				<a href="/story" class="disabled" class:active={currentRoute() == 'story'}>Story</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="/zoology" class="disabled" class:active={currentRoute() == 'zoology'}>Zoology</a>
-			</li>
+			</li> -->
 			<li>
 				<a href="/contribute" class:active={currentRoute() == 'contribute'}>Contribute </a>
 			</li>

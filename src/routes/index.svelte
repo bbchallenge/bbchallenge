@@ -236,148 +236,151 @@
 			</div>
 		</div>
 	{/if}
-	<div class="mt-3 <sm:mt-3 w-full flex items-start justify-center <sm:flex-col">
-		<div class="flex flex-col items-start">
-			<div class="bg-black mr-5">
-				<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
-			</div>
+	<div class="flex justify-center ">
+		<div class="flex flex-col  ">
+			<div class="flex items-start items-start <sm:flex-col mt-3 <sm:mt-3">
+				<div class="flex flex-col items-start">
+					<div class="bg-black mr-5">
+						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
+					</div>
 
-			<div class="mt-1 flex flex-col">
-				<div>Simulation parameters:</div>
-				<div class="flex space-x-3 pl-2 text-sm ">
-					<label class="flex flex-col ">
-						steps
-						<input
-							class="w-[70px]"
-							type="number"
-							bind:value={nbIter}
-							on:change={() => {
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-						/></label
-					>
-					<label class="flex flex-col">
-						tape width
-						<input
-							class="w-[70px]"
-							type="number"
-							bind:value={tapeWidth}
-							on:change={() => {
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-						/></label
-					>
-					<label class="flex flex-col">
-						origin x
-						<input
-							class="w-[70px]"
-							type="number"
-							bind:value={origin_x}
-							on:change={() => {
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-							min="0"
-							max="1"
-							step="0.1"
-						/></label
-					>
-				</div>
-				<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-					<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
-					<div>show head movement</div>
-				</label>
-				<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+					<div class="mt-1 flex flex-col">
+						<div>Simulation parameters:</div>
+						<div class="flex space-x-3 pl-2 text-sm ">
+							<label class="flex flex-col ">
+								steps
+								<input
+									class="w-[70px]"
+									type="number"
+									bind:value={nbIter}
+									on:change={() => {
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								/></label
+							>
+							<label class="flex flex-col">
+								tape width
+								<input
+									class="w-[70px]"
+									type="number"
+									bind:value={tapeWidth}
+									on:change={() => {
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								/></label
+							>
+							<label class="flex flex-col">
+								origin x
+								<input
+									class="w-[70px]"
+									type="number"
+									bind:value={origin_x}
+									on:change={() => {
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+									min="0"
+									max="1"
+									step="0.1"
+								/></label
+							>
+						</div>
+						<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
+							<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
+							<div>show head movement</div>
+						</label>
+						<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
 					<input type="checkbox" bind:checked={fitCanvas} on:change={draw} />
 					<div>fit to canvas</div>
 				</label> -->
-			</div>
-			<div class="text-xs pt-0 flex items-center space-x-1">
-				<div
-					class="text-blue-400 hover:text-blue-300 cursor-pointer"
-					on:click={() => {
-						navigator.clipboard.writeText(getSimulationLink(true));
-					}}
-				>
-					Copy simulation link
-				</div>
-				<div>&middot;</div>
-				{#if canvasEl}
-					<div
-						class="text-blue-400 hover:text-blue-300 cursor-pointer"
-						on:click={() => {
-							var image = new Image();
-							image.src = canvasEl.toDataURL();
-							let w = window.open('');
-							w.document.write(image.outerHTML);
-						}}
-					>
-						Export image
 					</div>
-				{/if}
-			</div>
-		</div>
-		<div class="<sm:mt-3 sm:ml-10 xl:ml-20">
-			<div>
-				{#if machine !== null}
-					{#if machineID !== null}
+					<div class="text-xs pt-0 flex  space-x-1">
 						<div
-							class="text-lg cursor-pointer select-none"
-							on:click={async () => {
-								await loadMachineFromID(machineID);
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-						>
-							Machine #<span class="underline">{numberWithCommas(machineID)}</span>
-						</div>
-					{:else}
-						<div
-							class="text-lg cursor-pointer select-none"
-							on:click={async () => {
-								await loadMachineFromB64(tmTob64URLSafe(machine), machineStatus);
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-						>
-							Machine <div class="underline text-xs ml-2 mb-1">{tmTob64URLSafe(machine)}</div>
-						</div>
-					{/if}
-
-					<TmTable {machine} {machineID} decisionStatus={machineStatus} />
-				{/if}
-			</div>
-
-			<div class="mt-4 flex flex-col items-start">
-				<div>Change machine:</div>
-				<div class="ml-3 mt-1 text-sm">
-					<div>Random machine from the database:</div>
-
-					<!-- {#if !preSeed} -->
-					<div class="flex flex-col items-end mx-3 ">
-						<button
-							class="bg-blue-500 p-1 mt-1 w-full ml-2 "
-							on:click={async () => {
-								await getRandomMachine();
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}>Go Random</button
-						>
-						<div
-							class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							on:click={() => {
-								showRandomOptions = !showRandomOptions;
+								navigator.clipboard.writeText(getSimulationLink(true));
 							}}
 						>
-							{#if !showRandomOptions}More{:else}Less{/if} options
+							Copy simulation link
 						</div>
+						<div>&middot;</div>
+						{#if canvasEl}
+							<div
+								class="text-blue-400 hover:text-blue-300 cursor-pointer"
+								on:click={() => {
+									var image = new Image();
+									image.src = canvasEl.toDataURL();
+									let w = window.open('');
+									w.document.write(image.outerHTML);
+								}}
+							>
+								Export image
+							</div>
+						{/if}
 					</div>
 				</div>
-				<div class="ml-3 mt-1 text-sm">
-					<div class="ml-2 flex flex-col space-y-1 ">
-						<!-- {:else}
+
+				<div class="<sm:mt-3 sm:ml-10 xl:ml-20">
+					<div>
+						{#if machine !== null}
+							{#if machineID !== null}
+								<div
+									class="text-lg cursor-pointer select-none"
+									on:click={async () => {
+										await loadMachineFromID(machineID);
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								>
+									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
+								</div>
+							{:else}
+								<div
+									class="text-lg cursor-pointer select-none"
+									on:click={async () => {
+										await loadMachineFromB64(tmTob64URLSafe(machine), machineStatus);
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								>
+									Machine <div class="underline text-xs ml-2 mb-1">{tmTob64URLSafe(machine)}</div>
+								</div>
+							{/if}
+
+							<TmTable {machine} {machineID} decisionStatus={machineStatus} />
+						{/if}
+					</div>
+
+					<div class="mt-4 flex flex-col items-start">
+						<div>Change machine:</div>
+						<div class="ml-3 mt-1 text-sm">
+							<div>Random machine from the database:</div>
+
+							<!-- {#if !preSeed} -->
+							<div class="flex flex-col items-end mx-3 ">
+								<button
+									class="bg-blue-500 p-1 mt-1 w-full ml-2 "
+									on:click={async () => {
+										await getRandomMachine();
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}>Go Random</button
+								>
+								<div
+									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+									on:click={() => {
+										showRandomOptions = !showRandomOptions;
+									}}
+								>
+									{#if !showRandomOptions}More{:else}Less{/if} options
+								</div>
+							</div>
+						</div>
+						<div class="ml-3 mt-1 text-sm">
+							<div class="ml-2 flex flex-col space-y-1 ">
+								<!-- {:else}
 							<button
 								class="bg-blue-500 p-1 mx-3 mt-1"
 								on:click={async () => {
@@ -386,200 +389,352 @@
 							>
 						{/if} -->
 
-						{#if showRandomOptions}
-							<div class="mx-3">
-								<label class="flex space-x-2 items-center select-none cursor-pointer">
-									<input type="radio" bind:group={randomType} name="randomType" value="all" />
-									<div>any machine (88,664,064)</div>
-								</label>
-								<label class="flex space-x-2 items-center select-none cursor-pointer">
-									<input
-										type="radio"
-										bind:group={randomType}
-										name="randomType"
-										value="all_undecided"
-									/>
-									<div>
-										only undecided machine {#if metrics !== null}({numberWithCommas(
-												metrics['total_undecided']
-											)}){/if}
+								{#if showRandomOptions}
+									<div class="mx-3">
+										<label class="flex space-x-2 items-center select-none cursor-pointer">
+											<input type="radio" bind:group={randomType} name="randomType" value="all" />
+											<div>any machine (88,664,064)</div>
+										</label>
+										<label class="flex space-x-2 items-center select-none cursor-pointer">
+											<input
+												type="radio"
+												bind:group={randomType}
+												name="randomType"
+												value="all_undecided"
+											/>
+											<div>
+												only undecided machine {#if metrics !== null}({numberWithCommas(
+														metrics['total_undecided']
+													)}){/if}
+											</div>
+										</label>
+										<label
+											class="mt-2 flex space-x-2 items-center select-none cursor-pointer w-[300px]"
+										>
+											<input
+												type="radio"
+												bind:group={randomType}
+												name="randomType"
+												value="all_undecided_apply_heuristics"
+											/>
+											<div>
+												only undecided machine not heuristically decided {#if metrics !== null}({numberWithCommas(
+														metrics['total_undecided_with_heuristcs']
+													)}){/if}
+											</div>
+										</label>
 									</div>
-								</label>
-								<label
-									class="mt-2 flex space-x-2 items-center select-none cursor-pointer w-[300px]"
-								>
-									<input
-										type="radio"
-										bind:group={randomType}
-										name="randomType"
-										value="all_undecided_apply_heuristics"
-									/>
-									<div>
-										only undecided machine not heuristically decided {#if metrics !== null}({numberWithCommas(
-												metrics['total_undecided_with_heuristcs']
-											)}){/if}
-									</div>
-								</label>
+								{/if}
 							</div>
-						{/if}
+						</div>
+						<div class="ml-3 mt-2 text-sm">
+							<div>From id in the database:</div>
+							{#if typedMachineError}
+								<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
+							{/if}
+							<div class="ml-5 flex items-center  space-x-4 ">
+								<input
+									type="number"
+									class="w-[200px]"
+									placeholder="max 88664063"
+									min="0"
+									max="88664063"
+									bind:value={typedMachineID}
+									on:change={async () => {
+										await loadMachineFromID(typedMachineID);
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								/>
+								<button class="bg-blue-500 p-1 px-2 ">Go </button>
+							</div>
+						</div>
+						<div class="ml-3 mt-1 text-sm">
+							<div>From machine b64:</div>
+							{#if b64Error}
+								<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
+							{/if}
+							<div class="ml-5 flex items-center  space-x-4 ">
+								<input
+									type="text"
+									class="w-[200px]"
+									placeholder="Starts with m"
+									bind:value={typedb64}
+								/>
+								<button
+									class="bg-blue-500 p-1 px-2 "
+									on:click={() => {
+										loadMachineFromB64(typedb64);
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+									>Go
+								</button>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="ml-3 mt-2 text-sm">
-					<div>From id in the database:</div>
-					{#if typedMachineError}
-						<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
-					{/if}
-					<div class="ml-5 flex items-center  space-x-4 ">
-						<input
-							type="number"
-							class="w-[200px]"
-							placeholder="max 88664063"
-							min="0"
-							max="88664063"
-							bind:value={typedMachineID}
-							on:change={async () => {
-								await loadMachineFromID(typedMachineID);
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-						/>
-						<button class="bg-blue-500 p-1 px-2 ">Go </button>
-					</div>
-				</div>
-				<div class="ml-3 mt-1 text-sm">
-					<div>From machine b64:</div>
-					{#if b64Error}
-						<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
-					{/if}
-					<div class="ml-5 flex items-center  space-x-4 ">
-						<input
-							type="text"
-							class="w-[200px]"
-							placeholder="Starts with m"
-							bind:value={typedb64}
-						/>
-						<button
-							class="bg-blue-500 p-1 px-2 "
-							on:click={() => {
-								loadMachineFromB64(typedb64);
-								draw();
-								window.history.replaceState({}, '', getSimulationLink());
-							}}
-							>Go
-						</button>
-					</div>
-				</div>
-			</div>
 
-			{#if history}
-				<div class="mt-0 flex flex-col">
-					<div class="ml-3 mt-4 text-sm ">
-						<div
-							class="text-blue-400
+					{#if history}
+						<div class="mt-0 flex flex-col">
+							<div class="ml-3 mt-4 text-sm ">
+								<div
+									class="text-blue-400
 				hover:text-blue-300
 				cursor-pointer
 				select-none underline"
-							on:click={() => {
-								showHistory = !showHistory;
-							}}
-						>
-							{#if !showHistory}Show{:else}Hide{/if} History
-						</div>
-						{#if showHistory}
-							<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
-								{#each history as entry}
-									{entry}&nbsp;
-								{/each}
+									on:click={() => {
+										showHistory = !showHistory;
+									}}
+								>
+									{#if !showHistory}Show{:else}Hide{/if} History
+								</div>
+								{#if showHistory}
+									<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
+										{#each history as entry}
+											{entry}&nbsp;
+										{/each}
+									</div>
+								{/if}
 							</div>
-						{/if}
+						</div>
+					{/if}
+				</div>
+			</div>
+			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
+				<div class="flex space-x-20">
+					<div id="zoology">
+						<div class="text-lg">Zoology</div>
+						<div class="ml-3 text-sm">
+							This zoology is <a
+								href="https://discuss.bbchallenge.org"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer">collaborative</a
+							>.
+						</div>
+						<div class="ml-3">
+							<div class="flex flex-col space-y-2 mt-2">
+								<div>
+									1. Cyclers: <span class="text-green-400 font-bold">Decided</span>
+									<span class="text-[0.6rem]">(11,229,238 machines)</span>
+									<div class="ml-8 text-sm">
+										e.g:
+										{#each [279081, 4231819, 279081] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div>
+									2. Translated Cyclers: <span class="text-green-400 font-bold">Decided</span>
+									<span class="text-[0.6rem]">(73,859,286 machines)</span>
+									<div class="ml-8 text-sm">
+										e.g:
+										{#each [59645887, 15167997, 59090563] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div>
+									3. Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
+									<div class="ml-8 text-sm">
+										e.g:
+										{#each [1897885, 524224, 9281450] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div>
+									4. Bilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
+									<div class="ml-8 text-sm">
+										e.g:
+										{#each [12785688, 8929416, 76727755] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div>
+									5. Translated Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
+									<div class="ml-8 text-sm">
+										e.g:
+										{#each [6164147, 42255, 20076854] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div>
+									6. Bells: <span class="text-yellow-400 font-bold">WIP</span>
+									<div class="ml-8 text-sm">
+										e.g:
+										{#each [73261028, 58360621, 8527536] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+								<div class="text-xs">
+									7. Not classed yet
+									<div class="ml-8 text-xs">
+										e.g:
+										{#each [2693691, 6490892, 9390305] as m}
+											<span
+												class="cursor-pointer select-none underline"
+												on:click={async () => {
+													await loadMachineFromID(m);
+													updateSimulationParameters(m);
+													draw();
+													window.history.replaceState({}, '', `/${m}`);
+												}}
+											>
+												#{numberWithCommas(m)}</span
+											>&nbsp;
+										{/each}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="max-w-[450px] flex flex-col space-y-2">
+						<div>
+							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
+								<div class="text-lg">Highlighted machines</div>
+								<div class="text-sm w-[400px] mt-1 ml-2">
+									These machines that are still undecided:
+								</div>
+								<div class="mt-1 ml-8 w-full flex flex-col  ">
+									{#each highlighted['highlighted_undecided'] as m}
+										{#if m['machine_id'] !== undefined}
+											<div
+												class="cursor-pointer select-none"
+												on:click={async () => {
+													await loadMachineFromID(m['machine_id']);
+													updateSimulationParameters(m['link']);
+													draw();
+													window.history.replaceState({}, '', m['link']);
+												}}
+											>
+												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
+														class="underline">{numberWithCommas(m['machine_id'])}</span
+													>{/if}
+											</div>
+										{:else if m['b64'] !== undefined}
+											<div
+												class="cursor-pointer select-none"
+												on:click={async () => {
+													await loadMachineFromB64(m['b64']);
+													updateSimulationParameters(m['link']);
+													draw();
+													window.history.replaceState({}, '', m['link']);
+												}}
+											>
+												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine <span
+														class="underline">{m['b64']}</span
+													>{/if}
+											</div>
+										{/if}
+									{/each}
+								</div>
+							{/if}
+						</div>
+						<div class="">
+							{#if highlighted != null && highlighted['highlighted_halt'] != null}
+								<div class="text-sm w-[400px] ml-2">
+									These machines halt after quite some steps:
+								</div>
+								<div class="w-full flex flex-col space-y-1 ml-8 mt-1">
+									{#each highlighted['highlighted_halt'] as m}
+										{#if m['machine_id'] !== undefined}
+											<div
+												class="cursor-pointer select-none"
+												on:click={async () => {
+													await loadMachineFromID(m['machine_id']);
+													updateSimulationParameters(m['link']);
+													draw();
+													window.history.replaceState({}, '', m['link']);
+												}}
+											>
+												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
+														class="underline">{numberWithCommas(m['machine_id'])}</span
+													>{/if}
+											</div>
+										{:else if m['b64'] !== undefined}
+											<div
+												class="cursor-pointer select-none"
+												on:click={async () => {
+													await loadMachineFromB64(m['b64'], TMDecisionStatus.DECIDED_HALT);
+													updateSimulationParameters(m['link']);
+													draw();
+													window.history.replaceState({}, '', m['link']);
+												}}
+											>
+												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine {m[
+														'b64'
+													]}{/if}
+											</div>
+										{/if}
+									{/each}
+								</div>
+							{/if}
+						</div>
 					</div>
 				</div>
-			{/if}
-		</div>
-	</div>
-
-	<div class="mt-5 w-full mb-10 flex space-x-2 justify-center">
-		<div>
-			{#if highlighted != null && highlighted['highlighted_undecided'] != null}
-				<div class="text-lg">Highlighted undecided machines</div>
-				<div class="text-sm w-[400px] mt-1 ml-2">
-					Here are some interesting machines that are still undecided:
-				</div>
-				<div class="mt-1 ml-8 w-full flex flex-col  ">
-					{#each highlighted['highlighted_undecided'] as m}
-						{#if m['machine_id'] !== undefined}
-							<div
-								class="cursor-pointer select-none"
-								on:click={async () => {
-									await loadMachineFromID(m['machine_id']);
-									updateSimulationParameters(m['link']);
-									draw();
-									window.history.replaceState({}, '', m['link']);
-								}}
-							>
-								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
-										class="underline">{numberWithCommas(m['machine_id'])}</span
-									>{/if}
-							</div>
-						{:else if m['b64'] !== undefined}
-							<div
-								class="cursor-pointer select-none"
-								on:click={async () => {
-									await loadMachineFromB64(m['b64']);
-									updateSimulationParameters(m['link']);
-									draw();
-									window.history.replaceState({}, '', m['link']);
-								}}
-							>
-								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine <span
-										class="underline">{m['b64']}</span
-									>{/if}
-							</div>
-						{/if}
-					{/each}
-				</div>
-			{/if}
-		</div>
-		<div>
-			{#if highlighted != null && highlighted['highlighted_halt'] != null}
-				<div class="text-lg ">Highlighted halting machines</div>
-				<div class="text-sm w-[400px] mt-1 ml-2">
-					The following 5-state machines halt after quite some steps:
-				</div>
-				<div class="mt-2 ml-8 w-full flex flex-col space-y-1">
-					{#each highlighted['highlighted_halt'] as m}
-						{#if m['machine_id'] !== undefined}
-							<div
-								class="cursor-pointer select-none"
-								on:click={async () => {
-									await loadMachineFromID(m['machine_id']);
-									updateSimulationParameters(m['link']);
-									draw();
-									window.history.replaceState({}, '', m['link']);
-								}}
-							>
-								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
-										class="underline">{numberWithCommas(m['machine_id'])}</span
-									>{/if}
-							</div>
-						{:else if m['b64'] !== undefined}
-							<div
-								class="cursor-pointer select-none"
-								on:click={async () => {
-									await loadMachineFromB64(m['b64'], TMDecisionStatus.DECIDED_HALT);
-									updateSimulationParameters(m['link']);
-									draw();
-									window.history.replaceState({}, '', m['link']);
-								}}
-							>
-								&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine {m[
-										'b64'
-									]}{/if}
-							</div>
-						{/if}
-					{/each}
-				</div>
-			{/if}
+			</div>
 		</div>
 	</div>
 </div>
