@@ -1,5 +1,9 @@
+<script lang="ts">
+import TmSimulator from "../lib/tm_simulator.svelte"
+</script>
+
 <div class="dark">
-<div class="prose prose-invert -mt-4  ml-[200px] <md:ml-2 <sm:ml-0 font-sans">
+<div class="prose prose-invert -mt-4  lg:ml-[200px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg lg:prose-xl">
 <div>
 
 ## Table of contents
@@ -21,7 +25,7 @@ This conjecture says that 47,176,870 is the maximum number of steps that a 5-sta
 The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt">5-state busy beaver champion</a>, halting after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
-<div class="w-1/3 -mt-5">
+<div class="w-1/3 -mt-5 font-mono">
 
 |     | 0   | 1   |
 | --- | --- | --- |
@@ -78,7 +82,11 @@ The machine will **halt** (i.e. cease functionning) if it ever meets an **undefi
 
 In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially blank (i.e. all memory cells are 0).
 
+### Interactive simulator
+
 As with probably any programming language, the best way to understand Turing machines is to play with them:
+
+<TmSimulator/>
 
 <!-- #### Runtime
 

@@ -2,8 +2,6 @@
 	// import type { TM } from './tm';
 	import { TMDecisionStatus, tmTob64URLSafe } from './tm';
 
-	import { numberWithCommas } from './utils';
-
 	function encodedTransitionToString(transition) {
 		try {
 			if (transition[2] == 0) {
@@ -37,6 +35,10 @@
 	export let machine; //
 	export let machineID = null;
 	export let decisionStatus = null;
+	export let showTitle = true;
+
+	export let currState = null;
+	export let currRead = null;
 
 	let error = null;
 	let the_range = [];
@@ -75,7 +77,9 @@
 	{/if}
 </header>
 <div class:mt-1={machineID !== null}>
-	<div>Machine code:</div>
+	{#if showTitle}
+		<div>Machine code:</div>
+	{/if}
 	{#if error != null}
 		{error}
 	{:else}
@@ -89,8 +93,20 @@
 				{#each the_range as i}
 					<tr
 						><td class="w-1/3">{String.fromCharCode(65 + i)}</td>
-						<td class="w-1/3">{encodedTransitionToString(machine.slice(6 * i, 6 * i + 3))}</td>
-						<td class="w-1/3">{encodedTransitionToString(machine.slice(6 * i + 3, 6 * i + 6))}</td>
+						<td
+							class="w-1/3"
+							class:bg-magenta={currState !== null &&
+								currRead !== null &&
+								i == currState &&
+								currRead == 0}>{encodedTransitionToString(machine.slice(6 * i, 6 * i + 3))}</td
+						>
+						<td
+							class="w-1/3"
+							class:bg-magenta={currState !== null &&
+								currRead !== null &&
+								i == currState &&
+								currRead == 1}>{encodedTransitionToString(machine.slice(6 * i + 3, 6 * i + 6))}</td
+						>
 					</tr>
 				{/each}
 			</tbody>
