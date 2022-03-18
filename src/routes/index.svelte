@@ -220,7 +220,7 @@
 				<div class="flex flex-col">
 					<div>
 						There remains <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines
-						to decide (out of {numberWithCommas(metrics['total'])})
+						with 5 states to decide (out of {numberWithCommas(metrics['total'])})
 					</div>
 					<!-- <div style="font-size:0.65rem">
 						Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics

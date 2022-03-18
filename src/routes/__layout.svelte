@@ -28,7 +28,7 @@
 				<a href="/" class="active" class:active={currentRoute() == 'root'}>Machines </a>
 			</li>
 			<li>
-				<a href="/story" class="disabled" class:active={currentRoute() == 'story'}>Story</a>
+				<a href="/story" class:active={currentRoute() == 'story'}>Story</a>
 			</li>
 			<!-- <li>
 				<a href="/zoology" class="disabled" class:active={currentRoute() == 'zoology'}>Zoology</a>
