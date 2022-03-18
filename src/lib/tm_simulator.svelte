@@ -10,10 +10,10 @@
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
 	const width = 800;
-	const height = 90;
+	const height = 82;
 	const cellSize = 50;
 	let ox = (width - cellSize) / 2;
-	const oy = 28;
+	const oy = 20;
 
 	let machine: TM = b64URLSafetoTM(initialB64TM);
 	let tape = {};
@@ -95,7 +95,7 @@
 		Machine <a href="/{tmTob64URLSafe(machine)}" class="text-sm">{tmTob64URLSafe(machine)}</a>
 	</div> -->
 	<div>
-		<div class="font-bold">Machine code</div>
+		<div class="font-bold -mb-5">Machine code</div>
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>
 	<div>
