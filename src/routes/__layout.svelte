@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../styles/tailwind.css';
 	import { page } from '$app/stores';
 	function currentRoute() {
 		if ($page.url.toString().includes('story')) {

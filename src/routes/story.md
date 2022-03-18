@@ -1,5 +1,5 @@
 <div class="dark">
-<div class="prose dark:prose-invert -mt-4  ml-[200px] <md:ml-2 <sm:ml-0 font-sans">
+<div class="prose prose-invert -mt-4  ml-[200px] <md:ml-2 <sm:ml-0 font-sans">
 <div>
 
 ## Table of contents

@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-import { windi } from 'svelte-windicss-preprocess';
+
 
 import { mdsvex } from 'mdsvex'
 
@@ -11,7 +11,7 @@ import rehypeMathjax from 'rehype-mathjax'
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: [preprocess(), windi({}), mdsvex({
+	preprocess: [preprocess(), mdsvex({
 		extensions: ['.md'],
 		rehypePlugins: [rehypeMathjax],
 		remarkPlugins: [[remarkToc, { tight: true, ordered: true, maxDepth: 3 }]]
