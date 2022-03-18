@@ -49,7 +49,7 @@
 	<slot />
 </div>
 
-<style windi:global windi:preflights:global windi:safelist:global>
+<style>
 	:global(body) {
 		@apply bg-gray-900 text-white font-mono;
 	}
