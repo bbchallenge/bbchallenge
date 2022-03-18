@@ -48,9 +48,13 @@
 	}
 
 	function next() {
-		[currState, headPos] = step(machine, currState, headPos, tape);
-		nbSteps += 1;
-		drawTape();
+		const [nextState, nextPos] = step(machine, currState, headPos, tape);
+		if (nextState != null) {
+			currState = nextState;
+			headPos = nextPos;
+			nbSteps += 1;
+			drawTape();
+		}
 	}
 
 	function reset() {
