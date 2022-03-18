@@ -20,7 +20,7 @@ BB(5) = 47,176,870
 </div>
 </div>
 
-This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting starting from blank memory tape.
+This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from blank memory tape).
 
 The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" target="_blank">5-state busy beaver champion</a>, a machine that halts after 47,176,870 steps:
 
