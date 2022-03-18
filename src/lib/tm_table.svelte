@@ -83,9 +83,9 @@
 	{#if error != null}
 		{error}
 	{:else}
-		<table class="w-[200px] text-left ml-3">
+		<table class="w-[200px] text-left ml-3 font-mono">
 			<thead class="font-normal border-b-1">
-				<th class="font-normal">state</th>
+				<th class="font-normal" />
 				<th class="font-normal">0</th>
 				<th class="font-normal">1</th>
 			</thead>

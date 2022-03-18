@@ -1,7 +1,9 @@
 <script lang="ts">
 	import '../styles/tailwind.css';
 	import { page } from '$app/stores';
-	function currentRoute() {
+
+	let currentRoute = fCurrentRoute();
+	function fCurrentRoute() {
 		if ($page.url.toString().includes('story')) {
 			return 'story';
 		}
@@ -20,22 +22,50 @@
 		<!-- top bar left -->
 		<ul class="flex items-end pr-2 <md:pr-0">
 			<!-- add button -->
-			<h1 class="text-xl <md:text-base"><a href="/">The Busy Beaver Challenge</a></h1>
+			<h1 class="text-xl <md:text-base">
+				<a
+					href="/"
+					on:click={() => {
+						currentRoute = 'root';
+					}}>The Busy Beaver Challenge</a
+				>
+			</h1>
 		</ul>
 
 		<!-- to bar right  -->
 		<ul class="flex items-end space-x-4 <md:space-x-2 <md:text-sm main-menu">
 			<li>
-				<a href="/" class="active" class:active={currentRoute() == 'root'}>Machines </a>
+				<a
+					href="/"
+					class="active"
+					class:active={currentRoute == 'root'}
+					on:click={() => {
+						currentRoute = 'root';
+					}}
+					>Machines
+				</a>
 			</li>
 			<li>
-				<a href="/story" class:active={currentRoute() == 'story'}>Story</a>
+				<a
+					href="/story"
+					class:active={currentRoute == 'story'}
+					on:click={() => {
+						currentRoute = 'story';
+					}}>The Story</a
+				>
 			</li>
 			<!-- <li>
 				<a href="/zoology" class="disabled" class:active={currentRoute() == 'zoology'}>Zoology</a>
 			</li> -->
 			<li>
-				<a href="/contribute" class:active={currentRoute() == 'contribute'}>Contribute </a>
+				<a
+					href="/contribute"
+					class:active={currentRoute == 'contribute'}
+					on:click={() => {
+						currentRoute = 'contribute';
+					}}
+					>Contribute
+				</a>
 			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
 			<li>

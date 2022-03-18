@@ -9,7 +9,7 @@
 
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
-	const width = 800;
+	const width = 500;
 	const height = 82;
 	const cellSize = 50;
 	let ox = (width - cellSize) / 2;
@@ -94,7 +94,7 @@
 
 <svelte:window on:keydown={keydown} />
 
-<div class="flex items-start space-x-8">
+<div class="flex items-start space-x-10 text-white">
 	<!-- <div class="-mb-8 ml-0">
 		Machine <a href="/{tmTob64URLSafe(machine)}" class="text-sm">{tmTob64URLSafe(machine)}</a>
 	</div> -->

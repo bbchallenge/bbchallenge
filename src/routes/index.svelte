@@ -162,29 +162,42 @@
 	let highlighted = null;
 	let apiDown = false;
 	onMount(async () => {
-		try {
-			if (!preSeed) {
+		if (!preSeed) {
+			try {
 				await getRandomMachine();
 				window.history.replaceState({}, '', getSimulationLink());
-			} else if (machineID != null) {
-				await loadMachineFromID(machineID);
-			} else if (machineB64 != null) {
+			} catch (error) {
+				apiDown = true;
 			}
-			draw();
+		} else if (machineID != null) {
+			try {
+				await loadMachineFromID(machineID);
+			} catch (error) {
+				apiDown = true;
+			}
+		} else if (machineB64 != null) {
+			await loadMachineFromB64(machineB64, machineStatus);
+		}
 
+		try {
 			let response = await API.get(`/metrics`, {});
 			metrics = response.data;
 			response = await API.get(`/highlighted`, {});
 			highlighted = response.data;
 		} catch (error) {
 			apiDown = true;
+		}
+
+		if (apiDown && machineB64 == null) {
+			console.log('hey');
 			await loadMachineFromB64(
 				'mAQACAAAEAQEDAQECAQABAAECAAAFAQAEAAAAAQAB',
 				TMDecisionStatus.UNDECIDED
 			);
 			origin_x = 0.65;
-			draw();
 		}
+
+		draw();
 		//console.log(metrics);
 	});
 
