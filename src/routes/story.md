@@ -221,7 +221,7 @@ Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aarons
 Apart from concrete values of BB, the following is also known:
 
 - BB(5) >= 47,176,870 [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
-- BB(6) <Katex math={BB6}/> [[Kropitz, reported by Marxen]](http://turbotm.de/~heiner/BB/bb-xlist.txt)
+- BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)
 - BB(7) <Katex math={BB7}/> [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
 - BB(15) is at least as hard as solving Erdős' conjecture on powers of 2: "for n > 8, there is at least one digit 2 in the base-3 representation of 2<sup>n</sup>". [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
 - BB(27) is at least as hard as solving Goldbach conjecture: "for n > 2, every even integer is the sum of two primes" [unverified construction](https://gist.github.com/anonymous/a64213f391339236c2fe31f8749a0df6) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
@@ -234,7 +234,7 @@ All these results come from constructing explicit Turing machines. For instance,
 
 Knowing the value of BB(15) would imply that we'd know if that particular 15-state Turing machine halts or not, it means that knowing BB(15) is at least as hard as solving Erdős' conjecture.
 
-These results drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, reported by Marxen]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, reported by Marxen]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
+These results drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 
 Hence, the frontier between tractable and non-tractable values of BB really seems to be situated at BB(5).
 
