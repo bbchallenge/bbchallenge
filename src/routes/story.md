@@ -216,7 +216,7 @@ The fact that BB(4) = 107 means that if a 4-state Turing machine does not halt a
 
 Proving the value of BB(n) implies to be able to decipher the behavior of any machine with n-states (starting from blank tape). The number of machines grows exponentially with n hence making the task overwhelmingly hard very quickly.
 
-Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space.
+Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space efficiently.
 
 Apart from concrete values of BB, the following is also known:
 
