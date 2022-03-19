@@ -202,6 +202,11 @@
 	});
 
 	function updateSimulationParameters(link) {
+		if (!isNaN(link)) {
+			origin_x = 0.5;
+			return;
+		}
+
 		const urlParams = new URLSearchParams(link);
 		if (urlParams.get('s') != null) {
 			nbIter = Number(urlParams.get('s'));
@@ -285,7 +290,7 @@
 								/></label
 							>
 							<label class="flex flex-col">
-								x translation
+								x-translation
 								<input
 									class="w-[70px]"
 									type="number"
