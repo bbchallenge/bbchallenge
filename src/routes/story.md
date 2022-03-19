@@ -253,7 +253,7 @@ Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find
 
 There are two possible outcomes to the quest of looking for BB(5):
 
-1. We decide all 5-state machines (see [Method](/method)) which gives the value of BB(5) 🥳
+1. We decide the halting problem from blank input of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
 
 2. We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
 
@@ -268,7 +268,8 @@ There are two possible outcomes to the quest of looking for BB(5):
 - [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
 - [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
 - [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
-- [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343) -[[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F)
+- [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
+- [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F)
 
 <div class="mb-20"></div>
 
