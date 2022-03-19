@@ -23,12 +23,7 @@
 		<ul class="flex items-end pr-2 <md:pr-0">
 			<!-- add button -->
 			<h1 class="text-xl <md:text-base">
-				<a
-					href="/"
-					on:click={() => {
-						currentRoute = 'root';
-					}}>The Busy Beaver Challenge</a
-				>
+				<a href="/" rel="external">The Busy Beaver Challenge</a>
 			</h1>
 		</ul>
 

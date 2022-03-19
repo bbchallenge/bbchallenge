@@ -1,5 +1,16 @@
 <script lang="ts">
 import TmSimulator from "../lib/tm_simulator.svelte"
+import { onMount } from 'svelte';
+
+onMount(() => { // TODO: this shouldn't be necessary
+    const id = window.location.hash.replace(/^#/, '');
+    const element = id && document.getElementById(id);
+    console.log(id,element)
+    if (id && element) {
+      element.scrollIntoView();
+    }
+  });
+
 </script>
 
 <div class="dark">
@@ -8,7 +19,7 @@ import TmSimulator from "../lib/tm_simulator.svelte"
 
 <!-- ## Table of contents -->
 
-<a name="goal"></a>
+<a id="goal"></a>
 
 ## Goal
 
@@ -22,7 +33,7 @@ BB(5) = 47,176,870
 
 This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from blank memory tape).
 
-The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" target="_blank">5-state busy beaver champion</a>, a machine that halts after 47,176,870 steps:
+The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine that halts after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -42,11 +53,11 @@ Achieving the goal of the busy beaver challenge implies to study **88,664,064 Tu
 
 [You can help!](/contribute)
 
-<a name="context"></a>
+<a id="context"></a>
 
 ## Context
 
-<a name="turing-machines"></a>
+<a id="turing-machines"></a>
 
 ### Turing machines
 
@@ -88,13 +99,13 @@ As with probably any programming language, the best way to understand Turing mac
 
 <TmSimulator/>
 
-<a name="space-time-diagrams"></a>
+<a id="space-time-diagrams"></a>
 
 #### Space-time diagrams
 
 Space-time diagrams provide a condensed way to visualise the behavior of a machine. The space-time diagram of a machine is a 2D image where each row represents the memory tape of the machine at a successive iteration. Black pixels are used for memory cells containing 0 and white for 1.
 
-Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" target="_blank">5-state busy beaver champion</a>:
+Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
 
 <div class="flex justify-center -mt-16 -mb-8">
 
@@ -106,9 +117,9 @@ Colors green and red track the head position and movement: green when the head g
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in <a href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5">base-64</a>. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" target="_blank">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
+In order to condense Turing machines programs in copyable strings we encode them in <a href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5">base-64</a>. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
 
-Any machine can be visualised given its base-64 encoding, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" target="_blank" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
+Any machine can be visualised given its base-64 encoding, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
 <!-- #### Runtime
 
@@ -118,7 +129,7 @@ Turing machines have to physically move their head to a memory cell before they 
 
 ### The busy beaver function
 
-<a name="methodology"></a>
+<a id="methodology"></a>
 
 ## Methodology
 

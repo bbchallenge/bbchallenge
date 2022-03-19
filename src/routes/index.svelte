@@ -3,7 +3,6 @@
 	import TmTable from '$lib/tm_table.svelte';
 	import { API } from '$lib/api_server';
 	import { addToHistory, getHistory, numberWithCommas } from '$lib/utils';
-	import { goto } from '$app/navigation';
 	import {
 		TMDecisionStatus,
 		tm_trace_to_image,
@@ -21,6 +20,7 @@
 	export let machineStatus = null;
 	let history = getHistory();
 	let showHistory = false;
+	let showSimulationParams = false;
 
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
@@ -261,61 +261,8 @@
 					<div class="bg-black mr-5">
 						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
 					</div>
-
-					<div class="mt-1 flex flex-col">
-						<div>Simulation parameters:</div>
-						<div class="flex space-x-3 pl-2 text-sm ">
-							<label class="flex flex-col ">
-								steps
-								<input
-									class="w-[70px]"
-									type="number"
-									bind:value={nbIter}
-									on:change={() => {
-										draw();
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-								/></label
-							>
-							<label class="flex flex-col">
-								tape width
-								<input
-									class="w-[70px]"
-									type="number"
-									bind:value={tapeWidth}
-									on:change={() => {
-										draw();
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-								/></label
-							>
-							<label class="flex flex-col">
-								x-translation
-								<input
-									class="w-[70px]"
-									type="number"
-									bind:value={origin_x}
-									on:change={() => {
-										draw();
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-									min="0"
-									max="1"
-									step="0.1"
-								/></label
-							>
-						</div>
-						<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-							<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
-							<div>show head movement</div>
-						</label>
-						<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
-					<input type="checkbox" bind:checked={fitCanvas} on:change={draw} />
-					<div>fit to canvas</div>
-				</label> -->
-					</div>
-					<div class="text-xs pt-0 flex  space-x-1">
-						<div
+					<div class="text-xs pt-0 flex  space-x-1 mt-1">
+						<!-- <div
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							on:click={() => {
 								navigator.clipboard.writeText(getSimulationLink(true));
@@ -323,10 +270,28 @@
 						>
 							Copy simulation link
 						</div>
+						<div>&middot;</div> -->
+						<a
+							href="/story#space-time-diagrams"
+							rel="external"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+						>
+							What is this?
+						</a>
+						<div>&middot;</div>
+						<div
+							class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+							class:text-blue-300={showSimulationParams}
+							on:click={() => {
+								showSimulationParams = !showSimulationParams;
+							}}
+						>
+							Simulation Parameters
+						</div>
 						<div>&middot;</div>
 						{#if canvasEl}
 							<div
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
 								on:click={() => {
 									var image = new Image();
 									image.src = canvasEl.toDataURL();
@@ -337,6 +302,59 @@
 								Export image
 							</div>
 						{/if}
+					</div>
+					<div class="mt-1 flex flex-col">
+						{#if showSimulationParams}
+							<div class="flex space-x-3 pl-2 text-sm ">
+								<label class="flex flex-col ">
+									steps
+									<input
+										class="w-[70px]"
+										type="number"
+										bind:value={nbIter}
+										on:change={() => {
+											draw();
+											window.history.replaceState({}, '', getSimulationLink());
+										}}
+									/></label
+								>
+								<label class="flex flex-col">
+									tape width
+									<input
+										class="w-[70px]"
+										type="number"
+										bind:value={tapeWidth}
+										on:change={() => {
+											draw();
+											window.history.replaceState({}, '', getSimulationLink());
+										}}
+									/></label
+								>
+								<label class="flex flex-col">
+									x-translation
+									<input
+										class="w-[70px]"
+										type="number"
+										bind:value={origin_x}
+										on:change={() => {
+											draw();
+											window.history.replaceState({}, '', getSimulationLink());
+										}}
+										min="0"
+										max="1"
+										step="0.1"
+									/></label
+								>
+							</div>
+							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
+								<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
+								<div>show head movement</div>
+							</label>
+						{/if}
+						<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+					<input type="checkbox" bind:checked={fitCanvas} on:change={draw} />
+					<div>fit to canvas</div>
+				</label> -->
 					</div>
 				</div>
 
