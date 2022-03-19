@@ -253,11 +253,13 @@ Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find
 
 Here are some possible outcomes to the quest of looking for BB(5):
 
-1. We decide the halting problem from blank tape of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
+- We decide the halting problem from blank tape of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
 
-2. We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
+- We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
 
-3. We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
+- We establish a fine-grained [Zoology](/#zoology) of the behaviors of 5-state Turing machine which allows to understand what they are capable of and where complexity lies 🥳
+
+- We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
 
 <a id="references"></a>
 
@@ -265,8 +267,8 @@ Here are some possible outcomes to the quest of looking for BB(5):
 
 - [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
 - [[Brady, 1983]](https://www.jstor.org/stable/2007539)
-- [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
-- [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
+- [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html), [Heiner Marxen's website](http://turbotm.de/~heiner/BB/)
+- [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.), [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
 - [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
 - [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
 - [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
