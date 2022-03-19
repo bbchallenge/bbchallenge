@@ -30,14 +30,9 @@ let BB6 = "> 7.514\\times 10^{36,534}"
 
 ## Table of contents
 
-
-
-
-
 ## Goal
 
 <a id="goal"></a>
-
 
 The goal of the busy beaver challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
@@ -241,7 +236,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 These results drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 
-Hence, the frontier between tractable and non-tractable values of BB really seems to be situated at BB(5).
+Hence, the frontier between tractable and intractable values of BB seems to be situated at BB(5).
 
 <a id="bb5"></a>
 
