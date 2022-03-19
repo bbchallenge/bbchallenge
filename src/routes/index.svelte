@@ -232,8 +232,8 @@
 		</div>
 	{/if}
 	{#if metrics != null}
-		<div class="text-xs mb-1 mt-3 md:ml-3 ml-0">
-			<div class="flex  space-x-2">
+		<div class="text-sm mb-1 mt-3 md:ml-3 ml-0">
+			<div class="flex flex-col space-y-1">
 				<span class="underline">Challenge goal</span>
 				<div class="flex flex-col">
 					<div>
