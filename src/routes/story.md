@@ -253,7 +253,7 @@ Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find
 
 Here are some possible outcomes to the quest of looking for BB(5):
 
-1. We decide the halting problem from blank input of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
+1. We decide the halting problem from blank tape of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
 
 2. We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
 
