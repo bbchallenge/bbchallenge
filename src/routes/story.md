@@ -251,11 +251,13 @@ Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find
 
 ## Possible outcomes of the challenge
 
-There are two possible outcomes to the quest of looking for BB(5):
+Here are some possible outcomes to the quest of looking for BB(5):
 
 1. We decide the halting problem from blank input of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
 
-2. We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
+2. We find a 5-state machines that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
+
+3. We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
 
 <a id="references"></a>
 
