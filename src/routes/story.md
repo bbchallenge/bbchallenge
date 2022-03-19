@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
 import TmSimulator from "../lib/tm_simulator.svelte"
 import { b64URLSafetoTM, tmToTuringMachineDotIO } from '../lib/tm';
-import { onMount } from 'svelte';
+import Katex from "../lib/Katex.svelte"
 
 let theCode = tmToTuringMachineDotIO(b64URLSafetoTM("mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB"))
 
@@ -14,10 +15,15 @@ onMount(() => { // TODO: this shouldn't be necessary
     }
   });
 
+let nbTM = "(4n+1)^{2n}"
+let nbTM5 = "21^{10} \\simeq 1.6\\times 10^{13}"
+let BB7 = "\\geq 10^{10^{10^{18,705,352}}}"
+let BB72 = "10^{10^{10^{18,705,352}}}"
+
 </script>
 
-<div class="dark w-full flex justify-center xl:justify-start">
-<div class="prose prose-invert text-white   -mt-4  xl:justify-start xl:ml-[170px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg w-full">
+<div class="dark w-full ">
+<div class="prose prose-invert text-white -mt-4  xl:justify-start lg:ml-[170px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg w-full">
 <div class="leading-normal ">
 <div>
 
@@ -30,9 +36,7 @@ onMount(() => { // TODO: this shouldn't be necessary
 The goal of the busy beaver challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
 <div class="flex justify-center">
-<div class="math math-display">
 BB(5) = 47,176,870
-</div>
 </div>
 
 This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from blank memory tape).
@@ -102,6 +106,7 @@ As with probably any programming language, the best way to understand Turing mac
 <TmSimulator/>
 
 A more detailed simulator is available at <a href="https://turingmachine.io" target="_blank">https://turingmachine.io</a>. Here is the code of the above machine in their format:
+
 <pre>{ theCode }</pre>
 
 <a id="space-time-diagrams"></a>
@@ -126,7 +131,7 @@ Additional green and red colors are used to track the head position and its move
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in base-64^[The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_blank">here</a>.]. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>. 
+In order to condense Turing machines programs in copyable strings we encode them in base-64^[The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_blank">here</a>.]. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
 
 Any machine can be visualised given its base-64 encoding, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
@@ -136,7 +141,7 @@ Turing machines have to physically move their head to a memory cell before they 
 
 <a id="will-it-halt-or-not"></a>
 
-## Will it halt or not?
+### Will it halt or not?
 
 Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that an undefined transition is met while executing the machine.
 
@@ -167,21 +172,105 @@ Answering this question does not look simple. Here, patience can answer it for u
 
 In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
 
-If there is no general method to tell if a machine will halt or not from blank tape, it does not mean that we cannot answer the question for specific machines or families of machines. 
+If there is no general method to tell if a machine will halt or not from blank tape, it does not mean that we cannot answer the question for specific machines or families of machines.
 
-With the busy beaver challenge, we hope to decide the halting problem (from blank tape) of all machines with 5 states, i.e. for any machine with 5 states we want to be able to tell if it halts or not starting from blank tape. 
+With the busy beaver challenge, we hope to decide the halting problem (from blank tape) of all machines with 5 states, i.e. for any machine with 5 states we want to be able to tell if it halts or not starting from blank tape.
 
 Why 5? Let's first reformulate the problem in terms of busy beavers.
 
-<a id="the-busy-beaver-function"></a>
+<a id="the-busy-beaver-function-bb"></a>
 
 ## The busy beaver function BB
 
-<a id="possible-outcomes"></a>
+<a id="definition-of-bb"></a>
+
+### Definition of BB
+
+We can now properly define the busy beaver function BB as introduced in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15):
+
+<div class="flex justify-center items-center space-x-2">
+<div>
+BB(n) = 
+</div><div class="text-sm w-[300px]">Maximum number of steps done by a halting Turing machine with n states starting from blank memory tape</div>
+</div>
+
+Note that there is a finite number of Turing machines with n states, <Katex math={nbTM}/> to be exact, hence BB(n) is well defined.
+
+BB(n) is a very powerful number to know because it gives you a way to decide any machine with n states: run the machine and if it runs for BB(n)+1 steps you know that it will never halt.
+
+This means that the function n ↦ BB(n) is not computable otherwise the halting problem of Turing machines would be decidable. Find more properties of BB in [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf).
+
+<a id="what-is-known-about-bb"></a>
+
+### What is known about BB
+
+Only 4 values of BB are known:
+
+- BB(1) = 1, [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
+- BB(2) = 6, [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
+- BB(3) = 21, [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
+- BB(4) = 107, [[Brady, 1983]](https://www.jstor.org/stable/2007539)
+
+The fact that BB(4) = 107 means that if a 4-state Turing machine does not halt after 107 steps starting from blank tape then it will never halt.
+
+Proving the value of BB(n) implies to be able to decipher the behavior of any machine with n-states (starting from blank tape). The number of machines grows exponentially with n hence making the task overwhelmingly hard very quickly.
+
+Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space.
+
+Apart from concrete values of BB, the following is also known:
+
+- BB(7) <Katex math={BB7}/> [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
+- BB(15) is at least as hard as solving Erdős' conjecture on powers of 2: "for n > 8, there is at least one digit 2 in the base-3 representation of 2<sup>n</sup>". [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
+- BB(27) is at least as hard as solving Goldbach conjecture: "for n > 2, every even integer is the sum of two primes" [unverified construction](https://gist.github.com/anonymous/a64213f391339236c2fe31f8749a0df6) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
+- BB(744) is at least as Riemann Hypothesis [[Matiyasevich and O'Rear and Aaronson, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/riemann-matiyasevich-aaronson.nql)
+- BB(748) is independent of ZF [[O'Rear, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/zf2.nql)
+- BB(5,372) is at least as Riemann Hypothesis [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
+- BB(7, 910) is independent of ZFC [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
+
+All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two until it finds a counter-example to the conjecture. Hence the machine halts if and only if the conjecture is false!
+
+Knowing the value of BB(15) would imply that we'd know if that particular 15-state Turing machine halts or not, it means that knowing BB(15) is at least as hard as solving Erdős' conjecture.
+
+These results drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(7) <Katex math={BB7}/> as there is a Turing machine halting after that many steps [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>. Meaning that, as we cannot afford to wait <Katex math={BB72}/> steps, even knowing that a machine will halt is non-trivial for n = 7.
+
+Hence, the frontier between knowable and un-knowable values of BB really seems to be situated arround BB(5) and BB(6).
+
+<a id="bb5"></a>
+
+### BB(5)
+
+The above motivates the busy beaver challenge: **let's try to collaboratively find BB(5)**, the smallest currently unkown BB value.
+
+Prior work exhibited the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
+
+This led to [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) conjecturing that BB(5) = 47,176,870.
+
+Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find BB(5) and how you can contribute. Are you up for the challenge?
+
+<a id="possible-outcomes-of-the-challenge"></a>
 
 ## Possible outcomes of the challenge
 
+There are two possible outcomes to the quest of looking for BB(5):
 
+1. We decide all 5-state machines (see [Method](/method)) which gives the value of BB(5) 🥳
+
+2. We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
+
+<a id="references"></a>
+
+## References
+
+- [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
+- [[Brady, 1983]](https://www.jstor.org/stable/2007539)
+- [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
+- [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
+- [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
+- [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
+- [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
+- [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343) -[[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F)
+
+<div class="mb-20"></div>
 
 </div>
 </div>

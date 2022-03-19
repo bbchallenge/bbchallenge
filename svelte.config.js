@@ -5,7 +5,8 @@ import { mdsvex } from 'mdsvex';
 
 import remarkToc from 'remark-toc';
 import remarkFootnotes from 'remark-footnotes';
-import rehypeMathjax from 'rehype-mathjax';
+import remarkMath from 'rehype-mathjax';
+import rehypeKatex from 'rehype-katex'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,10 +16,12 @@ const config = {
 		preprocess(),
 		mdsvex({
 			extensions: ['.md'],
-			rehypePlugins: [rehypeMathjax],
+			rehypePlugins: [rehypeKatex],
 			remarkPlugins: [
 				[remarkToc, { tight: true, ordered: true, maxDepth: 3 }],
-				[remarkFootnotes, { inlineNotes: true }]
+				[remarkFootnotes, { inlineNotes: true }],
+				remarkMath,
+
 			]
 		})
 	],
