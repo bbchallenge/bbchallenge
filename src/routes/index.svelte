@@ -204,6 +204,7 @@
 	function updateSimulationParameters(link) {
 		if (!isNaN(link)) {
 			origin_x = 0.5;
+			nbIter = 10000;
 			return;
 		}
 
@@ -560,7 +561,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -580,7 +581,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -599,7 +600,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -618,7 +619,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -637,7 +638,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -656,7 +657,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -675,7 +676,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span
@@ -694,7 +695,7 @@
 													await loadMachineFromID(m);
 													updateSimulationParameters(m);
 													draw();
-													window.history.replaceState({}, '', `/${m}`);
+													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
 												}}
 											>
 												#{numberWithCommas(m)}</span

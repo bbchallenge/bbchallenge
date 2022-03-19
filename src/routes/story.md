@@ -146,9 +146,9 @@ Turing machines have to physically move their head to a memory cell before they 
 
 Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that an undefined transition is met while executing the machine.
 
-If a machine has no undefined transition it is sure that it will never halt as it cannot encounter any undefined transition.
+If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
-However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[This machine can be thought as the "while true" of Turing machines.] that will never halt although it has plenty undefined transitions:
+However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[This machine can be thought as the "while true" of Turing machines.] that will never halt starting from blank tape although it has plenty undefined transitions:
 
 <TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
@@ -169,7 +169,7 @@ In this case it is easy to convince ourselves that the machine will never halt s
 </div>
 Will this one halt or not starting from blank tape?
 
-Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after 47,176,870. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
+Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after 47,176,870 steps. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
 
 In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
 
