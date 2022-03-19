@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { TM } from './tm';
-	import { b64URLSafetoTM, step } from './tm';
+	import { b64URLSafetoTM, step, tmToTuringMachineDotIO } from './tm';
 
 	import TmTable from './tm_table.svelte';
 
-	export let initialB64TM = 'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB';
+	export let b64TM = 'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB';
 
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
@@ -15,7 +15,7 @@
 	let ox = (width - cellSize) / 2;
 	const oy = 20;
 
-	let machine: TM = b64URLSafetoTM(initialB64TM);
+	let machine: TM = b64URLSafetoTM(b64TM);
 	let tape = {};
 	let headPos = 0;
 	let nbSteps = 0;
@@ -100,6 +100,19 @@
 	</div> -->
 	<div>
 		<div class="font-bold -mb-5">Machine code</div>
+		<div class="text-xs mt-1 w-full  mt-5 -mb-5">
+			<span
+				href="https://turingmachine.io/"
+				on:click|preventDefault={() => {
+					navigator.clipboard.writeText(tmToTuringMachineDotIO(machine)).then(function () {
+						window.open('https://turingmachine.io/', '_blank').focus();
+					});
+				}}
+				target="_blank"
+				class="text-blue-400 hover:text-blue-300 cursor-pointer "
+				>Copy for https://turingmachine.io/</span
+			>
+		</div>
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>
 	<div>

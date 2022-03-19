@@ -224,7 +224,7 @@
 
 <div>
 	{#if apiDown}
-		<div class="text-xs mb-1 mt-2 ml-3 <md:ml-0 ">
+		<div class="text-xs mb-1 mt-2 md:ml-3 ml-0">
 			<div class="flex flex-col">
 				<div class="text-red-500">The API is down.</div>
 				<div>However you can still load machines from their b64 description.</div>
@@ -232,8 +232,8 @@
 		</div>
 	{/if}
 	{#if metrics != null}
-		<div class="text-xs mb-1 mt-2 ml-3 <md:ml-0">
-			<div class="flex md:flex-col space-x-2">
+		<div class="text-xs mb-1 mt-2 md:ml-3 ml-0">
+			<div class="flex  space-x-2">
 				<span class="underline">Challenge goal</span>
 				<div class="flex flex-col">
 					<div>
@@ -254,9 +254,9 @@
 			</div>
 		</div>
 	{/if}
-	<div class="flex justify-center ">
+	<div class="flex lg:justify-center ">
 		<div class="flex flex-col  ">
-			<div class="flex items-start items-start <sm:flex-col mt-3 <sm:mt-3">
+			<div class="flex  items-start flex-col lg:flex-row mt-3">
 				<div class="flex flex-col items-start">
 					<div class="bg-black mr-5">
 						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
@@ -358,7 +358,7 @@
 					</div>
 				</div>
 
-				<div class="<sm:mt-3 sm:ml-10 xl:ml-20">
+				<div class="mt-3 lg:mt-0 lg:ml-20">
 					<div>
 						{#if machine !== null}
 							{#if machineID !== null}
@@ -537,7 +537,7 @@
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
-				<div class="flex space-x-20">
+				<div class="flex flex-col space-y-5 lg:flex-row lg:space-x-20 lg:space-y-0">
 					<div id="zoology">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">

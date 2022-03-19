@@ -42,6 +42,7 @@
 		"mdsvex": "^0.10.5",
 		"netlify-cli": "^9.13.0",
 		"rehype-mathjax": "^4.0.2",
+		"remark-footnotes": "^2.0.0",
 		"remark-toc": "^8.0.1",
 		"run-p": "^0.0.0",
 		"svelte-seo": "^1.4.0",

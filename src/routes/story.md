@@ -10,7 +10,7 @@ onMount(() => { // TODO: this shouldn't be necessary
     const element = id && document.getElementById(id);
     console.log(id,element)
     if (id && element) {
-      element.scrollIntoView();
+      window.scrollTo({ top: element.top, behavior: 'smooth' });
     }
   });
 
@@ -20,13 +20,13 @@ onMount(() => { // TODO: this shouldn't be necessary
 <div class="prose prose-invert text-white  -mt-4  lg:ml-[200px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg ">
 <div class="leading-normal">
 
-<!-- ## Table of contents -->
+## Table of contents
 
 <a id="goal"></a>
 
 ## Goal
 
-The goal of the busy beaver challenge is to prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
+The goal of the busy beaver challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
 <div class="flex justify-center">
 <div class="math math-display">
@@ -52,17 +52,13 @@ The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://tur
 </div>
 </div>
 
-Achieving the goal of the busy beaver challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see [Methodology](#methodology).
+Achieving the goal of the busy beaver challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a herf="/method" rel="external">Method</a>.
 
 [You can help!](/contribute)
 
-<a id="context"></a>
-
-## Context
-
 <a id="turing-machines"></a>
 
-### Turing machines
+## Turing machines
 
 The introduction of Turing machines by Alan Turing in 1936 is arguably one of the founding events of computer science, [[Turing, 1936]](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf).
 
@@ -86,7 +82,7 @@ The programmer specifies the code of the machine in a table with 2 columns and <
 </div>
 </div>
 
-Each entry of the table is called a **transition** and instructs us what to do when reading a 0 or a 1 in a given state. For instance, in the above machine, <span class="bg-purple-400 font-bold text-black">&nbsp;reading a 0 in state A&nbsp;</span> will:
+Each entry of the table is called a **transition** and instructs us what to do when reading a 0 or a 1 at the current head's position on the memory tape in a given state. For instance, in the above machine, <span class="bg-purple-400 font-bold text-black">&nbsp;reading a 0 in state A&nbsp;</span> will:
 
 1. write a 1 at the current head position (i.e replacing the read 0 with a 1)
 2. move the head to the right
@@ -96,7 +92,9 @@ The machine will **halt** (i.e. cease functionning) if it ever meets an **undefi
 
 In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially blank (i.e. all memory cells are 0).
 
-#### Interactive simulator
+<a id="interactive-simulator"></a>
+
+### Interactive simulator
 
 As with probably any programming language, the best way to understand Turing machines is to play with them:
 
@@ -107,7 +105,7 @@ A more detailed simulator is available at <a href="https://turingmachine.io" tar
 
 <a id="space-time-diagrams"></a>
 
-#### Space-time diagrams
+### Space-time diagrams
 
 Space-time diagrams provide a condensed way to visualise the behavior of Turing machines. The space-time diagram of a machine is a 2D image where the i<sup>th</sup> row represents the memory tape of the machine at the i<sup>th</sup> iteration. Black pixels are used for memory cells containing 0 and white for 1.
 
@@ -121,15 +119,13 @@ Here is the space-time diagram of the first 10,000 iterations of the <a  href="h
 
 Additional green and red colors are used to track the head position and its movement: green when the head has moved to the left and red when it has moved to the right.
 
-**Important:** these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps).
+**Important:** currently, these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps).
 
 <a id="base-64"></a>
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in base-64. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>. 
-
-The exact base-64 algorithm that is used is <a href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_blank">here</a>.
+In order to condense Turing machines programs in copyable strings we encode them in base-64^[The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_blank">here</a>.]. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>. 
 
 Any machine can be visualised given its base-64 encoding, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
@@ -137,22 +133,65 @@ Any machine can be visualised given its base-64 encoding, for instance: <a  href
 
 Turing machines have to physically move their head to a memory cell before they can read or write the data located there. This contrasts with the Random Access Memory (RAM) architecture used by modern computers where any _random_ memory cell can be accessed instantly given its address. Nonetheless, any algorithm that can be implemented using a modern RAM computer can be implemented with a Turing machine (and vice versa). -->
 
-### Will it halt or not?
+<a id="will-it-halt-or-not"></a>
 
-### The busy beaver function
+## Will it halt or not?
 
-<a id="methodology"></a>
+Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that an undefined transition is met while executing the machine.
 
-## Methodology
+If a machine has no undefined transition it is sure that it will never halt as it cannot encounter any undefined transition.
 
-### Seed run
+However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[This machine can be thought as the "while true" of Turing machines.] that will never halt although it has plenty undefined transitions:
 
-### Zoology
+<TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
-### Deciders
+In this case it is easy to convince ourselves that the machine will never halt starting from blank tape. However, if we take our earlier example:
 
-### Possible outcomes
+<div class="flex flex-col items-center">
+<div class="w-1/3 -mt-5 font-mono">
+
+|     | 0   | 1   |
+| --- | --- | --- |
+| A   | 1RB | 1LC |
+| B   | 1RC | 1RB |
+| C   | 1RD | 0LE |
+| D   | 1LA | 1LD |
+| E   | ??? | 0LA |
+
+</div>
+</div>
+Will this one halt or not starting from blank tape?
+
+Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after 47,176,870. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
+
+In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
+
+If there is no general method to tell if a machine will halt or not from blank tape, it does not mean that we cannot answer the question for specific machines or families of machines. 
+
+With the busy beaver challenge, we hope to decide the halting problem (from blank tape) of all machines with 5 states, i.e. for any machine with 5 states we want to be able to tell if it halts or not starting from blank tape. 
+
+Why 5? Let's first reformulate the problem in terms of busy beavers.
+
+<a id="the-busy-beaver-function"></a>
+
+## The busy beaver function
+
+<a id="possible-outcomes"></a>
+
+## Possible outcomes
+
+
 
 </div>
 </div>
 </div>
+
+<style >
+h2:first-child {
+  margin-top: 2.4rem;
+  margin-bottom: 0;
+}
+h2:nth-child(3) {
+  margin-top: 3rem;
+}
+</style>

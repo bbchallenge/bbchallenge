@@ -4,6 +4,9 @@
 
 	let currentRoute = fCurrentRoute();
 	function fCurrentRoute() {
+		if ($page.url.toString().includes('method')) {
+			return 'method';
+		}
 		if ($page.url.toString().includes('story')) {
 			return 'story';
 		}
@@ -18,17 +21,18 @@
 </script>
 
 <div class="p-3">
-	<nav class="px-2 <md:px-0 pb-2 flex justify-between h-9 border-b-2 <sm:flex-col <sm:h-14 mt-1">
+	<nav
+		class="lg:px-2 px-0 pb-2 flex justify-between lg:h-9 border-b-2 flex-col lg:flex-row h-14 mt-1"
+	>
 		<!-- top bar left -->
-		<ul class="flex items-end pr-2 <md:pr-0">
+		<ul class="flex items-end">
 			<!-- add button -->
-			<h1 class="text-xl <md:text-base">
+			<h1 class="text-base lg:text-xl">
 				<a href="/" rel="external">The Busy Beaver Challenge</a>
 			</h1>
 		</ul>
 
-		<!-- to bar right  -->
-		<ul class="flex items-end space-x-4 <md:space-x-2 <md:text-sm main-menu">
+		<ul class="flex items-end space-x-2 lg:space-x-4 text-sm lg:text-base  main-menu ">
 			<li>
 				<a
 					href="/"
@@ -46,7 +50,16 @@
 					class:active={currentRoute == 'story'}
 					on:click={() => {
 						currentRoute = 'story';
-					}}>The Story</a
+					}}>Story</a
+				>
+			</li>
+			<li>
+				<a
+					href="/method"
+					class:active={currentRoute == 'method'}
+					on:click={() => {
+						currentRoute = 'method';
+					}}>Method</a
 				>
 			</li>
 			<!-- <li>
@@ -64,8 +77,12 @@
 			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
 			<li>
-				<a href="https://github.com/bbchallenge" class="cursor-pointer"
-					><img src="/GitHub-Mark-Light-32px.png" width="26" alt="Github logo" /></a
+				<a href="https://github.com/bbchallenge" class="cursor-pointer "
+					><img
+						class="w-[23px] lg:w-[26px]"
+						src="/GitHub-Mark-Light-32px.png"
+						alt="Github logo"
+					/></a
 				>
 			</li>
 		</ul>
