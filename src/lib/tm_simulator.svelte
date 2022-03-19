@@ -50,7 +50,17 @@
 
 	function next() {
 		const [nextState, nextPos] = step(machine, currState, headPos, tape);
-		hasHalted = nextState == null;
+
+		if (nextState === null || nextPos == null) {
+			hasHalted = true;
+		} else {
+			let nextRead = 0;
+			if (tape[nextPos] !== undefined) {
+				nextRead = tape[nextPos];
+			}
+
+			hasHalted = machine[6 * nextState + 3 * nextRead + 2] == 0;
+		}
 		if (nextState != null) {
 			currState = nextState;
 			headPos = nextPos;
