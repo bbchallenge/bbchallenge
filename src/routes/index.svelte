@@ -261,7 +261,7 @@
 					<div class="bg-black mr-5">
 						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
 					</div>
-					<div class="text-xs pt-0 flex  space-x-1 mt-1">
+					<div class="text-xs pt-0 flex  space-x-1 mt-2">
 						<!-- <div
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							on:click={() => {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	// import type { TM } from './tm';
-	import { TMDecisionStatus, tmTob64URLSafe } from './tm';
+	import { TMDecisionStatus, tmTob64URLSafe, tmToTuringMachineDotIO } from './tm';
 
 	function encodedTransitionToString(transition) {
 		try {
@@ -112,9 +112,22 @@
 			</tbody>
 		</table>
 	{/if}
-	{#if machineID !== null}
+	{#if showTitle}
 		<div class="text-xs">
 			b64: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
+		</div>
+		<div class="text-xs mt-1">
+			<span
+				href="https://turingmachine.io/"
+				on:click|preventDefault={() => {
+					navigator.clipboard.writeText(tmToTuringMachineDotIO(machine)).then(function () {
+						window.open('https://turingmachine.io/', '_blank').focus();
+					});
+				}}
+				target="_blank"
+				class="text-blue-400 hover:text-blue-300 cursor-pointer "
+				>Copy code for https://turingmachine.io/</span
+			>
 		</div>
 	{/if}
 </div>

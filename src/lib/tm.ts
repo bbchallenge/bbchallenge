@@ -1,3 +1,5 @@
+import { to_number } from 'svelte/internal';
+
 export type TM = Uint8Array;
 
 export const DB_SIZE = 88664064;
@@ -21,6 +23,33 @@ export function b64URLSafetoTM(base64URLSafe: string) {
 		tm[i] = binary.charCodeAt(i);
 	}
 	return tm;
+}
+
+export function tmToTuringMachineDotIO(machine: TM) {
+	let toReturn = "blank: '0'\n";
+	toReturn += 'start state: A\n';
+	toReturn += 'table:\n';
+
+	for (let i = 0; i < machine.length / 6; i += 1) {
+		const trans0 = machine.slice(6 * i, 6 * i + 3);
+		const trans1 = machine.slice(6 * i + 3, 6 * i + 6);
+		toReturn += '  ' + String.fromCharCode(65 + i) + ':\n';
+		if (trans0[2] != 0) {
+			toReturn +=
+				'    ' +
+				`0: {write: ${trans0[0]}, ${trans0[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
+					65 + trans0[2] - 1
+				)}}\n`;
+		}
+		if (trans1[2] != 0) {
+			toReturn +=
+				'    ' +
+				`1: {write: ${trans1[0]}, ${trans1[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
+					65 + trans1[2] - 1
+				)}}\n`;
+		}
+	}
+	return toReturn;
 }
 
 export enum TMDecisionStatus {

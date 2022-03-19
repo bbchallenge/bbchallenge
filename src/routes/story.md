@@ -103,7 +103,7 @@ As with probably any programming language, the best way to understand Turing mac
 
 #### Space-time diagrams
 
-Space-time diagrams provide a condensed way to visualise the behavior of a machine. The space-time diagram of a machine is a 2D image where each row represents the memory tape of the machine at a successive iteration. Black pixels are used for memory cells containing 0 and white for 1.
+Space-time diagrams provide a condensed way to visualise the behavior of a machine. The space-time diagram of a machine is a 2D image where the i<sup>th</sup> row represents the memory tape of the machine at the i<sup>th</sup> iteration. Black pixels are used for memory cells containing 0 and white for 1.
 
 Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
 
