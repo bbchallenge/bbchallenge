@@ -30,9 +30,9 @@ let BB6 = "> 7.514\\times 10^{36,534}"
 
 ## Table of contents
 
-<a id="goal"></a>
-
 ## Goal
+
+<a id="goal"></a>
 
 The goal of the busy beaver challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
