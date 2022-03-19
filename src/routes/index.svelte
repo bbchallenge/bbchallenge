@@ -254,9 +254,9 @@
 			</div>
 		</div>
 	{/if}
-	<div class="flex lg:justify-center ">
+	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
-			<div class="flex  items-start flex-col lg:flex-row mt-3">
+			<div class="flex  items-start flex-col md:flex-row mt-3">
 				<div class="flex flex-col items-start">
 					<div class="bg-black mr-5">
 						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
@@ -358,7 +358,7 @@
 					</div>
 				</div>
 
-				<div class="mt-3 lg:mt-0 lg:ml-20">
+				<div class="mt-3 md:mt-0 md:ml-20">
 					<div>
 						{#if machine !== null}
 							{#if machineID !== null}
@@ -537,7 +537,7 @@
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
-				<div class="flex flex-col space-y-5 lg:flex-row lg:space-x-20 lg:space-y-0">
+				<div class="flex flex-col space-y-5 md:flex-row md:space-x-10 lg:space-x-20 md:space-y-0">
 					<div id="zoology">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
