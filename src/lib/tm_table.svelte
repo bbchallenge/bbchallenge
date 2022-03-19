@@ -41,12 +41,6 @@
 	export let currRead = null;
 
 	let error = null;
-	let the_range = [];
-	try {
-		the_range = [...Array(machine.length / 6).keys()];
-	} catch (error) {
-		error = 'Invalid description.';
-	}
 </script>
 
 <header class="flex flex-col">
@@ -90,7 +84,7 @@
 				<th class="font-normal">1</th>
 			</thead>
 			<tbody>
-				{#each the_range as i}
+				{#each [...Array(machine.length / 6).keys()] as i}
 					<tr
 						><td class="w-1/3">{String.fromCharCode(65 + i)}</td>
 						<td
