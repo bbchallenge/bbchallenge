@@ -20,6 +20,7 @@
 	let headPos = 0;
 	let nbSteps = 0;
 	let currState = 0;
+	let hasHalted = false;
 
 	function initalTape() {
 		let tape = {};
@@ -49,6 +50,7 @@
 
 	function next() {
 		const [nextState, nextPos] = step(machine, currState, headPos, tape);
+		hasHalted = nextState == null;
 		if (nextState != null) {
 			currState = nextState;
 			headPos = nextPos;
@@ -63,6 +65,7 @@
 		nbSteps = 0;
 		ox = (width - cellSize) / 2;
 		tape = initalTape();
+		hasHalted = false;
 		drawTape();
 	}
 
@@ -120,10 +123,15 @@
 		<canvas bind:this={canvas} {width} {height} />
 
 		<div class=" ">
-			<div class="text-lg mb-2">Step #{nbSteps}</div>
+			<div class="text-lg" class:mb-2={!hasHalted}>Step #{nbSteps}</div>
+			{#if hasHalted}
+				<div class="text-lg mb-2 select-none">The machine has halted!</div>
+			{/if}
 			<div class="flex space-x-3">
-				<button class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md" on:click={next}
-					>(N)ext</button
+				<button
+					class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md disabled:opacity-50 disabled:hover:bg-blue-500 disabled:cursor-not-allowed"
+					on:click={next}
+					disabled={hasHalted}>(N)ext</button
 				>
 				<button class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md" on:click={reset}
 					>(R)eset</button

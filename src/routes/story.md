@@ -21,6 +21,9 @@ let BB7 = "\\geq 10^{10^{10^{18,705,352}}}"
 let BB72 = "10^{10^{10^{18,705,352}}}"
 let BB6 = "> 7.514\\times 10^{36,534}"
 
+// let theM = new Uint8Array([1,0,2,0,0,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+// console.log(tmTob64URLSafe(theM))
+
 </script>
 
 <div class="dark w-full ">
@@ -144,7 +147,9 @@ Turing machines have to physically move their head to a memory cell before they 
 
 ### Will it halt or not?
 
-Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that an undefined transition is met while executing the machine.
+Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that an undefined transition is met while executing the machine. Here is a machine that halts after 3 steps:
+
+<TmSimulator b64TM="mAQACAAACAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
