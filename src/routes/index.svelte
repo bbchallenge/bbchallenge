@@ -232,7 +232,7 @@
 				<span class="underline">Challenge goal</span>
 				<div class="flex flex-col">
 					<div>
-						There remains <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines
+						There remain <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines
 						with 5 states to decide (out of {numberWithCommas(metrics['total'])})
 					</div>
 					<!-- <div style="font-size:0.65rem">
@@ -285,7 +285,7 @@
 								/></label
 							>
 							<label class="flex flex-col">
-								origin x
+								x translation
 								<input
 									class="w-[70px]"
 									type="number"
@@ -661,7 +661,7 @@
 									</div>
 								</div>
 								<div class="text-xs">
-									Not classed yet:
+									Not classified yet:
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [6490892, 11274026, 9390305] as m}

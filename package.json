@@ -2,7 +2,9 @@
 	"name": "bbchallenge",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
+		"proxy": "cors-backdoor --target \"${API_BASE_URL:-https://api.bbchallenge.org}\" --port 4000 --config cors-backdoor.config.cjs",
+		"dev:base": "VITE_API_URL=http://localhost:4000/ svelte-kit dev",
+		"dev": "run-p proxy dev:base",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
@@ -36,10 +38,13 @@
 		"@sveltejs/adapter-static": "^1.0.0-next.29",
 		"@tailwindcss/typography": "^0.5.2",
 		"axios": "^0.26.0",
+		"cors-backdoor": "^1.0.6",
 		"mdsvex": "^0.10.5",
 		"netlify-cli": "^9.13.0",
 		"rehype-mathjax": "^4.0.2",
 		"remark-toc": "^8.0.1",
-		"svelte-seo": "^1.4.0"
+		"run-p": "^0.0.0",
+		"svelte-seo": "^1.4.0",
+		"yarn-run-all": "^3.1.1"
 	}
 }
