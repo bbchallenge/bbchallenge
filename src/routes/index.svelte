@@ -569,7 +569,7 @@
 									3. Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
-										{#each [1897885, 524224, 9281450] as m}
+										{#each [6048289, 4175994, 9281450] as m}
 											<span
 												class="cursor-pointer select-none underline"
 												on:click={async () => {
@@ -607,7 +607,7 @@
 									5. Translated Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
-										{#each [6164147, 42255, 20076854] as m}
+										{#each [6164147, 31837821, 20076854] as m}
 											<span
 												class="cursor-pointer select-none underline"
 												on:click={async () => {
@@ -645,7 +645,7 @@
 									7. Bells: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
-										{#each [73261028, 58360621, 8527536] as m}
+										{#each [73261028, 63938734, 8527536] as m}
 											<span
 												class="cursor-pointer select-none underline"
 												on:click={async () => {
@@ -664,7 +664,7 @@
 									Not classified yet:
 									<div class="ml-8 text-xs">
 										e.g:
-										{#each [6490892, 11274026, 9390305] as m}
+										{#each [6490892, 11018350, 9390305] as m}
 											<span
 												class="cursor-pointer select-none underline"
 												on:click={async () => {
