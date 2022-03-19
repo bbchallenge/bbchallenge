@@ -16,9 +16,10 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 </script>
 
-<div class="dark">
-<div class="prose prose-invert text-white  -mt-4  lg:ml-[200px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg ">
-<div class="leading-normal">
+<div class="dark w-full flex justify-center xl:justify-start">
+<div class="prose prose-invert text-white   -mt-4  xl:justify-start xl:ml-[170px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg w-full">
+<div class="leading-normal ">
+<div>
 
 ## Table of contents
 
@@ -174,14 +175,15 @@ Why 5? Let's first reformulate the problem in terms of busy beavers.
 
 <a id="the-busy-beaver-function"></a>
 
-## The busy beaver function
+## The busy beaver function BB
 
 <a id="possible-outcomes"></a>
 
-## Possible outcomes
+## Possible outcomes of the challenge
 
 
 
+</div>
 </div>
 </div>
 </div>
