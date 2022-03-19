@@ -358,7 +358,7 @@
 					</div>
 				</div>
 
-				<div class="mt-3 md:mt-0 md:ml-20">
+				<div class="mt-3 md:mt-0 md:ml-10 lg:ml-20">
 					<div>
 						{#if machine !== null}
 							{#if machineID !== null}
@@ -537,7 +537,9 @@
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
-				<div class="flex flex-col space-y-5 md:flex-row md:space-x-10 lg:space-x-20 md:space-y-0">
+				<div
+					class=" flex flex-col space-y-5 md:flex-row md:space-x-10   lg:space-x-20 lg:space-y-0"
+				>
 					<div id="zoology">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
