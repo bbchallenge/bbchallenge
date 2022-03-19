@@ -114,7 +114,12 @@
 	{/if}
 	{#if showTitle}
 		<div class="text-xs">
-			b64: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
+			<a
+				class="text-blue-400 hover:text-blue-300 cursor-pointer "
+				href="/story#base-64"
+				rel="external"
+				target="_blank">b64</a
+			>: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
 		</div>
 		<div class="text-xs mt-1">
 			<span

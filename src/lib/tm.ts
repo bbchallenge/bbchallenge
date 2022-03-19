@@ -1,5 +1,3 @@
-import { to_number } from 'svelte/internal';
-
 export type TM = Uint8Array;
 
 export const DB_SIZE = 88664064;

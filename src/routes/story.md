@@ -1,6 +1,9 @@
 <script lang="ts">
 import TmSimulator from "../lib/tm_simulator.svelte"
+import { b64URLSafetoTM, tmToTuringMachineDotIO } from '../lib/tm';
 import { onMount } from 'svelte';
+
+let theCode = tmToTuringMachineDotIO(b64URLSafetoTM("mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB"))
 
 onMount(() => { // TODO: this shouldn't be necessary
     const id = window.location.hash.replace(/^#/, '');
@@ -99,11 +102,14 @@ As with probably any programming language, the best way to understand Turing mac
 
 <TmSimulator/>
 
+A more detailed simulator is available at <a href="https://turingmachine.io" target="_blank">https://turingmachine.io</a>. Here is the code of the above machine in their format:
+<pre>{ theCode }</pre>
+
 <a id="space-time-diagrams"></a>
 
 #### Space-time diagrams
 
-Space-time diagrams provide a condensed way to visualise the behavior of a machine. The space-time diagram of a machine is a 2D image where the i<sup>th</sup> row represents the memory tape of the machine at the i<sup>th</sup> iteration. Black pixels are used for memory cells containing 0 and white for 1.
+Space-time diagrams provide a condensed way to visualise the behavior of Turing machines. The space-time diagram of a machine is a 2D image where the i<sup>th</sup> row represents the memory tape of the machine at the i<sup>th</sup> iteration. Black pixels are used for memory cells containing 0 and white for 1.
 
 Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
 
@@ -113,11 +119,17 @@ Here is the space-time diagram of the first 10,000 iterations of the <a  href="h
 
 </div>
 
-Colors green and red track the head position and movement: green when the head goes to the left and red when it goes to the right.
+Additional green and red colors are used to track the head position and its movement: green when the head has moved to the left and red when it has moved to the right.
+
+**Important:** these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps).
+
+<a id="base-64"></a>
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in <a href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5">base-64</a>. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
+In order to condense Turing machines programs in copyable strings we encode them in base-64. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>. 
+
+The exact base-64 algorithm that is used is <a href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_blank">here</a>.
 
 Any machine can be visualised given its base-64 encoding, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
