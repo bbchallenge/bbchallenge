@@ -537,9 +537,7 @@
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
-				<div
-					class=" flex flex-col space-y-5 md:flex-row md:space-x-10   lg:space-x-20 lg:space-y-0"
-				>
+				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12    lg:space-y-0">
 					<div id="zoology">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
