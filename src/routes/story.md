@@ -45,7 +45,7 @@ BB(5) = 47,176,870
 
 This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from blank memory tape).
 
-The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine that halts after 47,176,870 steps:
+The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -221,7 +221,7 @@ The fact that BB(4) = 107 means that if a 4-state Turing machine does not halt a
 
 Proving the value of BB(n) implies to be able to decipher the behavior of any machine with n-states (starting from blank tape). The number of machines grows exponentially with n hence making the task overwhelmingly hard very quickly.
 
-Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space efficiently.
+Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space of 5-state Turing machines contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space efficiently.
 
 Apart from concrete values of BB, the following is also known:
 
@@ -253,7 +253,9 @@ Prior work exhibited the current <a  href="https://bbchallenge.org/mAQACAQEDAQAD
 
 This led to [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) conjecturing that BB(5) = 47,176,870.
 
-Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find BB(5) and how you can contribute. Are you up for the challenge?
+Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find BB(5) and how you can contribute. 
+
+Are you up for the challenge?
 
 <a id="possible-outcomes-of-the-challenge"></a>
 
