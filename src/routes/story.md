@@ -228,11 +228,11 @@ Apart from concrete values of BB, the following is also known:
 - BB(5) >= 47,176,870 [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
 - BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)
 - BB(7) <Katex math={BB7}/> [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
-- BB(15) is at least as hard as solving Erdős' conjecture on powers of 2: "for n > 8, there is at least one digit 2 in the base-3 representation of 2<sup>n</sup>". [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
-- BB(27) is at least as hard as solving Goldbach conjecture: "for n > 2, every even integer is the sum of two primes" [unverified construction](https://gist.github.com/anonymous/a64213f391339236c2fe31f8749a0df6) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
-- BB(744) is at least as Riemann Hypothesis [[Matiyasevich and O'Rear and Aaronson, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/riemann-matiyasevich-aaronson.nql)
+- BB(15) is at least as hard as Erdős' conjecture on powers of 2: "for n > 8, there is at least one digit 2 in the base-3 representation of 2<sup>n</sup>". [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
+- BB(27) is at least as hard as Goldbach conjecture: "for n > 2, every even integer is the sum of two primes" [unverified construction](https://gist.github.com/anonymous/a64213f391339236c2fe31f8749a0df6) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
+- BB(744) is at least as hard as Riemann Hypothesis [[Matiyasevich and O'Rear and Aaronson, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/riemann-matiyasevich-aaronson.nql)
 - BB(748) is independent of ZF [[O'Rear, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/zf2.nql)
-- BB(5,372) is at least as Riemann Hypothesis [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
+- BB(5,372) is at least as hard as Riemann Hypothesis [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 - BB(7, 910) is independent of ZFC [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 
 All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two until it finds a counter-example to the conjecture. Hence the machine halts if and only if the conjecture is false!
