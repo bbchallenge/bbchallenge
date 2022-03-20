@@ -22,23 +22,23 @@ let BB72 = "10^{10^{10^{18,705,352}}}"
 let BB6 = "> 7.514\\times 10^{36,534}"
 
 
-// const R=0;
-// const L = 1;
-// const B = 2;
-// const C = 3;
-// const D = 4;
-// const E = 5;
-// const F = 6;
-// const G = 7;
-// let theM = new Uint8Array(
-//   [1,L,E,0,0,0,
-//    1,R,C,1,R,F,
-//    1,L,D,0,R,B,
-//    1,R,E,0,L,C,
-//    1,L,G,0,R,D,
-//    0,0,0,1,R,C,
-//    1,R,B,1,L,E]);
-// console.log(tmTob64URLSafe(theM))
+const R=0;
+const L = 1;
+const A = 1;
+const B = 2;
+const C = 3;
+const D = 4;
+const E = 5;
+const F = 6;
+const G = 7;
+let theM = new Uint8Array(
+  [1,R,B,0,L,C,
+   0,L,B,1,L,A,
+   1,R,D,1,L,E,
+   0,R,A,0,0,0,
+   1,L,C,0,L,A,
+   ]);
+console.log(tmTob64URLSafe(theM))
 
 </script>
 
@@ -163,9 +163,14 @@ Turing machines have to physically move their head to a memory cell before they 
 
 ### Will it halt or not?
 
-Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that an undefined transition is met while executing the machine. Here is a machine that halts after 3 steps:
+Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that the machine tries to execute an undefined transition and, since it is undefined, stops functioning. Here is a machine that halts after 4 steps:
 
 <TmSimulator b64TM="mAQACAAACAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
+
+Here is another machine that halts after 105 steps:
+
+<TmSimulator b64TM="mAQACAQEDAAECAQEBAQAEAQECAQAFAAAEAAABAAAA"/>
+
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 

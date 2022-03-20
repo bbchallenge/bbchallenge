@@ -52,15 +52,17 @@
 		const [nextState, nextPos] = step(machine, currState, headPos, tape);
 
 		if (nextState === null || nextPos == null) {
+			if (!hasHalted) nbSteps += 1;
 			hasHalted = true;
-		} else {
-			let nextRead = 0;
-			if (tape[nextPos] !== undefined) {
-				nextRead = tape[nextPos];
-			}
-
-			hasHalted = machine[6 * nextState + 3 * nextRead + 2] == 0;
 		}
+		// } else {
+		// 	let nextRead = 0;
+		// 	if (tape[nextPos] !== undefined) {
+		// 		nextRead = tape[nextPos];
+		// 	}
+
+		// 	hasHalted = machine[6 * nextState + 3 * nextRead + 2] == 0;
+		// }
 		if (nextState != null) {
 			currState = nextState;
 			headPos = nextPos;
@@ -114,17 +116,27 @@
 	<div>
 		<div class="font-bold -mb-5">Machine code</div>
 		<div class="text-xs mt-1 w-full  mt-5 -mb-5">
-			<span
-				href="https://turingmachine.io/"
-				on:click|preventDefault={() => {
-					navigator.clipboard.writeText(tmToTuringMachineDotIO(machine)).then(function () {
-						window.open('https://turingmachine.io/', '_blank').focus();
-					});
-				}}
-				target="_blank"
-				class="text-blue-400 hover:text-blue-300 cursor-pointer "
-				>Copy for https://turingmachine.io/</span
-			>
+			<div>
+				<span
+					on:click|preventDefault={() => {
+						navigator.clipboard.writeText(tmToTuringMachineDotIO(machine)).then(function () {
+							window.open('https://turingmachine.io/', '_blank').focus();
+						});
+					}}
+					target="_blank"
+					class="text-blue-400 hover:text-blue-300 cursor-pointer "
+					>Copy for https://turingmachine.io/</span
+				>
+			</div>
+			<div>
+				<a
+					href="/{b64TM}"
+					rel="external"
+					target="_blank"
+					class="text-blue-400 hover:text-blue-300 cursor-pointer text-[0.6rem] no-underline"
+					>{b64TM}</a
+				>
+			</div>
 		</div>
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>
