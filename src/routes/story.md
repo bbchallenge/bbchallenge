@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 import TmSimulator from "../lib/tm_simulator.svelte"
-import { b64URLSafetoTM, tmToTuringMachineDotIO } from '../lib/tm';
+import { b64URLSafetoTM, tmToTuringMachineDotIO, tmTob64URLSafe } from '../lib/tm';
 import Katex from "../lib/Katex.svelte"
 
 let theCode = tmToTuringMachineDotIO(b64URLSafetoTM("mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB"))
@@ -21,7 +21,23 @@ let BB7 = "\\geq 10^{10^{10^{18,705,352}}}"
 let BB72 = "10^{10^{10^{18,705,352}}}"
 let BB6 = "> 7.514\\times 10^{36,534}"
 
-// let theM = new Uint8Array([1,0,2,0,0,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+
+// const R=0;
+// const L = 1;
+// const B = 2;
+// const C = 3;
+// const D = 4;
+// const E = 5;
+// const F = 6;
+// const G = 7;
+// let theM = new Uint8Array(
+//   [1,L,E,0,0,0,
+//    1,R,C,1,R,F,
+//    1,L,D,0,R,B,
+//    1,R,E,0,L,C,
+//    1,L,G,0,R,D,
+//    0,0,0,1,R,C,
+//    1,R,B,1,L,E]);
 // console.log(tmTob64URLSafe(theM))
 
 </script>
@@ -227,7 +243,7 @@ Apart from concrete values of BB, the following is also known:
 
 - BB(5) >= 47,176,870 [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
 - BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)
-- BB(7) <Katex math={BB7}/> [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
+- BB(7) <Katex math={BB7}/> [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Cloudy176, 2014]](https://googology.fandom.com/wiki/User_blog:Cloudy176/Proving_the_bound_for_S(7)) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
 - BB(15) is at least as hard as Erdős' conjecture on powers of 2: "for n > 8, there is at least one digit 2 in the base-3 representation of 2<sup>n</sup>". [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
 - BB(27) is at least as hard as Goldbach conjecture: "for n > 2, every even integer is the sum of two primes" [unverified construction](https://gist.github.com/anonymous/a64213f391339236c2fe31f8749a0df6) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
 - BB(744) is at least as hard as Riemann Hypothesis [[Matiyasevich and O'Rear and Aaronson, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/riemann-matiyasevich-aaronson.nql)
@@ -277,6 +293,7 @@ Here are some possible outcomes to the quest of looking for BB(5):
 
 - [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
 - [[Brady, 1983]](https://www.jstor.org/stable/2007539)
+- [[Cloudy176, 2014]](https://googology.fandom.com/wiki/User_blog:Cloudy176/Proving_the_bound_for_S(7))
 - [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html), [Heiner Marxen's website](http://turbotm.de/~heiner/BB/)
 - [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.), [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
 - [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
