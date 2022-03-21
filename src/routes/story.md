@@ -59,7 +59,7 @@ The goal of the busy beaver challenge is to collaboratively prove or disprove th
 BB(5) = 47,176,870
 </div>
 
-This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from blank memory tape).
+This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from all-0 memory tape).
 
 The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
@@ -113,9 +113,9 @@ Each entry of the table is called a **transition** and instructs us what to do w
 2. move the head to the right
 3. jump to state B for the next instruction
 
-The machine will **halt** (i.e. cease functionning) if it ever meets an **undefined transitions** denoted by **???**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
+The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **???**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
 
-In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially blank (i.e. all memory cells are 0).
+In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially all 0 (i.e. all memory cells are 0).
 
 <a id="interactive-simulator"></a>
 
@@ -125,7 +125,7 @@ As with probably any programming language, the best way to understand Turing mac
 
 <TmSimulator/>
 
-A more detailed simulator is available at <a href="https://turingmachine.io" target="_blank">https://turingmachine.io</a>. Here is the code of the above machine in their format:
+A more detailed simulator is available at <a href="https://turingmachine.io" target="_all 0">https://turingmachine.io</a>. Here is the code of the above machine in their format:
 
 <pre>{ theCode }</pre>
 
@@ -151,7 +151,7 @@ Additional green and red colors are used to track the head position and its move
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in base-64^[The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_blank">here</a>.] (prefixed with `m`). For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
+In order to condense Turing machines programs in copyable strings we encode them in base-64^[The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>.] (prefixed with `m`). For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
 
 Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
@@ -163,7 +163,7 @@ Turing machines have to physically move their head to a memory cell before they 
 
 ### Will it halt or not?
 
-Turing machines have an important property: starting from a given memory tape (blank in our case), they either **halt** or don't. By halting we mean that the machine tries to execute an undefined transition and, since it is undefined, stops functioning. Here is a machine that halts after 4 steps:
+Turing machines have an important property: starting from a given memory tape (all-0 in our case), they either **halt** or don't. By halting we mean that the machine tries to execute an undefined transition and, since it is undefined, stops functioning. Here is a machine that halts after 4 steps:
 
 <TmSimulator b64TM="mAQACAAACAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
@@ -171,39 +171,31 @@ Here is another machine that halts after 105 steps:
 
 <TmSimulator b64TM="mAQACAQEDAAECAQEBAQAEAQECAQAFAAAEAAABAAAA"/>
 
-
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
-However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[This machine can be thought as the "while true" of Turing machines.] that will never halt starting from blank tape although it has plenty undefined transitions:
+However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
 
 <TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
-In this case it is easy to convince ourselves that the machine will never halt starting from blank tape. However, if we take our earlier example:
+In this case it is easy to convince ourselves that the machine will never halt starting from all-0 tape. However, if we take our earlier example:
 
-<div class="flex flex-col items-center">
-<div class="w-1/3 -mt-5 font-mono">
+<TmSimulator/>
 
-|     | 0   | 1   |
-| --- | --- | --- |
-| A   | 1RB | 1LC |
-| B   | 1RC | 1RB |
-| C   | 1RD | 0LE |
-| D   | 1LA | 1LD |
-| E   | ??? | 0LA |
+Will this one halt or not starting from all-0 tape?
 
-</div>
-</div>
-Will this one halt or not starting from blank tape?
+Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
 
-Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after 47,176,870 steps. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
+To this day, no 5-state Turing machine is known to halt after more than <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps.
 
-In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
+<!-- Following this train of thoughts, it seems natural to then ask if a 5-state machine can do even more than these 47,176,870 steps before halting. To this day (it was found in <a href="">1989</a>), the above machine still holds the record and is referred to as the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>. -->
 
-If there is no general method to tell if a machine will halt or not from blank tape, it does not mean that we cannot answer the question for specific machines or families of machines.
+<!-- In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
 
-With the busy beaver challenge, we hope to decide the halting problem (from blank tape) of all machines with 5 states, i.e. for any machine with 5 states we want to be able to tell if it halts or not starting from blank tape.
+If there is no general method to tell if a machine will halt or not from all-0 tape, it does not mean that we cannot answer the question for specific machines or families of machines. -->
 
-Why 5? Let's first reformulate the problem in terms of busy beavers.
+With the busy beaver challenge, we hope to discover if that <span class="bg-[#1162D3] px-0.5">47,176,870</span> record can be beaten or not among 5-state machines. This implies to decide, for all machines with 5 states, whether they halt or not.
+
+But why focusing on 5 states? Let's first reformulate the problem in terms of busy beavers.
 
 <a id="the-busy-beaver-function-bb"></a>
 
@@ -218,14 +210,14 @@ We can now properly define the busy beaver function BB as introduced in [[Rado, 
 <div class="flex justify-center items-center space-x-2">
 <div>
 BB(n) = 
-</div><div class="text-sm w-[300px]">Maximum number of steps done by a halting Turing machine with n states starting from blank memory tape</div>
+</div><div class="text-sm w-[300px]">Maximum number of steps done by a halting Turing machine with n states starting from all-0 memory tape</div>
 </div>
 
 Note that there is a finite number of Turing machines with n states, <Katex math={nbTM}/> to be exact, hence BB(n) is well defined.
 
 BB(n) is a very powerful number to know because it gives you a way to decide any machine with n states: run the machine and if it runs for BB(n)+1 steps you know that it will never halt.
 
-This means that the function n ↦ BB(n) is not computable otherwise the halting problem of Turing machines would be decidable. Find more properties of BB in [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf).
+This means that the function n ↦ BB(n) is not computable otherwise [the halting problem of Turing machines](https://en.wikipedia.org/wiki/Halting_problem) would be decidable. Find more properties of BB in [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf).
 
 <a id="what-is-known-about-bb"></a>
 
@@ -238,9 +230,9 @@ Only 4 values of BB are known:
 - BB(3) = 21, [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
 - BB(4) = 107, [[Brady, 1983]](https://www.jstor.org/stable/2007539)
 
-The fact that BB(4) = 107 means that if a 4-state Turing machine does not halt after 107 steps starting from blank tape then it will never halt.
+The fact that BB(4) = 107 means that if a 4-state Turing machine does not halt after 107 steps starting from all-0 tape then it will never halt.
 
-Proving the value of BB(n) implies to be able to decipher the behavior of any machine with n-states (starting from blank tape). The number of machines grows exponentially with n hence making the task overwhelmingly hard very quickly.
+Proving the value of BB(n) implies to be able to decipher the behavior of any machine with n-states (starting from all-0 tape). The number of machines grows exponentially with n hence making the task overwhelmingly hard very quickly.
 
 Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space of 5-state Turing machines contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space efficiently.
 
@@ -256,11 +248,17 @@ Apart from concrete values of BB, the following is also known:
 - BB(5,372) is at least as hard as Riemann Hypothesis [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 - BB(7, 910) is independent of ZFC [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 
-All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two until it finds a counter-example to the conjecture. Hence the machine halts if and only if the conjecture is false!
+All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two until it finds a counter-example to Erdős' conjecture on powers of 2. Hence the machine halts if and only if the conjecture is false!
 
 Knowing the value of BB(15) would imply that we'd know if that particular 15-state Turing machine halts or not, it means that knowing BB(15) is at least as hard as solving Erdős' conjecture.
 
-These results drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
+<a id="the-busy-beaver-scale"></a>
+
+#### The busy beaver scale
+
+These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counter-examples to be decidable. For instance, it is not known whether the set of counter-examples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is decidable or not.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
+
+These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 
 Hence, the frontier between tractable and intractable values of BB seems to be situated at BB(5).
 
@@ -274,7 +272,7 @@ Prior work exhibited the current <a  href="https://bbchallenge.org/mAQACAQEDAQAD
 
 This led to [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) conjecturing that BB(5) = 47,176,870.
 
-Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find BB(5) and how you can contribute. 
+Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find BB(5) and how you can contribute.
 
 Are you up for the challenge?
 
@@ -284,13 +282,13 @@ Are you up for the challenge?
 
 Here are some possible outcomes to the quest of looking for BB(5):
 
-- We decide the halting problem from blank tape of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
+- We decide the halting problem from all-0 tape of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
 
 - We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
 
 - We establish a fine-grained [Zoology](/#zoology) of the behaviors of 5-state Turing machine which allows to understand what they are capable of and where complexity lies 🥳
 
-- We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the busy beaver scale) which is also 🥳
+- We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the [busy beaver scale](#the-busy-beaver-scale)) which is also 🥳
 
 <a id="references"></a>
 
