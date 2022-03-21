@@ -256,7 +256,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 #### The busy beaver scale
 
-These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counter-examples to be decidable. For instance, it is not known whether the set of counter-examples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is decidable or not.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
+These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counter-examples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counter-examples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
 
 These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 
@@ -282,11 +282,11 @@ Are you up for the challenge?
 
 Here are some possible outcomes to the quest of looking for BB(5):
 
-- We decide the halting problem from all-0 tape of all 5-state machines, see [Method](/method), which as a result gives the value of BB(5) 🥳
+- We decide the halting problem of all 5-state machines (from all-0 tape), see [Method](/method), which as a result gives the value of BB(5) 🥳
 
 - We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
 
-- We establish a fine-grained [Zoology](/#zoology) of the behaviors of 5-state Turing machine which allows to understand what they are capable of and where complexity lies 🥳
+- We establish a fine-grained [Zoology](/#zoology) of the behaviors of 5-state Turing machines which allows us to understand what they are capable of and where complexity lies 🥳
 
 - We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the [busy beaver scale](#the-busy-beaver-scale)) which is also 🥳
 
