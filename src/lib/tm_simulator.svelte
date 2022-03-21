@@ -128,7 +128,7 @@
 					>Copy for https://turingmachine.io/</span
 				>
 			</div>
-			<div>
+			<!-- <div>
 				<a
 					href="/{b64TM}"
 					rel="external"
@@ -136,7 +136,7 @@
 					class="text-blue-400 hover:text-blue-300 cursor-pointer text-[0.6rem] no-underline"
 					>{b64TM}</a
 				>
-			</div>
+			</div> -->
 		</div>
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>

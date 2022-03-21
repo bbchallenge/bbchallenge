@@ -219,7 +219,19 @@
 			origin_x = Number(urlParams.get('ox'));
 		}
 	}
+
+	async function keydown(e) {
+		switch (e.keyCode) {
+			case 82:
+				await getRandomMachine();
+				draw();
+				window.history.replaceState({}, '', getSimulationLink());
+				break;
+		}
+	}
 </script>
+
+<svelte:window on:keydown={keydown} />
 
 <SvelteSeo title="bbchallenge" />
 
@@ -403,7 +415,7 @@
 										await getRandomMachine();
 										draw();
 										window.history.replaceState({}, '', getSimulationLink());
-									}}>Go Random</button
+									}}>Go (R)andom</button
 								>
 								<div
 									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer select-none"
