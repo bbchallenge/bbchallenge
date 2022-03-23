@@ -248,7 +248,7 @@ Apart from concrete values of BB, the following is also known:
 - BB(5,372) is at least as hard as Riemann Hypothesis [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 - BB(7, 910) is independent of ZFC [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 
-All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two until it finds a counterexample to Erdős' conjecture on powers of 2. Hence the machine halts if and only if the conjecture is false!
+All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two until in base 3 it finds a counterexample to Erdős' conjecture on powers of 2. Hence the machine halts if and only if the conjecture is false!
 
 Knowing the value of BB(15) would imply that we'd know if that particular 15-state Turing machine halts or not, it means that knowing BB(15) is at least as hard as solving Erdős' conjecture.
 
