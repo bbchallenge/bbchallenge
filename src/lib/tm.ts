@@ -74,14 +74,19 @@ export function APIDecisionStatusToTMDecisionStatus(status) {
 	return machineStatus;
 }
 
+const colorList = [
+	[255, 0, 0],
+	[255, 128, 0],
+	[0, 0, 255],
+	[0, 255, 0],
+	[255, 0, 255]
+];
 export function tm_trace_to_image(
 	ctx: CanvasRenderingContext2D,
-	canvas,
 	machine,
 	width = 900,
 	height = 1000,
 	origin_x = 0.5,
-	fitCanvas = true,
 	showHeadMove = false
 ) {
 	const imgData = ctx.createImageData(width, height);
@@ -102,7 +107,6 @@ export function tm_trace_to_image(
 	for (let row = 0; row < height; row += 1) {
 		min_pos = Math.min(min_pos, curr_pos);
 		max_pos = Math.max(max_pos, curr_pos);
-		const last_pos = curr_pos;
 		[curr_state, curr_pos] = step(machine, curr_state, curr_pos, tape);
 		if (curr_state === null) {
 			break;
@@ -123,24 +127,16 @@ export function tm_trace_to_image(
 
 			if (pos == curr_pos && showHeadMove) {
 				const imgIndex = 4 * (row * width + col);
-				imgData.data[imgIndex + 0] = curr_pos > last_pos ? 255 : 0;
-				imgData.data[imgIndex + 1] = curr_pos < last_pos ? 255 : 0;
-				imgData.data[imgIndex + 2] = 0;
+				imgData.data[imgIndex + 0] = colorList[curr_state][0]; // curr_pos > last_pos ? 255 : 0;
+				imgData.data[imgIndex + 1] = colorList[curr_state][1]; // curr_pos < last_pos ? 255 : 0;
+				imgData.data[imgIndex + 2] = colorList[curr_state][2];
 				imgData.data[imgIndex + 3] = 255;
 			}
 		}
 	}
-	if (fitCanvas) {
-		const renderer = document.createElement('canvas');
-		renderer.width = width;
-		renderer.height = height;
-		// render our ImageData on this canvas
-		renderer.getContext('2d').putImageData(imgData, 0, 0);
 
-		ctx.drawImage(renderer, 0, 0, width, height, 0, 0, canvas.width, canvas.height);
-	} else {
-		ctx.putImageData(imgData, 0, 0);
-	}
+	ctx.canvas.height = height;
+	ctx.putImageData(imgData, 0, 0);
 }
 
 export function step(machine: TM, curr_state, curr_pos, tape) {

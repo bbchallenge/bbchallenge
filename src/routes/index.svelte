@@ -25,12 +25,9 @@
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
 
-	let canvasEl;
+	let canvas;
 
-	const canvas = {
-		width: 400,
-		height: 500
-	};
+	const width = 400;
 
 	const drawRect = (context) => {
 		context.fillStyle = 'black';
@@ -53,7 +50,6 @@
 		origin_x = 0.5;
 	}
 
-	let fitCanvas = true;
 	let showHeadMove = true;
 
 	function getSimulationLink(forCopy = false) {
@@ -77,18 +73,9 @@
 	let showRandomOptions = false;
 
 	function draw() {
-		const context = canvasEl.getContext('2d');
+		const context = canvas.getContext('2d');
 		drawRect(context);
-		tm_trace_to_image(
-			context,
-			canvas,
-			machine,
-			tapeWidth,
-			nbIter,
-			origin_x,
-			fitCanvas,
-			showHeadMove
-		);
+		tm_trace_to_image(context, machine, tapeWidth, nbIter, origin_x, showHeadMove);
 	}
 
 	let randomType = 'all_undecided';
@@ -271,8 +258,8 @@
 		<div class="flex flex-col  ">
 			<div class="flex  items-start flex-col md:flex-row mt-3">
 				<div class="flex flex-col items-start">
-					<div class="bg-black mr-5">
-						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
+					<div class="bg-black mr-5 overflow-y-scroll h-[400px]">
+						<canvas class="image-render-pixel" bind:this={canvas} {width} />
 					</div>
 					<div class="text-xs pt-0 flex  space-x-1 mt-2">
 						<!-- <div
@@ -302,12 +289,12 @@
 							Simulation Parameters
 						</div>
 						<div>&middot;</div>
-						{#if canvasEl}
+						{#if canvas}
 							<div
 								class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
 								on:click={() => {
 									var image = new Image();
-									image.src = canvasEl.toDataURL();
+									image.src = canvas.toDataURL();
 									let w = window.open('');
 									w.document.write(image.outerHTML);
 								}}
