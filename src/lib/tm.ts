@@ -79,15 +79,17 @@ const colorList = [
 	[255, 128, 0],
 	[0, 0, 255],
 	[0, 255, 0],
-	[255, 0, 255]
+	[255, 0, 255],
+	[0, 255, 255],
+	[255, 255, 0]
 ];
 export function tm_trace_to_image(
 	ctx: CanvasRenderingContext2D,
 	machine,
+	initial_tape = '0',
 	width = 900,
 	height = 1000,
-	origin_x = 0.5,
-	showHeadMove = false
+	origin_x = 0.5
 ) {
 	const imgData = ctx.createImageData(width, height);
 
@@ -99,18 +101,17 @@ export function tm_trace_to_image(
 	// }
 
 	const tape = {};
+	for (let i = 0; i < initial_tape.length; i++) {
+		tape[i] = +initial_tape[i];
+	}
 	let curr_state = 0;
 	let curr_pos = 0;
 	let min_pos = 0;
-	let max_pos = 0;
+	let max_pos = initial_tape.length;
 
 	for (let row = 0; row < height; row += 1) {
 		min_pos = Math.min(min_pos, curr_pos);
 		max_pos = Math.max(max_pos, curr_pos);
-		[curr_state, curr_pos] = step(machine, curr_state, curr_pos, tape);
-		if (curr_state === null) {
-			break;
-		}
 
 		for (let pos = min_pos; pos <= max_pos; pos += 1) {
 			const col = pos + Math.floor(width * origin_x);
@@ -125,13 +126,18 @@ export function tm_trace_to_image(
 				imgData.data[imgIndex + 3] = 255;
 			}
 
-			if (pos == curr_pos && showHeadMove) {
+			if (pos == curr_pos && curr_state < colorList.length) {
 				const imgIndex = 4 * (row * width + col);
 				imgData.data[imgIndex + 0] = colorList[curr_state][0]; // curr_pos > last_pos ? 255 : 0;
 				imgData.data[imgIndex + 1] = colorList[curr_state][1]; // curr_pos < last_pos ? 255 : 0;
 				imgData.data[imgIndex + 2] = colorList[curr_state][2];
 				imgData.data[imgIndex + 3] = 255;
 			}
+		}
+
+		[curr_state, curr_pos] = step(machine, curr_state, curr_pos, tape);
+		if (curr_state === null) {
+			break;
 		}
 	}
 
