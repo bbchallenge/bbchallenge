@@ -86,7 +86,7 @@
 			<tbody>
 				{#each [...Array(machine.length / 6).keys()] as i}
 					<tr
-						><td class="w-1/3">{String.fromCharCode(65 + i)}</td>
+						><td class={`w-1/3 color-${i}`}>{String.fromCharCode(65 + i)}</td>
 						<td
 							class="w-1/3"
 							class:bg-magenta={currState !== null &&

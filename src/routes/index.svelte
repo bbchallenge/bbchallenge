@@ -30,12 +30,9 @@
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
 
-	let canvasEl;
+	let canvas;
 
-	const canvas = {
-		width: 400,
-		height: 500
-	};
+	const width = 400;
 
 	const drawRect = (context) => {
 		context.fillStyle = 'black';
@@ -47,6 +44,7 @@
 	export let tapeWidth = 300;
 	export let origin_x = 0.5;
 
+	let initial_tape = '0';
 	// Default the params if called with null
 	if (nbIter == null) {
 		nbIter = 3000;
@@ -57,9 +55,6 @@
 	if (origin_x == null) {
 		origin_x = 0.5;
 	}
-
-	let fitCanvas = true;
-	let showHeadMove = true;
 
 	function getSimulationLink(forCopy = false) {
 		let prefix = 'https://bbchalenge.org/';
@@ -82,18 +77,9 @@
 	let showRandomOptions = false;
 
 	function draw() {
-		const context = canvasEl.getContext('2d');
+		const context = canvas.getContext('2d');
 		drawRect(context);
-		tm_trace_to_image(
-			context,
-			canvas,
-			machine,
-			tapeWidth,
-			nbIter,
-			origin_x,
-			fitCanvas,
-			showHeadMove
-		);
+		tm_trace_to_image(context, machine, initial_tape, tapeWidth, nbIter, origin_x);
 	}
 
 	let randomType = 'all_undecided';
@@ -279,8 +265,8 @@
 		<div class="flex flex-col  ">
 			<div class="flex  items-start flex-col md:flex-row mt-3">
 				<div class="flex flex-col items-start">
-					<div class="bg-black mr-5">
-						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
+					<div class="bg-black mr-5 overflow-y-scroll h-[400px]">
+						<canvas class="image-render-pixel" bind:this={canvas} {width} />
 					</div>
 					<div class="text-xs pt-0 flex  space-x-1 mt-2">
 						<!-- <div
@@ -310,12 +296,12 @@
 							Simulation Parameters
 						</div>
 						<div>&middot;</div>
-						{#if canvasEl}
+						{#if canvas}
 							<div
 								class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
 								on:click={() => {
 									var image = new Image();
-									image.src = canvasEl.toDataURL();
+									image.src = canvas.toDataURL();
 									let w = window.open('');
 									w.document.write(image.outerHTML);
 								}}
@@ -368,8 +354,8 @@
 								>
 							</div>
 							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-								<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
-								<div>show head movement</div>
+								initial state
+								<input bind:value={initial_tape} on:change={draw} />
 							</label>
 						{/if}
 						<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
@@ -567,10 +553,7 @@
 						<div class="mt-0 flex flex-col">
 							<div class="ml-3 mt-2 text-sm ">
 								<div
-									class="text-blue-400
-				hover:text-blue-300
-				cursor-pointer
-				select-none underline"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer select-none underline"
 									on:click={() => {
 										showHistory = !showHistory;
 									}}
@@ -590,7 +573,7 @@
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
-				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12    lg:space-y-0">
+				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
 					<div id="zoology">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
