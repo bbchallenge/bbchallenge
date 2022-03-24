@@ -252,9 +252,9 @@ func GetMachineI(db []byte, i int, hasHeader bool) (tm TM, err error) {
 
 More go utils at [https://github.com/bbchallenge/bbchallenge-go/](https://github.com/bbchallenge/bbchallenge-go/)
 
-<a id="use-with-api"></a>
+<a id="api"></a>
 
-### Use with API
+### API
 
 You can also query the database through the API:
 
@@ -272,7 +272,9 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 }
 ```
 
-The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description.
+The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description. The field "status" keeps track of the deciders that have been applied to the database, the goal is for all machines to become "decided". For instance, this machine was decided by the decider for [Cyclers](link).
+
+The goal is for all the machines of the database to eventually be decided by [Deciders](#deciders).
 
 <a id="deciders"></a>
 
