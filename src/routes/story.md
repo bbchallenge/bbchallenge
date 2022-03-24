@@ -151,7 +151,7 @@ Additional green and red colors are used to track the head position and its move
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in base-64^[The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>.] (prefixed with `m`). For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
+In order to condense Turing machines programs in copyable strings we encode them in base-64^[1. The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>.] (prefixed with `m`). For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
 
 Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
@@ -173,7 +173,7 @@ Here is another machine that halts after 105 steps:
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
-However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
+However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[2. This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
 
 <TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
@@ -256,7 +256,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 #### The busy beaver scale
 
-These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
+These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[2. Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
 
 These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 

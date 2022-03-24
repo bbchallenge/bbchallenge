@@ -28,16 +28,18 @@ The method that we present to enumerate the _useful_ space of 5-state Turing mac
 
 1. **Phase 1: seed database.** Enumerate the _useful_ space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). This phase provides the [seed database](#seed-database) of undecided 5-state machines on which the busy beaver challenge is built.
 
-2. **Phase 2: deciders.** Write independent [Deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [Zoology](/#zoology) and to come up with one decider per family.
+2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each families.
 
 **Phase 1** was completed in December 2021:
 
-- it enumerated 125,479,953 5-state Turing machines (that's the size of the _useful_ space) in 30 hours^[Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
-- it marked **88,664,064** of them as undecided which are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their [index]() in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
+- it enumerated 125,479,953 5-state Turing machines (that's the size of the _useful_ space) in 30 hours^[1. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
+- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their [index]() in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
 
-Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results. See [Contribute](/contribute).
+Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See [Contribute](/contribute).
 
-**Phase 2** started in January 2022. Deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum](). For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
+**Phase 2** started in January 2022. Deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum]().
+
+For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
 
 You are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See [Contribute](/contribute).
 
@@ -45,23 +47,23 @@ You are invited to write your own deciders for the remaining (or yet-unknown) fa
 
 ### Why two phases?
 
-Deciders could be integrated into the enumeration algorithm of phase 1 in order to mark a lot less than 88,664,064 machines as undecided to begin with. This is the approach taken by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html).
+Phase 2's deciders could be integrated into the enumeration algorithm of phase 1 in order to mark a lot less than 88,664,064 machines as undecided to begin with. This is the approach taken by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html).
 
-However we strongly advocate for our model where responsibility is split into two independent phases, this is because:
+However we strongly advocate for our model where responsibility is split into two independent phases, that is because:
 
 1. Splitting responsibilities yields shorter and easier to verify/test/debug code for both phases. In particular, it is very important to establish trust in the seed database of undecided machines hence the simpler the code that generates it the better.
 
-2. Some deciders might require a lot more resources than others in order to decide machines and might only be relevant to a very small targetted subset of machines. Hence we don't want to execute them on all machines and potentially considerably slow down the enumeration process.
+2. Some deciders require a lot more resources than others in order to decide machines and might only be relevant to a very small and targetted subset of machines. Hence we don't want to execute them on all machines which would considerably slow down the enumeration process.
 
-Our approach provides modularity and hopefully facilitates reproducibility, peer review, and trust in the final result.
+Our approach provides modularity and hopefully facilitates reproducibility, peer reviewing, and trust in the final result.
 
 <a id="seed-database"></a>
 
 ## Seed database
 
-The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed).
+The code to construct **phase 1**'s seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed).
 
-This code was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C. This code is also tested.
+This code was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[2. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C. This code is also tested.
 
 You are more than invited to run and challenge this code, see [Contribute](/contribute).
 
@@ -71,9 +73,9 @@ Running the algorithm resulted in a seed database of 88,664,064 machines which y
 
 ### Construction
 
-The algorithm that we use to enumerate the _useful_ space of 5-state Turing machines is a variation of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) but the core idea is the same.
+The algorithm that we implement to enumerate the _useful_ space of 5-state Turing machines is a variation of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) but the core idea is the same.
 
-The algorithm recursively constructs the tree of 5-state Turing machines starting from:
+The algorithm recursively constructs the tree of _useful_ 5-state Turing machines starting from the common ancestor of all _useful_ machines^[3. By symmetry this common ancestor can use tape movement R and go to state B without loss of generality. Writing a 1 is motivated that if it wrote a 0 instead we could shift the tape to the first cell with a 1.]:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -99,7 +101,7 @@ In **case 1**. the machine is marked as **undecided** and is inserted in the see
 
 In **case 2.** the machine is marked as **non halting**, see [Story](/story) for more details on BB(4).
 
-In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit _isomorphic machines_^[Machines that are the same up to a renaming of the states]. Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
+In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit _isomorphic machines_^[4. Machines that are the same up to a renaming of the states]. Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
 
 Complete pseudo-code and details of the construction are available on the [forum](forum).
 
