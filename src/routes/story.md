@@ -43,7 +43,7 @@ let BB6 = "> 7.514\\times 10^{36,534}"
 </script>
 
 <div class="dark w-full ">
-<div class="prose prose-invert text-white -mt-4  xl:justify-start lg:ml-[170px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg w-full">
+<div class="prose prose-invert text-white -mt-4  xl:justify-start lg:ml-[170px] ml-0 sm:ml-4 font-sans prose-base sm:prose-lg w-full">
 <div class="leading-normal ">
 <div>
 
@@ -311,13 +311,3 @@ Here are some possible outcomes to the quest of looking for BB(5):
 </div>
 </div>
 </div>
-
-<style >
-h2:first-child {
-  margin-top: 2.4rem;
-  margin-bottom: 0;
-}
-h2:nth-child(3) {
-  margin-top: 3rem;
-}
-</style>

@@ -4,7 +4,7 @@ let nbTM5 = "21^{10}"
 </script>
 
 <div class="dark w-full ">
-<div class="prose prose-invert text-white -mt-4  xl:justify-start lg:ml-[170px] ml-0 sm:ml-2 font-sans prose-base sm:prose-lg w-full">
+<div class="prose prose-invert text-white -mt-4  xl:justify-start lg:ml-[170px] ml-0 sm:ml-4 font-sans prose-base sm:prose-lg w-full">
 <div class="leading-normal ">
 <div>
 
@@ -24,7 +24,7 @@ Thankfully most of this space is not _useful_ to us and only a fraction needs to
 
 ### Phase 1, phase 2
 
-The method that we present to enumerate the _useful_ space of 5-state Turing machines and analyse their behavior is fundamentally inspired by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) with some notable differences that we will outline. The first difference is that our method is divided into two successive phases:
+The method that we present to enumerate the _useful_ space of 5-state Turing machines and analyse their behavior is fundamentally inspired by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) with some notable differences that we will outline. The first difference is that our method is divided into two successive and independent phases:
 
 1. **Phase 1: seed database.** Enumerate the _useful_ space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). This phase provides the [seed database](#seed-database) of undecided 5-state machines on which the busy beaver challenge is built.
 
@@ -32,8 +32,8 @@ The method that we present to enumerate the _useful_ space of 5-state Turing mac
 
 **Phase 1** was completed in December 2021:
 
-- it enumerated 125,479,953 5-state Turing machines (that's the size of the _useful_ space) in 30 hours^[1. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
-- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their [index]() in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
+- it enumerated 125,479,953 Turing machines (that's the size of the _useful_ space) in 30 hours^[1. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
+- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See [Contribute](/contribute).
 
@@ -53,7 +53,7 @@ However we strongly advocate for our model where responsibility is split into tw
 
 1. Splitting responsibilities yields shorter and easier to verify/test/debug code for both phases. In particular, it is very important to establish trust in the seed database of undecided machines hence the simpler the code that generates it the better.
 
-2. Some deciders require a lot more resources than others in order to decide machines and might only be relevant to a very small and targetted subset of machines. Hence we don't want to execute them on all machines which would considerably slow down the enumeration process.
+2. Some deciders require a lot more resources than others and might only be relevant to a very small and targetted subset of machines. Hence we don't want to execute them on all enumerated machines which would considerably slow down the enumeration process.
 
 Our approach provides modularity and hopefully facilitates reproducibility, peer reviewing, and trust in the final result.
 
@@ -67,7 +67,9 @@ This code was built with readibility and concision in mind: it "only" consists o
 
 You are more than invited to run and challenge this code, see [Contribute](/contribute).
 
-Running the algorithm resulted in a seed database of 88,664,064 machines which you are welcomed to [download and use](#download-and-use)
+Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download-and-use).
+
+We aim at deciding every machines of this database.
 
 <a id="construction"></a>
 
@@ -91,7 +93,7 @@ The algorithm recursively constructs the tree of _useful_ 5-state Turing machine
 </div>
 </div>
 
-Each machine (i.e. node of the tree) is simulated until either:
+Each machine is simulated until either:
 
 1. [time or space limits](#time-and-space-limits) are met
 2. the machine exceeds BB(4) = 107 time steps while having visited only 4 states out of 5
@@ -99,21 +101,21 @@ Each machine (i.e. node of the tree) is simulated until either:
 
 In **case 1**. the machine is marked as **undecided** and is inserted in the seed database. <span class="text-sm">Note that introducing the idea of [a space limit](#time-space-limits) is novel compared to [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration). We conjecture that BB_SPACE(5) = 12,289.</span>
 
-In **case 2.** the machine is marked as **non halting**, see [Story](/story) for more details on BB(4).
+In **case 2.** the machine is marked as **non-halting**, see [Story](/story) for more details on BB(4).
 
 In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit _isomorphic machines_^[4. Machines that are the same up to a renaming of the states]. Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
 
-Complete pseudo-code and details of the construction are available on the [forum](forum).
+Thanks to (a) using a [space limit](#bbspace), (b) using low level code for the simulation algorithm and (c) using 2021's computers we do not need to burden the algorithm's code with simulation speed-ups as in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Acceleration).
 
-Thanks (a) using a [space limit](#bbspace), (b) using low level code for the simulation algorithm and (c) using 2021's computers we do not need to burden the algorithm's code with simulation speed-ups as in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Acceleration).
+Complete pseudo-code and details of the construction are available on the [forum](#).
 
 <a id="time-and-space-limits"></a>
 
-### Time and space limits
+#### Time and space limits
 
-During the enumeration algorithm we need a criterion to stop simulating machines that have been running for too long and mark them as **undecided**. We use the conjectured value of BB(5) = 47,176,870 steps as this cut-off time limit.
+During the enumeration algorithm we need a criterion to stop simulating machines that have been running for too long and mark them as **undecided**. We use the conjectured value of BB(5) = 47,176,870 steps as cut-off time limit.
 
-We introduce the idea of a space limit. Indeed, as described in the [story](/story), the busy beaver value is traditionally concerned with time only. But we can also ask an analogous question about **space**: "what is the maximum number of memory cells that a 5-state machine can visit before halting?".
+We introduce the idea of a space limit. Indeed the busy beaver value is traditionally concerned with time only. But we can also ask an analogous question about **space**: "what is the maximum number of memory cells that a 5-state machine can visit before halting?".
 
 <a id="bbspace"></a>
 
@@ -133,7 +135,7 @@ Note that if BB_SPACE(5) <Katex math="\neq"/> 12,289 we have marked halting mach
 
 <a id="metrics"></a>
 
-#### Metrics
+### Metrics
 
 The enumeration algorithm was run in December 2021 and here are some metrics about the _useful_ space of 5-state Turing machines:
 
@@ -229,11 +231,13 @@ def get_machine_i(machine_db_path, i, db_has_header=True):
         return f.read(30)
 ```
 
-More python utils at [https://github.com/bbchallenge/bbchallenge-py/](https://github.com/bbchallenge/bbchallenge-py/)
+More Python utils at [https://github.com/bbchallenge/bbchallenge-py/](https://github.com/bbchallenge/bbchallenge-py/)
 
 _Go_
 
 ```go
+type TM [30]byte
+
 func GetMachineI(db []byte, i int, hasHeader bool) (tm TM, err error) {
 	if i < 0 || i > len(db)/30 {
 		err := errors.New("invalid db index")

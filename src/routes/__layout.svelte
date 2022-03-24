@@ -118,7 +118,7 @@
 	}
 
 	:global(pre[class*='language-'] > *) {
-		font-size: 1rem;
+		font-size: 1.1rem;
 	}
 
 	:global(.prose h2:first-child) {
