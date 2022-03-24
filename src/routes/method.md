@@ -129,7 +129,7 @@ Which is the number of memory cells visited by <a  href="https://bbchallenge.org
 
 It turns that that BB_SPACE is a much more practical cut-off to use in the enumeration algorithm as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
 
-Note that if BB_SPACE(5) > 12,289 we have marked halting machines as **undecided**. But since they are in the database we should be able to find them in the future and update the conjecture accordingly. Same if BB(5) > 47,176,870.
+Note that if our conjecture is false, i.e. if BB_SPACE(5) > 12,289, the true BB_SPACE winner is necessarily in the seed database and should hopefully be discovered through the effort of deciding the database. Same if BB(5) > 47,176,870.
 
 <a id="metrics"></a>
 
