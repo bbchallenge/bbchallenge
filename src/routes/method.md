@@ -28,7 +28,7 @@ The method that we present to enumerate the _useful_ space of 5-state Turing mac
 
 1. **Phase 1: seed database.** Enumerate the _useful_ space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). This phase provides the [seed database](#seed-database) of undecided 5-state machines on which the busy beaver challenge is built.
 
-2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each families.
+2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each family.
 
 **Phase 1** was completed in December 2021:
 
@@ -221,14 +221,14 @@ _Python_
 
 ```python
 def get_header(machine_db_path):
-    with open(machine_db_path, "rb") as f:
-        return f.read(30)
+  with open(machine_db_path, "rb") as f:
+    return f.read(30)
 
 def get_machine_i(machine_db_path, i, db_has_header=True):
-    with open(machine_db_path, "rb") as f:
-        c = 1 if db_has_header else 0
-        f.seek(30*(i+c))
-        return f.read(30)
+  with open(machine_db_path, "rb") as f:
+    c = 1 if db_has_header else 0
+    f.seek(30*(i+c))
+  return f.read(30)
 ```
 
 More Python utils at [https://github.com/bbchallenge/bbchallenge-py/](https://github.com/bbchallenge/bbchallenge-py/)
@@ -239,18 +239,18 @@ _Go_
 type TM [30]byte
 
 func GetMachineI(db []byte, i int, hasHeader bool) (tm TM, err error) {
-	if i < 0 || i > len(db)/30 {
-		err := errors.New("invalid db index")
-		return tm, err
-	}
+  if i < 0 || i > len(db)/30 {
+    err := errors.New("invalid db index")
+    return tm, err
+  }
 
-	offset := 0
-	if hasHeader {
-		offset = 1
-	}
+  offset := 0
+  if hasHeader {
+    offset = 1
+  }
 
-	copy(tm[:], db[30*(i+offset):30*(i+offset+1)])
-	return tm, nil
+  copy(tm[:], db[30*(i+offset):30*(i+offset+1)])
+  return tm, nil
 }
 ```
 
@@ -276,7 +276,7 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 }
 ```
 
-- The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description.
+- The field "machine" is the [base-64 representation](/story#base-64) of the 30-byte machine's description.
 
 - The field "mahine_id" is the ID that you queried.
 
@@ -287,6 +287,86 @@ The goal is for all the machines of the database to eventually be decided by [De
 <a id="deciders"></a>
 
 ## Deciders
+
+<a name="definition"></a>
+
+### Definition
+
+A decider is a program that outputs `true` if it is able to tell whether a given machine halts or not. Deciders are applied to the machines of the [seed database](#seed-database) in order to reduce the number of undecided machines from 88,664,064 to 0.
+
+We expect that almost all machines of the seed database do not halt hence deciders are primarily focused on deciding that machines do not halt.
+
+To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines.
+
+Deciders are closely related to the [zoology](/#zoology) of 5-state machines as we aim to decide each family of the zoo. For instance:
+
+- 11,229,238 _Cyclers_, such as Machine [#123](/123), were decided by the [decider for cyclers](#).
+
+- 73,859,286 _Translated Cyclers_, such as Machine [#59,090,563](/59090563), were decided by the [decider for translated cyclers](#).
+
+Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](#) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
+
+Writing, testing and proving deciders is a collaborative task, see [Forum](#), and you are invited to [contribute](/contribute).
+
+<a name="undecided-machines-index-file"></a>
+
+### Undecided machines index file
+
+Trusted deciders are applied to the seed database and the indices of the machines that remain undecided after applying them are stored the following index file:
+
+- https://dna.hamilton.ie/tsterin/bb5_undecided_index
+
+It currently contains the indices of 2,322,122 machines and its shasum is `f9e7f731532259691cf917ff35fd5051c00f1636`.
+
+Machines' indices are stored in order as 4-byte big endian integers.
+
+Here are some routines to extract these indices from an index file:
+
+_Python_
+
+```python
+def get_indices_from_index_file(index_file_path):
+  index_file_size = os.path.getsize(index_file_path)
+
+  machines_indices = []
+  with open(index_file_path, "rb") as f:
+    for i in range(index_file_size//4):
+      chunk = f.read(4)
+      machines_indices.append(int.from_bytes(chunk, byteorder="big"))
+
+  return machines_indices
+```
+
+_Go_
+
+```go
+func GetIndicesFromIndexFile(indexFilePath string) (
+  machinesIndices []uint32, err error) {
+
+  var rawIndex []byte
+  rawIndex, err = ioutil.ReadFile(indexFilePath)
+
+  if err != nil {
+    return machinesIndices, err
+  }
+
+  for i := 0; i < len(rawIndex)/4; i += 4 {
+    machinesIndices = append(
+    machinesIndices, binary.BigEndian.Uint32(rawIndex[i:i+4]))
+  }
+
+  return machinesIndices, err
+}
+
+```
+
+## Proofs
+
+For the busy beaver challenge to be successful there is a need for careful proofs of each step of the method, both for the seed database's generating code and deciders.
+
+It is also likely that some machines will have to be decided by hand with specific proofs for individual machines.
+
+The careful writing and peer-reviewing of these proofs is vital to the success of the challenge, see [Contribute](#contribute).
 
 </div>
 </div>
