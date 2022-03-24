@@ -252,7 +252,7 @@ func GetMachineI(db []byte, i int, hasHeader bool) (tm TM, err error) {
 
 More go utils at [https://github.com/bbchallenge/bbchallenge-go/](https://github.com/bbchallenge/bbchallenge-go/)
 
-<a id="deciders"></a>
+<a id="api"></a>
 
 ### API
 
@@ -273,6 +273,8 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 ```
 
 The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description.
+
+<a id="deciders"></a>
 
 ## Deciders
 
