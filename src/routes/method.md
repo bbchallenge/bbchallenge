@@ -103,7 +103,7 @@ In **case 1**. the machine is marked as **undecided** and is inserted in the see
 
 In **case 2.** the machine is marked as **non-halting**, see [Story](/story) for more details on BB(4).
 
-In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit _isomorphic machines_^[4. Machines that are the same up to a renaming of the states]. Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
+In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit _isomorphic machines_^[4. Machines that are the same up to a renaming of the states.]. Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
 
 Thanks to (a) using a [space limit](#bbspace), (b) using low level code for the simulation algorithm and (c) using 2021's computers we do not need to burden the algorithm's code with simulation speed-ups as in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Acceleration).
 
@@ -260,7 +260,7 @@ More go utils at [https://github.com/bbchallenge/bbchallenge-go/](https://github
 
 ### API
 
-You can also query the database through the API:
+You can also query the database through the following API:
 
 ```
 GET https://api.bbchallenge.org/machine/<machine_id>
@@ -276,7 +276,11 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 }
 ```
 
-The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description. The field "status" keeps track of the deciders that have been applied to the database, the goal is for all machines to become "decided". For instance, this machine was decided by the decider for [Cyclers](link).
+- The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description.
+
+- The field "mahine_id" is the ID that you queried.
+
+- The field "status" keeps track of the deciders that have been applied to the database, the goal is for all machines to become "decided". For instance, this machine was decided by the decider for [Cyclers](link).
 
 The goal is for all the machines of the database to eventually be decided by [Deciders](#deciders).
 
