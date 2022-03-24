@@ -37,11 +37,9 @@ The method that we present to enumerate the _useful_ space of 5-state Turing mac
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See [Contribute](/contribute).
 
-**Phase 2** started in January 2022. Deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum]().
+**Phase 2** started in January 2022. You are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See [Contribute](/contribute).
 
-For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
-
-You are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See [Contribute](/contribute).
+Current deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum](). For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
 
 <a id="why-two-phases"></a>
 
@@ -63,13 +61,13 @@ Our approach provides modularity and hopefully facilitates reproducibility, peer
 
 The code to construct **phase 1**'s seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed).
 
-This code was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[2. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C. This code is also tested.
+This code was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[2. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C. This code is also unit tested.
 
 You are more than invited to run and challenge this code, see [Contribute](/contribute).
 
 Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download-and-use).
 
-We aim at deciding every machines of this database.
+The main aim of the busy beaver challenge is to decide every machine in this database.
 
 <a id="construction"></a>
 
@@ -113,7 +111,7 @@ Complete pseudo-code and details of the construction are available on the [forum
 
 #### Time and space limits
 
-During the enumeration algorithm we need a criterion to stop simulating machines that have been running for too long and mark them as **undecided**. We use the conjectured value of BB(5) = 47,176,870 steps as cut-off time limit.
+During the enumeration algorithm we need a criterion to stop simulating machines that have been running for too long and mark them as **undecided**. We use the conjectured value of BB(5) = 47,176,870 steps as a cut-off time limit [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html).
 
 We introduce the idea of a space limit. Indeed the busy beaver value is traditionally concerned with time only. But we can also ask an analogous question about **space**: "what is the maximum number of memory cells that a 5-state machine can visit before halting?".
 
@@ -131,7 +129,7 @@ Which is the number of memory cells visited by <a  href="https://bbchallenge.org
 
 It turns that that BB_SPACE is a much more practical cut-off to use in the enumeration algorithm as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
 
-Note that if BB_SPACE(5) <Katex math="\neq"/> 12,289 we have marked halting machines as **undecided**. But since they are in the database we should be able to find them in the future and update the conjecture accordingly. Same if BB(5) <Katex math="\neq"/> 47,176,870.
+Note that if BB_SPACE(5) > 12,289 we have marked halting machines as **undecided**. But since they are in the database we should be able to find them in the future and update the conjecture accordingly. Same if BB(5) > 47,176,870.
 
 <a id="metrics"></a>
 
@@ -163,7 +161,7 @@ The seed database of 88,664,064 undecided 5-state machines is available for down
 - [ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
 - [https://ipfs.prgm.dev/ipfs/QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](https://ipfs.prgm.dev/ipfs/QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
 
-The zipped database is 243M zipped and approx 2G unzipped, each machine is encoded on 30 bytes and the first 30 bytes consist of a reserved header, see [format](#format).
+The zipped database is 243M and approx 2G unzipped, each machine is encoded on 30 bytes and the first 30 bytes consist of a reserved header, see [format](#format).
 
 Database shasum:
 
@@ -364,9 +362,11 @@ func GetIndicesFromIndexFile(indexFilePath string) (
 
 For the busy beaver challenge to be successful there is a need for careful proofs of each step of the method, both for the seed database's generating code and deciders.
 
-It is also likely that some machines will have to be decided by hand with specific proofs for individual machines.
+It is also likely that some machines will have to be decided by hand with tailored proofs for individual machines.
 
 The careful writing and peer-reviewing of these proofs is vital to the success of the challenge, see [Contribute](#contribute).
+
+We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 
 </div>
 </div>
