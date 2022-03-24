@@ -252,11 +252,11 @@ func GetMachineI(db []byte, i int, hasHeader bool) (tm TM, err error) {
 
 More go utils at [https://github.com/bbchallenge/bbchallenge-go/](https://github.com/bbchallenge/bbchallenge-go/)
 
-<a id="api"></a>
+<a id="use-with-api"></a>
 
-### API
+### Use with API
 
-You can also query the database through an api:
+You can also query the database through the API:
 
 ```
 GET https://api.bbchallenge.org/machine/<machine_id>

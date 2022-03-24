@@ -116,4 +116,8 @@
 	:global(input) {
 		@apply text-black px-1 py-0.5;
 	}
+
+	:global(pre[class*='language-'] > *) {
+		font-size: 1rem;
+	}
 </style>
