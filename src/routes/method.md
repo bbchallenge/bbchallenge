@@ -144,16 +144,135 @@ The enumeration algorithm was run in December 2021 and here are some metrics abo
 | total pruned                             |             | 944 579    |
 | total undecided (time limit)             |             |            | 14,322,029 |
 | total undecided (space limit)            |             |            | 74,342,035 |
-| total undecided                          |             | 88 664 064 |            |
+| total undecided                          |             | 88,664,064 |            |
 | total enumerated                         | 125,479,989 |            |
 
 <a id="download-and-use"></a>
 
 ### Download and use
 
+<a name="#mirrors"></a>
+
+#### Mirrors
+
+The seed database of 88,664,064 undecided 5-state machines is available for download at:
+
+- [https://dna.hamilton.ie/tsterin/all_5_states_undecided_machines_with_global_header.zip](https://dna.hamilton.ie/tsterin/all_5_states_undecided_machines_with_global_header.zip)
+- [ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
+- [https://ipfs.prgm.dev/ipfs/QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](https://ipfs.prgm.dev/ipfs/QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
+
+The zipped database is 243M zipped and approx 2G unzipped, each machine is encoded on 30 bytes and the first 30 bytes consist of a reserved header, see [format](#format).
+
+Database shasum:
+
+1. zipped: `2576b647185063db2aa3dc2f5622908e99f3cd40`
+2. unzipped: `e57063afefd900fa629cfefb40731fd083d90b5e`
+
+You are welcome to host the database on your own mirror (as long as preserving shasum), see [Contribute](/contribute).
+
+<a name="#format"></a>
+
 #### Format
 
+The database is a binary file where each machine is described on 30 bytes. It starts with a 30-byte reserved **header** which currently contains the following information (first 13 bytes):
+
+1. `14,322,029`: number of undecided machines that exceeded the 47M steps time limit. <span class="text-xs">4-byte big endian integer</span>
+2. `74,342,035`: number of undecided machines that exceeded the 12k cells space limit. <span class="text-xs">4-byte big endian integer</span>
+3. `88,664,064`: total number of undecided machines. <span class="text-xs">4-byte big endian integer</span>
+4. `1`: a boolean indicating that the machines were lexicographically sorted. The first 14,322,029 undecided machines (47M time limit exceeded) were lexicographically sorted independently of the next 74,342,035 undecided machines (12k space limit exceeded). <span class="text-xs">1-byte boolean</span>
+
+Then, each machine is encoded on 30 bytes. First come the `14,322,029` machines that exceeded the time limit and then the `74,342,035` machines that exceeded the space limit, see [time and space limits](#time-and-space-limits). These two sets of machines are both lexicographically sorted.
+
+The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458&s=10000&w=300&ox=0.5) of the databse:
+
+<div class="flex flex-col items-center">
+<div class="w-1/3 -mt-5 font-mono">
+
+|     | 0   | 1   |
+| --- | --- | --- |
+| A   | 1RB | 0LD |
+| B   | 0LC | 1LE |
+| C   | 1LD | 1LC |
+| D   | 0RA | ??? |
+| E   | 1RB | 1RE |
+
+</div>
+</div>
+
+The machine is encoded using the following 30-byte array, with R=0 and L=1:
+
+```
+[1,R,2, 0,L,4,
+ 0,L,3, 1,L,5,
+ 1,L,4, 1,L,3,
+ 0,R,1, 0,0,0,
+ 1,R,2, 1,R,5]
+```
+
+Note that states are indexed starting at A=1 as the state value 0 is used to encode undefined transitions. Write and direction bytes of undefined transitions are set to 0 as well.
+
+#### Use the database
+
+Here are some routines that you can use to extract machines from the database:
+
+_Python_
+
+```python
+def get_header(machine_db_path):
+    with open(machine_db_path, "rb") as f:
+        return f.read(30)
+
+def get_machine_i(machine_db_path, i, db_has_header=True):
+    with open(machine_db_path, "rb") as f:
+        c = 1 if db_has_header else 0
+        f.seek(30*(i+c))
+        return f.read(30)
+```
+
+More python utils at [https://github.com/bbchallenge/bbchallenge-py/](https://github.com/bbchallenge/bbchallenge-py/)
+
+_Go_
+
+```go
+func GetMachineI(db []byte, i int, hasHeader bool) (tm TM, err error) {
+	if i < 0 || i > len(db)/30 {
+		err := errors.New("invalid db index")
+		return tm, err
+	}
+
+	offset := 0
+	if hasHeader {
+		offset = 1
+	}
+
+	copy(tm[:], db[30*(i+offset):30*(i+offset+1)])
+	return tm, nil
+}
+```
+
+More go utils at [https://github.com/bbchallenge/bbchallenge-go/](https://github.com/bbchallenge/bbchallenge-go/)
+
 <a id="deciders"></a>
+
+### API
+
+You can also query the database through an api:
+
+```
+GET https://api.bbchallenge.org/machine/<machine_id>
+```
+
+For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchallenge.org/machine/12345678) will return:
+
+```json
+{
+	"machine": "mAQACAQEDAQADAQADAQECAQAEAQEBAQEFAAAAAAAB",
+	"machine_id": 12345678,
+	"status": "decided"
+}
+```
+
+The field "machine" is the [base-64 representation](/story#base-64)of the 30-byte machine's description.
 
 ## Deciders
 
