@@ -120,4 +120,12 @@
 	:global(pre[class*='language-'] > *) {
 		font-size: 1rem;
 	}
+
+	:global(.prose h2:first-child) {
+		margin-top: 2.4rem;
+		margin-bottom: 0;
+	}
+	:global(.prose h2:nth-child(3)) {
+		margin-top: 3rem;
+	}
 </style>
