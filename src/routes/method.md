@@ -369,15 +369,21 @@ func GetIndicesFromIndexFile(indexFilePath string) (
 
 ```
 
-<a name="proofs"></a>
+<a name="reproducibility-and-verifiability-statement"></a>
 
-## Proofs
+## Reproducibility and verifiability statement
 
-For the busy beaver challenge to be successful there is a need for careful proofs of each step of the method, both for the seed database's generating code and deciders.
+Any result coming from the busy beaver challenge will be fundamentally based on the numerous programs involved in the project such as the [seed database](#seed-database)'s generating code or the [deciders](#deciders).
 
-It is also likely that some machines will have to be decided by hand with tailored proofs for individual machines.
+Because programs can contain bugs (and often do), such computer-based results tend to struggle gaining trust among the scientific community, where the gold standard is mathematical proof in a peer-reviewed publication.
 
-The careful writing and peer-reviewing of these proofs is vital to the success of the challenge, see [Contribute](#contribute).
+Because we aim to achieve this standard, the following principles are at the core of the busy beaver challenge.Any program involved part of the project must be:
+
+1.  Open source
+2.  Modular, concise and clear
+3.  Documented and unit tested
+4.  Reproducible with clear build and run instructions
+5.  Eventually accompanied by a proof of correctness
 
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 
