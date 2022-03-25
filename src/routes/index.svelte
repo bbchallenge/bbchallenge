@@ -727,8 +727,8 @@
 					</div>
 					<div class="max-w-[450px] flex flex-col space-y-2">
 						<div>
+							<div class="text-xl">Highlighted machines</div>
 							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
-								<div class="text-xl">Highlighted machines</div>
 								<div class="text-sm w-[400px] mt-1 ml-2">Scary undecided machines:</div>
 								<div class="mt-1 ml-8 w-full flex flex-col  ">
 									{#each highlighted['highlighted_undecided'] as m}
@@ -868,7 +868,7 @@
 										);
 									}}
 								>
-									&middot;&nbsp;5-state 23,554,764-halter
+									&middot;&nbsp;23,554,764-halter
 									<span class="text-xs">
 										<a href="http://bbchallenge.org" target="_blank">[bbchallenge, 2021]</a>
 									</span>
@@ -893,12 +893,88 @@
 										);
 									}}
 								>
-									&middot;&nbsp;5-state 2,133,492-halter
+									&middot;&nbsp;2,133,492-halter
 
 									<span class="text-xs">
 										<a href="http://bbchallenge.org" target="_blank">[bbchallenge, 2021]</a>
 									</span>
 								</div>
+							</div>
+						</div>
+						<div class="mt-2">
+							<div class="text-sm w-[400px] ml-2">
+								The first 3 <a
+									href="/story#skelets-43-undecided-machines"
+									rel="external"
+									class="underline">Skelet's machines</a
+								>:
+							</div>
+							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD'
+										);
+									}}
+								>
+									&middot;&nbsp;Skelet's machine 1
+								</div>
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC'
+										);
+									}}
+								>
+									&middot;&nbsp;Skelet's machine 2
+								</div>
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE'
+										);
+									}}
+								>
+									&middot;&nbsp;Skelet's machine 3
+								</div>
+							</div>
+							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+								<a class="cursor-pointer select-none leading-tight" href="/skelet" rel="external">
+									&middot;&nbsp;<span class="underline">full list</span>
+								</a>
 							</div>
 						</div>
 					</div>
