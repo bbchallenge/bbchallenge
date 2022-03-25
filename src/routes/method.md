@@ -1,6 +1,17 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Katex from "../lib/Katex.svelte"
-let nbTM5 = "21^{10}"
+  
+  let nbTM5 = "21^{10}"// Cannot inline {10} because of svelte
+
+  onMount(() => { // TODO: this shouldn't be necessary
+      const id = window.location.hash.replace(/^#/, '');
+      const element = id && document.getElementById(id);
+      console.log(id,element)
+      if (id && element) {
+        window.scrollTo({ top: element.top, behavior: 'smooth' });
+      }
+    });
 </script>
 
 <div class="dark w-full ">

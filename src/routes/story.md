@@ -15,6 +15,7 @@ onMount(() => { // TODO: this shouldn't be necessary
     }
   });
 
+// Cannot inline { .. } because of svelte
 let nbTM = "(4n+1)^{2n}"
 let nbTM5 = "21^{10} \\simeq 1.6\\times 10^{13}"
 let BB7 = "\\geq 10^{10^{10^{18,705,352}}}"
