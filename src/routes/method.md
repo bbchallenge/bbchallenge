@@ -93,13 +93,13 @@ The algorithm recursively constructs the tree of 5-state Turing machines startin
 </div>
 </div>
 
-Each machine is simulated until either:
+Each machine (i.e. node of the tree) is simulated until either:
 
 1. [time or space limits](#time-and-space-limits) are met
 2. the machine exceeds BB(4) = 107 time steps while having visited only 4 states out of 5
 3. an undefined transition is met
 
-In **case 1**. the machine is marked as **undecided** and is inserted in the seed database. <span class="text-sm">Note that introducing the idea of [a space limit](#time-space-limits) is novel compared to [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration). We conjecture that BB_SPACE(5) = 12,289.</span>
+In **case 1**. the machine is marked as **undecided** and is inserted in the seed database. <span class="text-sm">Note that introducing the idea of [a space limit](#bb-space) is novel compared to [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration). We conjecture that BB_SPACE(5) = 12,289.</span>
 
 In **case 2.** the machine is marked as **non-halting**, see [Story](/story) for more details on BB(4).
 
@@ -117,7 +117,7 @@ During the enumeration algorithm we need a criterion to stop simulating machines
 
 We introduce the idea of a space limit. Indeed the busy beaver value is traditionally concerned with time only. But we can also ask an analogous question about **space**: "what is the maximum number of memory cells that a 5-state machine can visit before halting?".
 
-<a id="bbspace"></a>
+<a id="bb-space"></a>
 
 #### BB_SPACE
 
@@ -126,7 +126,7 @@ We define BB_SPACE:
 <div class="flex justify-center items-center space-x-2">
 <div>
 BB_SPACE(n) = 
-</div><div class="text-sm w-[300px]">Maximum number of visited memory cells by a halting Turing machine with n states starting from all-0 memory tape</div>
+</div><div class="text-sm w-[300px]">Maximum number of  memory cells visited by a halting Turing machine with n states starting from all-0 memory tape</div>
 </div>
 
 Note that BB_SPACE **is not** Rado's <Katex math="\Sigma"/> function^[5. Rado's <Katex math="\Sigma(n)"/> is the maximum number of 1s on the final tape of a n-state halting Turing machine from all-0 tape. It does not provide a convenient space cut-off as the number of 1s on the final tape is not necessarily the maximum number of 1s seen in the execution of the machine.].
@@ -171,7 +171,6 @@ The seed database of 88,664,064 undecided 5-state machines is available for down
 
 - [https://dna.hamilton.ie/tsterin/all_5_states_undecided_machines_with_global_header.zip](https://dna.hamilton.ie/tsterin/all_5_states_undecided_machines_with_global_header.zip)
 - [ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
-- [https://ipfs.prgm.dev/ipfs/QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](https://ipfs.prgm.dev/ipfs/QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
 
 The zipped database is 243M and approx 2G unzipped, each machine is encoded on 30 bytes and the first 30 bytes consist of a reserved header, see [format](#format).
 
@@ -306,7 +305,7 @@ A decider is a program that outputs `true` if it is able to tell whether a given
 
 We expect that almost all machines of the seed database do not halt hence deciders are primarily focused on deciding that machines do not halt.
 
-To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines.
+To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines, see [Contribute](/contribute).
 
 Deciders are closely related to the [zoology](/#zoology) of 5-state machines as we aim to decide each family of the zoo. For instance:
 
