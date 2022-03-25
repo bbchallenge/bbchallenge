@@ -317,7 +317,7 @@ However, we do not believe that Skelet’s program has been reviewed independent
 
 In contrast, it is one of the core mission of the busy beaver challenge to provide collaborative, open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
 
-The full list of Skelet's 43 machines and their equivalent in the <a href="/method#seed-database" rel="external">seed database</a> of the busy beaver challenge <a href="/skelet" rel="external">is available here</a>.
+The full list of Skelet's 43 machines and their equivalents in the busy beaver challenge <a href="/skelet" rel="external">is available here</a>.
 
 <a id="references"></a>
 
