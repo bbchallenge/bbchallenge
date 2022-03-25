@@ -295,6 +295,8 @@ Here are some possible outcomes to the quest of looking for BB(5):
 
 ## Similar projects
 
+<a id="skelets-164-machines"></a>
+
 ### Skelet's 164 machines
 
 In 2003, [Skelet](https://skelet.ludost.net/bb/nreg.html) released ≈6000 lines of Pascal that aim at achieving the same result as the busy beaver challenge: decide the behavior of all 5-state Turing machines from all-0 tape. Skelet's program left only 164 machines undecided which is claimed to have since been reduced to only 21 machines by various authors including [Dan Briggs](https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf). Significant work has been made by these authors to manually decide the behavior of Skelet’s 164 machines.
