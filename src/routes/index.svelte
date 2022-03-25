@@ -901,8 +901,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="mt-2">
-							<div class="text-sm w-[400px] ml-2">
+						<div class="">
+							<div class="text-sm w-[400px] ml-2 mt-1">
 								The first 3 <a
 									href="/story#skelets-43-undecided-machines"
 									rel="external"
@@ -910,65 +910,86 @@
 								>:
 							</div>
 							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD'
-										);
-									}}
-								>
-									&middot;&nbsp;Skelet's machine 1
+								<div>
+									<span
+										class="cursor-pointer select-none leading-tight"
+										on:click={async () => {
+											await loadMachineFromB64(
+												'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD',
+												TMDecisionStatus.DECIDED_HALT
+											);
+											updateSimulationParameters(
+												'/mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
+											);
+											draw();
+											window.history.replaceState(
+												{},
+												'',
+												'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD'
+											);
+										}}
+									>
+										&middot;&nbsp;Skelet's machine 1
+									</span>
+									<span class="text-xs"
+										>≈ Machine <a href="/68329601" rel="external" class="underline"
+											>#{numberWithCommas(68329601)}</a
+										></span
+									>
 								</div>
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC'
-										);
-									}}
-								>
-									&middot;&nbsp;Skelet's machine 2
+								<div>
+									<span
+										class="cursor-pointer select-none leading-tight"
+										on:click={async () => {
+											await loadMachineFromB64(
+												'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC',
+												TMDecisionStatus.DECIDED_HALT
+											);
+											updateSimulationParameters(
+												'/mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
+											);
+											draw();
+											window.history.replaceState(
+												{},
+												'',
+												'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC'
+											);
+										}}
+									>
+										&middot;&nbsp;Skelet's machine 2
+									</span>
+									<span class="text-xs"
+										>≈ Machine <a href="/55767995" rel="external" class="underline"
+											>#{numberWithCommas(55767995)}</a
+										></span
+									>
 								</div>
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE'
-										);
-									}}
-								>
-									&middot;&nbsp;Skelet's machine 3
+								<div>
+									<span
+										class="cursor-pointer select-none leading-tight"
+										on:click={async () => {
+											await loadMachineFromB64(
+												'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE',
+												TMDecisionStatus.DECIDED_HALT
+											);
+											updateSimulationParameters(
+												'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000'
+											);
+											draw();
+											window.history.replaceState(
+												{},
+												'',
+												'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE'
+											);
+										}}
+									>
+										&middot;&nbsp;Skelet's machine 3
+									</span>
+									<span class="text-xs"
+										>≈ Machine <a href="/5950405" rel="external" class="underline"
+											>#{numberWithCommas(5950405)}</a
+										></span
+									>
 								</div>
 							</div>
 							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">

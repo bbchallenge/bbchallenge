@@ -2,6 +2,7 @@
 
 import { onMount } from 'svelte';
 import { API } from '$lib/api_server';
+import { numberWithCommas } from '$lib/utils';
 import {
 		TMDecisionStatus,
 		APIDecisionStatusToTMDecisionStatus
@@ -275,7 +276,7 @@ In order to find the equivalent machines to Skelet's in our database the followi
 	<tr>
 	  <td>{i+1}</td>
 		<td class="leading-tight text-sm"><pre class="m-0 inline bg-transparent p-0 select-all -ml-4">{@html m[0]}</pre><br/><span ><a href="/{m[1]}" rel="external" class="text-[0.6rem] underline">{m[1]}</a></span></td>
-		<td>Machine <a href="/{m[2]}" rel="external" class="underline">#{m[2]}</a></td>
+		<td>Machine <a href="/{m[2]}" rel="external" class="underline">#{numberWithCommas(m[2])}</a></td>
 		<td>
 		{#if skeletBBchallengeStatus[m[2]] !== undefined}
 		{#if skeletBBchallengeStatus[m[2]] == TMDecisionStatus.UNDECIDED}
