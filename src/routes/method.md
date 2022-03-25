@@ -392,10 +392,11 @@ Because programs can contain bugs (and often do), such computer-based results te
 Because we aim to achieve this standard, the following principles are at the core of the busy beaver challenge. Any program involved part of the project must be:
 
 1.  Open source
-2.  Modular, concise and clear
-3.  Documented and unit tested
-4.  Reproducible with clear build and run instructions
-5.  Eventually accompanied by a proof of correctness
+2.  Open to collaboration
+3.  Modular, concise and clear
+4.  Documented and unit tested
+5.  Reproducible with clear build/run instructions
+6.  Eventually accompanied by a proof of correctness
 
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 

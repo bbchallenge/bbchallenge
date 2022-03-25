@@ -303,9 +303,11 @@ Here are some possible outcomes to the quest of looking for BB(5):
 
 In 2003, [Skelet](https://skelet.ludost.net/bb/nreg.html) released ≈6000 lines of Pascal that aim at achieving the same result as the busy beaver challenge: decide the behavior of all 5-state Turing machines from all-0 tape. Skelet's program left only 164 machines undecided which is claimed to have since been reduced to only 21 machines by various authors including [Dan Briggs](https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf). Significant work has been made by these authors to manually decide the behavior of Skelet’s 164 machines.
 
-This represents a substantial and truly impressive effort, however we do not believe that Skelet’s program has been reviewed independently, and proving 6,000 lines of uncommented Pascal correct would be a challenge (How can we be sure that the original set of 164 machines is not erroneous? I.e we'd need a proof that some machines were not overlooked or nor decided using incorrect arguments.).
+This represents a substantial and truly impressive effort.
 
-In contrast, it is one of the core mission of the busy beaver challenge to provide open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
+However, we do not believe that Skelet’s program has been reviewed independently, and proving 6,000 lines of uncommented Pascal correct would be difficult (How can we be sure that the original set of 164 machines is not erroneous? I.e we'd need a proof that some machines were not overlooked or nor decided using incorrect arguments.).
+
+In contrast, it is one of the core mission of the busy beaver challenge to provide collaborative, open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
 
 <a id="references"></a>
 
