@@ -782,7 +782,7 @@
 										window.history.replaceState(
 											{},
 											'',
-											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB'
+											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt'
 										);
 									}}
 								>
@@ -864,7 +864,7 @@
 										window.history.replaceState(
 											{},
 											'',
-											'mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC'
+											'mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC&s=20000&ox=0.1&status=halt'
 										);
 									}}
 								>
@@ -889,7 +889,7 @@
 										window.history.replaceState(
 											{},
 											'',
-											'mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC'
+											'mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC&s=20000&w=300&ox=0.98&status=halt'
 										);
 									}}
 								>
@@ -925,17 +925,26 @@
 											window.history.replaceState(
 												{},
 												'',
-												'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD'
+												'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
 											);
 										}}
 									>
 										&middot;&nbsp;Skelet's machine 1
 									</span>
-									<span class="text-xs"
-										>≈ Machine <a href="/68329601" rel="external" class="underline"
-											>#{numberWithCommas(68329601)}</a
-										></span
-									>
+									<span class="text-xs">
+										≈ Machine
+										<span
+											class="cursor-pointer select-none underline"
+											on:click={async () => {
+												await loadMachineFromID(68329601);
+												updateSimulationParameters(`/${68329601}&s=10000&ox=0.1`);
+												draw();
+												window.history.replaceState({}, '', `/${68329601}&s=10000&ox=0.1`);
+											}}
+										>
+											#{numberWithCommas(68329601)}</span
+										>
+									</span>
 								</div>
 								<div>
 									<span
@@ -952,17 +961,26 @@
 											window.history.replaceState(
 												{},
 												'',
-												'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC'
+												'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
 											);
 										}}
 									>
 										&middot;&nbsp;Skelet's machine 2
 									</span>
-									<span class="text-xs"
-										>≈ Machine <a href="/55767995" rel="external" class="underline"
-											>#{numberWithCommas(55767995)}</a
-										></span
-									>
+									<span class="text-xs">
+										≈ Machine
+										<span
+											class="cursor-pointer select-none underline"
+											on:click={async () => {
+												await loadMachineFromID(55767995);
+												updateSimulationParameters(`/${55767995}&s=20000&ox=0.9`);
+												draw();
+												window.history.replaceState({}, '', `/${55767995}&s=10000&ox=0.9`);
+											}}
+										>
+											#{numberWithCommas(55767995)}</span
+										>
+									</span>
 								</div>
 								<div>
 									<span
@@ -979,17 +997,26 @@
 											window.history.replaceState(
 												{},
 												'',
-												'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE'
+												'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000&ox=0.5'
 											);
 										}}
 									>
 										&middot;&nbsp;Skelet's machine 3
 									</span>
-									<span class="text-xs"
-										>≈ Machine <a href="/5950405" rel="external" class="underline"
-											>#{numberWithCommas(5950405)}</a
-										></span
-									>
+									<span class="text-xs">
+										≈ Machine
+										<span
+											class="cursor-pointer select-none underline"
+											on:click={async () => {
+												await loadMachineFromID(5950405);
+												updateSimulationParameters(`/${5950405}&s=20000&ox=0.5`);
+												draw();
+												window.history.replaceState({}, '', `/${5950405}&s=10000&ox=0.5`);
+											}}
+										>
+											#{numberWithCommas(5950405)}</span
+										>
+									</span>
 								</div>
 							</div>
 							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
