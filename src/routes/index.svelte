@@ -973,7 +973,7 @@
 												TMDecisionStatus.DECIDED_HALT
 											);
 											updateSimulationParameters(
-												'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000'
+												'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000&ox=0.5'
 											);
 											draw();
 											window.history.replaceState(
