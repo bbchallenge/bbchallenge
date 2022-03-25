@@ -205,7 +205,7 @@ But why focusing on 5 states? Let's first reformulate the problem in terms of bu
 
 ### Definition of BB
 
-We can now properly define the busy beaver function BB as introduced in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15):
+We can now properly define the busy beaver function BB as introduced^[3. BB(n) was called S(n) in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15) and the name S(n) is frequent is the literature.] in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15):
 
 <div class="flex justify-center items-center space-x-2">
 <div>
@@ -256,7 +256,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 #### The busy beaver scale
 
-These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[3. Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
+These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[4. Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
 
 These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 

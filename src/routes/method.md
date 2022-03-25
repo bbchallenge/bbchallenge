@@ -65,7 +65,7 @@ The code to construct **phase 1**'s seed database is available at [https://githu
 
 This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[3. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C and is unit tested.
 
-This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between phase 1 and phase 2 in this project.
+This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between [phase 1 and phase 2](#phase-1-phase-2) in this project.
 
 Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download-and-use).
 
@@ -121,7 +121,17 @@ We introduce the idea of a space limit. Indeed the busy beaver value is traditio
 
 #### BB_SPACE
 
-We call this quantity BB_SPACE(5) and we conjecture:
+We define BB_SPACE:
+
+<div class="flex justify-center items-center space-x-2">
+<div>
+BB_SPACE(n) = 
+</div><div class="text-sm w-[300px]">Maximum number of visited memory cells by a halting Turing machine with n states starting from all-0 memory tape</div>
+</div>
+
+Note that BB_SPACE **is not** Rado's <Katex math="\Sigma"/> function^[5. Rado's <Katex math="\Sigma(n)"/> is the maximum number of 1s on the final tape of a n-state halting Turing machine from all-0 tape. It does not provide a convenient space cut-off as the number of 1s on the final tape is not necessarily the maximum number of 1s seen in the execution of the machine.].
+
+We conjecture:
 
 <div class="flex justify-center">
 BB_SPACE(5) =  12,289
@@ -129,7 +139,7 @@ BB_SPACE(5) =  12,289
 
 Which is the number of memory cells visited by <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
 
-It turns that that BB_SPACE is a much more practical cut-off to use in the enumeration algorithm as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
+It turns that BB_SPACE(5) is a much more practical cut-off to use in the enumeration algorithm than BB(5) as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
 
 Note that if our conjecture is false, i.e. if BB_SPACE(5) > 12,289, the true BB_SPACE winner is necessarily in the seed database and should hopefully be discovered through the effort of deciding the database. Same if BB(5) > 47,176,870.
 
@@ -371,6 +381,8 @@ It is also likely that some machines will have to be decided by hand with tailor
 The careful writing and peer-reviewing of these proofs is vital to the success of the challenge, see [Contribute](#contribute).
 
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
+
+<div class="mb-20"></div>
 
 </div>
 </div>
