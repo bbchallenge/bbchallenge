@@ -387,7 +387,7 @@ Any result coming from the busy beaver challenge will be fundamentally based on 
 
 Because programs can contain bugs (and often do), such computer-based results tend to struggle gaining trust among the scientific community, where the gold standard is mathematical proof in a peer-reviewed publication.
 
-Because we aim to achieve this standard, the following principles are at the core of the busy beaver challenge. Any program involved part of the project must be:
+Because we aim to achieve this standard, the following principles are at the core of the busy beaver challenge. Any program involved in the project must be:
 
 1.  Open source
 2.  Open to collaboration
