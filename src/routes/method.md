@@ -18,7 +18,7 @@ With the busy beaver challenge we want to decide the halting problem of all 5-st
 
 In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 167 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
 
-Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="5! = 120"/> ways to permute the states of a machine^[4. These 120 machines are said to be _isomorphic_.] which does not change behavior hence only one of these 120 machines needs to be studied.
+Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="5! = 120"/> ways to permute the states of a machine^[1. These 120 machines are said to be _isomorphic_.] which does not change behavior hence only one of these 120 machines needs to be studied.
 
 Hence, we aim at _sparsely_ enumerating the space of 5-state Turing machines: that is trying to enumerate the least amount of machines that are necessary to study in order to find BB(5).
 
@@ -34,7 +34,7 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 
 **Phase 1** was completed in December 2021:
 
-- it enumerated 125,479,953 Turing machines in 30 hours^[1. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
+- it enumerated 125,479,953 Turing machines in 30 hours^[2. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
 - it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See [Contribute](/contribute).
@@ -61,11 +61,11 @@ Our approach provides modularity and hopefully facilitates reproducibility, peer
 
 ## Seed database
 
-The code to construct **phase 1**'s seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed).
+The code to construct **phase 1**'s seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). You are more than invited to run and challenge this code, see [Contribute](/contribute).
 
-This code was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[2. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C. This code is also unit tested.
+This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[3. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C and is unit tested.
 
-You are more than invited to run and challenge this code, see [Contribute](/contribute).
+This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between phase 1 and phase 2 in this project.
 
 Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download-and-use).
 
@@ -103,11 +103,11 @@ In **case 1**. the machine is marked as **undecided** and is inserted in the see
 
 In **case 2.** the machine is marked as **non-halting**, see [Story](/story) for more details on BB(4).
 
-In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit _isomorphic machines_^[4. Machines that are the same up to a renaming of the states.]. Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
-
-Thanks to (a) using a [space limit](#bbspace), (b) using low level code for the simulation algorithm and (c) using 2021's computers we do not need to burden the algorithm's code with simulation speed-ups as in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Acceleration).
+In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit machines that are the same up to renaming of the states (_isomorphic machines_). Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
 
 Complete pseudo-code and details of the construction are available on the [forum](#).
+
+Thanks to (a) using a [space limit](#bbspace), (b) using low level code for the simulation algorithm and (c) using 2021's computers we do not need to burden the algorithm's code with simulation speed-ups as in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Acceleration).
 
 <a id="time-and-space-limits"></a>
 
