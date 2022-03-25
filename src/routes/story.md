@@ -158,9 +158,9 @@ For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQA
 
 Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
-<a id="ids"></a>
+<a id="machine-id"></a>
 
-#### Machine IDs
+#### Machine ID
 
 The busy beaver challenge is based on a <a href="/method#seed-database" rel="external">seed database</a> of 88,664,064 undecided 5-state machines, see <a href="/method" rel="external">Method</a>. We can consequently refer to undecided machines with their ID in this database.
 

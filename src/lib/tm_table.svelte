@@ -111,7 +111,7 @@
 			<div class="text-xs">
 				<a
 					class="text-blue-400 hover:text-blue-300 cursor-pointer "
-					href="/story#ids"
+					href="/story#machine-id"
 					rel="external">id</a
 				>: <span class="text-xs select-all">{machineID}</span>
 			</div>

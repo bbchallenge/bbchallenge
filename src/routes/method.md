@@ -48,9 +48,9 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 - it enumerated 125,479,953 Turing machines in 30 hours^[2. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
 - it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
 
-Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See [Contribute](/contribute).
+Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See <a href="/contribute" rel="external">Contribute</a>.
 
-**Phase 2** started in January 2022 and you are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See [Contribute](/contribute).
+**Phase 2** started in January 2022 and you are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See <a href="/contribute" rel="external">Contribute</a>.
 
 Current deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum](). For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
 
@@ -72,15 +72,13 @@ Our approach provides modularity and hopefully facilitates reproducibility, peer
 
 ## Seed database
 
-The code to construct **phase 1**'s seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). You are more than invited to run and challenge this code, see [Contribute](/contribute).
+The busy beaver challenge is based on a [downloadable](#download) seed database of 88,664,064 undecided 5-state machines which was constructed during [phase 1](#phase-1-phase-2) of the project, completed in December 2021. You are more than invited to reproduce this result, see <a href="/contribute" rel="external">Contribute</a>.
 
-This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[3. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C and is unit tested.
+The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[3. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C and is unit tested.
 
 This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between [phase 1 and phase 2](#phase-1-phase-2) in this project.
 
-Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download).
-
-The main aim of the busy beaver challenge is to decide every machine in this database.
+The main aim of the busy beaver challenge is to decide every machine in the seed database.
 
 <a id="construction"></a>
 
