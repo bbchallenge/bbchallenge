@@ -158,6 +158,14 @@ For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQA
 
 Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
+<a id="ids"></a>
+
+#### Machine IDs
+
+The busy beaver challenge is based on a <a href="/method#seed-database" rel="external">seed database</a> of 88,664,064 undecided 5-state machines, see <a href="/method" rel="external">Method</a>. We can consequently refer to undecided machines with their ID in this database.
+
+For instance: <a  href="https://bbchallenge.org/55897188" rel="external">https://bbchallenge.org/55897188</a>
+
 <!-- #### Runtime
 
 Turing machines have to physically move their head to a memory cell before they can read or write the data located there. This contrasts with the Random Access Memory (RAM) architecture used by modern computers where any _random_ memory cell can be accessed instantly given its address. Nonetheless, any algorithm that can be implemented using a modern RAM computer can be implemented with a Turing machine (and vice versa). -->
