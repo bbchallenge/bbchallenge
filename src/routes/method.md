@@ -37,7 +37,7 @@ The method that we present to enumerate the _useful_ space of 5-state Turing mac
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See [Contribute](/contribute).
 
-**Phase 2** started in January 2022. You are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See [Contribute](/contribute).
+**Phase 2** started in January 2022 and you are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See [Contribute](/contribute).
 
 Current deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum](). For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
 
@@ -357,6 +357,8 @@ func GetIndicesFromIndexFile(indexFilePath string) (
 }
 
 ```
+
+<a name="proofs"></a>
 
 ## Proofs
 
