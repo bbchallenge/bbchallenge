@@ -25,7 +25,7 @@
 
 <a id="overview"></a>
 
-With the busy beaver challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See [Story](/story).
+With the busy beaver challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See <a href="/story" rel="external">Story</a>.
 
 In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 167 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
 
@@ -78,7 +78,7 @@ This code is open source and was built with readibility and concision in mind: i
 
 This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between [phase 1 and phase 2](#phase-1-phase-2) in this project.
 
-Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download-and-use).
+Running the algorithm resulted in the seed database of 88,664,064 undecided 5-state machines which you are welcomed to [download and use](#download).
 
 The main aim of the busy beaver challenge is to decide every machine in this database.
 
@@ -112,7 +112,7 @@ Each machine (i.e. node of the tree) is simulated until either:
 
 In **case 1**. the machine is marked as **undecided** and is inserted in the seed database. <span class="text-sm">Note that introducing the idea of [a space limit](#bb-space) is novel compared to [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration). We conjecture that BB_SPACE(5) = 12,289.</span>
 
-In **case 2.** the machine is marked as **non-halting**, see [Story](/story) for more details on BB(4).
+In **case 2.** the machine is marked as **non-halting**, see <a href="/story" rel="external">Story</a> for more details on BB(4).
 
 In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit machines that are the same up to renaming of the states (_isomorphic machines_). Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
 
@@ -156,7 +156,7 @@ Note that if our conjecture is false, i.e. if BB_SPACE(5) > 12,289, the true BB_
 
 <a id="metrics"></a>
 
-### Metrics
+#### Metrics
 
 The enumeration algorithm was run in December 2021 and here are some metrics about the enumerated space of 5-state Turing machines:
 
@@ -170,9 +170,9 @@ The enumeration algorithm was run in December 2021 and here are some metrics abo
 | total undecided                          |             | 88,664,064 |            |
 | total enumerated                         | 125,479,989 |            |
 
-<a id="download-and-use"></a>
+<a id="download"></a>
 
-### Download and use
+### Download
 
 <a id="#mirrors"></a>
 
@@ -190,11 +190,12 @@ Database shasum:
 1. zipped: `2576b647185063db2aa3dc2f5622908e99f3cd40`
 2. unzipped: `e57063afefd900fa629cfefb40731fd083d90b5e`
 
-You are welcome to host the database on your own mirror (as long as preserving shasum), see [Contribute](/contribute).
+You are welcome to host the database on your own mirror (as long as preserving shasum), see
+<a href="/contribute" rel="external">Contribute</a>.
 
-<a id="#format"></a>
+<a id="format"></a>
 
-#### Format
+### Format
 
 The database is a binary file where each machine is described on 30 bytes. It starts with a 30-byte reserved **header** which currently contains the following information (first 13 bytes):
 
@@ -296,7 +297,7 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 }
 ```
 
-- The field "machine" is the [base-64 representation](/story#base-64) of the 30-byte machine's description.
+- The field "machine" is the <a href="/story#base-64" rel="external">base-64 representation</a> of the 30-byte machine's description.
 
 - The field "mahine_id" is the ID that you queried.
 
@@ -316,7 +317,7 @@ A decider is a program that outputs `true` if it is able to tell whether a given
 
 We expect that almost all machines of the seed database do not halt hence deciders are primarily focused on deciding that machines do not halt.
 
-To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines, see [Contribute](/contribute).
+To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines, see <a href="/contribute" rel="external">Contribute</a>.
 
 Deciders are closely related to the [zoology](/#zoology) of 5-state machines as we aim to decide each family of the zoo. For instance:
 
@@ -326,7 +327,7 @@ Deciders are closely related to the [zoology](/#zoology) of 5-state machines as 
 
 Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](#) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
 
-Writing, testing and proving deciders is a collaborative task, see [Forum](#), and you are invited to [contribute](/contribute).
+Writing, testing and proving deciders is a collaborative task, see [Forum](#), and you are invited to <a href="/contribute" rel="external">Contribute</a>.
 
 <a id="undecided-machines-index-file"></a>
 
@@ -398,7 +399,7 @@ Because we aim to achieve this standard, the following principles are at the cor
 
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 
-You are invited to [contribute](/contribute) at making the busy beaver challenge more reproducible and verifiable.
+You are invited to <a href="/contribute" rel="external">Contribute</a> at making the busy beaver challenge more reproducible and verifiable.
 
 <div class="mb-20"></div>
 

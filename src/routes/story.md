@@ -80,7 +80,7 @@ The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://tur
 
 Achieving the goal of the busy beaver challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a herf="/method" rel="external">Method</a>.
 
-[You can help!](/contribute)
+<a href="/contribute" rel="external">You can help!</a>
 
 <a id="turing-machines"></a>
 
@@ -152,7 +152,9 @@ Additional green and red colors are used to track the head position and its move
 
 #### Machine base-64 representation
 
-In order to condense Turing machines programs in copyable strings we encode them in base-64^[1. The exact base-64 algorithm that is used to encode machines is <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>.] (prefixed with `m`). For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
+In order to condense Turing machines programs in copyable strings we encode them in base-64 (prefixed with `m`). The exact base-64 algorithm that we use to encode machines is available <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>. For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
+
+See <a href="/method#format" rel="external">machine format</a> for how we interpret decoded base-64 representations as Turing machines.
 
 Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
@@ -174,7 +176,7 @@ Here is another machine that halts after 105 steps:
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
-However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[2. This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
+However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[1. This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
 
 <TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
 
@@ -206,7 +208,7 @@ But why focusing on 5 states? Let's first reformulate the problem in terms of bu
 
 ### Definition of BB
 
-We can now properly define the busy beaver function BB as introduced^[3. BB(n) was called S(n) in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15) and the name S(n) is frequent is the literature.] in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15):
+We can now properly define the busy beaver function BB as introduced^[2. BB(n) was called S(n) in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15) and the name S(n) is frequent is the literature.] in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15):
 
 <div class="flex justify-center items-center space-x-2">
 <div>
@@ -235,7 +237,7 @@ The fact that BB(4) = 107 means that if a 4-state Turing machine does not halt a
 
 Proving the value of BB(n) implies to be able to decipher the behavior of any machine with n-states (starting from all-0 tape). The number of machines grows exponentially with n hence making the task overwhelmingly hard very quickly.
 
-Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space of 5-state Turing machines contains <Katex math={nbTM5}/> machines, see [Method](/method) for how we can reduce and search this space efficiently.
+Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html). The naïve space of 5-state Turing machines contains <Katex math={nbTM5}/> machines, see <a href="/method#machine-format" rel="external">Method</a> for how we can reduce and search this space efficiently.
 
 Apart from concrete values of BB, the following is also known:
 
@@ -257,7 +259,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 #### The busy beaver scale
 
-These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[4. Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
+These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[3. Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
 
 These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 
@@ -273,7 +275,7 @@ Prior work exhibited the current <a  href="https://bbchallenge.org/mAQACAQEDAQAD
 
 This led to [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) conjecturing that BB(5) = 47,176,870.
 
-Go to [Method](/method) and [Contribute](/contribute) to see how we plan to find BB(5) and how you can contribute.
+Go to <a href="/method" rel="external">Method</a> and <a href="/contribute" rel="external">Contribute</a> to see how we plan to find BB(5) and how you can contribute.
 
 Are you up for the challenge?
 
@@ -283,7 +285,7 @@ Are you up for the challenge?
 
 Here are some possible outcomes to the quest of looking for BB(5):
 
-- We decide the halting problem of all 5-state machines (from all-0 tape), see [Method](/method), which as a result gives the value of BB(5) 🥳
+- We decide the halting problem of all 5-state machines (from all-0 tape), see <a href="/method#machine-format" rel="external">Method</a>, which as a result gives the value of BB(5) 🥳
 
 - We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
 
@@ -303,7 +305,7 @@ In 2003, [Skelet](https://skelet.ludost.net/bb/nreg.html) released ≈6000 lines
 
 This represents a substantial and truly impressive effort, however we do not believe that Skelet’s program has been reviewed independently, and proving 6,000 lines of uncommented Pascal correct would be a challenge (How can we be sure that the original set of 164 machines is not erroneous? I.e we'd need a proof that some machines were not overlooked or nor decided using incorrect arguments.).
 
-In contrast, it is one of the core mission of the busy beaver challenge to provide open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our [reproducibility and verifiability statement](/method#reproducibility-and-verifiability-statement).
+In contrast, it is one of the core mission of the busy beaver challenge to provide open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
 
 <a id="references"></a>
 
