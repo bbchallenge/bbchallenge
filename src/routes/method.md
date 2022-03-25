@@ -174,7 +174,7 @@ The enumeration algorithm was run in December 2021 and here are some metrics abo
 
 ### Download and use
 
-<a name="#mirrors"></a>
+<a id="#mirrors"></a>
 
 #### Mirrors
 
@@ -192,7 +192,7 @@ Database shasum:
 
 You are welcome to host the database on your own mirror (as long as preserving shasum), see [Contribute](/contribute).
 
-<a name="#format"></a>
+<a id="#format"></a>
 
 #### Format
 
@@ -308,7 +308,7 @@ The goal is for all the machines of the database to eventually be decided by [De
 
 ## Deciders
 
-<a name="definition"></a>
+<a id="definition"></a>
 
 ### Definition
 
@@ -328,7 +328,7 @@ Deciders are not _necessarily_ directly connected to a family of the [zoology](/
 
 Writing, testing and proving deciders is a collaborative task, see [Forum](#), and you are invited to [contribute](/contribute).
 
-<a name="undecided-machines-index-file"></a>
+<a id="undecided-machines-index-file"></a>
 
 ### Undecided machines index file
 
@@ -380,7 +380,7 @@ func GetIndicesFromIndexFile(indexFilePath string) (
 
 ```
 
-<a name="reproducibility-and-verifiability-statement"></a>
+<a id="reproducibility-and-verifiability-statement"></a>
 
 ## Reproducibility and verifiability statement
 
@@ -388,7 +388,7 @@ Any result coming from the busy beaver challenge will be fundamentally based on 
 
 Because programs can contain bugs (and often do), such computer-based results tend to struggle gaining trust among the scientific community, where the gold standard is mathematical proof in a peer-reviewed publication.
 
-Because we aim to achieve this standard, the following principles are at the core of the busy beaver challenge.Any program involved part of the project must be:
+Because we aim to achieve this standard, the following principles are at the core of the busy beaver challenge. Any program involved part of the project must be:
 
 1.  Open source
 2.  Modular, concise and clear
@@ -397,6 +397,8 @@ Because we aim to achieve this standard, the following principles are at the cor
 5.  Eventually accompanied by a proof of correctness
 
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
+
+You are invited to [contribute](/contribute) at making the busy beaver challenge more reproducible and verifiable.
 
 <div class="mb-20"></div>
 
