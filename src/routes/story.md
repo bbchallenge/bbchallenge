@@ -23,23 +23,23 @@ let BB72 = "10^{10^{10^{18,705,352}}}"
 let BB6 = "> 7.514\\times 10^{36,534}"
 
 
-// const R=0;
-// const L = 1;
-// const A = 1;
-// const B = 2;
-// const C = 3;
-// const D = 4;
-// const E = 5;
-// const F = 6;
-// const G = 7;
-// let theM = new Uint8Array(
-//   [1,R,B,0,L,C,
-//    0,L,B,1,L,A,
-//    1,R,D,1,L,E,
-//    0,R,A,0,0,0,
-//    1,L,C,0,L,A,
-//    ]);
-// console.log(tmTob64URLSafe(theM))
+const R=0;
+const L = 1;
+const A = 1;
+const B = 2;
+const C = 3;
+const D = 4;
+const E = 5;
+const F = 6;
+const G = 7;
+let theM = new Uint8Array(
+  [1,R,B,1,L,C,
+   0,L,A,0,L,D,
+   1,L,A,0,0,0,
+   1,L,B,1,R,E,
+   0,R,D,0,R,B,
+   ]);
+console.log(tmTob64URLSafe(theM))
 
 </script>
 

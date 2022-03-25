@@ -12,6 +12,7 @@
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
 	import SvelteSeo from 'svelte-seo';
+	import Katex from '../lib/Katex.svelte';
 
 	let machine = null;
 	export let machineID = null;
@@ -21,6 +22,10 @@
 	let history = getHistory();
 	let showHistory = false;
 	let showSimulationParams = false;
+
+	// Cannot inline { .. } because of svelte
+	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
+	let ApproxBB6 = '\\simeq 10^{36,534}';
 
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
@@ -244,9 +249,10 @@
 			</div>
 		</div>
 	{/if}
-	{#if metrics != null}
-		<div class="text-sm mb-1 mt-2 md:ml-3 ml-0">
-			<div class="flex flex-col space-y-1">
+
+	<div class="text-sm mb-1 mt-2 md:ml-3 ml-0">
+		<div class="flex flex-col space-y-1 min-h-[65px] ">
+			{#if metrics != null}
 				<span class="underline">Challenge goal</span>
 				<div class="flex flex-col">
 					<div>
@@ -254,8 +260,8 @@
 						with 5 states to decide (out of {numberWithCommas(metrics['total'])})
 					</div>
 					<!-- <div style="font-size:0.65rem">
-						Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
-					</div> -->
+							Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
+						</div> -->
 					<a
 						href="/contribute"
 						style="font-size:0.6rem"
@@ -264,9 +270,10 @@
 						You can help!!
 					</a>
 				</div>
-			</div>
+			{/if}
 		</div>
-	{/if}
+	</div>
+
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
 			<div class="flex  items-start flex-col md:flex-row mt-3">
@@ -759,44 +766,140 @@
 							{/if}
 						</div>
 						<div class="">
-							{#if highlighted != null && highlighted['highlighted_halt'] != null}
-								<div class="text-sm w-[400px] ml-2">
-									These machines halt after quite some steps:
+							<div class="text-sm w-[400px] ml-2">BB champions and other halting machines:</div>
+							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB'
+										);
+									}}
+								>
+									&middot;&nbsp;BB(5): 47,176,870-halter
+
+									<span class=" text-xs">
+										<a href="http://turbotm.de/~heiner/BB/mabu90.html " target="_blank"
+											>[Marxen & Buntrock, 1990]</a
+										>
+									</span>
 								</div>
-								<div class="w-full flex flex-col space-y-1 ml-8 mt-1">
-									{#each highlighted['highlighted_halt'] as m}
-										{#if m['machine_id'] !== undefined}
-											<div
-												class="cursor-pointer select-none"
-												on:click={async () => {
-													await loadMachineFromID(m['machine_id']);
-													updateSimulationParameters(m['link']);
-													draw();
-													window.history.replaceState({}, '', m['link']);
-												}}
-											>
-												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
-														class="underline">{numberWithCommas(m['machine_id'])}</span
-													>{/if}
-											</div>
-										{:else if m['b64'] !== undefined}
-											<div
-												class="cursor-pointer select-none"
-												on:click={async () => {
-													await loadMachineFromB64(m['b64'], TMDecisionStatus.DECIDED_HALT);
-													updateSimulationParameters(m['link']);
-													draw();
-													window.history.replaceState({}, '', m['link']);
-												}}
-											>
-												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine {m[
-														'b64'
-													]}{/if}
-											</div>
-										{/if}
-									{/each}
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQACAAEEAQADAAAGAQEDAQEBAAEFAAAAAQEBAAACAAADAAAF',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQACAAEEAQADAAAGAQEDAQEBAAEFAAAAAQEBAAACAAADAAAF&s=20000&w=500&ox=0.3&status=halt'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQACAAEEAQADAAAGAQEDAQEBAAEFAAAAAQEBAAACAAADAAAF'
+										);
+									}}
+								>
+									&middot;&nbsp;BB(6): <Katex math={ApproxBB6} />-halter
+
+									<span class="text-xs">
+										<a href="http://turbotm.de/~heiner/BB/bb-xlist.txt" target="_blank"
+											>[Kropitz, 2010]</a
+										>
+									</span>
 								</div>
-							{/if}
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF&s=20000&w=400&ox=0.08&status=halt'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF'
+										);
+									}}
+								>
+									&middot;&nbsp;BB(7): <Katex math={ApproxBB72} />-halter
+
+									<span class="text-xs">
+										<a
+											target="_blank"
+											href="https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F"
+											>[Wythagoras, 2014]</a
+										>
+									</span>
+								</div>
+							</div>
+							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC&s=20000&ox=0.1&status=halt'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC'
+										);
+									}}
+								>
+									&middot;&nbsp;5-state 23,554,764-halter
+									<span class="text-xs">
+										<a href="http://bbchallenge.org" target="_blank">[bbchallenge, 2021]</a>
+									</span>
+								</div>
+							</div>
+							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+								<div
+									class="cursor-pointer select-none leading-tight"
+									on:click={async () => {
+										await loadMachineFromB64(
+											'mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC',
+											TMDecisionStatus.DECIDED_HALT
+										);
+										updateSimulationParameters(
+											'/mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC&s=20000&w=300&ox=0.98&status=halt'
+										);
+										draw();
+										window.history.replaceState(
+											{},
+											'',
+											'mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC'
+										);
+									}}
+								>
+									&middot;&nbsp;5-state 2,133,492-halter
+
+									<span class="text-xs">
+										<a href="http://bbchallenge.org" target="_blank">[bbchallenge, 2021]</a>
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
