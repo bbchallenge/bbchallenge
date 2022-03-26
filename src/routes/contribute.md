@@ -23,7 +23,7 @@ Places to look at if this task interests you:
 
 - The [forum](#) maintains the list of all <a href="/method#deciders" rel="external">deciders</a>
 
-- The <a href="/#zoology">zoology</a> provides a good place to start in order to look for non-halting behaviors that can be automatically recognised
+- The <a href="/#zoology">zoology</a> provides families of behaviors that could be automatically recognised and decided
 
 - The <a href="/method#undecided-machines-index-file">undecided machines index file</a> gives you the indices of the currently undecided machines in the <a href="/method#seed-database" rel="external">seed database</a>
 
@@ -31,10 +31,10 @@ If you write a decider for the busy beaver challenge we ask that you:
 
 1. Read our our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>
 2. Create a post presenting your decider on the [forum](#)
-3. Produce a file with the <a href="/method#seed-database" rel="external">seed database's</a> indices of the machines that your decider has decided.
+3. Give the <a href="/method#seed-database" rel="external">seed database's</a> indices of the machines that your decider has decided
 4. Write tests for your deciders against example machines and counterexample machines in the <a href="/method#seed-database" rel="external">seed database</a>
 
-If consensus is reached that your decider is correct, it will be applied to the <a href="/method#seed-database" rel="external">seed database</a> and used to produce a new <a href="/method#undecided-machines-index-file">undecided machines index file</a>.
+If consensus is reached that your decider is correct, it will be applied to the <a href="/method#seed-database" rel="external">seed database</a> and used to produce a new version of the <a href="/method#undecided-machines-index-file">undecided machines index file</a>.
 
 <a id="write-proofs"></a>
 
@@ -46,17 +46,19 @@ If consensus is reached that your decider is correct, it will be applied to the 
 
 As advocated for in our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> it is very important that deciders are proved correct.
 
-We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
-
 Places to look at if this task interests you:
 
 - The [forum](#) maintains the list of all <a href="/method#deciders" rel="external">deciders</a> and is a good place to discuss about correctness and publish proofs
+
+You can post your proofs on the thread related to the decider that you proved.
+
+We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 
 <a id="individual-machines"></a>
 
 ### Individual machines
 
-It is most likely that some machine will be needed to be decided by hand. For instance, see <a href="https://github.com/danbriggs/Turing">Dan Briggs' github</a> about <a href="/story#skelets-43-undecided-machines" rel="external">Skelet's machines</a>. Such individual proofs might lead to the creation of more general deciders.
+It is most likely that some machine will be needed to be decided by hand. For instance, see <a href="https://github.com/danbriggs/Turing">Dan Briggs' github</a> about <a href="/story#skelets-43-undecided-machines" rel="external">Skelet's machines</a>.
 
 We collect these individual proofs on the [forum](#). Please create a new post for each proof indicating in the title the ID in the <a href="/method#seed-database" rel="external">seed database</a> of the machine that you are deciding.
 
@@ -64,9 +66,9 @@ We collect these individual proofs on the [forum](#). Please create a new post f
 
 ## Reproduce results
 
-To increase trust in the results of the busy beaver challenge it is important for independent reproduction of the results presented here. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
+To increase trust in the results of the busy beaver challenge it is important for independent reproduction of its results. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
 
-This can for instance be done by re-writing <a href="/method#deciders" rel="external">deciders</a> or the code that generated the <a href="/method#seed-database" rel="external">seed database</a>.
+This can for instance be done by reproducing <a href="/method#deciders" rel="external">deciders</a> or the code that generated the <a href="/method#seed-database" rel="external">seed database</a>.
 
 Places to look at if this task interests you:
 
