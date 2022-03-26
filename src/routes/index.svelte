@@ -798,17 +798,17 @@
 									class="cursor-pointer select-none leading-tight"
 									on:click={async () => {
 										await loadMachineFromB64(
-											'mAQACAAEEAQADAAAGAQEDAQEBAAEFAAAAAQEBAAACAAADAAAF',
+											'mAQACAQEFAQADAQAGAQEEAAACAQAFAAEDAQEBAAAEAAAAAQAD',
 											TMDecisionStatus.DECIDED_HALT
 										);
 										updateSimulationParameters(
-											'/mAQACAAEEAQADAAAGAQEDAQEBAAEFAAAAAQEBAAACAAADAAAF&s=20000&w=500&ox=0.3&status=halt'
+											'/mAQACAQEFAQADAQAGAQEEAAACAQAFAAEDAQEBAAAEAAAAAQAD&s=20000&w=400&ox=0.08&status=halt'
 										);
 										draw();
 										window.history.replaceState(
 											{},
 											'',
-											'mAQACAAEEAQADAAAGAQEDAQEBAAEFAAAAAQEBAAACAAADAAAF'
+											'mAQACAQEFAQADAQAGAQEEAAACAQAFAAEDAQEBAAAEAAAAAQAD&s=20000&w=400&ox=0.08&status=halt'
 										);
 									}}
 								>
@@ -834,7 +834,7 @@
 										window.history.replaceState(
 											{},
 											'',
-											'mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF'
+											'mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF&s=20000&w=400&ox=0.08&status=halt'
 										);
 									}}
 								>

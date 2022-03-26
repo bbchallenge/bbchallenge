@@ -33,11 +33,12 @@ const E = 5;
 const F = 6;
 const G = 7;
 let theM = new Uint8Array(
-  [1,R,B,1,L,C,
-   0,L,A,0,L,D,
-   1,L,A,0,0,0,
-   1,L,B,1,R,E,
-   0,R,D,0,R,B,
+  [1,R,B,1,L,E,
+   1,R,C,1,R,F,
+   1,L,D,0,R,B,
+   1,R,E,0,L,C,
+   1,L,A,0,R,D,
+   0,0,0,1,R,C,
    ]);
 console.log(tmTob64URLSafe(theM))
 
