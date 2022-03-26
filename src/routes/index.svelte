@@ -533,7 +533,7 @@
 					<div class="mt-0 flex flex-col">
 						<div class="ml-3 mt-4 text-sm ">
 							<a
-								href="/base64"
+								href="/base-64"
 								class="text-blue-400
 			hover:text-blue-300
 			cursor-pointer

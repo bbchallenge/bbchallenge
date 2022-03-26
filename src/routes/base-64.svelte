@@ -57,8 +57,8 @@
 	>
 		<div class="leading-normal ">
 			<div>
-				This tool allows you to get bbchallenge's base-64 representation of 2-symbol Turing
-				machines:
+				This tool allows you to get bbchallenge's <a href="/story#base-64" rel="external">base-64</a
+				> representation of 2-symbol Turing machines:
 			</div>
 		</div>
 
