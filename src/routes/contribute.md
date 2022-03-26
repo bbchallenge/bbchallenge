@@ -89,7 +89,7 @@ Here are some examples of missing features:
 - A better, more customizable, visualisation tool for <a href="/story#space-time-diagrams">space-time diagrams</a>. See [this issue](https://github.com/bbchallenge/bbchallenge/issues/2).
 - If a machine of the database is decided, such as <a href="https://bbchallenge.org/59090563&s=10000&w=300&ox=0.5" rel="external">#59,090,563</a>, give the link to its decider. See [this issue](#).
 
-Pages like <a href="/story" rel="external">/story</a>, <a href="/method" rel="external">/story</a>, <a href="/contribute" rel="external">/contribute</a> are also collaborative and you can submit changes on [github](https://github.com/bbchallenge/bbchallenge).
+Pages like <a href="/story" rel="external">/story</a>, <a href="/method" rel="external">/method</a>, <a href="/contribute" rel="external">/contribute</a> are also collaborative and you can submit changes on [github](https://github.com/bbchallenge/bbchallenge).
 
 <a id="share-the-story"></a>
 
