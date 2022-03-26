@@ -104,7 +104,7 @@ export function tm_trace_to_image(
 		max_pos = Math.max(max_pos, curr_pos);
 		const last_pos = curr_pos;
 		[curr_state, curr_pos] = step(machine, curr_state, curr_pos, tape);
-		if (curr_state === null) {
+		if (curr_state === null || curr_state >= machine.length / 6) {
 			break;
 		}
 

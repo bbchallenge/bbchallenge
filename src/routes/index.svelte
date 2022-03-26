@@ -530,9 +530,23 @@
 						</div>
 					</div>
 
+					<div class="mt-0 flex flex-col">
+						<div class="ml-3 mt-4 text-sm ">
+							<a
+								href="/base64"
+								class="text-blue-400
+			hover:text-blue-300
+			cursor-pointer
+			select-none underline"
+							>
+								Base 64 converter
+							</a>
+						</div>
+					</div>
+
 					{#if history}
 						<div class="mt-0 flex flex-col">
-							<div class="ml-3 mt-4 text-sm ">
+							<div class="ml-3 mt-2 text-sm ">
 								<div
 									class="text-blue-400
 				hover:text-blue-300
