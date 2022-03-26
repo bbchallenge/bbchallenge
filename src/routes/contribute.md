@@ -78,7 +78,7 @@ Places to look at if this task interests you:
 
 If you reproduce results of the busy beaver challenge please share about your reproduction on the dedicated section of the [forum](#).
 
-<a id="this-webiste"></a>
+<a id="this-website"></a>
 
 ## This website
 
