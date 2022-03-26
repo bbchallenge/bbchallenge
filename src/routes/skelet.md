@@ -260,7 +260,7 @@ let skeletTranslation = [
 
 Here are <a href="https://skelet.ludost.net/bb/nreg.html" rel="external">Skelet's 43 undecided machines</a> and their equivalent machines in the <a href="/method#seed-database" rel="external">seed database</a> of the busy beaver challenge. <a href="/story#skelets-43-undecided-machines" rel="external">More info about Skelet's machines</a>.
 
-Some of these 43 machines are claimed to have been decided (way before the busy beaver challenge existed) and only 21 appear to be currently still undecided, see <a href="https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf">https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf</a>.
+Some of these 43 machines are claimed to have been decided (way before the busy beaver challenge existed) and only 21 appear to be currently still undecided, see <a href="https://github.com/danbriggs/Turing">Dan Briggs' github</a>.
 
 In order to find the equivalent machines to Skelet's in our database the following transformations are applied:
 
