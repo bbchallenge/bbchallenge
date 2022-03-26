@@ -264,6 +264,7 @@
 						</div> -->
 					<a
 						href="/contribute"
+						rel="external"
 						style="font-size:0.6rem"
 						class="text-blue-400 hover:text-blue-300 cursor-pointer"
 					>
