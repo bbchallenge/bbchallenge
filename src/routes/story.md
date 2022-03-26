@@ -217,7 +217,7 @@ But why focusing on 5 states? Let's first reformulate the problem in terms of bu
 
 ### Definition of BB
 
-We can now properly define the busy beaver function BB as introduced^[2. BB(n) was called S(n) in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15) and the name S(n) is frequent is the literature.] in [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15):
+We can now properly define the busy beaver function BB as introduced^[2. BB(n) was called S(n) in [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf) and the name S(n) is frequent is the literature.] in [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf):
 
 <div class="flex justify-center items-center space-x-2">
 <div>
@@ -237,8 +237,8 @@ This means that the function n ↦ BB(n) is not computable otherwise [the haltin
 
 Only 4 values of BB are known:
 
-- BB(1) = 1, [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
-- BB(2) = 6, [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
+- BB(1) = 1, [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf)
+- BB(2) = 6, [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf)
 - BB(3) = 21, [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
 - BB(4) = 107, [[Brady, 1983]](https://www.jstor.org/stable/2007539)
 
@@ -329,7 +329,7 @@ The full list of Skelet's 43 machines and their equivalents in the busy beaver c
 - [[Cloudy176, 2014]](https://googology.fandom.com/wiki/User_blog:Cloudy176/Proving_the_bound_for_S(7))
 - [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html), [Heiner Marxen's website](http://turbotm.de/~heiner/BB/)
 - [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.), [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
-- [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15)
+- [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf)
 - [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
 - [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
 - [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)

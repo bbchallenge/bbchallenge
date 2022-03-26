@@ -138,7 +138,7 @@ BB_SPACE(n) =
 </div><div class="text-sm w-[300px]">Maximum number of  memory cells visited by a halting Turing machine with n states starting from all-0 memory tape</div>
 </div>
 
-Note that BB_SPACE **is not** Rado's <Katex math="\Sigma"/> function^[5. Rado's <Katex math="\Sigma(n)"/> is the maximum number of 1s on the final tape of a n-state halting Turing machine from all-0 tape. It does not provide a convenient space cut-off as the number of 1s on the final tape is not necessarily the maximum number of 1s seen in the execution of the machine.] [[Rado, 1962]](https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/t-rado-on-noncomputable-functions-the-bell-system-technical-journal-vol-41-1962-pp-877884/B3195DCDC0A27E8D0D4C19793FFA1B15).
+Note that BB_SPACE **is not** Rado's <Katex math="\Sigma"/> function^[5. Rado's <Katex math="\Sigma(n)"/> is the maximum number of 1s on the final tape of a n-state halting Turing machine from all-0 tape. It does not provide a convenient space cut-off as the number of 1s on the final tape is not necessarily the maximum number of 1s seen in the execution of the machine.] [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf).
 
 We conjecture:
 
