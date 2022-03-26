@@ -253,11 +253,12 @@ let skeletTranslation = [
 <div>
 
 <!-- This is needed as a hack when no table of contents is used because of :global(.prose h2:first-child) in __layout.svelte -->
+
 ##
 
 ## Skelet's 43 machines
 
-Here are  <a href="https://skelet.ludost.net/bb/nreg.html" rel="external">Skelet's 43 undecided machines</a> and their equivalent machines in the <a href="/method#seed-database" rel="external">seed database</a> of the busy beaver challenge. <a href="/story#skelets-43-undecided-machines" rel="external">More info about Skelet's machines</a>.
+Here are <a href="https://skelet.ludost.net/bb/nreg.html" rel="external">Skelet's 43 undecided machines</a> and their equivalent machines in the <a href="/method#seed-database" rel="external">seed database</a> of the busy beaver challenge. <a href="/story#skelets-43-undecided-machines" rel="external">More info about Skelet's machines</a>.
 
 Some of these 43 machines are claimed to have been decided (way before the busy beaver challenge existed) and only 21 appear to be currently still undecided, see <a href="https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf">https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf</a>.
 
@@ -277,8 +278,8 @@ In order to find the equivalent machines to Skelet's in our database the followi
   {#each skeletTranslation as m, i}
 	<tr>
 	  <td>{i+1}</td>
-		<td class="leading-tight text-sm"><pre class="m-0 inline bg-transparent p-0 select-all -ml-4">{@html m[0]}</pre><br/><span ><a href="/{m[1]}" rel="external" class="text-[0.6rem] underline">{m[1]}</a></span></td>
-		<td>Machine <a href="/{m[2]}" rel="external" class="underline">#{numberWithCommas(m[2])}</a></td>
+		<td class="leading-tight text-sm"><pre class="m-0 inline bg-transparent p-0 select-all -ml-4">{@html m[0]}</pre><br/><span ><a href="/{m[1]}&s=20000" rel="external" class="text-[0.6rem] underline">{m[1]}</a></span></td>
+		<td>Machine <a href="/{m[2]}&s=20000" rel="external" class="underline">#{numberWithCommas(m[2])}</a></td>
 		<td>
 		{#if skeletBBchallengeStatus[m[2]] !== undefined}
 		{#if skeletBBchallengeStatus[m[2]] == TMDecisionStatus.UNDECIDED}
