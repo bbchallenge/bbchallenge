@@ -928,10 +928,7 @@
 									<span
 										class="cursor-pointer select-none leading-tight"
 										on:click={async () => {
-											await loadMachineFromB64(
-												'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD',
-												TMDecisionStatus.DECIDED_HALT
-											);
+											await loadMachineFromB64('mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD');
 											updateSimulationParameters(
 												'/mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
 											);
@@ -964,10 +961,7 @@
 									<span
 										class="cursor-pointer select-none leading-tight"
 										on:click={async () => {
-											await loadMachineFromB64(
-												'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC',
-												TMDecisionStatus.DECIDED_HALT
-											);
+											await loadMachineFromB64('mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC');
 											updateSimulationParameters(
 												'/mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
 											);
@@ -1000,10 +994,7 @@
 									<span
 										class="cursor-pointer select-none leading-tight"
 										on:click={async () => {
-											await loadMachineFromB64(
-												'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE',
-												TMDecisionStatus.DECIDED_HALT
-											);
+											await loadMachineFromB64('mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE');
 											updateSimulationParameters(
 												'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000&ox=0.5'
 											);
