@@ -917,10 +917,8 @@
 						</div>
 						<div class="">
 							<div class="text-sm w-[400px] ml-2 mt-1">
-								The first 3 <a
-									href="/story#skelets-43-undecided-machines"
-									rel="external"
-									class="underline">Skelet's machines</a
+								Some <a href="/story#skelets-43-undecided-machines" rel="external" class="underline"
+									>Skelet's machines</a
 								>:
 							</div>
 							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
