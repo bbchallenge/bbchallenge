@@ -100,7 +100,7 @@
 				<h2 class="text-lg">Tips</h2>
 				<ul>
 					<li>Use `<span class="select-all">???</span>` for undefined transition</li>
-					<li>Minimal syntactic verifiaction is performed</li>
+					<li>Minimal syntactic verification is performed</li>
 				</ul>
 			</div>
 		</div>
