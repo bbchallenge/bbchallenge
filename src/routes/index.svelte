@@ -416,7 +416,7 @@
 							<div>
 								Random machine from the <a
 									href="https://bbchallenge.org/method#seed-database"
-									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
 									rel="external">seed database</a
 								>:
 							</div>
