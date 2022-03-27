@@ -52,7 +52,9 @@ Although **Phase 1** of the project was completed, it needs to be reproduced ind
 
 **Phase 2** started in January 2022 and you are invited to write your own deciders for the remaining (or yet-unknown) families and to reproduce or verify existing ones! See <a href="/contribute" rel="external">Contribute</a>.
 
-Current deciders are available at [https://github.com/bbchallenge/bbchallenge-deciders](https://github.com/bbchallenge/bbchallenge-deciders) and are also discussed on the [forum](). For instance, [this decider](https://github.com/bbchallenge/bbchallenge-deciders/tree/main/decider-translated-cyclers) decided the family of [Translated Cyclers]() (e.g. Machine <a href="/59090563&s=10000&w=300&ox=0.5">#59,090,563</a>).
+#### Currently applied deciders
+
+Currently applied deciders are [listed on the forum](https://discuss.bbchallenge.org/t/currently-applied-deciders/32/3) and you are invited to <a href="/contribute" rel="external">Contribute</a>.
 
 <a id="why-two-phases"></a>
 
@@ -114,7 +116,7 @@ In **case 2.** the machine is marked as **non-halting**, see <a href="/story" re
 
 In **case 3.** there are naïvely <Katex math="2*2*5=20"/> choices for the undefined transition that was encountered. This number of choices is reduced by imposing an order on the set of states as this allows not to visit machines that are the same up to renaming of the states (_isomorphic machines_). Further pruning methods are implemented to discard redundant machines. The algorithm is then applied recursively to the machines equipped of their new transition.
 
-Complete pseudo-code and details of the construction are available on the [forum](#).
+Complete pseudo-code and details of the construction are available [on the forum](https://discuss.bbchallenge.org/c/seed-database/6).
 
 Thanks to (a) using a [space limit](#bbspace), (b) using low level code for the simulation algorithm and (c) using 2021's computers we do not need to burden the algorithm's code with simulation speed-ups as in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Acceleration).
 
@@ -325,7 +327,7 @@ Deciders are closely related to the [zoology](/#zoology) of 5-state machines as 
 
 Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](#) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
 
-Writing, testing and proving deciders is a collaborative task, see [Forum](#), and you are invited to <a href="/contribute" rel="external">Contribute</a>.
+Writing, testing and proving deciders is a collaborative task, see [the decider section of the forum](https://discuss.bbchallenge.org/c/deciders/5), and you are invited to <a href="/contribute" rel="external">Contribute</a>.
 
 <a id="undecided-machines-index-file"></a>
 
