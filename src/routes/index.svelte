@@ -1035,9 +1035,3 @@
 		</div>
 	</div>
 </div>
-
-<div class="text-[0.6rem]">
-	Maintainer: <a href="https://dna.hamilton.ie/tsterin/" class="text-blue-400 hover:text-blue-300"
-		>Tristan Stérin</a
-	>
-</div>
