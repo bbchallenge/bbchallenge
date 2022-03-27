@@ -413,7 +413,12 @@
 					<div class="mt-4 flex flex-col items-start">
 						<div>Change machine:</div>
 						<div class="ml-3 mt-1 text-sm">
-							<div>Random machine from the database:</div>
+							<div>
+								Random machine from the <a
+									href="https://bbchallenge.org/method#seed-database"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">seed database</a
+								>:
+							</div>
 
 							<!-- {#if !preSeed} -->
 							<div class="flex flex-col items-end mx-3 ">
