@@ -11,6 +11,15 @@
 
 The busy beaver challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the busy beaver challenge.
 
+
+<a id="zoology"></a>
+
+## Zoology
+
+We aim at collaboratively building a <a href="/#zoology">zoology</a> of the machines of the busy beaver challenge. This will allows us to understand what these machines are capable of and where complexity lies.
+
+The zoology is collaborative and you can contribute to it [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23).
+
 <a id="write-deciders"></a>
 
 ## Write deciders
@@ -21,16 +30,16 @@ You are invited to write deciders in order to further reduce the number of undec
 
 Places to look at if this task interests you:
 
-- The [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
+- The forum [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
 
-- The <a href="/#zoology">zoology</a> provides families of behaviors that could be automatically recognised and decided
+- The <a href="/#zoology">zoology</a> provides families of behaviors that could be automatically recognised and decided, more [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23)
 
 - The <a href="/method#undecided-machines-index-file">undecided machines index file</a> gives you the indices of the currently undecided machines in the <a href="/method#seed-database" rel="external">seed database</a>
 
 If you write a decider for the busy beaver challenge we ask that you:
 
 1. Read our our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>
-2. Create a post on forum [following these instructions]([maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32))
+2. Create a post on forum [following these instructions](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
 3. Give the <a href="/method#seed-database" rel="external">seed database's</a> indices of the machines that your decider has decided
 4. Write tests for your deciders against example machines and counterexample machines in the <a href="/method#seed-database" rel="external">seed database</a>
 
@@ -48,7 +57,7 @@ As advocated for in our <a href="/method#reproducibility-and-verifiability-state
 
 Places to look at if this task interests you:
 
-- The [forum](#) maintains the list of all <a href="/method#deciders" rel="external">deciders</a> and is a good place to discuss about correctness and publish proofs
+- The [forum](https://discuss.bbchallenge.org/c/deciders/5) maintains the list of all deciders and is a good place to discuss about correctness and publish proofs
 
 You can post your proofs on the thread related to the decider that you proved.
 
@@ -60,7 +69,7 @@ We would encourage the use of automatic proving tools such as [Lean](https://lea
 
 It is most likely that some machine will be needed to be decided by hand. For instance, see <a href="https://github.com/danbriggs/Turing">Dan Briggs' github</a> about <a href="/story#skelets-43-undecided-machines" rel="external">Skelet's machines</a>.
 
-We collect these individual proofs on the [forum](#). Please create a new post for each proof indicating in the title the ID in the <a href="/method#seed-database" rel="external">seed database</a> of the machine that you are deciding.
+We collect these individual proofs on the [forum](https://discuss.bbchallenge.org/c/individual-machines/7). Please create a new post in [this category](https://discuss.bbchallenge.org/c/individual-machines/7) for each proof indicating in the title the ID in the <a href="/method#seed-database" rel="external">seed database</a> of the machine that you are deciding.
 
 <a id="reproduce-results"></a>
 
@@ -72,11 +81,11 @@ This can for instance be done by reproducing <a href="/method#deciders" rel="ext
 
 Places to look at if this task interests you:
 
-- The code that generated the <a href="/method#seed-database" rel="external">seed database</a> is available [here](https://github.com/bbchallenge/bbchallenge-seed) and is discussed on the [forum](#)
+- The code that generated the <a href="/method#seed-database" rel="external">seed database</a> is available [here](https://github.com/bbchallenge/bbchallenge-seed) and is discussed on the [forum](https://discuss.bbchallenge.org/c/seed-database/6)
 
 - The forum [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32), you can pick one and try to reproduce it and see if yours decide the same machines
 
-If you reproduce results of the busy beaver challenge please share about your reproduction on the dedicated section of the [forum](https://discuss.bbchallenge.org/c/results-reproduction/9).
+If you reproduce results of the busy beaver challenge please share about your reproduction on the [dedicated section of the forum](https://discuss.bbchallenge.org/c/results-reproduction/9).
 
 <a id="this-website"></a>
 
@@ -97,7 +106,7 @@ Pages like <a href="/story" rel="external">/story</a>, <a href="/method" rel="ex
 
 If you are interested in the busy beaver challenge please don't hesitate to talk about it around you and share <a href="https://bbchallenge.org" rel="external">https://bbchallenge.org</a>.
 
-If you are a teacher and would like to engage with your students on this topic some [teaching material](#) (which you can contribute to improve!) is available on the forum.
+If you are a teacher and would like to engage with your students on this topic some [teaching material](https://discuss.bbchallenge.org/c/outreach-teaching/12) (which you can contribute to improve!) is available on the forum.
 
 The <a href="/story#goal" rel="external">goal</a> of the busy beaver challenge can only be achieved collaboratively.
 
