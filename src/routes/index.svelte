@@ -577,7 +577,7 @@
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
 							This zoology is <a
-								href="https://discuss.bbchallenge.org"
+								href="https://discuss.bbchallenge.org/t/current-zoology/23"
 								class="text-blue-400 hover:text-blue-300 cursor-pointer">collaborative</a
 							>.
 						</div>
