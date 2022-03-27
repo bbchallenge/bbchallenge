@@ -604,7 +604,7 @@
 									</div>
 								</div>
 								<div>
-									2. Translated Cyclers: <span class="text-green-400 font-bold">Decided</span>
+									2. Translated cyclers: <span class="text-green-400 font-bold">Decided</span>
 									<span class="text-[0.6rem]">(73,859,286 machines)</span>
 									<div class="ml-8 text-xs">
 										e.g:
@@ -624,7 +624,7 @@
 									</div>
 								</div>
 								<div>
-									3. Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
+									3. Unilateral pongs: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [6048289, 4175994, 9281450] as m}
@@ -643,7 +643,7 @@
 									</div>
 								</div>
 								<div>
-									4. Bilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
+									4. Bilateral pongs: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [12785688, 8929416, 76727755] as m}
@@ -662,7 +662,7 @@
 									</div>
 								</div>
 								<div>
-									5. Translated Unilateral Pongs: <span class="text-yellow-400 font-bold">WIP</span>
+									5. Translated unilateral pongs: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [6164147, 31837821, 20076854] as m}
@@ -703,7 +703,7 @@
 									7. Bells: <span class="text-yellow-400 font-bold">WIP</span>
 									<div class="ml-8 text-xs">
 										e.g:
-										{#each [73261028, 63938734, 8527536] as m}
+										{#each [8527536, 73261028, 63938734] as m}
 											<span
 												class="cursor-pointer select-none underline"
 												on:click={async () => {
