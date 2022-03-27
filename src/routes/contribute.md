@@ -21,7 +21,7 @@ You are invited to write deciders in order to further reduce the number of undec
 
 Places to look at if this task interests you:
 
-- The [forum](#) maintains the list of all <a href="/method#deciders" rel="external">deciders</a>
+- The [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
 
 - The <a href="/#zoology">zoology</a> provides families of behaviors that could be automatically recognised and decided
 
@@ -30,7 +30,7 @@ Places to look at if this task interests you:
 If you write a decider for the busy beaver challenge we ask that you:
 
 1. Read our our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>
-2. Create a post presenting your decider on the [forum](#)
+2. Create a post on forum [following these instructions]([maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32))
 3. Give the <a href="/method#seed-database" rel="external">seed database's</a> indices of the machines that your decider has decided
 4. Write tests for your deciders against example machines and counterexample machines in the <a href="/method#seed-database" rel="external">seed database</a>
 
@@ -74,9 +74,9 @@ Places to look at if this task interests you:
 
 - The code that generated the <a href="/method#seed-database" rel="external">seed database</a> is available [here](https://github.com/bbchallenge/bbchallenge-seed) and is discussed on the [forum](#)
 
-- The [forum](#) maintains the list of all <a href="/method#deciders" rel="external">deciders</a>, you can pick one and try to reproduce it and see if yours decide the same machines
+- The forum [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32), you can pick one and try to reproduce it and see if yours decide the same machines
 
-If you reproduce results of the busy beaver challenge please share about your reproduction on the dedicated section of the [forum](#).
+If you reproduce results of the busy beaver challenge please share about your reproduction on the dedicated section of the [forum](https://discuss.bbchallenge.org/c/results-reproduction/9).
 
 <a id="this-website"></a>
 
