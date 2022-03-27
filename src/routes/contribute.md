@@ -57,7 +57,7 @@ As advocated for in our <a href="/method#reproducibility-and-verifiability-state
 
 Places to look at if this task interests you:
 
-- The [forum](https://discuss.bbchallenge.org/c/deciders/5) maintains the list of all deciders and is a good place to discuss about correctness and publish proofs
+- The [maintains the list of all deciders](https://discuss.bbchallenge.org/c/deciders/5) and is a good place to discuss about correctness and publish proofs
 
 You can post your proofs on the thread related to the decider that you proved.
 
@@ -96,7 +96,8 @@ This website is also written collaboratively, [its code](https://github.com/bbch
 Here are some examples of missing features:
 
 - A better, more customizable, visualisation tool for <a href="/story#space-time-diagrams">space-time diagrams</a>. See [this issue](https://github.com/bbchallenge/bbchallenge/issues/2).
-- If a machine of the database is decided, such as <a href="https://bbchallenge.org/59090563&s=10000&w=300&ox=0.5" rel="external">#59,090,563</a>, give the link to its decider. See [this issue](#).
+- Make Turing machines editable on the fly on the main page. See [this issue](https://github.com/bbchallenge/bbchallenge/issues/4).
+- If a machine of the database is decided, such as <a href="https://bbchallenge.org/59090563&s=10000&w=300&ox=0.5" rel="external">#59,090,563</a>, give the link to its decider. See [this issue](https://github.com/bbchallenge/bbchallenge-api/issues/2).
 
 Pages like <a href="/story" rel="external">/story</a>, <a href="/method" rel="external">/method</a>, <a href="/contribute" rel="external">/contribute</a> are also collaborative and you can submit changes on [github](https://github.com/bbchallenge/bbchallenge).
 
