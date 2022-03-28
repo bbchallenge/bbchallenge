@@ -521,7 +521,7 @@
 						<div class="ml-3 mt-1 text-sm">
 							<div>
 								From machine <a
-									class="text-blue-400 hover:text-blue-300 cursor-pointer "
+									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
 									href="/story#base-64"
 									rel="external">base-64</a
 								>:
