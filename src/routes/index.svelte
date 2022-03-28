@@ -491,7 +491,13 @@
 							</div>
 						</div>
 						<div class="ml-3 mt-2 text-sm">
-							<div>From id in the database:</div>
+							<div>
+								From id in the <a
+									href="https://bbchallenge.org/method#seed-database"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+									rel="external">seed database</a
+								>:
+							</div>
 							{#if typedMachineError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
 							{/if}
