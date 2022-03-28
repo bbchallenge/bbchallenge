@@ -523,7 +523,7 @@
 								From machine <a
 									class="text-blue-400 hover:text-blue-300 cursor-pointer "
 									href="/story#base-64"
-									rel="external">b64</a
+									rel="external">base-64</a
 								>:
 							</div>
 							{#if b64Error}
@@ -558,7 +558,7 @@
 			cursor-pointer
 			select-none underline"
 							>
-								Base 64 converter
+								Base-64 converter
 							</a>
 						</div>
 					</div>
