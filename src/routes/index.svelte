@@ -519,7 +519,13 @@
 							</div>
 						</div>
 						<div class="ml-3 mt-1 text-sm">
-							<div>From machine b64:</div>
+							<div>
+								From machine <a
+									class="text-blue-400 hover:text-blue-300 cursor-pointer "
+									href="/story#base-64"
+									rel="external">b64</a
+								>:
+							</div>
 							{#if b64Error}
 								<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
 							{/if}
