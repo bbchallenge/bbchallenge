@@ -8,24 +8,24 @@
 	}
 }
 
-.color-0 {
+.colors .color-0 {
 	color: rgb(255, 0, 0);
 }
-.color-1 {
+.colors .color-1 {
 	color: rgb(255, 128, 0);
 }
-.color-2 {
+.colors .color-2 {
 	color: rgb(0, 0, 255);
 }
-.color-3 {
+.colors .color-3 {
 	color: rgb(0, 255, 0);
 }
-.color-4 {
+.colors .color-4 {
 	color: rgb(255, 0, 255);
 }
-.color-5 {
+.colors .color-5 {
 	color: rgb(0, 255, 255);
 }
-.color-6 {
+.colors .color-6 {
 	color: rgb(255, 255, 0);
 }

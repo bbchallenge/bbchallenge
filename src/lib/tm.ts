@@ -127,19 +127,19 @@ export function tm_explore(
 	let y_offset = 0;
 
 	const render = () => {
-		const height = Math.ceil(ctx.canvas.height/zoom);
-		const width = Math.ceil(ctx.canvas.width/zoom);
-		const minx = Math.floor(-x_offset/zoom);
-		const miny = Math.floor(-y_offset/zoom)
+		const height = Math.ceil(ctx.canvas.height / zoom);
+		const width = Math.ceil(ctx.canvas.width / zoom);
+		const minx = Math.floor(-x_offset / zoom);
+		const miny = Math.floor(-y_offset / zoom);
 
 		ctx.fillStyle = `rgb(255, 255, 255)`;
-		for (let row = Math.max(miny, 0); row < Math.min(miny+height+1, history.length); row += 1) {
+		for (let row = Math.max(miny, 0); row < Math.min(miny + height + 1, history.length); row++) {
 			if (!history[row]) continue;
 			const { tape } = history[row];
 
 			for (let i = 0; i < tape.length; i += 1) {
 				const col = naturalToInt(i);
-				if (col<minx || col>minx+width) continue
+				if (col < minx || col > minx + width) continue;
 
 				if (tape[i] !== 0) {
 					ctx.fillRect(col, row, 1, 1);
@@ -147,29 +147,24 @@ export function tm_explore(
 			}
 		}
 
-		for (let row = Math.max(miny, 0); row < Math.min(miny+height+1, history.length); row += 1) {
+		for (let row = Math.max(miny, 0); row < Math.min(miny + height + 1, history.length); row++) {
 			if (!history[row]) continue;
-			const { tape, curr_pos, curr_state } = history[row];
+			const { curr_pos, curr_state } = history[row];
 
-			for (let i = 0; i < tape.length; i += 1) {
-				const col = naturalToInt(i);
-				if (col<minx || col>minx+width) continue;
-				
-				if (col == curr_pos && curr_state < colorList.length) {
-					ctx.fillStyle = `rgb(${colorList[curr_state].join(', ')})`;
-					ctx.fillRect(col, row, 1, 1);
-				}
+			if (curr_state < colorList.length) {
+				ctx.fillStyle = `rgb(${colorList[curr_state].join(', ')})`;
+				ctx.fillRect(curr_pos, row, 1, 1);
 			}
 		}
 	};
 
-	ctx.canvas.addEventListener("wheel", (e) => {
+	const wheel = (e: WheelEvent) => {
 		e.preventDefault();
 
-		if(e.ctrlKey){
+		if (e.ctrlKey) {
 			const scale = Math.pow(1.1, -e.deltaY / 10);
-			x_offset =  (x_offset - e.offsetX)*scale + e.offsetX;
-			y_offset =  (y_offset - e.offsetY)*scale + e.offsetY;
+			x_offset = (x_offset - e.offsetX) * scale + e.offsetX;
+			y_offset = (y_offset - e.offsetY) * scale + e.offsetY;
 			zoom *= scale;
 		} else {
 			y_offset -= e.deltaY;
@@ -177,12 +172,15 @@ export function tm_explore(
 		}
 		ctx.resetTransform();
 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-		ctx.setTransform(zoom, 0, 0, zoom,  + x_offset, +y_offset);
+		ctx.setTransform(zoom, 0, 0, zoom, +x_offset, +y_offset);
 		render();
-	}, false);
+	};
+	ctx.canvas.addEventListener('wheel', wheel, false);
 
-	ctx.setTransform(zoom, 0, 0, zoom,  +x_offset, +y_offset);
+	ctx.setTransform(zoom, 0, 0, zoom, +x_offset, +y_offset);
 	render();
+
+	return () => ctx.canvas.removeEventListener('wheel', wheel);
 }
 
 export function tm_trace_to_image(
@@ -191,19 +189,29 @@ export function tm_trace_to_image(
 	initial_tape = '0',
 	width = 900,
 	height = 1000,
-	origin_x = 0.5
+	origin_x = 0.5,
+	fitCanvas = true,
+	showHeadMove = false
 ) {
 	const imgData = ctx.createImageData(width, height);
 
 	const history = render_history(machine, initial_tape, height);
 
-	for (let row = 0; row < history.length; row += 1) {
-		const { tape, curr_pos, curr_state } = history[row];
+	for (let row = 1; row < history.length; row += 1) {
+		const last_pos = history[row - 1].curr_pos;
+		const { tape, curr_pos } = history[row];
 		for (let i = 0; i <= tape.length; i += 1) {
 			const pos = naturalToInt(i);
 			const col = pos + Math.floor(width * origin_x);
 			if (col < 0 || col >= width) continue;
-			if (tape[intToNatural(pos)] != undefined) {
+
+			if (pos == curr_pos && showHeadMove) {
+				const imgIndex = 4 * (row * width + col);
+				imgData.data[imgIndex + 0] = curr_pos > last_pos ? 255 : 0;
+				imgData.data[imgIndex + 1] = curr_pos < last_pos ? 255 : 0;
+				imgData.data[imgIndex + 2] = 0;
+				imgData.data[imgIndex + 3] = 255;
+			} else if (tape[intToNatural(pos)] != undefined) {
 				const imgIndex = 4 * (row * width + col);
 				let color = 255;
 				if (tape[intToNatural(pos)] === 0) color = 0;
@@ -212,19 +220,21 @@ export function tm_trace_to_image(
 				imgData.data[imgIndex + 2] = color;
 				imgData.data[imgIndex + 3] = 255;
 			}
-
-			if (pos == curr_pos && curr_state < colorList.length) {
-				const imgIndex = 4 * (row * width + col);
-				imgData.data[imgIndex + 0] = colorList[curr_state][0]; // curr_pos > last_pos ? 255 : 0;
-				imgData.data[imgIndex + 1] = colorList[curr_state][1]; // curr_pos < last_pos ? 255 : 0;
-				imgData.data[imgIndex + 2] = colorList[curr_state][2];
-				imgData.data[imgIndex + 3] = 255;
-			}
 		}
 	}
 
-	// ctx.canvas.height = height;
-	ctx.putImageData(imgData, 0, 0);
+	if (fitCanvas) {
+		const renderer = document.createElement('canvas');
+		renderer.width = width;
+		renderer.height = height;
+		// render our ImageData on this canvas
+		renderer.getContext('2d').putImageData(imgData, 0, 0);
+
+		ctx.drawImage(renderer, 0, 0, width, height, 0, 0, ctx.canvas.width, ctx.canvas.height);
+	} else {
+		// ctx.canvas.height = height;
+		ctx.putImageData(imgData, 0, 0);
+	}
 }
 
 export function step(machine: TM, curr_state, curr_pos, tape) {

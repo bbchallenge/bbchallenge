@@ -33,7 +33,6 @@
 
 	let canvas;
 
-	const width = 400;
 	let exploreMode = false;
 	let showHeadMove = true;
 
@@ -79,11 +78,26 @@
 
 	let showRandomOptions = false;
 
+	let drawCleanup;
 	function draw() {
+		if (drawCleanup) drawCleanup();
+
 		const context = canvas.getContext('2d');
 		drawRect(context);
-		// tm_trace_to_image(context, machine, initial_tape, tapeWidth, nbIter, origin_x);
-		tm_explore(context, machine, initial_tape, tapeWidth, nbIter, origin_x);
+		if (exploreMode) {
+			drawCleanup = tm_explore(context, machine, initial_tape, nbIter);
+		} else {
+			tm_trace_to_image(
+				context,
+				machine,
+				initial_tape,
+				tapeWidth,
+				nbIter,
+				origin_x,
+				true,
+				showHeadMove
+			);
+		}
 	}
 
 	let randomType = 'all_undecided';
@@ -267,14 +281,17 @@
 
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
-			<div class="flex items-start flex-col  mt-3" class:md:flex-row={!exploreMode}>
+			<div
+				class="flex items-center flex-col  mt-3"
+				class:md:flex-row={!exploreMode}
+				class:colors={exploreMode}
+			>
 				<div class="flex flex-col items-start self-stretch">
 					<canvas
 						class="bg-black mr-5 image-render-pixel"
 						bind:this={canvas}
-						class:w-full={exploreMode}
-						width={exploreMode ? undefined : width}
-						height="400"
+						width={exploreMode ? 800 : 400}
+						height="500"
 					/>
 					<div class="text-xs pt-0 flex  space-x-1 mt-2">
 						<!-- <div
