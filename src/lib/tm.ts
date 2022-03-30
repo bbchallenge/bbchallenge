@@ -75,10 +75,10 @@ export function APIDecisionStatusToTMDecisionStatus(status) {
 }
 
 function intToNatural(n: number) {
-	return n < 0 ? 1 - n * 2 : n * 2;
+	return n < 0 ? -n * 2 - 1 : n * 2;
 }
 function naturalToInt(n: number) {
-	return n % 2 == 0 ? n / 2 : -(n - 1) / 2;
+	return n % 2 == 0 ? n / 2 : -(n + 1) / 2;
 }
 
 const colorList = [
