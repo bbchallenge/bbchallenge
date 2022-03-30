@@ -78,7 +78,7 @@ function intToNatural(n: number) {
 	return n < 0 ? 1 - n * 2 : n * 2;
 }
 function naturalToInt(n: number) {
-	return n % 2 == 0 ? n / 2 : -(n + 1) / 2;
+	return n % 2 == 0 ? n / 2 : -(n - 1) / 2;
 }
 
 const colorList = [
@@ -141,7 +141,7 @@ export function tm_explore(
 				const col = naturalToInt(i);
 				if (col < minx || col > minx + width) continue;
 
-				if (tape[i] !== 0) {
+				if (tape[i]) {
 					ctx.fillRect(col, row, 1, 1);
 				}
 			}
