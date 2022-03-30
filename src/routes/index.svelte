@@ -6,6 +6,7 @@
 	import {
 		TMDecisionStatus,
 		tm_trace_to_image,
+		tm_explore,
 		b64URLSafetoTM,
 		DB_SIZE,
 		tmTob64URLSafe,
@@ -33,6 +34,8 @@
 	let canvas;
 
 	const width = 400;
+	let exploreMode = false;
+	let showHeadMove = true;
 
 	const drawRect = (context) => {
 		context.fillStyle = 'black';
@@ -79,7 +82,8 @@
 	function draw() {
 		const context = canvas.getContext('2d');
 		drawRect(context);
-		tm_trace_to_image(context, machine, initial_tape, tapeWidth, nbIter, origin_x);
+		// tm_trace_to_image(context, machine, initial_tape, tapeWidth, nbIter, origin_x);
+		tm_explore(context, machine, initial_tape, tapeWidth, nbIter, origin_x);
 	}
 
 	let randomType = 'all_undecided';
@@ -263,11 +267,15 @@
 
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
-			<div class="flex  items-start flex-col md:flex-row mt-3">
-				<div class="flex flex-col items-start">
-					<div class="bg-black mr-5 overflow-y-scroll h-[400px]">
-						<canvas class="image-render-pixel" bind:this={canvas} {width} />
-					</div>
+			<div class="flex items-start flex-col  mt-3" class:md:flex-row={!exploreMode}>
+				<div class="flex flex-col items-start self-stretch">
+					<canvas
+						class="bg-black mr-5 image-render-pixel"
+						bind:this={canvas}
+						class:w-full={exploreMode}
+						width={exploreMode ? undefined : width}
+						height="400"
+					/>
 					<div class="text-xs pt-0 flex  space-x-1 mt-2">
 						<!-- <div
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
@@ -357,11 +365,15 @@
 								initial state
 								<input bind:value={initial_tape} on:change={draw} />
 							</label>
+							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
+								<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
+								<div>show head movement</div>
+							</label>
+							<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+								<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
+								<div>explore</div>
+							</label>
 						{/if}
-						<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
-					<input type="checkbox" bind:checked={fitCanvas} on:change={draw} />
-					<div>fit to canvas</div>
-				</label> -->
 					</div>
 				</div>
 
