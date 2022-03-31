@@ -96,7 +96,7 @@ export function render_history(machine, initial_tape = '0', height = 1000) {
 
 	let tape = [];
 	for (let i = 0; i < initial_tape.length; i++) {
-		tape[intToNatural(i)] = +initial_tape[i];
+		tape[intToNatural(i)] = initial_tape[i] === '0' ? 0 : 1;
 	}
 
 	let curr_state = 0;

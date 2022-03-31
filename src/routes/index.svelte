@@ -379,7 +379,7 @@
 								>
 							</div>
 							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-								initial state
+								initial tape
 								<input bind:value={initial_tape} on:change={draw} />
 							</label>
 							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
