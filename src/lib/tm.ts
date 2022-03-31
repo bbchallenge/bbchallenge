@@ -177,6 +177,8 @@ export function tm_explore(
 	};
 	ctx.canvas.addEventListener('wheel', wheel, false);
 
+	ctx.resetTransform();
+	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 	ctx.setTransform(zoom, 0, 0, zoom, +x_offset, +y_offset);
 	render();
 
