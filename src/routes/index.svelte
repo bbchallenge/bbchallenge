@@ -471,7 +471,7 @@
 													)}){/if}
 											</div>
 										</label>
-										<label
+										<!-- <label
 											class="mt-2 flex space-x-2 items-center select-none cursor-pointer w-[300px]"
 										>
 											<input
@@ -485,7 +485,7 @@
 														metrics['total_undecided_with_heuristcs']
 													)}){/if}
 											</div>
-										</label>
+										</label> -->
 									</div>
 								{/if}
 							</div>
