@@ -333,15 +333,11 @@ Writing, testing and proving deciders is a collaborative task, see [the decider 
 
 ### Undecided machines index file
 
-Trusted deciders are applied to the seed database and the indices of the machines that remain undecided after applying them are stored the following index file:
+Trusted deciders are applied to the seed database. 
 
-- https://dna.hamilton.ie/tsterin/bb5_undecided_index
+The indices of the machines that remain undecided [is stored on github](https://github.com/bbchallenge/bbchallenge-undecided-index/).
 
-It currently contains the indices of 2,322,122 machines and its shasum is `f9e7f731532259691cf917ff35fd5051c00f1636`.
-
-Machines' indices are stored in order as 4-byte big endian integers.
-
-Here are some routines to extract these indices from an index file:
+Machines' indices are stored in order as 4-byte big endian integers. Here are some routines to extract these indices from an index file:
 
 _Python_
 
