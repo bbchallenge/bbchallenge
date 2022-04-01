@@ -623,7 +623,7 @@
 								</div>
 								<div>
 									2. Translated cyclers: <span class="text-green-400 font-bold">Decided</span>
-									<span class="text-[0.6rem]">(73,859,286 machines)</span>
+									<span class="text-[0.6rem]">(73,860,604 machines)</span>
 									<div class="ml-8 text-xs">
 										e.g:
 										{#each [59645887, 15167997, 59090563] as m}

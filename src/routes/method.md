@@ -323,7 +323,7 @@ Deciders are closely related to the [zoology](/#zoology) of 5-state machines as 
 
 - 11,229,238 _Cyclers_, such as Machine <a href="/123" rel="external">#123</a>, were decided by the [decider for cyclers](https://discuss.bbchallenge.org/t/decider-cyclers/33).
 
-- 73,859,286 _Translated Cyclers_, such as Machine <a href="/59090563" rel="external">#59,090,563</a>, were decided by the [decider for translated cyclers](https://discuss.bbchallenge.org/t/decider-translated-cyclers/34).
+- 73,860,604 _Translated Cyclers_, such as Machine <a href="/59090563" rel="external">#59,090,563</a>, were decided by the [decider for translated cyclers](https://discuss.bbchallenge.org/t/decider-translated-cyclers/34).
 
 Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](https://discuss.bbchallenge.org/t/decider-backward-reasoning/35) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
 
