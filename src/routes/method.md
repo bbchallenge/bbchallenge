@@ -329,13 +329,13 @@ Deciders are not _necessarily_ directly connected to a family of the [zoology](/
 
 Writing, testing and proving deciders is a collaborative task, see [the decider section of the forum](https://discuss.bbchallenge.org/c/deciders/5), and you are invited to <a href="/contribute" rel="external">Contribute</a>.
 
+Trusted deciders are applied to the seed database. 
+
 <a id="undecided-machines-index-file"></a>
 
 ### Undecided machines index file
 
-Trusted deciders are applied to the seed database. 
-
-The indices of the machines that remain undecided [is stored on github](https://github.com/bbchallenge/bbchallenge-undecided-index/).
+[Download](https://github.com/bbchallenge/bbchallenge-undecided-index/) the file containing the indices of the currently undecided machines (i.e. machines that remain undecided after all trusted deciders are applied).
 
 Machines' indices are stored in order as 4-byte big endian integers. Here are some routines to extract these indices from an index file:
 
