@@ -321,11 +321,11 @@ To be trusted, a decider should be accompanied with a proof of correctness which
 
 Deciders are closely related to the [zoology](/#zoology) of 5-state machines as we aim to decide each family of the zoo. For instance:
 
-- 11,229,238 _Cyclers_, such as Machine [#123](/123), were decided by the [decider for cyclers](#).
+- 11,229,238 _Cyclers_, such as Machine [#123](/123), were decided by the [decider for cyclers](https://discuss.bbchallenge.org/t/decider-cyclers/33).
 
-- 73,859,286 _Translated Cyclers_, such as Machine [#59,090,563](/59090563), were decided by the [decider for translated cyclers](#).
+- 73,859,286 _Translated Cyclers_, such as Machine [#59,090,563](/59090563), were decided by the [decider for translated cyclers](https://discuss.bbchallenge.org/t/decider-translated-cyclers/34).
 
-Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](#) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
+Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](https://discuss.bbchallenge.org/t/decider-backward-reasoning/35) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
 
 Writing, testing and proving deciders is a collaborative task, see [the decider section of the forum](https://discuss.bbchallenge.org/c/deciders/5), and you are invited to <a href="/contribute" rel="external">Contribute</a>.
 
