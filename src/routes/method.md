@@ -335,7 +335,7 @@ Trusted deciders are applied to the seed database.
 
 ### Undecided machines index file
 
-[Download](https://github.com/bbchallenge/bbchallenge-undecided-index/) the file containing the indices of the currently undecided machines (i.e. machines that remain undecided after all trusted deciders are applied).
+[Download the index file](https://github.com/bbchallenge/bbchallenge-undecided-index/) containing all the indices in the [seed database](#seed-database) of the currently undecided machines (i.e. machines that remain undecided after all trusted [deciders](#deciders) are applied).
 
 Machines' indices are stored in order as 4-byte big endian integers. Here are some routines to extract these indices from an index file:
 
