@@ -46,7 +46,7 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 **Phase 1** was completed in December 2021:
 
 - it enumerated 125,479,953 Turing machines in 30 hours^[2. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
-- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5">#7,410,754</a>).
+- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5" rel="external">#7,410,754</a>).
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See <a href="/contribute" rel="external">Contribute</a>.
 
@@ -321,9 +321,9 @@ To be trusted, a decider should be accompanied with a proof of correctness which
 
 Deciders are closely related to the [zoology](/#zoology) of 5-state machines as we aim to decide each family of the zoo. For instance:
 
-- 11,229,238 _Cyclers_, such as Machine [#123](/123), were decided by the [decider for cyclers](https://discuss.bbchallenge.org/t/decider-cyclers/33).
+- 11,229,238 _Cyclers_, such as Machine <a href="/123" rel="external">#123</a>, were decided by the [decider for cyclers](https://discuss.bbchallenge.org/t/decider-cyclers/33).
 
-- 73,859,286 _Translated Cyclers_, such as Machine [#59,090,563](/59090563), were decided by the [decider for translated cyclers](https://discuss.bbchallenge.org/t/decider-translated-cyclers/34).
+- 73,859,286 _Translated Cyclers_, such as Machine <a href="/59090563" rel="external">#59,090,563</a>, were decided by the [decider for translated cyclers](https://discuss.bbchallenge.org/t/decider-translated-cyclers/34).
 
 Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](https://discuss.bbchallenge.org/t/decider-backward-reasoning/35) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
 
