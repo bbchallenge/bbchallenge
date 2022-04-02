@@ -282,8 +282,9 @@
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
 			<div
-				class="flex items-center flex-col  mt-3"
+				class="flex  flex-col  mt-3"
 				class:md:flex-row={!exploreMode}
+				class:items-center={!exploreMode}
 				class:colors={exploreMode}
 			>
 				<div class="flex flex-col items-start self-stretch">
@@ -386,15 +387,17 @@
 								<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
 								<div>show head movement</div>
 							</label>
-							<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
-								<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
-								<div>explore</div>
-							</label>
 						{/if}
+						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+							<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
+							<div>Explore mode</div>
+						</label>
 					</div>
 				</div>
 
-				<div class="mt-3 md:mt-0 md:ml-10 lg:ml-20">
+				<div
+					class={!exploreMode ? 'mt-3 md:mt-0 md:ml-10 lg:ml-20' : 'flex  w-full space-x-36 my-5'}
+				>
 					<div>
 						{#if machine !== null}
 							{#if machineID !== null}
@@ -562,43 +565,45 @@
 								</button>
 							</div>
 						</div>
-					</div>
 
-					<div class="mt-0 flex flex-col">
-						<div class="ml-3 mt-4 text-sm ">
-							<a
-								href="/base-64"
-								class="text-blue-400
-			hover:text-blue-300
-			cursor-pointer
-			select-none underline"
-							>
-								Base-64 converter
-							</a>
-						</div>
-					</div>
-
-					{#if history}
-						<div class="mt-0 flex flex-col">
-							<div class="ml-3 mt-2 text-sm ">
-								<div
-									class="text-blue-400 hover:text-blue-300 cursor-pointer select-none underline"
-									on:click={() => {
-										showHistory = !showHistory;
-									}}
-								>
-									{#if !showHistory}Show{:else}Hide{/if} History
+						<div>
+							<div class="mt-0 flex flex-col">
+								<div class="ml-3 mt-4 text-sm ">
+									<a
+										href="/base-64"
+										class="text-blue-400
+				hover:text-blue-300
+				cursor-pointer
+				select-none underline"
+									>
+										Base-64 converter
+									</a>
 								</div>
-								{#if showHistory}
-									<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
-										{#each history as entry}
-											{entry}&nbsp;
-										{/each}
-									</div>
-								{/if}
 							</div>
+
+							{#if history}
+								<div class="mt-0 flex flex-col">
+									<div class="ml-3 mt-2 text-sm ">
+										<div
+											class="text-blue-400 hover:text-blue-300 cursor-pointer select-none underline"
+											on:click={() => {
+												showHistory = !showHistory;
+											}}
+										>
+											{#if !showHistory}Show{:else}Hide{/if} History
+										</div>
+										{#if showHistory}
+											<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
+												{#each history as entry}
+													{entry}&nbsp;
+												{/each}
+											</div>
+										{/if}
+									</div>
+								</div>
+							{/if}
 						</div>
-					{/if}
+					</div>
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">

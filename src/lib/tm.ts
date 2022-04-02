@@ -168,6 +168,7 @@ export function tm_explore(
 			zoom *= scale;
 		} else {
 			y_offset -= e.deltaY;
+
 			x_offset -= e.deltaX;
 		}
 		ctx.resetTransform();
