@@ -6,6 +6,7 @@
 	import {
 		TMDecisionStatus,
 		tm_trace_to_image,
+		tm_explore,
 		b64URLSafetoTM,
 		DB_SIZE,
 		tmTob64URLSafe,
@@ -30,12 +31,10 @@
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
 
-	let canvasEl;
+	let canvas;
 
-	const canvas = {
-		width: 400,
-		height: 500
-	};
+	let exploreMode = false;
+	let showHeadMove = true;
 
 	const drawRect = (context) => {
 		context.fillStyle = 'black';
@@ -47,6 +46,7 @@
 	export let tapeWidth = 300;
 	export let origin_x = 0.5;
 
+	let initial_tape = '0';
 	// Default the params if called with null
 	if (nbIter == null) {
 		nbIter = 3000;
@@ -57,9 +57,6 @@
 	if (origin_x == null) {
 		origin_x = 0.5;
 	}
-
-	let fitCanvas = true;
-	let showHeadMove = true;
 
 	function getSimulationLink(forCopy = false) {
 		let prefix = 'https://bbchalenge.org/';
@@ -81,19 +78,26 @@
 
 	let showRandomOptions = false;
 
+	let drawCleanup;
 	function draw() {
-		const context = canvasEl.getContext('2d');
+		if (drawCleanup) drawCleanup();
+
+		const context = canvas.getContext('2d');
 		drawRect(context);
-		tm_trace_to_image(
-			context,
-			canvas,
-			machine,
-			tapeWidth,
-			nbIter,
-			origin_x,
-			fitCanvas,
-			showHeadMove
-		);
+		if (exploreMode) {
+			drawCleanup = tm_explore(context, machine, initial_tape, nbIter);
+		} else {
+			tm_trace_to_image(
+				context,
+				machine,
+				initial_tape,
+				tapeWidth,
+				nbIter,
+				origin_x,
+				true,
+				showHeadMove
+			);
+		}
 	}
 
 	let randomType = 'all_undecided';
@@ -277,11 +281,19 @@
 
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
-			<div class="flex  items-start flex-col md:flex-row mt-3">
-				<div class="flex flex-col items-start">
-					<div class="bg-black mr-5">
-						<canvas bind:this={canvasEl} width={canvas.width} height={canvas.height} />
-					</div>
+			<div
+				class="flex  flex-col  mt-3"
+				class:md:flex-row={!exploreMode}
+				class:items-center={!exploreMode}
+				class:colors={exploreMode}
+			>
+				<div class="flex flex-col items-start self-stretch">
+					<canvas
+						class="bg-black mr-5 image-render-pixel"
+						bind:this={canvas}
+						width={exploreMode ? 800 : 400}
+						height="500"
+					/>
 					<div class="text-xs pt-0 flex  space-x-1 mt-2">
 						<!-- <div
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
@@ -310,12 +322,12 @@
 							Simulation Parameters
 						</div>
 						<div>&middot;</div>
-						{#if canvasEl}
+						{#if canvas}
 							<div
 								class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
 								on:click={() => {
 									var image = new Image();
-									image.src = canvasEl.toDataURL();
+									image.src = canvas.toDataURL();
 									let w = window.open('');
 									w.document.write(image.outerHTML);
 								}}
@@ -326,60 +338,72 @@
 					</div>
 					<div class="mt-1 flex flex-col">
 						{#if showSimulationParams}
-							<div class="flex space-x-3 pl-2 text-sm ">
-								<label class="flex flex-col ">
-									steps
-									<input
-										class="w-[70px]"
-										type="number"
-										bind:value={nbIter}
-										on:change={() => {
-											draw();
-											window.history.replaceState({}, '', getSimulationLink());
-										}}
-									/></label
-								>
-								<label class="flex flex-col">
-									tape width
-									<input
-										class="w-[70px]"
-										type="number"
-										bind:value={tapeWidth}
-										on:change={() => {
-											draw();
-											window.history.replaceState({}, '', getSimulationLink());
-										}}
-									/></label
-								>
-								<label class="flex flex-col">
-									x-translation
-									<input
-										class="w-[70px]"
-										type="number"
-										bind:value={origin_x}
-										on:change={() => {
-											draw();
-											window.history.replaceState({}, '', getSimulationLink());
-										}}
-										min="0"
-										max="1"
-										step="0.1"
-									/></label
-								>
+							<div class="mb-2">
+								<div class="flex space-x-3 text-sm">
+									<label class="flex flex-col ">
+										steps
+										<input
+											class="w-[70px]"
+											type="number"
+											bind:value={nbIter}
+											on:change={() => {
+												draw();
+												window.history.replaceState({}, '', getSimulationLink());
+											}}
+										/></label
+									>
+									<label class="flex flex-col">
+										tape width
+										<input
+											class="w-[70px]"
+											type="number"
+											bind:value={tapeWidth}
+											on:change={() => {
+												draw();
+												window.history.replaceState({}, '', getSimulationLink());
+											}}
+										/></label
+									>
+									<label class="flex flex-col">
+										x-translation
+										<input
+											class="w-[70px]"
+											type="number"
+											bind:value={origin_x}
+											on:change={() => {
+												draw();
+												window.history.replaceState({}, '', getSimulationLink());
+											}}
+											min="0"
+											max="1"
+											step="0.1"
+										/></label
+									>
+								</div>
+								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer select-none">
+									<div>initial tape content</div>
+									<input bind:value={initial_tape} on:change={draw} />
+								</label>
 							</div>
-							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-								<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
-								<div>show head movement</div>
-							</label>
+							{#if !exploreMode}
+								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
+									<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
+									<div>show head movement</div>
+								</label>
+							{/if}
 						{/if}
-						<!-- <label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
-					<input type="checkbox" bind:checked={fitCanvas} on:change={draw} />
-					<div>fit to canvas</div>
-				</label> -->
+						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+							<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
+							<div>Explore mode</div>
+						</label>
 					</div>
 				</div>
 
-				<div class="mt-3 md:mt-0 md:ml-10 lg:ml-20">
+				<div
+					class={!exploreMode
+						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20'
+						: 'flex  w-full space-x-36 mb-5 mt-3'}
+				>
 					<div>
 						{#if machine !== null}
 							{#if machineID !== null}
@@ -547,51 +571,50 @@
 								</button>
 							</div>
 						</div>
-					</div>
 
-					<div class="mt-0 flex flex-col">
-						<div class="ml-3 mt-4 text-sm ">
-							<a
-								href="/base-64"
-								class="text-blue-400
-			hover:text-blue-300
-			cursor-pointer
-			select-none underline"
-							>
-								Base-64 converter
-							</a>
-						</div>
-					</div>
-
-					{#if history}
-						<div class="mt-0 flex flex-col">
-							<div class="ml-3 mt-2 text-sm ">
-								<div
-									class="text-blue-400
+						<div>
+							<div class="mt-0 flex flex-col">
+								<div class="ml-3 mt-4 text-sm ">
+									<a
+										href="/base-64"
+										class="text-blue-400
 				hover:text-blue-300
 				cursor-pointer
 				select-none underline"
-									on:click={() => {
-										showHistory = !showHistory;
-									}}
-								>
-									{#if !showHistory}Show{:else}Hide{/if} History
+									>
+										Base-64 converter
+									</a>
 								</div>
-								{#if showHistory}
-									<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
-										{#each history as entry}
-											{entry}&nbsp;
-										{/each}
-									</div>
-								{/if}
 							</div>
+
+							{#if history}
+								<div class="mt-0 flex flex-col">
+									<div class="ml-3 mt-2 text-sm ">
+										<div
+											class="text-blue-400 hover:text-blue-300 cursor-pointer select-none underline"
+											on:click={() => {
+												showHistory = !showHistory;
+											}}
+										>
+											{#if !showHistory}Show{:else}Hide{/if} History
+										</div>
+										{#if showHistory}
+											<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
+												{#each history as entry}
+													{entry}&nbsp;
+												{/each}
+											</div>
+										{/if}
+									</div>
+								</div>
+							{/if}
 						</div>
-					{/if}
+					</div>
 				</div>
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
-				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12    lg:space-y-0">
-					<div id="zoology">
+				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
+					<div id="explorelogy">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
 							This zoology is <a

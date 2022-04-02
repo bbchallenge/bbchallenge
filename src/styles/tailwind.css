@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.image-render-pixel {
+		image-rendering: pixelated;
+	}
+}
+
+.colors .color-0 {
+	color: rgb(255, 0, 0);
+}
+.colors .color-1 {
+	color: rgb(255, 128, 0);
+}
+.colors .color-2 {
+	color: rgb(0, 0, 255);
+}
+.colors .color-3 {
+	color: rgb(0, 255, 0);
+}
+.colors .color-4 {
+	color: rgb(255, 0, 255);
+}
+.colors .color-5 {
+	color: rgb(0, 255, 255);
+}
+.colors .color-6 {
+	color: rgb(255, 255, 0);
+}
