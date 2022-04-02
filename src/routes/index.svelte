@@ -400,7 +400,9 @@
 				</div>
 
 				<div
-					class={!exploreMode ? 'mt-3 md:mt-0 md:ml-10 lg:ml-20' : 'flex  w-full space-x-36 my-5'}
+					class={!exploreMode
+						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20'
+						: 'flex  w-full space-x-36 mb-5 mt-3'}
 				>
 					<div>
 						{#if machine !== null}
