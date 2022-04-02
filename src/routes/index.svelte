@@ -338,55 +338,59 @@
 					</div>
 					<div class="mt-1 flex flex-col">
 						{#if showSimulationParams}
-							<div class="flex space-x-3 pl-2 text-sm ">
-								<label class="flex flex-col ">
-									steps
-									<input
-										class="w-[70px]"
-										type="number"
-										bind:value={nbIter}
-										on:change={() => {
-											draw();
-											window.history.replaceState({}, '', getSimulationLink());
-										}}
-									/></label
-								>
-								<label class="flex flex-col">
-									tape width
-									<input
-										class="w-[70px]"
-										type="number"
-										bind:value={tapeWidth}
-										on:change={() => {
-											draw();
-											window.history.replaceState({}, '', getSimulationLink());
-										}}
-									/></label
-								>
-								<label class="flex flex-col">
-									x-translation
-									<input
-										class="w-[70px]"
-										type="number"
-										bind:value={origin_x}
-										on:change={() => {
-											draw();
-											window.history.replaceState({}, '', getSimulationLink());
-										}}
-										min="0"
-										max="1"
-										step="0.1"
-									/></label
-								>
+							<div class="mb-2">
+								<div class="flex space-x-3 text-sm">
+									<label class="flex flex-col ">
+										steps
+										<input
+											class="w-[70px]"
+											type="number"
+											bind:value={nbIter}
+											on:change={() => {
+												draw();
+												window.history.replaceState({}, '', getSimulationLink());
+											}}
+										/></label
+									>
+									<label class="flex flex-col">
+										tape width
+										<input
+											class="w-[70px]"
+											type="number"
+											bind:value={tapeWidth}
+											on:change={() => {
+												draw();
+												window.history.replaceState({}, '', getSimulationLink());
+											}}
+										/></label
+									>
+									<label class="flex flex-col">
+										x-translation
+										<input
+											class="w-[70px]"
+											type="number"
+											bind:value={origin_x}
+											on:change={() => {
+												draw();
+												window.history.replaceState({}, '', getSimulationLink());
+											}}
+											min="0"
+											max="1"
+											step="0.1"
+										/></label
+									>
+								</div>
+								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer select-none">
+									<div>initial tape content</div>
+									<input bind:value={initial_tape} on:change={draw} />
+								</label>
 							</div>
-							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-								initial tape
-								<input bind:value={initial_tape} on:change={draw} />
-							</label>
-							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
-								<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
-								<div>show head movement</div>
-							</label>
+							{#if !exploreMode}
+								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
+									<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
+									<div>show head movement</div>
+								</label>
+							{/if}
 						{/if}
 						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
 							<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
@@ -608,7 +612,7 @@
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
 				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
-					<div id="zoology">
+					<div id="explorelogy">
 						<div class="text-xl">Zoology</div>
 						<div class="ml-3 text-sm">
 							This zoology is <a
