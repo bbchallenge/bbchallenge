@@ -126,7 +126,7 @@ export function tm_explore(
 	let x_offset = ctx.canvas.width / 2;
 	let y_offset = 0;
 
-	const MAX_SCROLL_Y = 50;
+	const MAX_SCROLL_Y = 20;
 
 	const render = () => {
 		const height = Math.ceil(ctx.canvas.height / zoom);
