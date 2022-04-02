@@ -122,9 +122,11 @@ export function tm_explore(
 ) {
 	const history = render_history(machine, initial_tape, height);
 
-	let zoom = 1;
+	let zoom = 10;
 	let x_offset = ctx.canvas.width / 2;
 	let y_offset = 0;
+
+	const MAX_SCROLL_Y = 50;
 
 	const render = () => {
 		const height = Math.ceil(ctx.canvas.height / zoom);
@@ -168,9 +170,11 @@ export function tm_explore(
 			zoom *= scale;
 		} else {
 			y_offset -= e.deltaY;
-
 			x_offset -= e.deltaX;
 		}
+		// Preventing user from scrolling too far up in y
+		y_offset = Math.min(y_offset, MAX_SCROLL_Y)
+
 		ctx.resetTransform();
 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 		ctx.setTransform(zoom, 0, 0, zoom, +x_offset, +y_offset);
