@@ -406,6 +406,29 @@
 				>
 					<div>
 						{#if machine !== null}
+							{#if machineID !== null}
+								<div
+									class="text-lg cursor-pointer select-none"
+									on:click={async () => {
+										await loadMachineFromID(machineID);
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								>
+									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
+								</div>
+							{:else}
+								<div
+									class="text-lg cursor-pointer select-none"
+									on:click={async () => {
+										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
+										draw();
+										window.history.replaceState({}, '', getSimulationLink());
+									}}
+								>
+									Machine <div class="underline text-sm ml-2 mb-1">{tmToMachineCode(machine)}</div>
+								</div>
+							{/if}
 							
 
 							<TmTable {machine} {machineID} decisionStatus={machineStatus} />
