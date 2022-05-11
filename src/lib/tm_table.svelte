@@ -1,33 +1,8 @@
 <script lang="ts">
 	// import type { TM } from './tm';
-	import { TMDecisionStatus, tmTob64URLSafe, tmToTuringMachineDotIO } from './tm';
+	import { TMDecisionStatus, tmTob64URLSafe, tmToTuringMachineDotIO, encodedTransitionToString, tmToMachineCode } from './tm';
 
-	function encodedTransitionToString(transition) {
-		try {
-			if (transition[2] == 0) {
-				return '???';
-			}
-
-			let toReturn = '';
-
-			if (transition[0] > 1) throw 'Invalid machine description [write symbol]';
-			toReturn += String.fromCharCode(48 + transition[0]);
-
-			if (transition[1] == 0) {
-				toReturn += 'R';
-			} else if (transition[1] == 1) {
-				toReturn += 'L';
-			} else {
-				throw 'Invalid machine description [move symbol]';
-			}
-
-			toReturn += String.fromCharCode(65 + (transition[2] - 1));
-
-			return toReturn;
-		} catch (error) {
-			return 'invalid';
-		}
-	}
+	
 
 	// export let machine: TM; //
 	// export let machineID: number | null = null;
@@ -73,11 +48,12 @@
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
+		<span class="text-xs select-all">{tmToMachineCode(machine)}</span>
 	{/if}
 	{#if error != null}
 		{error}
 	{:else}
-		<table class="w-[200px] text-left ml-3 font-mono">
+		<table class="w-[200px] text-left ml-3 font-mono mb-2">
 			<thead class="font-normal border-b-1">
 				<th class="font-normal" />
 				<th class="font-normal">0</th>
@@ -116,13 +92,9 @@
 				>: <span class="text-xs select-all">{machineID}</span>
 			</div>
 		{/if}
-		<div class="text-xs">
-			<a
-				class="text-blue-400 hover:text-blue-300 cursor-pointer "
-				href="/story#base-64"
-				rel="external">b64</a
-			>: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
-		</div>
+		<!-- <div class="text-xs">
+			pastable code: <span class="text-xs select-all">{tmToMachineCode(machine)}</span>
+		</div> -->
 		<div class="text-xs mt-1">
 			<span
 				href="https://turingmachine.io/"

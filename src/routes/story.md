@@ -74,7 +74,7 @@ The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://tur
 | B   | 1RC | 1RB |
 | C   | 1RD | 0LE |
 | D   | 1LA | 1LD |
-| E   | ??? | 0LA |
+| E   | --- | 0LA |
 
 </div>
 </div>
@@ -104,7 +104,7 @@ The programmer specifies the code of the machine in a table with 2 columns and <
 | B   | 1RC                                                           | 1RB |
 | C   | 1RD                                                           | 0LE |
 | D   | 1LA                                                           | 1LD |
-| E   | <span class="bg-green-400 text-gray-900 font-bold">???</span> | 0LA |
+| E   | <span class="bg-green-400 text-gray-900 font-bold">---</span> | 0LA |
 
 </div>
 </div>
@@ -115,7 +115,7 @@ Each entry of the table is called a **transition** and instructs us what to do w
 2. move the head to the right
 3. jump to state B for the next instruction
 
-The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **???**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
+The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **---**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
 
 In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially all 0 (i.e. all memory cells are 0).
 
@@ -149,15 +149,7 @@ Additional green and red colors are used to track the head position and its move
 
 **Important:** currently, these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps). <a href="/contribute" rel="external">You can help improve them</a>.
 
-<a id="base-64"></a>
 
-#### Machine base-64 representation
-
-In order to condense Turing machines programs in copyable strings we encode them in base-64 (prefixed with `m`). The exact base-64 algorithm that we use to encode machines is available <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>. See <a href="/method#format" rel="external">machine format</a> for how we interpret decoded base-64 representations as Turing machines.
-
-For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
-
-Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
 <a id="machine-id"></a>
 

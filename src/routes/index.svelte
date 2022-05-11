@@ -7,16 +7,18 @@
 		TMDecisionStatus,
 		tm_trace_to_image,
 		b64URLSafetoTM,
+		machineCodeToTM,
 		DB_SIZE,
 		tmTob64URLSafe,
-		APIDecisionStatusToTMDecisionStatus
+		APIDecisionStatusToTMDecisionStatus,
+tmToMachineCode
 	} from '$lib/tm';
 	import SvelteSeo from 'svelte-seo';
 	import Katex from '../lib/Katex.svelte';
 
 	let machine = null;
 	export let machineID = null;
-	export let machineB64 = null;
+	export let machineCodeRepr = null;
 	export let preSeed = false;
 	export let machineStatus = null;
 	let history = getHistory();
@@ -102,7 +104,7 @@
 		try {
 			const response = await API.post('/machine/random', { type: randomType });
 
-			machine = b64URLSafetoTM(response.data['machine']);
+			machine = machineCodeToTM(response.data['machine_code']);
 			machineID = response.data['machine_id'];
 
 			addToHistory(machineID);
@@ -128,7 +130,7 @@
 		try {
 			const response = await API.get(`/machine/${localMachineID}`, {});
 
-			machine = b64URLSafetoTM(response.data['machine']);
+			machine = machineCodeToTM(response.data['machine_code']);
 			localMachineID = response.data['machine_id'];
 			machineID = localMachineID;
 
@@ -146,20 +148,21 @@
 		}
 	}
 
-	let typedb64 = null;
-	let b64Error = null;
-	function loadMachineFromB64(b64, status = null) {
+	let typedCode = null;
+	let codeError = null;
+	function loadMachineFromCode(machineCode, status = null) {
 		machine = null;
 		machineID = null;
 		machineStatus = status;
 		try {
-			b64Error = null;
-			machine = b64URLSafetoTM(b64);
-			addToHistory(b64);
+			codeError = null;
+			machine = machineCodeToTM(machineCode);
+			console.log(machineCode, machine)
+			addToHistory(machineCode);
 			history = getHistory();
 			draw();
 		} catch (error) {
-			b64Error = error;
+			codeError = error;
 		}
 	}
 
@@ -180,8 +183,8 @@
 			} catch (error) {
 				apiDown = true;
 			}
-		} else if (machineB64 != null) {
-			await loadMachineFromB64(machineB64, machineStatus);
+		} else if (machineCodeRepr != null) {
+			await loadMachineFromCode(machineCodeRepr, machineStatus);
 		}
 
 		try {
@@ -193,10 +196,9 @@
 			apiDown = true;
 		}
 
-		if (apiDown && machineB64 == null) {
-			console.log('hey');
-			await loadMachineFromB64(
-				'mAQACAAAEAQEDAQECAQABAAECAAAFAQAEAAAAAQAB',
+		if (apiDown && machineCodeRepr == null) {
+			await loadMachineFromCode(
+				'1RB1LC1RC1RB1RD0LE1LA1LD---0LA',
 				TMDecisionStatus.UNDECIDED
 			);
 			origin_x = 0.65;
@@ -394,16 +396,16 @@
 									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
 								</div>
 							{:else}
-								<div
+								<!-- <div
 									class="text-lg cursor-pointer select-none"
 									on:click={async () => {
-										await loadMachineFromB64(tmTob64URLSafe(machine), machineStatus);
+										await loadMachineFromCode(tmToMachineCode(machine), machineStatus);
 										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
-									Machine <div class="underline text-xs ml-2 mb-1">{tmTob64URLSafe(machine)}</div>
-								</div>
+									Machine <div class="underline text-xs ml-2 mb-1">{tmToMachineCode(machine)}</div>
+								</div> -->
 							{/if}
 
 							<TmTable {machine} {machineID} decisionStatus={machineStatus} />
@@ -520,26 +522,22 @@
 						</div>
 						<div class="ml-3 mt-1 text-sm">
 							<div>
-								From machine <a
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									href="/story#base-64"
-									rel="external">base-64</a
-								>:
+								From machine code:
 							</div>
-							{#if b64Error}
-								<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
+							{#if codeError}
+								<div class="text-red-400 text-xs break-words w-[300px]">{codeError}</div>
 							{/if}
 							<div class="ml-5 flex items-center  space-x-4 ">
 								<input
 									type="text"
 									class="w-[200px]"
-									placeholder="Starts with m"
-									bind:value={typedb64}
+									placeholder=""
+									bind:value={typedCode}
 								/>
 								<button
 									class="bg-blue-500 p-1 px-2 "
 									on:click={() => {
-										loadMachineFromB64(typedb64);
+										loadMachineFromCode(typedCode);
 										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
@@ -549,7 +547,7 @@
 						</div>
 					</div>
 
-					<div class="mt-0 flex flex-col">
+					<!-- <div class="mt-0 flex flex-col">
 						<div class="ml-3 mt-4 text-sm ">
 							<a
 								href="/base-64"
@@ -561,7 +559,7 @@
 								Base-64 converter
 							</a>
 						</div>
-					</div>
+					</div> -->
 
 					{#if history}
 						<div class="mt-0 flex flex-col">
@@ -758,7 +756,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="max-w-[450px] flex flex-col space-y-2">
+					<!-- <div class="max-w-[450px] flex flex-col space-y-2">
 						<div>
 							<div class="text-xl">Highlighted machines</div>
 							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
@@ -783,7 +781,7 @@
 											<div
 												class="cursor-pointer select-none"
 												on:click={async () => {
-													await loadMachineFromB64(m['b64']);
+													await loadMachineFromCode(m['machine_code']);
 													updateSimulationParameters(m['link']);
 													draw();
 													window.history.replaceState({}, '', m['link']);
@@ -804,18 +802,18 @@
 								<div
 									class="cursor-pointer select-none leading-tight"
 									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB',
+										await loadMachineFromCode(
+											'1RB1LC1RC1RB1RD0LE1LA1LD---0LA',
 											TMDecisionStatus.DECIDED_HALT
 										);
 										updateSimulationParameters(
-											'/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt'
+											'/1RB1LC1RC1RB1RD1LE1LA1LD---0LA&s=10000&w=250&ox=0.8&status=halt'
 										);
 										draw();
 										window.history.replaceState(
 											{},
 											'',
-											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt'
+											'1RB1LC1RC1RB1RD1LE1LA1LD---0LA&s=10000&w=250&ox=0.8&status=halt'
 										);
 									}}
 								>
@@ -1047,7 +1045,7 @@
 								</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
