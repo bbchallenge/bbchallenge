@@ -5,6 +5,7 @@
 		"proxy": "cors-backdoor --target \"${API_BASE_URL:-https://api.bbchallenge.org}\" --port 4000 --config cors-backdoor.config.cjs",
 		"dev:base": "VITE_API_URL=http://localhost:4000/ svelte-kit dev",
 		"dev": "run-p proxy dev:base",
+		"dev:local": "VITE_API_URL=http://127.0.0.1:55055 svelte-kit dev",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",

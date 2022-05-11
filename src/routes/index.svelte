@@ -27,7 +27,7 @@ tmToMachineCode
 	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
 	let ApproxBB6 = '\\simeq 10^{36,534}';
 
-	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
+	
 	//console.log(machine);
 
 	let canvasEl;

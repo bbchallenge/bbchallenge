@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 import TmSimulator from "../lib/tm_simulator.svelte"
-import { b64URLSafetoTM, tmToTuringMachineDotIO, tmTob64URLSafe } from '../lib/tm';
+import {  tmToMachineCode, machineCodeToTM, tmToTuringMachineDotIO } from '../lib/tm';
 import Katex from "../lib/Katex.svelte"
 
-let theCode = tmToTuringMachineDotIO(b64URLSafetoTM("mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB"))
+let theCode = tmToTuringMachineDotIO(machineCodeToTM("1RB1LC1RC1RB1RD0LE1LA1LD---0LA"))
 
 onMount(() => { // TODO: this shouldn't be necessary
     const id = window.location.hash.replace(/^#/, '');
@@ -40,7 +40,7 @@ let theM = new Uint8Array(
    1,L,A,0,R,D,
    0,0,0,1,R,C,
    ]);
-console.log(tmTob64URLSafe(theM))
+console.log(tmToMachineCode(theM))
 
 </script>
 
