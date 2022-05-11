@@ -64,7 +64,7 @@ BB(5) = 47,176,870
 
 This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from all-0 memory tape).
 
-The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
+The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/{BB5_winner}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -94,7 +94,7 @@ Turing machines can be thought as a primitive computer architecture providing (i
 
 The Turing machines we work with have one bi-infinite memory tape where each cell is either containing a 0 or a 1.
 
-The programmer specifies the code of the machine in a table with 2 columns and <span class="math math-inline">q</span> rows. Rows are called **states**. Here is the code of the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt">5-state busy beaver champion</a>:
+The programmer specifies the code of the machine in a table with 2 columns and <span class="math math-inline">q</span> rows. Rows are called **states**. Here is the code of the current <a  href="https://bbchallenge.org/{BB5_winner}&s=10000&w=250&ox=0.8&status=halt">5-state busy beaver champion</a>:
 
 <div class="flex flex-col items-center -mb-2">
 <div class="w-1/3 -mt-5 font-mono">
@@ -138,7 +138,7 @@ A more detailed simulator is available at <a href="https://turingmachine.io" tar
 
 Space-time diagrams provide a condensed way to visualise the behavior of Turing machines. The space-time diagram of a machine is a 2D image where the i<sup>th</sup> row represents the memory tape of the machine at the i<sup>th</sup> iteration. Black pixels are used for memory cells containing 0 and white for 1.
 
-Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
+Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/{BB5_winner}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
 
 <div class="flex justify-center -mt-16 -mb-8">
 
@@ -189,12 +189,6 @@ Will this one halt or not starting from all-0 tape?
 Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
 
 To this day, no 5-state Turing machine is known to halt after more than <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps.
-
-<!-- Following this train of thoughts, it seems natural to then ask if a 5-state machine can do even more than these 47,176,870 steps before halting. To this day (it was found in <a href="">1989</a>), the above machine still holds the record and is referred to as the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>. -->
-
-<!-- In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
-
-If there is no general method to tell if a machine will halt or not from all-0 tape, it does not mean that we cannot answer the question for specific machines or families of machines. -->
 
 With the busy beaver challenge, we hope to discover if that <span class="bg-[#1162D3] px-0.5">47,176,870</span> record can be beaten or not among 5-state machines. This implies to decide, for all machines with 5 states, whether they halt or not.
 
@@ -271,7 +265,7 @@ Hence, the frontier between tractable and intractable values of BB seems to be s
 
 The above motivates the busy beaver challenge: **let's try to collaboratively find BB(5)**, the smallest currently unkown BB value.
 
-Prior work exhibited the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
+Prior work exhibited the current <a  href="https://bbchallenge.org/{BB5_winner}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
 
 This led to [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) conjecturing that BB(5) = 47,176,870.
 
