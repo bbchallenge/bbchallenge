@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { TM } from './tm';
-	import { b64URLSafetoTM, step, tmToTuringMachineDotIO } from './tm';
-
+	import { machineCodeToTM, step, tmToTuringMachineDotIO } from './tm';
+	import {BB5_winner} from '$lib/some_machines'
+	
 	import TmTable from './tm_table.svelte';
 
-	export let b64TM = 'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB';
+	export let machine_code = BB5_winner;
 
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
@@ -15,7 +16,7 @@
 	let ox = (width - cellSize) / 2;
 	const oy = 20;
 
-	let machine: TM = b64URLSafetoTM(b64TM);
+	let machine: TM = machineCodeToTM(machine_code);
 	let tape = {};
 	let headPos = 0;
 	let nbSteps = 0;
