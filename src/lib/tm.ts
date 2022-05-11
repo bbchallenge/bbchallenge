@@ -289,3 +289,4 @@ export function step(machine: TM, curr_state, curr_pos, tape) {
 	const next_pos = curr_pos + (move ? -1 : 1);
 	return [goto, next_pos];
 }
+

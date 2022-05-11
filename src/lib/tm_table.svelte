@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TMDecisionStatus, tmTob64URLSafe, tmToTuringMachineDotIO } from './tm';
+	import { TMDecisionStatus, tmToMachineCode, tmToTuringMachineDotIO } from './tm';
 
 	export let machine;
 	export let machineID = null;
@@ -43,10 +43,11 @@
 	{#if showTitle}
 		<div>Machine code:</div>
 	{/if}
+	<span class="text-xs select-all">{tmToMachineCode(machine)}</span>
 	{#if error != null}
 		{error}
 	{:else}
-		<table class="w-[200px] text-left ml-3 font-mono">
+		<table class="w-[200px] text-left ml-3 font-mono mb-2">
 			<thead class="font-normal border-b-1">
 				<th class="font-normal" />
 				<th class="font-normal">0</th>
@@ -67,7 +68,7 @@
 								currRead == 0}
 						>
 							{#if transition0[2] == 0}
-								???
+								---
 							{:else}
 								{String.fromCharCode(48 + transition0[0])}{transition0[1] == 0 ? 'R' : 'L'}<span
 									class={`color-${transition0[2] - 1}`}
@@ -83,7 +84,7 @@
 								currRead == 1}
 						>
 							{#if transition1[2] == 0}
-								???
+							---
 							{:else}
 								{String.fromCharCode(48 + transition0[0])}{transition1[1] == 0 ? 'R' : 'L'}<span
 									class={`color-${transition1[2] - 1}`}
@@ -102,17 +103,11 @@
 				<a
 					class="text-blue-400 hover:text-blue-300 cursor-pointer "
 					href="/story#machine-id"
-					rel="external">id</a
-				>: <span class="text-xs select-all">{machineID}</span>
+					rel="external">Database id</a
+				>: <span class="text-sm select-all">{machineID}</span>
 			</div>
 		{/if}
-		<div class="text-xs">
-			<a
-				class="text-blue-400 hover:text-blue-300 cursor-pointer "
-				href="/story#base-64"
-				rel="external">b64</a
-			>: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
-		</div>
+
 		<div class="text-xs mt-1">
 			<span
 				href="https://turingmachine.io/"

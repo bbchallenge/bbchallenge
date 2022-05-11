@@ -12,6 +12,7 @@
 		DB_SIZE,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
+	import {BB5_winner} from '$lib/some_machines'
 	import SvelteSeo from 'svelte-seo';
 	import Katex from '../lib/Katex.svelte';
 
@@ -198,9 +199,8 @@
 		}
 
 		if (apiDown && machineCode == null) {
-			console.log('hey');
 			await loadMachineFromMachineCode(
-				'mAQACAAAEAQEDAQECAQABAAECAAAFAQAEAAAAAQAB',
+				BB5_winner,
 				TMDecisionStatus.UNDECIDED
 			);
 			origin_x = 0.65;
@@ -282,12 +282,12 @@
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
 			<div
-				class="flex  flex-col  mt-3"
+				class="flex  flex-col  mt-3 "
 				class:md:flex-row={!exploreMode}
-				class:items-center={!exploreMode}
+				class:items-start={!exploreMode}
 				class:colors={exploreMode}
 			>
-				<div class="flex flex-col items-start self-stretch">
+				<div class="flex flex-col items-start  ">
 					<canvas
 						class="bg-black mr-5 image-render-pixel"
 						bind:this={canvas}
@@ -336,7 +336,7 @@
 							</div>
 						{/if}
 					</div>
-					<div class="mt-1 flex flex-col">
+					<div class="mt-1 flex flex-col ">
 						{#if showSimulationParams}
 							<div class="mb-2">
 								<div class="flex space-x-3 text-sm">
@@ -401,34 +401,12 @@
 
 				<div
 					class={!exploreMode
-						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20'
-						: 'flex  w-full space-x-36 mb-5 mt-3'}
+						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20 '
+						: 'flex w-full space-x-36 mb-5 mt-3'}
 				>
 					<div>
 						{#if machine !== null}
-							{#if machineID !== null}
-								<div
-									class="text-lg cursor-pointer select-none"
-									on:click={async () => {
-										await loadMachineFromID(machineID);
-										draw();
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-								>
-									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
-								</div>
-							{:else}
-								<div
-									class="text-lg cursor-pointer select-none"
-									on:click={async () => {
-										await loadMachineFromB64(tmTob64URLSafe(machine), machineStatus);
-										draw();
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-								>
-									Machine <div class="underline text-xs ml-2 mb-1">{tmTob64URLSafe(machine)}</div>
-								</div>
-							{/if}
+							
 
 							<TmTable {machine} {machineID} decisionStatus={machineStatus} />
 						{/if}
@@ -544,26 +522,22 @@
 						</div>
 						<div class="ml-3 mt-1 text-sm">
 							<div>
-								From machine <a
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									href="/story#base-64"
-									rel="external">base-64</a
-								>:
+								From machine code:
 							</div>
-							{#if b64Error}
-								<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
+							{#if machineCodeError}
+								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
 							{/if}
 							<div class="ml-5 flex items-center  space-x-4 ">
 								<input
 									type="text"
 									class="w-[200px]"
-									placeholder="Starts with m"
-									bind:value={typedb64}
+									placeholder=""
+									bind:value={typedMachineCode}
 								/>
 								<button
 									class="bg-blue-500 p-1 px-2 "
 									on:click={() => {
-										loadMachineFromB64(typedb64);
+										loadMachineFromMachineCode(typedMachineCode);
 										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
@@ -573,19 +547,7 @@
 						</div>
 
 						<div>
-							<div class="mt-0 flex flex-col">
-								<div class="ml-3 mt-4 text-sm ">
-									<a
-										href="/base-64"
-										class="text-blue-400
-				hover:text-blue-300
-				cursor-pointer
-				select-none underline"
-									>
-										Base-64 converter
-									</a>
-								</div>
-							</div>
+
 
 							{#if history}
 								<div class="mt-0 flex flex-col">
