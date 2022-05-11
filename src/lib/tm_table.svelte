@@ -42,13 +42,13 @@
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
-		<div class="text-xs select-all">{tmToMachineCode(machine)}</div>
+		
 	{/if}
 
 	{#if error != null}
 		{error}
 	{:else}
-		<table class="w-[200px] text-left ml-3 font-mono mb-2">
+		<table class="w-[200px] text-left ml-3 font-mono mt-1 mb-1">
 			<thead class="font-normal border-b-1">
 				<th class="font-normal" />
 				<th class="font-normal">0</th>
@@ -87,6 +87,7 @@
 		</table>
 	{/if}
 	{#if showTitle}
+	<div class="text-xs select-all">{tmToMachineCode(machine)}</div>
 		{#if machineID}
 			<div class="text-xs">
 				<a

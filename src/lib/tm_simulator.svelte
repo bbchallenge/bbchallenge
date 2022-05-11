@@ -114,9 +114,9 @@
 	<!-- <div class="-mb-8 ml-0">
 		Machine <a href="/{tmTob64URLSafe(machine)}" class="text-sm">{tmTob64URLSafe(machine)}</a>
 	</div> -->
-	<div>
+	<div >
 		<div class="font-bold">Machine code</div>
-		<div class="text-xs w-full -mb-4">
+		<div class="text-xs w-full mt-1">
 			<div>
 				<div class="text-xs select-all mb-1">{tmToMachineCode(machine)}</div>
 				<span
@@ -140,6 +140,7 @@
 				>
 			</div> -->
 		</div>
+		<div class="mt-1"></div>
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>
 	<div>
