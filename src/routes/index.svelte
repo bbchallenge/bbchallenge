@@ -781,7 +781,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="max-w-[450px] flex flex-col space-y-2">
+					<!-- <div class="max-w-[450px] flex flex-col space-y-2">
 						<div>
 							<div class="text-xl">Highlighted machines</div>
 							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
@@ -1070,7 +1070,7 @@
 								</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
