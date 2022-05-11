@@ -2,7 +2,56 @@ export type TM = Uint8Array;
 
 export const DB_SIZE = 88664064;
 
+export function encodedTransitionToString(transition): string {
+	try {
+		if (transition[2] == 0) {
+			return '---';
+		}
 
+		let toReturn = '';
+
+		if (transition[0] > 1) throw 'Invalid machine description [write symbol]';
+		toReturn += String.fromCharCode(48 + transition[0]);
+
+		if (transition[1] == 0) {
+			toReturn += 'R';
+		} else if (transition[1] == 1) {
+			toReturn += 'L';
+		} else {
+			throw 'Invalid machine description [move symbol]';
+		}
+
+		toReturn += String.fromCharCode(65 + (transition[2] - 1));
+
+		return toReturn;
+	} catch (error) {
+		return 'invalid';
+	}
+}
+
+export function tmToMachineCode(machine: Uint8Array): string {
+	let to_return = "";
+	for(let i=0 ; i < machine.length ; i += 3) {
+		to_return += encodedTransitionToString(machine.slice(i,i+3))
+	}
+	return to_return
+}
+
+export function machineCodeToTM(machineCode: string) {
+	if (machineCode.length%6 !== 0) throw "Invalid TM code.";
+
+	const tm = new Uint8Array(machineCode.length);
+	for (let i = 0; i < machineCode.length; i++) {
+		if (machineCode[i] == '0' || machineCode[i] == 'R' || machineCode[i] == '-')  
+			tm[i] = 0;
+		else if(machineCode[i] == '1' || machineCode[i] == 'L')  
+			tm[i] = 1;
+		else { // Alphabetical state name
+			tm[i] = (machineCode.charCodeAt(i) - "A".charCodeAt(0)) + 1
+		}
+	}
+	return tm;
+}
 
 export function tmToTuringMachineDotIO(machine: TM) {
 	let toReturn = "blank: '0'\n";

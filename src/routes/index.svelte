@@ -7,9 +7,9 @@
 		TMDecisionStatus,
 		tm_trace_to_image,
 		tm_explore,
-		b64URLSafetoTM,
+		tmToMachineCode,
+		machineCodeToTM,
 		DB_SIZE,
-		tmTob64URLSafe,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
 	import SvelteSeo from 'svelte-seo';
@@ -17,7 +17,7 @@
 
 	let machine = null;
 	export let machineID = null;
-	export let machineB64 = null;
+	export let machineCode = null;
 	export let preSeed = false;
 	export let machineStatus = null;
 	let history = getHistory();
@@ -63,7 +63,7 @@
 		if (!forCopy) {
 			prefix = '/';
 		}
-		let secondPrefix = tmTob64URLSafe(machine);
+		let secondPrefix = tmToMachineCode(machine);
 		if (machineID != null) {
 			secondPrefix = machineID;
 		}
@@ -106,7 +106,7 @@
 		try {
 			const response = await API.post('/machine/random', { type: randomType });
 
-			machine = b64URLSafetoTM(response.data['machine']);
+			machine = machineCodeToTM(response.data['machine_code']);
 			machineID = response.data['machine_id'];
 
 			addToHistory(machineID);
@@ -132,7 +132,7 @@
 		try {
 			const response = await API.get(`/machine/${localMachineID}`, {});
 
-			machine = b64URLSafetoTM(response.data['machine']);
+			machine = machineCodeToTM(response.data['machine_code']);
 			localMachineID = response.data['machine_id'];
 			machineID = localMachineID;
 
@@ -150,20 +150,20 @@
 		}
 	}
 
-	let typedb64 = null;
-	let b64Error = null;
-	function loadMachineFromB64(b64, status = null) {
+	let typedMachineCode = null;
+	let machineCodeError = null;
+	function loadMachineFromMachineCode(machine_code, status = null) {
 		machine = null;
 		machineID = null;
 		machineStatus = status;
 		try {
-			b64Error = null;
-			machine = b64URLSafetoTM(b64);
-			addToHistory(b64);
+			machineCodeError = null;
+			machine = machineCodeToTM(machine_code);
+			addToHistory(machine_code);
 			history = getHistory();
 			draw();
 		} catch (error) {
-			b64Error = error;
+			machineCodeError = error;
 		}
 	}
 
@@ -184,8 +184,8 @@
 			} catch (error) {
 				apiDown = true;
 			}
-		} else if (machineB64 != null) {
-			await loadMachineFromB64(machineB64, machineStatus);
+		} else if (machineCode != null) {
+			await loadMachineFromMachineCode(machineCode, machineStatus);
 		}
 
 		try {
@@ -197,9 +197,9 @@
 			apiDown = true;
 		}
 
-		if (apiDown && machineB64 == null) {
+		if (apiDown && machineCode == null) {
 			console.log('hey');
-			await loadMachineFromB64(
+			await loadMachineFromMachineCode(
 				'mAQACAAAEAQEDAQECAQABAAECAAAFAQAEAAAAAQAB',
 				TMDecisionStatus.UNDECIDED
 			);
