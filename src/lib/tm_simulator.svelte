@@ -6,7 +6,7 @@
 	
 	import TmTable from './tm_table.svelte';
 
-	export let machine_code = BB5_winner;
+	export let machineCode = BB5_winner;
 
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
@@ -16,7 +16,7 @@
 	let ox = (width - cellSize) / 2;
 	const oy = 20;
 
-	let machine: TM = machineCodeToTM(machine_code);
+	let machine: TM = machineCodeToTM(machineCode);
 	let tape = {};
 	let headPos = 0;
 	let nbSteps = 0;

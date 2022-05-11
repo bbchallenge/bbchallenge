@@ -168,17 +168,17 @@ Turing machines have to physically move their head to a memory cell before they 
 
 Turing machines have an important property: starting from a given memory tape (all-0 in our case), they either **halt** or don't. By halting we mean that the machine tries to execute an undefined transition and, since it is undefined, stops functioning. Here is a machine that halts after 4 steps:
 
-<TmSimulator b64TM="mAQACAAACAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
+<TmSimulator machineCode="1RB1RB1LA---------------------"/>
 
 Here is another machine that halts after 105 steps:
 
-<TmSimulator b64TM="mAQACAQEDAAECAQEBAQAEAQECAQAFAAAEAAABAAAA"/>
+<TmSimulator machineCode="1RB1LC0LB0LA1RD1LB1RE1RD0RA---"/>
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
 However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[1. This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
 
-<TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
+<TmSimulator machineCode="0RA---------------------------"/>
 
 In this case it is easy to convince ourselves that the machine will never halt starting from all-0 tape. However, if we take our earlier example:
 
