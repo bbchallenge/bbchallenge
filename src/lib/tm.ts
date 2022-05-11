@@ -2,27 +2,6 @@ export type TM = Uint8Array;
 
 export const DB_SIZE = 88664064;
 
-export function tmTob64URLSafe(machine: TM) {
-	let binary = '';
-	const len = machine.byteLength;
-	for (let i = 0; i < len; i++) {
-		binary += String.fromCharCode(machine[i]);
-	}
-	return 'm' + btoa(binary).replace('+', '-').replace('/', '_').replace(/=+$/, '');
-}
-
-export function b64URLSafetoTM(base64URLSafe: string) {
-	if (base64URLSafe[0] != 'm') throw "Invalid TM base64 description: must start with 'm'.";
-
-	const base64 = base64URLSafe.substring(1).replace('-', '+').replace('_', '/');
-	const binary = atob(base64);
-	const tm = new Uint8Array(binary.length);
-	for (let i = 0; i < binary.length; i++) {
-		tm[i] = binary.charCodeAt(i);
-	}
-	return tm;
-}
-
 export function encodedTransitionToString(transition): string {
 	try {
 		if (transition[2] == 0) {

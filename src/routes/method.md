@@ -95,11 +95,11 @@ The algorithm recursively constructs the tree of 5-state Turing machines startin
 
 |     | 0   | 1   |
 | --- | --- | --- |
-| A   | 1RB | ??? |
-| B   | ??? | ??? |
-| C   | ??? | ??? |
-| D   | ??? | ??? |
-| E   | ??? | ??? |
+| A   | 1RB | --- |
+| B   | --- | --- |
+| C   | --- | --- |
+| D   | --- | --- |
+| E   | --- | --- |
 
 </div>
 </div>
@@ -206,7 +206,7 @@ The database is a binary file where each machine is described on 30 bytes. It st
 
 Then, each machine is encoded on 30 bytes. First come the `14,322,029` machines that exceeded the time limit and then the `74,342,035` machines that exceeded the space limit, see [time and space limits](#time-and-space-limits). These two sets of machines are both lexicographically sorted.
 
-The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458&s=10000&w=300&ox=0.5) of the databse:
+The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458&s=10000&w=300&ox=0.5) of the database:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -216,7 +216,7 @@ The 30-byte encoding of a 5-state Turing machine is better understood with an ex
 | A   | 1RB | 0LD |
 | B   | 0LC | 1LE |
 | C   | 1LD | 1LC |
-| D   | 0RA | ??? |
+| D   | 0RA | --- |
 | E   | 1RB | 1RE |
 
 </div>
@@ -291,13 +291,13 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 
 ```json
 {
-	"machine": "mAQACAQEDAQADAQADAQECAQAEAQEBAQEFAAAAAAAB",
+	"machine_code": "1RB1LC1RC1RC1LB1RD1LA1LE---0RA",
 	"machine_id": 12345678,
 	"status": "decided"
 }
 ```
 
-- The field "machine" is the <a href="/story#base-64" rel="external">base-64 representation</a> of the 30-byte machine's description.
+- The field "machine_code" is the description of the machine.
 
 - The field "mahine_id" is the ID that you queried.
 

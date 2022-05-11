@@ -6,10 +6,8 @@
 	import {
 		TMDecisionStatus,
 		tm_trace_to_image,
-		b64URLSafetoTM,
 		machineCodeToTM,
 		DB_SIZE,
-		tmTob64URLSafe,
 		APIDecisionStatusToTMDecisionStatus,
 tmToMachineCode
 	} from '$lib/tm';
@@ -68,7 +66,7 @@ tmToMachineCode
 		if (!forCopy) {
 			prefix = '/';
 		}
-		let secondPrefix = tmTob64URLSafe(machine);
+		let secondPrefix = tmToMachineCode(machine);
 		if (machineID != null) {
 			secondPrefix = machineID;
 		}

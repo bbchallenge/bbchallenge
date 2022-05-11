@@ -1,6 +1,6 @@
 <script lang="ts">
 	// import type { TM } from './tm';
-	import { TMDecisionStatus, tmTob64URLSafe, tmToTuringMachineDotIO, encodedTransitionToString, tmToMachineCode } from './tm';
+	import { TMDecisionStatus, tmToTuringMachineDotIO, encodedTransitionToString, tmToMachineCode } from './tm';
 
 	
 
