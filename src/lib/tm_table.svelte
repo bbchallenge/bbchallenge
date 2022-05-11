@@ -42,8 +42,9 @@
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
+		<div class="text-xs select-all">{tmToMachineCode(machine)}</div>
 	{/if}
-	<span class="text-xs select-all">{tmToMachineCode(machine)}</span>
+
 	{#if error != null}
 		{error}
 	{:else}
@@ -55,43 +56,31 @@
 			</thead>
 			<tbody>
 				{#each [...Array(machine.length / 6).keys()] as i}
-					{@const transition0 = machine.slice(6 * i, 6 * i + 3)}
-					{@const transition1 = machine.slice(6 * i + 3, 6 * i + 6)}
+					{@const transitions = [machine.slice(6 * i, 6 * i + 3),machine.slice(6 * i + 3, 6 * i + 6)]}
+					
 
 					<tr
 						><td class={`w-1/3 color-${i}`}>{String.fromCharCode(65 + i)}</td>
+						
+						{#each [...Array(2).keys()] as j}
 						<td
 							class="w-1/3"
 							class:bg-magenta={currState !== null &&
 								currRead !== null &&
 								i == currState &&
-								currRead == 0}
+								currRead == j}
 						>
-							{#if transition0[2] == 0}
+							{#if transitions[j][2] == 0}
 								---
 							{:else}
-								{String.fromCharCode(48 + transition0[0])}{transition0[1] == 0 ? 'R' : 'L'}<span
-									class={`color-${transition0[2] - 1}`}
-									>{String.fromCharCode(65 + (transition0[2] - 1))}</span
+								{String.fromCharCode(48 + transitions[j][0])}{transitions[j][1] == 0 ? 'R' : 'L'}<span
+									class={`color-${transitions[j][2] - 1}`}
+									>{String.fromCharCode(65 + (transitions[j][2] - 1))}</span
 								>
 							{/if}
 						</td>
-						<td
-							class="w-1/3"
-							class:bg-magenta={currState !== null &&
-								currRead !== null &&
-								i == currState &&
-								currRead == 1}
-						>
-							{#if transition1[2] == 0}
-							---
-							{:else}
-								{String.fromCharCode(48 + transition0[0])}{transition1[1] == 0 ? 'R' : 'L'}<span
-									class={`color-${transition1[2] - 1}`}
-									>{String.fromCharCode(65 + (transition1[2] - 1))}</span
-								>
-							{/if}
-						</td>
+						{/each}
+						
 					</tr>
 				{/each}
 			</tbody>

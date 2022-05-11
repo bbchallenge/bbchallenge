@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { TM } from './tm';
-	import { machineCodeToTM, step, tmToTuringMachineDotIO } from './tm';
+	import { machineCodeToTM, step, tmToTuringMachineDotIO, tmToMachineCode } from './tm';
 	import {BB5_winner} from '$lib/some_machines'
 	
 	import TmTable from './tm_table.svelte';
@@ -51,7 +51,6 @@
 
 	function next() {
 		const [nextState, nextPos] = step(machine, currState, headPos, tape);
-
 		if (nextState === null || nextPos == null) {
 			if (!hasHalted) nbSteps += 1;
 			hasHalted = true;
@@ -106,6 +105,7 @@
 		tape = initalTape();
 		drawTape();
 	});
+
 </script>
 
 <svelte:window on:keydown={keydown} />
@@ -115,9 +115,10 @@
 		Machine <a href="/{tmTob64URLSafe(machine)}" class="text-sm">{tmTob64URLSafe(machine)}</a>
 	</div> -->
 	<div>
-		<div class="font-bold -mb-5">Machine code</div>
-		<div class="text-xs mt-1 w-full  mt-5 -mb-5">
+		<div class="font-bold">Machine code</div>
+		<div class="text-xs w-full -mb-4">
 			<div>
+				<div class="text-xs select-all mb-1">{tmToMachineCode(machine)}</div>
 				<span
 					on:click|preventDefault={() => {
 						navigator.clipboard.writeText(tmToTuringMachineDotIO(machine)).then(function () {

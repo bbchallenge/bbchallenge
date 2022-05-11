@@ -172,7 +172,7 @@ Turing machines have an important property: starting from a given memory tape (a
 
 Here is another machine that halts after 105 steps:
 
-<TmSimulator machineCode="1RB1LC0LB0LA1RD1LB1RE1RD0RA---"/>
+<TmSimulator machineCode="1RB1LC0LB1LA1RD1LB1RE0RD0RA---"/>
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
