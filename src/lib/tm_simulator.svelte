@@ -32,6 +32,7 @@
 	}
 
 	function drawTape() {
+		
 		ctx.lineWidth = 3;
 		for (const [pos, val] of Object.entries(tape)) {
 			ctx.fillStyle = 'black';
@@ -50,7 +51,7 @@
 	}
 
 	function next() {
-		const [nextState, nextPos] = step(machine, currState, headPos, tape);
+		const [nextState, nextPos] = step(machine, currState, headPos, tape, true);
 		if (nextState === null || nextPos == null) {
 			if (!hasHalted) nbSteps += 1;
 			hasHalted = true;

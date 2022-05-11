@@ -274,18 +274,25 @@ export function tm_trace_to_image(
 	}
 }
 
-export function step(machine: TM, curr_state, curr_pos, tape) {
-	if (tape[intToNatural(curr_pos)] === undefined) {
-		tape[intToNatural(curr_pos)] = 0;
+export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions=false) {
+
+	function identity(x) {
+		return x;
 	}
 
-	const write = machine[curr_state * 6 + 3 * tape[intToNatural(curr_pos)]];
-	const move = machine[curr_state * 6 + 3 * tape[intToNatural(curr_pos)] + 1];
-	const goto = machine[curr_state * 6 + 3 * tape[intToNatural(curr_pos)] + 2] - 1;
+	const f = (use_int_positions) ? identity : intToNatural;
+
+	if (tape[f(curr_pos)] === undefined) {
+		tape[f(curr_pos)] = 0;
+	}
+
+	const write = machine[curr_state * 6 + 3 * tape[f(curr_pos)]];
+	const move = machine[curr_state * 6 + 3 * tape[f(curr_pos)] + 1];
+	const goto = machine[curr_state * 6 + 3 * tape[f(curr_pos)] + 2] - 1;
 
 	if (goto == -1) return [null, null];
 
-	tape[intToNatural(curr_pos)] = write;
+	tape[f(curr_pos)] = write;
 	const next_pos = curr_pos + (move ? -1 : 1);
 	return [goto, next_pos];
 }
