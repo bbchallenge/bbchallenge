@@ -766,9 +766,11 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="max-w-[450px] flex flex-col space-y-2">
+					<div class="max-w-[450px] flex flex-col space-y-2">
 						<div>
 							<div class="text-xl">Highlighted machines</div>
+							<div class="text-sm mt-1">Coming back soon</div>
+							<!-- 
 							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
 								<div class="text-sm w-[400px] mt-1 ml-2">Scary undecided machines:</div>
 								<div class="mt-1 ml-8 w-full flex flex-col  ">
@@ -1053,9 +1055,9 @@
 								<a class="cursor-pointer select-none leading-tight" href="/skelet" rel="external">
 									&middot;&nbsp;<span class="underline">full list</span>
 								</a>
-							</div>
+							</div>-->
 						</div>
-					</div> -->
+					</div> 
 				</div>
 			</div>
 		</div>
