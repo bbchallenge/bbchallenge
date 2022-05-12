@@ -545,7 +545,7 @@
 						</div>
 						<div class="ml-3 mt-1 text-sm">
 							<div>
-								From machine code:
+								From compact machine code:
 							</div>
 							{#if machineCodeError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
