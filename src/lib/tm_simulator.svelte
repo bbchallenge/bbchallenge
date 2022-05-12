@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import type { TM } from './tm';
 	import { machineCodeToTM, step, tmToTuringMachineDotIO, tmToMachineCode } from './tm';
-	import {BB5_winner} from '$lib/some_machines'
+	import {BB5_winner} from '$lib/machine_repertoire'
 	
 	import TmTable from './tm_table.svelte';
 
