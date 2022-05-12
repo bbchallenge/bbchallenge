@@ -87,7 +87,7 @@
 		</table>
 	{/if}
 	{#if showTitle}
-	<div class="text-xs  mb-2">Compact: <span class="select-all">{tmToMachineCode(machine)}</span></div>
+	<div class="text-xs  mb-2"><span class="select-none">Compact:</span> <span class="select-all">{tmToMachineCode(machine)}</span></div>
 		{#if machineID}
 			<div class="text-xs">
 				<a
