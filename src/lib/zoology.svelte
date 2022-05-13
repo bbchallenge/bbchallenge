@@ -26,14 +26,14 @@
 </script>
 
 <div id="zoology">
-	<div class="text-xl">Zoology</div>
-	<div class="ml-3 text-sm">
+	<div class="text-xl mb-1">Zoology</div>
+	<div class="ml-2 text-sm">
 		This zoology is <a
 			href="https://discuss.bbchallenge.org/t/current-zoology/23"
 			class="text-blue-400 hover:text-blue-300 cursor-pointer">collaborative</a
 		>.
 	</div>
-	<div class="ml-3">
+	<div class="ml-2">
 		<div class="flex flex-col space-y-2 mt-2">
 			{#each zoology as entry, i}
 				<div>

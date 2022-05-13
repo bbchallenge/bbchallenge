@@ -26,11 +26,9 @@
 </script>
 
 <div class="max-w-[450px] flex flex-col space-y-2">
-	<div>
-		<div class="text-xl">Highlighted machines</div>
-	</div>
-	<div class="">
-		<div class="text-sm w-[400px] ml-2">Scary undecided machines:</div>
+	<div class="ml-2">
+		<div class="text-xl mb-1">Highlighted machines</div>
+		<div class="text-sm ml-2">Scary undecided machines:</div>
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 			{#each highlighted_undecided_machines as m_id}
 				<HighlightedMachine on:machine_id machine_id={m_id}
@@ -64,7 +62,7 @@
 			>
 		</div>
 	</div>
-	<div class="">
+	<div class="ml-2">
 		<div class="text-sm w-[400px] ml-2">BB champions and other halting machines:</div>
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 			<HighlightedMachine
@@ -110,7 +108,7 @@
 			>
 		</div>
 	</div>
-	<div class="">
+	<div class="ml-2">
 		<div class="text-sm w-[400px] ml-2 mt-1">
 			Some <a href="/story#skelets-43-undecided-machines" rel="external" class="underline"
 				>Skelet's machines</a
