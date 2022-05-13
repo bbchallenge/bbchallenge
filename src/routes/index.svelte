@@ -192,6 +192,7 @@
 			metrics = response.data;
 			response = await API.get(`/highlighted`, {});
 			highlighted = response.data;
+			console.log(highlighted);
 		} catch (error) {
 			apiDown = true;
 		}

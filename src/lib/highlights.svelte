@@ -8,7 +8,9 @@
 		BB5_champion,
 		BB6_Kropitz_champion,
 		BB7_Wythagoras_champion,
-		Skelet_machines
+		Skelet_machines,
+		Marxen_and_Buntrock_chaotic_id,
+		Marxen_and_Buntrock_complex_counter_id
 	} from './machine_repertoire';
 	import { TMDecisionStatus } from './tm';
 
@@ -19,11 +21,48 @@
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
+
+	const highlighted_undecided_machines = [7410754, 43374927, 36909813];
 </script>
 
 <div class="max-w-[450px] flex flex-col space-y-2">
 	<div>
 		<div class="text-xl">Highlighted machines</div>
+	</div>
+	<div class="">
+		<div class="text-sm w-[400px] ml-2">Scary undecided machines:</div>
+		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+			{#each highlighted_undecided_machines as m_id}
+				<HighlightedMachine on:machine_id machine_id={m_id}
+					>&middot;&nbsp; Machine</HighlightedMachine
+				>
+			{/each}
+			<HighlightedMachine
+				ref_link="http://turbotm.de/~heiner/BB/mabu90.html"
+				ref_authors="Marxen & Buntrock"
+				ref_year="1990"
+			>
+				<span
+					class="cursor-pointer select-none"
+					on:click={() => {
+						dispatch('machine_id', { machine_id: Marxen_and_Buntrock_chaotic_id });
+					}}>&middot;&nbsp; "<span class="underline">chaotic</span>"</span
+				>
+			</HighlightedMachine>
+			<HighlightedMachine
+				on:machine_id
+				ref_link="http://turbotm.de/~heiner/BB/mabu90.html"
+				ref_authors="Marxen & Buntrock"
+				ref_year="1990"
+			>
+				<span
+					class="cursor-pointer select-none"
+					on:click={() => {
+						dispatch('machine_id', { machine_id: Marxen_and_Buntrock_complex_counter_id });
+					}}>&middot;&nbsp; "<span class="underline">complex counter</span>"</span
+				></HighlightedMachine
+			>
+		</div>
 	</div>
 	<div class="">
 		<div class="text-sm w-[400px] ml-2">BB champions and other halting machines:</div>

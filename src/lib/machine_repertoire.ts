@@ -5,6 +5,9 @@ export const BB7_Wythagoras_champion = '1LE---1RC1RF1LD0RB1RE0LC1LG0RD---1RC1RB1
 export const BB5_23M_steps_halter = '1RB0LD1LC1RD1LA1LC---1RE1RA0RB'; // 23,554,764 steps
 export const BB5_2M_steps_halter = '1RB1LC0LA0LD1LA---1LB1RE0RD0RB'; // 2,133,492 steps
 
+export const Marxen_and_Buntrock_chaotic_id = 76708232;
+export const Marxen_and_Buntrock_complex_counter_id = 10936909;
+
 // cf: https://skelet.ludost.net/bb/nreg.html
 export const Skelet_machines = [
 	{
