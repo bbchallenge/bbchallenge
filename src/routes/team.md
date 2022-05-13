@@ -23,7 +23,7 @@ The following people have helped the project with valuable conversations, inputs
 - [@DunDunDunDone](https://github.com/DunDunDunDone)
 - [@pg132](https://github.com/pg132)
 
-#### Researched sponsored by [prgm.dev](https://prgm.dev)
+#### Research sponsored by [prgm.dev](https://prgm.dev)
 <!-- using a link messes with my layout so I use on:click -->
 <img src="/prgm.png" width="100px" class="-ml-1 cursor-pointer" on:click={() => {window.location="https://prgm.dev"}}/>
 
