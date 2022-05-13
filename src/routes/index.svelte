@@ -167,7 +167,7 @@
 	}
 
 	let metrics = null;
-	let highlighted = null;
+
 	let apiDown = false;
 	onMount(async () => {
 		if (!preSeed) {
@@ -190,9 +190,6 @@
 		try {
 			let response = await API.get(`/metrics`, {});
 			metrics = response.data;
-			response = await API.get(`/highlighted`, {});
-			highlighted = response.data;
-			console.log(highlighted);
 		} catch (error) {
 			apiDown = true;
 		}
