@@ -24,7 +24,6 @@
 <div class="max-w-[450px] flex flex-col space-y-2">
 	<div>
 		<div class="text-xl">Highlighted machines</div>
-		<div class="text-sm mt-1">Coming back soon</div>
 	</div>
 	<div class="">
 		<div class="text-sm w-[400px] ml-2">BB champions and other halting machines:</div>
