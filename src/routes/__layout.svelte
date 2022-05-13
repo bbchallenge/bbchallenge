@@ -75,6 +75,16 @@
 					>Contribute
 				</a>
 			</li>
+			<li>
+				<a
+					href="/team"
+					class:active={currentRoute == 'team'}
+					on:click={() => {
+						currentRoute = 'team';
+					}}
+					>Team
+				</a>
+			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
 			<li>
 				<a href="https://github.com/bbchallenge" class="cursor-pointer "
