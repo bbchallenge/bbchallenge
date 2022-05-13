@@ -1,10 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 import TmSimulator from "../lib/tm_simulator.svelte"
-import { b64URLSafetoTM, tmToTuringMachineDotIO, tmTob64URLSafe } from '../lib/tm';
+import { tmToMachineCode, machineCodeToTM, tmToTuringMachineDotIO  } from '../lib/tm';
+import {BB5_champion} from '$lib/machine_repertoire'
 import Katex from "../lib/Katex.svelte"
 
-let theCode = tmToTuringMachineDotIO(b64URLSafetoTM("mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB"))
+let theCode = tmToTuringMachineDotIO(machineCodeToTM(BB5_champion))
 
 onMount(() => { // TODO: this shouldn't be necessary
     const id = window.location.hash.replace(/^#/, '');
@@ -40,7 +41,7 @@ let theM = new Uint8Array(
    1,L,A,0,R,D,
    0,0,0,1,R,C,
    ]);
-console.log(tmTob64URLSafe(theM))
+console.log(tmToMachineCode(theM))
 
 </script>
 
@@ -63,7 +64,7 @@ BB(5) = 47,176,870
 
 This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from all-0 memory tape).
 
-The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
+The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -74,7 +75,7 @@ The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://tur
 | B   | 1RC | 1RB |
 | C   | 1RD | 0LE |
 | D   | 1LA | 1LD |
-| E   | ??? | 0LA |
+| E   | --- | 0LA |
 
 </div>
 </div>
@@ -93,7 +94,7 @@ Turing machines can be thought as a primitive computer architecture providing (i
 
 The Turing machines we work with have one bi-infinite memory tape where each cell is either containing a 0 or a 1.
 
-The programmer specifies the code of the machine in a table with 2 columns and <span class="math math-inline">q</span> rows. Rows are called **states**. Here is the code of the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt">5-state busy beaver champion</a>:
+The programmer specifies the code of the machine in a table with 2 columns and <span class="math math-inline">q</span> rows. Rows are called **states**. Here is the code of the current <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt">5-state busy beaver champion</a>:
 
 <div class="flex flex-col items-center -mb-2">
 <div class="w-1/3 -mt-5 font-mono">
@@ -104,7 +105,7 @@ The programmer specifies the code of the machine in a table with 2 columns and <
 | B   | 1RC                                                           | 1RB |
 | C   | 1RD                                                           | 0LE |
 | D   | 1LA                                                           | 1LD |
-| E   | <span class="bg-green-400 text-gray-900 font-bold">???</span> | 0LA |
+| E   | <span class="bg-green-400 text-gray-900 font-bold">---</span> | 0LA |
 
 </div>
 </div>
@@ -115,7 +116,7 @@ Each entry of the table is called a **transition** and instructs us what to do w
 2. move the head to the right
 3. jump to state B for the next instruction
 
-The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **???**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
+The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **---**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
 
 In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially all 0 (i.e. all memory cells are 0).
 
@@ -137,7 +138,7 @@ A more detailed simulator is available at <a href="https://turingmachine.io" tar
 
 Space-time diagrams provide a condensed way to visualise the behavior of Turing machines. The space-time diagram of a machine is a 2D image where the i<sup>th</sup> row represents the memory tape of the machine at the i<sup>th</sup> iteration. Black pixels are used for memory cells containing 0 and white for 1.
 
-Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
+Here is the space-time diagram of the first 10,000 iterations of the <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>:
 
 <div class="flex justify-center -mt-16 -mb-8">
 
@@ -148,16 +149,6 @@ Here is the space-time diagram of the first 10,000 iterations of the <a  href="h
 Additional green and red colors are used to track the head position and its movement: green when the head has moved to the left and red when it has moved to the right.
 
 **Important:** currently, these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps). <a href="/contribute" rel="external">You can help improve them</a>.
-
-<a id="base-64"></a>
-
-#### Machine base-64 representation
-
-In order to condense Turing machines programs in copyable strings we encode them in base-64 (prefixed with `m`). The exact base-64 algorithm that we use to encode machines is available <a class="underline" href="https://github.com/bbchallenge/website-frontend/blob/main/src/lib/tm.ts#L5" target="_all 0">here</a>. See <a href="/method#format" rel="external">machine format</a> for how we interpret decoded base-64 representations as Turing machines.
-
-For instance, the base-64 encoding of the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> is: <span class="text-sm select-all">mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</span>.
-
-Any machine's space-time diagram can be visualised given the base-64 encoding of the machine, for instance: <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB" rel="external" class="text-sm">https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB</a>.
 
 <a id="machine-id"></a>
 
@@ -177,17 +168,17 @@ Turing machines have to physically move their head to a memory cell before they 
 
 Turing machines have an important property: starting from a given memory tape (all-0 in our case), they either **halt** or don't. By halting we mean that the machine tries to execute an undefined transition and, since it is undefined, stops functioning. Here is a machine that halts after 4 steps:
 
-<TmSimulator b64TM="mAQACAAACAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
+<TmSimulator machineCode="1RB1RB1LA---------------------"/>
 
 Here is another machine that halts after 105 steps:
 
-<TmSimulator b64TM="mAQACAQEDAAECAQEBAQAEAQECAQAFAAAEAAABAAAA"/>
+<TmSimulator machineCode="1RB1LC0LB1LA1RD1LB1RE0RD0RA---"/>
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
 However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[1. This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
 
-<TmSimulator b64TM="mAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"/>
+<TmSimulator machineCode="0RA---------------------------"/>
 
 In this case it is easy to convince ourselves that the machine will never halt starting from all-0 tape. However, if we take our earlier example:
 
@@ -198,12 +189,6 @@ Will this one halt or not starting from all-0 tape?
 Answering this question does not look simple. Here, patience can answer it for us because the machine **does halt**, after <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps. However, this fact would have been quite difficult to predict just from looking at the code of the machine.
 
 To this day, no 5-state Turing machine is known to halt after more than <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps.
-
-<!-- Following this train of thoughts, it seems natural to then ask if a 5-state machine can do even more than these 47,176,870 steps before halting. To this day (it was found in <a href="">1989</a>), the above machine still holds the record and is referred to as the <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>. -->
-
-<!-- In general, Turing proved that no algorithm can answer the question "Does this machine halt starting from this tape?". Indeed, [the halting problem of Turing machines is undecidable](https://en.wikipedia.org/wiki/Halting_problem).
-
-If there is no general method to tell if a machine will halt or not from all-0 tape, it does not mean that we cannot answer the question for specific machines or families of machines. -->
 
 With the busy beaver challenge, we hope to discover if that <span class="bg-[#1162D3] px-0.5">47,176,870</span> record can be beaten or not among 5-state machines. This implies to decide, for all machines with 5 states, whether they halt or not.
 
@@ -280,7 +265,7 @@ Hence, the frontier between tractable and intractable values of BB seems to be s
 
 The above motivates the busy beaver challenge: **let's try to collaboratively find BB(5)**, the smallest currently unkown BB value.
 
-Prior work exhibited the current <a  href="https://bbchallenge.org/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
+Prior work exhibited the current <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
 
 This led to [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) conjecturing that BB(5) = 47,176,870.
 

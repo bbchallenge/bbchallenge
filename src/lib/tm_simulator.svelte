@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { TM } from './tm';
-	import { b64URLSafetoTM, step, tmToTuringMachineDotIO } from './tm';
+	import { machineCodeToTM, step, tmToTuringMachineDotIO, tmToMachineCode } from './tm';
+	import { BB5_champion } from '$lib/machine_repertoire';
 
 	import TmTable from './tm_table.svelte';
 
-	export let b64TM = 'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB';
+	export let machineCode = BB5_champion;
 
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
@@ -15,7 +16,7 @@
 	let ox = (width - cellSize) / 2;
 	const oy = 20;
 
-	let machine: TM = b64URLSafetoTM(b64TM);
+	let machine: TM = machineCodeToTM(machineCode);
 	let tape = {};
 	let headPos = 0;
 	let nbSteps = 0;
@@ -49,8 +50,7 @@
 	}
 
 	function next() {
-		const [nextState, nextPos] = step(machine, currState, headPos, tape);
-
+		const [nextState, nextPos] = step(machine, currState, headPos, tape, true);
 		if (nextState === null || nextPos == null) {
 			if (!hasHalted) nbSteps += 1;
 			hasHalted = true;
@@ -114,9 +114,10 @@
 		Machine <a href="/{tmTob64URLSafe(machine)}" class="text-sm">{tmTob64URLSafe(machine)}</a>
 	</div> -->
 	<div>
-		<div class="font-bold -mb-5">Machine code</div>
-		<div class="text-xs mt-1 w-full  mt-5 -mb-5">
+		<div class="font-bold">Machine code</div>
+		<div class="text-xs w-full mt-1">
 			<div>
+				<div class="text-xs select-all mb-1">{tmToMachineCode(machine)}</div>
 				<span
 					on:click|preventDefault={() => {
 						navigator.clipboard.writeText(tmToTuringMachineDotIO(machine)).then(function () {
@@ -138,6 +139,7 @@
 				>
 			</div> -->
 		</div>
+		<div class="mt-1" />
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>
 	<div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TMDecisionStatus, tmTob64URLSafe, tmToTuringMachineDotIO } from './tm';
+	import { TMDecisionStatus, tmToMachineCode, tmToTuringMachineDotIO } from './tm';
 
 	export let machine;
 	export let machineID = null;
@@ -42,11 +42,13 @@
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
+		
 	{/if}
+
 	{#if error != null}
 		{error}
 	{:else}
-		<table class="w-[200px] text-left ml-3 font-mono">
+		<table class="w-[200px] text-left ml-3 font-mono mt-1 mb-1">
 			<thead class="font-normal border-b-1">
 				<th class="font-normal" />
 				<th class="font-normal">0</th>
@@ -54,65 +56,48 @@
 			</thead>
 			<tbody>
 				{#each [...Array(machine.length / 6).keys()] as i}
-					{@const transition0 = machine.slice(6 * i, 6 * i + 3)}
-					{@const transition1 = machine.slice(6 * i + 3, 6 * i + 6)}
+					{@const transitions = [machine.slice(6 * i, 6 * i + 3),machine.slice(6 * i + 3, 6 * i + 6)]}
+					
 
 					<tr
 						><td class={`w-1/3 color-${i}`}>{String.fromCharCode(65 + i)}</td>
+						
+						{#each [...Array(2).keys()] as j}
 						<td
 							class="w-1/3"
 							class:bg-magenta={currState !== null &&
 								currRead !== null &&
 								i == currState &&
-								currRead == 0}
+								currRead == j}
 						>
-							{#if transition0[2] == 0}
-								???
+							{#if transitions[j][2] == 0}
+								---
 							{:else}
-								{String.fromCharCode(48 + transition0[0])}{transition0[1] == 0 ? 'R' : 'L'}<span
-									class={`color-${transition0[2] - 1}`}
-									>{String.fromCharCode(65 + (transition0[2] - 1))}</span
+								{String.fromCharCode(48 + transitions[j][0])}{transitions[j][1] == 0 ? 'R' : 'L'}<span
+									class={`color-${transitions[j][2] - 1}`}
+									>{String.fromCharCode(65 + (transitions[j][2] - 1))}</span
 								>
 							{/if}
 						</td>
-						<td
-							class="w-1/3"
-							class:bg-magenta={currState !== null &&
-								currRead !== null &&
-								i == currState &&
-								currRead == 1}
-						>
-							{#if transition1[2] == 0}
-								???
-							{:else}
-								{String.fromCharCode(48 + transition0[0])}{transition1[1] == 0 ? 'R' : 'L'}<span
-									class={`color-${transition1[2] - 1}`}
-									>{String.fromCharCode(65 + (transition1[2] - 1))}</span
-								>
-							{/if}
-						</td>
+						{/each}
+						
 					</tr>
 				{/each}
 			</tbody>
 		</table>
 	{/if}
 	{#if showTitle}
+	<div class="text-xs  mb-2"><span class="select-none">Compact:</span> <span class="select-all">{tmToMachineCode(machine)}</span></div>
 		{#if machineID}
 			<div class="text-xs">
 				<a
 					class="text-blue-400 hover:text-blue-300 cursor-pointer "
 					href="/story#machine-id"
-					rel="external">id</a
-				>: <span class="text-xs select-all">{machineID}</span>
+					rel="external">Database id</a
+				>: <span class="text-sm select-all">{machineID}</span>
 			</div>
 		{/if}
-		<div class="text-xs">
-			<a
-				class="text-blue-400 hover:text-blue-300 cursor-pointer "
-				href="/story#base-64"
-				rel="external">b64</a
-			>: <span class="text-xs select-all">{tmTob64URLSafe(machine)}</span>
-		</div>
+
 		<div class="text-xs mt-1">
 			<span
 				href="https://turingmachine.io/"

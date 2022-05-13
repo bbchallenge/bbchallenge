@@ -7,26 +7,25 @@
 		TMDecisionStatus,
 		tm_trace_to_image,
 		tm_explore,
-		b64URLSafetoTM,
+		tmToMachineCode,
+		machineCodeToTM,
 		DB_SIZE,
-		tmTob64URLSafe,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
+	import { BB5_champion } from '$lib/machine_repertoire';
 	import SvelteSeo from 'svelte-seo';
-	import Katex from '../lib/Katex.svelte';
+
+	import Zoology from '$lib/zoology.svelte';
+	import Highlights from '$lib/highlights.svelte';
 
 	let machine = null;
 	export let machineID = null;
-	export let machineB64 = null;
+	export let machineCode = null;
 	export let preSeed = false;
 	export let machineStatus = null;
 	let history = getHistory();
 	let showHistory = false;
 	let showSimulationParams = false;
-
-	// Cannot inline { .. } because of svelte
-	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
-	let ApproxBB6 = '\\simeq 10^{36,534}';
 
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
@@ -63,7 +62,7 @@
 		if (!forCopy) {
 			prefix = '/';
 		}
-		let secondPrefix = tmTob64URLSafe(machine);
+		let secondPrefix = tmToMachineCode(machine);
 		if (machineID != null) {
 			secondPrefix = machineID;
 		}
@@ -106,7 +105,7 @@
 		try {
 			const response = await API.post('/machine/random', { type: randomType });
 
-			machine = b64URLSafetoTM(response.data['machine']);
+			machine = machineCodeToTM(response.data['machine_code']);
 			machineID = response.data['machine_id'];
 
 			addToHistory(machineID);
@@ -132,7 +131,7 @@
 		try {
 			const response = await API.get(`/machine/${localMachineID}`, {});
 
-			machine = b64URLSafetoTM(response.data['machine']);
+			machine = machineCodeToTM(response.data['machine_code']);
 			localMachineID = response.data['machine_id'];
 			machineID = localMachineID;
 
@@ -150,25 +149,25 @@
 		}
 	}
 
-	let typedb64 = null;
-	let b64Error = null;
-	function loadMachineFromB64(b64, status = null) {
+	let typedMachineCode = null;
+	let machineCodeError = null;
+	function loadMachineFromMachineCode(machine_code, status = null) {
 		machine = null;
 		machineID = null;
 		machineStatus = status;
 		try {
-			b64Error = null;
-			machine = b64URLSafetoTM(b64);
-			addToHistory(b64);
+			machineCodeError = null;
+			machine = machineCodeToTM(machine_code);
+			addToHistory(machine_code);
 			history = getHistory();
 			draw();
 		} catch (error) {
-			b64Error = error;
+			machineCodeError = error;
 		}
 	}
 
 	let metrics = null;
-	let highlighted = null;
+
 	let apiDown = false;
 	onMount(async () => {
 		if (!preSeed) {
@@ -184,25 +183,19 @@
 			} catch (error) {
 				apiDown = true;
 			}
-		} else if (machineB64 != null) {
-			await loadMachineFromB64(machineB64, machineStatus);
+		} else if (machineCode != null) {
+			await loadMachineFromMachineCode(machineCode, machineStatus);
 		}
 
 		try {
 			let response = await API.get(`/metrics`, {});
 			metrics = response.data;
-			response = await API.get(`/highlighted`, {});
-			highlighted = response.data;
 		} catch (error) {
 			apiDown = true;
 		}
 
-		if (apiDown && machineB64 == null) {
-			console.log('hey');
-			await loadMachineFromB64(
-				'mAQACAAAEAQEDAQECAQABAAECAAAFAQAEAAAAAQAB',
-				TMDecisionStatus.UNDECIDED
-			);
+		if (apiDown && machineCode == null) {
+			await loadMachineFromMachineCode(BB5_champion, TMDecisionStatus.UNDECIDED);
 			origin_x = 0.65;
 		}
 
@@ -282,12 +275,12 @@
 	<div class="flex md:justify-center ">
 		<div class="flex flex-col  ">
 			<div
-				class="flex  flex-col  mt-3"
+				class="flex  flex-col  mt-3 "
 				class:md:flex-row={!exploreMode}
-				class:items-center={!exploreMode}
+				class:items-start={!exploreMode}
 				class:colors={exploreMode}
 			>
-				<div class="flex flex-col items-start self-stretch">
+				<div class="flex flex-col items-start  ">
 					<canvas
 						class="bg-black mr-5 image-render-pixel"
 						bind:this={canvas}
@@ -336,7 +329,7 @@
 							</div>
 						{/if}
 					</div>
-					<div class="mt-1 flex flex-col">
+					<div class="mt-1 flex flex-col ">
 						{#if showSimulationParams}
 							<div class="mb-2">
 								<div class="flex space-x-3 text-sm">
@@ -401,8 +394,8 @@
 
 				<div
 					class={!exploreMode
-						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20'
-						: 'flex  w-full space-x-36 mb-5 mt-3'}
+						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20 '
+						: 'flex w-full space-x-36 mb-5 mt-3'}
 				>
 					<div>
 						{#if machine !== null}
@@ -421,12 +414,12 @@
 								<div
 									class="text-lg cursor-pointer select-none"
 									on:click={async () => {
-										await loadMachineFromB64(tmTob64URLSafe(machine), machineStatus);
+										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
 										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
-									Machine <div class="underline text-xs ml-2 mb-1">{tmTob64URLSafe(machine)}</div>
+									Machine <div class="underline text-sm ml-2 mb-1">{tmToMachineCode(machine)}</div>
 								</div>
 							{/if}
 
@@ -543,27 +536,16 @@
 							</div>
 						</div>
 						<div class="ml-3 mt-1 text-sm">
-							<div>
-								From machine <a
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									href="/story#base-64"
-									rel="external">base-64</a
-								>:
-							</div>
-							{#if b64Error}
-								<div class="text-red-400 text-xs break-words w-[300px]">{b64Error}</div>
+							<div>From compact machine code:</div>
+							{#if machineCodeError}
+								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
 							{/if}
 							<div class="ml-5 flex items-center  space-x-4 ">
-								<input
-									type="text"
-									class="w-[200px]"
-									placeholder="Starts with m"
-									bind:value={typedb64}
-								/>
+								<input type="text" class="w-[200px]" placeholder="" bind:value={typedMachineCode} />
 								<button
 									class="bg-blue-500 p-1 px-2 "
 									on:click={() => {
-										loadMachineFromB64(typedb64);
+										loadMachineFromMachineCode(typedMachineCode);
 										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
@@ -573,20 +555,6 @@
 						</div>
 
 						<div>
-							<div class="mt-0 flex flex-col">
-								<div class="ml-3 mt-4 text-sm ">
-									<a
-										href="/base-64"
-										class="text-blue-400
-				hover:text-blue-300
-				cursor-pointer
-				select-none underline"
-									>
-										Base-64 converter
-									</a>
-								</div>
-							</div>
-
 							{#if history}
 								<div class="mt-0 flex flex-col">
 									<div class="ml-3 mt-2 text-sm ">
@@ -614,463 +582,41 @@
 			</div>
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
 				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
-					<div id="explorelogy">
-						<div class="text-xl">Zoology</div>
-						<div class="ml-3 text-sm">
-							This zoology is <a
-								href="https://discuss.bbchallenge.org/t/current-zoology/23"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer">collaborative</a
-							>.
-						</div>
-						<div class="ml-3">
-							<div class="flex flex-col space-y-2 mt-2">
-								<div>
-									1. Cyclers: <span class="text-green-400 font-bold">Decided</span>
-									<span class="text-[0.6rem]">(11,229,238 machines)</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [279081, 4231819, 279081] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div>
-									2. Translated cyclers: <span class="text-green-400 font-bold">Decided</span>
-									<span class="text-[0.6rem]">(73,860,604 machines)</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [59645887, 15167997, 59090563] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div>
-									3. Unilateral pongs: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [6048289, 4175994, 9281450] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div>
-									4. Bilateral pongs: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [12785688, 8929416, 76727755] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div>
-									5. Translated unilateral pongs: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [6164147, 31837821, 20076854] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div>
-									6. Exponential counters: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [14244805, 10936909, 3840180] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div>
-									7. Bells: <span class="text-yellow-400 font-bold">WIP</span>
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [8527536, 73261028, 63938734] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-								<div class="text-xs">
-									Not classified yet:
-									<div class="ml-8 text-xs">
-										e.g:
-										{#each [6490892, 11018350, 9390305] as m}
-											<span
-												class="cursor-pointer select-none underline"
-												on:click={async () => {
-													await loadMachineFromID(m);
-													updateSimulationParameters(m);
-													draw();
-													window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
-												}}
-											>
-												#{numberWithCommas(m)}</span
-											>&nbsp;
-										{/each}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="max-w-[450px] flex flex-col space-y-2">
-						<div>
-							<div class="text-xl">Highlighted machines</div>
-							{#if highlighted != null && highlighted['highlighted_undecided'] != null}
-								<div class="text-sm w-[400px] mt-1 ml-2">Scary undecided machines:</div>
-								<div class="mt-1 ml-8 w-full flex flex-col  ">
-									{#each highlighted['highlighted_undecided'] as m}
-										{#if m['machine_id'] !== undefined}
-											<div
-												class="cursor-pointer select-none"
-												on:click={async () => {
-													await loadMachineFromID(m['machine_id']);
-													updateSimulationParameters(m['link']);
-													draw();
-													window.history.replaceState({}, '', m['link']);
-												}}
-											>
-												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine #<span
-														class="underline">{numberWithCommas(m['machine_id'])}</span
-													>{/if}
-											</div>
-										{:else if m['b64'] !== undefined}
-											<div
-												class="cursor-pointer select-none"
-												on:click={async () => {
-													await loadMachineFromB64(m['b64']);
-													updateSimulationParameters(m['link']);
-													draw();
-													window.history.replaceState({}, '', m['link']);
-												}}
-											>
-												&middot;&nbsp;{#if m['title'] != undefined}{m['title']}{:else}Machine <span
-														class="underline">{m['b64']}</span
-													>{/if}
-											</div>
-										{/if}
-									{/each}
-								</div>
-							{/if}
-						</div>
-						<div class="">
-							<div class="text-sm w-[400px] ml-2">BB champions and other halting machines:</div>
-							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQACAQEDAQADAQACAQAEAAEFAQEBAQEEAQAAAAEB&s=10000&w=250&ox=0.8&status=halt'
-										);
-									}}
-								>
-									&middot;&nbsp;BB(5): 47,176,870-halter
+					<Zoology
+						on:machine_id={async (ev) => {
+							let machine_id = ev.detail.machine_id;
 
-									<span class=" text-xs">
-										<a href="http://turbotm.de/~heiner/BB/mabu90.html " target="_blank"
-											>[Marxen & Buntrock, 1990]</a
-										>
-									</span>
-								</div>
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQACAQEFAQADAQAGAQEEAAACAQAFAAEDAQEBAAAEAAAAAQAD',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQACAQEFAQADAQAGAQEEAAACAQAFAAEDAQEBAAAEAAAAAQAD&s=20000&w=400&ox=0.08&status=halt'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQACAQEFAQADAQAGAQEEAAACAQAFAAEDAQEBAAAEAAAAAQAD&s=20000&w=400&ox=0.08&status=halt'
-										);
-									}}
-								>
-									&middot;&nbsp;BB(6): <Katex math={ApproxBB6} />-halter
+							await loadMachineFromID(machine_id);
+							updateSimulationParameters(machine_id);
+							draw();
+							window.history.replaceState({}, '', `/${machine_id}&s=10000&w=300&ox=0.5`);
+						}}
+					/>
+					<Highlights
+						on:machine_id={async (ev) => {
+							let machine_id = ev.detail.machine_id;
 
-									<span class="text-xs">
-										<a href="http://turbotm.de/~heiner/BB/bb-xlist.txt" target="_blank"
-											>[Kropitz, 2010]</a
-										>
-									</span>
-								</div>
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF&s=20000&w=400&ox=0.08&status=halt'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQEFAAAAAQADAQAGAQEEAAACAQAFAAEDAQEHAAAEAAAAAQADAQACAQEF&s=20000&w=400&ox=0.08&status=halt'
-										);
-									}}
-								>
-									&middot;&nbsp;BB(7): <Katex math={ApproxBB72} />-halter
+							await loadMachineFromID(machine_id);
+							updateSimulationParameters(machine_id);
+							draw();
+							window.history.replaceState({}, '', `/${machine_id}&s=10000&w=300&ox=0.5`);
+						}}
+						on:machine_code={async (ev) => {
+							let machine_code = ev.detail.machine_code;
+							let machine_status = ev.detail.machine_status;
 
-									<span class="text-xs">
-										<a
-											target="_blank"
-											href="https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F"
-											>[Wythagoras, 2014]</a
-										>
-									</span>
-								</div>
-							</div>
-							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC&s=20000&ox=0.1&status=halt'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQACAAEEAQEDAQAEAQEBAQEDAAAAAQAFAQABAAAC&s=20000&ox=0.1&status=halt'
-										);
-									}}
-								>
-									&middot;&nbsp;23,554,764-halter
-									<span class="text-xs">
-										<a href="http://bbchallenge.org" target="_blank">[bbchallenge, 2021]</a>
-									</span>
-								</div>
-							</div>
-							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-								<div
-									class="cursor-pointer select-none leading-tight"
-									on:click={async () => {
-										await loadMachineFromB64(
-											'mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC',
-											TMDecisionStatus.DECIDED_HALT
-										);
-										updateSimulationParameters(
-											'/mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC&s=20000&w=300&ox=0.98&status=halt'
-										);
-										draw();
-										window.history.replaceState(
-											{},
-											'',
-											'mAQACAQEDAAEBAAEEAQEBAAAAAQECAQAFAAAEAAAC&s=20000&w=300&ox=0.98&status=halt'
-										);
-									}}
-								>
-									&middot;&nbsp;2,133,492-halter
-
-									<span class="text-xs">
-										<a href="http://bbchallenge.org" target="_blank">[bbchallenge, 2021]</a>
-									</span>
-								</div>
-							</div>
-						</div>
-						<div class="">
-							<div class="text-sm w-[400px] ml-2 mt-1">
-								Some <a href="/story#skelets-43-undecided-machines" rel="external" class="underline"
-									>Skelet's machines</a
-								>:
-							</div>
-							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-								<div>
-									<span
-										class="cursor-pointer select-none leading-tight"
-										on:click={async () => {
-											await loadMachineFromB64('mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD');
-											updateSimulationParameters(
-												'/mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
-											);
-											draw();
-											window.history.replaceState(
-												{},
-												'',
-												'mAQEDAQEFAAAAAQEEAQAEAAEEAQEBAQAFAAECAAAD&s=10000&ox=0.9'
-											);
-										}}
-									>
-										&middot;&nbsp;Skelet's machine 1
-									</span>
-									<span class="text-xs">
-										≈ Machine
-										<span
-											class="cursor-pointer select-none underline"
-											on:click={async () => {
-												await loadMachineFromID(68329601);
-												updateSimulationParameters(`/${68329601}&s=10000&ox=0.1`);
-												draw();
-												window.history.replaceState({}, '', `/${68329601}&s=10000&ox=0.1`);
-											}}
-										>
-											#{numberWithCommas(68329601)}</span
-										>
-									</span>
-								</div>
-								<div>
-									<span
-										class="cursor-pointer select-none leading-tight"
-										on:click={async () => {
-											await loadMachineFromB64('mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC');
-											updateSimulationParameters(
-												'/mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
-											);
-											draw();
-											window.history.replaceState(
-												{},
-												'',
-												'mAQEDAAAFAAAAAAADAQAEAAEBAQABAQAEAQEBAAAC&s=20000&ox=0.1'
-											);
-										}}
-									>
-										&middot;&nbsp;Skelet's machine 2
-									</span>
-									<span class="text-xs">
-										≈ Machine
-										<span
-											class="cursor-pointer select-none underline"
-											on:click={async () => {
-												await loadMachineFromID(55767995);
-												updateSimulationParameters(`/${55767995}&s=20000&ox=0.9`);
-												draw();
-												window.history.replaceState({}, '', `/${55767995}&s=10000&ox=0.9`);
-											}}
-										>
-											#{numberWithCommas(55767995)}</span
-										>
-									</span>
-								</div>
-								<div>
-									<span
-										class="cursor-pointer select-none leading-tight"
-										on:click={async () => {
-											await loadMachineFromB64('mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE');
-											updateSimulationParameters(
-												'/mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000&ox=0.5'
-											);
-											draw();
-											window.history.replaceState(
-												{},
-												'',
-												'mAQEDAAABAAAAAQEFAQAEAAECAQABAQADAAEDAQEE&s=20000&ox=0.5'
-											);
-										}}
-									>
-										&middot;&nbsp;Skelet's machine 3
-									</span>
-									<span class="text-xs">
-										≈ Machine
-										<span
-											class="cursor-pointer select-none underline"
-											on:click={async () => {
-												await loadMachineFromID(5950405);
-												updateSimulationParameters(`/${5950405}&s=20000&ox=0.5`);
-												draw();
-												window.history.replaceState({}, '', `/${5950405}&s=10000&ox=0.5`);
-											}}
-										>
-											#{numberWithCommas(5950405)}</span
-										>
-									</span>
-								</div>
-							</div>
-							<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-								<a class="cursor-pointer select-none leading-tight" href="/skelet" rel="external">
-									&middot;&nbsp;<span class="underline">full list</span>
-								</a>
-							</div>
-						</div>
-					</div>
+							await loadMachineFromMachineCode(machine_code, machine_status);
+							updateSimulationParameters(
+								`/${machine_code}&s=10000&w=250&w=300&ox=0.5&status=${machine_status}`
+							);
+							draw();
+							window.history.replaceState(
+								{},
+								'',
+								`/${machine_code}&s=10000&w=250&w=300&ox=0.5&status=${machine_status}`
+							);
+						}}
+					/>
 				</div>
 			</div>
 		</div>
