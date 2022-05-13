@@ -95,11 +95,11 @@ The algorithm recursively constructs the tree of 5-state Turing machines startin
 
 |     | 0   | 1   |
 | --- | --- | --- |
-| A   | 1RB | ??? |
-| B   | ??? | ??? |
-| C   | ??? | ??? |
-| D   | ??? | ??? |
-| E   | ??? | ??? |
+| A   | 1RB | --- |
+| B   | --- | --- |
+| C   | --- | --- |
+| D   | --- | --- |
+| E   | --- | --- |
 
 </div>
 </div>
@@ -216,7 +216,7 @@ The 30-byte encoding of a 5-state Turing machine is better understood with an ex
 | A   | 1RB | 0LD |
 | B   | 0LC | 1LE |
 | C   | 1LD | 1LC |
-| D   | 0RA | ??? |
+| D   | 0RA | --- |
 | E   | 1RB | 1RE |
 
 </div>
