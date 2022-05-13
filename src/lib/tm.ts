@@ -30,25 +30,45 @@ export function encodedTransitionToString(transition): string {
 }
 
 export function tmToMachineCode(machine: Uint8Array): string {
-	let to_return = "";
-	for(let i=0 ; i < machine.length ; i += 3) {
-		to_return += encodedTransitionToString(machine.slice(i,i+3))
+	let to_return = '';
+	for (let i = 0; i < machine.length; i += 3) {
+		to_return += encodedTransitionToString(machine.slice(i, i + 3));
 	}
-	return to_return
+	return to_return;
 }
 
 export function machineCodeToTM(machineCode: string) {
-	if (machineCode.length%6 !== 0) throw "Invalid TM code.";
+	if (machineCode.length % 6 !== 0) throw 'Invalid TM code.';
 
 	const tm = new Uint8Array(machineCode.length);
 	for (let i = 0; i < machineCode.length; i++) {
-		if (machineCode[i] == '0' || machineCode[i] == 'R' || machineCode[i] == '-')  
-			tm[i] = 0;
-		else if(machineCode[i] == '1' || machineCode[i] == 'L')  
-			tm[i] = 1;
-		else { // Alphabetical state name
-			tm[i] = (machineCode.charCodeAt(i) - "A".charCodeAt(0)) + 1
+		if (machineCode[i] == '0' || machineCode[i] == 'R' || machineCode[i] == '-') tm[i] = 0;
+		else if (machineCode[i] == '1' || machineCode[i] == 'L') tm[i] = 1;
+		else {
+			// Alphabetical state name
+			tm[i] = machineCode.charCodeAt(i) - 'A'.charCodeAt(0) + 1;
 		}
+	}
+	return tm;
+}
+
+export function legacy_tmTob64URLSafe(machine: TM) {
+	let binary = '';
+	const len = machine.byteLength;
+	for (let i = 0; i < len; i++) {
+		binary += String.fromCharCode(machine[i]);
+	}
+	return 'm' + btoa(binary).replace('+', '-').replace('/', '_').replace(/=+$/, '');
+}
+
+export function legacy_b64URLSafetoTM(base64URLSafe: string) {
+	if (base64URLSafe[0] != 'm') throw "Invalid TM base64 description: must start with 'm'.";
+
+	const base64 = base64URLSafe.substring(1).replace('-', '+').replace('_', '/');
+	const binary = atob(base64);
+	const tm = new Uint8Array(binary.length);
+	for (let i = 0; i < binary.length; i++) {
+		tm[i] = binary.charCodeAt(i);
 	}
 	return tm;
 }
@@ -81,11 +101,9 @@ export function tmToTuringMachineDotIO(machine: TM) {
 }
 
 export enum TMDecisionStatus {
-	UNDECIDED,
-	HEURISTICALLY_DECIDED_HALT,
-	HEURISTICALLY_DECIDED_NON_HALT,
-	DECIDED_HALT,
-	DECIDED_NON_HALT
+	UNDECIDED = 'undecided',
+	DECIDED_HALT = 'halt',
+	DECIDED_NON_HALT = 'non_halt'
 }
 
 export function APIDecisionStatusToTMDecisionStatus(status) {
@@ -203,7 +221,7 @@ export function tm_explore(
 			x_offset -= e.deltaX;
 		}
 		// Preventing user from scrolling too far up in y
-		y_offset = Math.min(y_offset, MAX_SCROLL_Y)
+		y_offset = Math.min(y_offset, MAX_SCROLL_Y);
 
 		ctx.resetTransform();
 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -274,13 +292,12 @@ export function tm_trace_to_image(
 	}
 }
 
-export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions=false) {
-
+export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions = false) {
 	function identity(x) {
 		return x;
 	}
 
-	const f = (use_int_positions) ? identity : intToNatural;
+	const f = use_int_positions ? identity : intToNatural;
 
 	if (tape[f(curr_pos)] === undefined) {
 		tape[f(curr_pos)] = 0;
@@ -296,4 +313,3 @@ export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions=
 	const next_pos = curr_pos + (move ? -1 : 1);
 	return [goto, next_pos];
 }
-

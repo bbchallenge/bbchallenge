@@ -12,10 +12,11 @@
 		DB_SIZE,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
-	import { BB5_winner } from '$lib/machine_repertoire';
+	import { BB5_champion } from '$lib/machine_repertoire';
 	import SvelteSeo from 'svelte-seo';
-	import Katex from '../lib/Katex.svelte';
+
 	import Zoology from '$lib/zoology.svelte';
+	import Highlights from '$lib/highlights.svelte';
 
 	let machine = null;
 	export let machineID = null;
@@ -25,10 +26,6 @@
 	let history = getHistory();
 	let showHistory = false;
 	let showSimulationParams = false;
-
-	// Cannot inline { .. } because of svelte
-	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
-	let ApproxBB6 = '\\simeq 10^{36,534}';
 
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
@@ -200,7 +197,7 @@
 		}
 
 		if (apiDown && machineCode == null) {
-			await loadMachineFromMachineCode(BB5_winner, TMDecisionStatus.UNDECIDED);
+			await loadMachineFromMachineCode(BB5_champion, TMDecisionStatus.UNDECIDED);
 			origin_x = 0.65;
 		}
 
@@ -588,13 +585,38 @@
 			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
 				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
 					<Zoology
-						on:machine={async (ev) => {
-							let m = ev.detail.machine;
+						on:machine_id={async (ev) => {
+							let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(m);
-							updateSimulationParameters(m);
+							await loadMachineFromID(machine_id);
+							updateSimulationParameters(machine_id);
 							draw();
-							window.history.replaceState({}, '', `/${m}&s=10000&w=300&ox=0.5`);
+							window.history.replaceState({}, '', `/${machine_id}&s=10000&w=300&ox=0.5`);
+						}}
+					/>
+					<Highlights
+						on:machine_id={async (ev) => {
+							let machine_id = ev.detail.machine_id;
+
+							await loadMachineFromID(machine_id);
+							updateSimulationParameters(machine_id);
+							draw();
+							window.history.replaceState({}, '', `/${machine_id}&s=10000&w=300&ox=0.5`);
+						}}
+						on:machine_code={async (ev) => {
+							let machine_code = ev.detail.machine_code;
+							let machine_status = ev.detail.machine_status;
+
+							await loadMachineFromMachineCode(machine_code, machine_status);
+							updateSimulationParameters(
+								`/${machine_code}&s=10000&w=250&w=300&ox=0.5&status=${machine_status}`
+							);
+							draw();
+							window.history.replaceState(
+								{},
+								'',
+								`/${machine_code}&s=10000&w=250&w=300&ox=0.5&status=${machine_status}`
+							);
 						}}
 					/>
 				</div>

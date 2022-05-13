@@ -15,7 +15,10 @@
 	let tapeWidth = null;
 	let origin_x = null;
 
-	if (generalisedID.length%6 == 0 && generalisedID.length > 0 && generalisedID[1] == 'R' || generalisedID[1] == 'L') {
+	if (
+		(generalisedID.length % 6 == 0 && generalisedID.length > 0 && generalisedID[1] == 'R') ||
+		generalisedID[1] == 'L'
+	) {
 		machineCode = generalisedID;
 	} else {
 		machineID = generalisedID;
@@ -34,8 +37,12 @@
 
 	let machineStatus = null;
 	if (urlParams.get('status') != null) {
-		if (urlParams.get('status') == 'halt') {
+		if (urlParams.get('status') == TMDecisionStatus.DECIDED_HALT) {
 			machineStatus = TMDecisionStatus.DECIDED_HALT;
+		} else if (urlParams.get('status') == TMDecisionStatus.DECIDED_NON_HALT) {
+			machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
+		} else {
+			machineStatus = TMDecisionStatus.UNDECIDED;
 		}
 	}
 </script>

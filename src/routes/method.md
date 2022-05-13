@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Katex from "../lib/Katex.svelte"
-  import {BB5_winner} from '$lib/some_machines'
+  import {BB5_champion} from '$lib/machine_repertoire'
   let nbTM5 = "21^{10}"// Cannot inline {10} because of svelte
 
   onMount(() => { // TODO: this shouldn't be necessary
@@ -148,7 +148,7 @@ We conjecture:
 BB_SPACE(5) =  12,289
 </div>
 
-Which is the number of memory cells visited by <a  href="https://bbchallenge.org/{BB5_winner}&s=10000&w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
+Which is the number of memory cells visited by <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
 
 It turns that BB_SPACE(5) is a much more practical cut-off to use in the enumeration algorithm than BB(5) as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
 

@@ -2,11 +2,11 @@
 	import { onMount } from 'svelte';
 	import type { TM } from './tm';
 	import { machineCodeToTM, step, tmToTuringMachineDotIO, tmToMachineCode } from './tm';
-	import {BB5_winner} from '$lib/machine_repertoire'
-	
+	import { BB5_champion } from '$lib/machine_repertoire';
+
 	import TmTable from './tm_table.svelte';
 
-	export let machineCode = BB5_winner;
+	export let machineCode = BB5_champion;
 
 	let ctx: CanvasRenderingContext2D | null = null;
 	let canvas: HTMLCanvasElement | null = null;
@@ -32,7 +32,6 @@
 	}
 
 	function drawTape() {
-		
 		ctx.lineWidth = 3;
 		for (const [pos, val] of Object.entries(tape)) {
 			ctx.fillStyle = 'black';
@@ -106,7 +105,6 @@
 		tape = initalTape();
 		drawTape();
 	});
-
 </script>
 
 <svelte:window on:keydown={keydown} />
@@ -115,7 +113,7 @@
 	<!-- <div class="-mb-8 ml-0">
 		Machine <a href="/{tmTob64URLSafe(machine)}" class="text-sm">{tmTob64URLSafe(machine)}</a>
 	</div> -->
-	<div >
+	<div>
 		<div class="font-bold">Machine code</div>
 		<div class="text-xs w-full mt-1">
 			<div>
@@ -141,7 +139,7 @@
 				>
 			</div> -->
 		</div>
-		<div class="mt-1"></div>
+		<div class="mt-1" />
 		<TmTable {machine} showTitle={false} {currState} currRead={tape[headPos]} />
 	</div>
 	<div>
