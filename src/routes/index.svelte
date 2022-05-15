@@ -41,9 +41,12 @@
 		context.fill();
 	};
 
-	export let nbIter = 10000;
-	export let tapeWidth = 300;
-	export let origin_x = 0.5;
+	const nbIterDefault = 10000;
+	const tapeWidthDefault = 300;
+	const origin_xDefault = 0.5;
+	export let nbIter = nbIterDefault;
+	export let tapeWidth = tapeWidthDefault;
+	export let origin_x = origin_xDefault;
 
 	let initial_tape = '0';
 	// Default the params if called with null
@@ -72,7 +75,18 @@
 			last_add = '&status=halt';
 		}
 
-		return prefix + `${secondPrefix}&s=${nbIter}&w=${tapeWidth}&ox=${origin_x}` + last_add;
+		let simulationParametersLink = '';
+		if (nbIter !== nbIterDefault) {
+			simulationParametersLink += `&s=${nbIter}`;
+		}
+		if (tapeWidth !== tapeWidthDefault) {
+			simulationParametersLink += `&w=${tapeWidth}`;
+		}
+		if (origin_x !== origin_xDefault) {
+			simulationParametersLink += `&ox=${origin_x}`;
+		}
+
+		return prefix + simulationParametersLink + last_add;
 	}
 
 	let showRandomOptions = false;
