@@ -93,6 +93,7 @@
 			<HighlightedMachine
 				on:machine_code
 				machine_code={BB5_23M_steps_halter}
+				machine_status={TMDecisionStatus.DECIDED_HALT}
 				ref_link="http://bbchallenge.org"
 				ref_authors="bbchallenge"
 				ref_year="2021">&middot;&nbsp;23,554,764-halter</HighlightedMachine
