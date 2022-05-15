@@ -12,16 +12,16 @@
 			nb_decided: 73860604,
 			examples: [59645887, 15167997, 59090563]
 		},
-		{ name: 'Unilateral bouncers', decided: false, examples: [6048289, 4175994, 9281450] },
+		{ name: 'Unilateral bouncers', decided: false, examples: [6048289, 2664944, 9281450] },
 		{ name: 'Bilateral bouncers', decided: false, examples: [12785688, 8929416, 76727755] },
 		{
 			name: 'Translated unilateral bouncers',
 			decided: false,
-			examples: [6164147, 31837821, 20076854]
+			examples: [37005720, 66117258, 20076854]
 		},
-		{ name: 'Exponential counters', decided: false, examples: [14244805, 10936909, 3840180] },
+		{ name: 'Exponential counters', decided: false, examples: [11004366, 10936909, 3840180] },
 		{ name: 'Bells', decided: false, examples: [8527536, 73261028, 63938734] },
-		{ decided: false, examples: [6490892, 11018350, 9390305] }
+		{ decided: false, examples: [4446642, 7410754, 43374927] }
 	];
 </script>
 

@@ -11,13 +11,14 @@
 - [@modderme123](https://github.com/modderme123)
 - [@atticuscull](https://github.com/atticuscull)
 
+This work was initiated in collaboration with [Damien Woods' group](https://dna.hamilton.ie) at the [Hamilton Institue](https://www.maynoothuniversity.ie/hamilton) and Department of Computer Science, [Maynooth University](https://www.maynoothuniversity.ie/), Ireland.
+
 You can <a href="/contribute" rel="external">contribute</a> and join this list!
 
 ### Acknowledgements
 
 The following people have helped the project with valuable conversations, inputs or dissemination (e.g. using [bbchallenge](https://bbchallenge.org) as teaching material):
 
-- [Damien Woods](https://dna.hamilton.ie/woods)
 - [Eric E. Severson](https://github.com/EricESeverson)
 - [Dave Doty](https://web.cs.ucdavis.edu/~doty/)
 - [@DunDunDunDone](https://github.com/DunDunDunDone)
