@@ -41,9 +41,12 @@
 		context.fill();
 	};
 
-	export let nbIter = 10000;
-	export let tapeWidth = 300;
-	export let origin_x = 0.5;
+	const nbIterDefault = 10000;
+	const tapeWidthDefault = 300;
+	const origin_xDefault = 0.5;
+	export let nbIter = nbIterDefault;
+	export let tapeWidth = tapeWidthDefault;
+	export let origin_x = origin_xDefault;
 
 	let initial_tape = '0';
 	// Default the params if called with null
@@ -65,14 +68,27 @@
 		let secondPrefix = tmToMachineCode(machine);
 		if (machineID != null) {
 			secondPrefix = machineID;
+		} else if (machineCode != null) {
+			secondPrefix = machineCode;
 		}
 
 		let last_add = '';
-		if (machineStatus == TMDecisionStatus.DECIDED_HALT) {
-			last_add = '&status=halt';
+		if (machineStatus !== null && machineID === null) {
+			last_add = `&status=${machineStatus}`;
 		}
 
-		return prefix + `${secondPrefix}&s=${nbIter}&w=${tapeWidth}&ox=${origin_x}` + last_add;
+		let simulationParametersLink = '';
+		if (nbIter !== nbIterDefault) {
+			simulationParametersLink += `&s=${nbIter}`;
+		}
+		if (tapeWidth !== tapeWidthDefault) {
+			simulationParametersLink += `&w=${tapeWidth}`;
+		}
+		if (origin_x !== origin_xDefault) {
+			simulationParametersLink += `&ox=${origin_x}`;
+		}
+
+		return prefix + secondPrefix + simulationParametersLink + last_add;
 	}
 
 	let showRandomOptions = false;
@@ -203,23 +219,10 @@
 		//console.log(metrics);
 	});
 
-	function updateSimulationParameters(link) {
-		if (!isNaN(link)) {
-			origin_x = 0.5;
-			nbIter = 10000;
-			return;
-		}
-
-		const urlParams = new URLSearchParams(link);
-		if (urlParams.get('s') != null) {
-			nbIter = Number(urlParams.get('s'));
-		}
-		if (urlParams.get('w') != null) {
-			tapeWidth = Number(urlParams.get('w'));
-		}
-		if (urlParams.get('ox') != null) {
-			origin_x = Number(urlParams.get('ox'));
-		}
+	function defaultSimulationParameters() {
+		origin_x = origin_xDefault;
+		nbIter = nbIterDefault;
+		tapeWidth = tapeWidthDefault;
 	}
 
 	async function keydown(e) {
@@ -587,9 +590,9 @@
 							let machine_id = ev.detail.machine_id;
 
 							await loadMachineFromID(machine_id);
-							updateSimulationParameters(machine_id);
+							defaultSimulationParameters();
 							draw();
-							window.history.replaceState({}, '', `/${machine_id}&s=10000&w=300&ox=0.5`);
+							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					/>
 					<Highlights
@@ -597,24 +600,19 @@
 							let machine_id = ev.detail.machine_id;
 
 							await loadMachineFromID(machine_id);
-							updateSimulationParameters(machine_id);
+							defaultSimulationParameters();
+
 							draw();
-							window.history.replaceState({}, '', `/${machine_id}&s=10000&w=300&ox=0.5`);
+							window.history.replaceState({}, '', getSimulationLink());
 						}}
 						on:machine_code={async (ev) => {
 							let machine_code = ev.detail.machine_code;
 							let machine_status = ev.detail.machine_status;
 
 							await loadMachineFromMachineCode(machine_code, machine_status);
-							updateSimulationParameters(
-								`/${machine_code}&s=10000&w=250&w=300&ox=0.5&status=${machine_status}`
-							);
+							defaultSimulationParameters();
 							draw();
-							window.history.replaceState(
-								{},
-								'',
-								`/${machine_code}&s=10000&w=250&w=300&ox=0.5&status=${machine_status}`
-							);
+							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					/>
 				</div>

@@ -4,6 +4,9 @@
 
 	let currentRoute = fCurrentRoute();
 	function fCurrentRoute() {
+		if ($page.url.toString().includes('team')) {
+			return 'team';
+		}
 		if ($page.url.toString().includes('method')) {
 			return 'method';
 		}
@@ -33,7 +36,7 @@
 		</ul>
 
 		<ul class="flex items-end space-x-2 lg:space-x-4 text-sm lg:text-base  main-menu ">
-			<li>
+			<!-- <li>
 				<a
 					href="/"
 					class="active"
@@ -43,7 +46,7 @@
 					}}
 					>Machines
 				</a>
-			</li>
+			</li> -->
 			<li>
 				<a
 					href="/story"
