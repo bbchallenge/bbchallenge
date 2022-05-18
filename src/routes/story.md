@@ -56,7 +56,7 @@ console.log(tmToMachineCode(theM))
 
 <a id="goal"></a>
 
-The goal of The Busy Beaver Challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
+The goal of The Busy Beaver Challenge (bbchallenge for short) is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
 <div class="flex justify-center">
 BB(5) = 47,176,870
