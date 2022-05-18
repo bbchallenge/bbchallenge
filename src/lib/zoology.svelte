@@ -5,7 +5,7 @@
 	const dispatch = createEventDispatcher();
 
 	const zoology = [
-		{ name: 'Cyclers', decided: true, nb_decided: 11229238, examples: [279081, 4231819, 279081] },
+		{ name: 'Cyclers', decided: true, nb_decided: 11229238, examples: [279081, 4231819, 4239083] },
 		{
 			name: 'Translated cyclers',
 			decided: true,
