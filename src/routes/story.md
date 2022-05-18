@@ -56,7 +56,7 @@ console.log(tmToMachineCode(theM))
 
 <a id="goal"></a>
 
-The goal of the busy beaver challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
+The goal of The Busy Beaver Challenge is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
 <div class="flex justify-center">
 BB(5) = 47,176,870
@@ -80,7 +80,7 @@ The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://tur
 </div>
 </div>
 
-Achieving the goal of the busy beaver challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a herf="/method" rel="external">Method</a>.
+Achieving the goal of the Busy Beaver Challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a herf="/method" rel="external">Method</a>.
 
 <a href="/contribute" rel="external">You can help!</a>
 
@@ -118,7 +118,7 @@ Each entry of the table is called a **transition** and instructs us what to do w
 
 The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **---**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
 
-In the context of the busy beaver challenge, machines are always executed starting in state A and with a memory tape that is initially all 0 (i.e. all memory cells are 0).
+In the context of the Busy Beaver Challenge, machines are always executed starting in state A and with a memory tape that is initially all 0 (i.e. all memory cells are 0).
 
 <a id="interactive-simulator"></a>
 
@@ -148,13 +148,15 @@ Here is the space-time diagram of the first 10,000 iterations of the <a  href="h
 
 Additional green and red colors are used to track the head position and its movement: green when the head has moved to the left and red when it has moved to the right.
 
-**Important:** currently, these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps). <a href="/contribute" rel="external">You can help improve them</a>.
+By default, these space-time diagrams are re-scaled to fit a 400x500 canvas, hence they can be inexact due to the scaling algorithm, especially at small scales (i.e. few simulation steps).
+
+If you tick **Explore mode** you will enter a more precise visualisation of space-time diagrams that are accurate at small scales and that will give you additional coloured information about the state of the machine at each step.
 
 <a id="machine-id"></a>
 
 #### Machine ID
 
-The busy beaver challenge is based on a <a href="/method#seed-database" rel="external">seed database</a> of 88,664,064 undecided 5-state machines, see <a href="/method" rel="external">Method</a>. We can consequently refer to undecided machines with their ID in this database.
+The Busy Beaver Challenge is based on a <a href="/method#seed-database" rel="external">seed database</a> of 88,664,064 undecided 5-state machines, see <a href="/method" rel="external">Method</a>. We can consequently refer to undecided machines with their ID in this database.
 
 For instance: <a  href="https://bbchallenge.org/55897188" rel="external">https://bbchallenge.org/55897188</a>
 
@@ -190,7 +192,7 @@ Answering this question does not look simple. Here, patience can answer it for u
 
 To this day, no 5-state Turing machine is known to halt after more than <span class="bg-[#1162D3] px-0.5">47,176,870</span> steps.
 
-With the busy beaver challenge, we hope to discover if that <span class="bg-[#1162D3] px-0.5">47,176,870</span> record can be beaten or not among 5-state machines. This implies to decide, for all machines with 5 states, whether they halt or not.
+With the Busy Beaver Challenge, we hope to discover if that <span class="bg-[#1162D3] px-0.5">47,176,870</span> record can be beaten or not among 5-state machines. This implies to decide, for all machines with 5 states, whether they halt or not.
 
 But why focusing on 5 states? Let's first reformulate the problem in terms of busy beavers.
 
@@ -263,7 +265,7 @@ Hence, the frontier between tractable and intractable values of BB seems to be s
 
 ### BB(5)
 
-The above motivates the busy beaver challenge: **let's try to collaboratively find BB(5)**, the smallest currently unkown BB value.
+The above motivates the Busy Beaver Challenge: **let's try to collaboratively find BB(5)**, the smallest currently unkown BB value.
 
 Prior work exhibited the current <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
 
@@ -295,15 +297,15 @@ Here are some possible outcomes to the quest of looking for BB(5):
 
 ### Skelet's 43 undecided machines
 
-In 2003, [Skelet](https://skelet.ludost.net/bb/nreg.html) released ≈6000 lines of Pascal that aim at achieving the same result as the busy beaver challenge (but ~20 years before): decide the behavior of all 5-state Turing machines from all-0 tape. Skelet's program left only 164 machines undecided which he reduced further to only 43 "hardly non-regular" machines. This is claimed to have since been reduced even further to a mere 21 machines by various authors including [Dan Briggs](https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf). Significant work has been made by these authors to manually decide the behavior of Skelet’s 43 machines.
+In 2003, [Skelet](https://skelet.ludost.net/bb/nreg.html) released ≈6000 lines of Pascal that aim at achieving the same result as the Busy Beaver Challenge (but ~20 years before): decide the behavior of all 5-state Turing machines from all-0 tape. Skelet's program left only 164 machines undecided which he reduced further to only 43 "hardly non-regular" machines. This is claimed to have since been reduced even further to a mere 21 machines by various authors including [Dan Briggs](https://github.com/danbriggs/Turing/blob/master/paper/HNRs.pdf). Significant work has been made by these authors to manually decide the behavior of Skelet’s 43 machines.
 
 This represents a substantial and truly impressive effort.
 
 However, we do not believe that Skelet’s program has been reviewed independently, and proving 6,000 lines of uncommented Pascal correct would be difficult (How can we be sure that the original set of 164 machines is not erroneous? I.e we'd need a proof that some machines were not overlooked or nor decided using incorrect arguments.).
 
-In contrast, it is one of the core mission of the busy beaver challenge to provide collaborative, open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
+In contrast, it is one of the core mission of the Busy Beaver Challenge to provide collaborative, open source, concise, modular, tested and proved correct code in order to facilitate peer-review and increase trust in the final outcome of the challenge. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
 
-The full list of Skelet's 43 machines and their equivalents in the busy beaver challenge <a href="/skelet" rel="external">is available here</a>.
+The full list of Skelet's 43 machines and their equivalents in the Busy Beaver Challenge <a href="/skelet" rel="external">is available here</a>.
 
 <a id="references"></a>
 
