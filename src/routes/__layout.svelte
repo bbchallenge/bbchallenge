@@ -31,7 +31,7 @@
 		<ul class="flex items-end">
 			<!-- add button -->
 			<h1 class="text-base lg:text-xl">
-				<a href="/" rel="external">the Busy Beaver Challenge</a>
+				<a href="/" rel="external">The Busy Beaver Challenge</a>
 			</h1>
 		</ul>
 
