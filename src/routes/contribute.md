@@ -11,7 +11,6 @@
 
 the Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the Busy Beaver Challenge.
 
-
 <a id="zoology"></a>
 
 ## Zoology
@@ -24,7 +23,7 @@ The zoology is collaborative and you can contribute to it [on the forum](https:/
 
 ## Write deciders
 
-Reaching <a href="/story#goal" rel="external">the goal</a> of the Busy Beaver Challenge requires to decide the behavior of 88,664,064 Turing machines. We hope to do this automatically by writing <a href="/method#deciders" rel="external">deciders</a> which are programs that decide if machines halt or not.
+Reaching <a href="/story#goal" rel="external">the goal</a> of The Busy Beaver Challenge requires to decide the behavior of 88,664,064 Turing machines. We hope to do this automatically by writing <a href="/method#deciders" rel="external">deciders</a> which are programs that decide if machines halt or not.
 
 You are invited to write deciders in order to further reduce the number of undecided machines in the <a href="/method#seed-database" rel="external">seed database</a>.
 
@@ -36,7 +35,7 @@ Places to look at if this task interests you:
 
 - The <a href="/method#undecided-machines-index-file">undecided machines index file</a> gives you the indices of the currently undecided machines in the <a href="/method#seed-database" rel="external">seed database</a>
 
-If you write a decider for the Busy Beaver Challenge we ask that you:
+If you write a decider for The Busy Beaver Challenge we ask that you:
 
 1. Read our our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>
 2. Create a post on forum [following these instructions](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
@@ -75,7 +74,7 @@ We collect these individual proofs on the [forum](https://discuss.bbchallenge.or
 
 ## Reproduce results
 
-To increase trust in the results of the Busy Beaver Challenge it is important for independent reproduction of its results. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
+To increase trust in the results of The Busy Beaver Challenge it is important for independent reproduction of its results. See our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>.
 
 This can for instance be done by reproducing <a href="/method#deciders" rel="external">deciders</a> or the code that generated the <a href="/method#seed-database" rel="external">seed database</a>.
 
@@ -85,7 +84,7 @@ Places to look at if this task interests you:
 
 - The forum [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32), you can pick one and try to reproduce it and see if yours decide the same machines
 
-If you reproduce results of the Busy Beaver Challenge please share about your reproduction on the [dedicated section of the forum](https://discuss.bbchallenge.org/c/results-reproduction/9).
+If you reproduce results of The Busy Beaver Challenge please share about your reproduction on the [dedicated section of the forum](https://discuss.bbchallenge.org/c/results-reproduction/9).
 
 <a id="this-website"></a>
 
@@ -105,11 +104,11 @@ Pages like <a href="/story" rel="external">/story</a>, <a href="/method" rel="ex
 
 ## Share the story
 
-If you are interested in the Busy Beaver Challenge please don't hesitate to talk about it around you and share <a href="https://bbchallenge.org" rel="external">https://bbchallenge.org</a>.
+If you are interested in The Busy Beaver Challenge please don't hesitate to talk about it around you and share <a href="https://bbchallenge.org" rel="external">https://bbchallenge.org</a>.
 
 If you are a teacher and would like to engage with your students on this topic some [teaching material](https://discuss.bbchallenge.org/c/outreach-teaching/12) (which you can contribute to improve!) is available on the forum.
 
-The <a href="/story#goal" rel="external">goal</a> of the Busy Beaver Challenge can only be achieved collaboratively.
+The <a href="/story#goal" rel="external">goal</a> of The Busy Beaver Challenge can only be achieved collaboratively.
 
 <div class="mb-40">
 

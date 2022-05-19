@@ -38,9 +38,9 @@ onMount(async () => {
 
 ## Skelet's 43 machines
 
-Here are <a href="https://skelet.ludost.net/bb/nreg.html" rel="external">Skelet's 43 undecided machines</a> and their equivalent machines in the <a href="/method#seed-database" rel="external">seed database</a> of the Busy Beaver Challenge. <a href="/story#skelets-43-undecided-machines" rel="external">More info about Skelet's machines</a>.
+Here are <a href="https://skelet.ludost.net/bb/nreg.html" rel="external">Skelet's 43 undecided machines</a> and their equivalent machines in the <a href="/method#seed-database" rel="external">seed database</a> of The Busy Beaver Challenge. <a href="/story#skelets-43-undecided-machines" rel="external">More info about Skelet's machines</a>.
 
-Some of these 43 machines are claimed to have been decided (way before the Busy Beaver Challenge existed) and only 21 appear to be currently still undecided, see <a href="https://github.com/danbriggs/Turing">Dan Briggs' github</a>.
+Some of these 43 machines are claimed to have been decided (way before The Busy Beaver Challenge existed) and only 21 appear to be currently still undecided, see <a href="https://github.com/danbriggs/Turing">Dan Briggs' github</a>.
 
 In order to find the equivalent machines to Skelet's in our database the following transformations are applied:
 
