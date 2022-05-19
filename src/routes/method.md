@@ -25,7 +25,7 @@
 
 <a id="overview"></a>
 
-With The Busy Beaver Challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See <a href="/story" rel="external">Story</a>.
+With the Busy Beaver Challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See <a href="/story" rel="external">Story</a>.
 
 In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 167 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
 
@@ -39,7 +39,7 @@ Hence, we aim at _sparsely_ enumerating the space of 5-state Turing machines: th
 
 The method that we present to sparsely enumerate the space of 5-state Turing machines and analyse their behavior is fundamentally inspired by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) with some notable differences that we will outline. The first difference is that our method is divided into two successive and independent phases:
 
-1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ The Busy Beaver Challenge.
+1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
 
 2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each family.
 
@@ -80,7 +80,7 @@ The code to construct the seed database is available at [https://github.com/bbch
 
 This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between [phase 1 and phase 2](#phase-1-phase-2) in this project.
 
-The main aim of The Busy Beaver Challenge is to decide every machine in the seed database.
+The main aim of the Busy Beaver Challenge is to decide every machine in the seed database.
 
 <a id="construction"></a>
 
@@ -381,11 +381,11 @@ func GetIndicesFromIndexFile(indexFilePath string) (
 
 ## Reproducibility and verifiability statement
 
-Any result coming from The Busy Beaver Challenge will be fundamentally based on the numerous programs involved in the project such as the [seed database](#seed-database)'s generating code or the [deciders](#deciders).
+Any result coming from the Busy Beaver Challenge will be fundamentally based on the numerous programs involved in the project such as the [seed database](#seed-database)'s generating code or the [deciders](#deciders).
 
 Because programs can contain bugs (and often do), such computer-based results tend to struggle gaining trust among the scientific community, where the gold standard is mathematical proof in a peer-reviewed publication.
 
-Because we aim to achieve this standard, the following principles are at the core of The Busy Beaver Challenge. Any program involved in the project must be:
+Because we aim to achieve this standard, the following principles are at the core of the Busy Beaver Challenge. Any program involved in the project must be:
 
 1.  Open source
 2.  Open to collaboration
@@ -396,7 +396,7 @@ Because we aim to achieve this standard, the following principles are at the cor
 
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 
-You are invited to <a href="/contribute" rel="external">Contribute</a> at making The Busy Beaver Challenge more reproducible and verifiable.
+You are invited to <a href="/contribute" rel="external">Contribute</a> at making the Busy Beaver Challenge more reproducible and verifiable.
 
 <div class="mb-20"></div>
 
