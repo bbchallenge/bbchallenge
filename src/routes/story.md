@@ -56,7 +56,7 @@ console.log(tmToMachineCode(theM))
 
 <a id="goal"></a>
 
-The goal of The Busy Beaver Challenge (bbchallenge for short) is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
+The goal of the Busy Beaver Challenge (bbchallenge for short) is to collaboratively prove or disprove the following conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
 <div class="flex justify-center">
 BB(5) = 47,176,870
@@ -156,7 +156,7 @@ If you tick **Explore mode** you will enter a more precise visualisation of spac
 
 #### Machine ID
 
-The Busy Beaver Challenge is based on a <a href="/method#seed-database" rel="external">seed database</a> of 88,664,064 undecided 5-state machines, see <a href="/method" rel="external">Method</a>. We can consequently refer to undecided machines with their ID in this database.
+the Busy Beaver Challenge is based on a <a href="/method#seed-database" rel="external">seed database</a> of 88,664,064 undecided 5-state machines, see <a href="/method" rel="external">Method</a>. We can consequently refer to undecided machines with their ID in this database.
 
 For instance: <a  href="https://bbchallenge.org/55897188" rel="external">https://bbchallenge.org/55897188</a>
 

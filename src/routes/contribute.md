@@ -9,14 +9,14 @@
 
 <a id="contribute"></a>
 
-The The Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the The Busy Beaver Challenge.
+the Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the Busy Beaver Challenge.
 
 
 <a id="zoology"></a>
 
 ## Zoology
 
-We aim at collaboratively building a <a href="/#zoology">zoology</a> of the machines of the The Busy Beaver Challenge. This will allows us to understand what these machines are capable of and where complexity lies.
+We aim at collaboratively building a <a href="/#zoology">zoology</a> of the machines of the Busy Beaver Challenge. This will allows us to understand what these machines are capable of and where complexity lies.
 
 The zoology is collaborative and you can contribute to it [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23).
 
