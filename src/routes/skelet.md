@@ -58,8 +58,8 @@ In order to find the equivalent machines to Skelet's in our database the followi
   {#each Skelet_machines as m, i}
 	<tr>
 	  <td>{i+1}</td>
-		<td class="leading-tight text-sm"><pre class="m-0 inline bg-transparent p-0 select-all -ml-5">{@html m.original_code}</pre><br/><span ><a href="/{m.bbchallenge_code}&s=20000" rel="external" class="text-[0.6rem] underline">{m.bbchallenge_code}</a></span></td>
-		<td>Machine <a href="/{m.bbchallenge_id}&s=20000" rel="external" class="underline">#{numberWithCommas(m.bbchallenge_id)}</a></td>
+		<td class="leading-tight text-sm"><pre class="m-0 inline bg-transparent p-0 select-all -ml-5">{@html m.original_code}</pre><br/><span ><a href="/{m.bbchallenge_code}" rel="external" class="text-[0.6rem] underline">{m.bbchallenge_code}</a></span></td>
+		<td>Machine <a href="/{m.bbchallenge_id}" rel="external" class="underline">#{numberWithCommas(m.bbchallenge_id)}</a></td>
 		<td>
 		{#if skeletBBchallengeStatus[m.bbchallenge_id] !== undefined}
 		{#if skeletBBchallengeStatus[m.bbchallenge_id] == TMDecisionStatus.UNDECIDED}

@@ -54,10 +54,10 @@
 		nbIter = nbIterDefault;
 	}
 	if (tapeWidth == null) {
-		tapeWidth = 300;
+		tapeWidth = tapeWidthDefault;
 	}
 	if (origin_x == null) {
-		origin_x = 0.5;
+		origin_x = origin_xDefault;
 	}
 
 	function getSimulationLink(forCopy = false) {

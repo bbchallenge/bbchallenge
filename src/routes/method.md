@@ -46,7 +46,7 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 **Phase 1** was completed in December 2021:
 
 - it enumerated 125,479,953 Turing machines in 30 hours^[2. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
-- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754&s=10000&w=300&ox=0.5" rel="external">#7,410,754</a>).
+- it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754" rel="external">#7,410,754</a>).
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See <a href="/contribute" rel="external">Contribute</a>.
 
@@ -148,7 +148,7 @@ We conjecture:
 BB_SPACE(5) =  12,289
 </div>
 
-Which is the number of memory cells visited by <a  href="https://bbchallenge.org/{BB5_champion}&s=10000&w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
+Which is the number of memory cells visited by <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
 
 It turns that BB_SPACE(5) is a much more practical cut-off to use in the enumeration algorithm than BB(5) as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
 
@@ -206,7 +206,7 @@ The database is a binary file where each machine is described on 30 bytes. It st
 
 Then, each machine is encoded on 30 bytes. First come the `14,322,029` machines that exceeded the time limit and then the `74,342,035` machines that exceeded the space limit, see [time and space limits](#time-and-space-limits). These two sets of machines are both lexicographically sorted.
 
-The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458&s=10000&w=300&ox=0.5) of the databse:
+The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458) of the databse:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
