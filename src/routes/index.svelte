@@ -51,7 +51,7 @@
 	let initial_tape = '0';
 	// Default the params if called with null
 	if (nbIter == null) {
-		nbIter = 3000;
+		nbIter = nbIterDefault;
 	}
 	if (tapeWidth == null) {
 		tapeWidth = 300;
