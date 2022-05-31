@@ -9,7 +9,7 @@
 
 <a id="contribute"></a>
 
-the Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the Busy Beaver Challenge.
+The Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the Busy Beaver Challenge.
 
 <a id="zoology"></a>
 
@@ -96,7 +96,7 @@ Here are some examples of missing features:
 
 - A better, more customizable, visualisation tool for <a href="/story#space-time-diagrams">space-time diagrams</a>. See [this issue](https://github.com/bbchallenge/bbchallenge/issues/2).
 - Make Turing machines editable on the fly on the main page. See [this issue](https://github.com/bbchallenge/bbchallenge/issues/4).
-- If a machine of the database is decided, such as <a href="https://bbchallenge.org/59090563&s=10000&w=300&ox=0.5" rel="external">#59,090,563</a>, give the link to its decider. See [this issue](https://github.com/bbchallenge/bbchallenge-api/issues/2).
+- If a machine of the database is decided, such as <a href="https://bbchallenge.org/59090563" rel="external">#59,090,563</a>, give the link to its decider. See [this issue](https://github.com/bbchallenge/bbchallenge-api/issues/2).
 
 Pages like <a href="/story" rel="external">/story</a>, <a href="/method" rel="external">/method</a>, <a href="/contribute" rel="external">/contribute</a> are also collaborative and you can submit changes on [github](https://github.com/bbchallenge/bbchallenge).
 
