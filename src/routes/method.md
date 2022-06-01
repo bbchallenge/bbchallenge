@@ -74,7 +74,7 @@ Our approach provides modularity and hopefully facilitates reproducibility, peer
 
 ## Seed database
 
-the Busy Beaver Challenge is based on a [downloadable](#download) seed database of 88,664,064 undecided 5-state machines which was constructed during [phase 1](#phase-1-phase-2) of the project, completed in December 2021. You are more than invited to reproduce this result, see <a href="/contribute" rel="external">Contribute</a>.
+The Busy Beaver Challenge is based on a [downloadable](#download) seed database of 88,664,064 undecided 5-state machines which was constructed during [phase 1](#phase-1-phase-2) of the project, completed in December 2021. You are more than invited to reproduce this result, see <a href="/contribute" rel="external">Contribute</a>.
 
 The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[3. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C and is unit tested. See our <a href="#reproducibility-and-verifiability-statement">reproducibility and verifiability statement</a>.
 
