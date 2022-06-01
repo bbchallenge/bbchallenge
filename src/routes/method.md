@@ -39,7 +39,7 @@ Hence, we aim at _sparsely_ enumerating the space of 5-state Turing machines: th
 
 The method that we present to sparsely enumerate the space of 5-state Turing machines and analyse their behavior is fundamentally inspired by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) with some notable differences that we will outline. The first difference is that our method is divided into two successive and independent phases:
 
-1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
+1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-and-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
 
 2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each family.
 
