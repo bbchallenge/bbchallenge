@@ -29,7 +29,7 @@ With the Busy Beaver Challenge we want to decide the halting problem of all 5-st
 
 In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 167 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
 
-Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="5! = 120"/> ways to permute the states of a machine^[1. These 120 machines are said to be _isomorphic_.] which does not change behavior hence only one of these 120 machines needs to be studied.
+Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="4! = 24"/> ways to permute the states (aside from the start state) of a machine and 2 ways to permute the move directions which does not change behavior hence only one of these 48 machines needs to be studied^[1. These 48 machines are said to be _isomorphic_.].
 
 Hence, we aim at _sparsely_ enumerating the space of 5-state Turing machines: that is trying to enumerate the least amount of machines that are necessary to study in order to find BB(5).
 
@@ -39,7 +39,7 @@ Hence, we aim at _sparsely_ enumerating the space of 5-state Turing machines: th
 
 The method that we present to sparsely enumerate the space of 5-state Turing machines and analyse their behavior is fundamentally inspired by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) with some notable differences that we will outline. The first difference is that our method is divided into two successive and independent phases:
 
-1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
+1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-and-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
 
 2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each family.
 
@@ -88,7 +88,7 @@ The main aim of the Busy Beaver Challenge is to decide every machine in the seed
 
 The algorithm that we implement to sparsely enumerate the space of 5-state Turing machines is a variation of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) but the core idea is the same.
 
-The algorithm recursively constructs the tree of 5-state Turing machines starting from the following common ancestor^[4. By symmetry this common ancestor can use tape movement R and go to state B without loss of generality. Writing a 1 is motivated that if it wrote a 0 instead we could shift the tape to the first cell with a 1.]:
+The algorithm recursively constructs the tree of 5-state Turing machines starting from the following common ancestor^[4. By symmetry this common ancestor can use tape movement R and go to state B without loss of generality (if it goes to state A, that machine will obviously never halt). Writing a 1 is motivated by the fact that for any machine which writes a 0 first, we can simulate that machine forward until it writes it's first 1 and then permuate the states so that that state (which wrote the first 1) is the start state. This new machine will have the exact same behavior as the original machine (except that it runs <= 4 steps less). A post-analysis of all machines can find all examples like this.]:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
