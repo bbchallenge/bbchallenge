@@ -10,7 +10,7 @@
 			name: 'Translated cyclers',
 			decided: true,
 			nb_decided: 73860604,
-			examples: [59645887, 15167997, 59090563]
+			examples: [59645887, 15167997, 59090563, 63687188]
 		},
 		{ name: 'Unilateral bouncers', decided: false, examples: [6048289, 2664944, 9281450] },
 		{ name: 'Bilateral bouncers', decided: false, examples: [12785688, 8929416, 76727755] },
