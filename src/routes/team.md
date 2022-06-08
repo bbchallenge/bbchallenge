@@ -19,8 +19,9 @@ You can <a href="/contribute" rel="external">contribute</a> and join this list!
 
 The following people have helped the project with valuable conversations, inputs or dissemination (e.g. using [bbchallenge](https://bbchallenge.org) as teaching material):
 
-- [Eric E. Severson](https://github.com/EricESeverson)
+- [Damien Woods](https://dna.hamilton.ie/woods)
 - [Dave Doty](https://web.cs.ucdavis.edu/~doty/)
+- [Eric E. Severson](https://eric-severson.netlify.app/)
 - [@DunDunDunDone](https://github.com/DunDunDunDone)
 - [@pg132](https://github.com/pg132)
 
