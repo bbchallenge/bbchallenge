@@ -314,13 +314,23 @@ The full list of Skelet's 43 machines and their equivalents in the Busy Beaver C
 - [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
 - [[Brady, 1983]](https://www.jstor.org/stable/2007539)
 - [[Cloudy176, 2014]](https://googology.fandom.com/wiki/User_blog:Cloudy176/Proving_the_bound_for_S(7))
-- [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html), [Heiner Marxen's website](http://turbotm.de/~heiner/BB/)
-- [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.), [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
+- [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
+- [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
 - [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf)
 - [[Rado and Lin, 1963]](https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=osu1486554418657614&disposition=inline)
 - [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
 - [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 - [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F)
+
+<a id="related-links"></a>
+
+## Related Links
+
+- [Heiner Marxen's website](http://turbotm.de/~heiner/BB/index.html)
+- [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
+- [Rensselaer RAIR Lab](https://homepages.hass.rpi.edu/heuveb/Research/BB/index.html)
+- [Busy Beaver Disscuss](https://groups.google.com/g/busy-beaver-discuss) (Google Groups)
+
 
 <div class="mb-20"></div>
 
