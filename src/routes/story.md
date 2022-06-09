@@ -329,6 +329,7 @@ The full list of Skelet's 43 machines and their equivalents in the Busy Beaver C
 - [Heiner Marxen's website](http://turbotm.de/~heiner/BB/index.html)
 - [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
 - [Rensselaer RAIR Lab](https://homepages.hass.rpi.edu/heuveb/Research/BB/index.html)
+- [Skelet's website](https://skelet.ludost.net/bb/index.html)
 - [Busy Beaver Disscuss](https://groups.google.com/g/busy-beaver-discuss) (Google Groups)
 
 
