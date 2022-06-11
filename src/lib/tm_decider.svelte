@@ -101,7 +101,7 @@
 				<a
 					class="underline text-blue-400 hover:text-blue-300 cursor-pointer"
 					target="_blank"
-					href={INDEX_FILE_BASE_URL + machineDecider}>Index file URL</a
+					href={INDEX_FILE_BASE_URL + machineDecider}>Download index file</a
 				>
 			</li>
 		</ul>
