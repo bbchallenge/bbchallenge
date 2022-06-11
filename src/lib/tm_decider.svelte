@@ -62,15 +62,14 @@
 	};
 
 	let show_more = false;
-	let deciderMetadata = decidersMetadata[machineDecider];
 </script>
 
-{#if deciderMetadata}
+{#if decidersMetadata[machineDecider]}
 	<div>
 		Decider: <a
 			class="underline text-blue-400 hover:text-blue-300 cursor-pointer"
 			target="_blank"
-			href={deciderMetadata['url']}>{deciderMetadata['name']}</a
+			href={decidersMetadata[machineDecider]['url']}>{decidersMetadata[machineDecider]['name']}</a
 		>
 		{#if !show_more}
 			<span
@@ -90,14 +89,14 @@
 	</div>
 	{#if show_more}
 		<ul class="ml-8 list-disc text-sm mb-2">
-			<li>Date: {deciderMetadata['date']}</li>
+			<li>Date: {decidersMetadata[machineDecider]['date']}</li>
 			<li>Parameters:</li>
 			<ul class="ml-5 list-disc">
-				{#each deciderMetadata['params'] as param}
+				{#each decidersMetadata[machineDecider]['params'] as param}
 					<li>{param}</li>
 				{/each}
 			</ul>
-			<li>Total decided: {numberWithCommas(deciderMetadata['total_decided'])}</li>
+			<li>Total decided: {numberWithCommas(decidersMetadata[machineDecider]['total_decided'])}</li>
 			<li>
 				<a
 					class="underline text-blue-400 hover:text-blue-300 cursor-pointer"
