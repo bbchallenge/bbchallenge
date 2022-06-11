@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { TMDecisionStatus, tmToMachineCode, tmToTuringMachineDotIO } from './tm';
+	import TmDecider from './tm_decider.svelte';
 
 	export let machine;
 	export let machineID = null;
 	export let decisionStatus = null;
 	export let showTitle = true;
+	export let machineDecider = null;
 
 	export let currState = null;
 	export let currRead = null;
@@ -16,18 +18,6 @@
 	{#if decisionStatus !== null}
 		{#if decisionStatus == TMDecisionStatus.UNDECIDED}
 			<div>Status: <span class="text-orange-400 font-bold">Undecided</span></div>
-		{:else if decisionStatus == TMDecisionStatus.HEURISTICALLY_DECIDED_HALT}
-			<div>
-				Status: <span class="text-purple-400 font-bold text-sm"
-					>Heuristically decided <span class="text-xs">(Halt)</span></span
-				>
-			</div>
-		{:else if decisionStatus == TMDecisionStatus.HEURISTICALLY_DECIDED_NON_HALT}
-			<div>
-				Status: <span class="text-purple-400 font-bold text-sm"
-					>Heuristically decided <span class="text-xs">(Non Halt)</span></span
-				>
-			</div>
 		{:else if decisionStatus == TMDecisionStatus.DECIDED_NON_HALT}
 			<div>
 				Status: <span class="text-green-400 font-bold">Decided (Non Halt)</span>
@@ -38,11 +28,13 @@
 			</div>
 		{/if}
 	{/if}
+	{#if machineDecider !== null}
+		<TmDecider {machineDecider} />
+	{/if}
 </header>
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
-		
 	{/if}
 
 	{#if error != null}
@@ -56,38 +48,43 @@
 			</thead>
 			<tbody>
 				{#each [...Array(machine.length / 6).keys()] as i}
-					{@const transitions = [machine.slice(6 * i, 6 * i + 3),machine.slice(6 * i + 3, 6 * i + 6)]}
-					
+					{@const transitions = [
+						machine.slice(6 * i, 6 * i + 3),
+						machine.slice(6 * i + 3, 6 * i + 6)
+					]}
 
 					<tr
 						><td class={`w-1/3 color-${i}`}>{String.fromCharCode(65 + i)}</td>
-						
+
 						{#each [...Array(2).keys()] as j}
-						<td
-							class="w-1/3"
-							class:bg-magenta={currState !== null &&
-								currRead !== null &&
-								i == currState &&
-								currRead == j}
-						>
-							{#if transitions[j][2] == 0}
-								---
-							{:else}
-								{String.fromCharCode(48 + transitions[j][0])}{transitions[j][1] == 0 ? 'R' : 'L'}<span
-									class={`color-${transitions[j][2] - 1}`}
-									>{String.fromCharCode(65 + (transitions[j][2] - 1))}</span
-								>
-							{/if}
-						</td>
+							<td
+								class="w-1/3"
+								class:bg-magenta={currState !== null &&
+									currRead !== null &&
+									i == currState &&
+									currRead == j}
+							>
+								{#if transitions[j][2] == 0}
+									---
+								{:else}
+									{String.fromCharCode(48 + transitions[j][0])}{transitions[j][1] == 0
+										? 'R'
+										: 'L'}<span class={`color-${transitions[j][2] - 1}`}
+										>{String.fromCharCode(65 + (transitions[j][2] - 1))}</span
+									>
+								{/if}
+							</td>
 						{/each}
-						
 					</tr>
 				{/each}
 			</tbody>
 		</table>
 	{/if}
 	{#if showTitle}
-	<div class="text-xs  mb-2"><span class="select-none">Compact:</span> <span class="select-all">{tmToMachineCode(machine)}</span></div>
+		<div class="text-xs  mb-2">
+			<span class="select-none">Compact:</span>
+			<span class="select-all">{tmToMachineCode(machine)}</span>
+		</div>
 		{#if machineID}
 			<div class="text-xs">
 				<a

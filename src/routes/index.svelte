@@ -23,6 +23,7 @@
 	export let machineCode = null;
 	export let preSeed = false;
 	export let machineStatus = null;
+	let machineDecider = null;
 	let history = getHistory();
 	let showHistory = false;
 	let showSimulationParams = false;
@@ -129,6 +130,15 @@
 
 			if (response.data['status'] !== undefined) {
 				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
+				if (
+					machineStatus == TMDecisionStatus.DECIDED_HALT ||
+					machineStatus == TMDecisionStatus.DECIDED_NON_HALT
+				) {
+					machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
+						'decider_file'
+					];
+					console.log('Decider:', machineDecider);
+				}
 			}
 		} catch (error) {
 			console.log(error);
@@ -156,6 +166,15 @@
 
 			if (response.data['status'] !== undefined) {
 				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
+				if (
+					machineStatus == TMDecisionStatus.DECIDED_HALT ||
+					machineStatus == TMDecisionStatus.DECIDED_NON_HALT
+				) {
+					machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
+						'decider_file'
+					];
+					console.log('Decider:', machineDecider);
+				}
 			}
 
 			console.log(machine, machineID);
@@ -171,6 +190,7 @@
 		machine = null;
 		machineID = null;
 		machineStatus = status;
+		machineDecider = null;
 		try {
 			machineCodeError = null;
 			machine = machineCodeToTM(machine_code);
@@ -426,7 +446,7 @@
 								</div>
 							{/if}
 
-							<TmTable {machine} {machineID} decisionStatus={machineStatus} />
+							<TmTable {machine} {machineID} decisionStatus={machineStatus} {machineDecider} />
 						{/if}
 					</div>
 
