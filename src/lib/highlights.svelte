@@ -32,7 +32,7 @@
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 			{#each highlighted_undecided_machines as m_id}
 				<HighlightedMachine on:machine_id machine_id={m_id}
-					>&middot;&nbsp; Machine</HighlightedMachine
+					>&middot;&nbsp;Machine</HighlightedMachine
 				>
 			{/each}
 			<HighlightedMachine
@@ -44,7 +44,7 @@
 					class="cursor-pointer select-none"
 					on:click={() => {
 						dispatch('machine_id', { machine_id: Marxen_and_Buntrock_chaotic_id });
-					}}>&middot;&nbsp; "<span class="underline">chaotic</span>"</span
+					}}>&middot;&nbsp;"<span class="underline">chaotic</span>"</span
 				>
 			</HighlightedMachine>
 			<HighlightedMachine
@@ -57,7 +57,7 @@
 					class="cursor-pointer select-none"
 					on:click={() => {
 						dispatch('machine_id', { machine_id: Marxen_and_Buntrock_complex_counter_id });
-					}}>&middot;&nbsp; "<span class="underline">complex counter</span>"</span
+					}}>&middot;&nbsp;"<span class="underline">complex counter</span>"</span
 				></HighlightedMachine
 			>
 		</div>
