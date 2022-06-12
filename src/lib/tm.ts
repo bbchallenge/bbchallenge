@@ -122,13 +122,6 @@ export function APIDecisionStatusToTMDecisionStatus(status) {
 	return machineStatus;
 }
 
-function intToNatural(n: number) {
-	return n < 0 ? -n * 2 - 1 : n * 2;
-}
-function naturalToInt(n: number) {
-	return n % 2 == 0 ? n / 2 : -(n + 1) / 2;
-}
-
 const colorList = [
 	[255, 0, 0],
 	[255, 128, 0],
@@ -139,22 +132,23 @@ const colorList = [
 	[255, 255, 0]
 ];
 
-export function render_history(machine, initial_tape = '0', height = 1000) {
+export function machine_run_history(machine, initial_tape = { 0: 0 }, steps = 1000) {
 	const history = [];
 
-	let tape = [];
-	for (let i = 0; i < initial_tape.length; i++) {
-		tape[intToNatural(i)] = initial_tape[i] === '0' ? 0 : 1;
+	const tape = {};
+	for (const pos in initial_tape) {
+		tape[pos] = initial_tape[pos];
 	}
 
 	let curr_state = 0;
 	let curr_pos = 0;
-	history.push({ tape, curr_state, curr_pos });
+	const copyTape = { ...tape };
+	history.push({ copyTape, curr_state, curr_pos });
 
-	for (let row = 0; row < height; row += 1) {
-		tape = [...tape];
+	for (let currStep = 0; currStep < steps; currStep += 1) {
 		[curr_state, curr_pos] = step(machine, curr_state, curr_pos, tape);
-		history.push({ tape, curr_pos, curr_state });
+		const copyTape = { ...tape };
+		history.push({ copyTape, curr_pos, curr_state });
 		if (curr_state === null || curr_state >= machine.length / 6) {
 			break;
 		}
@@ -165,10 +159,10 @@ export function render_history(machine, initial_tape = '0', height = 1000) {
 export function tm_explore(
 	ctx: CanvasRenderingContext2D,
 	machine,
-	initial_tape = '0',
+	initial_tape = { 0: 0 },
 	height = 1000
 ) {
-	const history = render_history(machine, initial_tape, height);
+	const history = machine_run_history(machine, initial_tape, height);
 
 	let zoom = 10;
 	let x_offset = ctx.canvas.width / 2;
@@ -185,13 +179,13 @@ export function tm_explore(
 		ctx.fillStyle = `rgb(255, 255, 255)`;
 		for (let row = Math.max(miny, 0); row < Math.min(miny + height + 1, history.length); row++) {
 			if (!history[row]) continue;
-			const { tape } = history[row];
+			const tape = history[row].copyTape;
 
-			for (let i = 0; i < tape.length; i += 1) {
-				const col = naturalToInt(i);
+			for (const colS in tape) {
+				const col = parseInt(colS)
 				if (col < minx || col > minx + width) continue;
 
-				if (tape[i]) {
+				if (tape[colS]) {
 					ctx.fillRect(col, row, 1, 1);
 				}
 			}
@@ -241,7 +235,7 @@ export function tm_explore(
 export function tm_trace_to_image(
 	ctx: CanvasRenderingContext2D,
 	machine,
-	initial_tape = '0',
+	initial_tape = { 0: 0 },
 	width = 900,
 	height = 1000,
 	origin_x = 0.5,
@@ -250,13 +244,14 @@ export function tm_trace_to_image(
 ) {
 	const imgData = ctx.createImageData(width, height);
 
-	const history = render_history(machine, initial_tape, height);
+	const history = machine_run_history(machine, initial_tape, height);
 
 	for (let row = 1; row < history.length; row += 1) {
 		const last_pos = history[row - 1].curr_pos;
-		const { tape, curr_pos } = history[row];
-		for (let i = 0; i <= tape.length; i += 1) {
-			const pos = naturalToInt(i);
+		const tape = history[row].copyTape;
+		const { curr_pos } = history[row];
+		for (const posS in tape) {
+			const pos = parseInt(posS);
 			const col = pos + Math.floor(width * origin_x);
 			if (col < 0 || col >= width) continue;
 
@@ -266,10 +261,10 @@ export function tm_trace_to_image(
 				imgData.data[imgIndex + 1] = curr_pos < last_pos ? 255 : 0;
 				imgData.data[imgIndex + 2] = 0;
 				imgData.data[imgIndex + 3] = 255;
-			} else if (tape[intToNatural(pos)] != undefined) {
+			} else if (tape[posS] != undefined) {
 				const imgIndex = 4 * (row * width + col);
 				let color = 255;
-				if (tape[intToNatural(pos)] === 0) color = 0;
+				if (tape[posS] === 0) color = 0;
 				imgData.data[imgIndex + 0] = color;
 				imgData.data[imgIndex + 1] = color;
 				imgData.data[imgIndex + 2] = color;
@@ -292,24 +287,19 @@ export function tm_trace_to_image(
 	}
 }
 
-export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions = false) {
-	function identity(x) {
-		return x;
+export function step(machine: TM, curr_state, curr_pos, tape) {
+
+	if (tape[curr_pos] === undefined) {
+		tape[curr_pos] = 0;
 	}
 
-	const f = use_int_positions ? identity : intToNatural;
-
-	if (tape[f(curr_pos)] === undefined) {
-		tape[f(curr_pos)] = 0;
-	}
-
-	const write = machine[curr_state * 6 + 3 * tape[f(curr_pos)]];
-	const move = machine[curr_state * 6 + 3 * tape[f(curr_pos)] + 1];
-	const goto = machine[curr_state * 6 + 3 * tape[f(curr_pos)] + 2] - 1;
+	const write = machine[curr_state * 6 + 3 * tape[curr_pos]];
+	const move = machine[curr_state * 6 + 3 * tape[curr_pos] + 1];
+	const goto = machine[curr_state * 6 + 3 * tape[curr_pos] + 2] - 1;
 
 	if (goto == -1) return [null, null];
 
-	tape[f(curr_pos)] = write;
+	tape[curr_pos] = write;
 	const next_pos = curr_pos + (move ? -1 : 1);
 	return [goto, next_pos];
 }

@@ -49,7 +49,7 @@
 	export let tapeWidth = tapeWidthDefault;
 	export let origin_x = origin_xDefault;
 
-	let initial_tape = '0';
+	let initial_tape = { 0: 0 };
 	// Default the params if called with null
 	if (nbIter == null) {
 		nbIter = nbIterDefault;
