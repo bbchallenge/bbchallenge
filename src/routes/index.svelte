@@ -160,6 +160,7 @@
 			machine = machineCodeToTM(response.data['machine_code']);
 			localMachineID = response.data['machine_id'];
 			machineID = localMachineID;
+			machineDecider = null;
 
 			addToHistory(localMachineID);
 			history = getHistory();
