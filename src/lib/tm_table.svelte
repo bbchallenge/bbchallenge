@@ -28,7 +28,7 @@
 			</div>
 		{/if}
 	{/if}
-	{#if machineDecider !== null}
+	{#if machineDecider !== null && decisionStatus !== null && decisionStatus !== TMDecisionStatus.UNDECIDED}
 		<TmDecider {machineDecider} />
 	{/if}
 </header>
