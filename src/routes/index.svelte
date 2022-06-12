@@ -125,6 +125,7 @@
 
 			machine = machineCodeToTM(response.data['machine_code']);
 			machineID = response.data['machine_id'];
+			machineDecider = null;
 
 			addToHistory(machineID);
 			history = getHistory();
