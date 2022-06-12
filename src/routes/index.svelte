@@ -406,7 +406,7 @@
 							{#if !exploreMode}
 								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
 									<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
-									<div>Show head movement (green for left, red for right)</div>
+									<div>Show head movement (green for L, red for R)</div>
 								</label>
 							{/if}
 						{/if}
