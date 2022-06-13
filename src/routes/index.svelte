@@ -209,6 +209,12 @@
 
 	let apiDown = false;
 	onMount(async () => {
+		try {
+			let response = await API.get(`/metrics`, {});
+			metrics = response.data;
+		} catch (error) {
+			apiDown = true;
+		}
 		if (!preSeed) {
 			try {
 				await getRandomMachine();
@@ -224,13 +230,6 @@
 			}
 		} else if (machineCode != null) {
 			await loadMachineFromMachineCode(machineCode, machineStatus);
-		}
-
-		try {
-			let response = await API.get(`/metrics`, {});
-			metrics = response.data;
-		} catch (error) {
-			apiDown = true;
 		}
 
 		if (apiDown && machineCode == null) {
