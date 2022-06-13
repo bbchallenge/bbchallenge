@@ -49,8 +49,7 @@
 	export let tapeWidth = tapeWidthDefault;
 	export let origin_x = origin_xDefault;
 
-	let initial_tape_str = '0';
-	let initial_tape = { 0: 0 };
+	let initial_tape = '0';
 	// Default the params if called with null
 	if (nbIter == null) {
 		nbIter = nbIterDefault;
@@ -398,10 +397,10 @@
 										/></label
 									>
 								</div>
-								<!-- <label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer select-none">
+								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer select-none">
 									<div>initial tape content</div>
-									<input bind:value={initial_tape_str} on:change={draw} />
-								</label> -->
+									<input bind:value={initial_tape} on:change={draw} />
+								</label>
 							</div>
 							{#if !exploreMode}
 								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
