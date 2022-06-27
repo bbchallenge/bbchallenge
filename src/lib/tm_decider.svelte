@@ -6,11 +6,11 @@
 	const INDEX_FILE_BASE_URL = 'http://docs.bbchallenge.org/bb5_decided_indexes/';
 
 	let decidersMetadata = {
-		'backward-reasoning-run-4b07b7719dbd-depth-300-minIndex-0-maxIndex-88664064': {
+		'backward-reasoning-run-78af853d8968-depth-50-minIndex-0-maxIndex-88664064': {
 			name: 'Backward Reasoning',
 			url: 'https://discuss.bbchallenge.org/t/decider-backward-reasoning/',
-			date: 'June 6th 2022',
-			params: ['Depth: 300'],
+			date: 'June 27th 2022',
+			params: ['Depth: 50'],
 			total_decided: 2035610
 		},
 		'cyclers-run-11c0ef00e9c2-time-1000-space-500-minIndex-0-maxIndex-14322029': {
