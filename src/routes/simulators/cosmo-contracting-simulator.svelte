@@ -132,7 +132,7 @@
 				}
 				to_ret += '">';
 			}
-			if (i == headPos) to_ret += '<span class="border-2">';
+			if (i == headPos) to_ret += '<span class="border-b-2 border-t-2">';
 			if (tape[i] == undefined) {
 				to_ret += '#';
 			} else if (tape[i] == 0) {
@@ -156,10 +156,12 @@
 		}
 	}
 
+	let machineCode = null;
 	/* LOAD */
 	/* This code is copy pasted from website's index. 
      TODO: factorise this + UI of changing machine for being re-usable. */
 	async function loadMachineFromID(localMachineID) {
+		machineCode = null;
 		if (localMachineID == null || localMachineID < 0 || localMachineID >= DB_SIZE) {
 			return;
 		}
@@ -182,6 +184,8 @@
 		machine = null;
 		machineID = null;
 
+		machineCode = machine_code;
+
 		try {
 			machine = machineCodeToTM(machine_code);
 		} catch (error) {}
@@ -196,16 +200,29 @@
 
 <div class="p-4 flex space-x-10 items-start w-full">
 	<div class="flex flex-col">
-		<div>
-			Machine #<a
-				href="/{machineID}"
-				rel="external"
-				target="_blank"
-				class="underline cursor-pointer"
-			>
-				{numberWithCommas(machineID)}</a
-			> <span class="text-xs">(<span class="select-all">{machineID}</span>)</span>
-		</div>
+		{#if machineID}
+			<div>
+				Machine #<a
+					href="/{machineID}"
+					rel="external"
+					target="_blank"
+					class="underline cursor-pointer"
+				>
+					{numberWithCommas(machineID)}</a
+				> <span class="text-xs">(<span class="select-all">{machineID}</span>)</span>
+			</div>
+		{:else}
+			<div>
+				Machine <a
+					href="/{machineID}"
+					rel="external"
+					target="_blank"
+					class="underline cursor-pointer"
+				>
+					{machineCode}
+				</a>
+			</div>
+		{/if}
 		<div>History for current state and symbol</div>
 		{#if history.length > 0}
 			{#each history as historyTapeTimeAndStr}
@@ -242,13 +259,14 @@
 			<strong>Legend:</strong>
 			<div class="flex flex-col space-y-2">
 				<div>- '#': unseen cell (hence 0)</div>
-				<div>- '<span class="border-2">&nbsp;</span>': head position</div>
+				<div>- '<span class="border-b-2 border-t-2">&nbsp;</span>': head position</div>
+
+				<div>- '<span class="bg-green-500">&nbsp;</span>': contracting event possible</div>
 				<div>
 					- '<span class="underline">&nbsp;</span>': cells seen between historic and current step<br
 					/>
 					(excluding current head)
 				</div>
-				<div>- '<span class="bg-green-500">&nbsp;</span>': contracting event possible</div>
 			</div>
 		</div>
 		<div class="ml-3 mt-2 text-sm">
