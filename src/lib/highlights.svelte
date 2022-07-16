@@ -6,7 +6,7 @@
 		BB5_23M_steps_halter,
 		BB5_2M_steps_halter,
 		BB5_champion,
-		BB6_Kropitz_champion,
+		BB6_Kropitz_champion_2022,
 		BB7_Wythagoras_champion,
 		Skelet_machines,
 		Marxen_and_Buntrock_chaotic_id,
@@ -16,7 +16,7 @@
 
 	// Cannot inline { .. } because of svelte
 	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
-	let ApproxBB6 = '\\simeq 10^{36,534}';
+	let ApproxBB6 = '\\simeq 10\\uparrow\\uparrow 15';
 
 	import { createEventDispatcher } from 'svelte';
 
@@ -75,20 +75,20 @@
 			>
 			<HighlightedMachine
 				on:machine_code
-				machine_code={BB6_Kropitz_champion}
+				machine_code={BB6_Kropitz_champion_2022}
 				machine_status={TMDecisionStatus.DECIDED_HALT}
-				ref_link="http://turbotm.de/~heiner/BB/bb-xlist.txt"
+				ref_link="https://www.sligocki.com/2022/06/21/bb-6-2-t15.html"
 				ref_authors="Kropitz"
-				ref_year="2010">&middot;&nbsp;BB(6): <Katex math={ApproxBB6} />-halter</HighlightedMachine
+				ref_year="2022">&middot;&nbsp;BB(6): <Katex math={ApproxBB6} />-halter</HighlightedMachine
 			>
-			<HighlightedMachine
+			<!-- <HighlightedMachine
 				on:machine_code
 				machine_code={BB7_Wythagoras_champion}
 				machine_status={TMDecisionStatus.DECIDED_HALT}
 				ref_link="https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F"
 				ref_authors="Wythagoras"
 				ref_year="2014">&middot;&nbsp;BB(7): <Katex math={ApproxBB72} />-halter</HighlightedMachine
-			>
+			> -->
 
 			<HighlightedMachine
 				on:machine_code
