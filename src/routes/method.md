@@ -249,7 +249,7 @@ def get_machine_i(machine_db_path, i, db_has_header=True):
   with open(machine_db_path, "rb") as f:
     c = 1 if db_has_header else 0
     f.seek(30*(i+c))
-  return f.read(30)
+    return f.read(30)
 ```
 
 More Python utils at [https://github.com/bbchallenge/bbchallenge-py/](https://github.com/bbchallenge/bbchallenge-py/)
