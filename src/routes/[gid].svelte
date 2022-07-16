@@ -15,10 +15,7 @@
 	let tapeWidth = null;
 	let origin_x = null;
 
-	if (
-		(generalisedID.length % 6 == 0 && generalisedID.length > 0 && generalisedID[1] == 'R') ||
-		generalisedID[1] == 'L'
-	) {
+	if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
 		machineCode = generalisedID;
 	} else {
 		machineID = generalisedID;

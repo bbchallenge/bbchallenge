@@ -29,15 +29,46 @@ export function encodedTransitionToString(transition): string {
 	}
 }
 
+// In order to convert machine codes of `machine_repertoire.ts` after migration to 
+// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
+export function oldBbchallengeFormatToNew(machineCode: string): string {
+	if (machineCode.includes("_")) {
+		return machineCode
+	}
+
+	let to_ret = "";
+
+	for (let i = 0; i < machineCode.length; i += 1) {
+		if (i % 6 != 5) {
+			to_ret += machineCode[i]
+		} else if (i < machineCode.length - 1) {
+			to_ret += machineCode[i] + "_"
+		} else {
+			to_ret += machineCode[i]
+		}
+	}
+
+	return to_ret
+}
+
 export function tmToMachineCode(machine: Uint8Array): string {
 	let to_return = '';
 	for (let i = 0; i < machine.length; i += 3) {
 		to_return += encodedTransitionToString(machine.slice(i, i + 3));
+		if (i % 6 == 3 && i != machine.length - 3) {
+			// Support for collaboratively agreed tm format
+			// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
+			to_return += "_"
+		}
 	}
 	return to_return;
 }
 
 export function machineCodeToTM(machineCode: string) {
+	// Support for collaboratively agreed tm format
+	// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
+	machineCode = machineCode.replaceAll("_", "")
+
 	if (machineCode.length % 6 !== 0) throw 'Invalid TM code.';
 
 	const tm = new Uint8Array(machineCode.length);
