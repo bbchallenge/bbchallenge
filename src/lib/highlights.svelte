@@ -67,6 +67,24 @@
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 			<HighlightedMachine
 				on:machine_code
+				machine_code={BB5_2M_steps_halter}
+				machine_status={TMDecisionStatus.DECIDED_HALT}
+				ref_link="http://bbchallenge.org"
+				ref_authors="bbchallenge"
+				ref_year="2021">&middot;&nbsp;2,133,492-halter</HighlightedMachine
+			>
+
+			<HighlightedMachine
+				on:machine_code
+				machine_code={BB5_23M_steps_halter}
+				machine_status={TMDecisionStatus.DECIDED_HALT}
+				ref_link="http://bbchallenge.org"
+				ref_authors="bbchallenge"
+				ref_year="2021">&middot;&nbsp;23,554,764-halter</HighlightedMachine
+			>
+
+			<HighlightedMachine
+				on:machine_code
 				machine_code={BB5_champion}
 				machine_status={TMDecisionStatus.DECIDED_HALT}
 				ref_link="http://turbotm.de/~heiner/BB/mabu90.html"
@@ -89,24 +107,6 @@
 				ref_authors="Wythagoras"
 				ref_year="2014">&middot;&nbsp;BB(7): <Katex math={ApproxBB72} />-halter</HighlightedMachine
 			> -->
-
-			<HighlightedMachine
-				on:machine_code
-				machine_code={BB5_23M_steps_halter}
-				machine_status={TMDecisionStatus.DECIDED_HALT}
-				ref_link="http://bbchallenge.org"
-				ref_authors="bbchallenge"
-				ref_year="2021">&middot;&nbsp;23,554,764-halter</HighlightedMachine
-			>
-
-			<HighlightedMachine
-				on:machine_code
-				machine_code={BB5_2M_steps_halter}
-				machine_status={TMDecisionStatus.DECIDED_HALT}
-				ref_link="http://bbchallenge.org"
-				ref_authors="bbchallenge"
-				ref_year="2021">&middot;&nbsp;2,133,492-halter</HighlightedMachine
-			>
 		</div>
 	</div>
 	<div class="ml-2">
