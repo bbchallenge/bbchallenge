@@ -1,13 +1,13 @@
 import { oldBbchallengeFormatToNew } from './tm'
 
-export const BB5_champion = oldBbchallengeFormatToNew('1RB1LC1RC1RB1RD0LE1LA1LD---0LA'); // 47,176,870 steps
-export const BB6_Kropitz_champion_2010 = oldBbchallengeFormatToNew('1RB1LE1RC1RF1LD0RB1RE0LC1LA0RD---1RC');
-export const BB6_Kropitz_champion_2022 = "1RB0LD_1RC0RF_1LC1LA_0LE---_1LF0RB_0RC0RE"
+export const BB5_champion = oldBbchallengeFormatToNew('1RB1LC1RC1RB1RD0LE1LA1LD1RZ0LA'); // 47,176,870 steps
+export const BB6_Kropitz_champion_2010 = oldBbchallengeFormatToNew('1RB1LE1RC1RF1LD0RB1RE0LC1LA0RD1RZ1RC');
+export const BB6_Kropitz_champion_2022 = "1RB0LD_1RC0RF_1LC1LA_0LE1RZ_1LF0RB_0RC0RE"
 
-export const BB7_Wythagoras_champion = oldBbchallengeFormatToNew('1LE---1RC1RF1LD0RB1RE0LC1LG0RD---1RC1RB1LE');
+export const BB7_Wythagoras_champion = oldBbchallengeFormatToNew('1LE1RZ1RC1RF1LD0RB1RE0LC1LG0RD1RZ1RC1RB1LE');
 
-export const BB5_23M_steps_halter = oldBbchallengeFormatToNew('1RB0LD1LC1RD1LA1LC---1RE1RA0RB'); // 23,554,764 steps
-export const BB5_2M_steps_halter = oldBbchallengeFormatToNew('1RB1LC0LA0LD1LA---1LB1RE0RD0RB'); // 2,133,492 steps
+export const BB5_23M_steps_halter = oldBbchallengeFormatToNew('1RB0LD1LC1RD1LA1LC1RZ1RE1RA0RB'); // 23,554,764 steps
+export const BB5_2M_steps_halter = oldBbchallengeFormatToNew('1RB1LC0LA0LD1LA1RZ1LB1RE0RD0RB'); // 2,133,492 steps
 
 export const Marxen_and_Buntrock_chaotic_id = 76708232;
 export const Marxen_and_Buntrock_complex_counter_id = 10936909;
