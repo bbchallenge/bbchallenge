@@ -291,7 +291,7 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 
 ```json
 {
-	"machine_code": "1RB1LC1RC1RC1LB1RD1LA1LE---0RA",
+	"machine_code": "1RB1LC_1RC1RC_1LB1RD_1LA1LE_---0RA",
 	"machine_id": 12345678,
 	"status": "decided"
 }
