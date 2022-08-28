@@ -307,6 +307,10 @@ In contrast, it is one of the core mission of the Busy Beaver Challenge to provi
 
 The full list of Skelet's 43 machines and their equivalents in the Busy Beaver Challenge <a href="/skelet" rel="external">is available here</a>.
 
+### Hertel's 100 holdouts
+
+In 2009, Joachim Hertel [published a method](https://content.wolfram.com/uploads/sites/19/2009/11/Hertel.pdf) that he claims leaves only 100 machines undecided (called ``holdouts''). The method seems to be very robust and an independent reproduction of these results would be very interesting.
+
 <a id="references"></a>
 
 ## References
