@@ -120,7 +120,7 @@
 
 	async function getRandomMachine() {
 		try {
-			const response = await API.post('/machine/random', { type: randomType });
+			const response = await API.get(`/machine/random?type=${randomType}`, '');
 
 			machine = machineCodeToTM(response.data['machine_code']);
 			machineID = response.data['machine_id'];
