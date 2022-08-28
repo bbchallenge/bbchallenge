@@ -195,6 +195,7 @@
 		machineDecider = null;
 		try {
 			machineCodeError = null;
+			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
 			addToHistory(machine_code);
 			history = getHistory();
@@ -633,6 +634,7 @@
 							await loadMachineFromMachineCode(machine_code, machine_status);
 							defaultSimulationParameters();
 							draw();
+							console.log(getSimulationLink());
 							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					/>

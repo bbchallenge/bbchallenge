@@ -249,7 +249,7 @@ def get_machine_i(machine_db_path, i, db_has_header=True):
   with open(machine_db_path, "rb") as f:
     c = 1 if db_has_header else 0
     f.seek(30*(i+c))
-  return f.read(30)
+    return f.read(30)
 ```
 
 More Python utils at [https://github.com/bbchallenge/bbchallenge-py/](https://github.com/bbchallenge/bbchallenge-py/)
@@ -291,7 +291,7 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 
 ```json
 {
-	"machine_code": "1RB1LC1RC1RC1LB1RD1LA1LE---0RA",
+	"machine_code": "1RB1LC_1RC1RC_1LB1RD_1LA1LE_---0RA",
 	"machine_id": 12345678,
 	"status": "decided"
 }

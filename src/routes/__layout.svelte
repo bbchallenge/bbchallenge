@@ -89,15 +89,22 @@
 				</a>
 			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
-			<li>
-				<a href="https://github.com/bbchallenge" class="cursor-pointer "
-					><img
-						class="w-[23px] lg:w-[26px]"
-						src="/GitHub-Mark-Light-32px.png"
-						alt="Github logo"
-					/></a
-				>
-			</li>
+			<div class="flex items-center space-x-3">
+				<li>
+					<a href="https://github.com/bbchallenge" class="cursor-pointer "
+						><img
+							class="w-[23px] lg:w-[26px]"
+							src="/GitHub-Mark-Light-32px.png"
+							alt="Github logo"
+						/></a
+					>
+				</li>
+				<li>
+					<a href="https://discord.gg/XY9wMZr7HX" class="cursor-pointer "
+						><img class="w-[23px] lg:w-[26px]" src="/Discord-Logo-White.png" alt="Github logo" /></a
+					>
+				</li>
+			</div>
 		</ul>
 	</nav>
 
