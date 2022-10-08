@@ -427,7 +427,7 @@
 						{#if machine !== null}
 							{#if machineID !== null}
 								<div
-									class="text-lg cursor-pointer select-none"
+									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromID(machineID);
 										draw();
@@ -438,7 +438,7 @@
 								</div>
 							{:else}
 								<div
-									class="text-lg cursor-pointer select-none"
+									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
 										draw();
