@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="cursor-pointer select-none leading-tight"
+	class="cursor-pointer  leading-tight"
 	on:click={() => {
 		if (machine_code !== null) {
 			dispatch('machine_code', {
@@ -31,7 +31,7 @@
 	<slot />
 	{#if machine_id !== null}
 		<span
-			class="cursor-pointer select-none underline"
+			class="cursor-pointer  underline"
 			on:click={() => {
 				dispatch('machine_id', { machine_id: machine_id });
 			}}

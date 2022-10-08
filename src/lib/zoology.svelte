@@ -53,7 +53,7 @@
 						e.g:
 						{#each entry['examples'] as m_id}
 							<span
-								class="cursor-pointer select-none underline"
+								class="cursor-pointer  underline"
 								on:click={() => {
 									dispatch('machine_id', { machine_id: m_id });
 								}}

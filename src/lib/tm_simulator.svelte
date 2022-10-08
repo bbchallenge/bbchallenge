@@ -149,7 +149,7 @@
 		<div class=" ">
 			<div class="text-lg" class:mb-2={!hasHalted}>Step #{nbSteps}</div>
 			{#if hasHalted}
-				<div class="text-lg mb-2 select-none">The machine has halted!</div>
+				<div class="text-lg mb-2 ">The machine has halted!</div>
 			{/if}
 			<div class="flex space-x-3">
 				<button

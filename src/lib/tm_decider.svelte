@@ -73,14 +73,14 @@
 		>
 		{#if !show_more}
 			<span
-				class="text-sm font-bold cursor-pointer select-none"
+				class="text-sm font-bold cursor-pointer "
 				on:click={() => {
 					show_more = true;
 				}}>➕</span
 			>
 		{:else}
 			<span
-				class="text-sm font-bold cursor-pointer select-none"
+				class="text-sm font-bold cursor-pointer "
 				on:click={() => {
 					show_more = false;
 				}}>➖</span
