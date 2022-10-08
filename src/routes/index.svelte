@@ -196,7 +196,7 @@
 		try {
 			machineCodeError = null;
 			machineCode = machine_code;
-			machine = machineCodeToTM(machine_code);
+			machine = machineCodeToTM(machine_code.trim());
 			addToHistory(machine_code);
 			history = getHistory();
 			draw();
