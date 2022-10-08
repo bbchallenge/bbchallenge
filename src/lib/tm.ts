@@ -73,12 +73,9 @@ export function machineCodeToTM(machineCode: string) {
 
 	const tm = new Uint8Array(machineCode.length);
 	for (let i = 0; i < machineCode.length; i++) {
-		if (machineCode[i] == '0' || machineCode[i] == 'R' || machineCode[i] == '-') tm[i] = 0;
-		else if (machineCode[i] == '1' || machineCode[i] == 'L') tm[i] = 1;
-		else {
-			// Alphabetical state name
-			tm[i] = machineCode.charCodeAt(i) - 'A'.charCodeAt(0) + 1;
-		}
+		if (i % 3 == 0) machineCode[i] == '0' ? tm[i] = 0 : tm[i] = 1 // Write symbol
+		else if (i % 3 == 1) machineCode[i] == 'R' ? tm[i] = 0 : tm[i] = 1 // Direction
+		else tm[i] = machineCode.charCodeAt(i) - 'A'.charCodeAt(0) + 1; // Goto state
 	}
 	return tm;
 }
