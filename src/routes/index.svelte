@@ -193,10 +193,11 @@
 		machineID = null;
 		machineStatus = status;
 		machineDecider = null;
+		machine_code = machine_code.trim().toUpperCase();
 		try {
 			machineCodeError = null;
 			machineCode = machine_code;
-			machine = machineCodeToTM(machine_code.trim().toUpperCase());
+			machine = machineCodeToTM(machine_code);
 			addToHistory(machine_code);
 			history = getHistory();
 			draw();
