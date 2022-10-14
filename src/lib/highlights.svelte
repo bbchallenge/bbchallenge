@@ -41,7 +41,7 @@
 				ref_year="1990"
 			>
 				<span
-					class="cursor-pointer select-none"
+					class="cursor-pointer "
 					on:click={() => {
 						dispatch('machine_id', { machine_id: Marxen_and_Buntrock_chaotic_id });
 					}}>&middot;&nbsp;"<span class="underline">chaotic</span>"</span
@@ -54,7 +54,7 @@
 				ref_year="1990"
 			>
 				<span
-					class="cursor-pointer select-none"
+					class="cursor-pointer "
 					on:click={() => {
 						dispatch('machine_id', { machine_id: Marxen_and_Buntrock_complex_counter_id });
 					}}>&middot;&nbsp;"<span class="underline">complex counter</span>"</span
@@ -128,7 +128,7 @@
 							});
 						}}
 					>
-						≈ Machine <span class="cursor-pointer select-none underline"
+						≈ Machine <span class="cursor-pointer  underline"
 							>#{numberWithCommas(Skelet_machines[i].bbchallenge_id)}</span
 						>
 					</span></HighlightedMachine
@@ -137,7 +137,7 @@
 		</div>
 
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-			<a class="cursor-pointer select-none leading-tight" href="/skelet" rel="external">
+			<a class="cursor-pointer  leading-tight" href="/skelet" rel="external">
 				&middot;&nbsp;<span class="underline">full list</span>
 			</a>
 		</div>

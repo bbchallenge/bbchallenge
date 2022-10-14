@@ -6,12 +6,12 @@
 	const INDEX_FILE_BASE_URL = 'http://docs.bbchallenge.org/bb5_decided_indexes/';
 
 	let decidersMetadata = {
-		'backward-reasoning-run-78af853d8968-depth-50-minIndex-0-maxIndex-88664064': {
+		'backward-reasoning-run-7edeea99bc2d-depth-50-minIndex-0-maxIndex-88664064': {
 			name: 'Backward Reasoning',
 			url: 'https://discuss.bbchallenge.org/t/decider-backward-reasoning/',
-			date: 'June 27th 2022',
+			date: 'October 9th 2022',
 			params: ['Depth: 50'],
-			total_decided: 2035610
+			total_decided: 2035598
 		},
 		'cyclers-run-11c0ef00e9c2-time-1000-space-500-minIndex-0-maxIndex-14322029': {
 			name: 'Cyclers',
@@ -73,14 +73,14 @@
 		>
 		{#if !show_more}
 			<span
-				class="text-sm font-bold cursor-pointer select-none"
+				class="text-sm font-bold cursor-pointer "
 				on:click={() => {
 					show_more = true;
 				}}>➕</span
 			>
 		{:else}
 			<span
-				class="text-sm font-bold cursor-pointer select-none"
+				class="text-sm font-bold cursor-pointer "
 				on:click={() => {
 					show_more = false;
 				}}>➖</span

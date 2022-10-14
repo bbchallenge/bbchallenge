@@ -193,6 +193,7 @@
 		machineID = null;
 		machineStatus = status;
 		machineDecider = null;
+		machine_code = machine_code.trim().toUpperCase();
 		try {
 			machineCodeError = null;
 			machineCode = machine_code;
@@ -325,13 +326,13 @@
 						<a
 							href="/story#space-time-diagrams"
 							rel="external"
-							class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer "
 						>
 							What is this?
 						</a>
 						<div>&middot;</div>
 						<div
-							class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer "
 							class:text-blue-300={showSimulationParams}
 							on:click={() => {
 								showSimulationParams = !showSimulationParams;
@@ -342,7 +343,7 @@
 						<div>&middot;</div>
 						{#if canvas}
 							<div
-								class="text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer "
 								on:click={() => {
 									var image = new Image();
 									image.src = canvas.toDataURL();
@@ -398,19 +399,19 @@
 										/></label
 									>
 								</div>
-								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer select-none">
+								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer ">
 									<div>initial tape content</div>
 									<input bind:value={initial_tape} on:change={draw} />
 								</label>
 							</div>
 							{#if !exploreMode}
-								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer select-none">
+								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer ">
 									<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
 									<div>Show head movement (green for L, red for R)</div>
 								</label>
 							{/if}
 						{/if}
-						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer select-none">
+						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer ">
 							<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
 							<div>Explore mode</div>
 						</label>
@@ -426,7 +427,7 @@
 						{#if machine !== null}
 							{#if machineID !== null}
 								<div
-									class="text-lg cursor-pointer select-none"
+									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromID(machineID);
 										draw();
@@ -437,7 +438,7 @@
 								</div>
 							{:else}
 								<div
-									class="text-lg cursor-pointer select-none"
+									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
 										draw();
@@ -474,7 +475,7 @@
 									}}>Go (R)andom</button
 								>
 								<div
-									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer select-none"
+									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer "
 									on:click={() => {
 										showRandomOptions = !showRandomOptions;
 									}}
@@ -496,11 +497,11 @@
 
 								{#if showRandomOptions}
 									<div class="mx-3">
-										<label class="flex space-x-2 items-center select-none cursor-pointer">
+										<label class="flex space-x-2 items-center  cursor-pointer">
 											<input type="radio" bind:group={randomType} name="randomType" value="all" />
 											<div>any machine (88,664,064)</div>
 										</label>
-										<label class="flex space-x-2 items-center select-none cursor-pointer">
+										<label class="flex space-x-2 items-center  cursor-pointer">
 											<input
 												type="radio"
 												bind:group={randomType}
@@ -514,7 +515,7 @@
 											</div>
 										</label>
 										<!-- <label
-											class="mt-2 flex space-x-2 items-center select-none cursor-pointer w-[300px]"
+											class="mt-2 flex space-x-2 items-center  cursor-pointer w-[300px]"
 										>
 											<input
 												type="radio"
@@ -584,7 +585,7 @@
 								<div class="mt-0 flex flex-col">
 									<div class="ml-3 mt-2 text-sm ">
 										<div
-											class="text-blue-400 hover:text-blue-300 cursor-pointer select-none underline"
+											class="text-blue-400 hover:text-blue-300 cursor-pointer  underline"
 											on:click={() => {
 												showHistory = !showHistory;
 											}}
