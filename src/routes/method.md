@@ -299,7 +299,7 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 
 - The field "machine_code" is the string representation of the machine.
 
-- The field "mahine_id" is the ID that you queried.
+- The field "machine_id" is the ID that you queried.
 
 - The field "status" keeps track of the deciders that have been applied to the database, the goal is for all machines to become "decided". For instance, this machine was decided by the decider for [Cyclers](link).
 
