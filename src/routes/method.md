@@ -180,7 +180,7 @@ The enumeration algorithm was run in December 2021 and here are some metrics abo
 
 The seed database of 88,664,064 undecided 5-state machines is available for download at:
 
-- [http://docs.bbchallenge.org/all_5_states_undecided_machines_with_global_header.zip](http://docs.bbchallenge.org/all_5_states_undecided_machines_with_global_header.zip)
+- <a href="http://docs.bbchallenge.org/all_5_states_undecided_machines_with_global_header.zip" download>http://docs.bbchallenge.org/all_5_states_undecided_machines_with_global_header.zip</a>
 - [ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM](ipfs://QmcgucgLRjAQAjU41w6HR7GJbcte3F14gv9oXcf8uZ8aFM)
 
 The zipped database is 243M and approx 2G unzipped, each machine is encoded on 30 bytes and the first 30 bytes consist of a reserved header, see [format](#format).
