@@ -56,7 +56,9 @@ As advocated for in our <a href="/method#reproducibility-and-verifiability-state
 
 Places to look at if this task interests you:
 
-- The [maintains the list of all deciders](https://discuss.bbchallenge.org/c/deciders/5) and is a good place to discuss about correctness and publish proofs
+- The forum [maintains the list of all deciders](https://discuss.bbchallenge.org/c/deciders/5) and is a good place to discuss about correctness and publish proofs
+- GitHub [maintains the formal proofs](https://github.com/bbchallenge/bbchallenge-proofs) in polished form, and shows the desired end state of all proofs.
+  (You don't have to know LaTeX or be comfortable writing these to contribute.)
 
 You can post your proofs on the thread related to the decider that you proved.
 
