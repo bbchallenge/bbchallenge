@@ -394,6 +394,8 @@ Because we aim to achieve this standard, the following principles are at the cor
 5.  Reproducible with clear build/run instructions
 6.  Eventually accompanied by a proof of correctness
 
+For deciders, we detail the reproducibility rules in this [validation process](https://discuss.bbchallenge.org/t/debate-vote-deciders-validation-process/85).
+
 We would encourage the use of automatic proving tools such as [Lean](https://leanprover.github.io/) or [Coq](https://coq.inria.fr/) although it would be an extremely demanding endeavour.
 
 You are invited to <a href="/contribute" rel="external">Contribute</a> at making the Busy Beaver Challenge more reproducible and verifiable.
