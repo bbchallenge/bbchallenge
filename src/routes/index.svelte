@@ -15,7 +15,7 @@
 	import { BB5_champion } from '$lib/machine_repertoire';
 	import SvelteSeo from 'svelte-seo';
 
-	import Zoology from '$lib/zoology.svelte';
+	import Zoology from '$lib/deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
 
 	let machine = null;

@@ -22,13 +22,13 @@
 
 	const dispatch = createEventDispatcher();
 
-	const highlighted_undecided_machines = [7410754, 43374927, 36909813];
+	const highlighted_undecided_machines = [7410754, 2977651, 9005190, 43374927, 36909813];
 </script>
 
 <div class="max-w-[450px] flex flex-col space-y-2">
 	<div class="ml-2">
 		<div class="text-xl mb-1">Highlighted machines</div>
-		<div class="text-sm ml-2">Scary undecided machines:</div>
+		<div class="text-sm ml-2">Interesting machines:</div>
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 			{#each highlighted_undecided_machines as m_id}
 				<HighlightedMachine on:machine_id machine_id={m_id}
