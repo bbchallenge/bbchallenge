@@ -58,7 +58,14 @@
 					'Max index: 88,664,064'
 				],
 				total_decided: 1318
-			}
+			},
+		'halting-segment-reproduction-run-2vlymsaql86b-max-distance-to-end-6': {
+			name: 'Halting Segment',
+			url: 'https://discuss.bbchallenge.org/t/decider-halting-segment',
+			date: 'December 25th 2022',
+			params: ['Max segment size: 13', 'Odd sizes only', 'Middle of segment'],
+			total_decided: 1002808
+		}
 	};
 
 	let show_more = false;
