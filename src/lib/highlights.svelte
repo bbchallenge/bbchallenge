@@ -22,7 +22,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	const highlighted_undecided_machines = [7410754, 2977651, 9005190, 43374927, 36909813];
+	const highlighted_undecided_machines = [7410754, 2977651, 9005190, 43374927, 14263231, 36909813];
 </script>
 
 <div class="max-w-[450px] flex flex-col space-y-2">
