@@ -65,6 +65,13 @@
 			date: 'December 25th 2022',
 			params: ['Max segment size: 13', 'Odd sizes only', 'Middle of segment'],
 			total_decided: 1002808
+		},
+		'translated-cyclers-run-TonyG-time-4000000': {
+			name: 'Translated Cyclers',
+			url: 'http://discuss.bbchallenge.org/t/decider-translated-cyclers/34/2?u=cosmo',
+			date: 'October 5th 2022',
+			params: ['Time limit: 4,000,000'],
+			total_decided: 15
 		}
 	};
 
