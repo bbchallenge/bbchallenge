@@ -43,7 +43,7 @@
 		<div class="text-xl mb-1">Deciders</div>
 		<div class="ml-2 text-sm max-w-sm">
 			<a
-				href="http://localhost:3000/method#deciders"
+				href="/method#deciders"
 				class="text-blue-400 hover:text-blue-300 cursor-pointer"
 				target="_blank"
 			>

@@ -19,7 +19,8 @@
 		if (machine_code !== null) {
 			dispatch('machine_code', {
 				machine_code: machine_code,
-				machine_status: machine_status
+				machine_status: machine_status,
+				
 			});
 		} else if (machine_id !== null) {
 			dispatch('machine_id', {
