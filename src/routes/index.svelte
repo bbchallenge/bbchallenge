@@ -277,7 +277,7 @@
 		<div class="flex flex-col space-y-1 min-h-[65px] ">
 			{#if metrics != null}
 				<span class="underline">Challenge goal</span>
-				<div class="flex flex-col">
+				<div class="flex flex-col items-start">
 					<div>
 						There remain <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines
 						with 5 states to decide (out of {numberWithCommas(metrics['total'])})
