@@ -78,7 +78,7 @@
 					>Contribute
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a
 					href="/team"
 					class:active={currentRoute == 'team'}
@@ -87,7 +87,7 @@
 					}}
 					>Team
 				</a>
-			</li>
+			</li> -->
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
 			<div class="flex items-center space-x-3">
 				<li>
