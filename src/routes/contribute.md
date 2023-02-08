@@ -37,7 +37,7 @@ Places to look at if this task interests you:
 
 If you write a decider for the Busy Beaver Challenge we ask that you:
 
-1. Read our our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>
+1. Read our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a>
 2. Create a post on forum [following these instructions](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
 3. Give the <a href="/method#seed-database" rel="external">seed database's</a> indices of the machines that your decider has decided
 4. Write tests for your deciders against example machines and counterexample machines in the <a href="/method#seed-database" rel="external">seed database</a>
