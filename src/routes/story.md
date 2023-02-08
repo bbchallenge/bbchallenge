@@ -62,7 +62,7 @@ The goal of the Busy Beaver Challenge (bbchallenge for short) is to collaborativ
 BB(5) = 47,176,870
 </div>
 
-This conjecture says that 47,176,870 is the maximum number of steps that a 5-state [Turing machine](#turing-machines) can run before halting (starting from all-0 memory tape).
+This conjecture says if a 5-state [Turing machine](#turing-machines) runs for more than 47,176,870 steps without halting then it will never halt (starting from all-0 memory tape).
 
 The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
