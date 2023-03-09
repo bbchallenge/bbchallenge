@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../styles/tailwind.css';
+	import '$lib/styles/tailwind.css';
 	import { page } from '$app/stores';
 
 	let currentRoute = fCurrentRoute();
