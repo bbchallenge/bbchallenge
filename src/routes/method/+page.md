@@ -110,7 +110,7 @@ Each machine (i.e. node of the tree) is simulated until either:
 2. the machine exceeds BB(4) = 107 time steps while having visited only 4 states out of 5
 3. an undefined transition is met
 
-In **case 1**. the machine is marked as **undecided** and is inserted in the seed database. <span class="text-sm">Note that introducing the idea of [a space limit](#bb-space) is novel compared to [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration). We conjecture that BB_SPACE(5) = 12,289.</span>
+In **case 1**. the machine is marked as **undecided** and is inserted in the seed database. <span class="text-sm">Note that introducing the idea of [a space limit](#bbspace) is novel compared to [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration). We conjecture that BB_SPACE(5) = 12,289.</span>
 
 In **case 2.** the machine is marked as **non-halting**, see <a href="/story" rel="external">Story</a> for more details on BB(4).
 
