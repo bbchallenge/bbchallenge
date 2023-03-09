@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>Busy Beaver Challenge</title>
+	<title>The Busy Beaver Challenge</title>
 </svelte:head>
 
 <div class="p-3">
