@@ -69,11 +69,6 @@
 					}}>&middot;&nbsp;"<span class="underline">pointy wide</span>"</span
 				>
 			</HighlightedMachine>
-			{#each highlighted_undecided_machines as m_id}
-				<HighlightedMachine on:machine_id machine_id={m_id}
-					>&middot;&nbsp;Machine</HighlightedMachine
-				>
-			{/each}
 			<HighlightedMachine
 				ref_link="http://turbotm.de/~heiner/BB/mabu90.html"
 				ref_authors="Marxen & Buntrock"
@@ -99,6 +94,12 @@
 					}}>&middot;&nbsp;"<span class="underline">complex counter</span>"</span
 				></HighlightedMachine
 			>
+			{#each highlighted_undecided_machines as m_id}
+				<HighlightedMachine on:machine_id machine_id={m_id}
+					>&middot;&nbsp;Machine</HighlightedMachine
+				>
+			{/each}
+			
 		</div>
 	</div>
 	<div class="ml-2">
