@@ -116,7 +116,7 @@
 			>:
 		</div>
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
-			// Unproven Skelet machines as of 2023-02-20: 1, 3~7, 17.
+			<!-- Unproven Skelet machines as of 2023-02-20: 1, 3~7, 17. -->
 			{#each [0, 2, 16] as i}
 				<HighlightedMachine on:machine_code machine_code={Skelet_machines[i].bbchallenge_code}>
 					&middot;&nbsp;Skelet's machine {i + 1}
