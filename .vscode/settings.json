@@ -8,5 +8,9 @@
 		"mathjax",
 		"mdsvex",
 		"rehype"
+	],
+	"cSpell.language": "en,en-GB",
+	"cSpell.enableFiletypes": [
+		"svelte"
 	]
 }
