@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-import TmSimulator from "../lib/tm_simulator.svelte"
-import { tmToMachineCode, machineCodeToTM, tmToTuringMachineDotIO  } from '../lib/tm';
+import TmSimulator from "$lib/tm_simulator.svelte"
+import { tmToMachineCode, machineCodeToTM, tmToTuringMachineDotIO  } from '$lib/tm';
 import {BB5_champion} from '$lib/machine_repertoire'
-import Katex from "../lib/Katex.svelte"
+import Katex from "$lib/Katex.svelte"
 
 let theCode = tmToTuringMachineDotIO(machineCodeToTM(BB5_champion))
 

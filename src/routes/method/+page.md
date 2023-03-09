@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Katex from "../lib/Katex.svelte"
+  import Katex from "$lib/Katex.svelte"
   import {BB5_champion} from '$lib/machine_repertoire'
   let nbTM5 = "21^{10}"// Cannot inline {10} because of svelte
 
