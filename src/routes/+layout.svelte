@@ -4,22 +4,23 @@
 
 	let currentRoute = fCurrentRoute();
 	function fCurrentRoute() {
-		if ($page.url.toString().includes('team')) {
-			return 'team';
+		const pathname = $page.url.pathname;
+		if (pathname.includes('team')) {
+			return 'team' as const;
 		}
-		if ($page.url.toString().includes('method')) {
-			return 'method';
+		if (pathname.includes('method')) {
+			return 'method' as const;
 		}
-		if ($page.url.toString().includes('story')) {
-			return 'story';
+		if (pathname.includes('story')) {
+			return 'story' as const;
 		}
-		if ($page.url.toString().includes('zoology')) {
-			return 'zoology';
+		if (pathname.includes('zoology')) {
+			return 'zoology' as const;
 		}
-		if ($page.url.toString().includes('contribute')) {
-			return 'contribute';
+		if (pathname.includes('contribute')) {
+			return 'contribute' as const;
 		}
-		return 'root';
+		return 'root' as const;
 	}
 </script>
 
