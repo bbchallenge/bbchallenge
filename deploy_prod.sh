@@ -1,1 +1,1 @@
-VITE_API_URL=https://api.bbchallenge.org/ yarn build && npx netlify deploy --dir=build -p
+VITE_API_URL=https://api.bbchallenge.org/ pnpm build && pnpm netlify deploy --dir=build -p

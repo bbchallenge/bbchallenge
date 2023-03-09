@@ -13,7 +13,6 @@
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
 	import { BB5_champion } from '$lib/machine_repertoire';
-	import SvelteSeo from 'svelte-seo';
 
 	import Zoology from '$lib/deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
@@ -260,8 +259,6 @@
 </script>
 
 <svelte:window on:keydown={keydown} />
-
-<SvelteSeo title="bbchallenge" />
 
 <div>
 	{#if apiDown}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MainPage from './index.svelte';
+	import MainPage from '../+page.svelte';
 	import { page } from '$app/stores';
 	import { TMDecisionStatus } from '$lib/tm';
 

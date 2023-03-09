@@ -1,3 +1,7 @@
 {
-	"recommendations": ["svelte.svelte-vscode", "voorjaar.windicss-intellisense"]
+	"recommendations": [
+		"svelte.svelte-vscode",
+		"streetsidesoftware.code-spell-checker",
+		"bradlc.vscode-tailwindcss"
+	]
 }

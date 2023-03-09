@@ -2,5 +2,15 @@
 	"editor.quickSuggestions": {
 		"strings": true
 	},
-	"css.validate": false
+	"css.validate": false,
+	"cSpell.words": [
+		"katex",
+		"mathjax",
+		"mdsvex",
+		"rehype"
+	],
+	"cSpell.language": "en,en-GB",
+	"cSpell.enableFiletypes": [
+		"svelte"
+	]
 }
