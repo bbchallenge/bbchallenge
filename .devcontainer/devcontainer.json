@@ -32,11 +32,11 @@
 				"esbenp.prettier-vscode",
 				"svelte.svelte-vscode",
 				"ardenivanov.svelte-intellisense",
-				"voorjaar.windicss-intellisense",
 				"GitHub.vscode-pull-request-github",
 				"tamasfe.even-better-toml",
 				"ms-vscode.makefile-tools",
-				"Prisma.prisma"
+				"Prisma.prisma",
+				"bradlc.vscode-tailwindcss"
 			]
 		}
 	}
