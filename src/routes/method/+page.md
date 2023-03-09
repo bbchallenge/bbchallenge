@@ -128,7 +128,7 @@ During the enumeration algorithm we need a criterion to stop simulating machines
 
 We introduce the idea of a space limit. Indeed the busy beaver value is traditionally concerned with time only. But we can also ask an analogous question about **space**: "what is the maximum number of memory cells that a 5-state machine can visit before halting?".
 
-<a id="bb-space"></a>
+<a id="bbspace"></a>
 
 #### BB_SPACE
 
