@@ -24,6 +24,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Busy Beaver Challenge</title>
+</svelte:head>
+
 <div class="p-3">
 	<nav
 		class="lg:px-2 px-0 pb-2 flex justify-between lg:h-9 border-b-2 flex-col lg:flex-row h-14 mt-1"
