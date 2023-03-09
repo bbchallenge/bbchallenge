@@ -9,3 +9,5 @@ node_modules
 # Local Netlify folder
 .netlify
 yarn-error.log
+yarn.lock
+package-lock.json
