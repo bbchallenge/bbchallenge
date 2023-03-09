@@ -10,7 +10,10 @@
 		BB7_Wythagoras_champion,
 		Skelet_machines,
 		Marxen_and_Buntrock_chaotic_id,
-		Marxen_and_Buntrock_complex_counter_id
+		Marxen_and_Buntrock_complex_counter_id,
+		Justin_inverted_counter,
+		Justin_helix,
+		Justin_pointy_wide
 	} from './machine_repertoire';
 	import { TMDecisionStatus } from './tm';
 
@@ -30,6 +33,42 @@
 		<div class="text-xl mb-1">Highlighted machines</div>
 		<div class="text-sm ml-2">Interesting machines:</div>
 		<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
+			<HighlightedMachine
+				ref_link="https://bbchallenge.org"
+				ref_authors="bbchallenge"
+				ref_year="2023"
+			>
+				<span
+					class="cursor-pointer "
+					on:click={() => {
+						dispatch('machine_id', { machine_id: Justin_inverted_counter });
+					}}>&middot;&nbsp;"<span class="underline">inverted counter</span>"</span
+				>
+			</HighlightedMachine>
+			<HighlightedMachine
+				ref_link="https://bbchallenge.org"
+				ref_authors="bbchallenge"
+				ref_year="2023"
+			>
+				<span
+					class="cursor-pointer "
+					on:click={() => {
+						dispatch('machine_id', { machine_id: Justin_helix });
+					}}>&middot;&nbsp;"<span class="underline">helix</span>"</span
+				>
+			</HighlightedMachine>
+			<HighlightedMachine
+				ref_link="https://bbchallenge.org"
+				ref_authors="bbchallenge"
+				ref_year="2023"
+			>
+				<span
+					class="cursor-pointer "
+					on:click={() => {
+						dispatch('machine_id', { machine_id: Justin_pointy_wide });
+					}}>&middot;&nbsp;"<span class="underline">pointy wide</span>"</span
+				>
+			</HighlightedMachine>
 			{#each highlighted_undecided_machines as m_id}
 				<HighlightedMachine on:machine_id machine_id={m_id}
 					>&middot;&nbsp;Machine</HighlightedMachine

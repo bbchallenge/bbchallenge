@@ -12,6 +12,10 @@ export const BB5_2M_steps_halter = oldBbchallengeFormatToNew('1RB1LC0LA0LD1LA1RZ
 export const Marxen_and_Buntrock_chaotic_id = 76708232;
 export const Marxen_and_Buntrock_complex_counter_id = 10936909;
 
+export const Justin_inverted_counter = 12699987;
+export const Justin_helix = 4817065;
+export const Justin_pointy_wide = 4049716;
+
 // cf: https://skelet.ludost.net/bb/nreg.html
 export const Skelet_machines = [
 	{
