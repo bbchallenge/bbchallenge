@@ -271,7 +271,7 @@
 	{/if}
 
 	<div class="text-sm mb-1 mt-2 md:ml-3 ml-0">
-		<div class="flex flex-col space-y-1 min-h-[65px] ">
+		<div class="flex flex-col space-y-1 min-h-[65px]">
 			{#if metrics != null}
 				<span class="underline">Challenge goal</span>
 				<div class="flex flex-col items-start">
@@ -282,35 +282,50 @@
 					<!-- <div style="font-size:0.65rem">
 							Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
 						</div> -->
-					<a
-						href="/contribute"
-						rel="external"
-						style="font-size:0.6rem"
-						class="text-blue-400 hover:text-blue-300 cursor-pointer"
-					>
-						You can help!!
-					</a>
+					<div class="flex items-center space-x-1">
+						<div>
+							<a
+								href="https://discord.gg/3uqtPJA9Uv"
+								rel="external"
+								style="font-size:0.6rem"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer"
+							>
+								Join our Discord server for the latest progresses
+							</a>
+						</div>
+						<div>&middot;</div>
+						<div>
+							<a
+								href="/contribute"
+								rel="external"
+								style="font-size:0.6rem"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer"
+							>
+								You can help!!
+							</a>
+						</div>
+					</div>
 				</div>
 			{/if}
 		</div>
 	</div>
 
-	<div class="flex md:justify-center ">
-		<div class="flex flex-col  ">
+	<div class="flex md:justify-center">
+		<div class="flex flex-col">
 			<div
-				class="flex  flex-col  mt-3 "
+				class="flex flex-col mt-3"
 				class:md:flex-row={!exploreMode}
 				class:items-start={!exploreMode}
 				class:colors={exploreMode}
 			>
-				<div class="flex flex-col items-start  ">
+				<div class="flex flex-col items-start">
 					<canvas
 						class="bg-black mr-5 image-render-pixel"
 						bind:this={canvas}
 						width={exploreMode ? 800 : 400}
 						height="500"
 					/>
-					<div class="text-xs pt-0 flex  space-x-1 mt-2">
+					<div class="text-xs pt-0 flex space-x-1 mt-2">
 						<!-- <div
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							on:click={() => {
@@ -323,13 +338,13 @@
 						<a
 							href="/story#space-time-diagrams"
 							rel="external"
-							class="text-blue-400 hover:text-blue-300 cursor-pointer "
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 						>
 							What is this?
 						</a>
 						<div>&middot;</div>
 						<div
-							class="text-blue-400 hover:text-blue-300 cursor-pointer "
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							class:text-blue-300={showSimulationParams}
 							on:click={() => {
 								showSimulationParams = !showSimulationParams;
@@ -340,7 +355,7 @@
 						<div>&middot;</div>
 						{#if canvas}
 							<div
-								class="text-blue-400 hover:text-blue-300 cursor-pointer "
+								class="text-blue-400 hover:text-blue-300 cursor-pointer"
 								on:click={() => {
 									var image = new Image();
 									image.src = canvas.toDataURL();
@@ -352,11 +367,11 @@
 							</div>
 						{/if}
 					</div>
-					<div class="mt-1 flex flex-col ">
+					<div class="mt-1 flex flex-col">
 						{#if showSimulationParams}
 							<div class="mb-2">
 								<div class="flex space-x-3 text-sm">
-									<label class="flex flex-col ">
+									<label class="flex flex-col">
 										steps
 										<input
 											class="w-[70px]"
@@ -396,19 +411,19 @@
 										/></label
 									>
 								</div>
-								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer ">
+								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer">
 									<div>initial tape content</div>
 									<input bind:value={initial_tape} on:change={draw} />
 								</label>
 							</div>
 							{#if !exploreMode}
-								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer ">
+								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer">
 									<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
 									<div>Show head movement (green for L, red for R)</div>
 								</label>
 							{/if}
 						{/if}
-						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer ">
+						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer">
 							<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
 							<div>Explore mode</div>
 						</label>
@@ -462,9 +477,9 @@
 							</div>
 
 							<!-- {#if !preSeed} -->
-							<div class="flex flex-col items-end mx-3 ">
+							<div class="flex flex-col items-end mx-3">
 								<button
-									class="bg-blue-500 p-1 mt-1 w-full ml-2 "
+									class="bg-blue-500 p-1 mt-1 w-full ml-2"
 									on:click={async () => {
 										await getRandomMachine();
 										draw();
@@ -472,7 +487,7 @@
 									}}>Go (R)andom</button
 								>
 								<div
-									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer "
+									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
 									on:click={() => {
 										showRandomOptions = !showRandomOptions;
 									}}
@@ -482,7 +497,7 @@
 							</div>
 						</div>
 						<div class="ml-3 mt-1 text-sm">
-							<div class="ml-2 flex flex-col space-y-1 ">
+							<div class="ml-2 flex flex-col space-y-1">
 								<!-- {:else}
 							<button
 								class="bg-blue-500 p-1 mx-3 mt-1"
@@ -494,11 +509,11 @@
 
 								{#if showRandomOptions}
 									<div class="mx-3">
-										<label class="flex space-x-2 items-center  cursor-pointer">
+										<label class="flex space-x-2 items-center cursor-pointer">
 											<input type="radio" bind:group={randomType} name="randomType" value="all" />
 											<div>any machine (88,664,064)</div>
 										</label>
-										<label class="flex space-x-2 items-center  cursor-pointer">
+										<label class="flex space-x-2 items-center cursor-pointer">
 											<input
 												type="radio"
 												bind:group={randomType}
@@ -541,7 +556,7 @@
 							{#if typedMachineError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
 							{/if}
-							<div class="ml-5 flex items-center  space-x-4 ">
+							<div class="ml-5 flex items-center space-x-4">
 								<input
 									type="number"
 									class="w-[200px]"
@@ -555,7 +570,7 @@
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								/>
-								<button class="bg-blue-500 p-1 px-2 ">Go </button>
+								<button class="bg-blue-500 p-1 px-2">Go </button>
 							</div>
 						</div>
 						<div class="ml-3 mt-1 text-sm">
@@ -563,10 +578,10 @@
 							{#if machineCodeError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
 							{/if}
-							<div class="ml-5 flex items-center  space-x-4 ">
+							<div class="ml-5 flex items-center space-x-4">
 								<input type="text" class="w-[200px]" placeholder="" bind:value={typedMachineCode} />
 								<button
-									class="bg-blue-500 p-1 px-2 "
+									class="bg-blue-500 p-1 px-2"
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
 										draw();
@@ -580,9 +595,9 @@
 						<div>
 							{#if history}
 								<div class="mt-0 flex flex-col">
-									<div class="ml-3 mt-2 text-sm ">
+									<div class="ml-3 mt-2 text-sm">
 										<div
-											class="text-blue-400 hover:text-blue-300 cursor-pointer  underline"
+											class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
 											on:click={() => {
 												showHistory = !showHistory;
 											}}
@@ -603,7 +618,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="mt-5  mb-10 flex flex-col space-y-8 ">
+			<div class="mt-5 mb-10 flex flex-col space-y-8">
 				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
 					<Zoology
 						on:machine_id={async (ev) => {

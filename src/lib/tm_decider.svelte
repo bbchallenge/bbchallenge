@@ -72,6 +72,13 @@
 			date: 'October 5th 2022',
 			params: ['Time limit: 4,000,000'],
 			total_decided: 15
+		},
+		'FAR-finite-automata-reduction-run-JEB-max-6-DFA-states': {
+			name: 'Finite Automata Reduction',
+			url: 'ooo',
+			date: 'April 9th 2022',
+			params: ['Max DFA states: 6'],
+			total_decided: 503169
 		}
 	};
 
@@ -87,14 +94,14 @@
 		>
 		{#if !show_more}
 			<span
-				class="text-sm font-bold cursor-pointer "
+				class="text-sm font-bold cursor-pointer"
 				on:click={() => {
 					show_more = true;
 				}}>➕</span
 			>
 		{:else}
 			<span
-				class="text-sm font-bold cursor-pointer "
+				class="text-sm font-bold cursor-pointer"
 				on:click={() => {
 					show_more = false;
 				}}>➖</span

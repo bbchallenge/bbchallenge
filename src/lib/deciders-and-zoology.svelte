@@ -14,7 +14,8 @@
 			name: 'Backward Reasoning',
 			link: 'https://discuss.bbchallenge.org/t/decider-backward-reasoning/'
 		},
-		{ name: 'Halting Segment', link: 'https://discuss.bbchallenge.org/t/decider-halting-segment' }
+		{ name: 'Halting Segment', link: 'https://discuss.bbchallenge.org/t/decider-halting-segment' },
+		{ name: 'Finite Automata Reduction', link: 'https://discuss.bbchallenge.org/t/decider-finite-automata-reduction/' }
 	];
 
 	const zoology = [
@@ -88,7 +89,7 @@
 							e.g:
 							{#each entry['examples'] as m_id}
 								<span
-									class="cursor-pointer  underline"
+									class="cursor-pointer underline"
 									on:click={() => {
 										dispatch('machine_id', { machine_id: m_id });
 									}}
