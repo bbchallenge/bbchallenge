@@ -75,7 +75,7 @@
 		},
 		'FAR-finite-automata-reduction-run-JEB-max-6-DFA-states': {
 			name: 'Finite Automata Reduction',
-			url: 'ooo',
+			url: 'https://discuss.bbchallenge.org/t/decider-finite-automata-reduction/',
 			date: 'April 9th 2022',
 			params: ['Max DFA states: 6'],
 			total_decided: 503169
