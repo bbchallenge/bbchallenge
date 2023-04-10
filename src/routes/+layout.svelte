@@ -40,7 +40,7 @@
 			</h1>
 		</ul>
 
-		<ul class="flex items-end space-x-2 lg:space-x-4 text-sm lg:text-base  main-menu ">
+		<ul class="flex items-end space-x-2 lg:space-x-4 text-sm lg:text-base main-menu">
 			<!-- <li>
 				<a
 					href="/"
@@ -83,7 +83,7 @@
 					>Contribute
 				</a>
 			</li>
-			<!-- <li>
+			<li>
 				<a
 					href="/team"
 					class:active={currentRoute == 'team'}
@@ -92,11 +92,11 @@
 					}}
 					>Team
 				</a>
-			</li> -->
+			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
 			<div class="flex items-center space-x-3">
 				<li>
-					<a href="https://github.com/bbchallenge" class="cursor-pointer "
+					<a href="https://github.com/bbchallenge" class="cursor-pointer"
 						><img
 							class="w-[23px] lg:w-[26px]"
 							src="/GitHub-Mark-Light-32px.png"
@@ -105,7 +105,7 @@
 					>
 				</li>
 				<li>
-					<a href="https://discord.gg/3uqtPJA9Uv" class="cursor-pointer "
+					<a href="https://discord.gg/3uqtPJA9Uv" class="cursor-pointer"
 						><img class="w-[23px] lg:w-[26px]" src="/Discord-Logo-White.png" alt="Github logo" /></a
 					>
 				</li>
