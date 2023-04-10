@@ -3,29 +3,25 @@
 <div class="leading-normal ">
 <div>
 
-### Main contributors
+### Contributors
 
 - Maintainer: [Tristan Stérin](https://dna.hamilton.ie/tsterin) (cosmo)
+- [@atticuscull](https://github.com/atticuscull)
 - Justin Blanchard (UncombedCoconut)
 - Konrad Deka
+- [Frans Faase](http://www.iwriteiam.nl/)
 - Nathan Fenner
 - Tony Guilfoyle
+- [Nick Howell](https://github.com/nhowell)
 - Iijil
 - [Alexandre Jouandin](https://prgm.dev/alexandre)
 - Pavel Kropitz (uni)
 - [Shawn Ligocki](https://www.sligocki.com/)
+- [Heiner Marxen](http://turbotm.de/~heiner/)
+- [@modderme123](https://github.com/modderme123)
 - Mateusz Naściszewski (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
 - savask
-
-### Other contributors
-
-- [@atticuscull](https://github.com/atticuscull)
-- [Frans Faase](http://www.iwriteiam.nl/)
-- [Nick Howell](https://github.com/nhowell)
-- [Heiner Marxen](http://turbotm.de/~heiner/)
-- [@modderme123](https://github.com/modderme123)
-
 
 You can <a href="/contribute" rel="external">contribute</a> and join this list!
 
