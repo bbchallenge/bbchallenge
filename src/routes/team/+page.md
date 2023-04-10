@@ -22,6 +22,7 @@
 - Mateusz Naściszewski (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
 - savask
+- Yto
 
 You can <a href="/contribute" rel="external">contribute</a> and join this list!
 
