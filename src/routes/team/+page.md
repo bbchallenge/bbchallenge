@@ -5,7 +5,6 @@
 
 ### Contributors
 
-- Maintainer: [Tristan Stérin](https://dna.hamilton.ie/tsterin) (cosmo)
 - [@atticuscull](https://github.com/atticuscull)
 - Justin Blanchard (UncombedCoconut)
 - Konrad Deka
@@ -22,6 +21,8 @@
 - Mateusz Naściszewski (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
 - savask
+- tomtom2357
+- **Maintainer:** [Tristan Stérin](https://dna.hamilton.ie/tsterin) (cosmo)
 - Yto
 
 You can <a href="/contribute" rel="external">contribute</a> and join this list!
