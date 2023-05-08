@@ -1,6 +1,14 @@
 <script lang="ts">
-	import { TMDecisionStatus, tmToMachineCode, tmToTuringMachineDotIO } from './tm';
+	import { onMount } from 'svelte';
+	import { API } from '$lib/api_server';
+	import {
+		TMDecisionStatus,
+		tmToMachineCode,
+		tmToTuringMachineDotIO,
+		APIDecisionStatusToTMDecisionStatus
+	} from './tm';
 	import TmDecider from './tm_decider.svelte';
+	import { numberWithCommas } from '$lib/utils';
 
 	export let machine;
 	export let machineID = null;
@@ -11,10 +19,61 @@
 	export let currState = null;
 	export let currRead = null;
 
+	let equivalentMachineCode = null;
+	let equivalentMachineID = null;
+
+	async function getEquivalentMachine(machine, machineID) {
+		if (machineID !== null) {
+			return;
+		}
+		try {
+			let response = await API.get(`/machine/equivalent/${tmToMachineCode(machine)}`, {});
+
+			if (
+				response.data['equivalent_machine_id'] !== undefined &&
+				response.data['equivalent_machine_id'] !== null
+			) {
+				equivalentMachineCode = response.data['equivalent_machine_code'];
+				equivalentMachineID = response.data['equivalent_machine_id'];
+
+				if (response.data['status'] !== undefined) {
+					decisionStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
+					if (
+						decisionStatus == TMDecisionStatus.DECIDED_HALT ||
+						decisionStatus == TMDecisionStatus.DECIDED_NON_HALT
+					) {
+						machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
+							'decider_file'
+						];
+					}
+				}
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	$: getEquivalentMachine(machine, machineID);
+
 	let error = null;
 </script>
 
 <header class="flex flex-col">
+	{#if equivalentMachineID !== null}
+		<div>
+			{#if equivalentMachineCode === tmToMachineCode(machine)}
+				Machine ID:
+			{:else}
+				Equivalent ID:
+			{/if}
+			<a
+				class="text-blue-400 hover:text-blue-300 cursor-pointer"
+				href="/{equivalentMachineID}"
+				rel="external">#{numberWithCommas(equivalentMachineID)}</a
+			>
+		</div>
+	{/if}
+
 	{#if decisionStatus !== null}
 		{#if decisionStatus == TMDecisionStatus.UNDECIDED}
 			<div>Status: <span class="text-orange-400 font-bold">Undecided</span></div>
@@ -81,14 +140,35 @@
 		</table>
 	{/if}
 	{#if showTitle}
-		<div class="text-xs  mb-2">
+		<div class="text-xs">
 			<span class="select-all">Compact:</span>
 			<span class="select-all">{tmToMachineCode(machine)}</span>
 		</div>
-		{#if machineID}
+
+		{#if equivalentMachineID !== null && equivalentMachineCode !== tmToMachineCode(machine)}
 			<div class="text-xs">
+				<span class="select-all">Equivalent machine:</span>
+				<span class="select-all">{equivalentMachineCode}</span>
+			</div>
+		{/if}
+
+		{#if equivalentMachineID !== null}
+			<div class="text-xs">
+				<span class="select-all"
+					>{#if equivalentMachineCode == tmToMachineCode(machine)}
+						Machine ID:
+					{:else}
+						Equivalent ID:
+					{/if}</span
+				>
+				<span class="select-all">{equivalentMachineID}</span>
+			</div>
+		{/if}
+
+		{#if machineID}
+			<div class="text-xs mt-2">
 				<a
-					class="text-blue-400 hover:text-blue-300 cursor-pointer "
+					class="text-blue-400 hover:text-blue-300 cursor-pointer"
 					href="/story#machine-id"
 					rel="external">Database id</a
 				>: <span class="text-sm select-all">{machineID}</span>
@@ -104,7 +184,7 @@
 					});
 				}}
 				target="_blank"
-				class="text-blue-400 hover:text-blue-300 cursor-pointer "
+				class="text-blue-400 hover:text-blue-300 cursor-pointer"
 				>Copy code for https://turingmachine.io/</span
 			>
 		</div>
