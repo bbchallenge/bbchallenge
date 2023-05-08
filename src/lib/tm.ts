@@ -113,14 +113,14 @@ export function tmToTuringMachineDotIO(machine: TM) {
 		const trans0 = machine.slice(6 * i, 6 * i + 3);
 		const trans1 = machine.slice(6 * i + 3, 6 * i + 6);
 		toReturn += '  ' + String.fromCharCode(65 + i) + ':\n';
-		if (trans0[2] != 0) {
+		if (trans0[2] != 0 && trans0[2] <= machine.length / 6) {
 			toReturn +=
 				'    ' +
 				`0: {write: ${trans0[0]}, ${trans0[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
 					65 + trans0[2] - 1
 				)}}\n`;
 		}
-		if (trans1[2] != 0) {
+		if (trans1[2] != 0 && trans1[2] <= machine.length / 6) {
 			toReturn +=
 				'    ' +
 				`1: {write: ${trans1[0]}, ${trans1[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
