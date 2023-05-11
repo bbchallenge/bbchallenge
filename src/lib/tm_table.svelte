@@ -42,7 +42,7 @@
 						decisionStatus == TMDecisionStatus.DECIDED_HALT ||
 						decisionStatus == TMDecisionStatus.DECIDED_NON_HALT
 					) {
-						machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
+						machineDecider = (await API.get(`/machine/${equivalentMachineID}/decider`, '')).data[
 							'decider_file'
 						];
 					}
