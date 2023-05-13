@@ -290,7 +290,7 @@
 								style="font-size:0.6rem"
 								class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							>
-								Join our Discord server for the latest progresses
+								Join our Discord server
 							</a>
 						</div>
 						<div>&middot;</div>
