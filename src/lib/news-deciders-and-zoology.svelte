@@ -15,7 +15,10 @@
 			link: 'https://discuss.bbchallenge.org/t/decider-backward-reasoning/'
 		},
 		{ name: 'Halting Segment', link: 'https://discuss.bbchallenge.org/t/decider-halting-segment' },
-		{ name: 'Finite Automata Reduction', link: 'https://discuss.bbchallenge.org/t/decider-finite-automata-reduction/' }
+		{
+			name: 'Finite Automata Reduction',
+			link: 'https://discuss.bbchallenge.org/t/decider-finite-automata-reduction/'
+		}
 	];
 
 	const zoology = [
@@ -40,6 +43,32 @@
 </script>
 
 <div class="flex flex-col space-y-4">
+	<div>
+		<div class="text-xl mb-1">News</div>
+		<div class="ml-8">
+			<ul class="flex flex-col space-y-2 mt-2 list-disc">
+				<li>
+					<a
+						href="https://discuss.bbchallenge.org/t/april-9th-2023-503-169-new-machines-have-been-decided-only-32-632-left-to-go/"
+						><span class="underline">April 9th 2023</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://discuss.bbchallenge.org/t/december-25th-2022-1-002-823-new-machines-have-been-decided/"
+						><span class="underline">December 25th 2022</span></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://discuss.bbchallenge.org/t/july-16th-2022-standard-text-format-for-tms-and-2-deciders-in-review/"
+						><span class="underline">July 16th 2022</span></a
+					>
+				</li>
+			</ul>
+		</div>
+	</div>
+
 	<div id="deciders">
 		<div class="text-xl mb-1">Deciders</div>
 		<div class="ml-2 text-sm max-w-sm">

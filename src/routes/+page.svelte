@@ -14,7 +14,7 @@
 	} from '$lib/tm';
 	import { BB5_champion } from '$lib/machine_repertoire';
 
-	import Zoology from '$lib/deciders-and-zoology.svelte';
+	import Zoology from '$lib/news-deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
 
 	let machine = null;
