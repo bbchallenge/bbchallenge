@@ -7,19 +7,19 @@
 
 - Maintainer: [Tristan Stérin](https://dna.hamilton.ie/tsterin) (cosmo)
 - [@atticuscull](https://github.com/atticuscull)
-- Justin Blanchard (UncombedCoconut)
+- [Justin Blanchard](https://github.com/UncombedCoconut) (UncombedCoconut)
 - Konrad Deka
 - [Frans Faase](http://www.iwriteiam.nl/)
 - Nathan Fenner
-- Tony Guilfoyle
+- [Tony Guilfoyle](https://github.com/TonyGuil)
 - [Nick Howell](https://github.com/nhowell)
-- Iijil
+- [Iijil](https://github.com/Iijil1)
 - [Alexandre Jouandin](https://prgm.dev/alexandre)
 - Pavel Kropitz (uni)
 - [Shawn Ligocki](https://www.sligocki.com/)
 - [Heiner Marxen](http://turbotm.de/~heiner/)
 - [@modderme123](https://github.com/modderme123)
-- Mateusz Naściszewski (Mateon1)
+- [Mateusz Naściszewski](https://github.com/Mateon1) (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
 - savask
 - star
