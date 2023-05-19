@@ -10,7 +10,7 @@
 - [Justin Blanchard](https://github.com/UncombedCoconut) (UncombedCoconut)
 - Konrad Deka
 - [Frans Faase](http://www.iwriteiam.nl/)
-- Nathan Fenner
+- [Nathan Fenner](https://github.com/Nathan-Fenner)
 - [Tony Guilfoyle](https://github.com/TonyGuil)
 - [Nick Howell](https://github.com/nhowell)
 - [Iijil](https://github.com/Iijil1)
