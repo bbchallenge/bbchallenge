@@ -27,7 +27,7 @@
 
 With the Busy Beaver Challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See <a href="/story" rel="external">Story</a>.
 
-In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 167 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
+In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 16 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
 
 Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="4! = 24"/> ways to permute the states (aside from the start state) of a machine and 2 ways to permute the move directions which does not change behavior hence only one of these 48 machines needs to be studied^[1. These 48 machines are said to be _isomorphic_.].
 
