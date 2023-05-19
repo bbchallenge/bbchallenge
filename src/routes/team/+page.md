@@ -22,6 +22,7 @@
 - Mateusz Naściszewski (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
 - savask
+- star
 - tomtom2357
 - Yto
 
