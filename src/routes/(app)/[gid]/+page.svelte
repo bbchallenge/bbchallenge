@@ -44,6 +44,18 @@
 	}
 </script>
 
+<svelte:head>
+	<meta property="og:title" content="The Busy Beaver Challenge" />
+	<meta property="og:site_name" content="bbchallenge" />
+	<meta property="og:url" content="https://bbchallenge.org" />
+	<meta
+		property="og:description"
+		content={`Space-time diagram of bbchallenge machine ${$page.url.pathname.replace('/', '')}`}
+	/>
+	<meta property="og:type" content="" />
+	<meta property="og:image" content={`https://bbchallenge.org/thumbnail${$page.url.pathname}`} />
+</svelte:head>
+
 {#if machineID != null}
 	<MainPage preSeed={true} {machineID} {nbIter} {tapeWidth} {origin_x} {machineStatus} />
 {:else}
