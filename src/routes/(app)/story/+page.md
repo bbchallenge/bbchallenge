@@ -333,7 +333,7 @@ In 2009, Joachim Hertel [published a method](https://content.wolfram.com/uploads
 ## Related Links
 
 - [Heiner Marxen's website](http://turbotm.de/~heiner/BB/index.html)
-- [Pascal Michel's website](https://webusers.imj-prg.fr/~pascal.michel/bbc.html)
+- [Pascal Michel's website](https://bbchallenge.org/~pascal.michel/index.html)
 - [Rensselaer RAIR Lab](https://homepages.hass.rpi.edu/heuveb/Research/BB/index.html)
 - [Skelet's website](https://skelet.ludost.net/bb/index.html)
 - [Busy Beaver Disscuss](https://groups.google.com/g/busy-beaver-discuss) (Google Groups)

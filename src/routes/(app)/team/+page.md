@@ -35,7 +35,7 @@ The following people have helped the project with valuable conversations, inputs
 - [Georgi Georgiev](https://skelet.ludost.net/) (Skelet)
 - [Damien Woods](https://dna.hamilton.ie/woods)
 - [Dave Doty](https://web.cs.ucdavis.edu/~doty/)
-- [Pascal Michel](https://webusers.imj-prg.fr/~pascal.michel/index.html)
+- [Pascal Michel](https://bbchallenge.org/~pascal.michel/index.html)
 - [Eric E. Severson](https://eric-severson.netlify.app/)
 - [@DunDunDunDone](https://github.com/DunDunDunDone)
 - [@pg132](https://github.com/pg132)
