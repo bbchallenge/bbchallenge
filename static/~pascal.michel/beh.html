@@ -1,0 +1,4576 @@
+<html>
+
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/beh.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+<head>
+ <meta name="author" content="Pascal MICHEL">
+ <meta name="keywords" content="Turing machine, busy beaver, Collatz">
+
+ <title>
+  Behavior of Busy Beavers
+ </title>
+</head>
+
+<body bgcolor="#FEFEDD">
+
+<p align="center">
+ <font size="6">
+  <b> Behavior of busy beavers</b>
+ </font>
+</p>
+
+<p>
+ <font size="4">
+  <blockquote>
+   <b> Contents</b>
+  </blockquote>
+ </font>
+</p>
+
+<p>
+ <a href="#tmb52"> Turing machines with 5 states and 2 symbols</a>
+ <blockquote>
+ <table>
+ <tr>
+  <td align="right">
+   1990<br>
+   1990
+  </td>
+  <td align="center">
+   &nbsp; Marxen and Buntrock &nbsp;<br>
+   Marxen and Buntrock
+  </td>
+  <td>
+   <a href="#tm52a">
+    s = 47,176,870, sigma = 4098
+   </a><br>
+   <a href="#tm52b">
+    s = 23,554,764, sigma = 4097
+   </a>
+  </td>
+ </tr>
+ </table>
+ </blockquote>
+ 
+ <a href="#tmb62"> Turing machines with 6 states and 2 symbols</a>
+ <blockquote>
+ <table>
+ <tr>
+  <td align="right">
+   May 2022<br>
+   June 2010<br>
+   May 2010<br>
+   December 2007<br>
+   November 2007<br>
+   March 2001<br>
+   October 2000<br>
+   October 2000<br>
+   September 1997
+  </td>
+  <td align="center">
+   Kropitz<br>
+   Kropitz<br>
+   Kropitz<br>
+   T. and S. Ligocki<br>
+   T. and S. Ligocki<br>
+   &nbsp; Marxen and Buntrock &nbsp;<br>
+   Marxen and Buntrock<br>
+   Marxen and Buntrock<br>
+   Marxen and Buntrock<br>
+  </td>
+  <td>
+   <a href="#tm62i">
+    s &gt; sigma &gt; 10^^15
+   </a><br>  
+    <a href="#tm62h">
+    s &gt; 7.4 &times; 10^36534, sigma &gt; 3.5 &times; 10^18267
+   </a><br>
+   <a href="#tm62g">
+    s &gt; 3.8 &times; 10^21132, sigma &gt; 3.1 &times; 10^10566
+   </a><br>
+   <a href="#tm62e">
+    s &gt; 2.5 &times; 10^2879, sigma &gt; 4.6 &times; 10^1439
+   </a><br>
+   <a href="#tm62f">
+    s &gt; 8.9 &times; 10^1762, sigma &gt; 2.5 &times; 10^881
+   </a><br>
+   <a href="#tm62a">
+    s &gt; 3.0 &times; 10^1730, sigma &gt; 1.2 &times; 10^865
+   </a><br>
+   <a href="#tm62b">
+    s &gt; 6.1 &times; 10^925, sigma &gt; 6.4 &times; 10^462
+   </a><br>
+   <a href="#tm62c">
+    s &gt; 6.1 &times; 10^119, sigma &gt; 1.4 &times; 10^60
+   </a><br>
+   <a href="#tm62d">
+    s &gt; 8.6 &times 10^15, sigma = 95,524,079
+   </a>
+  </td>
+ </tr>
+ </table>
+ </blockquote>
+
+ <a href="#tmb33"> Turing machines with 3 states and 3 symbols</a>
+ <blockquote>
+ <table>
+ <tr>
+  <td align="right">
+   November 2007<br>
+   August 2006<br>
+   April 2006<br>
+   September 2005<br>
+   August 2005<br>
+   July 2005<br>
+   July 2005<br>
+   December 2004 
+  </td>
+  <td align="center">
+   T. and S. Ligocki<br>
+   T. and S. Ligocki<br>
+   &nbsp; Lafitte and Papazian &nbsp;<br>
+   Lafitte and Papazian<br>
+   Lafitte and Papazian<br>
+   Souris<br>
+   Souris<br>
+   Brady
+  </td>
+  <td>
+   <a href="#tm33h">
+    s = 119,112,334,170,342,540, sigma = 374,676,383
+   </a><br>
+   <a href="#tm33g">
+    s = 4,345,166,620,336,565, sigma = 95,524,079
+   </a><br>
+   <a href="#tm33f">
+    s = 4,144,465,135,614, sigma = 2,950,149
+   </a><br>
+   <a href="#tm33e">
+    s = 987,522,842,126, sigma = 1,525,688
+   </a><br>
+   <a href="#tm33d">
+    s = 4,939,345,068, sigma = 107,900
+   </a><br>
+   <a href="#tm33c">
+    s = 544,884,219, sigma = 32,213
+   </a><br>
+   <a href="#tm33b">
+    s = 310,341,163, sigma = 36,089
+   </a><br>
+   <a href="#tm33a">
+    s = 92,649,163, sigma = 13,949
+   </a><br>
+  </td>
+ </tr>
+ </table>
+ </blockquote>
+
+ <a href="#tmb24"> Turing machines with 2 states and 4 symbols</a><br>
+ <blockquote>
+ <table>
+ <tr>
+  <td align="right">
+   February 2005<br>
+   1988
+  </td>
+  <td align="center">
+   &nbsp; T. and S. Ligocki &nbsp;<br>
+   Brady
+  </td>
+  <td>
+   <a href="#tm24a">
+    s = 3,932,964, sigma = 2,050
+   </a><br>
+   <a href="#tm24b">
+    s = 7,195, sigma = 90
+   </a>
+  </td>
+ </tr>
+ </table>
+ </blockquote>
+
+ <a href="#tmb25"> Turing machines with 2 states and 5 symbols</a>
+ <table>
+ <tr>
+  <td align="right">
+   November 2007<br>
+   August 2006<br>
+   June 2006<br>
+   May 2006<br>
+   December 2005<br>
+   October 2005
+  </td>
+  <td align="center">
+   T. and S. Ligocki<br>
+   T. and S. Ligocki<br>
+   &nbsp; Lafitte and Papazian &nbsp;<br>
+   Lafitte and Papazian<br>
+   Lafitte and Papazian<br>
+   Lafitte and Papazian
+  </td>
+  <td>
+   <a href="#tm25h">
+    s &gt; 1.9 &times; 10^704, sigma &gt; 1.7 &times; 10^352
+   </a><br>
+   <a href="#tm25e">
+    s = 7,069,449,877,176,007,352,687, sigma = 172,312,766,455
+   </a><br>
+   <a href="#tm25d">
+    s = 14,103,258,269,249, sigma = 4,848,239
+   </a><br>
+   <a href="#tm25c">
+    s = 3,793,261,759,791, sigma = 2,576,467
+   </a><br>
+   <a href="#tm25b">
+    s = 924,180,005,181, sigma = 1,137,477
+   </a><br>
+   <a href="#tm25a">
+    s = 912,594,733,606, sigma = 1,957,771
+   </a>
+  </td>
+ </tr>
+ </table>
+</p>
+
+<p>
+ <a href="#clp"> Collatz-like problems</a>
+</p>
+
+<p>
+ <a href="#ncl"> Non-Collatz-like behaviors</a>
+</p>
+
+<p>
+ <a href="#sb"> Similar behaviors</a>
+</p>
+
+<p>
+ <font size="2">
+  <blockquote>
+   Last update: November 2022
+  </blockquote>
+ </font>
+</p>
+
+<p>
+ <font size="4">
+  <b> Introduction</b>
+ </font>
+</p>
+
+<font size ="3">
+
+<p>
+How do good machines behave?<br>
+We give below the tricks that allow them to reach high scores.
+</p>
+
+<p> </p>
+
+<p>
+A <b> configuration</b> of the Turing machine M is a description of the
+tape.<br>
+The position of the tape head and the state are indicated by
+writing together between parentheses the state and the symbol
+currently read by the tape head.<br>
+For example, the initial configuration on a blank tape is:
+<blockquote>
+ . . . 0(A0)0 . . .
+</blockquote>
+You can see the <a href="tmi.html"> introduction to Turing machines</a>
+for more informations.<br>
+We denote by a<sup>k</sup> the string a . . . a, k times.<br>
+We write C --( t )--&gt; D if the next move function leads from
+configuration C to configuration D in t computation steps.
+</p>
+
+</font>
+
+<a name="tmb52"> </a>
+<p>
+ <font size="5">
+  <b> Turing machines with 5 states and 2 symbols</b>
+ </font>
+</p>
+
+<p> </p>
+
+<a name="tm52a"> </a>
+<p>
+ <font size="4">
+  <b> Marxen and Buntrock's champion</b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simmbL5_1.html">
+simulation by Heiner Marxen</a>.
+This machine was analyzed by Buro (1991) (p.64-67), and independently by Michel (1993).
+
+<p>
+This machine is the record holder in the Busy Beaver Competition
+for machines with 5 states and 2 symbols, since 1990.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">  Marxen and Buntrock (1990)   </td> </tr>
+    <tr> <td align="center">  s(M) = 47,176,870 =? S(5,2)  </td> </tr>
+    <tr> <td align="center"> sigma(M) = 4098 =? Sigma(5,2) </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1LC </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 1RB </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1RD </td> <td align="center"> 0LE </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LA </td> <td align="center"> 1LD </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RH </td> <td align="center"> 0LA </td> </tr> 
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+Let C(n) = . . . 0(A0)1<sup>n</sup>0 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> C(3k) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 19k + 15 )--&gt; </td>
+  <td> C(5k + 6) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 25k + 27 )--&gt; </td>
+  <td> C(5k + 9) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2) </td>
+  <td align="center"> --( 6k + 12 )--&gt; </td>
+  <td> . . . 01(H0)1(001)<sup>k+1</sup>10 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . = C( 0 ) --( 15 )--&gt;<br>
+ C( 6 ) --( 73 )--&gt;<br>
+ C( 16 ) --( 277 )--&gt;<br>
+ C( 34 ) --( 907 )--&gt;<br>
+ C( 64 ) --( 2,757 )--&gt;<br>
+ C( 114 ) --( 7,957 )--&gt;<br>
+ C( 196 ) --( 22,777 )--&gt;<br>
+ C( 334 ) --( 64,407 )--&gt;<br>
+ C( 564 ) --( 180,307 )--&gt;<br>
+ C( 946 ) --( 504,027 )--&gt;<br>
+ C( 1,584 ) --( 1,403,967 )--&gt;<br>
+ C( 2,646 ) --( 3,906,393 )--&gt;<br>
+ C( 4,416 ) --( 10,861,903 )--&gt;<br>
+ C( 7,366 ) --( 30,196,527 )--&gt;<br>
+ C( 12,284 ) --( 24,576 )--&gt;<br>
+ . . . 01(H0)1(001)<sup>4095</sup>10 . . . 
+</p>
+</font>
+
+<p> </p>
+
+<a name="tm52b"> </a>
+<p>
+ <font size="4">
+  <b> Marxen and Buntrock's runner-up</b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simmbL5_3.html">
+simulation by Heiner Marxen</a>.
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">  Marxen and Buntrock (1990)   </td> </tr>
+    <tr> <td align="center">  s(M) = 23,554,764  </td> </tr>
+    <tr> <td align="center"> sigma(M) = 4097 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LC </td> <td align="center"> 1RD </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LA </td> <td align="center"> 1LC </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1RH </td> <td align="center"> 1RE </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RA </td> <td align="center"> 0RB </td> </tr> 
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+Let C(n) = . . . 0(A0)1<sup>n</sup>0 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> C(3k) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 10k + 4 )--&gt; </td>
+  <td> C(5k + 3) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1) </td>
+  <td align="center"> --( 3k + 3 )--&gt; </td>
+  <td> . . . 01(110)<sup>k</sup>11(H0)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 26k + 12 )--&gt; </td>
+  <td> C(5k + 7) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . = C( 0 ) --( 4 )--&gt;<br>
+ C( 3 ) --( 24 )--&gt;<br>
+ C( 8 ) --( 104 )--&gt;<br>
+ C( 17 ) --( 392 )--&gt;<br>
+ C( 32 ) --( 1,272 )--&gt;<br>
+ C( 57 ) --( 3,804 )--&gt;<br>
+ C( 98 ) --( 11,084 )--&gt;<br>
+ C( 167 ) --( 31,692 )--&gt;<br>
+ C( 282 ) --( 89,304 )--&gt;<br>
+ C( 473 ) --( 250,584 )--&gt;<br>
+ C( 792 ) --( 699,604 )--&gt;<br>
+ C( 1,323 ) --( 1,949,224 )--&gt;<br>
+ C( 2,208 ) --( 5,424,324 )--&gt;<br>
+ C( 3,683 ) --( 15,087,204 )--&gt;<br>
+ C( 6,142 ) --( 6,144 )--&gt;<br>
+ . . . 01(110)<sup>2047</sup>11(H0)0 . . .
+</p>
+</font>
+
+<p> </p>
+
+<a name="tmb62"> </a>
+<p>
+ <font size="5">
+  <b> Turing machines with 6 states and 2 symbols</b>
+ </font>
+</p>
+
+<p> </p>
+
+<a name="tm62i"> </a>
+<p>
+ <font size="4">
+  <b> Kropitz's machine found in May 2022 </b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="https://www.sligocki.com/2022/06/21/bb-6-2-t15.html">
+analysis by Shawn Ligocki</a>.
+
+<p>
+This machine is the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, since May 2022.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> Kropitz (2022)
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) and S(6,2) &gt; 10^^15
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) and Sigma(6,2) &gt; 10^^15
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 0RF </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LC </td> <td align="center"> 1LA </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 0LE </td> <td align="center"> 1RH </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LF </td> <td align="center"> 0RB </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 0RC </td> <td align="center"> 0RE
+ </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+  <i>Analysis from Pavel Kropitz, Shawn Ligocki and Pascal Michel </i>
+</p>
+
+<p>
+Let C(n) = . . . 010<sup>n</sup>110<sup>5</sup>(C0)0 . . .<br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 45 )--&gt; </td>
+  <td> C(5)    </td>
+ </tr>
+ <tr>
+  <td> C(4k)</td>
+  <td align="center"> --( (3 &times; 9<sup>k+3</sup> -
+    80 &times; 3<sup>k+3</sup> + 712 k + 261)/32 )--&gt; </td>
+  <td> . . . 01(H0)1<sup>n-1</sup>0 . . .</td>
+ </tr>
+  <td> C(4k + 1) </td>
+  <td align="center"> --( (3 &times; 9<sup>k+3</sup> -
+    64 &times; 3<sup>k+3</sup> + 712 k + 981)/32 )--&gt; </td>
+  <td> C((3<sup>k+3</sup> - 11)/2) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 2) </td>
+  <td align="center"> --( (3 &times; 9<sup>k+3</sup> -
+    64 &times; 3<sup>k+3</sup> + 712 k + 1045)/32 )--&gt; </td>
+  <td> C((3<sup>k+3</sup> - 11)/2) </td>
+ </tr>
+  <tr>
+  <td> C(4k + 3) </td>
+  <td align="center"> --( (3 &times; 9<sup>k+3</sup> -
+    64 &times; 3<sup>k+3</sup> + 712 k + 1749)/32 )--&gt; </td>
+  <td> C((3<sup>k+3</sup> + 1)/2) </td>
+ </tr>
+</table>
+
+with n = (3<sup>k+3</sup> -11)/2
+<p></p>
+
+So we have (the final configuration is reached in 17 transitions):
+<p align="center">
+. . . 0(A0)0 . . . --( 45 )--&gt;<br>
+C( 5 ) --( 506 )--&gt;<br>
+C( 35 ) --( 2,941,620,277 )--&gt;<br>
+C( 88574 ) --( )--&gt;<br>
+
+<font size="5">
+  . . .
+ </font><br>
+
+. . . 01(H0)1<sup>n</sup>0 . . . <br>
+</p>
+with n &gt; 10^^15.
+
+
+<p> </p>
+
+<a name="tm62h"> </a>
+<p>
+ <font size="4">
+  <b> Kropitz's machine found in June 2010 </b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simKro62_b.html">
+simulation by Heiner Marxen</a>.
+See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+Michel (2015)</a>, Section 6.
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, from June 2010 to May 2022.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> Kropitz (2010)  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 7.4 &times; 10<sup><font
+       size="2">36534</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 3.5 &times;
+        10<sup><font size="2">18267</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1LE </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 1RF </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LD </td> <td align="center"> 0RB </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1RE </td> <td align="center"> 0LC </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LA </td> <td align="center"> 0RD </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1RH </td> <td align="center"> 1RC
+ </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+Let C(n) = . . . 0(A0)1<sup>n </sup>0 . . .<br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 29 )--&gt; </td>
+  <td> C(9)    </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1)</td>
+  <td align="center"> --( 3k + 3 )--&gt; </td>
+  <td> . . . 0111(011)<sup>k</sup>(H0)0 . . .</td>
+ </tr>
+  <td> C(9k + 9) </td>
+  <td align="center"> --( (125 &times; 16<sup>k+2</sup> +
+    325 &times; 4<sup>k+2</sup> + 228 k - 2289)/27 )--&gt; </td>
+  <td> C((50 &times 4<sup>k+1</sup> - 11)/3) </td>
+ </tr>
+ <tr>
+  <td> C(9k + 12) </td>
+  <td align="center"> --( (125 &times; 16<sup>k+2</sup> +
+    325 &times; 4<sup>k+2</sup> + 228 k - 912)/27 )--&gt; </td>
+  <td> C((50 &times 4<sup>k+1</sup> + 1)/3) </td>
+ </tr>
+</table>
+
+<p></p>
+
+So we have:
+<p align="center">
+. . . 0(A0)0 . . . --( 29 )--&gt;<br>
+C( 9 ) --( 1293 )--&gt;<br>
+C( 63 ) --( 19,884,896,677 )--&gt;<br>
+C( 273063 ) --( T<sub>1</sub> )--&gt;<br>
+C( (50 &times 4^30340 + 1)/3 ) --( T<sub>2</sub> )--&gt;<br>
+. . . 0111(011)<sup>K</sup>(H0)0 . . .
+</p>
+
+<p>
+with T<sub>1</sub> = (125 &times; 16^30341 +
+    325 &times; 4^30341 + 6,916,380)/27,<br>
+T<sub>2</sub> = (50 &times 4^30340 + 7)/3,<br>
+K = (50 &times; 4^30340 - 2)/9.
+</p>
+
+<p>
+So the total time is: s(M) = (125 &times 16^30341 + 
+1750 &times 4^30340 + 15)/27 + 19,885,154,163,<br>
+and the final number of 1 is: sigma(M) = (25 &times; 4^30341 + 23)/9.
+</p>
+
+<p>
+Some configurations take a long time to halt.<br>
+For example, C(2) --( t )--> END with t > 10^(10^(10^(10^18705352))).<br>
+A proof of this fact is given by
+&quot;<a href="http://googology.wikia.com/wiki/User_blog:Cloudy176/Proving_the_bound_for_S(7)">Cloudy176</a>&quot;.<br>
+This property was used by
+&quot;<a href="http://googology.wikia.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F">Wythagoras</a>&quot;,
+in March 2014, to define a (7,2)-TM that extends the present (6,2)-TM
+and enters in two steps this configuration C(2).
+<p></p>
+
+<a name="tm62g"> </a>
+<p>
+ <font size="4">
+  <b> Kropitz's machine found in May 2010 </b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simKro62_a.html">
+simulation by Heiner Marxen</a>.
+See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+Michel (2015)</a>, Section 7.
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, from May 2010 to June 2010.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> Kropitz (2010)  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 3.8 &times; 10<sup><font
+       size="2">21132</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 3.1 &times;
+        10<sup><font size="2">10566</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 0RF </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LC </td> <td align="center"> 1LA </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 0LE </td> <td align="center"> 1RH </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LA </td> <td align="center"> 0RB </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 0RC </td> <td align="center"> 0RE </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+<i> Analysis adapted from Shawn Ligocki: </i>
+</p>
+
+<p>
+Let C(n, k) = . . . 010<sup>n</sup>1(C1)1<sup>3k</sup>0 . . .<br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 47 )--&gt; </td>
+  <td> C(5, 2) </td>
+ </tr>
+ <tr>
+  <td> C(0, k) </td>
+  <td align="center"> --( 3 )--&gt; </td>
+  <td> . . . 01(H0)1<sup>3k+1</sup>0 . . .</td>
+ </tr>
+  <td> C(1, k) </td>
+  <td align="center"> --( 3k + 37 )--&gt; </td>
+  <td> C(3k + 2, 2) </td>
+ </tr>
+ <tr>
+  <td> C(2, k) </td>
+  <td align="center"> --( 12k + 44 )--&gt; </td>
+  <td> C(4, k + 2) </td>
+ </tr>
+ <tr>
+ </tr>
+  <td> C(3, k) </td>
+  <td align="center"> --( 3k + 57 )--&gt; </td>
+  <td> C(3k + 8, 2) </td>
+ </tr>
+  <td> C(n + 4, k) </td>
+  <td align="center"> --( 27k<sup>2</sup> + 105k + 112 )--&gt; </td>
+  <td> C(n, 3k + 5) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have (the final configuration is reached in 22158 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . --( 47 )--&gt;<br>
+ C( 5, 2 ) --( 430 )--&gt;<br>
+ C( 1, 11 ) --( 70 )--&gt;<br>
+ C( 35, 2 ) --( 430 )--&gt;<br>
+ C( 31, 11 ) --( 4,534 )--&gt;<br>
+ C( 27, 38 ) --( 43,090 )--&gt;<br>
+ C( 23, 119 ) --( 394,954 )--&gt;<br>
+ C( 19, 362 ) --( 3,576,310 )--&gt;<br>
+ C( 15, 1091 ) --( 32,252,254 )--&gt;<br>
+ C( 11, 3278 ) --( 290,466,970 )--&gt;<br>
+ C( 7, 9839 ) --( 2,614,793,074 )--&gt;<br>
+ C( 3, 29522 ) --( 88,623 )--&gt;<br>
+ C( 88574, 2 ) --( 430 )--&gt;<br>
+ C( 88570, 11 ) --( 4,534 )--&gt;<br>
+ C( 88566, 38 ) --( 43,090 )--&gt;<br>
+
+ <font size="5">
+  . . .
+ </font> 
+</p>
+
+<p>
+ Note that C(4n + r, 2) --( t<sub>n</sub> )--&gt; C(r, u<sub>n</sub>),<br>
+ with u<sub>n</sub> = (3<sup>n+2</sup> - 5)/2,<br>
+ and t<sub>n</sub> = (3 &times; 9<sup>n+3</sup> - 80 &times; 3<sup>n+3</sup> + 584 n - 27)/32.
+</p>
+
+<p>
+ Some configurations take a long time to halt.<br>
+ For example, C(1, 9) --( t )--&gt; END
+ with t &gt; 10^(10^(10^(10^(10^3520)))).
+</p>
+
+</font>
+
+<p> </p>
+
+<a name="tm62e"> </a>
+<p>
+ <font size="4">
+  <b> T. and S. Ligocki's machine found in December 2007 </b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simLig62_b.html">
+simulation by Heiner Marxen</a>.
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, from December 2007 to May 2010.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> Terry and Shawn Ligocki (2007)  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 2.5 &times; 10<sup><font
+       size="2">2879</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 4.6 &times;
+        10<sup><font size="2">1439</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LE </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LC </td> <td align="center"> 0RA </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LD </td> <td align="center"> 0RC </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LE </td> <td align="center"> 0LF </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LA </td> <td align="center"> 1LC </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1LE </td> <td align="center"> 1RH </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+Let C(n, p) = . . . 0(A0)(10)<sup>n</sup>R(bin(p))0 . . ., where R(bin(p))
+is the number p written in binary in reverse order, so that
+C(n, 4m + 1) = C(n + 1, m).<br>
+The number of transitions between configurations C(n, p)
+is infinite, but only 18 transitions are used in the computation
+on a blank tape:
+</p>
+
+<p align="center">
+ C(k, 4m + 3) --( 4k + 6 )--&gt; C(k + 2, m)<br>
+ C(2k + 1, 4m) --( 6k<sup>2</sup> + 52k + 98 )--&gt; C(3k + 8, m)<br>
+ C(4k, 4m) --( 24k<sup>2</sup> + 36k + 13 )--&gt; C(6k + 2, 2m + 1)<br>
+ C(4k + 2, 4m) --( 24k<sup>2</sup> + 60k + 27 )--&gt; C(6k + 2, 128m + 86)<br>
+ C(k, 8m + 2) --( 4k + 14 )--&gt; C(k + 2, 2m + 1)<br>
+ C(2k + 1, 32m + 22) --( 6k<sup>2</sup> + 64k + 160 )--&gt; C(3k + 10, 2m + 1)<br>
+ C(4k, 32m + 22) --( 24k<sup>2</sup> + 36k + 29 )--&gt; C(6k + 4, m)<br>
+ C(4k + 2, 32m + 22) --( 24k<sup>2</sup> + 60k + 43 )--&gt; C(6k + 2, 1024m + 342)<br>
+ C(k, 64m + 46) --( 4k + 30 )--&gt; C(k + 4, m)<br>
+ C(k + 1, 128m + 6) --( 8k + 66 )--&gt; C(k + 6, 2m + 1)<br>
+ C(2k, 256m + 14) --( 6k<sup>2</sup> + 64k + 172 )--&gt; C(3k + 11, m)<br>
+ C(4k + 1, 256m + 14) --( 24k<sup>2</sup> + 84k + 89 )--&gt; C(6k + 8, 2m + 1)<br>
+ C(4k + 3, 256m + 14) --( 24k<sup>2</sup> + 108k + 127 )--&gt; C(6k + 8, 128m + 86)<br>
+ C(4k, 512m + 30) --( 24k<sup>2</sup> + 156k + 173 )--&gt; C(6k + 11, m)<br>
+ C(4k + 2, 512m + 30) --( 24k<sup>2</sup> + 60k + 57 )--&gt; C(6k + 2, 16384m + 11134)<br>
+ C(4k + 2, 131072m + 11134) --( 24k<sup>2</sup> + 60k + 89 )--&gt; C(6k + 2, 4194304m + 2848638)<br>
+ C(4k, 131072m + 96126) --( 24k<sup>2</sup> + 36k + 109 )--&gt; C(6k + 10, m)<br>
+ C(k + 1, 512m + 94) --( 2k + 61 )--&gt;
+ . . . 0(10)<sup>k</sup>1(H0)1110110101R(bin(m))0 . . .
+</p>
+
+So we have (the final configuration is reached in 11026 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . =  C( 0, 0 ) --( 13 )--&gt;<br>
+ C( 3, 0 ) --( 156 )--&gt;<br>
+ C( 11, 0 ) --( 508 )--&gt;<br>
+ C( 23, 0 ) --( 1396 )--&gt;<br>
+ C( 41, 0 ) --( 3538 )--&gt;<br>
+ C( 68, 0 ) --( 7,561 )--&gt;<br>
+ C( 105, 0 ) --( 19,026 )--&gt;<br>
+ C( 164, 0 ) --( 41,833 )--&gt;<br>
+ C( 249, 0 ) --( 98,802 )--&gt;<br>
+ C( 380, 0 ) --( 220,033 )--&gt;<br>
+ C( 573, 0 ) --( 505,746 )--&gt;<br>
+ C( 866, 0 ) --( 1,132,731 )--&gt;<br>
+ C( 1298, 86 ) --( 2,538,907 )--&gt;<br>
+ C( 1946, 2390 ) --( 5,697,907 )--&gt;<br>
+ C( 2918, 76118 ) --( 12,798,367 )--&gt;<br>
+ C( 4376, 2435414 ) --( 1,034,066,333 )--&gt;<br>
+ C( 6568, 76106 ) --( 26,286 )--&gt;<br>
+ C( 6570, 19027 ) --( 26,286 )--&gt;<br>
+ C( 6572, 4756 ) --( 64,845,937 )--&gt;<br>
+ C( 9860, 2379 ) --( 39,446 )--&gt;<br>
+ C( 9862, 594 ) --( 39,462 )--&gt;<br>
+ C( 9867, 2 ) --( 39,482 )--&gt;<br>
+
+ <font size="5">
+  . . .
+ </font>
+</p>
+
+<a name="tm62f"> </a>
+<p>
+ <font size="4">
+  <b> T. and S. Ligocki's machine found in November 2007 </b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simLig62_a.html">
+simulation by Heiner Marxen</a>.
+See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+Michel (2015)</a>, Section 8.
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, from November to December 2007.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> Terry and Shawn Ligocki (2007)  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 8.9 &times; 10<sup><font
+       size="2">1762</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 2.5 &times;
+        10<sup><font size="2">881</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0RF </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 0LB </td> <td align="center"> 1LC </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LD </td> <td align="center"> 0RC </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LE </td> <td align="center"> 1RH </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LF </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1RA </td> <td align="center"> 0LE </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+Let C(n, p) = . . . 0(F0)(10)<sup>n</sup>R(bin(p))0 . . ., where R(bin(p))
+is the number p written in binary in reverse order, so that
+C(n, 4m + 1) = C(n + 1, m).<br>
+The number of transitions between configurations C(n, p)
+is infinite, but only 12 transitions are used in the computation
+on a blank tape:
+</p>
+
+<p align="center">
+ . . . 0(A0)0 . . . --( 6 )--&gt; C(0, 15)<br>
+ C(k, 4m + 3) --( 4k + 6 )--&gt; C(k + 2, m)<br>
+ C(2k, 4m) --( 30k<sup>2</sup> + 20k + 15 )--&gt; C(5k + 2, 2m + 1)<br>
+ C(2k + 1, 4m) --( 30k<sup>2</sup> + 40k + 25 )--&gt; C(5k + 2, 32m + 20)<br>
+ C(k, 8m + 2) --( 8k + 20 )--&gt; C(k + 3, 2m + 1)<br>
+ C(2k, 16m + 6) --( 30k<sup>2</sup> + 40k + 23 )--&gt; C(5k + 2, 32m + 20)<br>
+ C(2k + 1, 16m + 6) --( 30k<sup>2</sup> + 80k + 63 )--&gt; C(5k + 7, 2m + 1)<br>
+ C(k, 32m + 14) --( 4k + 18 )--&gt; C(k + 3, 2m + 1)<br>
+ C(2k, 128m + 94) --( 30k<sup>2</sup> + 40k + 39 )--&gt; C(5k + 2, 256m + 84)<br>
+ C(2k + 1, 128m + 94) --( 30k<sup>2</sup> + 80k + 79 )--&gt; C(5k + 9, m)<br>
+ C(k, 256m + 190) --( 4k + 34 )--&gt; C(k + 5, m)<br>
+ C(k, 512m + 30) --( 2k + 43 )--&gt;
+ . . . 0(10)<sup>k</sup>1(H0)10100101R(bin(m))0 . . .
+</p>
+
+So we have (the final configuration is reached in 3346 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . --( 6 )--&gt;<br>
+ C( 0, 15 ) --( 6 )--&gt;<br>
+ C( 2, 3 ) --( 14 )--&gt;<br>
+ C( 4, 0 ) --( 175 )--&gt;<br>
+ C( 13, 0 ) --( 1,345 )--&gt;<br>
+ C( 32, 20 ) --( 8,015 )--&gt;<br>
+ C( 82, 11 ) --( 334 )--&gt;<br>
+ C( 84, 2 ) --( 692 )--&gt;<br>
+ C( 88, 0 ) --( 58,975 )--&gt;<br>
+ C( 223, 0 ) --( 374,095 )--&gt;<br>
+ C( 557, 20 ) --( 2,329,665 )--&gt;<br>
+ C( 1392, 180 ) --( 14,546,415 )--&gt;<br>
+ C( 3482, 91 ) --( 13,934 )--&gt;<br>
+ C( 3484, 22 ) --( 91,106,623 )--&gt;<br>
+ C( 8712, 52 ) --( 569,329,215 )--&gt;<br>
+ C( 21782, 27 ) --( 87,134 )--&gt;<br>
+ C( 21784, 6 ) --( 3,559,505,623 )--&gt;<br>
+ C( 54462, 20 ) --( 22,246,365,465 )--&gt;<br>
+ C( 136157, 11 ) --( 544,634 )--&gt;<br>
+ C( 136159, 2 ) --( 1,089,292 )--&gt;<br>
+ C( 136163, 0 ) --( 139,053,400,095 )--&gt;<br>
+ C( 340407, 20 ) --( 869,078,644,415 )--&gt;<br>
+
+ <font size="5">
+  . . .
+ </font>
+</p>
+
+
+
+
+
+
+<a name="tm62a"> </a>
+<p>
+ <font size="4">
+  <b> Marxen and Buntrock's machine found in March 2001 </b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simmbL6_r.html">
+simulation by Heiner Marxen</a>.
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, from March 2001 to
+November 2007.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> <a href="http://turbotm.de/~heiner/BB">
+        Marxen and Buntrock (2001) </a>  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 3.0 &times; 10<sup><font
+       size="2">1730</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 1.2 &times;
+        10<sup><font size="2">865</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LF </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 0RC </td> <td align="center"> 0RD </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LD </td> <td align="center"> 1RE </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 0LE </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 0RA </td> <td align="center"> 1RC </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1LA </td> <td align="center"> 1RH </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+Let C(n, p) = . . . 0(A0)(01)<sup>n</sup>R(bin(p))0 . . ., where R(bin(p))
+is the number p written in binary in reverse order, so that
+C(n, 4m + 2) = C(n + 1, m).<br>
+The number of transitions between configurations C(n, p)
+is infinite, but only 20 transitions are used in the computation
+on a blank tape:
+</p>
+
+<p align="center">
+ C(2k, 4m) --( 9k<sup>2</sup> + 25k + 9 )--&gt; C(3k + 1, 2m + 1)<br>
+ C(2k, 16m + 1) --( 9k<sup>2</sup> + 25k + 17 )--&gt; C(3k + 2, 2m + 1)<br>
+ C(2k, 4m + 3) --( 9k<sup>2</sup> + 25k + 9 )--&gt; C(3k + 1, 2m)<br>
+ C(2k, 64m + 53) --( 9k<sup>2</sup> + 25k + 25 )--&gt; C(3k + 3, 2m)<br>
+ C(2k, 256m + 9) --( 9k<sup>2</sup> + 25k + 29 )--&gt; C(3k + 4, 2m + 1)<br>
+ C(2k, 1024m + 57) --( 9k<sup>2</sup> + 25k + 33 )--&gt; C(3k + 2, 128m + 104)<br>
+ C(2k, 1024m + 85) --( 9k<sup>2</sup> + 25k + 41 )--&gt; C(3k + 5, 2m + 1)<br>
+ C(2k + 1, 16m) --( 9k<sup>2</sup> + 25k + 21 )--&gt; C(3k + 3, 2m + 1)<br>
+ C(2k + 1, 4m + 1) --( 9k<sup>2</sup> + 25k + 13 )--&gt; C(3k + 1, 8m + 4)<br>
+ C(2k + 1, 64m + 4) --( 9k<sup>2</sup> + 25k + 29 )--&gt; C(3k + 4, 2m + 1)<br>
+ C(2k + 1, 64m + 3) --( 9k<sup>2</sup> + 25k + 25 )--&gt; C(3k + 1, 128m + 104)<br>
+ C(2k + 1, 1024m + 104) --( 9k<sup>2</sup> + 43k + 75 )--&gt; C(3k + 7, 2m + 1)<br>
+ C(2k + 1, 16m + 12) --( 9k<sup>2</sup> + 25k + 21 )--&gt; C(3k + 3, 2m)<br>
+ C(2k + 1, 16m + 7) --( 9k<sup>2</sup> + 25k + 17 )--&gt; C(3k + 1, 32m + 16)<br>
+ C(2k + 1, 256m + 15) --( 9k<sup>2</sup> + 25k + 29 )--&gt; C(3k + 1, 512m + 416)<br>
+ C(2k + 1, 64m + 52) --( 9k<sup>2</sup> + 25k + 29 )--&gt; C(3k + 4, 2m)<br>
+ C(2k + 1, 256m + 20) --( 9k<sup>2</sup> + 25k + 37 )--&gt; C(3k + 5, 2m + 1)<br>
+ C(2k + 1, 4096m + 420) --( 9k<sup>2</sup> + 43k + 89 )--&gt; C(3k + 8, 2m + 1)<br>
+ C(2k + 1, 256m + 211) --( 9k<sup>2</sup> + 25k + 33 )--&gt; C(3k + 1, 512m + 168)<br>
+ C(2k + 1, 16m + 11) --( 9k<sup>2</sup> + 13k + 10 )--&gt;
+ . . . 0(10)<sup>3k+1</sup>11(H0)10R(bin(m))0 . . .
+</p>
+
+So we have (the final configuration is reached in 4911 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . =  C( 0, 0 ) --( 9 )--&gt;<br>
+ C( 1, 1 ) --( 13 )--&gt;<br>
+ C( 1, 4 ) --( 29 )--&gt;<br>
+ C( 4, 1 ) --( 103 )--&gt;<br>
+ C( 8, 1 ) --( 261 )--&gt;<br>
+ C( 14, 1 ) --( 633 )--&gt;<br>
+ C( 23, 1 ) --( 1,377 )--&gt;<br>
+ C( 34, 4 ) --( 3,035 )--&gt;<br>
+ C( 52, 3 ) --( 6,743 )--&gt;<br>
+ C( 79, 0 ) --( 14,685 )--&gt;<br>
+ C( 120, 1 ) --( 33,917 )--&gt;<br>
+ C( 182, 1 ) --( 76,821 )--&gt;<br>
+ C( 275, 1 ) --( 172,359 )--&gt;<br>
+ C( 412, 4 ) --( 387,083 )--&gt;<br>
+ C( 619, 3 ) --( 867,079 )--&gt;<br>
+ C( 928, 104 ) --( 1,949,273 )--&gt;<br>
+ C( 1393, 53 ) --( 4,377,157 )--&gt;<br>
+ C( 2089, 108 ) --( 9,835,545 )--&gt;<br>
+ C( 3135, 12 ) --( 22,138,597 )--&gt;<br>
+ C( 4704, 0 ) --( 49,845,945 )--&gt;<br>
+ C( 7057, 1 ) --( 112,109,269 )--&gt;<br>
+ C( 10585, 4 ) --( 252,179,705 )--&gt;<br>
+
+ <font size="5">
+  . . .
+ </font>
+</p>
+
+<p>
+<b>Note:</b> Clive Tooth posted an analysis of this machine
+on Google Groups (sci.math&gt;The Turing machine known as #r),
+on June 28, 2002.<br>
+He used the configurations
+S(n, x) = . . . 0101(B1)010(01)<sup>n</sup>x0 . . .<br>
+His analysis can be easily connected to the present one,
+by noting that
+<blockquote>
+ C(n, p) --( 15 )--&gt; S(n - 2, R(bin(p))).
+</blockquote>
+</p>
+</font>
+
+<p> </p>
+
+<a name="tm62b"> </a>
+<p>
+ <font size="4">
+  <b> Marxen and Buntrock's second machine</b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simmbL6_q.html">
+simulation by Heiner Marxen</a> and the analyses by Robert Munafo (the
+<a href="http://mrob.com/pub/math/ln-notes1-4.html#mb6q">
+short one</a> and the
+<a href="http://mrob.com/pub/math/ln-mb6q.html">
+detailed one</a>).
+See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+Michel (2015)</a>, Section 9.
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 6 states and 2 symbols, from October 2000 to
+March 2001.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> <a href="http://turbotm.de/~heiner/BB">
+        Marxen and Buntrock (2000) </a>  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 6.1 &times; 10<sup><font
+       size="2">925</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 6.4 &times;
+        10<sup><font size="2">462</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LB </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 0RC </td> <td align="center"> 1LB </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1RD </td> <td align="center"> 0LA </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LE </td> <td align="center"> 1LF </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LA </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1RH </td> <td align="center"> 1LE </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+Let C(n) = . . . 01<sup>n</sup>(B0)0 . . .<br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 1 )--&gt; </td>
+  <td> C(1) </td>
+ </tr>
+ <tr>
+  <td> C(3k) </td>
+  <td align="center"> --( 54 &times; 4<sup>k+1</sup> - 27 &times
+   2<sup>k+3</sup> + 26k + 86 )--&gt; </td>
+  <td> C(9 &times; 2<sup>k+1</sup> - 8) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1) </td>
+  <td align="center"> --( 2048 &times; (4<sup>k</sup>-1)/3 - 3 &times;
+   2<sup>k+7</sup> + 26k + 792 )--&gt; </td>
+  <td> C(2<sup>k+5</sup> - 8) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2) </td>
+  <td align="center"> --( 3k + 8 )--&gt; </td>
+  <td> . . . 01(H1)(011)<sup>k</sup>(0101)0 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+. . . 0(A0)0 . . . --( 1 )--&gt;<br>
+C( 1 ) --( 408 )--&gt;<br>
+C( 24 ) --( 14,100,774 )--&gt;<br>
+C( 4600 ) --( 2048 &times; (4^1533 - 1)/3 - 3 &times; 2^1540 + 40650 )--&gt;<br>
+C( 2^1538 - 8 ) --( 2^1538 - 2 )--&gt;<br>
+. . . 01(H1)(011)<sup>p</sup>(0101)0 . . .<br>
+with p = (2^1538 - 10)/3.
+</p>
+
+<p>
+So the total time is T = 2048 &times; (4^1533 - 1)/3 - 11 &times;
+2^1538 + 14141831,<br>
+and the final number of 1 is: 2 &times; (2^1538 - 10)/3 + 4.
+</p>
+
+<p>
+Note that<br>
+C(6k + 1) --( &nbsp; )--&gt; C(3m) --( &nbsp; )--&gt; C(6p + 4) --( &nbsp; )--&gt; C(3q + 2)
+--( &nbsp; )--&gt; END,<br>
+with m = (2^(2k+5) - 8)/3,<br>
+p = 3 &times 2^m - 2,<br>
+q = (2^(2p+6) - 10)/3.<br>
+</p>
+
+<p>
+So all configurations C(n) lead to a halting configuration.<br>
+Those taking the most time are C(6k + 1).<br>
+For example: C(7) --( t )--&gt; END with t &gt; 10^(3.9 &times 10^12).<br>
+More generally: C(6k + 1) --( t(k) )--&gt; END with
+t(k) &gt; 10^(10^(10^((3k + 2)/5))).
+</p>
+
+<p> </p>
+
+<a name="tm62c"> </a>
+<p>
+ <font size="4">
+  <b> Marxen and Buntrock's third machine</b>
+ </font>
+</p>
+
+<font size="3">
+See also the <a href="http://turbotm.de/~heiner/BB/simmbL6_o.html">
+simulation by Heiner Marxen</a>.
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> <a href="http://turbotm.de/~heiner/BB">
+        Marxen and Buntrock (2000) </a>  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) &gt; 6.1 &times; 10<sup><font
+       size="2">119</font></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) &gt; 1.4 &times;
+        10<sup><font size="2">60</font></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LC </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LA </td> <td align="center"> 1RC </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1RA </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LE </td> <td align="center"> 1LC </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RF </td> <td align="center"> 1RH </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1RA </td> <td align="center"> 1RE </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+Let C(n, x) = . . . 0(E0)1000(10)<sup>n</sup>x0 . . ., so that
+C(n, 10y) = C(n + 1, y).<br>
+The number of transitions between configurations C(n, x)
+is infinite, but only 9 transitions are used in the computation
+on a blank tape:
+</p>
+
+<p align="center">
+ . . . 0(A0)0 . . . --( 18 )--> C(1, 01)<br>
+ C(2k, 01<sup>n</sup>) --( 6k<sup>2</sup> + 22k + 15 )--&gt; C(3k + 1, 01<sup>n+1</sup>)<br>
+ C(2k, 11) --( 6k<sup>2</sup> + 34k + 41 )--&gt; C(3k + 4, 01)<br>
+ C(2k, 111) --( 6k<sup>2</sup> + 34k + 45 )--&gt; C(3k + 5, 01)<br>
+ C(2k, 1111) --( 6k<sup>2</sup> + 28k + 25 )--&gt;
+   . . . 01<sup>6k+11</sup>(H0)0 . . .<br>
+ C(2k + 1, 0) --( 6k<sup>2</sup> + 34k + 43 )--&gt; C(3k + 4, 0)<br>
+ C(2k + 1, 01) --( 6k<sup>2</sup> + 22k + 27 )--&gt; C(3k + 4, 01)<br>
+ C(2k + 1, 01<sup>n+2</sup>) --( 6k<sup>2</sup> + 22k + 23 )--&gt;
+   C(3k + 4, 1<sup>n</sup>)<br>
+ C(2k + 1, 1<sup>n+2</sup>) --( 6k<sup>2</sup> + 34k + 41 )--&gt;
+   C(3k + 4, 01<sup>n</sup>)<br>
+</p>
+
+<p>
+ So we have (final configuration is reached in 337 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . --( 18 )--&gt;<br>
+ C( 1, 01 ) --( 27 )--&gt;<br>
+ C( 4, 01 ) --( 83 )--&gt;<br>
+ C( 7, 011 ) --( 143 )--&gt;<br>
+ C( 13, 0 ) --( 463 )--&gt;<br>
+ C( 22, 0 ) --( 983 )--&gt;<br>
+ C( 34, 01 ) --( 2,123 )--&gt;<br>
+ C( 52, 011 ) --( 4,643 )--&gt;<br>
+ C( 79, 0111 ) --( 10,007 )--&gt;<br>
+ C( 122, 0 ) --( 23,683 )--&gt;<br>
+ C( 184, 01 ) --( 52,823 )--&gt;<br>
+ C( 277, 011 ) --( 117,323 )--&gt;<br>
+ C( 418, 0 ) --( 266,699 )--&gt;<br>
+ C( 628, 01 ) --( 598,499 )--&gt;<br>
+ C( 943, 011 ) --( 1,341,431 )--&gt;<br>
+ C( 1417, 0 ) --( 3,031,699 )--&gt;<br>
+ C( 2128, 0 ) --( 6,815,999 )--&gt;<br>
+ C( 3193, 01 ) --( 15,318,435 )--&gt;<br>
+ C( 4792, 01 ) --( 34,497,623 )--&gt;<br>
+ C( 7189, 011 ) --( 77,580,107 )--&gt;<br>
+ C( 10786, 0 ) --( 174,625,355 )--&gt;<br>
+ <font size="5">
+  . . .
+ </font>
+</p>
+
+<p>
+ Note that, if C(n, m) = . . . 0(E0)1000(10)<sup>n</sup>R(bin(m))0
+ . . ., where R(bin(m)) is the number m written in binary in reverse
+ order, so that C(n, 4m + 1) = C(n + 1, m), then we have also:
+</p>
+
+<p align="center">
+ . . . 0(A0)0 . . . --( 18 )--> C(1, 2)<br>
+ C(2k, 2m) --( 6k<sup>2</sup> + 22k + 15 )--&gt; C(3k + 1, 4m + 2)<br>
+ C(2k, 32m + 3) --( 6k<sup>2</sup> + 34k + 41 )--&gt; C(3k + 4, 4m + 2)<br>
+ C(2k, 128m + 7) --( 6k<sup>2</sup> + 34k + 45 )--&gt; C(3k + 5, 4m + 2)<br>
+ C(2k, 32m + 15) --( 6k<sup>2</sup> + 28k + 25 )--&gt;
+   . . . 01<sup>6k+11</sup>(H0)R(bin(m))0 . . .<br>
+ C(2k + 1, 4m) --( 6k<sup>2</sup> + 34k + 43 )--&gt; C(3k + 4, 2m)<br>
+ C(2k + 1, 32m + 2) --( 6k<sup>2</sup> + 22k + 27 )--&gt; C(3k + 4, 4m
+   + 2)<br>
+ C(2k + 1, 8m + 6) --( 6k<sup>2</sup> + 22k + 23 )--&gt; C(3k + 4, m)<br>
+ C(2k + 1, 4m + 3) --( 6k<sup>2</sup> + 34k + 41 )--&gt; C(3k + 4, 2m)<br>
+</p>
+
+</font>
+
+<p> </p>
+
+<a name="tm62d"> </a>
+<p>
+ <font size="4">
+  <b> Another Marxen and Buntrock's machine</b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simmbL6_2.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+ This machine was discovered in January 1990, and was published
+ on the web (Google groups) on September 3, 1997.<br>
+ It was the record holder in the Busy Beaver Competition for
+ machines with 6 states and 2 symbols up to July 2000.
+
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> <a href="http://turbotm.de/~heiner/BB">
+        Marxen and Buntrock (1997) </a>  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) = 8,690,333,381,690,951
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) = 95,524,079
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1RA </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LC </td> <td align="center"> 1LB </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 0RF </td> <td align="center"> 1LD </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1RA </td> <td align="center"> 0LE </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RH </td> <td align="center"> 1LF </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 0LA </td> <td align="center"> 0LC </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+ Note the likeness to the machine N with 3 states and 3 symbols
+ discovered, in August 2006, by Terry and Shawn Ligocki.<br>
+ For this machine N, we have s(N) = 4,345,166,620,336,565
+ and sigma(N)= 95,524,079, that is, same value of sigma, and almost
+ half the value of s. See <a href="#sb">analysis</a> of this similarity.
+</p>
+
+<i> Analysis by Robert Munafo: </i>
+<p> </p>
+
+<p>
+Let C(n) = . . . 0(D0)1<sup>n</sup>0 . . .<br>
+Then we have:
+</p>
+
+<p align="center">
+ . . . 0(A0)0 . . . --( 3 )--> C(2)<br>
+ C(4k) --( 8k + 6 )--&gt;  . . . 01(H0)(10)<sup>2k</sup>110 . . .<br>
+ C(4k + 1) --( 20k<sup>2</sup> + 56k + 30 )--&gt; C(10k + 9)<br>
+ C(4k + 2) --( 20k<sup>2</sup> + 56k + 33 )--&gt; C(10k + 9)<br>
+ C(4k + 3) --( 20k<sup>2</sup> + 68k + 51 )--&gt; C(10k + 12)<br>
+</p>
+
+<p>
+ So we have:
+</p>
+
+<p align="center">
+ . . . 0(A0)0 . . . --( 3 )--&gt;<br>
+ C( 2 ) --( 33 )--&gt;<br>
+ C( 9 ) --( 222 )--&gt;<br>
+ C( 29 ) --( 1,402 )--&gt;<br>
+ C( 79 ) --( 8,563 )--&gt;<br>
+ C( 202 ) --( 52,833 )--&gt;<br>
+ C( 509 ) --( 329,722 )--&gt;<br>
+ C( 1,279 ) --( 2,056,963 )--&gt;<br>
+ C( 3,202 ) --( 12,844,833 )--&gt;<br>
+ C( 8,009 ) --( 80,272,222 )--&gt;<br>
+ C( 20,029 ) --( 501,681,402 )--&gt;<br>
+ C( 50,079 ) --( 3,135,358,563 )--&gt;<br>
+ C( 125,202 ) --( 19,595,552,833 )--&gt;<br>
+ C( 313,009 ) --( 122,471,892,222 )--&gt;<br>
+ C( 782,529 ) --( 765,448,543,902 )--&gt;<br>
+ C( 1,956,329 ) --( 4,784,051,443,102 )--&gt;<br>
+ C( 4,890,829 ) --( 29,900,316,628,602 )--&gt;<br>
+ C( 12,227,079 ) --( 186,876,942,247,563 )--&gt;<br>
+ C( 30,567,702 ) --( 1,167,980,782,060,333 )--&gt;<br>
+ C( 76,419,259 ) --( 7,299,879,658,619,323 )--&gt;<br>
+ C( 191,048,152 ) --( 382,096,310 )--&gt;<br>
+ . . . 01(H0)(10)<sup>95524076</sup>110 . . .
+</p>
+
+</font>
+
+<p> </p>
+
+<a name="tmb33"> </a>
+<p>
+ <font size="5">
+  <b> Turing machines with 3 states and 3 symbols </b>
+ </font>
+</p>
+
+<a name="tm33h"> </a>
+<p>
+ <font size="4">
+  <b> Ligockis' champion</b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLig33_b.html">
+ simulation by Heiner Marxen</a>.
+ See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+ Michel (2015)</a>, Section 3.
+
+</p>
+
+<p>
+This machine is the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, since November 2007.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2007)      </td> </tr>
+    <tr> <td align="center"> s(M) = 119,112,334,170,342,540 =? S(3,3) </td> </tr>
+    <tr> <td align="center"> sigma(M) = 374,676,383 =? Sigma(3,3) </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2LA</td>
+     <td align="center">1LC</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">0LA</td>
+     <td align="center">2RB</td>
+     <td align="center">1LB</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1RH</td>
+     <td align="center">1RA</td>
+     <td align="center">1RC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+
+Let C(n) = . . . 0(A0)2<sup>n</sup>0 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 3 )--&gt; </td>
+  <td> C(1) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 1) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 116k + 13 )--&gt; </td>
+  <td> C(14k + 3) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 2) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 144k + 38 )--&gt; </td>
+  <td> C(14k + 7) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 3) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 172k + 54 )--&gt; </td>
+  <td> C(14k + 8) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 4) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 200k + 74 )--&gt; </td>
+  <td> C(14k + 9) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 5) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 228k + 97 )--&gt; </td>
+  <td>  . . . 01(H1)2<sup>14k+9</sup>0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(8k + 6) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 256k + 139 )--&gt; </td>
+  <td> C(14k + 14) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 7) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 284k + 169 )--&gt; </td>
+  <td> C(14k + 15) </td>
+ </tr>
+ <tr>
+  <td> C(8k + 8) </td>
+  <td align="center"> --( 112k<sup>2</sup> + 312k + 203 )--&gt; </td>
+  <td> C(14k + 16) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have (in 34 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . --( 3 )--&gt;<br>
+ C( 1 ) --( 13 )--&gt;<br>
+ C( 3 ) --( 54 )--&gt;<br>
+ C( 8 ) --( 203 )--&gt;<br>
+ C( 16 ) --( 627 )--&gt;<br>
+ C( 30 ) --( 1915 )--&gt;<br>
+ <font size="5">
+  . . .
+ </font><br>
+ &nbsp;<br>
+ C( 122,343,306 ) --( 26,193,799,261,043,238 )--&gt;<br>
+ C( 214,100,789 ) --( 80,218,511,093,348,089 )--&gt;<br>
+ . . . 01(H1)2<sup>374676381</sup>0 . . .
+
+<p> </p>
+
+<a name="tm33g"> </a>
+<p>
+ <font size="4">
+  <b> Ligockis' machine found in August 2006 </b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLig33_a.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, from August 2006 to
+November 2007.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2006)      </td> </tr>
+    <tr> <td align="center"> s(M) = 4,345,166,620,336,565 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 95,524,079 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2RC</td>
+     <td align="center">1LA</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">2LA</td>
+     <td align="center">1RB</td>
+     <td align="center">1RH</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">2RB</td>
+     <td align="center">2RA</td>
+     <td align="center">1LC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+ Note the likeness to the machine N with 6 states and 2 symbols
+ discovered, in January 1990, by Heiner Marxen and J&uuml;rgen
+ Buntrock.<br>
+ For this machine N, we have s(N) = 8,690,333,381,690,951
+ and sigma(N)= 95,524,079, that is, same value of sigma, and almost
+ twice the value of s. See <a href="#sb">analysis</a> of this similarity.
+</p>
+
+<i> Analysis by Shawn Ligocki: </i>
+<p> </p>
+
+Let C(n, 0) = . . . 0(A0)1<sup>2n</sup>0 . . . ,<br>
+and C(n, 1) = . . . 0(C0)1<sup>2n</sup>0 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> C(2k, 0) </td>
+  <td align="center"> --( 40k<sup>2</sup> + 32k + 5 )--&gt; </td>
+  <td> C(5k + 1, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 0) </td>
+  <td align="center"> --( 40k<sup>2</sup> + 82k + 42 )--&gt; </td>
+  <td> . . . 01<sup>10k+9</sup>(H0)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 40k<sup>2</sup> + 52k + 19 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 1) </td>
+  <td align="center"> --( 40k<sup>2</sup> + 92k + 53 )--&gt; </td>
+  <td> C(5k + 5, 0) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . = C( 0, 0 ) --( 5 )--&gt;<br>
+ C( 1, 1 ) --( 19 )--&gt;<br>
+ C( 3, 1 ) --( 111 )--&gt;<br>
+ C( 8, 1 ) --( 689 )--&gt;<br>
+ C( 20, 0 ) --( 4,325 )--&gt;<br>
+ C( 51, 1 ) --( 26,319 )--&gt;<br>
+ C( 128, 1 ) --( 164,609 )--&gt;<br>
+ C( 320, 0) --( 1,029,125 )--&gt;<br>
+ C( 801, 1 ) --( 6,420,819 )--&gt;<br>
+ C( 2003, 1 ) --( 40,132,111 )--&gt;<br>
+ C( 5008, 1 ) --( 250,830,689 )--&gt;<br>
+ C( 12520, 0 ) --( 1,567,704,325 )--&gt;<br>
+ C( 31301, 1 ) --( 9,797,713,819 )--&gt;<br>
+ C( 78253, 1 ) --( 61,235,789,611 )--&gt;<br>
+ C( 195633, 1 ) --( 382,723,880,691 )--&gt;<br>
+ C( 489083, 1 ) --( 2,392,024,743,391 )--&gt;<br>
+ C( 1222708, 1 ) --( 14,950,155,868,889 )--&gt;<br>
+ C( 3056770, 0 ) --( 93,438,477,237,325 )--&gt;<br>
+ C( 7641926, 1 ) --( 582,990,375,746,317 )--&gt;<br>
+ C( 19104815, 0 ) --( 3,649,939,963,043,376 )--&gt;<br>
+ . . . 01<sup>95524079</sup>(H0)0 . . .
+
+<p> </p>
+
+<a name="tm33f"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in April 2006 </b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf33_e.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, from April to August 2006.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Lafitte and Papazian (2006)      </td> </tr>
+    <tr> <td align="center"> s(M) = 4,144,465,135,614 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 2,950,149  </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">1RH</td>
+     <td align="center">2LC</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LC</td>
+     <td align="center">2RB</td>
+     <td align="center">1LB</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1LA</td>
+     <td align="center">2RC</td>
+     <td align="center">2LA</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+
+Let C(n, 0) = . . . 0(A0)1<sup>n</sup>0 . . . ,<br>
+and C(n, 1) = . . . 0(A0)1<sup>n</sup>210 . . . <br>
+Then we have (note the likeness to
+<a href="#tm33a">Brady's machine</a>):
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . .</td>
+  <td align="center"> --( 16 )--&gt; </td>
+  <td> C(6, 0) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 0) </td>
+  <td align="center"> --( 4k + 5 )--&gt; </td>
+  <td> . . . 01(H2)2<sup>2k</sup>10 . . . </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 0) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 27k + 23 )--&gt; </td>
+  <td> C(5k + 6, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 1) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 27k + 18 )--&gt; </td>
+  <td> C(5k + 5, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 51k + 60 )--&gt; </td>
+  <td> C(5k + 12, 0) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 16 )--&gt;<br>
+ C( 6, 0 ) --( 117 )--&gt;<br>
+ C( 16, 1 ) --( 874 )--&gt;<br>
+ C( 45, 1 ) --( 6,022 )--&gt;<br>
+ C( 122, 0 ) --( 37,643 )--&gt;<br>
+ C( 306, 1 ) --( 238,239 )--&gt;<br>
+ C( 770, 1 ) --( 1,492,663 )--&gt;<br>
+ C( 1930, 1 ) --( 9,338,323 )--&gt;<br>
+ C( 4830, 1 ) --( 58,387,473 )--&gt;<br>
+ C( 12080, 1 ) --( 364,979,098 )--&gt;<br>
+ C( 30205, 1 ) --( 2,281,474,302 )--&gt;<br>
+ C( 75522, 0 ) --( 14,259,195,543 )--&gt;<br>
+ C( 188806, 1 ) --( 89,121,812,989 )--&gt;<br>
+ C( 472020, 1 ) --( 557,013,573,288 )--&gt;<br>
+ C( 1180055, 1 ) --( 3,481,348,698,727 )--&gt;<br>
+ C( 2950147, 0 ) --( 5,900,297 )--&gt;<br>
+ . . . 01(H2)2<sup>2950146</sup>10 . . .
+</p>
+
+Note that we have also:
+
+<p>
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 133 )--&gt; </td>
+  <td> C(16, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 1) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 27k + 18 )--&gt; </td>
+  <td> C(5k + 5, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 1, 1) </td>
+  <td align="center"> --( 290k<sup>2</sup> + 737k + 468 )--&gt; </td>
+  <td> C(25k + 31, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 1) </td>
+  <td align="center"> --( 40k<sup>2</sup> + 162k + 158 )--&gt; </td>
+  <td> . . . 01(H2)2<sup>10k+16</sup>10 . . . </td>
+ </tr>
+</table>
+</p>
+</font>
+
+<a name="tm33e"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in September 2005 </b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf33_d.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, from September 2005 to April
+2006.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Lafitte and Papazian (2005)      </td> </tr>
+    <tr> <td align="center"> s(M) = 987,522,842,126 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 1,525,688 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2LA</td>
+     <td align="center">1RA</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1RC</td>
+     <td align="center">2RB</td>
+     <td align="center">0RC</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1LA</td>
+     <td align="center">1RH</td>
+     <td align="center">1LA</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+
+Let C(n, 0) = . . . 0(A0)2<sup>n</sup>0 . . . ,<br>
+and C(n, 1) = . . . 0(A0)2<sup>n</sup>10 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> C(4k, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 16k + 5 )--&gt; </td>
+  <td> C(7k + 2, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 1, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 30k + 15 )--&gt; </td>
+  <td> C(7k + 5, 0) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 2, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 30k + 15 )--&gt; </td>
+  <td> C(7k + 5, 0) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 44k + 35 )--&gt; </td>
+  <td> C(7k + 9, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 4k + 3 )--&gt; </td>
+  <td> . . . 01(12)<sup>k</sup>01(H0)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(4k, 1) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 26k + 11 )--&gt; </td>
+  <td> C(7k + 4, 0) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 2, 1) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 40k + 29 )--&gt; </td>
+  <td> C(7k + 8, 1) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . = C( 0, 0 ) --( 5 )--&gt;<br>
+ C( 2, 1 ) --( 29 )--&gt;<br>
+ C( 8, 1 ) --( 119 )--&gt;<br>
+ C( 18, 0 ) --( 359 )--&gt;<br>
+ C( 33, 0 ) --( 1,151 )--&gt;<br>
+ C( 61, 0 ) --( 3,615 )--&gt;<br>
+ C( 110, 0 ) --( 11,031 )--&gt;<br>
+ C( 194, 0 ) --( 33,711 )--&gt;<br>
+ C( 341, 0 ) --( 103,715 )--&gt;<br>
+ C( 600, 0 ) --( 317,405 )--&gt;<br>
+ C( 1052, 1 ) --( 975,215 )--&gt;<br>
+ C( 1845, 0 ) --( 2,989,139 )--&gt;<br>
+ C( 3232, 0 ) --( 9,153,029 )--&gt;<br>
+ C( 5658, 1 ) --( 28,048,133 )--&gt;<br>
+ C( 9906, 1 ) --( 85,927,133 )--&gt;<br>
+ C( 17340, 1 ) --( 263,203,871 )--&gt;<br>
+ C( 30349, 0 ) --( 806,103,591 )--&gt;<br>
+ C( 53114, 0 ) --( 2,468,672,331 )--&gt;<br>
+ C( 92951, 0 ) --( 7,560,436,829 )--&gt;<br>
+ C( 162668, 1 ) --( 23,154,325,799 )--&gt;<br>
+ C( 284673, 0 ) --( 70,910,514,191 )--&gt;<br>
+ C( 498181, 0 ) --( 217,164,134,715 )--&gt;<br>
+ C( 871820, 0 ) --( 665,064,835,635 )--&gt;<br>
+ C( 1525687, 1 ) --( 3,051,375 )--&gt;<br>
+ . . . 01(12)<sup>762843</sup>01(H0)0 . . .
+</p>
+</font>
+
+<a name="tm33d"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in August 2005 </b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf33_b.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, from August to
+September 2005.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Lafitte and Papazian (2005)      </td> </tr>
+    <tr> <td align="center"> s(M) = 4,939,345,068 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 107,900 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">1RH</td>
+     <td align="center">2RB</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LC</td>
+     <td align="center">0LB</td>
+     <td align="center">1RA</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1RA</td>
+     <td align="center">2LC</td>
+     <td align="center">1RC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+
+Let C(n, 0) = . . . 0(C0)2<sup>n</sup>0 . . . ,<br>
+and C(n, 1) = . . . 0(C0)2<sup>n</sup>10 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 3 )--&gt; </td>
+  <td> C(1, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 16k + 5 )--&gt; </td>
+  <td> C(7k + 2, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 1, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 22k + 7 )--&gt; </td>
+  <td> C(7k + 3, 0) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 2, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 30k + 15 )--&gt; </td>
+  <td> C(7k + 5, 0) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 0) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 36k + 23 )--&gt; </td>
+  <td> C(7k + 7, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 1) </td>
+  <td align="center"> --( 2k + 2 )--&gt; </td>
+  <td> . . . 01(21)<sup>k</sup>1(H0)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(4k + 1, 1) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 20k + 9 )--&gt; </td>
+  <td> C(7k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 1) </td>
+  <td align="center"> --( 14k<sup>2</sup> + 34k + 21 )--&gt; </td>
+  <td> C(7k + 6, 0) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 3 )--&gt;<br>
+ C( 1, 1 ) --( 9 )--&gt;<br>
+ C( 3, 1 ) --( 21 )--&gt;<br>
+ C( 6, 0 ) --( 59 )--&gt;<br>
+ C( 12, 0 ) --( 179 )--&gt;<br>
+ C( 23, 1 ) --( 541 )--&gt;<br>
+ C( 41, 0 ) --( 1,627 )--&gt;<br>
+ C( 73, 0 ) --( 4,939 )--&gt;<br>
+ C( 129, 0 ) --( 15,047 )--&gt;<br>
+ C( 227, 0 ) --( 45,943 )--&gt;<br>
+ C( 399, 1 ) --( 140,601 )--&gt;<br>
+ C( 699, 0 ) --( 430,151 )--&gt;<br>
+ C( 1225, 1 ) --( 1,317,033 )--&gt;<br>
+ C( 2145, 1 ) --( 4,032,873 )--&gt;<br>
+ C( 3755, 1 ) --( 12,349,729 )--&gt;<br>
+ C( 6572, 0 ) --( 37,818,579 )--&gt;<br>
+ C( 11503, 1 ) --( 115,816,521 )--&gt;<br>
+ C( 20131, 0 ) --( 354,675,511 )--&gt;<br>
+ C( 35231, 1 ) --( 1,086,184,945 )--&gt;<br>
+ C( 61655, 0 ) --( 3,326,402,857 )--&gt;<br>
+ C( 107898, 1 ) --( 107,900 )--&gt;<br>
+  . . . 01(21)<sup>53949</sup>1(H0)0 . . . 
+</p>
+</font>
+
+<a name="tm33c"> </a>
+<p>
+ <font size="4">
+  <b> Souris's machine for S(3,3) </b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simMS33_b.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for S(3,3), from July to August 2005.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Souris (2005)      </td> </tr>
+    <tr> <td align="center"> s(M) = 544,884,219 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 32,213 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">1LB</td>
+     <td align="center">2LA</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LA</td>
+     <td align="center">1RC</td>
+     <td align="center">1RH</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">0LA</td>
+     <td align="center">2RC</td>
+     <td align="center">1LC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+
+Let C(n, 0) = . . . 0(A0)1<sup>n</sup>0 . . . ,<br>
+and C(n, 1) = . . . 0(A0)1<sup>n</sup>20 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 4 )--&gt; </td>
+  <td> C(3, 0) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 0) </td>
+  <td align="center"> --( 21k<sup>2</sup> + 43k + 19 )--&gt; </td>
+  <td> . . . 011(H2)2<sup>7k + 1</sup>0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(3k + 3, 0) </td>
+  <td align="center"> --( 21k<sup>2</sup> + 43k + 24 )--&gt; </td>
+  <td> C(7k + 7, 0) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 4, 0) </td>
+  <td align="center"> --( 21k<sup>2</sup> + 43k + 26 )--&gt; </td>
+  <td> C(7k + 7, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 1) </td>
+  <td align="center"> --( 21k<sup>2</sup> + 61k + 35 )--&gt; </td>
+  <td> . . . 011(H2)2<sup>7k + 3</sup>0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 1) </td>
+  <td align="center"> --( 21k<sup>2</sup> + 61k + 42 )--&gt; </td>
+  <td> C(7k + 9, 0) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 3, 1) </td>
+  <td align="center"> --( 21k<sup>2</sup> + 61k + 46 )--&gt; </td>
+  <td> C(7k + 9, 1) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 4 )--&gt;<br>
+ C( 3, 0 ) --( 24 )--&gt;<br>
+ C( 7, 0 ) --( 90 )--&gt;<br>
+ C( 14, 1 ) --( 622 )--&gt;<br>
+ C( 37, 0 ) --( 3,040 )--&gt;<br>
+ C( 84, 1 ) --( 17,002 )--&gt;<br>
+ C( 198, 1 ) --( 92,736 )--&gt;<br>
+ C( 464, 1 ) --( 507,472 )--&gt;<br>
+ C( 1087, 0 ) --( 2,752,290 )--&gt;<br>
+ C( 2534, 1 ) --( 15,010,582 )--&gt;<br>
+ C( 5917, 0 ) --( 81,666,440 )--&gt;<br>
+ C( 13804, 1 ) --( 444,833,917 )--&gt;<br>
+  . . . 011(H2)2<sup>32210</sup>0 . . . 
+</p>
+</font>
+
+<a name="tm33b"> </a>
+<p>
+ <font size="4">
+  <b> Souris's machine for Sigma(3,3) </b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simMS33_a.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for Sigma(3,3), from July to August 2005.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Souris (2005)      </td> </tr>
+    <tr> <td align="center"> s(M) = 310,341,163 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 36,089 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2RA</td>
+     <td align="center">2RC</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LC</td>
+     <td align="center">1RH</td>
+     <td align="center">1LA</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1RA</td>
+     <td align="center">2LB</td>
+     <td align="center">1LC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+
+Let C(n, 0) = . . . 0(C0)1<sup>n</sup>0 . . .,<br>
+and  C(n, 1) = . . . 0(C0)1<sup>n</sup>210 . . .<br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 4 )--&gt; </td>
+  <td> C(1, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 0) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 32k + 17 )--&gt; </td>
+  <td> C(5k + 5, 0)</td>
+ </tr>
+ <tr>
+  <td> C(2k + 3, 0) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 32k + 21 )--&gt; </td>
+  <td> C(5k + 4, 1)</td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 32k + 15 )--&gt; </td>
+  <td> C(5k + 4, 0)</td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 37k + 30 )--&gt; </td>
+  <td> . . . 012<sup>5k + 5</sup>1(H2)10 . . .</td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 4 )--&gt;<br>
+ C( 1, 1 ) --( 15 )--&gt;<br>
+ C( 4, 0 ) --( 54 )--&gt;<br>
+ C( 10, 0 ) --(225 )--&gt;<br>
+ C( 25, 0 ) --( 978 )--&gt;<br>
+ C( 59, 1 ) --( 5,148 )--&gt;<br>
+ C( 149, 0 ) --( 29,002 )--&gt;<br>
+ C( 369, 1 ) --( 175,183 )--&gt;<br>
+ C( 924, 0 ) --( 1,077,374 )--&gt;<br>
+ C( 2310, 0 ) --( 6,695,525 )--&gt;<br>
+ C( 5775, 0 ) --( 41,737,353 )--&gt;<br>
+ C( 14434, 1 ) --( 260,620,302 )--&gt;<br>
+  . . . 012<sup>36085</sup>1(H2)10 . . . 
+</p>
+
+Note that we have also:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 19 )--&gt; </td>
+  <td> C(4, 0) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 0) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 32k + 17 )--&gt; </td>
+  <td> C(5k + 5, 0)</td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 0) </td>
+  <td align="center"> --( 145k<sup>2</sup> + 299k + 93 )--&gt; </td>
+  <td> . . . 012<sup>25k + 10</sup>1(H2)10 . . . </td>
+ </tr>
+ <tr>
+  <td> C(4k + 5, 0) </td>
+  <td align="center"> --( 145k<sup>2</sup> + 444k + 281 )--&gt; </td>
+  <td> C(25k + 24, 0) </td>
+ </tr>
+</table>
+</font>
+
+<p></p>
+
+<a name="tm33a"> </a>
+<p>
+ <font size="4">
+  <b> Brady's machine</b>
+ </font>
+</p>
+
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simAB3Y_c.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, from December 2004
+to July 2005.
+</p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> <a href="http://www.cs.unr.edu/~al/BusyBeaver.html"> Brady (2004)</a>      </td> </tr>
+    <tr> <td align="center"> s(M) = 92,649,163 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 13,949 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">1RH</td>
+     <td align="center">2LC</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LC</td>
+     <td align="center">2RB</td>
+     <td align="center">1LB</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1LA</td>
+     <td align="center">0RB</td>
+     <td align="center">2LA</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+Let C(n, 0) = . . . 0(A0)1<sup>n</sup>0 . . ., <br>
+and C(n, 1) = . . . 0(A0)1<sup>n</sup>210 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 6 )--&gt; </td>
+  <td> C(0, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 0) </td>
+  <td align="center"> --( 4k + 5 )--&gt; </td>
+  <td> . . . 01(H2)2<sup>2k</sup>10 . . . </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 0) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 15k + 10 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 1) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 27k + 18 )--&gt; </td>
+  <td> C(5k + 5, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 51k + 60 )--&gt; </td>
+  <td> C(5k + 12, 0) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 6 )--&gt;<br>
+ C( 0, 1 ) --( 18 )--&gt;<br>
+ C( 5, 1 ) --( 202 )--&gt;<br>
+ C( 22, 0 ) --( 1,160 )--&gt;<br>
+ C( 53, 1 ) --( 8,146 )--&gt;<br>
+ C( 142, 0 ) --( 50,060 )--&gt;<br>
+ C( 353, 1 ) --( 318,796 )--&gt;<br>
+ C( 892, 0 ) --( 1,986,935 )--&gt;<br>
+ C( 2228, 1 ) --( 12,440,056 )--&gt;<br>
+ C( 5575, 1 ) --( 77,815,887 )--&gt;<br>
+ C( 13947, 0 ) --( 27,897 )--&gt;<br>
+ . . . 01(H2)2<sup>13946</sup>10 . . .
+</p>
+
+Note that we have also:
+
+<p>
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 6 )--&gt; </td>
+  <td> C(0, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 1) </td>
+  <td align="center"> --( 10k<sup>2</sup> + 27k + 18 )--&gt; </td>
+  <td> C(5k + 5, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 1, 1) </td>
+  <td align="center"> --( 290k<sup>2</sup> + 677k + 395 )--&gt; </td>
+  <td> C(25k + 28, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 1) </td>
+  <td align="center"> --( 40k<sup>2</sup> + 162k + 158 )--&gt; </td>
+  <td> . . . 01(H2)2<sup>10k+16</sup>10 . . . </td>
+ </tr>
+</table>
+</p>
+</font>
+
+<p> </p>
+
+<a name="tmb24"> </a>
+<p>
+ <font size="5">
+  <b> Turing machines with 2 states and 4 symbols </b>
+ </font>
+</p>
+
+<a name="tm24a"> </a>
+<p>
+ <font size="4">
+  <b> Ligockis' champion</b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLig24_a.html">
+ simulation by Heiner Marxen</a>.
+ See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+ Michel (2015)</a>, Section 4.
+</p>
+
+<p>
+This machine is the record holder in the Busy Beaver Competition
+for machines with 2 states and 4 symbols, since February 2005.
+</p>
+
+<table width="100%">
+<tr>
+<td>
+ <table align="center">
+ <tr> <td align="center"> Terry and Shawn Ligocki (2005) </td> </tr>
+ <tr> <td align="center">   s(M) = 3,932,964 =? S(2,4)   </td> </tr>
+ <tr> <td align="center"> sigma(M) = 2,050 =? Sigma(2,4) </td> </tr>
+ </table>
+</td>
+<td align="right">
+ M=
+</td>
+<td align="left">
+ <table border="2" width="340">
+ <tr>
+  <td> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 2 </td>
+  <td align="center"> 3 </td>
+ </tr>
+ <tr>
+  <td align="center"> A </td>
+  <td align="center">1RB</td>
+  <td align="center">2LA</td>
+  <td align="center">1RA</td>
+  <td align="center">1RA</td>
+ </tr>
+ <tr>
+  <td align="center"> B </td>
+  <td align="center">1LB</td>
+  <td align="center">1LA</td>
+  <td align="center">3RB</td>
+  <td align="center">1RH</td>
+ </tr>
+ </table>
+</td>
+</tr>
+</table>
+
+<p> </p>
+
+Let C(n, 1) = . . . 0(A0)2<sup>n</sup>10 . . . ,<br>
+and C(n, 2) = . . . 0(A0)2<sup>n</sup>110 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 6 )--&gt; </td>
+  <td> C(1, 2) </td>
+ <tr>
+  <td> C(3k, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 9k + 3 )--&gt; </td>
+  <td> C(5k + 1, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 24k + 13 )--&gt; </td>
+  <td> . . . 013<sup>5k+2</sup>1(H1)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 29k + 17 )--&gt; </td>
+  <td> C(5k + 4, 2) </td>
+ </tr>
+ <tr>
+  <td> C(3k, 2) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 11k + 3 )--&gt; </td>
+  <td> C(5k + 1, 2) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 2) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 21k + 7 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 2) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 36k + 23 )--&gt; </td>
+  <td> . . . 013<sup>5k+4</sup>1(H1)0 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 6 )--&gt;<br>
+ C( 1, 2 ) --( 7 )--&gt;<br>
+ C( 3, 1 ) --( 27 )--&gt;<br>
+ C( 6, 1 ) --( 81 )--&gt;<br>
+ C( 11, 1 ) --( 239 )--&gt;<br>
+ C( 19, 2 ) --( 673 )--&gt;<br>
+ C( 33, 1 ) --( 1,917 )--&gt;<br>
+ C( 56, 1 ) --( 5,399 )--&gt;<br>
+ C( 94, 2 ) --( 15,073 )--&gt;<br>
+ C( 158, 1 ) --( 42,085 )--&gt;<br>
+ C( 264, 2 ) --( 117,131 )--&gt;<br>
+ C( 441, 2 ) --( 325,755 )--&gt;<br>
+ C( 736, 2 ) --( 905,527 )--&gt;<br>
+ C( 1228, 1 ) --( 2,519,044 )--&gt;<br>
+ . . . 013<sup>2047</sup>1(H1)0 . . .
+</p>
+</font>
+
+<p> </p>
+
+<a name="tm24b"> </a>
+<p>
+ <font size="4">
+  <b> Brady's runner-up</b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simTM24_b.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 2 states and 4 symbols, from 1988 to
+February 2005.
+</p>
+
+<table width="100%">
+<tr>
+<td>
+ <table align="center">
+ <tr> <td align="center"> Brady (1988) </td> </tr>
+ <tr> <td align="center">   s(M) = 7,195  </td> </tr>
+ <tr> <td align="center"> sigma(M) = 90 </td> </tr>
+ </table>
+</td>
+<td align="right">
+ M=
+</td>
+<td align="left">
+ <table border="2" width="340">
+ <tr>
+  <td> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 2 </td>
+  <td align="center"> 3 </td>
+ </tr>
+ <tr>
+  <td align="center"> A </td>
+  <td align="center">1RB</td>
+  <td align="center">3LA</td>
+  <td align="center">1LA</td>
+  <td align="center">1RA</td>
+ </tr>
+ <tr>
+  <td align="center"> B </td>
+  <td align="center">2LA</td>
+  <td align="center">1RH</td>
+  <td align="center">3RA</td>
+  <td align="center">3RB</td>
+ </tr>
+ </table>
+</td>
+</tr>
+</table>
+
+<p> </p>
+
+Let C(n, 0) = . . . 0(A0)3<sup>n</sup>0 . . . ,<br>
+and C(n, 1) = . . . 0(A0)3<sup>n</sup>20 . . . <br>
+Then we have:
+
+<p> </p>
+
+<table align="center">
+ <tr>
+  <td> C(3k, 0) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 7k + 3 )--&gt; </td>
+  <td> C(5k + 1, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 0) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 22k + 11 )--&gt; </td>
+  <td> . . . 013<sup>5k+1</sup>1(H0)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 0) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 27k + 13 )--&gt; </td>
+  <td> C(5k + 4, 0) </td>
+ </tr>
+ <tr>
+  <td> C(3k, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 28k + 16 )--&gt; </td>
+  <td> . . . 013<sup>5k+3</sup>1(H0)0 . . . </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 33k + 19 )--&gt; </td>
+  <td> C(5k + 5, 0) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 43k + 33 )--&gt; </td>
+  <td> C(5k + 7, 1) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . = C( 0, 0 ) --( 3 )--&gt;<br>
+ C( 1, 1 ) --( 19 )--&gt;<br>
+ C( 5, 0 ) --( 55 )--&gt;<br>
+ C( 9, 0 ) --( 159 )--&gt;<br>
+ C( 16, 1 ) --( 559 )--&gt;<br>
+ C( 30, 0 ) --( 1,573 )--&gt;<br>
+ C( 51, 1 ) --( 4,827 )--&gt;<br>
+ . . . 013<sup>88</sup>1(H0)0 . . .
+</p>
+</font>
+
+<p> </p>
+
+
+<a name="tmb25"> </a>
+<p>
+ <font size="5">
+  <b> Turing machines with 2 states and 5 symbols </b>
+ </font>
+</p>
+
+<a name="tm25h"> </a>
+<p>
+ <font size="4">
+  <b> Ligockis' champion </b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLig25_n.html">
+ simulation by Heiner Marxen</a>.
+ See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
+ Michel (2015)</a>, Section 5.
+</p>
+
+<p>
+This machine is the record holder in the Busy Beaver Competition
+for machines with 2 states and 5 symbols, since November 2007.
+</p>
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2007) </td> </tr>
+    <tr> <td align="center">  s(M) and S(2,5) &gt; 1.9 &times; 10<sup>704</sup> </td> </tr>
+    <tr> <td align="center">  sigma(M) and Sigma(2,5) &gt; 1.7 &times; 10<sup>352</sup> </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">2LA</td>
+        <td align="center">1RA</td>
+        <td align="center">2LB</td>
+        <td align="center">2LA</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">0LA</td>
+        <td align="center">2RB</td>
+        <td align="center">3RB</td>
+        <td align="center">4RA</td>
+        <td align="center">1RH</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p> </p>
+
+<p> </p>
+
+Let C(n, 1) = . . . 013<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 2) = . . . 023<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 3) = . . . 03<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 4) = . . . 04113<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 5) = . . . 04123<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 6) = . . . 0413<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 7) = . . . 0423<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 8) = . . . 043<sup>n</sup>(B0)0 . . ..<br>
+Then we have:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 1 )--&gt; </td>
+  <td> C(0, 1) </td>
+ <tr>
+ <tr>
+  <td>C(2k, 1) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 1, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 1) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 1, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 2) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 14k + 9 )--&gt; </td>
+  <td> C(3k + 2, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 2) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 2, 3) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 3) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 2 )--&gt; </td>
+  <td> C(3k, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 3) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 22 )--&gt; </td>
+  <td> C(3k + 1, 4) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 4) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 8 )--&gt; </td>
+  <td> C(3k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 4) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 1, 5) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 5) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 14k + 13 )--&gt; </td>
+  <td> C(3k + 4, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 5) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 2, 6) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 6) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 6 )--&gt; </td>
+  <td> C(3k + 2, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 6) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 1, 7) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 7) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 14k + 11 )--&gt; </td>
+  <td> C(3k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 7) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 2, 8) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 8) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 8k + 4 )--&gt; </td>
+  <td> C(3k + 1, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 8) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 5k + 3 )--&gt; </td>
+  <td> . . . 01(H2)2<sup>3k</sup>0 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have (final configuration is reached in 2002 transitions):
+<p align="center">
+ . . . 0(A0)0 . . . --( 1 )--&gt;<br>
+ C( 0, 1 ) --( 4 )--&gt;<br>
+ C( 1, 1 ) --( 4 )--&gt;<br>
+ C( 1, 2 ) --( 4 )--&gt;<br>
+ C( 2, 3 ) --( 13 )--&gt;<br>
+ C( 3, 1 ) --( 15 )--&gt;<br>
+ C( 4, 2 ) --( 49 )--&gt;<br>
+ C( 8, 1 ) --( 84 )--&gt;<br>
+ C( 13, 1 ) --( 160 )--&gt;<br>
+ C( 19, 2 ) --( 319 )--&gt;<br>
+ C( 29, 3 ) --( 722 )--&gt;<br>
+ C( 43, 4 ) --( 1495 )--&gt;<br>
+ C( 64, 5 ) --( 3533 )--&gt;<br>
+ C( 100, 1 ) --( 7904 )--&gt;<br>
+ <font size="5">
+  . . .
+ </font><br>
+
+<p> </p>
+
+<a name="tm25e"> </a>
+<p>
+ <font size="4">
+  <b> Ligockis' machine found in August 2006 </b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLig25_j.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 2 states and 5 symbols, from August 2006 to October 2007.
+</p>
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2006) </td> </tr>
+    <tr> <td align="center">  s(M)  = 7,069,449,877,176,007,352,687 </td> </tr>
+    <tr> <td align="center">  sigma(M) = 172,312,766,455 </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">0RB</td>
+        <td align="center">4RA</td>
+        <td align="center">2LB</td>
+        <td align="center">2LA</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">2LA</td>
+        <td align="center">1LB</td>
+        <td align="center">3RB</td>
+        <td align="center">4RA</td>
+        <td align="center">1RH</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p> </p>
+
+<i> Analysis by Shawn Ligocki: </i>
+<p> </p>
+
+Let C(n, 1) = . . . 03<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 2) = . . . 013<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 3) = . . . 01403<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 4) = . . . 01413<sup>n</sup>(B0)0 . . ..<br>
+Then we have:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 1 )--&gt; </td>
+  <td> C(0, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 3 )--&gt; </td>
+  <td> C(5k + 1, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 7 )--&gt; </td>
+  <td> C(5k + 3, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 2) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 3 )--&gt; </td>
+  <td> C(5k + 1, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 2) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 11 )--&gt; </td>
+  <td> C(5k + 2, 3) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 3) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 3 )--&gt; </td>
+  <td> C(5k + 1, 4) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 3) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 9 )--&gt; </td>
+  <td> C(5k + 4, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 4) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 14k + 3 )--&gt; </td>
+  <td> C(5k + 1, 3) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 4) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 9k + 4 )--&gt; </td>
+  <td> . . . 011(H1)2<sup>5k+2</sup>0 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 1 )--&gt;<br>
+ C( 0, 2 ) --( 3 )--&gt;<br>
+ C( 1, 1 ) --( 7 )--&gt;<br>
+ C( 3, 2 ) --( 30 )--&gt;<br>
+ C( 7, 3 ) --( 96 )--&gt;<br>
+ C( 19, 1 ) --( 538 )--&gt;<br>
+ C( 48, 2 ) --( 3,219 )--&gt;<br>
+ C( 121, 1 ) --( 18,847 )--&gt;<br>
+ C( 303, 2 ) --( 116,130 )--&gt;<br>
+ C( 757, 3 ) --( 719,721 )--&gt;<br>
+ C( 1894, 1 ) --( 4,497,306 )--&gt;<br>
+ C( 4736, 2 ) --( 28,070,275 )--&gt;<br>
+ C( 11841, 1 ) --( 175,314,887 )--&gt;<br>
+ C( 29603, 2 ) --( 1,095,555,230 )--&gt;<br>
+ C( 74007, 3 ) --( 6,846,628,096 )--&gt;<br>
+ C( 185019, 1 ) --( 42,790,870,538 )--&gt;<br>
+ C( 462548, 2 ) --( 267,441,553,219 )--&gt;<br>
+ C( 1156371, 1 ) --( 1,671,497,565,722 )--&gt;<br>
+ C( 2890928, 2 ) --( 10,446,851,112,979 )--&gt;<br>
+ C( 7227321, 1 ) --( 65,292,743,569,247 )--&gt;<br>
+ C( 18068303, 2 ) --( 408,079,547,932,130 )--&gt;<br>
+ C( 45170757, 3 ) --( 2,550,496,813,209,721 )--&gt;<br>
+ C( 112926894, 1 ) --( 15,940,605,026,097,306 )--&gt;<br>
+ C( 282317236, 2 ) --( 99,628,779,154,570,275 )--&gt;<br>
+ C( 705793091, 1 ) --( 622,679,862,305,236,762 )--&gt;<br>
+ C( 1764482728, 2 ) --( 3,891,749,134,114,281,579 )--&gt;<br>
+ C( 4411206821, 1 ) --( 24,323,432,041,896,588,247 )--&gt;<br>
+ C( 11028017053, 2 ) --( 152,021,450,201,199,582,755 )--&gt;<br>
+ C( 27570042632, 3 ) --( 950,134,063,605,862,157,707 )--&gt;<br>
+ C( 68925106581, 4 ) --( 5,938,337,896,640,612,100,114 )--&gt;<br>
+ . . . 011(H1)2<sup>172312766452</sup>0 . . .
+
+<p> </p>
+
+<a name="tm25d"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in June 2006 </b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf25_i.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for Sigma(2,5), from June to August 2006.
+</p>
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> G. Lafitte and C. Papazian (2006) </td> </tr>
+    <tr> <td align="center">  s(M)  = 14,103,258,269,249 </td> </tr>
+    <tr> <td align="center">  sigma(M) = 4,848,239 </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">3LB</td>
+        <td align="center">4LB</td>
+        <td align="center">4LA</td>
+        <td align="center">2RA</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">2LA</td>
+        <td align="center">1RH</td>
+        <td align="center">3RB</td>
+        <td align="center">4RA</td>
+        <td align="center">3RB</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p> </p>
+
+Let C(n, 1) = . . . 0132<sup>n</sup>33(B0)0 . . .,<br>
+and C(n, 2) = . . . 01342<sup>n</sup>33(B0)0 . . .,<br>
+and C(n, 3) = . . . 0142<sup>n</sup>33(B0)0 . . .,<br>
+and C(n, 4) = . . . 012<sup>n</sup>33(B0)0 . . ..<br>
+Then we have:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 10 )--&gt; </td>
+  <td> C(0, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 1) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 12k + 15 )--&gt; </td>
+  <td> C(3k + 2, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 1) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 12k + 11 )--&gt; </td>
+  <td> C(3k + 2, 3) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 2) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 12k + 9 )--&gt; </td>
+  <td> C(3k + 2, 1) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 2) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 18k + 30 )--&gt; </td>
+  <td> C(3k + 5, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 3) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 12k + 9 )--&gt; </td>
+  <td> C(3k + 2, 4) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 3) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 18k + 28 )--&gt; </td>
+  <td> C(3k + 4, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k, 4) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 12k + 13 )--&gt; </td>
+  <td> C(3k + 1, 2) </td>
+ </tr>
+ <tr>
+  <td>C(2k + 1, 4) </td>
+  <td align="center"> --( 3k<sup>2</sup> + 9k + 5 )--&gt; </td>
+  <td> . . . 01(H4)4<sup>3k+2</sup>20 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 10 )--&gt;<br>
+ C( 0, 1 ) --( 15 )--&gt;<br>
+ C( 2, 2 ) --( 24 )--&gt;<br>
+ C( 5, 1 ) --( 47 )--&gt;<br>
+ C( 8, 3 ) --( 105 )--&gt;<br>
+ C( 14, 4 ) --( 244 )--&gt;<br>
+ C( 22, 2 ) --( 504 )--&gt;<br>
+ C( 35, 1 ) --( 1,082 )--&gt;<br>
+ C( 53, 3 ) --( 2,524 )--&gt;<br>
+ C( 82, 2 ) --( 5,544 )--&gt;<br>
+ C( 125, 1 ) --( 12,287 )--&gt;<br>
+ C( 188, 3 ) --( 27,645 )--&gt;<br>
+ C( 284, 4 ) --( 62,209 )--&gt;<br>
+ C( 427, 2 ) --( 139,971 )--&gt;<br>
+ C( 644, 2 ) --( 314,925 )--&gt;<br>
+ C( 968, 1 ) --( 708,591 )--&gt;<br>
+ C( 1454, 2 ) --( 1,594,320 )--&gt;<br>
+ C( 2183, 1 ) --( 3,583,946 )--&gt;<br>
+ C( 3275, 3 ) --( 8,068,801 )--&gt;<br>
+ C( 4915, 2 ) --( 18,154,803 )--&gt;<br>
+ C( 7376, 2 ) --( 40,848,297 )--&gt;<br>
+ C( 11066, 1 ) --( 91,908,678 )--&gt;<br>
+ C( 16601, 2 ) --( 206,819,430 )--&gt;<br>
+ C( 24905, 2 ) --( 465,381,078 )--&gt;<br>
+ C( 37361, 2 ) --( 1,047,163,470 )--&gt;<br>
+ C( 56045, 2 ) --( 2,356,201,878 )--&gt;<br>
+ C( 84071, 2 ) --( 5,301,580,335 )--&gt;<br>
+ C( 126110, 2 ) --( 11,928,555,744 )--&gt;<br>
+ C( 189167, 1 ) --( 26,838,966,674 )--&gt;<br>
+ C( 283751, 3 ) --( 60,388,100,653 )--&gt;<br>
+ C( 425629, 2 ) --( 135,873,226,470 )--&gt;<br>
+ C( 638447, 2 ) --( 305,715,717,231 )--&gt;<br>
+ C( 957674, 2 ) --( 687,860,363,760 )--&gt;<br>
+ C( 1436513, 1 ) --( 1,547,683,663,691 )--&gt;<br>
+ C( 2154770, 3 ) --( 3,482,288,243,304 )--&gt;<br>
+ C( 3232157, 4 ) --( 7,835,138,850,959 )--&gt;<br>
+ . . . 01(H4)4<sup>4848236</sup>20 . . .
+<p> </p>
+
+<a name="tm25c"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in May 2006 </b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf25_h.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 2 states and 5 symbols, from May to June 2006.
+</p>
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> G. Lafitte and C. Papazian (2006) </td> </tr>
+    <tr> <td align="center">  s(M)  = 3,793,261,759,791 </td> </tr>
+    <tr> <td align="center">  sigma(M) = 2,576,467 </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">3RA</td>
+        <td align="center">4LB</td>
+        <td align="center">2RA</td>
+        <td align="center">3LA</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">2LA</td>
+        <td align="center">1RH</td>
+        <td align="center">4RB</td>
+        <td align="center">4RB</td>
+        <td align="center">2LB</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p> </p>
+
+Let C(n, 1) = . . . 014<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 2) = . . . 034<sup>n</sup>(B0)0 . . .<br>
+Then we have:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 1 )--&gt; </td>
+  <td> C(0, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k, 1) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 17k + 11 )--&gt; </td>
+  <td> C(4k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 1) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 25k + 20 )--&gt; </td>
+  <td> C(4k + 4, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 1) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 17k + 13 )--&gt; </td>
+  <td> C(4k + 3, 2) </td>
+ </tr>
+ <tr>
+  <td> C(3k, 2) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 17k + 11 )--&gt; </td>
+  <td> C(4k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 2) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 25k + 20 )--&gt; </td>
+  <td> C(4k + 4, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 2, 2) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 21k + 24 )--&gt; </td>
+  <td> . . . 01(H2)23<sup>4k+3</sup>20 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 1 )--&gt;<br>
+ C( 0, 1 ) --( 11 )--&gt;<br>
+ C( 3, 1 ) --( 32 )--&gt;<br>
+ C( 7, 1 ) --( 86 )--&gt;<br>
+ C( 12, 1 ) --( 143 )--&gt;<br>
+ C( 19, 1 ) --( 314 )--&gt;<br>
+ C( 28, 1 ) --( 569 )--&gt;<br>
+ C( 40, 1 ) --( 1,021 )--&gt;<br>
+ C( 56, 1 ) --( 1,615 )--&gt;<br>
+ C( 75, 2 ) --( 2,936 )--&gt;<br>
+ C( 103, 1 ) --( 5,494 )--&gt;<br>
+ C( 140, 1 ) --( 9,259 )--&gt;<br>
+ C( 187, 2 ) --( 16,946 )--&gt;<br>
+ C( 252, 1 ) --( 29,663 )--&gt;<br>
+ C( 339, 1 ) --( 53,008 )--&gt;<br>
+ C( 455, 1 ) --( 93,784 )--&gt;<br>
+ C( 607, 2 ) --( 168,286 )--&gt;<br>
+ C( 812, 1 ) --( 296,203 )--&gt;<br>
+ C( 1083, 2 ) --( 527,432 )--&gt;<br>
+ C( 1447, 1 ) --( 941,366 )--&gt;<br>
+ C( 1932, 1 ) --( 1,669,903 )--&gt;<br>
+ C( 2579, 1 ) --( 2,966,140 )--&gt;<br>
+ C( 3439, 2 ) --( 5,281,934 )--&gt;<br>
+ C( 4588, 1 ) --( 9,389,609 )--&gt;<br>
+ C( 6120, 1 ) --( 16,681,091 )--&gt;<br>
+ C( 8163, 1 ) --( 29,661,632 )--&gt;<br>
+ C( 10887, 1 ) --( 52,740,268 )--&gt;<br>
+ C( 14519, 1 ) --( 93,745,960 )--&gt;<br>
+ C( 19359, 2 ) --( 166,674,548 )--&gt;<br>
+ C( 25815, 1 ) --( 296,330,396 )--&gt;<br>
+ C( 34423, 1 ) --( 526,897,574 )--&gt;<br>
+ C( 45900, 1 ) --( 936,620,111 )--&gt;<br>
+ C( 61203, 1 ) --( 1,665,150,032 )--&gt;<br>
+ C( 81607, 1 ) --( 2,960,475,286 )--&gt;<br>
+ C( 108812, 1 ) --( 5,262,668,203 )--&gt;<br>
+ C( 145083, 2 ) --( 9,355,967,432 )--&gt;<br>
+ C( 193447, 1 ) --( 16,633,325,366 )--&gt;<br>
+ C( 257932, 1 ) --( 29,570,327,561 )--&gt;<br>
+ C( 343912, 1 ) --( 52,569,433,021 )--&gt;<br>
+ C( 458552, 1 ) --( 93,455,088,463 )--&gt;<br>
+ C( 611403, 2 ) --( 166,142,855,032 )--&gt;<br>
+ C( 815207, 1 ) --( 295,364,260,408 )--&gt;<br>
+ C( 1086943, 2 ) --( 525,094,796,254 )--&gt;<br>
+ C( 1449260, 1 ) --( 933,496,546,059 )--&gt;<br>
+ C( 1932347, 2 ) --( 1,659,550,059,339 )--&gt;<br>
+ . . . 01(H2)23<sup>2576463</sup>20 . . .
+<p> </p>
+
+Note that we have also:
+<p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 1 )--&gt; </td>
+  <td> C(0, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k, 1) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 17k + 11 )--&gt; </td>
+  <td> C(4k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(3k + 1, 1) </td>
+  <td align="center"> --( 4k<sup>2</sup> + 25k + 20 )--&gt; </td>
+  <td> C(4k + 4, 1) </td>
+ </tr>
+ <tr>
+  <td> C(9k + 2, 1) </td>
+  <td align="center"> --( 100k<sup>2</sup> + 151k + 45 )--&gt; </td>
+  <td> C(16k + 7, 1) </td>
+ </tr>
+ <tr>
+  <td> C(9k + 5, 1) </td>
+  <td align="center"> --( 100k<sup>2</sup> + 239k + 120 )--&gt; </td>
+  <td> C(16k + 12, 1) </td>
+ </tr>
+ <tr>
+  <td> C(9k + 8, 1) </td>
+  <td align="center"> --( 100k<sup>2</sup> + 279k + 186 )--&gt; </td>
+  <td> . . . 01(H2)23<sup>16k+15</sup>20 . . . </td>
+ </tr>
+</table>
+</p>
+
+<p> </p>
+
+<b>Note:</b> The machine obtained by replacing B4 --&gt; 2LB by
+B4 --&gt; 3LB has the same behavior but final configuration
+. . . 01(H3)3<sup>2576464</sup>20 . . .
+<p> </p>
+
+<a name="tm25b"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in December 2005 </b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf25_g.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for S(2,5), from December 2005 to May 2006.
+</p>
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> G. Lafitte and C. Papazian (2005) </td> </tr>
+    <tr> <td align="center">  s(M)  = 924,180,005,181 </td> </tr>
+    <tr> <td align="center">  sigma(M) = 1,137,477 </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">3RA</td>
+        <td align="center">1LA</td>
+        <td align="center">1LB</td>
+        <td align="center">3LB</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">2LA</td>
+        <td align="center">4LB</td>
+        <td align="center">3RA</td>
+        <td align="center">2RB</td>
+        <td align="center">1RH</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p> </p>
+
+Let C(n, 1) = . . . 012<sup>n</sup>(B0)0 . . .,<br>
+and C(n, 2) = . . . 032<sup>n</sup>(B0)0 . . .<br>
+Then we have:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 69 )--&gt; </td>
+  <td> C(8, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 37k + 31 )--&gt; </td>
+  <td> . . . 01221(H1)1<sup>5k+1</sup>20 . . . </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 32k + 19 )--&gt; </td>
+  <td> C(5k + 3, 2) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 2) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 32k + 19 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 2) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 62k + 70 )--&gt; </td>
+  <td> C(5k + 9, 1) </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 69 )--&gt;<br>
+ C( 8, 1 ) --( 250 )--&gt;<br>
+ C( 18, 2 ) --( 1,522 )--&gt;<br>
+ C( 48, 1 ) --( 8,690 )--&gt;<br>
+ C( 118, 2 ) --( 54,122 )--&gt;<br>
+ C( 298, 1 ) --( 333,315 )--&gt;<br>
+ C( 743, 2 ) --( 2,087,687 )--&gt;<br>
+ C( 1864, 1 ) --( 13,031,226 )--&gt;<br>
+ C( 4658, 2 ) --( 81,438,162 )--&gt;<br>
+ C( 11648, 1 ) --( 508,796,290 )--&gt;<br>
+ C( 29118, 2 ) --( 3,179,933,122 )--&gt;<br>
+ C( 72798, 1 ) --( 19,873,380,815 )--&gt;<br>
+ C( 181993, 2 ) --( 124,209,722,062 )--&gt;<br>
+ C( 454989, 1 ) --( 776,311,217,849 )--&gt;<br>
+ . . . 01221(H1)1<sup>1137471</sup>20 . . .
+</p>
+
+Note that we have also:
+
+<p>
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 69 )--&gt; </td>
+  <td> C(8, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 15k<sup>2</sup> + 37k + 31 )--&gt; </td>
+  <td> . . . 01221(H1)1<sup>5k+1</sup>20 . . . </td>
+ </tr>
+ <tr>
+  <td> C(4k + 2, 1) </td>
+  <td align="center"> --( 435k<sup>2</sup> + 524k + 166 )--&gt; </td>
+  <td> C(25k + 14, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 4, 1) </td>
+  <td align="center"> --( 435k<sup>2</sup> + 884k + 453 )--&gt; </td>
+  <td> C(25k + 23, 1) </td>
+ </tr>
+</table>
+</p>
+
+<p> </p>
+
+
+</font>
+
+<a name="tm25a"> </a>
+<p>
+ <font size="4">
+  <b> Lafitte and Papazian's machine found in October 2005 </b>
+ </font>
+</p>
+<font size="3">
+<p>
+ See also the <a href="http://turbotm.de/~heiner/BB/simLaf25_f.html">
+ simulation by Heiner Marxen</a>.
+</p>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for Sigma(2,5), from October 2005 to May 2006.
+</p>
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> G. Lafitte and C. Papazian (2005) </td> </tr>
+    <tr> <td align="center">  s(M)  = 912,594,733,606 </td> </tr>
+    <tr> <td align="center">  sigma(M) = 1,957,771 </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">3LB</td>
+        <td align="center">1RH</td>
+        <td align="center">1LA</td>
+        <td align="center">1LA</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">2LA</td>
+        <td align="center">3RB</td>
+        <td align="center">4LB</td>
+        <td align="center">4LB</td>
+        <td align="center">3RA</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p> </p>
+
+Let C(n, 1) = . . . 0(A0)1<sup>n</sup>20 . . .,<br>
+and C(n, 2) = . . . 0(A0)1<sup>n</sup>40 . . .,<br>
+and C(n, 3) = . . . 0(A0)1<sup>n</sup>320 . . .<br>
+Then we have:
+
+<p></p>
+
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 11 )--&gt; </td>
+  <td> C(3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 28k + 26 )--&gt; </td>
+  <td> C(5k + 6, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 18k + 11 )--&gt; </td>
+  <td> C(5k + 3, 2) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 2) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 18k + 11 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 2) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 18k + 13 )--&gt; </td>
+  <td> C(5k + 3, 3) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 3) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 18k + 9 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 3) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 23k + 17 )--&gt; </td>
+  <td> . . . 013<sup>5k+4</sup>1(H0)0 . . . </td>
+ </tr>
+</table>
+
+<p> </p>
+
+So we have:
+<p align="center">
+ . . . 0(A0)0 . . . --( 11 )--&gt;<br>
+ C( 3, 1 ) --( 59 )--&gt;<br>
+ C( 11, 1 ) --( 291 )--&gt;<br>
+ C( 31, 1 ) --( 1,571 )--&gt;<br>
+ C( 81, 1 ) --( 9,146 )--&gt;<br>
+ C( 206, 1 ) --( 53,867 )--&gt;<br>
+ C( 513, 2 ) --( 332,301 )--&gt;<br>
+ C( 1283, 3 ) --( 2,065,952 )--&gt;<br>
+ C( 3208, 1 ) --( 12,876,910 )--&gt;<br>
+ C( 8018, 2 ) --( 80,432,578 )--&gt;<br>
+ C( 20048, 1 ) --( 502,483,070 )--&gt;<br>
+ C( 50118, 2 ) --( 3,140,218,478 )--&gt;<br>
+ C( 125298, 1 ) --( 19,624,987,195 )--&gt;<br>
+ C( 313243, 2 ) --( 122,653,507,396 )--&gt;<br>
+ C( 783108, 3 ) --( 766,577,764,781 )--&gt;<br>
+ . . . 013<sup>1957769</sup>1(H0)0 . . .
+</p>
+
+Note that we have also:
+
+<p>
+<table align="center">
+ <tr>
+  <td> . . . 0(A0)0 . . . </td>
+  <td align="center"> --( 11 )--&gt; </td>
+  <td> C(3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 1, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 28k + 26 )--&gt; </td>
+  <td> C(5k + 6, 1) </td>
+ </tr>
+ <tr>
+  <td> C(2k + 2, 1) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 18k + 11 )--&gt; </td>
+  <td> C(5k + 3, 2) </td>
+ </tr>
+ <tr>
+  <td> C(2k, 2) </td>
+  <td align="center"> --( 5k<sup>2</sup> + 18k + 11 )--&gt; </td>
+  <td> C(5k + 3, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 1, 2) </td>
+  <td align="center"> --( 145k<sup>2</sup> + 176k + 45 )--&gt; </td>
+  <td> C(25k + 8, 1) </td>
+ </tr>
+ <tr>
+  <td> C(4k + 3, 2) </td>
+  <td align="center"> --( 145k<sup>2</sup> + 321k + 167 )--&gt; </td>
+  <td> . . . 013<sup>25k+19</sup>1(H0)0 . . . </td>
+ </tr>
+</table>
+</p>
+
+<p> </p>
+
+
+</font>
+
+<a name="clp"> </a>
+<p>
+ <font size="5">
+  <b> Collatz-like problems</b>
+ </font>
+</p>
+
+<font size="3">
+<ul>
+<li>
+ Sameness of behaviors of the Turing machines above is striking.<br>
+ Their behaviors depend on transitions in the following form:<br>
+ <blockquote>
+  C(ak + b) --( &nbsp; )--&gt; C(ck + d),
+ </blockquote>
+ where a, c are fixed, and b = 0, ..., a-1.<br>
+ Sometimes, another parameter is added: C(ak + b, p).
+<p> </p>
+</li>
+
+<li>
+ These transitions can be compared to the following problem.<br>
+ Let T be defined by
+ <blockquote>
+  T(x) = x/2, &nbsp; if x is even,<br>
+  T(x) = (3x + 1)/2, &nbsp; if x is odd.
+ </blockquote>
+ This can also be written
+ <blockquote>
+  T(2m) = m,<br>
+  T(2m + 1) = 3m + 2.
+ </blockquote>
+ When T is iterated over positive integers, do we always
+ reach the loop: T(2) = 1, T(1) = 2 ?<br>
+ This question is a famous open problem in mathematics, called
+ 3x + 1 problem, or <b> Collatz problem</b>.
+<p> </p>
+</li>
+
+<li>
+ A similar question can be asked about iterating transitions of
+ configurations C(ak + b, p) on positive integers.
+ Do the iterated transitions always reach a halting configuration?<br>
+ For all the machines above
+ (except for <a href="#tm62b">the machine</a> with 6 states and 2 symbols,
+ found in October 2000),
+ this question is presently an open problem in mathematics.<br>
+ Because of likeness to Collatz problem, these problems are
+ called<b> Collatz-like problems</b>.<br>
+ Thus, for each machine above
+ (except for <a href="#tm62b">the machine</a> with 6 states and 2 symbols,
+ found in October 2000)
+ the halting problem (that is, on what inputs does this machine stop?)
+ depends on an open Collatz-like problem.
+</li>
+</ul>
+</font>
+
+
+<a name="ncl"> </a>
+<p>
+ <font size="5">
+  <b> Non-Collatz-like behaviors</b>
+ </font>
+</p>
+
+Some Turing machines run a large number of steps on a small piece of
+tape.<br>
+Such machines do not seem to be Collatz-like.<br>
+We list below some interesting machines with this sort of behavior.
+
+<ul>
+ <li>
+  <p>
+   <font size="4">
+    <b> Turing machines with 3 states and 3 symbols</b>
+   </font>
+  </p>
+ 
+   <table width="100%">
+    <tr>
+     <td>
+      <table align="center">
+       <tr> <td align="center"> A. H. Brady (November 2004)      </td> </tr>
+       <tr> <td align="center"> s(M) = 2,315,619 </td> </tr>
+       <tr> <td align="center"> sigma(M) = 31 </td> </tr>
+      </table>
+     </td>
+     <td align="right">
+      M= 
+     </td>
+     <td align="left">
+      <table border="2" width="270">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">2LB</td>
+        <td align="center">1LC</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">1LA</td>
+        <td align="center">2RB</td>
+        <td align="center">1RB</td>
+       </tr>
+       <tr>
+        <td align="center"> C </td>
+        <td align="center">1RH</td>
+        <td align="center">2LA</td>
+        <td align="center">0LC</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+
+   <p>
+    Brady called this machine &quot;Surprise-in-a-Box&quot;.
+   </p>
+
+   <p>
+    See also the <a href="http://turbotm.de/~heiner/BB/simAB3Y_SB.html">
+     simulation by Heiner Marxen</a>.
+   </p>
+
+ </li>
+ <li>
+
+  <p>
+   <font size="4">
+    <b> Turing machines with 2 states and 5 symbols</b>
+   </font>
+  </p>
+
+   <table width="100%">
+    <tr>
+     <td align="center">
+      <table align="center">
+       <tr> <td align="center"> G. Lafitte and C. Papazian (July 2006) </td> </tr>
+       <tr> <td align="center">  s(M)  = 26,375,397,569,930 </td> </tr>
+       <tr> <td align="center">  sigma(M) = 143 </td> </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+     <td align="center">
+      <table align="center">
+       <tr>
+        <td align="right">
+         M=
+        </td>
+        <td align="left">
+         <table border="2" width="410">
+          <tr>
+           <td> </td>
+           <td align="center"> 0 </td>
+           <td align="center"> 1 </td>
+           <td align="center"> 2 </td>
+           <td align="center"> 3 </td>
+           <td align="center"> 4 </td>
+          </tr>
+          <tr>
+           <td align="center"> A </td>
+           <td align="center">1RB</td>
+           <td align="center">3LA</td>
+           <td align="center">1LA</td>
+           <td align="center">4LA</td>
+           <td align="center">1RA</td>
+          </tr>
+          <tr>
+           <td align="center"> B </td>
+           <td align="center">2LB</td>
+           <td align="center">2RA</td>
+           <td align="center">1RH</td>
+           <td align="center">0RA</td>
+           <td align="center">0RB</td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>  
+   </table>
+   <p> </p>
+
+   <p>
+    This machine was the record holder for S(2,5), from July
+    to August 2006.
+   </p>
+
+   <p>
+    See also the <a href="http://turbotm.de/~heiner/BB/simLaf25_j.html">
+     simulation by Heiner Marxen</a>.
+   </p>
+
+   <table width="100%">
+    <tr>
+     <td align="center">
+      <table align="center">
+       <tr> <td align="center"> G. Lafitte and C. Papazian (July 2006) </td> </tr>
+       <tr> <td align="center">  s(M)  = 7,021,292,621 </td> </tr>
+       <tr> <td align="center">  sigma(M) = 37 </td> </tr>
+      </table>
+     </td>
+    </tr>
+    <tr>
+     <td align="center">
+      <table align="center">
+       <tr>
+        <td align="right">
+         M=
+        </td>
+        <td align="left">
+         <table border="2" width="410">
+          <tr>
+           <td> </td>
+           <td align="center"> 0 </td>
+           <td align="center"> 1 </td>
+           <td align="center"> 2 </td>
+           <td align="center"> 3 </td>
+           <td align="center"> 4 </td>
+          </tr>
+          <tr>
+           <td align="center"> A </td>
+           <td align="center">1RB</td>
+           <td align="center">4LA</td>
+           <td align="center">1LA</td>
+           <td align="center">1RH</td>
+           <td align="center">2RB</td>
+          </tr>
+          <tr>
+           <td align="center"> B </td>
+           <td align="center">2LB</td>
+           <td align="center">3LA</td>
+           <td align="center">1LB</td>
+           <td align="center">2RA</td>
+           <td align="center">0RB</td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+   <p> </p>
+
+ </li>
+</ul>
+
+<a name="sb"> </a>
+<p>
+ <font size="5">
+  <b> Turing machines in distinct classes with similar behaviors</b>
+ </font>
+</p>
+
+  <p>
+   <font size="4">
+    <b> (2,4)-TM and (3,3)-TM</b>
+   </font>
+  </p>
+
+<table width="100%">
+<tr>
+<td>
+ <table align="center">
+ <tr> <td align="center"> Terry and Shawn Ligocki (2005) </td> </tr>
+ <tr> <td align="center">   s(M) = 3,932,964 =? S(2,4)   </td> </tr>
+ <tr> <td align="center"> sigma(M) = 2,050 =? Sigma(2,4) </td> </tr>
+ </table>
+</td>
+<td align="right">
+ M=
+</td>
+<td align="left">
+ <table border="2" width="340">
+ <tr>
+  <td> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 2 </td>
+  <td align="center"> 3 </td>
+ </tr>
+ <tr>
+  <td align="center"> A </td>
+  <td align="center">1RB</td>
+  <td align="center">2LA</td>
+  <td align="center">1RA</td>
+  <td align="center">1RA</td>
+ </tr>
+ <tr>
+  <td align="center"> B </td>
+  <td align="center">1LB</td>
+  <td align="center">1LA</td>
+  <td align="center">3RB</td>
+  <td align="center">1RH</td>
+ </tr>
+ </table>
+</td>
+</tr>
+</table>
+
+<p> </p>
+
+<p>
+This machine is the record holder in the Busy Beaver Competition
+for machines with 2 states and 4 symbols, since February 2005.
+</p>
+
+<p> </p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> A. H. Brady (2004)      </td> </tr>
+    <tr> <td align="center"> s(M) = 3,932,964 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 2,050 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">1LC</td>
+     <td align="center">1RH</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LA</td>
+     <td align="center">1LC</td>
+     <td align="center">2RB</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1RB</td>
+     <td align="center">2LC</td>
+     <td align="center">1RC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+There is a step-by-step correspondence between the configurations of
+these machines.
+
+<p> </p>
+
+  <p>
+   <font size="4">
+    <b> (6,2)-TM and (3,3)-TM</b>
+   </font>
+  </p>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center"> <a href="http://turbotm.de/~heiner/BB">
+        Marxen and Buntrock (1997) </a>  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) = 8,690,333,381,690,951
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) = 95,524,079
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1RA </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LC </td> <td align="center"> 1LB </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 0RF </td> <td align="center"> 1LD </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1RA </td> <td align="center"> 0LE </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RH </td> <td align="center"> 1LF </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 0LA </td> <td align="center"> 0LC </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+ This machine was discovered in January 1990, and was published
+ on the web (Google groups) on September 3, 1997.<br>
+ It was the record holder in the Busy Beaver Competition for
+ machines with 6 states and 2 symbols up to July 2000.
+</p>
+
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2006) </td> </tr>
+    <tr> <td align="center"> s(M) = 4,345,166,620,336,565 </td> </tr>
+    <tr> <td align="center"> sigma(M) = 95,524,079 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2RC</td>
+     <td align="center">1LA</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">2LA</td>
+     <td align="center">1RB</td>
+     <td align="center">1RH</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">2RB</td>
+     <td align="center">2RA</td>
+     <td align="center">1LC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p>
+This machine was the record holder in the Busy Beaver Competition
+for machines with 3 states and 3 symbols, from August 2006 to
+November 2007.
+</p>
+
+<p>
+Note that these machines have same sigma value, and the
+s value of the first one is almost twice the s value
+of the second one.
+</p>
+
+<p>
+The behaviors of these machines can be linked as follows.
+</p>
+
+<p>
+Given the analyses of <a href="#tm62d">the (6,2)-TM</a>
+and <a href="#tm33g">the (3,3)-TM</a>, the following
+functions can be defined:
+</p>
+
+<table width="100%">
+ <tr>
+  <td align="center">
+   <p>
+    f(4k) undefined,<br>
+    f(4k + 1) = 10k + 9,<br>
+    f(4k + 2) = 10k + 9,<br>
+    f(4k + 3) = 10k + 12.
+   </p>
+  </td>
+  <td align="center">
+   <p>
+    g(2k, 0) = (5k + 1, 1),<br>
+    g(2k + 1, 0) undefined,<br>
+    g(2k, 1) = (5k, 0),<br>
+    g(2k + 1, 1) = (5k + 3, 1).
+   </p>
+  </td>
+ </tr>
+</table>
+
+<p>
+Now, let h be defined by
+ <blockquote>
+  h(n, 0) = 10n + 2,<br>
+  h(n, 1) = 10n - 1.
+ </blockquote>
+</p>
+
+<p>
+Then: h <font size="1">o</font> g = f <font size="1">o</font> h
+</p>
+
+<p>
+There is no step-by-step correspondence between these machines,
+but there is a phase correspondence, according to functions f and g.
+</p>
+
+<a href="index.html"> Link to Pascal Michel's home page</a>
+
+</body>
+
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/beh.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+</html>

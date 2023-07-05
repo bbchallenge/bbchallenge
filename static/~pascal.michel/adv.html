@@ -1,0 +1,988 @@
+<html>
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/adv.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+<head>
+ <meta name="author" content="Pascal Michel">
+ <meta name="keywords" content="busy beaver">
+ <title>
+  Advanced topics
+ </title>
+</head>
+
+<body bgcolor="#FEFEDD">
+
+<p align="center">
+ <font size="6">
+  <b> Advanced topics on Busy Beavers</b>
+ </font>
+</p>
+
+<blockquote>
+ <font size="4">
+  <b> Contents</b>
+ </font>
+</blockquote>
+
+<p>
+ <font size="3">
+  <a href="#meth"> The methods used to find busy beavers</a>
+ </font>
+</p>
+
+<p>
+ <font size="3">
+  <a href="#prov"> Busy beavers and unprovability</a>
+ </font>
+</p>
+
+<p>
+ <font size="3">
+  <a href="#nor"> Tables normalization</a>
+ </font>
+</p>
+
+<blockquote>
+ <font size="2">
+  Last update: August 2022
+ </font>
+</blockquote>
+
+<a name="meth"> </a>
+<p>
+ <font size="5">
+  <b> The methods used to find busy beavers</b>
+ </font>
+</p>
+
+<p>
+The machines presented in these pages were discovered by means of computer
+programs. These programs contain procedures that achieve the following tasks:
+<ol>
+<li> To enumerate Turing machines without repetition.</li>
+<li> To simulate Turing machines efficiently.</li>
+<li> To recognize non-halting Turing machines.</li>
+</ol>
+
+Note that these procedures are often mixed together in
+real programs, as follows: A tree of transition tables is generated,
+and, as soon as some transitions are defined, the corresponding
+Turing machine is simulated. If the definition of a new transition is necessary,
+the tree is extended. If the computation seems to loop, a proof
+of this fact is provided.
+
+
+
+</p>
+
+<p>
+If the purpose is to prove a value for the busy beaver functions,
+then all Turing machines in a class have to be studied. The machines
+that pass through the three procedures above are either halting machines,
+from which the better one is selected, or holdouts waiting for better
+programs or for hand analyses.
+</p>
+
+<p>
+If the purpose is to find lower bounds, a systematic enumeration
+of machines is not necessary. Terry and Shawn Ligocki said they
+used simulated annealing to find some of their machines.
+</p>
+
+<p>
+The following references can be consulted for more information.
+<ul>
+<li> For (4,2)-TM:<br>
+ <ul>
+ <li>
+ Brady A.H. (1983) <br>
+ <!--<a href="http://www.jstor.org/view/00255718/di970586/97p0337t/0">-->
+ The determination of the value of Rado's noncomputable function
+ Sigma(k) for four-state Turing machines <br>
+ <i> Mathematics of Computation </i> <b> 40 </b> (162), April 1983, 647-665.
+ <p> </p>
+ </li>
+<li>
+ Machlin R. and Stout Q.F. (1990) <br>
+ <a href="http://www.eecs.umich.edu/~qstout/abs/busyb.html">
+ The complex behavior of simple machines</a> <br>
+ <i> Physica D </i> <b> 42</b>, June 1990, 85-98.
+ <p> </p>
+</li>
+ </ul>
+</li>
+<li> For (5,2)-TM:
+<ul>
+<li>
+ Marxen H. and Buntrock J. (1990) <br>
+ <a href="http://www.drb.insel.de/~heiner/BB/mabu90.html">
+ Attacking the Busy Beaver 5</a> <br>
+ <i> Bulletin of the EATCS </i> No 40, February 1990, 247-251.
+ <p> </p>
+</li>
+<li>
+ Hertel J. (2009) <br>
+ Computing the uncomputable Rado sigma function <br>
+ <i> The Mathematica Journal </i> <b> 11 </b> (2), 2009, 270-283.
+ <p> </p>
+</li>
+</ul>
+</li>
+<li> For (2,3)-TM:
+ <ul>
+ <li>
+ Lafitte G. and Papazian C. (2007) <br>
+ <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.104.3021&amp;rep=rep1&amp;type=pdf#page=231">
+ The fabric of small Turing machines</a> <br>
+ in: <i>Computation and Logic in the Real World, Proceedings of the Third
+ Conference on Computability in Europe</i>, June 2007, 219-227.
+ <p> </p>
+ </li>
+ </ul>
+</li>
+<li> <a href="http://www.drb.insel.de/~heiner/BB/macro.html">
+ Page about Macro Machines</a> on Marxen's website.
+ <p> </p>
+</li>
+<li> Articles by James Harland:
+  <ul>
+  <li>
+  Harland J. (2016) <br>
+  Busy beaver machines and the observant otter heuristic (or how to tame dreadful dragons) <br>
+  <i>Theoretical Computer Science</i> <b>646</b>, 2016, 61-85. <br>
+  Preprint available at <a href="http://arxiv.org/abs/1602.03228">arXiv:1602.03228</a>.
+  <p> </p>
+  </li>
+  <li>
+  Harland J. (2022) <br>
+  Generating candidate busy beaver machines (or how to build the zany zoo) <br>
+    <i>Theoretical Computer Science</i> <b>922</b>, 2022, 368-394. <br>
+  preprint available at <a href="http://arxiv.org/abs/1610.03184">arXiv:1610.03184</a>.
+  <p> </p>
+  </li>
+ </ul>
+</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<a name="prov"> </a>
+<p>
+ <font size="5">
+  <b> Busy beavers and unprovability</b>
+ </font>
+</p>
+
+<ul>
+<li>
+<p>
+Let S(n) = S(n,2) be Rado's busy beaver function. We know that S(2) = 6, S(3) = 21, S(4) = 107,
+and we can hope to prove that S(5) = 47,176,870. As we will see below, the fact that
+the busy beaver function S is not computable implies that it is not possible to prove
+that, for any natural number n, S(n) has its true value.
+</p>
+
+<p>
+Formally, we have the following theorem.
+<blockquote>
+<b>Theorem.</b> Let T be a well-known mathematical theory such as Peano arithmetic (PA)
+or Zermelo-Fraenkel set theory with axiom of choice (ZFC). Then there exist numbers
+N and L such that S(N) = L, but the sentence &quot;S(N) = L&quot; is not provable in T.
+</blockquote>
+
+This theorem is an easy consequence of the following proposition.
+<blockquote>
+<b>Proposition.</b> Let T be a well-known mathematical theory such as PA or ZFC.
+Then there exists a Turing machine with two symbols M that does not stop when
+it is launched on a blank tape, but the fact that it does not stop is not provable in T.
+</blockquote>
+</p>
+</li>
+
+<li>
+<p>
+<b>Proof of the theorem from the proposition.</b> Let M be the Turing machine given
+by the proposition, let N be the number of states of M, and let L = S(N).
+Then, to prove that &quot;S(N) = L&quot;, we have to prove that M does not stop.
+But, by the proposition, such a proof does not exist.
+</p>
+</li>
+
+<li>
+<p>
+<b>Proof of the proposition.</b> This proposition is well-known and a one line proof
+can be given, as follows.
+<blockquote>
+If all non-halting machines were provably non-halting, then an algorithm that gives
+simultaneously the computable enumeration of the halting machines and the computable
+enumeration of the provably non-halting machines would solve the halting problem on
+a blank tape.
+</blockquote>
+We give a detailed proof for nonspecialist readers.
+</p>
+
+<p>
+Let M<sub>1</sub>, M<sub>2</sub>, . . . be a computably enumerable sequence of
+all Turing machines with two symbols.<br>
+
+Such a sequence can be obtained as follows: we list machines according to their
+number of states, and, inside the set of machines with n states, we list
+the machines according to the alphabetical order of their transition tables.<br>
+</p>
+
+<p>
+Let T<sub>1</sub>, T<sub>2</sub>, . . . be a computably enumerable sequence of the
+theorems of the theory T.<br>
+
+The existence of such a sequence is the main requirement that theory T has to
+satisfy in order that the proposition holds, and of course such a sequence exists
+for well-known mathematical theories such as PA or ZFC.
+</p>
+
+<p>
+Now consider the following algorithms A and B.
+<blockquote>
+<b>Algorithm A.</b> We launch the machines M<sub>i</sub> on the blank tape as follows:
+<ul>
+<li> one step of computation of M<sub>1</sub>,</li>
+<li> 2 steps of computation of M<sub>1</sub>, 2 steps of computation of M<sub>2</sub>,</li> 
+<li> 3 steps of computation of M<sub>1</sub>, 3 steps of computation of M<sub>2</sub>,
+3 steps of computation of M<sub>3</sub>,</li>
+<li> . . .
+</ul>
+When a machine M<sub>i</sub> stops, we add it to a list of machines that stop when
+they are launched on a blank tape.
+<p> </p>
+Note that, given a machine M, by running Algorithm A we will know that M stops if
+M stops, but we will never know that M doesn't stop if M doesn't stop.
+</blockquote>
+
+<blockquote>
+<b>Algorithm B.</b> We launch the algorithm that provides the computably enumerable
+sequence of theorems of theory T, and each time we get a theorem T<sub>i</sub>,
+we look and see if this is a theorem of the form &quot;The Turing machine M does not
+stop when it is launched on a blank tape&quot;. If that is the case, we add
+M to a list of Turing machines that provably do not stop on a blank tape.
+<p> </p>
+Note that, given a machine M, by running Algorithm B we will know that M is
+provably non-halting if M is provably non-halting, but we will never know that M
+is not provably non-halting if M is not provably non-halting.
+</blockquote>
+</p>
+
+<p>
+Now we have two algorithms, A and B, and
+<ul>
+<li>
+Algorithm A gives us a computably enumerable list of the Turing machines that stop
+when they are launched on a blank tape.
+<p> </p>
+</li>
+<li>
+Algorithm B gives us a computably enumerable list of the Turing machines that
+provably do not stop on a blank tape.
+<p> </p>
+</li>
+</ul>
+
+We mix together these two algorithms, by a procedure called dovetailing, to get
+Algorithm C, as follows.
+<blockquote>
+<b>Algorithm C.</b>
+<ul>
+<li> one step of Algorithm A, one step of Algorithm B,</li>
+<li> 2 steps of Algorithm A, 2 steps of Algorithm B,</li>
+<li> 3 steps of Algorithm A, 3 steps of Algorithm B,</li>
+<li> . . .
+</ul>
+</blockquote>
+
+Algorithm C gives us simultaneously both the computably enumerable lists
+provided by Algorithm A and Algorithm B.
+</p>
+
+<p>
+So Algorithm C gives us both the list of halting Turing machines and the list of
+provably non-halting Turing machines (on a blank tape).
+</p>
+
+<p>
+Now we are ready to prove the proposition.<br>
+If all non-halting Turing machines were provably non-halting, then Algorithm C
+would give us the list of halting Turing machines and the list of non-halting
+Turing machines (on a blank tape).
+So, given a Turing machine M, by running Algorithm C, we would see M appearing
+in one of the lists, and we could settle the halting problem for machine M
+on a blank tape. So Algorithm C would give us a computable procedure to
+settle the halting problem on a blank tape.
+But it is known that such a computable procedure does not exist.
+Thus, there exists a non-halting Turing machine that is not provably
+non-halting on a blank tape.
+</p>
+</li>
+
+<li>
+<p>
+Consider the Turing machine M given by the proposition: M does not stop when
+it is launched on a blank tape, but this fact is not provable in theory T.
+We can get an idea of what such a machine M looks like, as follows.
+</p>
+
+<ul>
+<li>
+<p>
+For example, M can be a machine that enumerates the theorems of theory T,
+and stops when it finds a contradiction (such that 0 = 1 if T is Peano
+arithmetic).
+</p>
+
+<p>
+Then a proof within theory T that M does not stop would be a proof within
+theory T of the consistency of T, which is impossible by G&ouml;del's
+Second Incompleteness Theorem (if theory T is consistent).
+</p>
+
+<p>
+This gives another proof of the proposition, a shorter one, but resting on
+a big theorem.
+</p>
+</li>
+
+<li>
+<p> Another example can be given using G&ouml;del's First Incompleteness Theorem.
+If T is PA or ZFC, supposed to be consistent, the proof of this theorem provides
+a formula F that asserts its own unprovability. Thus F is true, but
+unprovable within theory T.
+</p>
+
+<p>
+Consider the machine M that enumerates the theorems of theory T, and stops when
+it finds formula F.
+</p>
+
+<p>
+Machine M does not stop, since F is unprovable, but a proof that it does not stop
+would be a proof that F is unprovable, so, since F <i><b>is</b></i> &quot;F is
+unprovable&quot;, a proof of F, which is impossible, since F is unprovable. 
+</p>
+</li>
+
+<li>
+<p>
+As a third example, consider the machine M that enumerates the theorems
+of theory T (PA or ZFC, supposed to be consistent), and stops when it finds
+a formula F that says that M itself does not stop. Such a machine can be proved
+to exist by applying the Recursion Theorem to the function f such that
+machine M<sub>f(x)</sub> stops if it finds a proof that machine M<sub>x</sub>
+does not stop.
+</p>
+
+<p>
+Then F is true, because, if F were false, then M would stop, so F would be
+a theorem of T, so F would be true. But F is unprovable, because since F is true,
+M does not stop, so F is not a theorem of theory T.
+So the fact that M does not stop is true and unprovable.
+</p>
+</li>
+
+</ul>
+
+<p>
+Note that, in these three examples of Turing machines M, the watched formulas
+are more and more complicated, and the theorems used to prove that M suits
+are more and more elementary.
+</p>
+</li>
+
+<li>
+<p>
+Since May 2016, there are explicit constructions of Turing machines whose behaviors are independent of ZFC.
+<p>
+
+  <ul>
+<li>    
+  <p>
+    Adam Yedidia and Scott Aaronson gave, in  May 2016, a Turing machine with 7910 states and two symbols
+such that it cannot be proved in ZFC that it never halts.
+They note that enumerating the theorems of ZFC would need a big number of states.
+They use a graph theoretic statement that Harvey Friedman proved to be
+equivalent to the consistency of a theory that implies the consistency of ZFC.
+By using a new high-level language that is easily compiled down to Turing machine
+description, they build a machine that would halt if it finds a counterexample
+to Friedman's statement.
+</p>
+This is published in:
+<p>
+Adam Yedidia, Scott Aaronson,<br>
+A relatively small Turing machine whose behavior is independent of set theory,<br>
+<i>Complex Systems</i> <b>25</b> (4), 2016, 297-327.<br>
+Available <a href="http://www.complex-systems.com/issues/25-4.html">on the Web</a>.
+</p>
+</li>
+
+<li>
+  <p>
+   <a href="https://github.com/sorear/metamath-turing-machines">
+     S. O'Rear</a> improved the number of states to 1919, in September 2016. <br>
+   He improved later the number of states to 748. <br>
+   His machines enumerate the theorems of a formal system which has the same
+   power as ZFC.
+</p>
+</li>
+<li>
+  <p>
+See <a href="http://www.scottaaronson.com/blog/?p=2725">
+      Scott Aaronson's blog </a> for a general presentation.
+</p>
+</li>
+</ul>
+</p>
+</li>
+
+<li>
+<p>
+Note that, if &quot;S(N) = L&quot; is a true sentence unprovable in theory T,
+then, for all m &gt; L, &quot;S(N) &lt; m&quot; is also a true sentence unprovable
+in theory T.
+</p>
+</li>
+
+<li>
+<p>
+Note that the proposition  is a special case of the following more general theorem.
+<blockquote>
+<b>Theorem.</b> Let A be a set of natural numbers that is computably enumerable but not computable,
+and let T be a well-known mathematical theory such as PA or ZFC. Then there exists
+a natural number n such that the sentence &quot;n is not a member of A&quot; is
+true but not provable in theory T.
+</blockquote>
+The proof of this theorem is the same as above:
+if all natural numbers not in A were provably not in A,
+then the simultaneous enumerations of A and of natural numbers provably not in A would give
+a procedure that decides membership in A, contradicting the fact that A is not computable.
+</p>
+
+<p>
+The proposition is gotten from this theorem by numbering the list of Turing machines,
+and by defining A as the set of numbers of Turing machines that stop on a blank tape.
+</p>
+</li>
+
+<li>
+There is another proof of unprovability, based on Kolmogorov complexity.<br>
+<p>
+The Kolmogorov complexity of a number is the length of the shortest program
+from which a universal Turing machine can output this number.
+</p>
+
+<p>
+By Chaitin's Incompleteness Theorem, for any well-known mathematical
+theory T, there exists a number n(T) such that, for all numbers of
+complexity greater than n(T), the fact that they have complexity greater than
+n(T) is true but unprovable within theory T.
+</p>
+
+<p>
+Chaitin's theorem also applies to the complexity defined as follows:
+The complexity of a number k is the smallest number n of states
+of a Turing machine with n states and two symbols that outputs this number k,
+written as a string of k symbols 1, when the machine is launched on a blank tape.
+</p>
+
+<p>
+So there exists a number n(T) such that, for any number k of
+complexity greater than n(T), the sentence &quot;the complexity of k is
+greater than n(T)&quot; is true but unprovable within theory T.
+But &quot;k &gt; Sigma(n(T))&quot; implies
+&quot;the complexity of k is greater than n(T)&quot;,
+so, for any number k &gt; Sigma(n(T)), &quot;k &gt; Sigma(n(T))&quot;
+is true but unprovable within theory T. 
+</p>
+
+<p>
+For more details, see the following papers and books:
+<ul>
+<li>
+ Chaitin G. (1987) <br>
+ <a href="http://www.cs.auckland.ac.nz/~chaitin/bellcom.pdf">
+ Computing the busy beaver function</a> <br>
+ Open Problems in Communication and Computation, Springer, 1987, 108-112. <br>
+ Reprinted in: <a href="http:///www.cs.auckland.ac.nz/~chaitin/ws.html">
+ Information, Randomness and Incompleteness</a>, World Scientifics, 2nd Ed., 1990.
+ <p></p>
+</li>
+
+<li>
+ Boolos G.S., Burgess J.P. and Jeffrey R.C. (2002) <br>
+ Computability and Logic, 4th Ed., Cambridge, 2002, pp. 40-44 and 227-230
+ (They note that n(T) &lt; 10^10^10^10^10^10^10^10^10^10).
+
+ <p></p>
+</li>
+
+<li>
+ Lafitte G. (2009) <br>
+ <a href="http://arxiv.org/abs/0906.3257v1">
+ Busy beavers gone wild</a> <br>
+ in: The Complexity of Simple Programs 2008, EPTCS 1, 2009, 123-129.
+ <p></p>
+</li>
+
+</ul>
+
+</ul>
+
+<p>&nbsp;</p>
+
+<a name="nor"> </a>
+<p>
+ <font size="5">
+  <b> Tables normalization</b>
+ </font>
+</p>
+
+<p>
+ A permutation of states, or a permutation of symbols,
+does not change the behavior of a Turing machine.<br>
+ Suppose you get two Turing machines, taking the same
+time to stop on an initially blank tape. How to know
+whether these machines are essentially different,
+or they are just the same machine up to a permutation
+of states or symbols?<br>
+ To settle this problem, you can <b>normalize</b> the table,
+putting it in <b>tree normal form (TNF)</b>.
+</p>
+
+<p>
+ Since we are interested by the behaviors of Turing machines
+on an initially blank tape, the simplest rule is the following one:
+<blockquote>
+ When the Turing machine is launched on a blank tape:
+ <ul>
+  <li>
+   it enters states in the following order: A, B, C, ...
+   <p> </p>
+  </li>
+  <li>
+   it writes symbols in the following order: 0, 1, 2, ...
+  </li>
+ </ul>
+</blockquote>
+
+So, normally, the first transition is A0 --&gt; 1RB or A0 --&gt; 0RB.
+</p>
+
+<p>
+ As an example, we give below the tables of the Turing
+machines as found by Terry and Shawn Ligocki, and their
+normalized versions as given in the present web pages.
+</p>
+
+<p>
+ <b>Turing machines with 2 states and 4 symbols</b>
+</p>
+
+ <table>
+  <tr>
+   <td> </td>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> A3 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> B3 </td>
+   <td align="center"> sigma(M) </td>
+   <td align="center"> s(M) </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 3RA </td>
+   <td align="center"> 3RA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 3LB </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 2LH </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 2,050 </td>
+   <td align="center"> 3,932,964 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF: </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 2,050 </td>
+   <td align="center"> 3,932,964 </td>
+  </tr>
+ </table>
+
+<p>
+ <b>Turing machines with 2 states and 5 symbols</b>
+</p>
+
+ <table>
+  <tr>
+   <td> </td>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> A3 </td>
+   <td align="center"> A4 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> B3 </td>
+   <td align="center"> B4 </td>
+   <td align="center"> sigma(M) </td>
+   <td align="center"> s(M) </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 2RA </td>
+   <td align="center"> 4RB </td>
+   <td align="center"> 11,120 </td>
+   <td align="center"> 148,304,214 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 4RA </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 11,120 </td>
+   <td align="center"> 148,304,214 </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 4RB </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 4RA </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 4RA </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 3LH </td>
+   <td align="center"> 3,685 </td>
+   <td align="center"> 16,268,767 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 3,685 </td>
+   <td align="center"> 16,268,767 </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 4LB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 2RA </td>
+   <td align="center"> 0LB </td>
+   <td align="center"> 3LB </td>
+   <td align="center"> 2RA </td>
+   <td align="center"> 3LB </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 2LB </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 4,099 </td>
+   <td align="center"> 15,754,273 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 0RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 4RB </td>
+   <td align="center"> 3LB </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 4,099 </td>
+   <td align="center"> 15,754,273 </td>
+  </tr>
+ </table>
+
+<p>
+ <b>Turing machines with 2 states and 6 symbols</b>
+</p>
+
+ <table>
+  <tr>
+   <td> </td>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> A3 </td>
+   <td align="center"> A4 </td>
+   <td align="center"> A5 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> B3 </td>
+   <td align="center"> B4 </td>
+   <td align="center"> B5 </td>
+   <td align="center"> sigma(M) </td>
+   <td align="center"> s(M) </td>
+  </tr>  <tr>
+   <td align="center"> </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 5LB </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 3LB </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 5LA </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 15,828 </td>
+   <td align="center"> 493,600,387 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 5LB </td>
+   <td align="center"> 4LB </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 15,828 </td>
+   <td align="center"> 493,600,387 </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 4RB </td>
+   <td align="center"> 4RA </td>
+   <td align="center"> 4RA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 4LB </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 5LB </td>
+   <td align="center"> 3RA </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 10,249 </td>
+   <td align="center"> 98,364,599 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 3LB </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 2RA </td>
+   <td align="center"> 4RB </td>
+   <td align="center"> 5LB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 10,249 </td>
+   <td align="center"> 98,364,599 </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 5RB </td>
+   <td align="center"> 5RA </td>
+   <td align="center"> 3RH </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 4LB </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 4LH </td>
+   <td align="center"> 2RA </td>
+   <td align="center"> 5LB </td>
+   <td align="center"> 5LA </td>
+   <td align="center"> 10,574 </td>
+   <td align="center"> 94,842,383 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 4LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 2LB </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 5RA </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 10,574 </td>
+   <td align="center"> 94,842,383 </td>
+  </tr>
+ </table>
+
+<p>
+ <b>Turing machines with 3 states and 4 symbols</b>
+</p>
+
+ <table>
+  <tr>
+   <td> </td>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> A3 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> B3 </td>
+   <td align="center"> C0 </td>
+   <td align="center"> C1 </td>
+   <td align="center"> C2 </td>
+   <td align="center"> C3 </td>
+   <td align="center"> sigma(M) </td>
+   <td align="center"> s(M) </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2LC </td>
+   <td align="center"> 0LC </td>
+   <td align="center"> 0RA </td>
+   <td align="center"> 3LC </td>
+   <td align="center"> 2RC </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 0RC </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 0LB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 0RB </td>
+   <td align="center"> 17,323 </td>
+   <td align="center"> 262,759,288 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3LC </td>
+   <td align="center"> 0RA </td>
+   <td align="center"> 0LC </td>
+   <td align="center"> 2LC </td>
+   <td align="center"> 3RC </td>
+   <td align="center"> 0RC </td>
+   <td align="center"> 1LB </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 0LB </td>
+   <td align="center"> 0RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 17,323 </td>
+   <td align="center"> 262,759,288 </td>
+  </tr>
+ </table>
+
+<p>
+ <b>Turing machines with 4 states and 3 symbols</b>
+</p>
+
+ <table>
+  <tr>
+   <td> </td>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> C0 </td>
+   <td align="center"> C1 </td>
+   <td align="center"> C2 </td>
+   <td align="center"> D0 </td>
+   <td align="center"> D1 </td>
+   <td align="center"> D2 </td>
+   <td align="center"> sigma(M) </td>
+   <td align="center"> s(M) </td>
+  </tr>
+  <tr>
+   <td align="center"> </td>
+   <td align="center"> 0RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 2LD </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 2RD </td>
+   <td align="center"> 2RC </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 2RC </td>
+   <td align="center"> 1LC </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2LC </td>
+   <td align="center"> 15,008 </td>
+   <td align="center"> 250,096,776 </td>
+  </tr>
+  <tr>
+   <td align="center"> TNF:</td>
+   <td align="center"> 0RB </td>
+   <td align="center"> 1LD </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 1RC </td>
+   <td align="center"> 1RD </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2LC </td>
+   <td align="center"> 1RC </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 1LC </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 15,008 </td>
+   <td align="center"> 250,096,776 </td>
+  </tr>
+ </table>
+
+
+<p>&nbsp;</p>
+<p>
+ <a href="index.html"> Link to the home page of Pascal Michel</a>
+</p>
+
+</body>
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/adv.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+</html>

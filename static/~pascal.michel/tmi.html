@@ -1,0 +1,569 @@
+<html>
+
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/tmi.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+<head>
+<meta name="author" content="Pascal Michel">
+<meta name="keywords" content="Turing machine, busy beaver, tutorial">
+<title>
+Turing machines
+</title>
+</head>
+
+<body bgcolor="FEFEDD">
+
+<p align="center">
+<font size="6">
+<b> Turing machines: an Introduction </b>
+</font>
+</p>
+
+<p>
+ <font size="4">
+  <blockquote>
+   <b> Contents</b>
+  </blockquote>
+ </font>
+</p>
+
+<p>
+ <font size="3">
+  <a href="#par1"> What is a Turing machine?</a><br>
+  <a href="#par2"> What is a busy beaver? </a><br>
+  <a href="#par3"> What are busy beavers used for?</a>
+ </font>
+</p>
+
+<p>
+<blockquote>
+<font size="2">
+Last update: July 2008
+</font>
+</blockquote>
+</p>
+<p> </p>
+
+<a name="par1"> </a>
+<p>
+<font size="5">
+<b> What is a Turing machine? </b>
+</font>
+</p>
+<p> </p>
+
+<font size="3">
+<ul>
+
+<li>
+A Turing machine has a two-way infinite tape, made of cells.<br>
+In each cell, there is a <b> symbol</b>.<br>
+There is a finite number of symbols, denoted by 0, 1, ...<br>
+The symbol 0 is the <b> blank symbol</b>.<br>
+Initially, the Turing machine holds a finite <b> input</b>.<br>
+This input is a string of symbols, for example: 101001.<br>
+The other cells of the tape hold blank symbols.<br>
+In the kind of machine we consider, the input can contain
+the blank symbol 0.
+<p> </p>
+<table border="2">
+ <tr>
+ <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 1 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 1 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 1 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+ </tr>
+</table>
+<p> </p>
+</li>
+
+<li>
+A Turing machine has a tape head.<br>
+With this tape head, the machine can read and write on the tape.<br>
+The tape head moves one cell left or right at each step.<br>
+These <b> directions</b> are denoted by <b>L</b> and <b>R</b>.<br>
+In the kind of machine we consider, the tape head cannot keep
+still.<br>
+Initially, the tape head scans the leftmost symbol of the input.
+<p> </p>
+</li>
+
+<li>
+A Turing machine has a finite number of <b> states</b>.<br>
+The states are denoted by A, B, C, ...<br>
+In addition to these states, there is a special state,
+the <b> halting state</b>, denoted by H. <br>
+Initially, the state is A, so A is called the <b>initial state</b>.<br>
+Below, you can see the initial configuration of a Turing machine
+on the input 101001:
+<p> </p>
+
+<table border="2">
+ <tr>
+ <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center">  A&nbsp;1  </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 1 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 1 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> &nbsp; 0 &nbsp; </td>
+ <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+ </tr>
+</table>
+<p> </p>
+The position of the tape head is indicated by writing the
+current state on the scanned cell.
+<p> </p>
+</li>
+
+<li>
+A Turing machine has a <b> next move function</b>.<br>
+The next move function says that, when the machine is in
+state <i>q</i> and scans symbol <i>a</i> on a cell, then the
+machine writes a symbol <i>b</i> instead of <i>a</i>, moves
+one cell in the direction left or right, and enters state
+<i>p</i>.<br>
+We suppose that, when the machine stops, it writes a 1,
+moves right, and enters state H.<br>
+The next move function is given by a table.
+<p> </p>
+For example, we give below the table of a machine
+from Lin and Rado, with 3 states A, B, C, and 2 symbols
+0, 1, and the computation of this machine on an initially blank tape.
+<p> </p>
+</li>
+
+</ul>
+
+<table>
+<tr>
+<td align="center">
+ <table border="2" width="150">
+ <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+ <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1RH </td> </tr>
+ <tr> <td align="center"> B </td> <td align="center"> 0RC </td> <td align="center"> 1RB </td> </tr>
+ <tr> <td align="center"> C </td> <td align="center"> 1LC </td> <td align="center"> 1LA </td> </tr>
+ </table>
+</td>
+</tr>
+<tr>
+<td>
+<table border="2">
+ <tr> <td align="center"> initially </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> &nbsp;&nbsp;0&nbsp;&nbsp; </td>
+  <td align="center"> &nbsp;&nbsp;0&nbsp;&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> &nbsp;A0&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> &nbsp;&nbsp;0&nbsp;&nbsp; </td>
+  <td align="center"> &nbsp;&nbsp;0&nbsp;&nbsp; </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 1 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;B0&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 2 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> &nbsp;C0&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 3 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;C0&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 4 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> &nbsp;C1&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 5 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> &nbsp;A0&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 6 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;B1&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 7 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;B1&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 8 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;B1&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 9 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;B0&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 10 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> &nbsp;C0&nbsp; </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 11 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;C0&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 12 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;C1&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 13 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;A1&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+ <tr> <td align="center"> step 14 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp; </font> </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> &nbsp;H1&nbsp; </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 1 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> 0 </td>
+  <td align="center"> <font size="5"> &nbsp;.&nbsp;.&nbsp;.&nbsp;
+  </font> </td>
+ </tr>
+</table>
+</td>
+</tr>
+</table>
+<p> </p>
+<blockquote>
+The machine stops in 14 steps, leaving 6 symbols 1 on the tape.
+</blockquote>
+<p> </p>
+
+<ul>
+
+<li>
+<b> Formal mathematical definition</b>.
+<p> </p>
+Let <i>S</i> = {0,1,...} be the finite set of symbols,
+and let <i>Q</i> = {A,B,...} be the finite set of states.<br>
+Then the next move function is a mapping<br>
+<blockquote>
+d : <i>Q</i>&nbsp;&times;&nbsp; <i>S</i>&nbsp; 
+---&gt;&nbsp;<i>S</i>&nbsp;&times;&nbsp;{L,R}&nbsp;&times;&nbsp; <i>Q</i>&nbsp;&nbsp;
+or &nbsp;&nbsp; {(1,R,H)}.
+</blockquote>
+For example, if &nbsp; d(A,0) = (1,R,B),&nbsp; then it means
+that, when the machine is in state A scanning
+symbol 0 on a cell, then it replaces 0 by 1 on
+this cell, moves one cell right, and enters state B.
+</li>
+
+</ul>
+</font>
+<p> </p>
+
+<a name="par2"> </a>
+<p>
+<font size="5">
+<b> What is a busy beaver? </b>
+</font>
+</p>
+<p> </p>
+
+<font size="3">
+<ul>
+
+<li>
+Consider Turing machines with fixed numbers of states and
+symbols.<br>
+If there are k states and n symbols, then the number
+of possible next move functions, or possible tables, is
+(2kn+1)<sup><font size="2">kn</font></sup>.<br>
+Thus, there are (2kn+1)<sup><font size="2">kn</font></sup>
+Turing machines with k states and n symbols.<br>
+Each of them can be launched on a blank tape, that is
+a tape with symbols 0 in all cells.<br>
+Then some of them never stop, and the other ones
+eventually stop.<br>
+Those which stop are called <b> busy beavers</b>.
+<p> </p>
+</li>
+
+<li>
+Busy beavers compete in two competitions:
+ <ul>
+ <li>
+ to take the most time to stop,
+ </li>
+ <li>
+ to leave the most non-blank symbols on the tape when stopping.
+ </li>
+ <p> </p>
+ </ul>
+We denote by <b>s(M)</b> the time taken by busy beaver M,
+and by <b>sigma(M)</b> the number of non-blank symbols left
+on the tape by M.
+<p> </p>
+We denote by <b>S(k,n)</b> the time taken by the busy
+beaver with k states and n symbols which takes the most time to stop:<br>
+<p>
+<blockquote>
+S(k,n) = max {s(M) : M is a busy beaver with k states and n symbols}
+</blockquote>
+</p>
+We denote by <b>Sigma(k,n)</b> the number of non-blank symbols
+left on the tape by the busy beaver with k states and
+n symbols which leaves the most non-blank symbols on the tape when
+stopping:
+<p>
+<blockquote>
+Sigma(k,n) = max {sigma(M) : M is a busy beaver with k states and n symbols}
+</blockquote>
+</p>
+<p> </p>
+</li>
+
+<li>
+<b>Example:</b> the Lin and Rado's Turing machine given
+above, with 3 states and 2 symbols, takes 14 steps to stop,
+and leaves 6 symbols 1 on the tape when stopping.<br>
+
+So here: s(M) = 14 and sigma(M) = 6.<br>
+This machine is the winner for the most non-blank
+symbols left on the tape, so we have Sigma(3,2) = 6.<br>
+It is not the winner for the most time: another machine
+takes 21 steps to stop, and we have S(3,2) = 21.
+<p> </p>
+</li>
+
+</ul>
+</font>
+<p> </p>
+
+<a name="par3"> </a>
+<p>
+<font size="5">
+<b> What are busy beavers used for? </b>
+</font>
+</p>
+<p> </p>
+
+<font size="3">
+<ul>
+
+<li>
+In 1936, Turing defined Turing machines as a universal
+<b> model of computation</b> on natural numbers.
+This means that all computable functions you can imagine
+can be computed by a Turing machine.<br>
+Other authors (Church, Kleene, Post, Markov) defined
+other models of computation, but these models compute
+the same functions as Turing machines.<br>
+So it is currently assumed that &quot;computable&quot; means
+&quot;computable by a Turing machine&quot;. This assumption
+is called <b> Church's Thesis</b>, or, more accurately,
+<b> Church-Turing Thesis</b>.
+<p> </p>
+</li>
+
+<li>
+Then, how to find a <b> non-computable function</b>?<br>
+Such a function can be defined from a model of computation by an
+abstract device called <b> diagonalization method</b>. But
+usually this method does not give an explicit function.<br>
+Here enter busy beavers.
+<p> </p>
+</li>
+
+<li>
+In 1962, Rado defined busy beaver competition. He
+considered Turing machines with 2 symbols, and defined the
+functions S(n,2) and Sigma(n,2). He proved that these functions
+are not computable. Moreover, these functions
+<b> grow faster</b> than any computable function (that is,
+for any computable function f, there is an integer N
+such that, for all n &gt; N, we have S(n,2) &gt; f(n)).<br>
+The definitions of functions S(n,2) and Sigma(n,2) are
+explicit enough to allow their computations for small n.
+The promise is to get quickly large numbers. So winning
+busy beavers are simply definable machines with
+complex behavior. That's why they are interesting.
+<p> </p>
+</li>
+
+</ul>
+</font>
+
+<p> </p>
+<p> </p>
+
+<p>
+<font size="4">
+Now, you know enough about Turing machines and busy beavers
+to enjoy the results of <a href="bbc.html"> the
+busy beaver competition</a>.
+</font>
+</p>
+
+<a href="index.html"> Link to Pascal Michel's home page</a>
+</body>
+
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/tmi.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+</html>

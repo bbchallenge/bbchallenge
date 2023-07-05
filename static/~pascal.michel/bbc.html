@@ -1,0 +1,1161 @@
+<html>
+
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/bbc.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+<head>
+<meta name="author" content="Pascal Michel">
+<meta name="keywords" content="Turing machine, busy beaver">
+<title> Busy Beaver Competitions </title>
+</head>
+
+<body bgcolor="#FEFEDD">
+
+<p align="center">
+<font size="6">
+<b> The Busy Beaver Competitions </b>
+</font>
+</p>
+
+<p>
+<font size="3">
+with: Current Records, Winning Turing Machines, References
+</font>
+</p>
+
+<p>
+<font size="2">
+<blockquote>
+Last update: May 2023
+</blockquote>
+</font>
+</p>
+<p> </p>
+
+<p>
+<font size="3">
+<blockquote>
+If you do not understand the following definitions,<br>
+you need <a href="tmi.html"> elementary stuff on Turing
+machines and Busy Beavers</a>.
+</blockquote>
+</font>
+</p>
+<p> </p>
+
+<p>
+<font size ="4">
+<b> Definitions </b>
+</font>
+</p>
+
+<p>
+<font size="3">
+<blockquote>
+<b><i> S(k,n) </i></b> is the maximum number of steps made by a Turing
+machine with <i> k </i> states and <i> n </i> symbols that stops
+when starting from a blank tape.
+</blockquote>
+</font>
+</p>
+
+<p>
+<font size="3">
+<blockquote>
+<b><i> Sigma(k,n) </i></b> is the maximum number of non-blank
+symbols left on the tape by such a machine.
+</blockquote>
+</font>
+</p>
+<p> </p>
+
+<p>
+<font size="5">
+<b> Records for the Busy Beaver Competitions </b>
+</font>
+</p>
+
+<p>
+<font size="3">
+<blockquote>
+Only the current records are given here. <br>
+The previous records are given in the
+<a href="ha.html"> historical survey</a>
+of the busy beaver competition.
+</blockquote>
+</font>
+</p>
+<p> </p>
+
+<font size="4">
+<b> Machines with 2 symbols </b>
+ <ul>
+
+ <li>
+ <b> 2 states </b>: Rado (1962)
+   <font size="3">
+   <ul>
+   <li>
+   S(2,2) = 6
+   </li>
+   <li>
+   Sigma(2,2) = 4
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 3 states </b>: Lin and Rado (1965)
+   <font size="3">
+   <ul>
+   <li>
+   S(3,2) = 21
+   </li>
+   <li>
+   Sigma(3,2) = 6
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 4 states </b>: Brady (1983) and Kopp (cited by Machlin and Stout
+ (1990))
+   <font size="3">
+   <ul>
+   <li>
+   S(4,2) = 107
+   </li>
+   <li>
+   Sigma(4,2) = 13
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 5 states </b>: Marxen and Buntrock (1990)
+   <font size="3">
+   <ul>
+   <li>
+   S(5,2) =? 47,176,870
+   </li>
+   <li>
+   Sigma(5,2) =? 4098
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 6 states </b>: Kropitz (2022)
+   <font size="3">
+   <ul>
+   <li>
+   S(6,2) &gt; 10^^15 (a tower of powers of 10 with 15 occurences of 10)
+   </li>
+   <li>
+   Sigma(6,2) &gt; 10^^15 (a tower of powers of 10 with 15 occurences of 10)
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 7 states </b>: &quot;<a href="http://googology.wikia.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F">Wythagoras</a>&quot; (2014).
+   Superseded by the (6,2) champion.
+   <font size="3">
+   <ul>
+   <li>
+   S(7,2) &gt; 10<sup>10<sup>10<sup>10<sup>18705352.841</sup></sup></sup></sup>
+   </li>
+   <li>
+   Sigma(7,2) &gt;  10<sup>10<sup>10<sup>10<sup>18705352.841</sup></sup></sup></sup>
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ </ul>
+</font>
+<p> </p>
+
+<font size="4">
+<b> Machines with 3 symbols </b>
+ <ul>
+
+ <li>
+ <b> 2 states </b>: Lafitte and Papazian (2007)
+   <font size="3">
+   <ul>
+   <li>
+   S(2,3) = 38
+   </li>
+   <li>
+   Sigma(2,3) = 9
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 3 states </b>: Terry and Shawn Ligocki (2007)
+   <font size="3">
+   <ul>
+   <li>
+   S(3,3) =? 119,112,334,170,342,540
+   </li>
+   <li>
+   Sigma(3,3) =? 374,676,383
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 4 states </b>: Terry and Shawn Ligocki (2008)
+   <font size="3">
+   <ul>
+   <li>
+   S(4,3) &gt; 1.0 &times; 10<sup><font size="2">14072</font></sup> 
+   </li>
+   <li>
+   Sigma(4,3) &gt; 1.3 &times; 10<sup><font size="2">7036</font></sup>
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 5 states </b>:
+   <font size="3">
+   <ul>
+   <li>
+   S(5,3) = ? 
+   </li>
+   <li>
+   Sigma(5,3) = ?
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ </ul>
+</font>
+<p> </p>
+
+<font size="4">
+<b> Machines with 4 symbols </b> 
+ <ul>
+
+ <li>
+ <b> 2 states </b>: Terry and Shawn Ligocki (2005)
+   <font size="3">
+   <ul>
+   <li>
+   S(2,4) =? 3,932,964
+   </li>
+   <li>
+   Sigma(2,4) =? 2,050
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 3 states </b>: Pavel Kropitz (2023)
+   <font size="3">
+   <ul>
+   <li>
+   S(3,4) &gt; 10^^2048 (a tower of powers of 10 with 2048 occurences of 10)
+   </li>
+   <li>
+   Sigma(3,4) &gt; 10^^2048 (a tower of powers of 10 with 2048 occurences of 10)
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 4 states </b>:
+   <font size="3">
+   <ul>
+   <li>
+   S(4,4) = ?
+   </li>
+   <li>
+   Sigma(4,4) = ?
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ </ul>
+</font>
+<p> </p>
+
+<font size="4">
+<b> Machines with 5 symbols </b> 
+ <ul>
+
+ <li>
+ <b> 2 states </b>: Terry and Shawn Ligocki (2007)
+   <font size="3">
+   <ul>
+   <li>
+   S(2,5) &gt; 1.9 &times; 10<sup><font size="2">704</font></sup>
+   </li>
+   <li>
+   Sigma(2,5) &gt; 1.7 &times; 10<sup><font size="2">352</font></sup>
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ <li>
+ <b> 3 states </b>:
+   <font size="3">
+   <ul>
+   <li>
+   S(3,5) = ?
+   </li>
+   <li>
+   Sigma(3,5) = ?
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ </ul>
+</font>
+<p> </p>
+
+<font size="4">
+<b> Machines with 6 symbols </b> 
+ <ul>
+
+ <li>
+ <b> 2 states </b>: Pavel Kropitz (2023)
+   <font size="3">
+   <ul>
+   <li>
+   S(2,6) &gt; 10^^(10^^10<sup>10<sup>115</sup></sup>)
+   </li>
+   <li>
+   Sigma(2,6) &gt; 10^^(10^^10<sup>10<sup>115</sup></sup>)
+   </li>
+   </ul>
+   </font>
+ </li>
+
+ </ul>
+</font>
+<p> </p>
+
+<font size="4">
+<b> Summary tables </b>
+</font>
+
+<p>
+<blockquote>
+<font size="4"><b> For S(k,n):</b></font>
+</blockquote>
+</p>
+<font size="3">
+ <table border="2" width="%100">
+  <tr>
+   <td> 6 symbols </td> 
+   <td align="center"> &gt; 10^^(10^^10<sup>10<sup>115</sup></sup>) </td> 
+   <td> </td>
+   <td> </td>
+   <td> </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 5 symbols </td> 
+   <td align="center">  &gt; 1.9 &times; 10<sup><font size="2">704</font></sup></td> 
+   <td align="center"> ? </td>
+   <td> </td>
+   <td> </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 4 symbols </td> 
+   <td align="center"> 3,932,964 ? </td> 
+   <td align="center"> &gt; 10^^2048</td> </td>
+   <td align="center"> ? </td>
+   <td> </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 3 symbols </td>
+   <td align="center"> <b>38</b> </td>
+   <td align="center"> &gt; 1.1 &times; 10<sup><font size="2">17</font></sup></td>
+   <td align="center"> &gt; 1.0 &times; 10<sup><font size="2">14072</font></sup></td>
+   <td align="center"> ? </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 2 symbols </td>
+   <td align="center"> <b>6</b> </td>
+   <td align="center"> <b>21</b> </td>
+   <td align="center"> <b>107</b> </td>
+   <td align="center"> 47,176,870 ? </td>
+   <td align="center"> &gt; 10^^15</td>
+  </tr>
+  <tr>
+   <td> </td>
+   <td align="center"> 2 states </td>
+   <td align="center"> 3 states </td>
+   <td align="center"> 4 states </td>
+   <td align="center"> 5 states </td>
+   <td align="center"> 6 states </td>
+  </tr>
+ </table>
+</font>
+
+<p>
+<blockquote>
+<font size="4"><b> For Sigma(k,n):</b></font>
+</blockquote>
+</p>
+<font size="3">
+ <table border="2" width="%100">
+  <tr>
+   <td> 6 symbols </td>
+   <td align="center"> &gt; 10^^(10^^10<sup>10<sup>115</sup></sup>) </td>
+   </li> </td>
+   <td> </td>
+   <td> </td>
+   <td> </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 5 symbols </td>
+   <td align="center">  &gt; 1.7 &times; 10<sup><font size="2">352</font></sup> </td>
+   <td align="center"> ? </td>
+   <td> </td>
+   <td> </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 4 symbols </td>
+   <td align="center"> 2,050 ? </td>
+   <td align="center"> &gt; 10^^2048</td> </td>
+   <td align="center"> ? </td>
+   <td> </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 3 symbols </td>
+   <td align="center"> <b>9</b> </td>
+   <td align="center"> 374,676,383 ? </td>
+   <td align="center"> &gt; 1.3 &times; 10<sup><font size="2">7036</font></sup></td>
+   <td align="center"> ? </td>
+   <td> </td>
+  </tr>
+  <tr>
+   <td> 2 symbols </td>
+   <td align="center"> <b>4</b> </td>
+   <td align="center"> <b>6</b> </td>
+   <td align="center"> <b>13</b> </td>
+   <td align="center"> &nbsp; 4098 ? &nbsp; </td>
+   <td align="center"> &gt; 10^^15</td>
+  </tr>
+  <tr>
+   <td> </td>
+   <td align="center"> 2 states </td>
+   <td align="center"> 3 states </td>
+   <td align="center"> 4 states </td>
+   <td align="center"> 5 states </td>
+   <td align="center"> 6 states </td>
+  </tr>
+ </table>
+</font>
+<p> </p>
+
+<p>
+<font size="5">
+<b> Winning machines </b>
+</font>
+</p>
+
+<p> </p>
+
+<p>
+<font size="3">
+<blockquote>
+ Other good machines are given in the
+ <a href="ha.html">historical survey</a>.
+</blockquote>
+</font>
+</p>
+
+<p> </p>
+
+<font size="3">
+
+<font size="4">
+<b> Turing machines with 2 states and 2 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">      Rado (1962)          </td> </tr>
+    <tr> <td align="center">     s(M) = S(2,2) = 6      </td> </tr>
+    <tr> <td align="center">  sigma(M) = Sigma(2,2) = 4 </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1LB </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LA </td> <td align="center"> 1RH </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 3 states and 2 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">  Lin and Rado (1965)  </td> </tr>
+    <tr> <td align="center">  s(M) = S(3,2) = 21   </td> </tr>
+    <tr> <td align="center">      sigma(M) = 5     </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1RH </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LB </td> <td align="center"> 0RC </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LC </td> <td align="center"> 1LA </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">    Lin and Rado (1965)      </td> </tr>
+    <tr> <td align="center">         s(M) = 14           </td> </tr>
+    <tr> <td align="center">  sigma(M) = Sigma(3,2) = 6  </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+  <table border="2" width="200">
+   <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+   <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1RH </td> </tr> 
+   <tr> <td align="center"> B </td> <td align="center"> 0RC </td> <td align="center"> 1RB </td> </tr>
+   <tr> <td align="center"> C </td> <td align="center"> 1LC </td> <td align="center"> 1LA </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 4 states and 2 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">       Brady (1983)          </td> </tr>
+    <tr> <td align="center">    s(M) = S(4,2) = 107      </td> </tr>
+    <tr> <td align="center"> sigma(M) = Sigma(4,2) = 13  </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1LB </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1LA </td> <td align="center"> 0LC </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1RH </td> <td align="center"> 1LD </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1RD </td> <td align="center"> 0RA </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 5 states and 2 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center">  Marxen and Buntrock (1990)   </td> </tr>
+    <tr> <td align="center">  s(M) = 47,176,870 =? S(5,2)  </td> </tr>
+    <tr> <td align="center"> sigma(M) = 4098 =? Sigma(5,2) </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 1LC </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 1RB </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1RD </td> <td align="center"> 0LE </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LA </td> <td align="center"> 1LD </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RH </td> <td align="center"> 0LA </td> </tr> 
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 6 states and 2 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center">
+      Kropitz (2022)  
+     </td>
+    </tr>
+    <tr>
+     <td align="center"> s(M) and S(6,2) &gt; 10^^15
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) and Sigma(6,2) &gt; 10^^15
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 0RF </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LC </td> <td align="center"> 1LA </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 0LE </td> <td align="center"> 1RH </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1LF </td> <td align="center"> 0RB </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 0RC </td> <td align="center"> 0RE </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 7 states and 2 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr>
+     <td align="center">
+      &quot;<a href="http://googology.wikia.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F">Wythagoras</a>&quot; (2014)  
+     </td>
+    </tr>
+    <tr>
+      <td align="center">
+    Superseded by the (6,2) champion  
+      </td>
+    </tr>
+    <tr>  
+     <td align="center"> s(M) and S(7,2) &gt; 10<sup>10<sup>10<sup>10<sup>18705352.841</sup></sup></sup></sup>
+     </td>
+    </tr>
+    <tr> 
+     <td align="center"> sigma(M) and Sigma(7,2) &gt; 10<sup>10<sup>10<sup>10<sup>18705352.841</sup></sup></sup></sup>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="200">
+    <tr> <td>                  </td> <td align="center">  0  </td> <td align="center">  1  </td> </tr>
+    <tr> <td align="center"> A </td> <td align="center"> 1RB </td> <td align="center">     </td> </tr>
+    <tr> <td align="center"> B </td> <td align="center"> 1RC </td> <td align="center"> 0LG </td> </tr>
+    <tr> <td align="center"> C </td> <td align="center"> 1LD </td> <td align="center"> 1RB </td> </tr>
+    <tr> <td align="center"> D </td> <td align="center"> 1LF </td> <td align="center"> 1LE </td> </tr>
+    <tr> <td align="center"> E </td> <td align="center"> 1RH </td> <td align="center"> 1LF </td> </tr>
+    <tr> <td align="center"> F </td> <td align="center"> 1RG </td> <td align="center"> 0LD </td> </tr>
+    <tr> <td align="center"> G </td> <td align="center"> 1LB </td> <td align="center"> 0RF </td> </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 2 states and 3 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Lafitte and Papazian (2007) </td> </tr>
+    <tr> <td align="center">    s(M) =  S(2,3) = 38      </td> </tr>
+    <tr> <td align="center"> sigma(M) = Sigma(2,3) = 9   </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2LB</td>
+     <td align="center">1RH</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">2LA</td>
+     <td align="center">2RB</td>
+     <td align="center">1LB</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 3 states and 3 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2007)      </td> </tr>
+    <tr> <td align="center"> s(M) = 119,112,334,170,342,540 =? S(3,3) </td> </tr>
+    <tr> <td align="center"> sigma(M) = 374,676,383 =? Sigma(3,3) </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M= 
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2LA</td>
+     <td align="center">1LC</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">0LA</td>
+     <td align="center">2RB</td>
+     <td align="center">1LB</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1RH</td>
+     <td align="center">1RA</td>
+     <td align="center">1RC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+<font size="4">
+<b> Turing machines with 4 states and 3 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2008) </td> </tr>
+    <tr> <td align="center">   s(M) and S(4,3) &gt; 1.0 &times; 10<sup><font
+       size="2">14072</font></sup>   </td> </tr>
+    <tr> <td align="center">  sigma(M) and Sigma(4,3) &gt; 1.3 &times; 10<sup><font
+       size="2">7036</font></sup> </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="270">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">1RH</td>
+     <td align="center">2RC</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">2LC</td>
+     <td align="center">2RD</td>
+     <td align="center">0LC</td>
+    </tr>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">1RA</td>
+     <td align="center">2RB</td>
+     <td align="center">0LB</td>
+    </tr>
+    </tr>
+    <tr>
+     <td align="center"> D </td>
+     <td align="center">1LB</td>
+     <td align="center">0LD</td>
+     <td align="center">2RC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 2 states and 4 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2005) </td> </tr>
+    <tr> <td align="center">   s(M) = 3,932,964 =? S(2,4)   </td> </tr>
+    <tr> <td align="center"> sigma(M) = 2,050 =? Sigma(2,4) </td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="340">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+     <td align="center"> 3 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">2LA</td>
+     <td align="center">1RA</td>
+     <td align="center">1RA</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">1LB</td>
+     <td align="center">1LA</td>
+     <td align="center">3RB</td>
+     <td align="center">1RH</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 3 states and 4 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td>
+   <table align="center">
+    <tr> <td align="center"> Pavel Kropitz (2023) </td> </tr>
+    <tr> <td align="center">   s(M) and S(3,4) &gt; 10^^2048 </td> </tr>
+    <tr> <td align="center"> sigma(M) and Sigma(3,4) &gt; 10^^2048</td> </tr>
+   </table>
+  </td>
+  <td align="right">
+   M=
+  </td>
+  <td align="left">
+   <table border="2" width="340">
+    <tr>
+     <td> </td>
+     <td align="center"> 0 </td>
+     <td align="center"> 1 </td>
+     <td align="center"> 2 </td>
+     <td align="center"> 3 </td>
+    </tr>
+    <tr>
+     <td align="center"> A </td>
+     <td align="center">1RB</td>
+     <td align="center">0LB</td>
+     <td align="center">1RH</td>
+     <td align="center">3LA</td>
+    </tr>
+    <tr>
+     <td align="center"> B </td>
+     <td align="center">0LC</td>
+     <td align="center">3RB</td>
+     <td align="center">3RC</td>
+     <td align="center">1LB</td>
+    </tr>
+    <tr>
+     <td align="center"> C </td>
+     <td align="center">2RB</td>
+     <td align="center">2LA</td>
+     <td align="center">3RA</td>
+     <td align="center">1LC</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<font size="4">
+<b> Turing machines with 2 states and 5 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> Terry and Shawn Ligocki (2007) </td> </tr>
+    <tr> <td align="center"> s(M) and S(2,5) &gt; 1.9 &times; 10<sup><font
+       size="2">704</font></sup> </td> </tr>
+    <tr> <td align="center">  sigma(M) and Sigma(2,5) &gt; 1.7 &times; 10<sup><font
+       size="2">352</font></sup> 
+    </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="410">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">2LA</td>
+        <td align="center">1RA</td>
+        <td align="center">2LB</td>
+        <td align="center">2LA</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">0LA</td>
+        <td align="center">2RB</td>
+        <td align="center">3RB</td>
+        <td align="center">4RA</td>
+        <td align="center">1RH</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+</font>
+
+<font size="4">
+<b> Turing machines with 2 states and 6 symbols </b>
+</font>
+
+<table width="100%">
+ <tr>
+  <td align="center">
+   <table align="center">
+    <tr> <td align="center"> Pavel Kropitz (2023) </td> </tr>
+    <tr> <td align="center"> s(M) and S(2,6) &gt; 10^^(10^^10<sup>10<sup>115</sup></sup>) </td> </tr>
+    <tr> <td align="center"> sigma(M) and Sigma(2,6) &gt; 10^^(10^^10<sup>10<sup>115</sup></sup>) </td> </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+   <td align="center">
+   <table align="center">
+    <tr>
+     <td align="right">
+      M=
+     </td>
+     <td align="left">
+      <table border="2" width="480">
+       <tr>
+        <td> </td>
+        <td align="center"> 0 </td>
+        <td align="center"> 1 </td>
+        <td align="center"> 2 </td>
+        <td align="center"> 3 </td>
+        <td align="center"> 4 </td>
+        <td align="center"> 5 </td>
+       </tr>
+       <tr>
+        <td align="center"> A </td>
+        <td align="center">1RB</td>
+        <td align="center">3RB</td>
+        <td align="center">5RA</td>
+        <td align="center">1LB</td>
+        <td align="center">5LA</td>
+        <td align="center">2LB</td>
+       </tr>
+       <tr>
+        <td align="center"> B </td>
+        <td align="center">2LA</td>
+        <td align="center">2RA</td>
+        <td align="center">4RB</td>
+        <td align="center">1RH</td>
+        <td align="center">3LB</td>
+        <td align="center">2LA</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+
+<p> </p>
+
+<p> &nbsp; </p>
+
+<p>
+<font size="5">
+<b> References </b>
+</font>
+</p>
+
+<ul>
+
+<li>
+ Brady A.H. (1983) <br>
+ The determination of the value of Rado's noncomputable function
+ Sigma(k) for four-state Turing machines <br>
+ <i> Mathematics of Computation </i> <b> 40 </b> (162), April 1983, 647-665
+ <p> </p>
+</li>
+
+<li>
+ Lafitte G. and Papazian C. (2007) <br>
+ <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.104.3021&amp;rep=rep1&amp;type=pdf#page=231">
+ The fabric of small Turing machines</a> <br>
+ in: <i>Computation and Logic in the Real World, Proceedings of the Third
+ Conference on Computability in Europe</i>, June 2007, 219-227.
+ <p> </p>
+</li>
+
+<li>
+ Lin S. and Rado T. (1965) <br>
+ Computer studies of Turing machine problems <br>
+ <i> Journal of the ACM </i> <b> 12 </b> (2), April 1965, 196-212
+ <p> </p>
+</li>
+
+<li>
+ Machlin R. and Stout Q.F. (1990) <br>
+ The complex behavior of simple machines <br>
+ <i> Physica D </i> <b> 42 </b>, June 1990, 85-98
+ <p> </p>
+</li>
+
+<li>
+ Marxen H. and Buntrock J. (1990) <br>
+ Attacking the Busy Beaver 5 <br>
+ <i> Bulletin of the EATCS </i> No 40, February 1990, 247-251
+ <p> </p>
+</li>
+
+<li>
+ Rado T. (1962) <br>
+ On non-computable functions <br>
+ <i> Bell System Technical Journal </i> <b> 41</b> (3), May 1962, 877-884
+ <p> </p>
+</li>
+
+</ul>
+<p>
+<a href="index.html"> Link to Pascal Michel's home page</a>
+</p>
+
+</body>
+
+
+<!-- Mirrored from webusers.imj-prg.fr/~pascal.michel/bbc.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jul 2023 08:00:30 GMT -->
+</html>
