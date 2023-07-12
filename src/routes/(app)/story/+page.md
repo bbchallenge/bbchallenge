@@ -21,7 +21,7 @@ let nbTM = "(4n+1)^{2n}"
 let nbTM5 = "21^{10} \\simeq 1.6\\times 10^{13}"
 let BB7 = "\\geq 10^{10^{10^{18,705,352}}}"
 let BB72 = "10^{10^{10^{18,705,352}}}"
-let BB6 = "> 7.514\\times 10^{36,534}"
+let BB6 = "> 10 \\uparrow \\uparrow {15}"
 
 
 const R=0;
@@ -238,8 +238,7 @@ Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Aarons
 Apart from concrete values of BB, the following is also known:
 
 - BB(5) >= 47,176,870 [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
-- BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)
-- BB(7) <Katex math={BB7}/> [[Wythagoras, 2014]](https://googology.fandom.com/wiki/User_blog:Wythagoras/A_good_bound_for_S(7)%3F) [[Cloudy176, 2014]](https://googology.fandom.com/wiki/User_blog:Cloudy176/Proving_the_bound_for_S(7)) [[Michel, 2009]](https://arxiv.org/abs/0906.3749#:~:text=Pascal%20Michel%20(ELM),faster%20than%20any%20computable%20function.)
+- BB(6) <Katex math={BB6}/> [[Kropitz, 2022]](https://www.sligocki.com/2022/06/21/bb-6-2-t15.html)
 - BB(15) is at least as hard as Erdős' conjecture on powers of 2: "for n > 8, there is at least one digit 2 in the base-3 representation of 2<sup>n</sup>". [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf)
 - BB(27) is at least as hard as Goldbach conjecture: "for n > 2, every even integer is the sum of two primes" [unverified construction](https://gist.github.com/anonymous/a64213f391339236c2fe31f8749a0df6) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf)
 - BB(744) is at least as hard as Riemann Hypothesis [[Matiyasevich and O'Rear and Aaronson, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/riemann-matiyasevich-aaronson.nql)

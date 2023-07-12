@@ -559,7 +559,7 @@
 							<div class="ml-5 flex items-center space-x-4">
 								<input
 									type="number"
-									class="w-[200px]"
+									class="w-[200px] text-black"
 									placeholder="max 88664063"
 									min="0"
 									max="88664063"
@@ -579,7 +579,12 @@
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
 							{/if}
 							<div class="ml-5 flex items-center space-x-4">
-								<input type="text" class="w-[200px]" placeholder="" bind:value={typedMachineCode} />
+								<input
+									type="text"
+									class="w-[200px] text-black"
+									placeholder=""
+									bind:value={typedMachineCode}
+								/>
 								<button
 									class="bg-blue-500 p-1 px-2"
 									on:click={() => {
