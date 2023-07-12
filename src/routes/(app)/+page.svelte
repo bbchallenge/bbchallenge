@@ -386,7 +386,7 @@
 									<label class="flex flex-col">
 										tape width
 										<input
-											class="w-[70px]"
+											class="w-[70px] text-black"
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
@@ -398,7 +398,7 @@
 									<label class="flex flex-col">
 										x-translation
 										<input
-											class="w-[70px]"
+											class="w-[70px] text-black"
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
@@ -413,7 +413,7 @@
 								</div>
 								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer">
 									<div>initial tape content</div>
-									<input bind:value={initial_tape} on:change={draw} />
+									<input bind:value={initial_tape} on:change={draw} class="text-black" />
 								</label>
 							</div>
 							{#if !exploreMode}
