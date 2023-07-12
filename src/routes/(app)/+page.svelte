@@ -374,7 +374,7 @@
 									<label class="flex flex-col">
 										steps
 										<input
-											class="w-[70px]"
+											class="w-[70px] text-black"
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
