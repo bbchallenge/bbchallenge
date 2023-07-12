@@ -178,7 +178,9 @@ Here is another machine that halts after 105 steps:
 
 If a machine has no undefined transition it is sure that it will never halt as it cannot ever encounter an undefined transition.
 
-However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine^[1. This machine can be thought as the "while true" of Turing machines.] that will never halt starting from all-0 tape although it has plenty undefined transitions:
+However, it is not because a machine has an undefined transition that it will halt one day. The most simple example to support this statement is the following machine that will never halt starting from all-0 tape although it has plenty undefined transitions:
+<!-- ^[1. This machine can be thought as the "while true" of Turing machines.]  -->
+
 
 <TmSimulator machineCode="0RA---------------------------"/>
 
@@ -204,7 +206,7 @@ But why focusing on 5 states? Let's first reformulate the problem in terms of bu
 
 ### Definition of BB
 
-We can now properly define the busy beaver function BB as introduced^[2. BB(n) was called S(n) in [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf) and the name S(n) is frequent is the literature.] in [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf):
+We can now properly define the busy beaver function BB (called S originally) as introduced in [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf):
 
 <div class="flex justify-center items-center space-x-2">
 <div>
@@ -254,7 +256,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 #### The busy beaver scale
 
-These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems^[3. Not all mathematical conjectures can be weighted on the busy beaver scale as you need the set of counterexamples to the conjecture to be recursively enumarable. For instance, it is not known whether the set of counterexamples to the <a href="https://en.wikipedia.org/wiki/Collatz_conjecture" class="underline">Collatz conjecture</a> is r.e. or not: how would an algorithm recognise a divergent Collatz trajectory?.]. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
+These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
 
 These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 

@@ -29,7 +29,7 @@ With the Busy Beaver Challenge we want to decide the halting problem of all 5-st
 
 In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 16 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
 
-Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="4! = 24"/> ways to permute the states (aside from the start state) of a machine and 2 ways to permute the move directions which does not change behavior hence only one of these 48 machines needs to be studied^[1. These 48 machines are said to be _isomorphic_.].
+Thankfully most of this space is not _useful_ to us and only a fraction needs to be studied in order to find BB(5). This is for instance because there are <Katex math="4! = 24"/> ways to permute the states (aside from the start state) of a machine and 2 ways to permute the move directions which does not change behavior hence only one of these 48 machines needs to be studied.
 
 Hence, we aim at _sparsely_ enumerating the space of 5-state Turing machines: that is trying to enumerate the least amount of machines that are necessary to study in order to find BB(5).
 
@@ -45,7 +45,7 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 
 **Phase 1** was completed in December 2021:
 
-- it enumerated 125,479,953 Turing machines in 30 hours^[2. Splitting the task among several computers in parallel.]. See these [metrics](#metrics) for more.
+- it enumerated 125,479,953 Turing machines in 30 hours (splitting the task among several computers in parallel). See these [metrics](#metrics) for more.
 - it marked **88,664,064** machines as undecided and they are stored in the [seed database](#seed-database). We refer to undecided 5-state machines thanks to their index in the seed database (e.g. Machine <a href="/7410754" rel="external">#7,410,754</a>).
 
 Although **Phase 1** of the project was completed, it needs to be reproduced independently in order to confirm its results and increase trust. See <a href="/contribute" rel="external">Contribute</a>.
@@ -76,7 +76,7 @@ Our approach provides modularity and hopefully facilitates reproducibility, peer
 
 The Busy Beaver Challenge is based on a [downloadable](#download) seed database of 88,664,064 undecided 5-state machines which was constructed during [phase 1](#phase-1-phase-2) of the project, completed in December 2021. You are more than invited to reproduce this result, see <a href="/contribute" rel="external">Contribute</a>.
 
-The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go^[3. Go is ideal for lightweight parallelisation which is very useful in this case.] and 105 lines of C and is unit tested. See our <a href="#reproducibility-and-verifiability-statement">reproducibility and verifiability statement</a>.
+The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go and 105 lines of C and is unit tested. See our <a href="#reproducibility-and-verifiability-statement">reproducibility and verifiability statement</a>.
 
 This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between [phase 1 and phase 2](#phase-1-phase-2) in this project.
 
@@ -88,7 +88,7 @@ The main aim of the Busy Beaver Challenge is to decide every machine in the seed
 
 The algorithm that we implement to sparsely enumerate the space of 5-state Turing machines is a variation of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) but the core idea is the same.
 
-The algorithm recursively constructs the tree of 5-state Turing machines starting from the following common ancestor^[4. By symmetry this common ancestor can use tape movement R and go to state B without loss of generality (if it goes to state A, that machine will obviously never halt). Writing a 1 is motivated by the fact that for any machine which writes a 0 first, we can simulate that machine forward until it writes it's first 1 and then permute the states so that that state (which wrote the first 1) is the start state. This new machine will have the exact same behavior as the original machine (except that it runs less than 4 steps less). A post-analysis of all machines can find all examples like this.]:
+The algorithm recursively constructs the tree of 5-state Turing machines starting from the following common ancestor:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -140,7 +140,7 @@ BB_SPACE(n) =
 </div><div class="text-sm w-[300px]">Maximum number of  memory cells visited by a halting Turing machine with n states starting from all-0 memory tape</div>
 </div>
 
-Note that BB_SPACE **is not** Rado's <Katex math="\Sigma"/> function^[5. Rado's <Katex math="\Sigma(n)"/> is the maximum number of 1s on the final tape of a n-state halting Turing machine from all-0 tape. It does not provide a convenient space cut-off as the number of 1s on the final tape is not necessarily the maximum number of 1s seen in the execution of the machine.] [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf).
+Note that BB_SPACE **is not** Rado's <Katex math="\Sigma"/> function which is the maximum number of 1s on the final tape of a n-state halting Turing machine from all-0 tape, [[Rado, 1962]](https://cs.famaf.unc.edu.ar/~hoffmann/cc18/Rado-On-non-computable.pdf).
 
 We conjecture:
 
