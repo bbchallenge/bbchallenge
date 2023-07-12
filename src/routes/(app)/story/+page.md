@@ -312,7 +312,7 @@ The full list of Skelet's 43 machines and their equivalents in the Busy Beaver C
 
 ### Hertel's 100 holdouts
 
-In 2009, Joachim Hertel [published a method](https://content.wolfram.com/uploads/sites/19/2009/11/Hertel.pdf) that he claims leaves only 100 machines undecided (called ``holdouts''). The method seems to be very robust and an independent reproduction of these results would be very interesting.
+In 2009, Joachim Hertel [published a method](https://content.wolfram.com/uploads/sites/19/2009/11/Hertel.pdf) that claims to leave only 100 machines undecided. The method seems to be very robust and an independent reproduction of these results would be very interesting.
 
 <a id="references"></a>
 
