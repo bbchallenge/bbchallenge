@@ -1,8 +1,10 @@
-<script lang="ts">
+<SeoTitle value="Skelet" />
 
+<script lang="ts">
 import { onMount } from 'svelte';
 import { API } from '$lib/api_server';
 import { numberWithCommas } from '$lib/utils';
+import SeoTitle from "$lib/seo_title.svelte"
 import {
 		TMDecisionStatus,
 		APIDecisionStatusToTMDecisionStatus

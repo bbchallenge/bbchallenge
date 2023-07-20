@@ -1,4 +1,7 @@
+<SeoTitle value="test machine code"/>
+
 <script lang="ts">
+	import SeoTitle from "$lib/seo_title.svelte";
   //Making sure that encoding of machines is same on server and client
 	import { API } from '$lib/api_server';
 	import {machineCodeToTM, tmToMachineCode } from '$lib/tm';

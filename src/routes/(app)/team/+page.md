@@ -1,3 +1,9 @@
+<SeoTitle value="Team" />
+
+<script lang="ts">
+  import SeoTitle from "$lib/seo_title.svelte"
+</script>
+
 <div class="dark w-full ">
 <div class="prose prose-invert text-white -mt-4  xl:justify-start lg:ml-[170px] ml-0 sm:ml-4 font-sans prose-base sm:prose-lg w-full">
 <div class="leading-normal ">
