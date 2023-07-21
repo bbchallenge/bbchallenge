@@ -258,7 +258,7 @@ Knowing the value of BB(15) would imply that we'd know if that particular 15-sta
 
 These results provide a scale, **the busy beaver scale**, on which we can measure the complexity of various mathematical problems. For instance, according to this scale (and current knowledge), Erdős' conjecture on powers of 2 is less complex than Goldbach conjecture since it can be encoded as the halting problem of a smaller Turing machine.
 
-These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt) as there is a 6-state Turing machine halting after roughly that many steps (exact number given in [[Kropitz, 2010]](http://turbotm.de/~heiner/BB/bb-xlist.txt)), which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
+These results also drastically reduce the hope that we'd ever know the value of BB even for small values such as 15. Even worse, BB(6) <Katex math={BB6}/> [[Kropitz, 2022]](https://www.sligocki.com/2022/06/21/bb-6-2-t15.html) as there is a 6-state Turing machine halting after roughly that many steps, which is way bigger than the estimated number of atoms in the universe 10<sup>80</sup>.
 
 Hence, the frontier between tractable and intractable values of BB seems to be situated at BB(5).
 
