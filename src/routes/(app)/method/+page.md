@@ -164,7 +164,7 @@ The enumeration algorithm was run in December 2021 and here are some metrics abo
 | ---------------------------------------- | ----------- | ---------- | ---------- |
 | total halting (undefined transition met) |             | 34,104,723 |
 | total non-halting (using BB(4))          |             | 2,711,166  |
-| total pruned                             |             | 944 579    |
+| total pruned                             |             | 944,579    |
 | total undecided (time limit)             |             |            | 14,322,029 |
 | total undecided (space limit)            |             |            | 74,342,035 |
 | total undecided                          |             | 88,664,064 |            |
