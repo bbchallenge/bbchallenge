@@ -64,7 +64,7 @@ BB(5) = 47,176,870
 
 This conjecture says that if a 5-state [Turing machine](#turing-machines) runs for more than 47,176,870 steps without halting then it will never halt (starting from all-0 memory tape).
 
-The conjecture is based on earlier work [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which discovered the current <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
+The conjecture is based on the work of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) who discovered the current <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
