@@ -124,7 +124,7 @@ Thanks to (a) using a [space limit](#bbspace), (b) using low level code for the 
 
 #### Time and space limits
 
-During the enumeration algorithm we need a criterion to stop simulating machines that have been running for too long and mark them as **undecided**. We use the conjectured value of BB(5) = 47,176,870 steps as a cut-off time limit [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html).
+During the enumeration algorithm we need a criterion to stop simulating machines that have been running for too long and mark them as **undecided**. We use the conjectured value of BB(5) = 47,176,870 steps as a cut-off time limit [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf).
 
 We introduce the idea of a space limit. Indeed the busy beaver value is traditionally concerned with time only. But we can also ask an analogous question about **space**: "what is the maximum number of memory cells that a 5-state machine can visit before halting?".
 
