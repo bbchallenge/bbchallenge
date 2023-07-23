@@ -1,5 +1,8 @@
+<SeoTitle value="Story" />
+
 <script lang="ts">
-  import { onMount } from 'svelte';
+import { onMount } from 'svelte';
+import SeoTitle from "$lib/seo_title.svelte";
 import TmSimulator from "$lib/tm_simulator.svelte"
 import { tmToMachineCode, machineCodeToTM, tmToTuringMachineDotIO  } from '$lib/tm';
 import {BB5_champion} from '$lib/machine_repertoire'

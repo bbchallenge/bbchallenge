@@ -1,3 +1,5 @@
+<SeoTitle value={machineID || machineCode}/>
+
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import TmTable from '$lib/tm_table.svelte';
@@ -16,6 +18,7 @@
 
 	import Zoology from '$lib/news-deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
+	import SeoTitle from '$lib/seo_title.svelte';
 
 	let machine = null;
 	export let machineID = null;
