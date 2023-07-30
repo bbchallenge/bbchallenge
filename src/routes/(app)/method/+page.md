@@ -304,9 +304,23 @@ For instance, [https://api.bbchallenge.org/machine/12345678](https://api.bbchall
 
 - The field "machine_id" is the ID that you queried.
 
-- The field "status" keeps track of the deciders that have been applied to the database, the goal is for all machines to become "decided". For instance, this machine was decided by the decider for [Cyclers](link).
+- The field "status" keeps track of whether the machine has been decided by one of the [deciders](#deciders) that have been applied to the database. The goal is for all machines to become "decided".
 
-The goal is for all the machines of the database to eventually be decided by [Deciders](#deciders).
+You can additionally use the API to query which decider, if any, has decided a particular machine:
+
+```
+GET https://api.bbchallenge.org/machine/<machine_id>/decider
+```
+
+Continuing the previous example, [https://api.bbchallenge.org/machine/12345678/decider](https://api.bbchallenge.org/machine/12345678/decider) will return:
+
+```json
+{
+	"decider_file": "cyclers-run-11c0ef00e9c2-time-1000-space-500-minIndex-0-maxIndex-14322029"
+}
+```
+
+Therefore, this machine was decided by the decider for [Cyclers](link).
 
 <a id="deciders"></a>
 
