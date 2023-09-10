@@ -1,5 +1,3 @@
-<SeoTitle value={machineID || machineCode}/>
-
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import TmTable from '$lib/tm_table.svelte';
@@ -19,6 +17,7 @@
 	import Zoology from '$lib/news-deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
+	import MachineCanvas from './MachineCanvas.svelte';
 
 	let machine = null;
 	export let machineID = null;
@@ -33,19 +32,11 @@
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
 
-	let canvas;
-
 	let exploreMode = false;
 	let showHeadMove = true;
 
-	const drawRect = (context) => {
-		context.fillStyle = 'black';
-		context.fillRect(0, 0, canvas.width, canvas.height);
-		context.fill();
-	};
-
 	const nbIterDefault = 10000;
-	const tapeWidthDefault = 300;
+	const tapeWidthDefault = 400;
 	const origin_xDefault = 0.5;
 	export let nbIter = nbIterDefault;
 	export let tapeWidth = tapeWidthDefault;
@@ -95,28 +86,6 @@
 	}
 
 	let showRandomOptions = false;
-
-	let drawCleanup;
-	function draw() {
-		if (drawCleanup) drawCleanup();
-
-		const context = canvas.getContext('2d');
-		drawRect(context);
-		if (exploreMode) {
-			drawCleanup = tm_explore(context, machine, initial_tape, nbIter);
-		} else {
-			tm_trace_to_image(
-				context,
-				machine,
-				initial_tape,
-				tapeWidth,
-				nbIter,
-				origin_x,
-				true,
-				showHeadMove
-			);
-		}
-	}
 
 	let randomType = 'all_undecided';
 
@@ -202,7 +171,6 @@
 			machine = machineCodeToTM(machine_code);
 			addToHistory(machine_code);
 			history = getHistory();
-			draw();
 		} catch (error) {
 			machineCodeError = error;
 		}
@@ -239,9 +207,6 @@
 			await loadMachineFromMachineCode(BB5_champion, TMDecisionStatus.UNDECIDED);
 			origin_x = 0.65;
 		}
-
-		draw();
-		//console.log(metrics);
 	});
 
 	function defaultSimulationParameters() {
@@ -254,12 +219,13 @@
 		switch (e.keyCode) {
 			case 82:
 				await getRandomMachine();
-				draw();
 				window.history.replaceState({}, '', getSimulationLink());
 				break;
 		}
 	}
 </script>
+
+<SeoTitle value={machineID || machineCode} />
 
 <svelte:window on:keydown={keydown} />
 
@@ -322,11 +288,15 @@
 				class:colors={exploreMode}
 			>
 				<div class="flex flex-col items-start">
-					<canvas
-						class="bg-black mr-5 image-render-pixel"
-						bind:this={canvas}
-						width={exploreMode ? 800 : 400}
-						height="500"
+					<MachineCanvas
+						{exploreMode}
+						{machine}
+						{initial_tape}
+						{tapeWidth}
+						{nbIter}
+						{origin_x}
+						{showHeadMove}
+						machineName={machineCode || machineID}
 					/>
 					<div class="text-xs pt-0 flex space-x-1 mt-2">
 						<!-- <div
@@ -355,20 +325,6 @@
 						>
 							Simulation Parameters
 						</div>
-						<div>&middot;</div>
-						{#if canvas}
-							<div
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
-								on:click={() => {
-									var image = new Image();
-									image.src = canvas.toDataURL();
-									let w = window.open('');
-									w.document.write(image.outerHTML);
-								}}
-							>
-								Export image
-							</div>
-						{/if}
 					</div>
 					<div class="mt-1 flex flex-col">
 						{#if showSimulationParams}
@@ -381,7 +337,6 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												draw();
 												window.history.replaceState({}, '', getSimulationLink());
 											}}
 										/></label
@@ -393,7 +348,6 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												draw();
 												window.history.replaceState({}, '', getSimulationLink());
 											}}
 										/></label
@@ -405,7 +359,6 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												draw();
 												window.history.replaceState({}, '', getSimulationLink());
 											}}
 											min="0"
@@ -416,18 +369,18 @@
 								</div>
 								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer">
 									<div>initial tape content</div>
-									<input bind:value={initial_tape} on:change={draw} class="text-black" />
+									<input bind:value={initial_tape} class="text-black" />
 								</label>
 							</div>
 							{#if !exploreMode}
 								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer">
-									<input type="checkbox" bind:checked={showHeadMove} on:change={draw} />
+									<input type="checkbox" bind:checked={showHeadMove} />
 									<div>Show head movement (green for L, red for R)</div>
 								</label>
 							{/if}
 						{/if}
 						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer">
-							<input type="checkbox" bind:checked={exploreMode} on:change={draw} />
+							<input type="checkbox" bind:checked={exploreMode} />
 							<div>Explore mode</div>
 						</label>
 					</div>
@@ -445,7 +398,6 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromID(machineID);
-										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
@@ -456,7 +408,6 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
-										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
@@ -485,7 +436,6 @@
 									class="bg-blue-500 p-1 mt-1 w-full ml-2"
 									on:click={async () => {
 										await getRandomMachine();
-										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}>Go (R)andom</button
 								>
@@ -569,7 +519,6 @@
 									bind:value={typedMachineID}
 									on:change={async () => {
 										await loadMachineFromID(typedMachineID);
-										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								/>
@@ -592,7 +541,6 @@
 									class="bg-blue-500 p-1 px-2"
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
-										draw();
 										window.history.replaceState({}, '', getSimulationLink());
 									}}
 									>Go
@@ -634,7 +582,6 @@
 
 							await loadMachineFromID(machine_id);
 							defaultSimulationParameters();
-							draw();
 							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					/>
@@ -645,7 +592,6 @@
 							await loadMachineFromID(machine_id);
 							defaultSimulationParameters();
 
-							draw();
 							window.history.replaceState({}, '', getSimulationLink());
 						}}
 						on:machine_code={async (ev) => {
@@ -654,7 +600,6 @@
 
 							await loadMachineFromMachineCode(machine_code, machine_status);
 							defaultSimulationParameters();
-							draw();
 							console.log(getSimulationLink());
 							window.history.replaceState({}, '', getSimulationLink());
 						}}
