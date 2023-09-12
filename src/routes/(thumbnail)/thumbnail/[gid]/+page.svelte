@@ -13,7 +13,7 @@
 	let machineCode = null;
 
 	const nbIterDefault = 10000;
-	const tapeWidthDefault = 300;
+	const tapeWidthDefault = 400;
 	const origin_xDefault = 0.5;
 	let nbIter = nbIterDefault;
 	let tapeWidth = tapeWidthDefault;
