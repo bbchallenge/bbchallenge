@@ -68,20 +68,4 @@
 
 <div class="relative mr-5">
 	<canvas class="bg-slate-800 image-render-pixel" bind:this={canvas} width="400" height="500" />
-
-	{#if canvas && machine}
-		<button
-			class="absolute right-2 top-2 text-blue-400 hover:text-blue-300 cursor-pointer"
-			on:click={() => {
-				var image = new Image();
-				image.src = canvas.toDataURL();
-				let w = window.open('');
-
-				const title = `machine-${machineName || 'simulation'}`;
-				w.document.write(`<head><title>${title}</title></head><body>${image.outerHTML}</body>`);
-			}}
-		>
-			Export image
-		</button>
-	{/if}
 </div>

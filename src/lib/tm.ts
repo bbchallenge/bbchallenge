@@ -279,6 +279,9 @@ export function tm_trace_to_image(
 	fitCanvas = true,
 	showHeadMove = false
 ) {
+	width = Math.max(1, Math.min(99_999, Math.floor(width) || 0));
+	height = Math.max(1, Math.min(99_999, Math.floor(height) || 0));
+
 	const imgData = ctx.createImageData(width, height);
 
 	const history = render_history(machine, initial_tape, height);

@@ -316,7 +316,7 @@
 							What is this?
 						</a>
 						<div>&middot;</div>
-						<div
+						<button
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							class:text-blue-300={showSimulationParams}
 							on:click={() => {
@@ -324,7 +324,7 @@
 							}}
 						>
 							Simulation Parameters
-						</div>
+						</button>
 					</div>
 					<div class="mt-1 flex flex-col">
 						{#if showSimulationParams}
@@ -338,6 +338,12 @@
 											bind:value={nbIter}
 											on:change={() => {
 												window.history.replaceState({}, '', getSimulationLink());
+											}}
+											min="1"
+											max="99999"
+											on:blur={(e) => {
+												nbIter = Math.max(1, Math.min(99999, Math.round(nbIter || 0)));
+												e.currentTarget.value = nbIter.toString();
 											}}
 										/></label
 									>
