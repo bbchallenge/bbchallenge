@@ -225,7 +225,9 @@
 	}
 </script>
 
-<SeoTitle value={machineID || machineCode} />
+{#key machineID || machineCode}
+	<SeoTitle value={machineID || machineCode} />
+{/key}
 
 <svelte:window on:keydown={keydown} />
 
