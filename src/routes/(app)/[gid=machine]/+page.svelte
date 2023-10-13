@@ -4,9 +4,7 @@
 	import { TMDecisionStatus } from '$lib/tm';
 
 	// Machine ID or machine b64
-	let generalisedIDAndParams = $page.params.gid;
-
-	const generalisedID = generalisedIDAndParams.split('&')[0];
+	$: generalisedIDAndParams = $page.params.gid;
 
 	let machineID = null;
 	let machineCode = null;
@@ -15,10 +13,16 @@
 	let tapeWidth = null;
 	let origin_x = null;
 
-	if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
-		machineCode = generalisedID;
-	} else {
-		machineID = generalisedID;
+	$: {
+		const generalisedID = generalisedIDAndParams.split('&')[0];
+
+		if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
+			machineCode = generalisedID;
+			machineID = null;
+		} else {
+			machineCode = null;
+			machineID = generalisedID;
+		}
 	}
 
 	const urlParams = new URLSearchParams(generalisedIDAndParams);

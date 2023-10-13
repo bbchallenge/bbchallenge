@@ -5,8 +5,6 @@
 	import { addToHistory, getHistory, numberWithCommas } from '$lib/utils';
 	import {
 		TMDecisionStatus,
-		tm_trace_to_image,
-		tm_explore,
 		tmToMachineCode,
 		machineCodeToTM,
 		DB_SIZE,
@@ -54,11 +52,11 @@
 		origin_x = origin_xDefault;
 	}
 
-	function getSimulationLink(forCopy = false) {
-		let prefix = 'https://bbchalenge.org/';
-		if (!forCopy) {
-			prefix = '/';
+	$: simulationLink = ((): string | null => {
+		if (!machine) {
+			return null;
 		}
+		let prefix = '/';
 		let secondPrefix = tmToMachineCode(machine);
 		if (machineID != null) {
 			secondPrefix = machineID;
@@ -83,7 +81,7 @@
 		}
 
 		return prefix + secondPrefix + simulationParametersLink + last_add;
-	}
+	})();
 
 	let showRandomOptions = false;
 
@@ -189,7 +187,7 @@
 		if (!preSeed) {
 			try {
 				await getRandomMachine();
-				window.history.replaceState({}, '', getSimulationLink());
+				window.history.replaceState({}, '', simulationLink);
 			} catch (error) {
 				apiDown = true;
 			}
@@ -219,7 +217,7 @@
 		switch (e.keyCode) {
 			case 82:
 				await getRandomMachine();
-				window.history.replaceState({}, '', getSimulationLink());
+				window.history.replaceState({}, '', simulationLink);
 				break;
 		}
 	}
@@ -339,7 +337,7 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.replaceState({}, '', simulationLink);
 											}}
 											min="1"
 											max="99999"
@@ -356,7 +354,7 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.replaceState({}, '', simulationLink);
 											}}
 										/></label
 									>
@@ -367,7 +365,7 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.replaceState({}, '', simulationLink);
 											}}
 											min="0"
 											max="1"
@@ -406,7 +404,7 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromID(machineID);
-										window.history.replaceState({}, '', getSimulationLink());
+										window.history.replaceState({}, '', simulationLink);
 									}}
 								>
 									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
@@ -416,7 +414,7 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
-										window.history.replaceState({}, '', getSimulationLink());
+										window.history.replaceState({}, '', simulationLink);
 									}}
 								>
 									Machine <div class="underline text-sm ml-2 mb-1">{tmToMachineCode(machine)}</div>
@@ -444,7 +442,7 @@
 									class="bg-blue-500 p-1 mt-1 w-full ml-2"
 									on:click={async () => {
 										await getRandomMachine();
-										window.history.replaceState({}, '', getSimulationLink());
+										window.history.replaceState({}, '', simulationLink);
 									}}>Go (R)andom</button
 								>
 								<div
@@ -527,7 +525,7 @@
 									bind:value={typedMachineID}
 									on:change={async () => {
 										await loadMachineFromID(typedMachineID);
-										window.history.replaceState({}, '', getSimulationLink());
+										window.history.replaceState({}, '', simulationLink);
 									}}
 								/>
 								<button class="bg-blue-500 p-1 px-2">Go </button>
@@ -549,7 +547,7 @@
 									class="bg-blue-500 p-1 px-2"
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
-										window.history.replaceState({}, '', getSimulationLink());
+										window.history.replaceState({}, '', simulationLink);
 									}}
 									>Go
 								</button>
@@ -560,14 +558,14 @@
 							{#if history}
 								<div class="mt-0 flex flex-col">
 									<div class="ml-3 mt-2 text-sm">
-										<div
+										<button
 											class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
 											on:click={() => {
 												showHistory = !showHistory;
 											}}
 										>
 											{#if !showHistory}Show{:else}Hide{/if} History
-										</div>
+										</button>
 										{#if showHistory}
 											<div class=" mt-1 ml-3 w-[300px] overflow-x-auto pb-2">
 												{#each history as entry}
@@ -590,7 +588,7 @@
 
 							await loadMachineFromID(machine_id);
 							defaultSimulationParameters();
-							window.history.replaceState({}, '', getSimulationLink());
+							window.history.replaceState({}, '', simulationLink);
 						}}
 					/>
 					<Highlights
@@ -600,7 +598,7 @@
 							await loadMachineFromID(machine_id);
 							defaultSimulationParameters();
 
-							window.history.replaceState({}, '', getSimulationLink());
+							window.history.replaceState({}, '', simulationLink);
 						}}
 						on:machine_code={async (ev) => {
 							let machine_code = ev.detail.machine_code;
@@ -608,8 +606,8 @@
 
 							await loadMachineFromMachineCode(machine_code, machine_status);
 							defaultSimulationParameters();
-							console.log(getSimulationLink());
-							window.history.replaceState({}, '', getSimulationLink());
+							console.log(simulationLink);
+							window.history.replaceState({}, '', simulationLink);
 						}}
 					/>
 				</div>
