@@ -4,7 +4,7 @@
 import { onMount } from 'svelte';
 import SeoTitle from "$lib/seo_title.svelte";
 import TmSimulator from "$lib/tm_simulator.svelte"
-import { tmToMachineCode, machineCodeToTM, tmToTuringMachineDotIO  } from '$lib/tm';
+import { machineCodeToTM, tmToTuringMachineDotIO  } from '$lib/tm';
 import {BB5_champion} from '$lib/machine_repertoire'
 import Katex from "$lib/Katex.svelte"
 
@@ -25,26 +25,6 @@ let nbTM5 = "21^{10} \\simeq 1.6\\times 10^{13}"
 let BB7 = "\\geq 10^{10^{10^{18,705,352}}}"
 let BB72 = "10^{10^{10^{18,705,352}}}"
 let BB6 = "> 10 \\uparrow \\uparrow {15}"
-
-
-const R=0;
-const L = 1;
-const A = 1;
-const B = 2;
-const C = 3;
-const D = 4;
-const E = 5;
-const F = 6;
-const G = 7;
-let theM = new Uint8Array(
-  [1,R,B,1,L,E,
-   1,R,C,1,R,F,
-   1,L,D,0,R,B,
-   1,R,E,0,L,C,
-   1,L,A,0,R,D,
-   0,0,0,1,R,C,
-   ]);
-console.log(tmToMachineCode(theM))
 
 </script>
 
