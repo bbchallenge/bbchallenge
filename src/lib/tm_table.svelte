@@ -102,34 +102,32 @@
 		<table class="w-[200px] text-left ml-3 font-mono mt-1 mb-1">
 			<thead class="font-normal border-b-1">
 				<th class="font-normal" />
-				<th class="font-normal">0</th>
-				<th class="font-normal">1</th>
+				{#each [...Array(machine.symbols).keys()] as s}
+					<th class="font-normal">{s}</th>
+				{/each}
 			</thead>
 			<tbody>
-				{#each [...Array(machine.length / 6).keys()] as i}
-					{@const transitions = [
-						machine.slice(6 * i, 6 * i + 3),
-						machine.slice(6 * i + 3, 6 * i + 6)
-					]}
-
+				{#each [...Array(machine.states).keys()] as q}
 					<tr
-						><td class={`w-1/3 color-${i}`}>{String.fromCharCode(65 + i)}</td>
+						><td class={`w-1/3 color-${q}`}>{String.fromCharCode(65 + q)}</td>
 
-						{#each [...Array(2).keys()] as j}
+						{#each [...Array(machine.symbols).keys()] as s}
+							{@const transition = machine.code.slice(3 * (machine.symbols * q + s), 3 * (machine.symbols * q + s + 1)) }
+
 							<td
 								class="w-1/3"
 								class:bg-magenta={currState !== null &&
 									currRead !== null &&
-									i == currState &&
-									currRead == j}
+									q == currState &&
+									currRead == s}
 							>
-								{#if transitions[j][2] == 0}
+								{#if transition[2] == 0}
 									---
 								{:else}
-									{String.fromCharCode(48 + transitions[j][0])}{transitions[j][1] == 0
+									{String.fromCharCode(48 + transition[0])}{transition[1] == 0
 										? 'R'
-										: 'L'}<span class={`color-${transitions[j][2] - 1}`}
-										>{String.fromCharCode(65 + (transitions[j][2] - 1))}</span
+										: 'L'}<span class={`color-${transition[2] - 1}`}
+										>{String.fromCharCode(65 + (transition[2] - 1))}</span
 									>
 								{/if}
 							</td>

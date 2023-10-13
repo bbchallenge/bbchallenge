@@ -1,4 +1,4 @@
-export type TM = Uint8Array;
+export type TM = { states: number, symbols: number, code: Uint8Array };
 
 export const DB_SIZE = 88664064;
 
@@ -10,7 +10,7 @@ export function encodedTransitionToString(transition): string {
 
 		let toReturn = '';
 
-		if (transition[0] > 1) throw 'Invalid machine description [write symbol]';
+		if (transition[0] > 9) throw 'Invalid machine description [write symbol]';
 		toReturn += String.fromCharCode(48 + transition[0]);
 
 		if (transition[1] == 0) {
@@ -51,14 +51,16 @@ export function oldBbchallengeFormatToNew(machineCode: string): string {
 	return to_ret
 }
 
-export function tmToMachineCode(machine: Uint8Array): string {
+export function tmToMachineCode(machine: TM): string {
+	// Support for collaboratively agreed tm format
+	// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
 	let to_return = '';
-	for (let i = 0; i < machine.length; i += 3) {
-		to_return += encodedTransitionToString(machine.slice(i, i + 3));
-		if (i % 6 == 3 && i != machine.length - 3) {
-			// Support for collaboratively agreed tm format
-			// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
-			to_return += "_"
+	for (let q = 0; q < machine.states; q += 1) {
+		for (let s = 0; s < machine.symbols; s += 1) {
+			to_return += encodedTransitionToString(machine.code.slice(3*(q * machine.symbols + s), 3*(q * machine.symbols + s + 1)));
+		}
+		if (q < machine.states - 1) {
+			to_return += "_";
 		}
 	}
 	return to_return;
@@ -67,27 +69,26 @@ export function tmToMachineCode(machine: Uint8Array): string {
 export function machineCodeToTM(machineCode: string) {
 	// Support for collaboratively agreed tm format
 	// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
-	machineCode = machineCode.replaceAll("_", "")
+	const len_with_underscores = machineCode.length;
+	machineCode = machineCode.replaceAll("_", "");
+	const states = (len_with_underscores - machineCode.length) + 1;
+	if (machineCode.length % (3 * states) !== 0) throw 'Invalid TM code.';
+	const symbols = machineCode.length / (3 * states);
 
-	if (machineCode.length % 6 !== 0) throw 'Invalid TM code.';
-
-	const tm = new Uint8Array(machineCode.length);
-	for (let i = 0; i < machineCode.length; i++) {
-		if (i % 3 == 0) machineCode[i] == '1' ? tm[i] = 1 : tm[i] = 0 // Write symbol
-		else if (i % 3 == 1) machineCode[i] == 'L' ? tm[i] = 1 : tm[i] = 0 // Direction
-		else {
-			if (machineCode[i] == '-') tm[i] == 0 // Undefined transition (halt)
-			else tm[i] = machineCode.charCodeAt(i) - 'A'.charCodeAt(0) + 1; // Goto state
-		}
+	const tm = { states: states, symbols: symbols, code: new Uint8Array(machineCode.length) };
+	for (let i = 0; 3*i < machineCode.length; i++) {
+		tm.code[3*i+0] = parseInt(machineCode[3*i+0]); // Write symbol
+		tm.code[3*i+1] = (machineCode[3*i+1] == 'L' ? 1 : 0); // Direction
+		tm.code[3*i+2] = (machineCode[3*i+2] == '-' ? 0 : 1 + machineCode.charCodeAt(3*i+2) - 65); // Goto state
 	}
 	return tm;
 }
 
 export function legacy_tmTob64URLSafe(machine: TM) {
 	let binary = '';
-	const len = machine.byteLength;
+	const len = machine.code.byteLength;
 	for (let i = 0; i < len; i++) {
-		binary += String.fromCharCode(machine[i]);
+		binary += String.fromCharCode(machine.code[i]);
 	}
 	return 'm' + btoa(binary).replace('+', '-').replace('/', '_').replace(/=+$/, '');
 }
@@ -97,9 +98,9 @@ export function legacy_b64URLSafetoTM(base64URLSafe: string) {
 
 	const base64 = base64URLSafe.substring(1).replace('-', '+').replace('_', '/');
 	const binary = atob(base64);
-	const tm = new Uint8Array(binary.length);
+	const tm = { states: binary.length/2, symbols: 2, code: new Uint8Array(binary.length) };
 	for (let i = 0; i < binary.length; i++) {
-		tm[i] = binary.charCodeAt(i);
+		tm.code[i] = binary.charCodeAt(i);
 	}
 	return tm;
 }
@@ -109,23 +110,17 @@ export function tmToTuringMachineDotIO(machine: TM) {
 	toReturn += 'start state: A\n';
 	toReturn += 'table:\n';
 
-	for (let i = 0; i < machine.length / 6; i += 1) {
-		const trans0 = machine.slice(6 * i, 6 * i + 3);
-		const trans1 = machine.slice(6 * i + 3, 6 * i + 6);
-		toReturn += '  ' + String.fromCharCode(65 + i) + ':\n';
-		if (trans0[2] != 0 && trans0[2] <= machine.length / 6) {
-			toReturn +=
-				'    ' +
-				`0: {write: ${trans0[0]}, ${trans0[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
-					65 + trans0[2] - 1
-				)}}\n`;
-		}
-		if (trans1[2] != 0 && trans1[2] <= machine.length / 6) {
-			toReturn +=
-				'    ' +
-				`1: {write: ${trans1[0]}, ${trans1[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
-					65 + trans1[2] - 1
-				)}}\n`;
+	for (let q = 0; q < machine.states; q += 1) {
+		toReturn += '  ' + String.fromCharCode(65 + q) + ':\n';
+		for (let s = 0; s < machine.symbols; s += 1) {
+			const trans = machine.code.slice(3*(q * machine.symbols + s), 3*(q * machine.symbols + s + 1));
+			if (trans[2] != 0 && trans[2] <= machine.states) {
+				toReturn +=
+					'    ' +
+					`${s}: {write: ${trans[0]}, ${trans[1] == 0 ? 'R' : 'L'}: ${String.fromCharCode(
+						65 + trans[2] - 1
+					)}}\n`;
+			}
 		}
 	}
 	return toReturn;
@@ -170,7 +165,7 @@ function naturalToInt(n: number) {
 	return n % 2 == 0 ? n / 2 : -(n + 1) / 2;
 }
 
-export function render_history(machine, initial_tape = '0', height = 1000) {
+export function render_history(machine: TM, initial_tape = '0', height = 1000) {
 	const history = [];
 
 	let tape = [];
@@ -186,7 +181,7 @@ export function render_history(machine, initial_tape = '0', height = 1000) {
 		tape = [...tape];
 		[curr_state, curr_pos] = step(machine, curr_state, curr_pos, tape);
 		history.push({ tape, curr_pos, curr_state });
-		if (curr_state === null || curr_state >= machine.length / 6) {
+		if (curr_state === null || curr_state >= machine.states) {
 			break;
 		}
 	}
@@ -195,7 +190,7 @@ export function render_history(machine, initial_tape = '0', height = 1000) {
 
 export function tm_explore(
 	ctx: CanvasRenderingContext2D,
-	machine,
+	machine: TM,
 	initial_tape = '0',
 	height = 1000
 ) {
@@ -212,25 +207,22 @@ export function tm_explore(
 		const width = Math.ceil(ctx.canvas.width / zoom);
 		const minx = Math.floor(-x_offset / zoom);
 		const miny = Math.floor(-y_offset / zoom);
+		const color_scale = 255 / (machine.symbols - 1);
 
-		ctx.fillStyle = `rgb(255, 255, 255)`;
 		for (let row = Math.max(miny, 0); row < Math.min(miny + height + 1, history.length); row++) {
 			if (!history[row]) continue;
-			const { tape } = history[row];
+			const { tape, curr_pos, curr_state } = history[row];
 
 			for (let i = 0; i < tape.length; i += 1) {
 				const col = naturalToInt(i);
 				if (col < minx || col > minx + width) continue;
 
 				if (tape[i]) {
+					const color = Math.floor(color_scale * tape[i]);
+					ctx.fillStyle = `rgb(${color}, ${color}, ${color})`;
 					ctx.fillRect(col, row, 1, 1);
 				}
 			}
-		}
-
-		for (let row = Math.max(miny, 0); row < Math.min(miny + height + 1, history.length); row++) {
-			if (!history[row]) continue;
-			const { curr_pos, curr_state } = history[row];
 
 			if (curr_state < colorList.length) {
 				ctx.fillStyle = `rgb(${colorList[curr_state].join(', ')})`;
@@ -271,7 +263,7 @@ export function tm_explore(
 
 export function tm_trace_to_image(
 	ctx: CanvasRenderingContext2D,
-	machine,
+	machine: TM,
 	initial_tape = '0',
 	width = 900,
 	height = 1000,
@@ -283,7 +275,7 @@ export function tm_trace_to_image(
 	height = Math.max(1, Math.min(99_999, Math.floor(height) || 0));
 
 	const imgData = ctx.createImageData(width, height);
-
+	const color_scale = 255 / (machine.symbols - 1);
 	const history = render_history(machine, initial_tape, height);
 
 	for (let row = 1; row < history.length; row += 1) {
@@ -302,8 +294,7 @@ export function tm_trace_to_image(
 				imgData.data[imgIndex + 3] = 255;
 			} else if (tape[intToNatural(pos)] != undefined) {
 				const imgIndex = 4 * (row * width + col);
-				let color = 255;
-				if (tape[intToNatural(pos)] === 0) color = 0;
+				const color = Math.floor(color_scale * tape[intToNatural(pos)]);
 				imgData.data[imgIndex + 0] = color;
 				imgData.data[imgIndex + 1] = color;
 				imgData.data[imgIndex + 2] = color;
@@ -337,9 +328,10 @@ export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions 
 		tape[f(curr_pos)] = 0;
 	}
 
-	const write = machine[curr_state * 6 + 3 * tape[f(curr_pos)]];
-	const move = machine[curr_state * 6 + 3 * tape[f(curr_pos)] + 1];
-	const goto = machine[curr_state * 6 + 3 * tape[f(curr_pos)] + 2] - 1;
+	const i = 3 * (curr_state * machine.symbols + tape[f(curr_pos)]);
+	const write = machine.code[i];
+	const move = machine.code[i + 1];
+	const goto = machine.code[i + 2] - 1;
 
 	if (goto == -1) return [null, null];
 

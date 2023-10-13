@@ -55,14 +55,6 @@
 			if (!hasHalted) nbSteps += 1;
 			hasHalted = true;
 		}
-		// } else {
-		// 	let nextRead = 0;
-		// 	if (tape[nextPos] !== undefined) {
-		// 		nextRead = tape[nextPos];
-		// 	}
-
-		// 	hasHalted = machine[6 * nextState + 3 * nextRead + 2] == 0;
-		// }
 		if (nextState != null) {
 			currState = nextState;
 			headPos = nextPos;
