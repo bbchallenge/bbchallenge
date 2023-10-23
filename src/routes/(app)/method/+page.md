@@ -79,7 +79,7 @@ Our approach provides modularity and hopefully facilitates reproducibility, peer
 
 The Busy Beaver Challenge is based on a [downloadable](#download) seed database of 88,664,064 undecided 5-state machines which was constructed during [phase 1](#phase-1-phase-2) of the project, completed in December 2021. You are more than invited to reproduce this result, see <a href="/contribute" rel="external">Contribute</a>.
 
-The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). This code is open source and was built with readibility and concision in mind: it "only" consists of 675 lines of Go and 105 lines of C and is unit tested. See our <a href="#reproducibility-and-verifiability-statement">reproducibility and verifiability statement</a>.
+The code to construct the seed database is available at [https://github.com/bbchallenge/bbchallenge-seed](https://github.com/bbchallenge/bbchallenge-seed). This code is open source and was built with readability and concision in mind: it "only" consists of 675 lines of Go and 105 lines of C and is unit tested. See our <a href="#reproducibility-and-verifiability-statement">reproducibility and verifiability statement</a>.
 
 This is to be compared to the unpublished ≈8000 lines of C reported by [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#Enumeration) or the ≈6000 uncommented lines of Pascal of [https://skelet.ludost.net/bb/nreg.html](https://skelet.ludost.net/bb/nreg.html) and justifies our clear separation between [phase 1 and phase 2](#phase-1-phase-2) in this project.
 
@@ -209,7 +209,7 @@ The database is a binary file where each machine is described on 30 bytes. It st
 
 Then, each machine is encoded on 30 bytes. First come the `14,322,029` machines that exceeded the time limit and then the `74,342,035` machines that exceeded the space limit, see [time and space limits](#time-and-space-limits). These two sets of machines are both lexicographically sorted.
 
-The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458) of the databse:
+The 30-byte encoding of a 5-state Turing machine is better understood with an example, for instance with machine [#7,103,458](https://bbchallenge.org/7103458) of the database:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">

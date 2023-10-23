@@ -63,7 +63,7 @@ The conjecture, explicitly formulated in [[Aaronson, 2020]](https://www.scottaar
 </div>
 </div>
 
-Achieving the goal of the Busy Beaver Challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a herf="/method" rel="external">Method</a>.
+Achieving the goal of the Busy Beaver Challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a href="/method" rel="external">Method</a>.
 
 <a href="/contribute" rel="external">You can help!</a>
 
@@ -99,7 +99,7 @@ Each entry of the table is called a **transition** and instructs us what to do w
 2. move the head to the right
 3. jump to state B for the next instruction
 
-The machine will **halt** (i.e. cease functionning) if it ever tries to execute an **undefined transition** denoted by **---**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
+The machine will **halt** (i.e. cease functioning) if it ever tries to execute an **undefined transition** denoted by **---**. Here, it would happen only if ever <span class="bg-green-400 text-gray-900 font-bold">&nbsp;reading a 0 in state E&nbsp;</span>.
 
 In the context of the Busy Beaver Challenge, machines are always executed starting in state A and with a memory tape that is initially all 0 (i.e. all memory cells are 0).
 
@@ -229,7 +229,7 @@ Apart from concrete values of BB, the following is also known:
 - BB(744) is at least as hard as Riemann Hypothesis [[Matiyasevich and O'Rear and Aaronson, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/riemann-matiyasevich-aaronson.nql)
 - BB(748) is independent of ZF [[O'Rear, unpublished]](https://github.com/sorear/metamath-turing-machines/blob/master/zf2.nql)
 - BB(5,372) is at least as hard as Riemann Hypothesis [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
-- BB(7, 910) is independent of ZFC [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
+- BB(7,910) is independent of ZFC [[Yedidia and Aaronson, 2016]](https://arxiv.org/abs/1605.04343)
 
 All these results come from constructing explicit Turing machines. For instance, in [[Stérin and Woods, 2021]](https://arxiv.org/pdf/2107.12475.pdf), the authors construct an explicit 15-state Turing machine which enumerates all powers of two in base 3 until it finds a counterexample to Erdős' conjecture on powers of 2. Hence the machine halts if and only if the conjecture is false!
 
@@ -249,7 +249,7 @@ Hence, the frontier between tractable and intractable values of BB seems to be s
 
 ### BB(5)
 
-The above motivates the Busy Beaver Challenge: **let's try to collaboratively find BB(5)**, the smallest currently unkown BB value.
+The above motivates the Busy Beaver Challenge: **let's try to collaboratively find BB(5)**, the smallest currently unknown BB value.
 
 Prior work exhibited the current <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a> halting after 47,176,870 steps [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) which has not been beaten in the past 30 years.
 
@@ -320,7 +320,7 @@ In 2009, Joachim Hertel [published a method](https://content.wolfram.com/uploads
 - [Pascal Michel's website](https://bbchallenge.org/~pascal.michel/index.html)
 - [Rensselaer RAIR Lab](https://homepages.hass.rpi.edu/heuveb/Research/BB/index.html)
 - [Skelet's website](https://skelet.ludost.net/bb/index.html)
-- [Busy Beaver Disscuss](https://groups.google.com/g/busy-beaver-discuss) (Google Groups)
+- [Busy Beaver Discuss](https://groups.google.com/g/busy-beaver-discuss) (Google Groups)
 
 
 <div class="mb-20"></div>
