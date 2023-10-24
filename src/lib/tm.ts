@@ -29,28 +29,6 @@ export function encodedTransitionToString(transition): string {
 	}
 }
 
-// In order to convert machine codes of `machine_repertoire.ts` after migration to 
-// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
-export function oldBbchallengeFormatToNew(machineCode: string): string {
-	if (machineCode.includes("_")) {
-		return machineCode
-	}
-
-	let to_ret = "";
-
-	for (let i = 0; i < machineCode.length; i += 1) {
-		if (i % 6 != 5) {
-			to_ret += machineCode[i]
-		} else if (i < machineCode.length - 1) {
-			to_ret += machineCode[i] + "_"
-		} else {
-			to_ret += machineCode[i]
-		}
-	}
-
-	return to_ret
-}
-
 export function tmToMachineCode(machine: TM): string {
 	// Support for collaboratively agreed tm format
 	// https://discuss.bbchallenge.org/t/standard-tm-text-format/60
