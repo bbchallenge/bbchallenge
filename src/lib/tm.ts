@@ -202,7 +202,7 @@ export function tm_explore(
 				}
 			}
 
-			if (curr_state < colorList.length) {
+			if (curr_state !== null && curr_state < colorList.length) {
 				ctx.fillStyle = `rgb(${colorList[curr_state].join(', ')})`;
 				ctx.fillRect(curr_pos, row, 1, 1);
 			}
