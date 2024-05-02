@@ -82,7 +82,7 @@
 		},
 		'bouncers-run-225d25f379a-steps-250000-macro-steps-50000-formula-limit-20': {
 			name: 'Bouncers',
-			url: 'https://discuss.bbchallenge.org/t/decider-bouncers',
+			url: 'https://discuss.bbchallenge.org/t/decider-bouncers/126/25',
 			date: 'May 2nd 2024',
 			params: ['Steps: 250,000', 'Macro steps: 50,000', 'Formula tape limit: 20'],
 			total_decided: 29799
