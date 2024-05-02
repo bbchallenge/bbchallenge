@@ -79,6 +79,13 @@
 			date: 'April 9th 2022',
 			params: ['Max DFA states: 6'],
 			total_decided: 503169
+		},
+		'bouncers-run-225d25f379a-steps-250000-macro-steps-50000-formula-limit-20': {
+			name: 'Bouncers',
+			url: 'https://discuss.bbchallenge.org/t/decider-bouncers',
+			date: 'May 2nd 2024',
+			params: ['Steps: 250,000', 'Macro steps: 50,000', 'Formula tape limit: 20'],
+			total_decided: 29799
 		}
 	};
 

@@ -11,7 +11,7 @@
 
 ### Contributors
 
-- Maintainer: [Tristan Stérin](https://dna.hamilton.ie/tsterin) (cosmo)
+- Maintainer: [Tristan Stérin](https://tristan.st) (cosmo)
 - [@atticuscull](https://github.com/atticuscull)
 - [Justin Blanchard](https://github.com/UncombedCoconut) (UncombedCoconut)
 - Konrad Deka
