@@ -19,7 +19,7 @@
 
 ### Contributors
 
-- [@atticuscull](https://github.com/atticuscull)
+- [atticuscull](https://github.com/atticuscull)
 - Konrad Deka
 - [Frans Faase](http://www.iwriteiam.nl/)
 - [Nathan Fenner](https://github.com/Nathan-Fenner)
@@ -29,7 +29,8 @@
 - [Alexandre Jouandin](https://prgm.dev/alexandre)
 - [Dawid Loranc](https://github.com/dloranc)
 - [Heiner Marxen](http://turbotm.de/~heiner/)
-- [@modderme123](https://github.com/modderme123)
+- [modderme123](https://github.com/modderme123)
+- [mxdys](https://github.com/ccz181078 )
 - [Mateusz Naściszewski](https://github.com/Mateon1) (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
 - savask
@@ -51,8 +52,8 @@ The following people have helped the project with valuable conversations, inputs
 - [Dave Doty](https://web.cs.ucdavis.edu/~doty/)
 - [Pascal Michel](https://bbchallenge.org/~pascal.michel/index.html)
 - [Eric E. Severson](https://eric-severson.netlify.app/)
-- [@DunDunDunDone](https://github.com/DunDunDunDone)
-- [@pg132](https://github.com/pg132)
+- [DunDunDunDone](https://github.com/DunDunDunDone)
+- [pg132](https://github.com/pg132)
 
 #### Research sponsored by [prgm.dev](https://prgm.dev)
 <!-- using a link messes with my layout so I use on:click -->
