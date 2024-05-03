@@ -18,6 +18,10 @@
 		{
 			name: 'Finite Automata Reduction',
 			link: 'https://discuss.bbchallenge.org/t/decider-finite-automata-reduction/'
+		},
+		{
+			name: 'Bouncers',
+			link: 'https://discuss.bbchallenge.org/t/decider-bouncers/126/25'
 		}
 	];
 
@@ -29,13 +33,7 @@
 			nb_decided: 73860604,
 			examples: [59645887, 15167997, 59090563, 63687188]
 		},
-		{ name: 'Unilateral bouncers', decided: false, examples: [6048289, 2664944, 9281450, 3833963] },
-		{ name: 'Bilateral bouncers', decided: false, examples: [12785688, 8929416, 76727755] },
-		{
-			name: 'Translated unilateral bouncers',
-			decided: false,
-			examples: [37005720, 66117258, 20076854]
-		},
+		{ name: 'Bouncers', decided: true, examples: [80747967, 88427177, 5228688, 5608043] },
 		{ name: 'Exponential counters', decided: false, examples: [11004366, 10936909, 3840180] },
 		{ name: 'Bells', decided: false, examples: [8527536, 73261028, 63938734] },
 		{ decided: false, examples: [4446642, 7410754, 43374927] }
@@ -49,7 +47,7 @@
 			<ul class="flex flex-col space-y-2 mt-2 list-disc">
 				<li>
 					<a
-						href="https://discuss.bbchallenge.org/t/may-2nd-2024-29-799-new-machines-have-been-decided-only-2-833-to-go/"
+						href="https://discuss.bbchallenge.org/t/may-2nd-2024-releasing-bouncers-only-2-833-machines-to-go/231"
 						><span class="underline">May 2nd 2024</span></a
 					>
 				</li>

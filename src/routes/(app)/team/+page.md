@@ -9,20 +9,25 @@
 <div class="leading-normal ">
 <div>
 
+### Maintainers
+
+- [Justin Blanchard](https://github.com/UncombedCoconut) (UncombedCoconut)
+- Pavel Kropitz (uni)
+- [Shawn Ligocki](https://www.sligocki.com/)
+- [mei](https://github.com/meithecatte/)
+- [Tristan Stérin](https://tristan.st) (cosmo)
+
 ### Contributors
 
-- Maintainer: [Tristan Stérin](https://tristan.st) (cosmo)
 - [@atticuscull](https://github.com/atticuscull)
-- [Justin Blanchard](https://github.com/UncombedCoconut) (UncombedCoconut)
 - Konrad Deka
 - [Frans Faase](http://www.iwriteiam.nl/)
 - [Nathan Fenner](https://github.com/Nathan-Fenner)
 - [Tony Guilfoyle](https://github.com/TonyGuil)
 - [Nick Howell](https://github.com/nhowell)
 - [Iijil](https://github.com/Iijil1)
+- [Dawid Loranc](https://github.com/dloranc)
 - [Alexandre Jouandin](https://prgm.dev/alexandre)
-- Pavel Kropitz (uni)
-- [Shawn Ligocki](https://www.sligocki.com/)
 - [Heiner Marxen](http://turbotm.de/~heiner/)
 - [@modderme123](https://github.com/modderme123)
 - [Mateusz Naściszewski](https://github.com/Mateon1) (Mateon1)
