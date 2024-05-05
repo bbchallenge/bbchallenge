@@ -38,6 +38,7 @@
 - tomtom2357
 - Yto
 - [Chris Xu](https://chrisxudoesmath.com/)
+- Daniel Yuan
 - [Jason Yuen](https://github.com/int-y1)
 
 
