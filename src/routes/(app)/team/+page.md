@@ -36,6 +36,7 @@
 - savask
 - star
 - tomtom2357
+- [Valentin](https://kttnr.net/) 
 - Yto
 - [Chris Xu](https://chrisxudoesmath.com/)
 - Daniel Yuan
