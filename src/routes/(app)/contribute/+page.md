@@ -15,6 +15,14 @@
 
 <a id="contribute"></a>
 
+<div class="flex justify-center m-0 -mt-10">
+<img
+					src="/branding/bbchallenge_logo_no_margins.svg"
+					alt="The Busy Beaver Challenge's logo"
+					class="h-[190px] m-0 p-0"
+				/>
+</div>
+
 The Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the Busy Beaver Challenge.
 
 <a id="zoology"></a>

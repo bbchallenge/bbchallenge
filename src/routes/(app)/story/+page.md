@@ -35,9 +35,18 @@ let BB6 = "> 10 \\uparrow \\uparrow {15}"
 
 ## Table of contents
 
+
 ## Goal
 
 <a id="goal"></a>
+
+<div class="flex justify-center m-0 -mt-10">
+<img
+					src="/branding/bbchallenge_logo_no_margins.svg"
+					alt="The Busy Beaver Challenge's logo"
+					class="h-[190px] m-0 p-0"
+				/>
+</div>
 
 The goal of the Busy Beaver Challenge (bbchallenge for short) is to collaboratively prove or disprove the following conjecture [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 

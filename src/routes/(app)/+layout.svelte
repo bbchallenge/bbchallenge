@@ -42,11 +42,13 @@
 				<a href="/" rel="external">The Busy Beaver Challengee</a>
 			</h1> -->
 
-			<img
-				src="/branding/busy_beaver_challenge_typo.svg"
-				alt="The Busy Beaver Challenge"
-				class="h-5 lg:h-6"
-			/>
+			<a href="/" rel="external">
+				<img
+					src="/branding/busy_beaver_challenge_typo.svg"
+					alt="The Busy Beaver Challenge"
+					class="h-5 lg:h-6"
+				/></a
+			>
 		</ul>
 
 		<ul class="flex items-end space-x-2 lg:space-x-4 text-sm lg:text-base main-menu">

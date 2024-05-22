@@ -56,8 +56,17 @@ The following people have helped the project with valuable conversations, inputs
 - [Eric E. Severson](https://eric-severson.netlify.app/)
 - [DunDunDunDone](https://github.com/DunDunDunDone)
 - [pg132](https://github.com/pg132)
+- [Léo Ramaën](https://leoramaen.com/), who designed our logo
 
-Sincere thanks to [Léo Ramaën](https://leoramaen.com/) who designed [our logo](https://github.com/bbchallenge/bbchallenge/blob/main/static/branding/bbchallenge_logo.png).
+<div class="flex justify-center">
+<img
+					src="/branding/bbchallenge_logo_no_margins.svg"
+					alt="The Busy Beaver Challenge's logo"
+					class="h-[190px] m-0 p-0"
+				/>
+</div>
+
+The Busy Beaver Challenge's logo by [Léo Ramaën](https://leoramaen.com/) © 2024 is licensed under CC BY-NC-SA 4.0, see our [branding pack](https://github.com/bbchallenge/bbchallenge/tree/main/static/branding). 
 
 #### Research sponsored by [prgm.dev](https://prgm.dev)
 <!-- using a link messes with my layout so I use on:click -->

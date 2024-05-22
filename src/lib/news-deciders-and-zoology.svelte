@@ -43,7 +43,15 @@
 <div class="flex flex-col space-y-4">
 	<div>
 		<div class="text-xl mb-1">News</div>
-		<div class="ml-8">
+		<!-- <img src="/branding/bbchallenge_logo.svg" alt="The Busy Beaver Challenge's logo" class="h-20" /> -->
+		<div class="flex space-x-8 items-center">
+			<div class="-ml-4">
+				<img
+					src="/branding/bbchallenge_logo.svg"
+					alt="The Busy Beaver Challenge's logo"
+					class="h-44"
+				/>
+			</div>
 			<ul class="flex flex-col space-y-2 mt-2 list-disc">
 				<li>
 					<a
