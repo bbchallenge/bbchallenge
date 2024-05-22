@@ -1,9 +1,4 @@
-Title: The Busy Beaver Challenge's logo
-Author: Léo Ramaën (https://leoramaen.com/)
-Date: May 21th 2024
-Source: bbchallenge.org
-License: CC BY-NC-SA 4.0
-
+The Busy Beaver Challenge's logo © 2024 by Léo Ramaën (https://leoramaen.com/) is licensed under CC BY-NC-SA 4.0 
 
 
 Attribution-NonCommercial-ShareAlike 4.0 International
