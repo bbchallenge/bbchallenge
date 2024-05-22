@@ -29,11 +29,24 @@
 		class="lg:px-2 px-0 pb-2 flex justify-between lg:h-9 border-b-2 flex-col lg:flex-row h-14 mt-1"
 	>
 		<!-- top bar left -->
-		<ul class="flex items-end">
+		<ul class="flex items-center">
 			<!-- add button -->
-			<h1 class="text-base lg:text-xl">
-				<a href="/" rel="external">The Busy Beaver Challenge</a>
-			</h1>
+
+			<!-- <img
+				src="/branding/bbchallenge_logo.svg"
+				alt="The Busy Beaver Challenge's logo"
+				class="h-20"
+			/> -->
+
+			<!-- <h1 class="text-base lg:text-xl">
+				<a href="/" rel="external">The Busy Beaver Challengee</a>
+			</h1> -->
+
+			<img
+				src="/branding/busy_beaver_challenge_typo.svg"
+				alt="The Busy Beaver Challenge"
+				class="h-5 lg:h-6"
+			/>
 		</ul>
 
 		<ul class="flex items-end space-x-2 lg:space-x-4 text-sm lg:text-base main-menu">
