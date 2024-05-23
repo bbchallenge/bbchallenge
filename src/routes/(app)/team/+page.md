@@ -24,6 +24,7 @@
 - [Frans Faase](http://www.iwriteiam.nl/)
 - [Nathan Fenner](https://github.com/Nathan-Fenner)
 - [Tony Guilfoyle](https://github.com/TonyGuil)
+- [Matthew House](https://github.com/LegionMammal978)
 - [Nick Howell](https://github.com/nhowell)
 - [Iijil](https://github.com/Iijil1)
 - [Alexandre Jouandin](https://prgm.dev/alexandre)
