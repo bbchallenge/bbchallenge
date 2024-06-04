@@ -117,7 +117,7 @@
 						});
 					}}
 					target="_blank"
-					class="text-blue-400 hover:text-blue-300 cursor-pointer "
+					class="text-blue-400 hover:text-blue-300 cursor-pointer"
 					>Copy for https://turingmachine.io/</span
 				>
 			</div>
@@ -141,27 +141,28 @@
 		<div class=" ">
 			<div class="text-lg" class:mb-2={!hasHalted}>Step #{nbSteps}</div>
 			{#if hasHalted}
-				<div class="text-lg mb-2 ">The machine has halted!</div>
+				<div class="text-lg mb-2">The machine has halted!</div>
 			{/if}
 			<div class="flex space-x-3">
 				<button
-					class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md disabled:opacity-50 disabled:hover:bg-blue-500 disabled:cursor-not-allowed"
+					class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md disabled:opacity-50 disabled:hover:bg-blue-500 disabled:cursor-not-allowed select-none"
 					on:click={next}
 					disabled={hasHalted}>(N)ext</button
 				>
-				<button class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md" on:click={reset}
-					>(R)eset</button
+				<button
+					class="px-2 py-1.5 bg-blue-500 hover:bg-blue-400 rounded-md select-none"
+					on:click={reset}>(R)eset</button
 				>
 				<div class="flex space-x-2">
 					<button
-						class="px-2  bg-gray-500 hover:bg-gray-400 rounded-md"
+						class="px-2 bg-gray-500 hover:bg-gray-400 rounded-md"
 						on:click={() => {
 							ox += cellSize * 2.5;
 							drawTape();
 						}}>←</button
 					>
 					<button
-						class="px-2  bg-gray-500 hover:bg-gray-400 rounded-md"
+						class="px-2 bg-gray-500 hover:bg-gray-400 rounded-md"
 						on:click={() => {
 							ox -= cellSize * 2.5;
 							drawTape();
