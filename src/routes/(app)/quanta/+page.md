@@ -28,23 +28,23 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 ## Halters
 
-### Halts after 4 steps
+### Halts after 4 steps -- cosmo
 
 <TmSimulator machineCode="1RB1RB_1LA---_------_------_------"/>
 
-### Halts after 16 steps
+### Halts after 16 steps -- savask
 
 <TmSimulator machineCode="1RB0LC_0LB1LA_1RA0RD_1RD0RE_0LE---"/>
 
-### Halts after 21 steps (3 states)
+### Halts after 21 steps (3 states) -- mei
 
 <TmSimulator machineCode="1RB---_1LB0RC_1LC1LA"/>
 
-### Halts after 105 steps
+### Halts after 105 steps -- cosmo
 
 <TmSimulator machineCode="1RB1LC_0LB1LA_1RD1LB_1RE0RD_0RA---"/>
 
-### Halts after 47,176,870 steps
+### Halts after 47,176,870 steps -- Marxen & Buntrock
 
 <TmSimulator/>
 
@@ -54,11 +54,15 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 <TmSimulator machineCode="0RA---_------_------_------_------"/>
 
-### Cycler
+### Translated cycler (glider) -- Matthew House
+
+<TmSimulator machineCode="1RB0LA_1LC0RA_0LD1LD_1LA1LE_0LB---"/>
+
+### Cycler -- savask
 
 <TmSimulator machineCode="1RB0LC_0LB1LA_1RA0RD_1RD0RE_0LA---"/>
 
-### 3-state Bouncer
+### 3-state Bouncer -- Justin Blanchard
 
 See the [space-time diagram](https://bbchallenge.org/story#space-time-diagrams) here: [https://bbchallenge.org/1RB0LC_1LB1RA_---1LA](https://bbchallenge.org/1RB0LC_1LB1RA_---1LA)
 
