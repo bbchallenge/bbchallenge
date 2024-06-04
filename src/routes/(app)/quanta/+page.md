@@ -60,6 +60,10 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 ### 3-state Bouncer
 
+See the [space-time diagram](https://bbchallenge.org/story#space-time-diagrams) here: 
+
+[https://bbchallenge.org/1RB0LC_1LB1RA_---1LA](https://bbchallenge.org/1RB0LC_1LB1RA_---1LA)
+
 <TmSimulator machineCode="1RB0LC_1LB1RA_---1LA"/>
 
 
