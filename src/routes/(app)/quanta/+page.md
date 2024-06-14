@@ -26,7 +26,20 @@ onMount(() => { // TODO: this shouldn't be necessary
 <div class="leading-normal ">
 <div>
 
-## Halters
+## Halts after 11 steps -- Justin Blanchard
+
+[https://bbchallenge.org/1RB0LC_1LA0RC_1RA---](https://bbchallenge.org/1RB0LC_1LA0RC_1RA---)
+
+<TmSimulator machineCode="1RB0LC_1LA0RC_1RA---"/>
+
+## 3-state cycle -- @Iijil
+
+[https://bbchallenge.org/1RB0LC_0LA---_0RA---](https://bbchallenge.org/1RB0LC_0LA---_0RA---)
+
+<TmSimulator machineCode="1RB0LC_0LA---_0RA---"/>
+
+
+<!-- ## Halters
 
 ### Halts after 4 steps -- cosmo
 
@@ -66,7 +79,7 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 See the [space-time diagram](https://bbchallenge.org/story#space-time-diagrams) [here](https://bbchallenge.org/1RB0LC_1LB1RA_---1LA).
 
-<TmSimulator machineCode="1RB0LC_1LB1RA_---1LA"/>
+<TmSimulator machineCode="1RB0LC_1LB1RA_---1LA"/> -->
 
 
 
