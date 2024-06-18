@@ -14,20 +14,23 @@ const apiRequest =
         <ResponseT = unknown>(
             url: AxiosRequestConfig['url'],
             data: unknown,
+            params: unknown,
+            withCredentials: boolean = true,
             responseType: ResponseType = 'json'
         ) => {
             const headers = {
                 authorization: ''
             };
-            console.log("hey", WIKI_API_URL, url);
+
             //using the axios instance to perform the request that received from each http method
             return wikiAPI({
                 method,
                 url,
+                params: params,
                 data,
                 headers,
                 responseType,
-                withCredentials: true
+                withCredentials: withCredentials
             }).then((res: AxiosResponse<ResponseT>) => {
                 return { data: res.data, headers: res.headers };
             });

@@ -25,11 +25,16 @@
 
 	async function isThereWikiEntry(machine) {
 		try {
-			let response = await WIKI_API.get('', {
-				action: 'query',
-				titles: tmToMachineCode(machine),
-				format: 'json'
-			});
+			let response = await WIKI_API.get(
+				'',
+				{},
+				{
+					action: 'query',
+					titles: tmToMachineCode(machine),
+					format: 'json'
+				},
+				false
+			);
 			console.log(response);
 		} catch (error) {
 			console.log(error);
