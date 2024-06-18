@@ -23,6 +23,8 @@
 	let equivalentMachineCode = null;
 	let equivalentMachineID = null;
 
+	let varIsThereWikiEntry = null;
+
 	async function isThereWikiEntry(machine) {
 		try {
 			let response = await WIKI_API.get(
@@ -35,7 +37,8 @@
 				},
 				false
 			);
-			console.log(response);
+			let data_str = JSON.stringify(response.data);
+			varIsThereWikiEntry = !data_str.includes('"missing":""');
 		} catch (error) {
 			console.log(error);
 			return false;
@@ -113,17 +116,19 @@
 	{/if}
 </header>
 
-<div class:mt-1={machineID !== null}>
-	<div>
-		Wiki entry:
+{#if varIsThereWikiEntry === true}
+	<div class:mt-1={machineID !== null}>
+		<div>
+			Wiki entry:
 
-		<a
-			href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
-			target="_blank"
-			class="text-blue-400 hover:text-blue-300 cursor-pointer">here</a
-		>
+			<a
+				href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+				target="_blank"
+				class="text-blue-400 hover:text-blue-300 cursor-pointer">here</a
+			>
+		</div>
 	</div>
-</div>
+{/if}
 
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
@@ -223,12 +228,14 @@
 			>
 		</div>
 
-		<div class="text-xs mt-1">
-			<a
-				href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
-				target="_blank"
-				class="text-blue-400 hover:text-blue-300 cursor-pointer">Create wiki entry</a
-			>
-		</div>
+		{#if !varIsThereWikiEntry}
+			<div class="text-xs mt-1">
+				<a
+					href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+					target="_blank"
+					class="text-blue-400 hover:text-blue-300 cursor-pointer">Create wiki entry</a
+				>
+			</div>
+		{/if}
 	{/if}
 </div>
