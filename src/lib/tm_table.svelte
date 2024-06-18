@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { API } from '$lib/api_server';
+	import { WIKI_API } from '$lib/api_wiki';
 	import {
 		TMDecisionStatus,
 		tmToMachineCode,
@@ -21,6 +22,20 @@
 
 	let equivalentMachineCode = null;
 	let equivalentMachineID = null;
+
+	async function isThereWikiEntry(machine) {
+		try {
+			let response = await WIKI_API.get('', {
+				action: 'query',
+				titles: tmToMachineCode(machine),
+				format: 'json'
+			});
+			console.log(response);
+		} catch (error) {
+			console.log(error);
+			return false;
+		}
+	}
 
 	async function getEquivalentMachine(machine, machineID) {
 		if (machineID !== null) {
@@ -54,6 +69,7 @@
 	}
 
 	$: getEquivalentMachine(machine, machineID);
+	$: isThereWikiEntry(machine);
 
 	let error = null;
 </script>
@@ -91,6 +107,19 @@
 		<TmDecider {machineDecider} />
 	{/if}
 </header>
+
+<div class:mt-1={machineID !== null}>
+	<div>
+		Wiki entry:
+
+		<a
+			href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+			target="_blank"
+			class="text-blue-400 hover:text-blue-300 cursor-pointer">here</a
+		>
+	</div>
+</div>
+
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
@@ -112,7 +141,10 @@
 						><td class={`w-1/3 color-${q}`}>{String.fromCharCode(65 + q)}</td>
 
 						{#each [...Array(machine.symbols).keys()] as s}
-							{@const transition = machine.code.slice(3 * (machine.symbols * q + s), 3 * (machine.symbols * q + s + 1)) }
+							{@const transition = machine.code.slice(
+								3 * (machine.symbols * q + s),
+								3 * (machine.symbols * q + s + 1)
+							)}
 
 							<td
 								class="w-1/3"
@@ -124,9 +156,8 @@
 								{#if transition[2] == 0}
 									---
 								{:else}
-									{String.fromCharCode(48 + transition[0])}{transition[1] == 0
-										? 'R'
-										: 'L'}<span class={`color-${transition[2] - 1}`}
+									{String.fromCharCode(48 + transition[0])}{transition[1] == 0 ? 'R' : 'L'}<span
+										class={`color-${transition[2] - 1}`}
 										>{String.fromCharCode(65 + (transition[2] - 1))}</span
 									>
 								{/if}
@@ -184,6 +215,14 @@
 				target="_blank"
 				class="text-blue-400 hover:text-blue-300 cursor-pointer"
 				>Copy code for https://turingmachine.io/</span
+			>
+		</div>
+
+		<div class="text-xs mt-1">
+			<a
+				href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+				target="_blank"
+				class="text-blue-400 hover:text-blue-300 cursor-pointer">Create wiki entry</a
 			>
 		</div>
 	{/if}

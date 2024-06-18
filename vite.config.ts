@@ -17,6 +17,11 @@ export default defineConfig({
 				target: 'https://api.bbchallenge.org',
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, '')
+			},
+			'/wiki_api': {
+				target: 'https://wiki.bbchallenge.org/w/api.php',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/wiki_api/, 'w/api.php')
 			}
 		}
 	}
