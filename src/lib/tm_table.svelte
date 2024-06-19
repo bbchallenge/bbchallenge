@@ -33,12 +33,13 @@
 				{
 					action: 'query',
 					titles: tmToMachineCode(machine),
-					format: 'json'
+					format: 'json',
+					formatversion: '2'
 				},
 				false
 			);
-			let data_str = JSON.stringify(response.data);
-			varIsThereWikiEntry = !data_str.includes('"missing":""');
+			let data = response.data;
+			varIsThereWikiEntry = !data.query.pages[0].hasOwnProperty('missing');
 		} catch (error) {
 			console.log(error);
 			return false;
