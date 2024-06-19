@@ -70,7 +70,10 @@
 	}
 
 	async function getEquivalentMachine(machine, machineID) {
+		console.log('get equiv machine');
 		if (machineID !== null) {
+			equivalentMachineID = null;
+			equivalentMachineCode = null;
 			return;
 		}
 		try {
@@ -83,6 +86,8 @@
 				equivalentMachineCode = response.data['equivalent_machine_code'];
 				equivalentMachineID = response.data['equivalent_machine_id'];
 
+				console.log(equivalentMachineCode);
+				console.log(equivalentMachineID);
 				if (response.data['status'] !== undefined) {
 					decisionStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 					if (
@@ -94,9 +99,14 @@
 						];
 					}
 				}
+			} else {
+				equivalentMachineID = null;
+				equivalentMachineCode = null;
 			}
 		} catch (error) {
 			console.log(error);
+			equivalentMachineID = null;
+			equivalentMachineCode = null;
 		}
 	}
 
