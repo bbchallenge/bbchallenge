@@ -232,7 +232,9 @@
 		{#if !varIsThereWikiEntry}
 			<div class="text-xs mt-1">
 				<a
-					href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+					href=" https://wiki.bbchallenge.org/w/index.php?action=edit&title={tmToMachineCode(
+						machine
+					)}&preload=Template:NewMachinePage&preloadparams%5B%5D={tmToMachineCode(machine)}"
 					target="_blank"
 					class="text-blue-400 hover:text-blue-300 cursor-pointer">Create wiki entry</a
 				>
