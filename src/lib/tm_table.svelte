@@ -24,6 +24,7 @@
 	let equivalentMachineID = null;
 
 	let varIsThereWikiEntry = null;
+	let redirectName = null;
 
 	async function isThereWikiEntry(machine) {
 		try {
@@ -40,6 +41,28 @@
 			);
 			let data = response.data;
 			varIsThereWikiEntry = !data.query.pages[0].hasOwnProperty('missing');
+			if (varIsThereWikiEntry) {
+				let response = await WIKI_API.get(
+					'',
+					{},
+					{
+						action: 'parse',
+						page: tmToMachineCode(machine),
+						format: 'json',
+						redirects: '1'
+					},
+					false
+				);
+				let page_title = response.data.parse.title;
+
+				if (page_title.replace(' ', '') === tmToMachineCode(machine).replace('_', '')) {
+					redirectName = null;
+				} else {
+					redirectName = page_title;
+				}
+			} else {
+				redirectName = null;
+			}
 		} catch (error) {
 			console.log(error);
 			return false;
@@ -83,6 +106,31 @@
 	let error = null;
 </script>
 
+{#if varIsThereWikiEntry === true}
+	<div class:mt-1={machineID !== null}>
+		{#if !redirectName}
+			<div>
+				<em>
+					<a
+						href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+						target="_blank"
+						class="text-blue-400 hover:text-blue-300 cursor-pointer">Wiki entry</a
+					>
+				</em>
+			</div>
+		{:else}
+			<div>
+				<em>Wiki entry:</em>
+				<a
+					href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+					target="_blank"
+					class="text-blue-400 hover:text-blue-300 cursor-pointer">{redirectName}</a
+				>
+			</div>
+		{/if}
+	</div>
+{/if}
+
 <header class="flex flex-col">
 	{#if equivalentMachineID !== null}
 		<div>
@@ -116,20 +164,6 @@
 		<TmDecider {machineDecider} />
 	{/if}
 </header>
-
-{#if varIsThereWikiEntry === true}
-	<div class:mt-1={machineID !== null}>
-		<div>
-			Wiki entry:
-
-			<a
-				href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
-				target="_blank"
-				class="text-blue-400 hover:text-blue-300 cursor-pointer">here</a
-			>
-		</div>
-	</div>
-{/if}
 
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
