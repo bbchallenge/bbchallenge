@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { API } from '$lib/api_server';
+	import { WIKI_API } from '$lib/api_wiki';
 	import {
 		TMDecisionStatus,
 		tmToMachineCode,
@@ -22,8 +23,57 @@
 	let equivalentMachineCode = null;
 	let equivalentMachineID = null;
 
+	let varIsThereWikiEntry = null;
+	let redirectName = null;
+
+	async function isThereWikiEntry(machine) {
+		try {
+			let response = await WIKI_API.get(
+				'',
+				{},
+				{
+					action: 'query',
+					titles: tmToMachineCode(machine),
+					format: 'json',
+					formatversion: '2'
+				},
+				false
+			);
+			let data = response.data;
+			varIsThereWikiEntry = !data.query.pages[0].hasOwnProperty('missing');
+			if (varIsThereWikiEntry) {
+				let response = await WIKI_API.get(
+					'',
+					{},
+					{
+						action: 'parse',
+						page: tmToMachineCode(machine),
+						format: 'json',
+						redirects: '1'
+					},
+					false
+				);
+				let page_title = response.data.parse.title;
+
+				if (page_title.replace(' ', '') === tmToMachineCode(machine).replace('_', '')) {
+					redirectName = null;
+				} else {
+					redirectName = page_title;
+				}
+			} else {
+				redirectName = null;
+			}
+		} catch (error) {
+			console.log(error);
+			return false;
+		}
+	}
+
 	async function getEquivalentMachine(machine, machineID) {
+		console.log('get equiv machine');
 		if (machineID !== null) {
+			equivalentMachineID = null;
+			equivalentMachineCode = null;
 			return;
 		}
 		try {
@@ -36,6 +86,8 @@
 				equivalentMachineCode = response.data['equivalent_machine_code'];
 				equivalentMachineID = response.data['equivalent_machine_id'];
 
+				console.log(equivalentMachineCode);
+				console.log(equivalentMachineID);
 				if (response.data['status'] !== undefined) {
 					decisionStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 					if (
@@ -47,16 +99,47 @@
 						];
 					}
 				}
+			} else {
+				equivalentMachineID = null;
+				equivalentMachineCode = null;
 			}
 		} catch (error) {
 			console.log(error);
+			equivalentMachineID = null;
+			equivalentMachineCode = null;
 		}
 	}
 
 	$: getEquivalentMachine(machine, machineID);
+	$: isThereWikiEntry(machine);
 
 	let error = null;
 </script>
+
+{#if varIsThereWikiEntry === true}
+	<div class:mt-1={machineID !== null}>
+		{#if !redirectName}
+			<div>
+				<em>
+					<a
+						href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+						target="_blank"
+						class="text-blue-400 hover:text-blue-300 cursor-pointer">Wiki entry</a
+					>
+				</em>
+			</div>
+		{:else}
+			<div>
+				<em>Wiki entry:</em>
+				<a
+					href="https://wiki.bbchallenge.org/wiki/{tmToMachineCode(machine)}"
+					target="_blank"
+					class="text-blue-400 hover:text-blue-300 cursor-pointer">{redirectName}</a
+				>
+			</div>
+		{/if}
+	</div>
+{/if}
 
 <header class="flex flex-col">
 	{#if equivalentMachineID !== null}
@@ -91,6 +174,7 @@
 		<TmDecider {machineDecider} />
 	{/if}
 </header>
+
 <div class:mt-1={machineID !== null}>
 	{#if showTitle}
 		<div>Machine code:</div>
@@ -112,7 +196,10 @@
 						><td class={`w-1/3 color-${q}`}>{String.fromCharCode(65 + q)}</td>
 
 						{#each [...Array(machine.symbols).keys()] as s}
-							{@const transition = machine.code.slice(3 * (machine.symbols * q + s), 3 * (machine.symbols * q + s + 1)) }
+							{@const transition = machine.code.slice(
+								3 * (machine.symbols * q + s),
+								3 * (machine.symbols * q + s + 1)
+							)}
 
 							<td
 								class="w-1/3"
@@ -124,9 +211,8 @@
 								{#if transition[2] == 0}
 									---
 								{:else}
-									{String.fromCharCode(48 + transition[0])}{transition[1] == 0
-										? 'R'
-										: 'L'}<span class={`color-${transition[2] - 1}`}
+									{String.fromCharCode(48 + transition[0])}{transition[1] == 0 ? 'R' : 'L'}<span
+										class={`color-${transition[2] - 1}`}
 										>{String.fromCharCode(65 + (transition[2] - 1))}</span
 									>
 								{/if}
@@ -186,5 +272,17 @@
 				>Copy code for https://turingmachine.io/</span
 			>
 		</div>
+
+		{#if !varIsThereWikiEntry}
+			<div class="text-xs mt-1">
+				<a
+					href=" https://wiki.bbchallenge.org/w/index.php?action=edit&title={tmToMachineCode(
+						machine
+					)}&preload=Template:NewMachinePage&preloadparams%5B%5D={tmToMachineCode(machine)}"
+					target="_blank"
+					class="text-blue-400 hover:text-blue-300 cursor-pointer">Create wiki entry</a
+				>
+			</div>
+		{/if}
 	{/if}
 </div>

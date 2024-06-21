@@ -2,7 +2,7 @@
 	"name": "bbchallenge",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "VITE_API_URL=/api vite dev",
+		"dev": "VITE_API_URL=/api VITE_WIKI_API_URL=/wiki_api vite dev",
 		"build": "vite build",
 		"package": "vite package",
 		"preview": "vite preview",
