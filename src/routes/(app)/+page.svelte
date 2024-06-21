@@ -12,12 +12,43 @@
 		DB_SIZE,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
-	import { BB5_champion } from '$lib/machine_repertoire';
+	import { BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
 
 	import Zoology from '$lib/news-deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
 	import MachineCanvas from './MachineCanvas.svelte';
+
+	enum Challenge {
+		BB5 = 'BB(5)',
+		BB6 = 'BB(6)',
+		BB2x5 = 'BB(2,5)',
+		BB3x3 = 'BB(3,3)'
+	}
+
+	function challenge_to_state_string(challenge: Challenge) {
+		if (challenge == Challenge.BB5) {
+			return '5-state 2-symbol';
+		} else if (challenge == Challenge.BB6) {
+			return '6-state 2-symbol';
+		} else if (challenge == Challenge.BB2x5) {
+			return '2-state 5-symbol';
+		} else if (challenge == Challenge.BB3x3) {
+			return '3-state 3-symbol';
+		}
+	}
+
+	function challenge_to_interesting_machine_file(challenge: Challenge) {
+		if (challenge == Challenge.BB6) {
+			return 'BB6_holdouts_10020.txt';
+		} else if (challenge == Challenge.BB2x5) {
+			return '2x5_holdouts_217.txt';
+		} else if (challenge == Challenge.BB3x3) {
+			return '3x3.todo.txt';
+		}
+	}
+
+	let curr_challenge = Challenge.BB6;
 
 	let machine = null;
 	export let machineID = null;
@@ -90,30 +121,51 @@
 	let randomType = 'all_undecided';
 
 	async function getRandomMachine() {
-		try {
-			const response = await API.get(`/machine/random?type=${randomType}`, '');
+		if (curr_challenge == Challenge.BB5) {
+			try {
+				const response = await API.get(`/machine/random?type=${randomType}`, '');
 
-			machine = machineCodeToTM(response.data['machine_code']);
-			machineID = response.data['machine_id'];
-			machineDecider = null;
+				machine = machineCodeToTM(response.data['machine_code']);
+				machineID = response.data['machine_id'];
+				machineDecider = null;
+
+				addToHistory(machineID);
+				history = getHistory();
+				window.history.replaceState({}, '', getSimulationLink());
+
+				if (response.data['status'] !== undefined) {
+					machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
+					if (
+						machineStatus == TMDecisionStatus.DECIDED_HALT ||
+						machineStatus == TMDecisionStatus.DECIDED_NON_HALT
+					) {
+						machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
+							'decider_file'
+						];
+						console.log('Decider:', machineDecider);
+					}
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		} else {
+			const response = await fetch(challenge_to_interesting_machine_file(curr_challenge));
+			const text = (await response.text()).split('\n');
+			const random_machine_list_id = Math.floor(Math.random() * text.length);
+			let machine_code = text[random_machine_list_id].trim();
+
+			// In case empty line
+			while (machine_code === '') {
+				const random_machine_list_id = Math.floor(Math.random() * text.length);
+				machine_code = text[random_machine_list_id].trim();
+			}
+
+			machineID = null;
+			machine = machineCodeToTM(machine_code);
 
 			addToHistory(machineID);
 			history = getHistory();
-
-			if (response.data['status'] !== undefined) {
-				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
-				if (
-					machineStatus == TMDecisionStatus.DECIDED_HALT ||
-					machineStatus == TMDecisionStatus.DECIDED_NON_HALT
-				) {
-					machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
-						'decider_file'
-					];
-					console.log('Decider:', machineDecider);
-				}
-			}
-		} catch (error) {
-			console.log(error);
+			window.history.replaceState({}, '', getSimulationLink());
 		}
 	}
 
@@ -242,18 +294,40 @@
 	{/if}
 
 	<div class="text-sm mb-1 mt-2 md:ml-3 ml-0">
+		<div class="flex flex-col space-y-1 mb-3">
+			<span class="underline">Choose challenge</span>
+			<div>
+				<select
+					class="text-black"
+					bind:value={curr_challenge}
+					on:change={async () => {
+						await getRandomMachine();
+						window.history.replaceState({}, '', getSimulationLink());
+					}}
+				>
+					{#each Object.values(Challenge) as challenge}
+						<option value={challenge}>{challenge}</option>
+					{/each}
+				</select>
+			</div>
+		</div>
 		<div class="flex flex-col space-y-1 min-h-[65px]">
 			{#if metrics != null}
 				<span class="underline">Challenge goal</span>
 				<div class="flex flex-col items-start">
 					<div>
-						There remain <a
-							href="https://github.com/bbchallenge/bbchallenge-undecided-index/blob/main/bb5_undecided_machines.csv"
-							rel="external"
-							class="text-blue-400 hover:text-blue-300 cursor-pointer"
-							><strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines</a
-						>
-						with 5 states to decide (out of {numberWithCommas(metrics['total'])})
+						{#if curr_challenge == Challenge.BB5}
+							There remain <a
+								href="https://github.com/bbchallenge/bbchallenge-undecided-index/blob/main/bb5_undecided_machines.csv"
+								rel="external"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer"
+								><strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines</a
+							>
+							with 5 states to decide (out of {numberWithCommas(metrics['total'])})
+						{:else}
+							Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
+							interesting {challenge_to_state_string(curr_challenge)} machines.
+						{/if}
 					</div>
 					<!-- <div style="font-size:0.65rem">
 							Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics

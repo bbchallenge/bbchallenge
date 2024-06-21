@@ -19,6 +19,8 @@ export function addToHistory(machineIDorb64) {
 			current_state['history'] = current_state['history'].slice(900, 1001);
 		}
 
+
+
 		local.setItem('bbchallenge', JSON.stringify(current_state));
 	}
 }
