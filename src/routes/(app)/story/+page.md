@@ -54,9 +54,9 @@ The goal of the Busy Beaver Challenge (bbchallenge for short) is to collaborativ
 BB(5) = 47,176,870
 </div>
 
-This conjecture says that if a 5-state [Turing machine](#turing-machines) runs for more than 47,176,870 steps without halting then it will never halt (starting from all-0 memory tape).
+This conjecture says that if a 5-state 2-symbol [Turing machine](#turing-machines) runs for more than 47,176,870 steps without halting then it will never halt (starting from all-0 memory tape).
 
-The conjecture, explicitly formulated in [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf), is based on the pioneer work of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) who discovered the current <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
+The conjecture, explicitly formulated in [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf), is based on the pioneering work of [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) who discovered the current <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">5-state busy beaver champion</a>, a machine with 5 states that halts after 47,176,870 steps:
 
 <div class="flex flex-col items-center">
 <div class="w-1/3 -mt-5 font-mono">
@@ -72,7 +72,7 @@ The conjecture, explicitly formulated in [[Aaronson, 2020]](https://www.scottaar
 </div>
 </div>
 
-Achieving the goal of the Busy Beaver Challenge implies to study **88,664,064 Turing machines** and decide whether they halt or not, see <a href="/method" rel="external">Method</a>.
+Achieving the goal of the Busy Beaver Challenge implies studying **88,664,064 Turing machines** and decide whether they halt or not, see <a href="/method" rel="external">Method</a>.
 
 <a href="/contribute" rel="external">You can help!</a>
 
@@ -82,7 +82,7 @@ Achieving the goal of the Busy Beaver Challenge implies to study **88,664,064 Tu
 
 The introduction of Turing machines by Alan Turing in 1936 is arguably one of the founding events of computer science, [[Turing, 1936]](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf).
 
-Turing machines can be thought as a primitive computer architecture providing (i) a runtime environment consisting of a moving read/write head over a memory tape divided in adjacent memory cells and (ii) a programming language allowing us to control the behavior of the head depending on the content of the memory cell where it is currently at.
+Turing machines can be thought as a primitive computer architecture providing (i) a runtime environment consisting of a moving read/write head over a memory tape divided in adjacent memory cells and (ii) a programming language allowing to control the behavior of the head depending on the content of the memory cell where it is currently at.
 
 The Turing machines we work with have one bi-infinite memory tape where each cell is either containing a 0 or a 1.
 
