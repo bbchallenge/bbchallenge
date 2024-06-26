@@ -278,7 +278,7 @@ Here are some possible outcomes to the quest of looking for BB(5):
 
 - We find a 5-state machine that halts after more than 47,176,870 steps hence improving Aaronson's conjecture [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf) 🥳
 
-- We establish a fine-grained [Zoology](/#zoology) of the behaviors of 5-state Turing machines which allows us to understand what they are capable of and where complexity lies 🥳
+- We establish a fine-grained [Zoology](/contribute#zoology) of the behaviors of 5-state Turing machines which allows us to understand what they are capable of and where complexity lies 🥳
 
 - We decide as many machines as we can but fail to decide some of them. Their individual halting problems compete for the title of "simplest open problem in mathematics" (on the [busy beaver scale](#the-busy-beaver-scale)) which is also 🥳
 

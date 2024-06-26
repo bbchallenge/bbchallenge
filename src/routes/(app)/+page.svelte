@@ -132,6 +132,7 @@
 				addToHistory(machineID);
 				history = getHistory();
 				window.history.replaceState({}, '', getSimulationLink());
+				window.history.pushState({}, '', getSimulationLink());
 
 				if (response.data['status'] !== undefined) {
 					machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
@@ -166,6 +167,7 @@
 			addToHistory(machineID);
 			history = getHistory();
 			window.history.replaceState({}, '', getSimulationLink());
+			window.history.pushState({}, '', getSimulationLink());
 		}
 	}
 

@@ -44,7 +44,8 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 
 1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-and-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
 
-2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database. We aim to classify these families in the [zoology](/#zoology) and to come up with deciders for each family.
+2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database.
+We aim to classify these families in the [zoology](/contribute#zoology) and to come up with deciders for each family.
 
 **Phase 1** was completed in December 2021:
 
@@ -336,13 +337,13 @@ We expect that almost all machines of the seed database do not halt hence decide
 
 To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines, see <a href="/contribute" rel="external">Contribute</a>.
 
-Deciders are closely related to the [zoology](/#zoology) of 5-state machines as we aim to decide each family of the zoo. For instance:
+Deciders are closely related to the zoology of 5-state machines as we aim to decide each family of the zoo. For instance:
 
 - 11,229,238 _Cyclers_, such as Machine <a href="/123" rel="external">#123</a>, were decided by the [decider for cyclers](https://discuss.bbchallenge.org/t/decider-cyclers/33).
 
 - 73,860,604 _Translated Cyclers_, such as Machine <a href="/59090563" rel="external">#59,090,563</a>, were decided by the [decider for translated cyclers](https://discuss.bbchallenge.org/t/decider-translated-cyclers/34).
 
-Deciders are not _necessarily_ directly connected to a family of the [zoology](/#zoology), a good example of this case is [the decider for Backward Reasoning](https://discuss.bbchallenge.org/t/decider-backward-reasoning/35) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
+Deciders are not _necessarily_ directly connected to a family of the zoology, a good example of this case is [the decider for Backward Reasoning](https://discuss.bbchallenge.org/t/decider-backward-reasoning/35) a notion developed in [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html#http://turbotm.de/~heiner/BB/mabu90.html#Nontermination).
 
 Writing, testing and proving deciders is a collaborative task, see [the decider section of the forum](https://discuss.bbchallenge.org/c/deciders/5), and you are invited to <a href="/contribute" rel="external">Contribute</a>.
 
