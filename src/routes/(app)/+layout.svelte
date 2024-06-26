@@ -105,6 +105,7 @@
 				</a>
 			</li>
 			<li><a href="https://discuss.bbchallenge.org">Forum</a></li>
+			<li><a href="https://wiki.bbchallenge.org">Wiki</a></li>
 			<div class="flex items-center space-x-3">
 				<li>
 					<a href="https://github.com/bbchallenge" class="cursor-pointer"

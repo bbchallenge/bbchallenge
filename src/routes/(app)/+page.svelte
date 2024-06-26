@@ -509,13 +509,15 @@
 					<div class="mt-4 flex flex-col items-start">
 						<div>Change machine:</div>
 						<div class="ml-3 mt-1 text-sm">
-							<div>
-								Random machine from the <a
-									href="https://bbchallenge.org/method#seed-database"
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									rel="external">seed database</a
-								>:
-							</div>
+							{#if curr_challenge == Challenge.BB5}
+								<div>
+									Random machine from the <a
+										href="https://bbchallenge.org/method#seed-database"
+										class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+										rel="external">seed database</a
+									>:
+								</div>
+							{/if}
 
 							<!-- {#if !preSeed} -->
 							<div class="flex flex-col items-end mx-3">
@@ -526,14 +528,16 @@
 										window.history.replaceState({}, '', getSimulationLink());
 									}}>Go (R)andom</button
 								>
-								<div
-									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
-									on:click={() => {
-										showRandomOptions = !showRandomOptions;
-									}}
-								>
-									{#if !showRandomOptions}More{:else}Less{/if} options
-								</div>
+								{#if curr_challenge == Challenge.BB5}
+									<div
+										class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
+										on:click={() => {
+											showRandomOptions = !showRandomOptions;
+										}}
+									>
+										{#if !showRandomOptions}More{:else}Less{/if} options
+									</div>
+								{/if}
 							</div>
 						</div>
 						<div class="ml-3 mt-1 text-sm">
@@ -585,33 +589,36 @@
 								{/if}
 							</div>
 						</div>
-						<div class="ml-3 mt-2 text-sm">
-							<div>
-								From id in the <a
-									href="https://bbchallenge.org/method#seed-database"
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									rel="external">seed database</a
-								>:
+						{#if curr_challenge == Challenge.BB5}
+							<div class="ml-3 mt-2 text-sm">
+								<div>
+									From id in the <a
+										href="https://bbchallenge.org/method#seed-database"
+										class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+										rel="external">seed database</a
+									>:
+								</div>
+
+								{#if typedMachineError}
+									<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
+								{/if}
+								<div class="ml-5 flex items-center space-x-4">
+									<input
+										type="number"
+										class="w-[200px] text-black"
+										placeholder="max 88664063"
+										min="0"
+										max="88664063"
+										bind:value={typedMachineID}
+										on:change={async () => {
+											await loadMachineFromID(typedMachineID);
+											window.history.replaceState({}, '', getSimulationLink());
+										}}
+									/>
+									<button class="bg-blue-500 p-1 px-2">Go </button>
+								</div>
 							</div>
-							{#if typedMachineError}
-								<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
-							{/if}
-							<div class="ml-5 flex items-center space-x-4">
-								<input
-									type="number"
-									class="w-[200px] text-black"
-									placeholder="max 88664063"
-									min="0"
-									max="88664063"
-									bind:value={typedMachineID}
-									on:change={async () => {
-										await loadMachineFromID(typedMachineID);
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-								/>
-								<button class="bg-blue-500 p-1 px-2">Go </button>
-							</div>
-						</div>
+						{/if}
 						<div class="ml-3 mt-1 text-sm">
 							<div>From compact machine code:</div>
 							{#if machineCodeError}
@@ -672,25 +679,27 @@
 							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					/>
-					<Highlights
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+					{#if curr_challenge == Challenge.BB5}
+						<Highlights
+							on:machine_id={async (ev) => {
+								let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
+								await loadMachineFromID(machine_id);
+								defaultSimulationParameters();
 
-							window.history.replaceState({}, '', getSimulationLink());
-						}}
-						on:machine_code={async (ev) => {
-							let machine_code = ev.detail.machine_code;
-							let machine_status = ev.detail.machine_status;
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+							on:machine_code={async (ev) => {
+								let machine_code = ev.detail.machine_code;
+								let machine_status = ev.detail.machine_status;
 
-							await loadMachineFromMachineCode(machine_code, machine_status);
-							defaultSimulationParameters();
-							console.log(getSimulationLink());
-							window.history.replaceState({}, '', getSimulationLink());
-						}}
-					/>
+								await loadMachineFromMachineCode(machine_code, machine_status);
+								defaultSimulationParameters();
+								console.log(getSimulationLink());
+								window.history.replaceState({}, '', getSimulationLink());
+							}}
+						/>
+					{/if}
 				</div>
 			</div>
 		</div>
