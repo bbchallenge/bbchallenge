@@ -642,7 +642,7 @@
 							</div>
 						</div>
 
-						<div>
+						<!-- <div>
 							{#if history}
 								<div class="mt-0 flex flex-col">
 									<div class="ml-3 mt-2 text-sm">
@@ -664,7 +664,7 @@
 									</div>
 								</div>
 							{/if}
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
