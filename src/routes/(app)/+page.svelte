@@ -48,7 +48,7 @@
 		}
 	}
 
-	let curr_challenge = Challenge.BB6;
+	let curr_challenge = Challenge.BB5;
 
 	let machine = null;
 	export let machineID = null;
