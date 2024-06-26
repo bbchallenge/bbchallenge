@@ -101,7 +101,7 @@
 		</div>
 	</div> -->
 
-	<!-- <div id="zoology">
+	<div id="zoology">
 		<div class="text-xl mb-1">Zoology</div>
 		<div class="ml-2 text-sm">
 			This zoology is <a
@@ -137,5 +137,5 @@
 				{/each}
 			</div>
 		</div>
-	</div> -->
+	</div>
 </div>
