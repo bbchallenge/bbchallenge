@@ -75,7 +75,7 @@
 		</div>
 	</div>
 
-	<!-- <div id="deciders">
+	<div id="deciders">
 		<div class="text-xl mb-1">Deciders</div>
 		<div class="ml-2 text-sm max-w-sm">
 			<a
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<div id="zoology">
 		<div class="text-xl mb-1">Zoology</div>
