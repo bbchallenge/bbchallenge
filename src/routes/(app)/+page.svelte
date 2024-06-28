@@ -17,6 +17,8 @@
 	import DecidersAndZoology from '$lib/deciders-and-zoology.svelte';
 	import Highlights_BB5 from '$lib/highlights_bb5.svelte';
 	import Highlights_BB6 from '$lib/highlights_bb6.svelte';
+	import Highlights_BB2x5 from '$lib/highlights_bb2x5.svelte';
+	import Highlights_BB3x3 from '$lib/highlights_bb3x3.svelte';
 	import News from '$lib/news.svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
 	import MachineCanvas from './MachineCanvas.svelte';
@@ -693,6 +695,40 @@
 						{/if}
 						{#if curr_challenge == Challenge.BB6}
 							<Highlights_BB6
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
+
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB2x5}
+							<Highlights_BB2x5
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
+
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB3x3}
+							<Highlights_BB3x3
 								on:machine_id={async (ev) => {
 									let machine_id = ev.detail.machine_id;
 

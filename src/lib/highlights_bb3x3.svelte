@@ -6,8 +6,7 @@
 	import { TMDecisionStatus } from './tm';
 
 	// Cannot inline { .. } because of svelte
-	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
-	let ApproxBB6 = '\\simeq 10\\uparrow\\uparrow 15';
+	let ApproxBB3x3 = '\\simeq 119 \\times 10^{15}';
 
 	import { createEventDispatcher } from 'svelte';
 
@@ -17,30 +16,30 @@
 </script>
 
 <div class="ml-2">
-	<div class="text-sm w-[400px] ml-2">BB(6) champion:</div>
+	<div class="text-sm w-[400px] ml-2">BB(3,3) champion:</div>
 	<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 		<HighlightedMachine
 			on:machine_code
-			machine_code={BB6_Kropitz_champion_2022}
+			machine_code="1RB2LA1LC_0LA2RB1LB_1RZ1RA1RC"
 			machine_status={TMDecisionStatus.DECIDED_HALT}
-			ref_link="https://www.sligocki.com/2022/06/21/bb-6-2-t15.html"
-			ref_authors="Kropitz"
-			ref_year="2022"><Katex math={ApproxBB6} />-halter</HighlightedMachine
+			ref_link="https://bbchallenge.org/~pascal.michel/beh#tm33h"
+			ref_authors="Terry and Shawn Ligocki"
+			ref_year="2007"><Katex math={ApproxBB3x3} />-halter</HighlightedMachine
 		>
 	</div>
 </div>
 
 <div class="ml-2">
 	<div class="text-sm w-[400px] ml-2">
-		6-state 2-symbol <a href="https://wiki.bbchallenge.org/wiki/Cryptids">Cryptids:</a>
+		3-state 3-symbol <a href="https://wiki.bbchallenge.org/wiki/Cryptids">Cryptids:</a>
 	</div>
 	<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 		<HighlightedMachine
 			on:machine_code
-			machine_code="1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA"
-			ref_link="https://www.sligocki.com/2022/06/21/bb-6-2-t15.html"
-			ref_authors="mxdys, Yto"
-			ref_year="2024">&middot;&nbsp;Not named yet</HighlightedMachine
+			machine_code="1RB2RA1LC_2LC1RB2RB_---2LA1LA"
+			ref_link="https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html"
+			ref_authors="Shawn Ligocki"
+			ref_year="2024">&middot;&nbsp;Bigfoot</HighlightedMachine
 		>
 	</div>
 </div>
