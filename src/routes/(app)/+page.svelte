@@ -15,7 +15,8 @@
 	import { BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
 
 	import DecidersAndZoology from '$lib/deciders-and-zoology.svelte';
-	import Highlights from '$lib/highlights.svelte';
+	import Highlights_BB5 from '$lib/highlights_bb5.svelte';
+	import Highlights_BB6 from '$lib/highlights_bb6.svelte';
 	import News from '$lib/news.svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
 	import MachineCanvas from './MachineCanvas.svelte';
@@ -670,23 +671,44 @@
 							/>
 						{/if}
 					</div>
-					{#if curr_challenge == Challenge.BB5}
-						<Highlights
-							on:machine_id={async (ev) => {
-								let machine_id = ev.detail.machine_id;
 
-								await loadMachineFromID(machine_id);
-								defaultSimulationParameters();
-							}}
-							on:machine_code={async (ev) => {
-								let machine_code = ev.detail.machine_code;
-								let machine_status = ev.detail.machine_status;
+					<div class="max-w-[450px] flex flex-col space-y-2">
+						<div class="ml-2 text-xl">Highlighted machines</div>
+						{#if curr_challenge == Challenge.BB5}
+							<Highlights_BB5
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-								await loadMachineFromMachineCode(machine_code, machine_status);
-								defaultSimulationParameters();
-							}}
-						/>
-					{/if}
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB6}
+							<Highlights_BB6
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
+
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -4,9 +4,9 @@
 	import { TMDecisionStatus } from '$lib/tm';
 
 	// Machine ID or machine b64
-	$: generalisedIDAndParams = $page.params.gid;
+	let generalisedIDAndParams = $page.params.gid;
 
-	$: generalisedID = generalisedIDAndParams.split('&')[0];
+	let generalisedID = generalisedIDAndParams.split('&')[0];
 
 	let machineID = null;
 	let machineCode = null;
@@ -22,26 +22,25 @@
 	}
 
 	let machineStatus = null;
-	$: urlParams = new URLSearchParams(generalisedIDAndParams);
-	$: {
-		if (urlParams.get('s') != null) {
-			nbIter = Number(urlParams.get('s'));
-		}
-		if (urlParams.get('w') != null) {
-			tapeWidth = Number(urlParams.get('w'));
-		}
-		if (urlParams.get('ox') != null) {
-			origin_x = Number(urlParams.get('ox'));
-		}
+	let urlParams = new URLSearchParams(generalisedIDAndParams);
 
-		if (urlParams.get('status') != null) {
-			if (urlParams.get('status') == TMDecisionStatus.DECIDED_HALT) {
-				machineStatus = TMDecisionStatus.DECIDED_HALT;
-			} else if (urlParams.get('status') == TMDecisionStatus.DECIDED_NON_HALT) {
-				machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
-			} else {
-				machineStatus = TMDecisionStatus.UNDECIDED;
-			}
+	if (urlParams.get('s') != null) {
+		nbIter = Number(urlParams.get('s'));
+	}
+	if (urlParams.get('w') != null) {
+		tapeWidth = Number(urlParams.get('w'));
+	}
+	if (urlParams.get('ox') != null) {
+		origin_x = Number(urlParams.get('ox'));
+	}
+
+	if (urlParams.get('status') != null) {
+		if (urlParams.get('status') == TMDecisionStatus.DECIDED_HALT) {
+			machineStatus = TMDecisionStatus.DECIDED_HALT;
+		} else if (urlParams.get('status') == TMDecisionStatus.DECIDED_NON_HALT) {
+			machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
+		} else {
+			machineStatus = TMDecisionStatus.UNDECIDED;
 		}
 	}
 </script>
