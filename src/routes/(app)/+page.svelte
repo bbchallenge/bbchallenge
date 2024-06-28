@@ -14,8 +14,9 @@
 	} from '$lib/tm';
 	import { BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
 
-	import Zoology from '$lib/news-deciders-and-zoology.svelte';
+	import DecidersAndZoology from '$lib/deciders-and-zoology.svelte';
 	import Highlights from '$lib/highlights.svelte';
+	import News from '$lib/news.svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
 	import MachineCanvas from './MachineCanvas.svelte';
 
@@ -656,14 +657,19 @@
 			</div>
 			<div class="mt-5 mb-10 flex flex-col space-y-8">
 				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
-					<Zoology
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+					<div class="flex flex-col space-y-4">
+						<News />
+						{#if curr_challenge == Challenge.BB5}
+							<DecidersAndZoology
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-						}}
-					/>
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+					</div>
 					{#if curr_challenge == Challenge.BB5}
 						<Highlights
 							on:machine_id={async (ev) => {
