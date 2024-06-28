@@ -38,7 +38,7 @@
 - star
 - tomtom2357
 - [Valentin](https://kttnr.net/) 
-- Yto
+- racheline
 - [Chris Xu](https://chrisxudoesmath.com/)
 - Daniel Yuan
 - [Jason Yuen](https://github.com/int-y1)
