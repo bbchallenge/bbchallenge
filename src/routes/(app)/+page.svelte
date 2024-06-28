@@ -126,14 +126,10 @@
 				const response = await API.get(`/machine/random?type=${randomType}`, '');
 
 				machine = machineCodeToTM(response.data['machine_code']);
+				machineCode = response.data['machine_code'];
 				machineID = response.data['machine_id'];
 				machineDecider = null;
-
-				addToHistory(machineID);
-				history = getHistory();
-				window.history.replaceState({}, '', getSimulationLink());
 				window.history.pushState({}, '', getSimulationLink());
-
 				if (response.data['status'] !== undefined) {
 					machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 					if (
@@ -154,7 +150,7 @@
 			const text = (await response.text()).split('\n');
 			const random_machine_list_id = Math.floor(Math.random() * text.length);
 			let machine_code = text[random_machine_list_id].trim();
-
+			machineStatus = null;
 			// In case empty line
 			while (machine_code === '') {
 				const random_machine_list_id = Math.floor(Math.random() * text.length);
@@ -163,10 +159,7 @@
 
 			machineID = null;
 			machine = machineCodeToTM(machine_code);
-
-			addToHistory(machineID);
-			history = getHistory();
-			window.history.replaceState({}, '', getSimulationLink());
+			machineCode = machine_code;
 			window.history.pushState({}, '', getSimulationLink());
 		}
 	}
@@ -188,9 +181,6 @@
 			machineID = localMachineID;
 			machineDecider = null;
 
-			addToHistory(localMachineID);
-			history = getHistory();
-
 			if (response.data['status'] !== undefined) {
 				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 				if (
@@ -203,6 +193,8 @@
 					console.log('Decider:', machineDecider);
 				}
 			}
+
+			window.history.pushState({}, '', getSimulationLink());
 
 			console.log(machine, machineID);
 		} catch (error) {
@@ -223,8 +215,7 @@
 			machineCodeError = null;
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
-			addToHistory(machine_code);
-			history = getHistory();
+			window.history.pushState({}, '', getSimulationLink());
 		} catch (error) {
 			machineCodeError = error;
 		}
@@ -243,7 +234,6 @@
 		if (!preSeed) {
 			try {
 				await getRandomMachine();
-				window.history.replaceState({}, '', getSimulationLink());
 			} catch (error) {
 				apiDown = true;
 			}
@@ -273,7 +263,6 @@
 		switch (e.keyCode) {
 			case 82:
 				await getRandomMachine();
-				window.history.replaceState({}, '', getSimulationLink());
 				break;
 		}
 	}
@@ -304,7 +293,6 @@
 					bind:value={curr_challenge}
 					on:change={async () => {
 						await getRandomMachine();
-						window.history.replaceState({}, '', getSimulationLink());
 					}}
 				>
 					{#each Object.values(Challenge) as challenge}
@@ -420,7 +408,7 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 											min="1"
 											max="99999"
@@ -437,7 +425,7 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 										/></label
 									>
@@ -448,7 +436,7 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 											min="0"
 											max="1"
@@ -487,7 +475,6 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromID(machineID);
-										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
 									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
@@ -497,7 +484,6 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
-										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
 									Machine <div class="underline text-sm ml-2 mb-1">{tmToMachineCode(machine)}</div>
@@ -527,7 +513,7 @@
 									class="bg-blue-500 p-1 mt-1 w-full ml-2"
 									on:click={async () => {
 										await getRandomMachine();
-										window.history.replaceState({}, '', getSimulationLink());
+										//window.history.replaceState({}, '', getSimulationLink());
 									}}>Go (R)andom</button
 								>
 								{#if curr_challenge == Challenge.BB5}
@@ -614,7 +600,6 @@
 										bind:value={typedMachineID}
 										on:change={async () => {
 											await loadMachineFromID(typedMachineID);
-											window.history.replaceState({}, '', getSimulationLink());
 										}}
 									/>
 									<button class="bg-blue-500 p-1 px-2">Go </button>
@@ -637,7 +622,6 @@
 									class="bg-blue-500 p-1 px-2"
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
-										window.history.replaceState({}, '', getSimulationLink());
 									}}
 									>Go
 								</button>
@@ -678,7 +662,6 @@
 
 							await loadMachineFromID(machine_id);
 							defaultSimulationParameters();
-							window.history.replaceState({}, '', getSimulationLink());
 						}}
 					/>
 					{#if curr_challenge == Challenge.BB5}
@@ -688,8 +671,6 @@
 
 								await loadMachineFromID(machine_id);
 								defaultSimulationParameters();
-
-								window.history.replaceState({}, '', getSimulationLink());
 							}}
 							on:machine_code={async (ev) => {
 								let machine_code = ev.detail.machine_code;
@@ -697,8 +678,6 @@
 
 								await loadMachineFromMachineCode(machine_code, machine_status);
 								defaultSimulationParameters();
-								console.log(getSimulationLink());
-								window.history.replaceState({}, '', getSimulationLink());
 							}}
 						/>
 					{/if}
