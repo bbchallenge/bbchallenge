@@ -31,7 +31,10 @@
 
 <div class="ml-2">
 	<div class="text-sm w-[400px] ml-2">
-		3-state 3-symbol <a href="https://wiki.bbchallenge.org/wiki/Cryptids">Cryptids:</a>
+		3-state 3-symbol <a
+			href="https://wiki.bbchallenge.org/wiki/Cryptids"
+			class="text-blue-400 hover:text-blue-300 cursor-pointer">Cryptids:</a
+		>
 	</div>
 	<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 		<HighlightedMachine
