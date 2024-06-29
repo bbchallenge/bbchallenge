@@ -45,7 +45,7 @@ The method that we present to sparsely enumerate the space of 5-state Turing mac
 1. **Phase 1: seed database.** Sparsely enumerate the space of 5-state Turing machines and mark as **undecided** any machine that exceeded the set [time or space limits](#time-and-space-limits). Undecided machines are put in the [seed database](#seed-database) which _seeds_ the Busy Beaver Challenge.
 
 2. **Phase 2: deciders.** Write independent [deciders](#deciders), i.e. programs that will decide the behavior of families of machines in the seed database.
-We aim to classify these families in the [zoology](/contribute#zoology) and to come up with deciders for each family.
+<!-- We aim to classify these families in the [zoology](/contribute#zoology) and to come up with deciders for each family. -->
 
 **Phase 1** was completed in December 2021:
 
