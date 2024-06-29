@@ -225,7 +225,7 @@
 	{/if}
 	{#if showTitle}
 		<div class="text-xs">
-			<span class="select-all">Compact:</span>
+			<span class="select-all">Std format:</span>
 			<span class="select-all">{tmToMachineCode(machine)}</span>
 		</div>
 

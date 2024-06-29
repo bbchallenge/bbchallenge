@@ -501,15 +501,13 @@
 					<div class="mt-4 flex flex-col items-start">
 						<div>Change machine:</div>
 						<div class="ml-3 mt-1 text-sm">
-							{#if curr_challenge == Challenge.BB5}
-								<div>
-									Random machine from the <a
-										href="https://bbchallenge.org/method#seed-database"
-										class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-										rel="external">seed database</a
-									>:
-								</div>
-							{/if}
+							<div class:invisible={curr_challenge != Challenge.BB5}>
+								Random machine from the <a
+									href="https://bbchallenge.org/method#seed-database"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+									rel="external">seed database</a
+								>:
+							</div>
 
 							<!-- {#if !preSeed} -->
 							<div class="flex flex-col items-end mx-3">
@@ -611,7 +609,12 @@
 							</div>
 						{/if}
 						<div class="ml-3 mt-1 text-sm">
-							<div>From compact machine code:</div>
+							<div>
+								From <a
+									href="https://discuss.bbchallenge.org/t/standard-tm-text-format/60"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">standard format</a
+								>:
+							</div>
 							{#if machineCodeError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
 							{/if}
