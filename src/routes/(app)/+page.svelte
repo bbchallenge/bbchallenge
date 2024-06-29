@@ -52,8 +52,6 @@
 		}
 	}
 
-	let curr_challenge = Challenge.BB5;
-
 	let machine = null;
 	export let machineID = null;
 	export let machineCode = null;
@@ -63,6 +61,8 @@
 	let history = getHistory();
 	let showHistory = false;
 	let showSimulationParams = false;
+
+	let curr_challenge = Challenge.BB5;
 
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
@@ -254,6 +254,18 @@
 		if (apiDown && machineCode == null) {
 			await loadMachineFromMachineCode(BB5_champion, TMDecisionStatus.UNDECIDED);
 			origin_x = 0.65;
+		}
+
+		if (machine !== null) {
+			if (machine.states == 5 && machine.symbols == 2) {
+				curr_challenge = Challenge.BB5;
+			} else if (machine.states == 6 && machine.symbols == 2) {
+				curr_challenge = Challenge.BB6;
+			} else if (machine.states == 2 && machine.symbols == 5) {
+				curr_challenge = Challenge.BB2x5;
+			} else if (machine.states == 3 && machine.symbols == 3) {
+				curr_challenge = Challenge.BB3x3;
+			}
 		}
 	});
 
