@@ -4,43 +4,39 @@
 	import { TMDecisionStatus } from '$lib/tm';
 
 	// Machine ID or machine b64
-	let generalisedIDAndParams = $page.params.gid;
+	$: generalisedIDAndParams = $page.params.gid;
 
-	let generalisedID = generalisedIDAndParams.split('&')[0];
+	$: generalisedID = generalisedIDAndParams.split('&')[0];
 
 	let machineID = null;
 	let machineCode = null;
 
-	let nbIter = null;
-	let tapeWidth = null;
-	let origin_x = null;
-
-	if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
-		machineCode = generalisedID;
-	} else {
-		machineID = generalisedID;
-	}
-
-	let machineStatus = null;
-	let urlParams = new URLSearchParams(generalisedIDAndParams);
-
-	if (urlParams.get('s') != null) {
-		nbIter = Number(urlParams.get('s'));
-	}
-	if (urlParams.get('w') != null) {
-		tapeWidth = Number(urlParams.get('w'));
-	}
-	if (urlParams.get('ox') != null) {
-		origin_x = Number(urlParams.get('ox'));
-	}
-
-	if (urlParams.get('status') != null) {
-		if (urlParams.get('status') == TMDecisionStatus.DECIDED_HALT) {
-			machineStatus = TMDecisionStatus.DECIDED_HALT;
-		} else if (urlParams.get('status') == TMDecisionStatus.DECIDED_NON_HALT) {
-			machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
+	$: {
+		if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
+			machineCode = generalisedID;
+			machineID = null;
 		} else {
-			machineStatus = TMDecisionStatus.UNDECIDED;
+			machineID = generalisedID;
+			machineCode = null;
+		}
+	}
+
+	$: urlParams = new URLSearchParams(generalisedIDAndParams);
+	$: sUrlParam = urlParams.get('s');
+	$: nbIter = sUrlParam ? Number(sUrlParam) : undefined;
+	$: wUrlParam = urlParams.get('w');
+	$: tapeWidth = wUrlParam ? Number(wUrlParam) : undefined;
+	$: oxUrlParam = urlParams.get('ox');
+	$: origin_x = oxUrlParam ? Number(oxUrlParam) : undefined;
+	$: machineStatus = machineStatusFromUrlParam(urlParams);
+	function machineStatusFromUrlParam(urlParams: URLSearchParams): TMDecisionStatus {
+		const statusUrlParam = urlParams.get('status');
+		switch (statusUrlParam) {
+			case TMDecisionStatus.DECIDED_HALT:
+			case TMDecisionStatus.DECIDED_NON_HALT:
+				return statusUrlParam;
+			default:
+				return TMDecisionStatus.UNDECIDED;
 		}
 	}
 </script>

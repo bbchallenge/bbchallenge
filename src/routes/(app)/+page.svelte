@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import TmTable from '$lib/tm_table.svelte';
 	import { API } from '$lib/api_server';
 	import { addToHistory, getHistory, numberWithCommas } from '$lib/utils';
@@ -133,7 +134,7 @@
 				machineCode = response.data['machine_code'];
 				machineID = response.data['machine_id'];
 				machineDecider = null;
-				window.history.pushState({}, '', getSimulationLink());
+				await goto(getSimulationLink());
 				if (response.data['status'] !== undefined) {
 					machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 					if (
@@ -164,7 +165,7 @@
 			machineID = null;
 			machine = machineCodeToTM(machine_code);
 			machineCode = machine_code;
-			window.history.pushState({}, '', getSimulationLink());
+			await goto(getSimulationLink());
 		}
 	}
 
@@ -198,7 +199,7 @@
 				}
 			}
 
-			window.history.pushState({}, '', getSimulationLink());
+			await goto(getSimulationLink());
 
 			console.log(machine, machineID);
 		} catch (error) {
@@ -219,7 +220,7 @@
 			machineCodeError = null;
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
-			window.history.pushState({}, '', getSimulationLink());
+			void goto(getSimulationLink());
 		} catch (error) {
 			machineCodeError = error;
 		}
@@ -424,7 +425,7 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
+												goto(getSimulationLink());
 											}}
 											min="1"
 											max="99999"
@@ -441,7 +442,7 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
+												goto(getSimulationLink());
 											}}
 										/></label
 									>
@@ -452,7 +453,7 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
+												goto(getSimulationLink());
 											}}
 											min="0"
 											max="1"
