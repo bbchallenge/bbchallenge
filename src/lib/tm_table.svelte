@@ -193,7 +193,7 @@
 			<tbody>
 				{#each [...Array(machine.states).keys()] as q}
 					<tr
-						><td class={`w-1/3 color-${q}`}>{String.fromCharCode(65 + q)}</td>
+						><td class={`w-1/${machine.symbols + 1} color-${q}`}>{String.fromCharCode(65 + q)}</td>
 
 						{#each [...Array(machine.symbols).keys()] as s}
 							{@const transition = machine.code.slice(
@@ -202,7 +202,7 @@
 							)}
 
 							<td
-								class="w-1/3"
+								class={`w-1/${machine.symbols + 1}`}
 								class:bg-magenta={currState !== null &&
 									currRead !== null &&
 									q == currState &&
