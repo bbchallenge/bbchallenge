@@ -58,6 +58,7 @@
 	export let machineCode = null;
 	export let preSeed = false;
 	export let machineStatus = null;
+
 	let machineDecider = null;
 	let history = getHistory();
 	let showHistory = false;
@@ -289,7 +290,10 @@
 	<SeoTitle value={machineID || machineCode} />
 {/key}
 
-<svelte:window on:keydown={keydown} />
+<svelte:window
+	on:keydown={keydown}
+	on:popstate={(e) => (window.location = e.target.location.pathname)}
+/>
 
 <div>
 	{#if apiDown}

@@ -4,31 +4,30 @@
 	import { TMDecisionStatus } from '$lib/tm';
 
 	// Machine ID or machine b64
-	$: generalisedIDAndParams = $page.params.gid;
+	let generalisedIDAndParams = $page.params.gid;
 
-	$: generalisedID = generalisedIDAndParams.split('&')[0];
+	let generalisedID = generalisedIDAndParams.split('&')[0];
 
 	let machineID = null;
 	let machineCode = null;
 
-	$: {
-		if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
-			machineCode = generalisedID;
-			machineID = null;
-		} else {
-			machineID = generalisedID;
-			machineCode = null;
-		}
+	if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
+		machineCode = generalisedID;
+		machineID = null;
+	} else {
+		machineID = generalisedID;
+		machineCode = null;
 	}
 
-	$: urlParams = new URLSearchParams(generalisedIDAndParams);
-	$: sUrlParam = urlParams.get('s');
-	$: nbIter = sUrlParam ? Number(sUrlParam) : undefined;
-	$: wUrlParam = urlParams.get('w');
-	$: tapeWidth = wUrlParam ? Number(wUrlParam) : undefined;
-	$: oxUrlParam = urlParams.get('ox');
-	$: origin_x = oxUrlParam ? Number(oxUrlParam) : undefined;
-	$: machineStatus = machineStatusFromUrlParam(urlParams);
+	let urlParams = new URLSearchParams(generalisedIDAndParams);
+	let sUrlParam = urlParams.get('s');
+	let nbIter = sUrlParam ? Number(sUrlParam) : undefined;
+	let wUrlParam = urlParams.get('w');
+	let tapeWidth = wUrlParam ? Number(wUrlParam) : undefined;
+	let oxUrlParam = urlParams.get('ox');
+	let origin_x = oxUrlParam ? Number(oxUrlParam) : undefined;
+	let machineStatus = machineStatusFromUrlParam(urlParams);
+
 	function machineStatusFromUrlParam(urlParams: URLSearchParams): TMDecisionStatus {
 		const statusUrlParam = urlParams.get('status');
 		switch (statusUrlParam) {
