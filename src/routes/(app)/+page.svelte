@@ -135,7 +135,7 @@
 				machineCode = response.data['machine_code'];
 				machineID = response.data['machine_id'];
 				machineDecider = null;
-				await goto(getSimulationLink());
+				window.history.pushState({}, '', getSimulationLink());
 				if (response.data['status'] !== undefined) {
 					machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 					if (
@@ -166,7 +166,7 @@
 			machineID = null;
 			machine = machineCodeToTM(machine_code);
 			machineCode = machine_code;
-			await goto(getSimulationLink());
+			window.history.pushState({}, '', getSimulationLink());
 		}
 	}
 
@@ -200,7 +200,7 @@
 				}
 			}
 
-			await goto(getSimulationLink());
+			window.history.pushState({}, '', getSimulationLink());
 
 			console.log(machine, machineID);
 		} catch (error) {
@@ -221,7 +221,7 @@
 			machineCodeError = null;
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
-			void goto(getSimulationLink());
+			window.history.pushState({}, '', getSimulationLink());
 		} catch (error) {
 			machineCodeError = error;
 		}
@@ -239,6 +239,7 @@
 		}
 		if (!preSeed) {
 			try {
+				console.log('HERRRE');
 				await getRandomMachine();
 			} catch (error) {
 				apiDown = true;
@@ -290,10 +291,7 @@
 	<SeoTitle value={machineID || machineCode} />
 {/key}
 
-<svelte:window
-	on:keydown={keydown}
-	on:popstate={(e) => (window.location = e.target.location.pathname)}
-/>
+<svelte:window on:keydown={keydown} />
 
 <div>
 	{#if apiDown}
@@ -429,7 +427,7 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												goto(getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 											min="1"
 											max="99999"
@@ -446,7 +444,7 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												goto(getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 										/></label
 									>
@@ -457,7 +455,7 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												goto(getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 											min="0"
 											max="1"
