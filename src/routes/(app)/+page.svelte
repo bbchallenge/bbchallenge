@@ -335,7 +335,12 @@
 							with 5 states to decide (out of {numberWithCommas(metrics['total'])})
 						{:else}
 							Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
-							interesting {challenge_to_state_string(curr_challenge)} machines.
+							<a
+								href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
+								rel="external"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer">a list</a
+							>
+							of interesting {challenge_to_state_string(curr_challenge)} machines.
 						{/if}
 					</div>
 					<!-- <div style="font-size:0.65rem">
