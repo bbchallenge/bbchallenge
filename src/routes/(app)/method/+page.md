@@ -28,6 +28,8 @@
 
 <a id="overview"></a>
 
+<div class="bg-blue-500 p-2"><strong>Disclaimer:</strong> This page is specific to the search of BB(5), which has been completed as of July 2nd 2024. The page will be updated in the future.</div>
+
 With the Busy Beaver Challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See <a href="/story" rel="external">Story</a>.
 
 In order to achieve this goal we need to analyse the behavior of every single 5-state Turing machine. We quickly run into a problem: there are roughly 16 trillion 5-state Turing machines (<Katex math={nbTM5}/> to be exact).
