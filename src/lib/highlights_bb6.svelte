@@ -43,7 +43,7 @@
 			machine_code="1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA"
 			ref_link="https://www.sligocki.com/2022/06/21/bb-6-2-t15.html"
 			ref_authors="mxdys, Racheline"
-			ref_year="2024">&middot;&nbsp;MinHydra</HighlightedMachine
+			ref_year="2024">&middot;&nbsp;Antihydra</HighlightedMachine
 		>
 	</div>
 </div>
