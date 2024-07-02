@@ -12,6 +12,13 @@
 		<ul class="flex flex-col space-y-2 mt-2 list-disc">
 			<li>
 				<a
+					href="https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237"
+				>
+					<span class="underline">July 2nd 2024</span>
+				</a>
+			</li>
+			<li>
+				<a
 					href="https://discuss.bbchallenge.org/t/may-2nd-2024-releasing-bouncers-only-2-833-machines-to-go/231"
 					><span class="underline">May 2nd 2024</span></a
 				>
@@ -22,12 +29,12 @@
 					><span class="underline">April 9th 2023</span></a
 				>
 			</li>
-			<li>
+			<!-- <li>
 				<a
 					href="https://discuss.bbchallenge.org/t/december-25th-2022-1-002-823-new-machines-have-been-decided/"
 					><span class="underline">December 25th 2022</span></a
 				>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </div>

@@ -347,8 +347,9 @@
 								>
 							</li>
 							<li>
-								See the <a href="" class="text-blue-400 hover:text-blue-300 cursor-pointer"
-									>official announcement</a
+								See the <a
+									href="https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">official announcement</a
 								>
 							</li>
 						</ul>
@@ -356,7 +357,10 @@
 						Here's what's next:
 						<ul class="list-decimal ml-10">
 							<li>We are writing a human-readable paper presenting the BB(5) proof</li>
-							<li>We are working on new busy beaver values such as BB(6)</li>
+							<li>
+								We are working on new busy beaver values such as BB(6) and setting new goals for
+								these
+							</li>
 							<li>
 								We are maintaining busy beaver knowledge through our <a
 									href="https://discord.gg/3uqtPJA9Uv"
