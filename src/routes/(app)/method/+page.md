@@ -154,7 +154,7 @@ We conjecture:
 BB_SPACE(5) =  12,289
 </div>
 
-Which is the number of memory cells visited by <a  href="https://bbchallenge.org/{BB5_champion}&w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
+Which is the number of memory cells visited by <a href="https://bbchallenge.org/{BB5_champion}?w=250&ox=0.8&status=halt" rel="external">the 5-state busy beaver time champion</a>.
 
 It turns that BB_SPACE(5) is a much more practical cut-off to use in the enumeration algorithm than BB(5) as many more machines will visit more than 12,289 memory cells before they exceed 47,176,870 time steps.
 

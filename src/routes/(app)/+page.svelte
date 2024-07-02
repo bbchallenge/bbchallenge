@@ -92,7 +92,7 @@
 	}
 
 	function getSimulationLink(forCopy = false) {
-		let prefix = 'https://bbchalenge.org/';
+		let prefix = 'https://bbchallenge.org/';
 		if (!forCopy) {
 			prefix = '/';
 		}
@@ -103,23 +103,25 @@
 			secondPrefix = machineCode;
 		}
 
-		let last_add = '';
-		if (machineStatus !== null && machineID === null) {
-			last_add = `&status=${machineStatus}`;
-		}
-
-		let simulationParametersLink = '';
+		let simulationParams = new URLSearchParams();
 		if (nbIter !== nbIterDefault) {
-			simulationParametersLink += `&s=${nbIter}`;
+			simulationParams.set('s', nbIter);
 		}
 		if (tapeWidth !== tapeWidthDefault) {
-			simulationParametersLink += `&w=${tapeWidth}`;
+			simulationParams.set('w', tapeWidth);
 		}
 		if (origin_x !== origin_xDefault) {
-			simulationParametersLink += `&ox=${origin_x}`;
+			simulationParams.set('ox', origin_x);
+		}
+		if (machineStatus !== null && machineID === null) {
+			simulationParams.set('status', machineStatus);
+		}
+		let suffix = simulationParams.toString();
+		if (suffix !== '') {
+			suffix = '?' + suffix;
 		}
 
-		return prefix + secondPrefix + simulationParametersLink + last_add;
+		return prefix + secondPrefix + suffix;
 	}
 
 	let showRandomOptions = false;
@@ -432,7 +434,7 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
+												window.history.replaceState({}, '', getSimulationLink());
 											}}
 											min="1"
 											max="99999"
@@ -449,7 +451,7 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
+												window.history.replaceState({}, '', getSimulationLink());
 											}}
 										/></label
 									>
@@ -460,7 +462,7 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
+												window.history.replaceState({}, '', getSimulationLink());
 											}}
 											min="0"
 											max="1"
@@ -690,8 +692,8 @@
 								on:machine_id={async (ev) => {
 									let machine_id = ev.detail.machine_id;
 
-									await loadMachineFromID(machine_id);
 									defaultSimulationParameters();
+									await loadMachineFromID(machine_id);
 								}}
 							/>
 						{/if}
@@ -704,15 +706,15 @@
 								on:machine_id={async (ev) => {
 									let machine_id = ev.detail.machine_id;
 
-									await loadMachineFromID(machine_id);
 									defaultSimulationParameters();
+									await loadMachineFromID(machine_id);
 								}}
 								on:machine_code={async (ev) => {
 									let machine_code = ev.detail.machine_code;
 									let machine_status = ev.detail.machine_status;
 
-									await loadMachineFromMachineCode(machine_code, machine_status);
 									defaultSimulationParameters();
+									await loadMachineFromMachineCode(machine_code, machine_status);
 								}}
 							/>
 						{/if}
@@ -721,15 +723,15 @@
 								on:machine_id={async (ev) => {
 									let machine_id = ev.detail.machine_id;
 
-									await loadMachineFromID(machine_id);
 									defaultSimulationParameters();
+									await loadMachineFromID(machine_id);
 								}}
 								on:machine_code={async (ev) => {
 									let machine_code = ev.detail.machine_code;
 									let machine_status = ev.detail.machine_status;
 
-									await loadMachineFromMachineCode(machine_code, machine_status);
 									defaultSimulationParameters();
+									await loadMachineFromMachineCode(machine_code, machine_status);
 								}}
 							/>
 						{/if}
@@ -738,15 +740,15 @@
 								on:machine_id={async (ev) => {
 									let machine_id = ev.detail.machine_id;
 
-									await loadMachineFromID(machine_id);
 									defaultSimulationParameters();
+									await loadMachineFromID(machine_id);
 								}}
 								on:machine_code={async (ev) => {
 									let machine_code = ev.detail.machine_code;
 									let machine_status = ev.detail.machine_status;
 
-									await loadMachineFromMachineCode(machine_code, machine_status);
 									defaultSimulationParameters();
+									await loadMachineFromMachineCode(machine_code, machine_status);
 								}}
 							/>
 						{/if}
@@ -755,15 +757,15 @@
 								on:machine_id={async (ev) => {
 									let machine_id = ev.detail.machine_id;
 
-									await loadMachineFromID(machine_id);
 									defaultSimulationParameters();
+									await loadMachineFromID(machine_id);
 								}}
 								on:machine_code={async (ev) => {
 									let machine_code = ev.detail.machine_code;
 									let machine_status = ev.detail.machine_status;
 
-									await loadMachineFromMachineCode(machine_code, machine_status);
 									defaultSimulationParameters();
+									await loadMachineFromMachineCode(machine_code, machine_status);
 								}}
 							/>
 						{/if}

@@ -1,17 +1,16 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import MainPage from '../+page.svelte';
 	import { page } from '$app/stores';
 	import { TMDecisionStatus } from '$lib/tm';
 
 	// Machine ID or machine b64
-	let generalisedIDAndParams = $page.params.gid;
-
-	let generalisedID = generalisedIDAndParams.split('&')[0];
+	let generalisedID = $page.params.gid;
 
 	let machineID = null;
 	let machineCode = null;
 
-	if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
+	if (generalisedID.length > 0 && (generalisedID[1] == 'R' || generalisedID[1] == 'L')) {
 		machineCode = generalisedID;
 		machineID = null;
 	} else {
@@ -19,14 +18,23 @@
 		machineCode = null;
 	}
 
-	let urlParams = new URLSearchParams(generalisedIDAndParams);
-	let sUrlParam = urlParams.get('s');
-	let nbIter = sUrlParam ? Number(sUrlParam) : undefined;
-	let wUrlParam = urlParams.get('w');
-	let tapeWidth = wUrlParam ? Number(wUrlParam) : undefined;
-	let oxUrlParam = urlParams.get('ox');
-	let origin_x = oxUrlParam ? Number(oxUrlParam) : undefined;
-	let machineStatus = machineStatusFromUrlParam(urlParams);
+	let nbIter;
+	let tapeWidth;
+	let origin_x;
+	let machineStatus;
+
+	onMount(() => {
+		let urlParams = $page.url.searchParams;
+		nbIter = numberFromUrlParam(urlParams, 's');
+		tapeWidth = numberFromUrlParam(urlParams, 'w');
+		origin_x = numberFromUrlParam(urlParams, 'ox');
+		machineStatus = machineStatusFromUrlParam(urlParams);
+	});
+
+	function numberFromUrlParam(urlParams: URLSearchParams, name: string): number | undefined {
+		const value = urlParams.get(name);
+		return value !== null ? Number(value) : undefined;
+	}
 
 	function machineStatusFromUrlParam(urlParams: URLSearchParams): TMDecisionStatus {
 		const statusUrlParam = urlParams.get('status');
