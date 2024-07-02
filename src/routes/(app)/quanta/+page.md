@@ -28,7 +28,7 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 ## 5-state Green halter
 
-<TmSimulator machineCode="1LD1LB_1LZ1LA_0LB1LD_0LE0LD_1RE1RC"/>
+<TmSimulator machineCode="1LD1LB_---1LA_0LB1LD_0LE0LD_1RE1RC"/>
 
 ## Halts after 11 steps -- Justin Blanchard
 
