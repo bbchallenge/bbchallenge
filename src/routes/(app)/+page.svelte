@@ -13,7 +13,7 @@
 		DB_SIZE,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
-	import { BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
+	import { BB5_23M_steps_halter, BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
 
 	import DecidersAndZoology from '$lib/deciders-and-zoology.svelte';
 	import Highlights_BB5 from '$lib/highlights_bb5.svelte';
@@ -321,51 +321,92 @@
 			</div>
 		</div>
 		<div class="flex flex-col space-y-1 min-h-[65px]">
-			{#if metrics != null}
-				<span class="underline">Challenge goal</span>
-				<div class="flex flex-col items-start">
-					<div>
-						{#if curr_challenge == Challenge.BB5}
-							There remain <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machine with
-							5 states to decide!! 🥳
-						{:else}
-							Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
-							<a
-								href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
-								rel="external"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer">a list</a
-							>
-							of interesting {challenge_to_state_string(curr_challenge)} machines.
-						{/if}
-					</div>
-					<!-- <div style="font-size:0.65rem">
+			<span class="underline">Challenge goal</span>
+			<div class="flex flex-col items-start">
+				<div>
+					{#if curr_challenge == Challenge.BB5}
+						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
+						<br /><br />
+						We have achieved our goal of proving "<a
+							href="https://wiki.bbchallenge.org/wiki/BB(5)"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+							rel="external">BB(5)</a
+						>
+						= 47,176,870":
+						<ul class="list-disc ml-10">
+							<li>
+								See the formal <a
+									href="https://github.com/ccz181078/Coq-BB5"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">Coq proof</a
+								>
+							</li>
+							<li>
+								See the <a href="" class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									>official announcement</a
+								>
+							</li>
+						</ul>
+						<br />
+						Here's what's next:
+						<ul class="list-decimal ml-10">
+							<li>We are writing a human-readable paper presenting the BB(5) proof</li>
+							<li>We are working on new busy beaver values such as BB(6)</li>
+							<li>
+								We are maintaining busy beaver knowledge through our <a
+									href="https://discord.gg/3uqtPJA9Uv"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									rel="external">Discord</a
+								>,
+								<a
+									href="https://discuss.bbchallenge.org/"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									rel="external">forum</a
+								>
+								and
+								<a
+									href="https://wiki.bbchallenge.org/"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									rel="external">wiki</a
+								>
+							</li>
+						</ul>
+					{:else}
+						Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
+						<a
+							href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
+							rel="external"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer">a list</a
+						>
+						of interesting {challenge_to_state_string(curr_challenge)} machines.
+					{/if}
+				</div>
+				<!-- <div style="font-size:0.65rem">
 							Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
 						</div> -->
-					<div class="flex items-center space-x-1">
-						<div>
-							<a
-								href="https://discord.gg/3uqtPJA9Uv"
-								rel="external"
-								style="font-size:0.6rem"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
-							>
-								Join our Discord server
-							</a>
-						</div>
-						<div>&middot;</div>
-						<div>
-							<a
-								href="/contribute"
-								rel="external"
-								style="font-size:0.6rem"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
-							>
-								You can help!!
-							</a>
-						</div>
+				<div class="flex items-center space-x-1">
+					<div>
+						<a
+							href="https://discord.gg/3uqtPJA9Uv"
+							rel="external"
+							style="font-size:0.6rem"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+						>
+							Join our Discord server
+						</a>
+					</div>
+					<div>&middot;</div>
+					<div>
+						<a
+							href="/contribute"
+							rel="external"
+							style="font-size:0.6rem"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+						>
+							You can help!!
+						</a>
 					</div>
 				</div>
-			{/if}
+			</div>
 		</div>
 	</div>
 
