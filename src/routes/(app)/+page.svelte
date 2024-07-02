@@ -326,13 +326,8 @@
 				<div class="flex flex-col items-start">
 					<div>
 						{#if curr_challenge == Challenge.BB5}
-							There remain <a
-								href="https://github.com/bbchallenge/bbchallenge-undecided-index/blob/main/bb5_undecided_machines.csv"
-								rel="external"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
-								><strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines</a
-							>
-							with 5 states to decide (out of {numberWithCommas(metrics['total'])})
+							There remain <strong>{numberWithCommas(metrics['total_undecided'])}</strong> machine with
+							5 states to decide!! 🥳
 						{:else}
 							Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
 							<a
