@@ -152,7 +152,11 @@
 	</div>
 	<div class="w-full flex flex-col space-y-2 ml-8 mt-2">
 		{#each [0, 16] as i}
-			<HighlightedMachine on:machine_code machine_code={Skelet_machines[i].bbchallenge_code}>
+			<HighlightedMachine
+				machine_status={TMDecisionStatus.DECIDED_NON_HALT}
+				on:machine_code
+				machine_code={Skelet_machines[i].bbchallenge_code}
+			>
 				&middot;&nbsp;Skelet's machine {i + 1}
 
 				<span

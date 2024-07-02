@@ -104,9 +104,9 @@
 		}
 
 		let last_add = '';
-		if (machineStatus !== null && machineID === null) {
-			last_add = `&status=${machineStatus}`;
-		}
+		// if (machineStatus !== null && machineID === null) {
+		// 	last_add = `&status=${machineStatus}`;
+		// }
 
 		let simulationParametersLink = '';
 		if (nbIter !== nbIterDefault) {
