@@ -28,7 +28,7 @@
 
 <a id="overview"></a>
 
-<div class="bg-blue-500 p-2"><strong>Disclaimer:</strong> This page is specific to the search of BB(5), which has been completed as of July 2nd 2024. The page will be updated in the future.</div>
+<div class="bg-blue-500 p-2"><strong>Disclaimer:</strong> This page is specific to the search of BB(5), which has been completed as of July 2nd 2024.</div>
 
 With the Busy Beaver Challenge we want to decide the halting problem of all 5-state Turing machines (from all-0 tape). That way we will learn BB(5), the 5<sup>th</sup> busy beaver value. See <a href="/story" rel="external">Story</a>.
 

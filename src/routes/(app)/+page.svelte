@@ -327,7 +327,13 @@
 					{#if curr_challenge == Challenge.BB5}
 						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
 						<br /><br />
-						We have achieved our goal of proving "<a
+						We have achieved
+						<a
+							href="https://bbchallenge.org/story#goal"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+							rel="external">our goal</a
+						>
+						of proving "<a
 							href="https://wiki.bbchallenge.org/wiki/BB(5)"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							rel="external">BB(5)</a
