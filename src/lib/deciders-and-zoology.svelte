@@ -22,6 +22,10 @@
 		{
 			name: 'Bouncers',
 			link: 'https://discuss.bbchallenge.org/t/decider-bouncers/126/25'
+		},
+		{
+			name: 'Coq-BB5',
+			link: 'https://github.com/ccz181078/Coq-BB5'
 		}
 	];
 
