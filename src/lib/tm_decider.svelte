@@ -86,6 +86,11 @@
 			date: 'May 2nd 2024',
 			params: ['Steps: 250,000', 'Macro steps: 50,000', 'Formula tape limit: 20'],
 			total_decided: 29799
+		},
+		'coq-BB5-run-solves-remaining-bbchallenge-holdouts': {
+			name: 'Coq-BB5',
+			url: 'https://github.com/ccz181078/Coq-BB5',
+			date: 'July 2nd 2024'
 		}
 	};
 
