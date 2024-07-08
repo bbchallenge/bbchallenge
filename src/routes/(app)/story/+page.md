@@ -48,6 +48,8 @@ let BB6 = "> 10 \\uparrow \\uparrow {15}"
 				/>
 </div>
 
+<div class="bg-blue-500 p-2"><strong>Disclaimer:</strong> This page is specific to the search of BB(5), which has been completed as of July 2nd 2024.</div>
+
 The goal of the Busy Beaver Challenge (bbchallenge for short) is to collaboratively prove or disprove the following conjecture [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf):
 
 <div class="flex justify-center">

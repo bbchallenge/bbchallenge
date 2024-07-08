@@ -26,6 +26,10 @@ onMount(() => { // TODO: this shouldn't be necessary
 <div class="leading-normal ">
 <div>
 
+## 5-state Green halter
+
+<TmSimulator machineCode="1LD1LB_---1LA_0LB1LD_0LE0LD_1RE1RC"/>
+
 ## Halts after 11 steps -- Justin Blanchard
 
 [https://bbchallenge.org/1RB0LC_1LA0RC_1RA---](https://bbchallenge.org/1RB0LC_1LA0RC_1RA---)

@@ -6,40 +6,36 @@
 	// Machine ID or machine b64
 	let generalisedIDAndParams = $page.params.gid;
 
-	const generalisedID = generalisedIDAndParams.split('&')[0];
+	let generalisedID = generalisedIDAndParams.split('&')[0];
 
 	let machineID = null;
 	let machineCode = null;
 
-	let nbIter = null;
-	let tapeWidth = null;
-	let origin_x = null;
-
 	if ((generalisedID.length > 0 && generalisedID[1] == 'R') || generalisedID[1] == 'L') {
 		machineCode = generalisedID;
+		machineID = null;
 	} else {
 		machineID = generalisedID;
+		machineCode = null;
 	}
 
-	const urlParams = new URLSearchParams(generalisedIDAndParams);
-	if (urlParams.get('s') != null) {
-		nbIter = Number(urlParams.get('s'));
-	}
-	if (urlParams.get('w') != null) {
-		tapeWidth = Number(urlParams.get('w'));
-	}
-	if (urlParams.get('ox') != null) {
-		origin_x = Number(urlParams.get('ox'));
-	}
+	let urlParams = new URLSearchParams(generalisedIDAndParams);
+	let sUrlParam = urlParams.get('s');
+	let nbIter = sUrlParam ? Number(sUrlParam) : undefined;
+	let wUrlParam = urlParams.get('w');
+	let tapeWidth = wUrlParam ? Number(wUrlParam) : undefined;
+	let oxUrlParam = urlParams.get('ox');
+	let origin_x = oxUrlParam ? Number(oxUrlParam) : undefined;
+	let machineStatus = machineStatusFromUrlParam(urlParams);
 
-	let machineStatus = null;
-	if (urlParams.get('status') != null) {
-		if (urlParams.get('status') == TMDecisionStatus.DECIDED_HALT) {
-			machineStatus = TMDecisionStatus.DECIDED_HALT;
-		} else if (urlParams.get('status') == TMDecisionStatus.DECIDED_NON_HALT) {
-			machineStatus = TMDecisionStatus.DECIDED_NON_HALT;
-		} else {
-			machineStatus = TMDecisionStatus.UNDECIDED;
+	function machineStatusFromUrlParam(urlParams: URLSearchParams): TMDecisionStatus {
+		const statusUrlParam = urlParams.get('status');
+		switch (statusUrlParam) {
+			case TMDecisionStatus.DECIDED_HALT:
+			case TMDecisionStatus.DECIDED_NON_HALT:
+				return statusUrlParam;
+			default:
+				return TMDecisionStatus.UNDECIDED;
 		}
 	}
 </script>

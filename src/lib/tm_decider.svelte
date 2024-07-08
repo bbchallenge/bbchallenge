@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Skelet_machines } from './machine_repertoire';
 	import { numberWithCommas } from './utils';
 
 	export let machineDecider: string;
@@ -86,6 +87,13 @@
 			date: 'May 2nd 2024',
 			params: ['Steps: 250,000', 'Macro steps: 50,000', 'Formula tape limit: 20'],
 			total_decided: 29799
+		},
+		'coq-BB5-run-solves-remaining-bbchallenge-holdouts': {
+			name: 'Coq-BB5',
+			url: 'https://github.com/ccz181078/Coq-BB5',
+			params: [],
+			total_decided: null,
+			date: 'July 2nd 2024'
 		}
 	};
 
@@ -124,14 +132,23 @@
 					<li>{param}</li>
 				{/each}
 			</ul>
-			<li>Total decided: {numberWithCommas(decidersMetadata[machineDecider]['total_decided'])}</li>
 			<li>
-				<a
-					class="underline text-blue-400 hover:text-blue-300 cursor-pointer"
-					target="_blank"
-					href={INDEX_FILE_BASE_URL + machineDecider}>Download index file</a
-				>
+				Total decided:
+				{#if decidersMetadata[machineDecider]['total_decided'] === null}
+					All 5-state machines.
+				{:else}
+					{numberWithCommas(decidersMetadata[machineDecider]['total_decided'])}
+				{/if}
 			</li>
+			{#if decidersMetadata[machineDecider]['total_decided'] !== null}
+				<li>
+					<a
+						class="underline text-blue-400 hover:text-blue-300 cursor-pointer"
+						target="_blank"
+						href={INDEX_FILE_BASE_URL + machineDecider}>Download index file</a
+					>
+				</li>
+			{/if}
 		</ul>
 	{/if}
 {/if}

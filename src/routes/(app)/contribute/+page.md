@@ -25,13 +25,13 @@
 
 The Busy Beaver Challenge is a collaborative project and there are many ways in which you can contribute to it. Our <a href="/method#reproducibility-and-verifiability-statement" rel="external">reproducibility and verifiability statement</a> outlines our philosophy regarding contributions to the Busy Beaver Challenge.
 
-<a id="zoology"></a>
+<!-- <a id="zoology"></a>
 
 ## Zoology
 
-We aim at collaboratively building a <a href="/#zoology">zoology</a> of the machines of the Busy Beaver Challenge. This will allows us to understand what these machines are capable of and where complexity lies.
+We aim at collaboratively building a <a href="/contribute#zoology">zoology</a> of the machines of the Busy Beaver Challenge. This will allows us to understand what these machines are capable of and where complexity lies.
 
-The zoology is collaborative and you can contribute to it [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23).
+The zoology is collaborative and you can contribute to it [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23). -->
 
 <a id="write-deciders"></a>
 
@@ -45,7 +45,7 @@ Places to look at if this task interests you:
 
 - The forum [maintains the list of all applied deciders](https://discuss.bbchallenge.org/t/currently-applied-deciders/32)
 
-- The <a href="/#zoology">zoology</a> provides families of behaviors that could be automatically recognised and decided, more [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23)
+<!-- - The <a href="/contribute#zoology">zoology</a> provides families of behaviors that could be automatically recognised and decided, more [on the forum](https://discuss.bbchallenge.org/t/current-zoology/23) -->
 
 - The <a href="/method#undecided-machines-index-file">undecided machines index file</a> gives you the indices of the currently undecided machines in the <a href="/method#seed-database" rel="external">seed database</a>
 

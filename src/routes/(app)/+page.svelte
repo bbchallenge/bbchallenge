@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	import TmTable from '$lib/tm_table.svelte';
 	import { API } from '$lib/api_server';
 	import { addToHistory, getHistory, numberWithCommas } from '$lib/utils';
@@ -12,22 +13,58 @@
 		DB_SIZE,
 		APIDecisionStatusToTMDecisionStatus
 	} from '$lib/tm';
-	import { BB5_champion } from '$lib/machine_repertoire';
+	import { BB5_23M_steps_halter, BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
 
-	import Zoology from '$lib/news-deciders-and-zoology.svelte';
-	import Highlights from '$lib/highlights.svelte';
+	import DecidersAndZoology from '$lib/deciders-and-zoology.svelte';
+	import Highlights_BB5 from '$lib/highlights_bb5.svelte';
+	import Highlights_BB6 from '$lib/highlights_bb6.svelte';
+	import Highlights_BB2x5 from '$lib/highlights_bb2x5.svelte';
+	import Highlights_BB3x3 from '$lib/highlights_bb3x3.svelte';
+	import News from '$lib/news.svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
 	import MachineCanvas from './MachineCanvas.svelte';
+
+	enum Challenge {
+		BB5 = 'BB(5)',
+		BB6 = 'BB(6)',
+		BB2x5 = 'BB(2,5)',
+		BB3x3 = 'BB(3,3)'
+	}
+
+	function challenge_to_state_string(challenge: Challenge) {
+		if (challenge == Challenge.BB5) {
+			return '5-state 2-symbol';
+		} else if (challenge == Challenge.BB6) {
+			return '6-state 2-symbol';
+		} else if (challenge == Challenge.BB2x5) {
+			return '2-state 5-symbol';
+		} else if (challenge == Challenge.BB3x3) {
+			return '3-state 3-symbol';
+		}
+	}
+
+	function challenge_to_interesting_machine_file(challenge: Challenge) {
+		if (challenge == Challenge.BB6) {
+			return 'BB6_holdouts_10020.txt';
+		} else if (challenge == Challenge.BB2x5) {
+			return '2x5_holdouts_217.txt';
+		} else if (challenge == Challenge.BB3x3) {
+			return '3x3.todo.txt';
+		}
+	}
 
 	let machine = null;
 	export let machineID = null;
 	export let machineCode = null;
 	export let preSeed = false;
 	export let machineStatus = null;
+
 	let machineDecider = null;
 	let history = getHistory();
 	let showHistory = false;
 	let showSimulationParams = false;
+
+	let curr_challenge = Challenge.BB5;
 
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
@@ -67,9 +104,9 @@
 		}
 
 		let last_add = '';
-		if (machineStatus !== null && machineID === null) {
-			last_add = `&status=${machineStatus}`;
-		}
+		// if (machineStatus !== null && machineID === null) {
+		// 	last_add = `&status=${machineStatus}`;
+		// }
 
 		let simulationParametersLink = '';
 		if (nbIter !== nbIterDefault) {
@@ -90,30 +127,46 @@
 	let randomType = 'all_undecided';
 
 	async function getRandomMachine() {
-		try {
-			const response = await API.get(`/machine/random?type=${randomType}`, '');
+		if (curr_challenge == Challenge.BB5) {
+			try {
+				const response = await API.get(`/machine/random?type=${randomType}`, '');
 
-			machine = machineCodeToTM(response.data['machine_code']);
-			machineID = response.data['machine_id'];
-			machineDecider = null;
-
-			addToHistory(machineID);
-			history = getHistory();
-
-			if (response.data['status'] !== undefined) {
-				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
-				if (
-					machineStatus == TMDecisionStatus.DECIDED_HALT ||
-					machineStatus == TMDecisionStatus.DECIDED_NON_HALT
-				) {
-					machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
-						'decider_file'
-					];
-					console.log('Decider:', machineDecider);
+				machine = machineCodeToTM(response.data['machine_code']);
+				machineCode = response.data['machine_code'];
+				machineID = response.data['machine_id'];
+				machineDecider = null;
+				window.history.pushState({}, '', getSimulationLink());
+				if (response.data['status'] !== undefined) {
+					machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
+					if (
+						machineStatus == TMDecisionStatus.DECIDED_HALT ||
+						machineStatus == TMDecisionStatus.DECIDED_NON_HALT
+					) {
+						machineDecider = (await API.get(`/machine/${machineID}/decider`, '')).data[
+							'decider_file'
+						];
+						console.log('Decider:', machineDecider);
+					}
 				}
+			} catch (error) {
+				console.log(error);
 			}
-		} catch (error) {
-			console.log(error);
+		} else {
+			const response = await fetch(challenge_to_interesting_machine_file(curr_challenge));
+			const text = (await response.text()).split('\n');
+			const random_machine_list_id = Math.floor(Math.random() * text.length);
+			let machine_code = text[random_machine_list_id].trim();
+			machineStatus = null;
+			// In case empty line
+			while (machine_code === '') {
+				const random_machine_list_id = Math.floor(Math.random() * text.length);
+				machine_code = text[random_machine_list_id].trim();
+			}
+
+			machineID = null;
+			machine = machineCodeToTM(machine_code);
+			machineCode = machine_code;
+			window.history.pushState({}, '', getSimulationLink());
 		}
 	}
 
@@ -134,9 +187,6 @@
 			machineID = localMachineID;
 			machineDecider = null;
 
-			addToHistory(localMachineID);
-			history = getHistory();
-
 			if (response.data['status'] !== undefined) {
 				machineStatus = APIDecisionStatusToTMDecisionStatus(response.data['status']);
 				if (
@@ -149,6 +199,8 @@
 					console.log('Decider:', machineDecider);
 				}
 			}
+
+			window.history.pushState({}, '', getSimulationLink());
 
 			console.log(machine, machineID);
 		} catch (error) {
@@ -169,8 +221,7 @@
 			machineCodeError = null;
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
-			addToHistory(machine_code);
-			history = getHistory();
+			window.history.pushState({}, '', getSimulationLink());
 		} catch (error) {
 			machineCodeError = error;
 		}
@@ -188,8 +239,8 @@
 		}
 		if (!preSeed) {
 			try {
+				console.log('HERRRE');
 				await getRandomMachine();
-				window.history.replaceState({}, '', getSimulationLink());
 			} catch (error) {
 				apiDown = true;
 			}
@@ -207,6 +258,18 @@
 			await loadMachineFromMachineCode(BB5_champion, TMDecisionStatus.UNDECIDED);
 			origin_x = 0.65;
 		}
+
+		if (machine !== null) {
+			if (machine.states == 5 && machine.symbols == 2) {
+				curr_challenge = Challenge.BB5;
+			} else if (machine.states == 6 && machine.symbols == 2) {
+				curr_challenge = Challenge.BB6;
+			} else if (machine.states == 2 && machine.symbols == 5) {
+				curr_challenge = Challenge.BB2x5;
+			} else if (machine.states == 3 && machine.symbols == 3) {
+				curr_challenge = Challenge.BB3x3;
+			}
+		}
 	});
 
 	function defaultSimulationParameters() {
@@ -219,7 +282,6 @@
 		switch (e.keyCode) {
 			case 82:
 				await getRandomMachine();
-				window.history.replaceState({}, '', getSimulationLink());
 				break;
 		}
 	}
@@ -242,47 +304,119 @@
 	{/if}
 
 	<div class="text-sm mb-1 mt-2 md:ml-3 ml-0">
+		<div class="flex flex-col space-y-1 mb-3">
+			<span class="underline">Choose challenge</span>
+			<div>
+				<select
+					class="text-black"
+					bind:value={curr_challenge}
+					on:change={async () => {
+						await getRandomMachine();
+					}}
+				>
+					{#each Object.values(Challenge) as challenge}
+						<option value={challenge}>{challenge}</option>
+					{/each}
+				</select>
+			</div>
+		</div>
 		<div class="flex flex-col space-y-1 min-h-[65px]">
-			{#if metrics != null}
-				<span class="underline">Challenge goal</span>
-				<div class="flex flex-col items-start">
-					<div>
-						There remain <a
-							href="https://github.com/bbchallenge/bbchallenge-undecided-index/blob/main/bb5_undecided_machines.csv"
-							rel="external"
+			<span class="underline">Challenge goal</span>
+			<div class="flex flex-col items-start">
+				<div>
+					{#if curr_challenge == Challenge.BB5}
+						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
+						<br /><br />
+						We have achieved
+						<a
+							href="https://bbchallenge.org/story#goal"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
-							><strong>{numberWithCommas(metrics['total_undecided'])}</strong> machines</a
+							rel="external">our goal</a
 						>
-						with 5 states to decide (out of {numberWithCommas(metrics['total'])})
-					</div>
-					<!-- <div style="font-size:0.65rem">
+						of proving "<a
+							href="https://wiki.bbchallenge.org/wiki/BB(5)"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+							rel="external">BB(5)</a
+						>
+						= 47,176,870":
+						<ul class="list-disc ml-10">
+							<li>
+								See the formal <a
+									href="https://github.com/ccz181078/Coq-BB5"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">Coq proof</a
+								>
+							</li>
+							<li>
+								See the <a
+									href="https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">official announcement</a
+								>
+							</li>
+						</ul>
+						<br />
+						Here's what's next:
+						<ul class="list-decimal ml-10">
+							<li>We are writing a human-readable paper presenting the BB(5) proof</li>
+							<li>
+								We are working on new busy beaver values such as BB(6) and setting new goals for
+								these
+							</li>
+							<li>
+								We are maintaining busy beaver knowledge through our <a
+									href="https://discord.gg/3uqtPJA9Uv"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									rel="external">Discord</a
+								>,
+								<a
+									href="https://discuss.bbchallenge.org/"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									rel="external">forum</a
+								>
+								and
+								<a
+									href="https://wiki.bbchallenge.org/"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer"
+									rel="external">wiki</a
+								>
+							</li>
+						</ul>
+					{:else}
+						Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
+						<a
+							href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
+							rel="external"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer">a list</a
+						>
+						of interesting {challenge_to_state_string(curr_challenge)} machines.
+					{/if}
+				</div>
+				<!-- <div style="font-size:0.65rem">
 							Only {numberWithCommas(metrics['total_undecided_with_heuristcs'])} if considering heuristics
 						</div> -->
-					<div class="flex items-center space-x-1">
-						<div>
-							<a
-								href="https://discord.gg/3uqtPJA9Uv"
-								rel="external"
-								style="font-size:0.6rem"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
-							>
-								Join our Discord server
-							</a>
-						</div>
-						<div>&middot;</div>
-						<div>
-							<a
-								href="/contribute"
-								rel="external"
-								style="font-size:0.6rem"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer"
-							>
-								You can help!!
-							</a>
-						</div>
+				<div class="flex items-center space-x-1">
+					<div>
+						<a
+							href="https://discord.gg/3uqtPJA9Uv"
+							rel="external"
+							style="font-size:0.6rem"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+						>
+							Join our Discord server
+						</a>
+					</div>
+					<div>&middot;</div>
+					<div>
+						<a
+							href="/contribute"
+							rel="external"
+							style="font-size:0.6rem"
+							class="text-blue-400 hover:text-blue-300 cursor-pointer"
+						>
+							You can help!!
+						</a>
 					</div>
 				</div>
-			{/if}
+			</div>
 		</div>
 	</div>
 
@@ -344,7 +478,7 @@
 											type="number"
 											bind:value={nbIter}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 											min="1"
 											max="99999"
@@ -361,7 +495,7 @@
 											type="number"
 											bind:value={tapeWidth}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 										/></label
 									>
@@ -372,7 +506,7 @@
 											type="number"
 											bind:value={origin_x}
 											on:change={() => {
-												window.history.replaceState({}, '', getSimulationLink());
+												window.history.pushState({}, '', getSimulationLink());
 											}}
 											min="0"
 											max="1"
@@ -411,7 +545,6 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromID(machineID);
-										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
 									Machine #<span class="underline">{numberWithCommas(machineID)}</span>
@@ -421,7 +554,6 @@
 									class="text-lg cursor-pointer"
 									on:click={async () => {
 										await loadMachineFromMachineCode(tmToMachineCode(machine), machineStatus);
-										window.history.replaceState({}, '', getSimulationLink());
 									}}
 								>
 									Machine <div class="underline text-sm ml-2 mb-1">{tmToMachineCode(machine)}</div>
@@ -435,7 +567,7 @@
 					<div class="mt-4 flex flex-col items-start">
 						<div>Change machine:</div>
 						<div class="ml-3 mt-1 text-sm">
-							<div>
+							<div class:invisible={curr_challenge != Challenge.BB5}>
 								Random machine from the <a
 									href="https://bbchallenge.org/method#seed-database"
 									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
@@ -449,17 +581,19 @@
 									class="bg-blue-500 p-1 mt-1 w-full ml-2"
 									on:click={async () => {
 										await getRandomMachine();
-										window.history.replaceState({}, '', getSimulationLink());
+										//window.history.replaceState({}, '', getSimulationLink());
 									}}>Go (R)andom</button
 								>
-								<div
-									class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
-									on:click={() => {
-										showRandomOptions = !showRandomOptions;
-									}}
-								>
-									{#if !showRandomOptions}More{:else}Less{/if} options
-								</div>
+								{#if curr_challenge == Challenge.BB5}
+									<div
+										class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
+										on:click={() => {
+											showRandomOptions = !showRandomOptions;
+										}}
+									>
+										{#if !showRandomOptions}More{:else}Less{/if} options
+									</div>
+								{/if}
 							</div>
 						</div>
 						<div class="ml-3 mt-1 text-sm">
@@ -511,35 +645,42 @@
 								{/if}
 							</div>
 						</div>
-						<div class="ml-3 mt-2 text-sm">
+						{#if curr_challenge == Challenge.BB5}
+							<div class="ml-3 mt-2 text-sm">
+								<div>
+									From id in the <a
+										href="https://bbchallenge.org/method#seed-database"
+										class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+										rel="external">seed database</a
+									>:
+								</div>
+
+								{#if typedMachineError}
+									<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
+								{/if}
+								<div class="ml-5 flex items-center space-x-4">
+									<input
+										type="number"
+										class="w-[200px] text-black"
+										placeholder="max 88664063"
+										min="0"
+										max="88664063"
+										bind:value={typedMachineID}
+										on:change={async () => {
+											await loadMachineFromID(typedMachineID);
+										}}
+									/>
+									<button class="bg-blue-500 p-1 px-2">Go </button>
+								</div>
+							</div>
+						{/if}
+						<div class="ml-3 mt-1 text-sm">
 							<div>
-								From id in the <a
-									href="https://bbchallenge.org/method#seed-database"
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									rel="external">seed database</a
+								From <a
+									href="https://discuss.bbchallenge.org/t/standard-tm-text-format/60"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">standard format</a
 								>:
 							</div>
-							{#if typedMachineError}
-								<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
-							{/if}
-							<div class="ml-5 flex items-center space-x-4">
-								<input
-									type="number"
-									class="w-[200px] text-black"
-									placeholder="max 88664063"
-									min="0"
-									max="88664063"
-									bind:value={typedMachineID}
-									on:change={async () => {
-										await loadMachineFromID(typedMachineID);
-										window.history.replaceState({}, '', getSimulationLink());
-									}}
-								/>
-								<button class="bg-blue-500 p-1 px-2">Go </button>
-							</div>
-						</div>
-						<div class="ml-3 mt-1 text-sm">
-							<div>From compact machine code:</div>
 							{#if machineCodeError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
 							{/if}
@@ -554,14 +695,13 @@
 									class="bg-blue-500 p-1 px-2"
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
-										window.history.replaceState({}, '', getSimulationLink());
 									}}
 									>Go
 								</button>
 							</div>
 						</div>
 
-						<div>
+						<!-- <div>
 							{#if history}
 								<div class="mt-0 flex flex-col">
 									<div class="ml-3 mt-2 text-sm">
@@ -583,40 +723,97 @@
 									</div>
 								</div>
 							{/if}
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
 			<div class="mt-5 mb-10 flex flex-col space-y-8">
 				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
-					<Zoology
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+					<div class="flex flex-col space-y-4">
+						<News />
+						{#if curr_challenge == Challenge.BB5}
+							<DecidersAndZoology
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-							window.history.replaceState({}, '', getSimulationLink());
-						}}
-					/>
-					<Highlights
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+					</div>
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
+					<div class="max-w-[450px] flex flex-col space-y-2">
+						<div class="ml-2 text-xl">Highlighted machines</div>
+						{#if curr_challenge == Challenge.BB5}
+							<Highlights_BB5
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							window.history.replaceState({}, '', getSimulationLink());
-						}}
-						on:machine_code={async (ev) => {
-							let machine_code = ev.detail.machine_code;
-							let machine_status = ev.detail.machine_status;
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
 
-							await loadMachineFromMachineCode(machine_code, machine_status);
-							defaultSimulationParameters();
-							console.log(getSimulationLink());
-							window.history.replaceState({}, '', getSimulationLink());
-						}}
-					/>
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB6}
+							<Highlights_BB6
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
+
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB2x5}
+							<Highlights_BB2x5
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
+
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB3x3}
+							<Highlights_BB3x3
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
+
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
+
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+					</div>
 				</div>
 			</div>
 		</div>
