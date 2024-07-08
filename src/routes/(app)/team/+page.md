@@ -38,7 +38,7 @@
 - star
 - tomtom2357
 - [Valentin](https://kttnr.net/) 
-- [Racheline](https://wiki.bbchallenge.org/wiki/User:Racheline)
+- [racheline](https://wiki.bbchallenge.org/wiki/User:Racheline)
 - [Chris Xu](https://chrisxudoesmath.com/)
 - Daniel Yuan
 - [Jason Yuen](https://github.com/int-y1)
