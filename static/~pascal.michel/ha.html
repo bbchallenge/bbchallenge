@@ -70,7 +70,7 @@ Historical survey
 <font size="2">
 <blockquote>
   Created by Pascal Michel in 2004 <br>
-  Last update: June 2024
+  Last update: July 2024
 </blockquote>
 </font>
 </p>
@@ -1505,6 +1505,16 @@ and some <a href="adv.html"> advanced topics</a>.
     https://groups.google.com/g/busy-beaver-discuss</a>
    <p> </p>
  </li>
+
+ <li>
+   In June 2024, &quot;mxdys&quot; found a machine with 6 states
+   and 2 symbols such that this machine is conjectured never to halt,
+   but this conjecture depends on solving a Collatz-like problem
+   out of reach of current mathematics.<br>
+   Thus, it seems that it will be very hard to prove the true values of
+   S(6,2) and Sigma(6,2).
+   <p> </p>
+ </li>
  
  <li>
  The record holder and some other good machines:
@@ -1805,6 +1815,45 @@ and some <a href="adv.html"> advanced topics</a>.
  </table>
  <p> </p>
 
+<ul> 
+ <li>
+ The &quot;mxdys&quot; machine:
+ <p> </p>
+ </li>
+</ul>
+
+ <table>
+  <tr>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> C0 </td>
+   <td align="center"> C1 </td>
+   <td align="center"> D0 </td>
+   <td align="center"> D1 </td>
+   <td align="center"> E0 </td>
+   <td align="center"> E1 </td>
+   <td align="center"> F0 </td>
+   <td align="center"> F1 </td>
+  </tr>
+    <tr>
+   <td align="center"> 1RB </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 0LC </td>
+   <td align="center"> 1LE </td>
+   <td align="center"> 1LD </td>
+   <td align="center"> 1LC </td>
+   <td align="center"> 1LA </td>
+   <td align="center"> 0LB </td>
+   <td align="center"> 1LF </td>
+   <td align="center"> 1RE </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 0RA </td>
+    <tr>
+  </table>
+  <p> </p>
+
 <a name="tm72"> </a>
 <p>
  <font size="4">
@@ -1844,14 +1893,15 @@ and some <a href="adv.html"> advanced topics</a>.
  </li>
 
  <li>
-   In May 2024, "Iijil" built a machine with 7 states and 2 symbols
+   In May 2024, &quot;Iijil&quot; built a machine with 7 states and 2 symbols
    (from a Turing machine with 3 states and 3 symbols, see
    <a href="https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html">
    Shawn Ligocki</a>), such that this machine
    is conjectured never to halt, but the conjecture depends on solving
    a Collatz-like problem out of reach of current mathematics.<br>
-   Thus, it seems that it will be very hard to prove the true values of
-   S(7,2) and Sigma(7,2).
+   This machine was superseded by the Turing machine with 6 states and 2 symbols
+   found by &quot;mxdys&quot; in June 2024, the behavior of this machine
+   having the same property.
    <p> </p>
  </li>  
  
@@ -1900,7 +1950,7 @@ and some <a href="adv.html"> advanced topics</a>.
 
 <ul> 
  <li>
- The &quot;Iijil&quot; machine:
+ The &quot;Iijil&quot; machine (not in Tree Normal Form):
  <p> </p>
  </li>
 </ul>
@@ -4078,8 +4128,31 @@ and some <a href="adv.html"> advanced topics</a>.
       </li>
 
     </ul>
+    <p> </p>
   </li>
 
+  <li>
+    Both bottom-up and top-down ways gives lower bounds for the busy
+    beaver functions S(n,k) and Sigma(n,k).
+    <p> </p>
+    <ul>
+      <li>
+        The bottom-up way gives lower bounds for small values of n and k.
+	The Turing machines found from this way may be the real winners 
+        of the busy beaver competition for n and k.
+	<p> </p>
+     </li>
+
+     <li> 
+       The top-down way gives lower bounds for large values of n and k.
+       The Turing machines found from this way are certainly very far
+       the real winners of the busy beaver competition for n abd k.
+       <p> </p>
+     </li>
+    </ul>
+    <p> </p>
+  </li>
+  
   <li>
     The machines preented in these pages come from the bottom-up way,
     with a notable exception: those discovered by Green (1964).<br>
@@ -4093,13 +4166,38 @@ and some <a href="adv.html"> advanced topics</a>.
     It is famous because it is considered as the largest number ever used
     in a serious mathematical proof.<br>
     Let g<sub>0</sub> = 4, g<sub>n+1</sub> = 3 &uarr;<sup>g<sub>n</sub></sup> 3
-    (so g<sub>1</sub> = 3 &uarr;&uarr;&uarr;&uarr; 3).<br>
-    Then Graham's number is g<sub>64</sub>.<br>
+    (so g<sub>1</sub> = 3 &uarr;&uarr;&uarr;&uarr; 3).
+    Then Graham's number is g<sub>64</sub>.
+    <p> </p>
+
     According to 
-    <a href="https://www.sligocki.com/2010/07/04/beating-grahams-number.html">
-    Shawn Ligocki </a>, Daniel Nagaj claimed in March 2021 that Sigma(16) &gt; G.
+    <a href="https://www.sligocki.com/2010/07/04/beating-grahams-number.html#results-from-the-future">
+    Shawn Ligocki </a>:
+    <P> </p>
 
+    <ul>
+      <li>
+        In September 2010, &quot;res001&quot; claimed that Sigma(64, 2) &gt; G.
+      <p> </p>
+      </li>
 
+     <li>
+       In March 2013, &quot;Deedlit&quot; claimed that Sigma(25, 2) &gt; G.
+     <p> </p>
+     </li>
+
+     <li>
+       In July 2016, &quot;Wythagoras&quot; claimed that Sigma(18, 2) &gt; G.
+     <p> </p>
+     </li>
+
+     <li>
+       In March 2021, Daniel Nagaj claimed that Sigma(16, 2) &gt; G.
+       See <a href="https://www.sligocki.com/2022/07/11/bb-16-graham.html">
+       analysis of this machine by Shawn Ligocki</a>
+     <p> </p>
+     </li>
+   </ul>
    <p> </p>
   </li>
 
