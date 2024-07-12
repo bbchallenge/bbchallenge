@@ -286,7 +286,7 @@
 		}
 	}
 
-	let serverDown = true;
+	let serverDown = false;
 </script>
 
 {#key machineID || machineCode}
