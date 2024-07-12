@@ -285,6 +285,8 @@
 				break;
 		}
 	}
+
+	let serverDown = true;
 </script>
 
 {#key machineID || machineCode}
@@ -294,11 +296,21 @@
 <svelte:window on:keydown={keydown} />
 
 <div>
+	{#if serverDown}
+		<div class="text-xs mb-1 mt-2 md:ml-3 ml-0">
+			<div class="flex flex-col">
+				<div class="text-red-500">
+					Our API, forum and wiki are momentarily down, please try again later, sorry!
+				</div>
+			</div>
+		</div>
+	{/if}
 	{#if apiDown}
 		<div class="text-xs mb-1 mt-2 md:ml-3 ml-0">
 			<div class="flex flex-col">
-				<div class="text-red-500">The API is down.</div>
-				<div>However you can still load machines from their b64 description.</div>
+				<div class="text-red-500">
+					Our API, forum and wiki are momentarily down, please try again later, sorry!
+				</div>
 			</div>
 		</div>
 	{/if}
