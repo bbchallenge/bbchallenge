@@ -308,7 +308,7 @@
 	{#if apiDown}
 		<div class="text-xs mb-1 mt-2 md:ml-3 ml-0">
 			<div class="flex flex-col">
-				<div class="text-red-500">Our API, is momentarily down, please try again later, sorry!</div>
+				<div class="text-red-500">Our API is momentarily down, please try again later, sorry!</div>
 			</div>
 		</div>
 	{/if}
