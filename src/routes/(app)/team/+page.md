@@ -30,7 +30,7 @@
 - [Alexandre Jouandin](https://prgm.dev/alexandre)
 - [Dawid Loranc](https://github.com/dloranc)
 - [Heiner Marxen](http://turbotm.de/~heiner/)
-- [modderme123](https://github.com/modderme123)
+- [Milo Mighdoll (milomg)](https://github.com/milomg](https://github.com/milomg)
 - [mxdys](https://github.com/ccz181078 )
 - [Mateusz Naściszewski](https://github.com/Mateon1) (Mateon1)
 - [Sébastien Ohleyer](https://prgm.dev/sebastien)
