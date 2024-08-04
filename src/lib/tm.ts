@@ -143,15 +143,34 @@ function naturalToInt(n: number) {
 	return n % 2 == 0 ? n / 2 : -(n + 1) / 2;
 }
 
+function parse_initial_tape(machine: TM, initial_tape: string) {
+	const raw_tape = [];
+	let state = 0;
+	let pos = 0;
+
+	for (let i = 0; i < initial_tape.length; i++) {
+		const c = initial_tape.charCodeAt(i);
+		if (48 <= c && c < 48 + machine.symbols) {
+			raw_tape.push(c - 48);
+		}
+		else if ((65 <= c && c < 65 + machine.states) || (97 <= c && c < 97 + machine.states)) {
+			state = (c - 1) % 32;
+			pos = raw_tape.length;
+		}
+	}
+
+	const tape = [];
+	for (let i = 0; i < raw_tape.length; i++) {
+		tape[intToNatural(i - pos)] = raw_tape[i];
+	}
+
+	return {tape, state};
+}
+
 export function render_history(machine: TM, initial_tape = '0', height = 1000) {
 	const history = [];
 
-	let tape = [];
-	for (let i = 0; i < initial_tape.length; i++) {
-		tape[intToNatural(i)] = initial_tape[i] === '0' ? 0 : 1;
-	}
-
-	let curr_state = 0;
+	let {tape, state: curr_state} = parse_initial_tape(machine, initial_tape);
 	let curr_pos = 0;
 	history.push({ tape, curr_state, curr_pos });
 
