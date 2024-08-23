@@ -70,7 +70,7 @@ Historical survey
 <font size="2">
 <blockquote>
   Created by Pascal Michel in 2004 <br>
-  Last update: July 2024
+  Last update: August 2024
 </blockquote>
 </font>
 </p>
@@ -892,7 +892,7 @@ and some <a href="adv.html"> advanced topics</a>.
  <a href="https://bbchallenge.org/contribute">contribute</a>,
  <a href="https://bbchallenge.org/team">team</a>,
  <a href="https://bbchallenge.org/story">story</a>.<br>
- In September 2023, this team wrote that the analysis of the holdouts is over, allowing the writing of an article.
+ On July 2, 2024, this team officially announced that the analysis of the holdouts is over, allowing the writing of an article.
 
  <p> </p> 
  </li>
@@ -1817,7 +1817,7 @@ and some <a href="adv.html"> advanced topics</a>.
 
 <ul> 
  <li>
- The &quot;mxdys&quot; machine:
+ The &quot;mxdys&quot; machine, conjectured never to halt:
  <p> </p>
  </li>
 </ul>
@@ -1950,7 +1950,7 @@ and some <a href="adv.html"> advanced topics</a>.
 
 <ul> 
  <li>
- The &quot;Iijil&quot; machine (not in Tree Normal Form):
+ The &quot;Iijil&quot; machine, conjectured never to halt (not in Tree Normal Form):
  <p> </p>
  </li>
 </ul>
@@ -2217,7 +2217,7 @@ and some <a href="adv.html"> advanced topics</a>.
    There have been attempts to prove that the machine found in 2007 by Terry
    and Shawn Ligocki is the best one.<br>
    In October 2023, among 160 holdouts given by Justin Blanchard,
-   a specific Turing machine was discovered, such that this machine
+   &quot;savask&quot; found a Turing machine, such that this machine
    is conjectured never to halt, but the conjecture depends on solving
    a Collatz-like problem out of reach of current mathematics.
    See <a href="https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html">
@@ -2225,8 +2225,8 @@ and some <a href="adv.html"> advanced topics</a>.
    Thus, it seems that it will be very hard to prove the true values of
    S(3,3) and Sigma(3,3).<br>
    From this machine, Tristan St&eacute;rin built a Turing machine with
-   8 states and 2 symbols with the same behavior.<br>
-   In May 2024, "Iijil" built a Turing machine with 7 states and 2 symbols
+   8 states and 2 symbols with the same behavior.
+   and, in May 2024, &quotIijil&quot; built a Turing machine with 7 states and 2 symbols
    with the same behavior.<br>
    Thus, the values of S(7,2) and Sigma(7,2) will also be very hard to prove.
    <p> </p>
@@ -2446,6 +2446,39 @@ and some <a href="adv.html"> advanced topics</a>.
  the next five ones were by Lafitte and Papazian,
  the next three ones were by Souris, and the last four ones were by Brady).
  <p> </p> 
+
+<ul> 
+ <li>
+ The &quot;savask&quot; machine, conjectured never to halt:
+ <p> </p>
+ </li>
+</ul>
+
+ <table>
+  <tr>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> C0 </td>
+   <td align="center"> C1 </td>
+   <td align="center"> C2 </td>
+  </tr>
+  <tr>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2RA </td>
+   <td align="center"> 1LC </td>
+   <td align="center"> 2LC </td>
+   <td align="center"> 1RB </td>
+   <td align="center"> 2RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 1LA </td>
+  </tr>
+ </table>
+<p> </p>
 
 </font>
 
@@ -3791,6 +3824,41 @@ and some <a href="adv.html"> advanced topics</a>.
 
 </font>
 
+<ul> 
+ <li>
+ The Daniel Yuan machine, conjectured never to halt:
+ <p> </p>
+ </li>
+</ul>
+
+ <table>
+  <tr>
+   <td align="center"> A0 </td>
+   <td align="center"> A1 </td>
+   <td align="center"> A2 </td>
+   <td align="center"> A3 </td>
+   <td align="center"> A4 </td>
+   <td align="center"> B0 </td>
+   <td align="center"> B1 </td>
+   <td align="center"> B2 </td>
+   <td align="center"> B3 </td>
+   <td align="center"> B4 </td>
+  </tr>
+  <tr>
+   <td align="center"> 1RB </td>
+   <td align="center"> 3RB </td>
+   <td align="center"> 1RH </td>
+   <td align="center"> 3LA </td>
+   <td align="center"> 1RA </td>
+   <td align="center"> 2LA </td>
+   <td align="center"> 3RA </td>
+   <td align="center"> 4LB </td>
+   <td align="center"> 0LB </td>
+   <td align="center"> 0LA </td>
+  </tr>
+</table>
+<p> </p>
+
 <a name="tm26"> </a>
 <p>
  <font size="4">
@@ -4133,20 +4201,20 @@ and some <a href="adv.html"> advanced topics</a>.
 
   <li>
     Both bottom-up and top-down ways gives lower bounds for the busy
-    beaver functions S(n,k) and Sigma(n,k).
+    beaver functions S(k,n) and Sigma(k,n).
     <p> </p>
     <ul>
       <li>
         The bottom-up way gives lower bounds for small values of n and k.
 	The Turing machines found from this way may be the real winners 
-        of the busy beaver competition for n and k.
+        of the busy beaver competition for k states and n symbols.
 	<p> </p>
      </li>
 
      <li> 
        The top-down way gives lower bounds for large values of n and k.
-       The Turing machines found from this way are certainly very far
-       the real winners of the busy beaver competition for n abd k.
+       The Turing machines found from this way are certainly very far frm
+       the real winners of the busy beaver competition for k states and n symbols.
        <p> </p>
      </li>
     </ul>
@@ -4154,7 +4222,7 @@ and some <a href="adv.html"> advanced topics</a>.
   </li>
   
   <li>
-    The machines preented in these pages come from the bottom-up way,
+    The machines presented in these pages come from the bottom-up way,
     with a notable exception: those discovered by Green (1964).<br>
     See <a href="https://www.sligocki.com/2023/10/19/greens-machines.html">
     Shawn Ligocki</a> for a modern presentation of Green's machines.    
@@ -4202,7 +4270,7 @@ and some <a href="adv.html"> advanced topics</a>.
   </li>
 
   <li>
-    For more data about the top-down way see
+    For more data about the top-down way, see
     <a href="https://googology.fandom.com/wiki/Busy_beaver_function#Computing_values">
     the googology wiki website.</a>
     <p> </p>
@@ -4259,6 +4327,8 @@ and some <a href="adv.html"> advanced topics</a>.
  </li>
 
 </ul>
+
+</font>
 
 <a name="dar"> </a>
 <p>
@@ -4785,7 +4855,7 @@ and reorients itself at each step.
   Buro M. (1990) <br>
   <a href="https://skatgame.net/mburo/ps/diploma.pdf">
   Ein Beitrag zur Bestimmung von Rados Sigma(5) oder Wie f&auml;ngt man fleissige Biber?</a> (German) <br>
-[A contribution to the determination of Rado's Sigma(5), or: How to catch a busy beaver?] <br>
+[A contribution to the determination of Rado's Sigma(5), or: How to catch busy beavers?] <br>
   Technical Report 146, Rheinisch-Westf&auml;lische Technische Hochschule, Aachen, November 1990.
  <p> </p>
 </li>
