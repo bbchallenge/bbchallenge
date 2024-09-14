@@ -170,8 +170,8 @@
 			</div>
 		{/if}
 	{/if}
-	{#if machineDecider !== null && decisionStatus !== null && decisionStatus !== TMDecisionStatus.UNDECIDED}
-		<TmDecider {machineDecider} />
+	{#if decisionStatus !== null && decisionStatus !== TMDecisionStatus.UNDECIDED}
+		<TmDecider machineDecider="coq-BB5-run-solves-remaining-bbchallenge-holdouts" />
 	{/if}
 </header>
 
