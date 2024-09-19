@@ -120,6 +120,21 @@ If you are a teacher and would like to engage with your students on this topic s
 
 The <a href="/story#goal" rel="external">goal</a> of the Busy Beaver Challenge can only be achieved collaboratively.
 
+<a id="donate"></a>
+
+## Donate
+
+You can help us financially through our Open Collective page: [https://opencollective.com/bbchallenge](https://opencollective.com/bbchallenge).
+
+Raised funds are used for:
+
+- Recurring costs (website server)
+- Financial support for contributors participating at conferences / events / journals where papers or talks spurred by the community have been accepted
+	- Helping with travel costs & event participation fee
+	- Helping with costs of publication / open access
+- Organisation of a live workshop (either independent or at an existing event) for the bbchallenge community
+
+
 <div class="mb-40">
 
 </div>
