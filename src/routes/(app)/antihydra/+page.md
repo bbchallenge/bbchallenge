@@ -79,7 +79,7 @@ By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulati
 
 It's [Collatz-likeness](https://wiki.bbchallenge.org/wiki/Collatz-like) seems to indicate that...
 
-<a href="https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html"><h3>BB(6,2) is hard</h3></a>
+<a href="https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html"><h3>BB(6) is hard</h3></a>
 
 <div class="mb-20"></div>
 
