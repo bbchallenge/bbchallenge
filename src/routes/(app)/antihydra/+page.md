@@ -59,8 +59,6 @@ But researchers have already encountered a difficult problem: a 6-state machine 
     class="m-0 p-0"
 />
 </div>
-<span style="color: gray; font-size: 80%;">([statement] denotes the <a href="https://en.wikipedia.org/wiki/Iverson_bracket">Iverson bracket</a> - it returns 1 if the statement is true, 0 if it is false)</span>
-
 and programming:
 
 ```python
