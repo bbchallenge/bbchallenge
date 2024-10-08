@@ -27,8 +27,12 @@ onMount(() => { // TODO: this shouldn't be necessary
 <div class="leading-normal ">
 <div>
 
-<div class="flex justify-center">
-<h2>Antihydra</h2>
+<div class="flex justify-center" style="font-size: 80%;">
+
+The strange nature of this problem has earned it the name
+</div>
+<div class="flex justify-center" style="font-size: 200%;">
+<a href="https://wiki.bbchallenge.org/wiki/Antihydra">Antihydra</a>
 </div>
 <div class="flex justify-center">
 <a href="https://wiki.bbchallenge.org/wiki/File:Antihydra-depiction.png"><img
@@ -40,11 +44,11 @@ onMount(() => { // TODO: this shouldn't be necessary
 
 </div>
 
-What is the maximum number of steps a 2-symbol ({set01}), n-state Turing Machine can take, starting from an initially zeroed-out tape, before halting? The function that gives this value for a given number of states n - S(n) - is called the [Busy Beaver](https://en.wikipedia.org/wiki/Busy_beaver) ([maximum shift](https://wiki.bbchallenge.org/wiki/Busy_Beaver_Functions)) function.
+What is the maximum number of steps a 2-symbol ({set01}), n-state Turing Machine can take, starting from an initially zeroed-out tape, before halting? The function that gives this value for a given number of states n - BB(n) - is called the [Busy Beaver](https://en.wikipedia.org/wiki/Busy_beaver) ([maximum shift](https://wiki.bbchallenge.org/wiki/Busy_Beaver_Functions)) function.
 
 Obtaining each value requires proving the behavior of all programs with that number of states - whether they run indefinitely or halt - and if so, after how many steps.
 
-The highest number of steps for 5-state machines was [recently proven to be 47,176,870](https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237), and with this all values of S(n) up to S(5) are [now known](https://www.quantamagazine.org/amateur-mathematicians-find-fifth-busy-beaver-turing-machine-20240702/). Now, work has begun to find the longest running (but halting) Turing Machine program with 6 states - the value of S(6).
+The highest number of steps for 5-state machines was [recently proven to be 47,176,870](https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237), and with this all values of BB(n) up to BB(5) are [now known](https://www.quantamagazine.org/amateur-mathematicians-find-fifth-busy-beaver-turing-machine-20240702/). Now, work has begun to find the longest running (but halting) Turing Machine program with 6 states - the value of BB(6).
 
 But researchers have already encountered a difficult problem: a 6-state machine that exhibits behavior of a kind no one has ever managed to prove to halt or not. Its behavior can be described very simply in the languages of mathematics:
 
@@ -69,9 +73,11 @@ def antihydra():
         a += a//2
 ```
 
-but even *attempts* at a proof have been elusive. The strange ([Collatz-like](https://wiki.bbchallenge.org/wiki/Collatz-like)) nature of the problem has earned it the name [Antihydra](https://wiki.bbchallenge.org/wiki/Antihydra).
+but even *attempts* at a proof have been elusive.
 
-By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of S(6). So it is necessary to understand its behavior in order to conclusively prove the value of S(6). In a way it is the "first"/"shortest" problem that humanity doesn't yet know how to solve.
+By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of BB(6). So it is necessary to understand its behavior in order to conclusively prove the value of BB(6). In a way it is the "first"/"shortest" problem that humanity doesn't yet know how to solve.
+
+But it's [Collatz-likeness](https://wiki.bbchallenge.org/wiki/Collatz-like) seems to indicate that...
 
 <a href="https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html"><h3>BB(6,2) is hard</h3></a>
 
