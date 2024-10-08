@@ -14,6 +14,8 @@ export const Justin_inverted_counter = 12699987;
 export const Justin_helix = 4817065;
 export const Justin_pointy_wide = 4049716;
 
+export const Antihydra = '1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA';
+
 // cf: https://skelet.ludost.net/bb/nreg.html
 export const Skelet_machines = [
 	{
