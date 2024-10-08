@@ -77,7 +77,7 @@ but even *attempts* at a proof have been elusive.
 
 By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of BB(6). So it is necessary to understand its behavior in order to conclusively prove the value of BB(6). In a way it is the "first"/"shortest" problem that humanity doesn't yet know how to solve.
 
-But it's [Collatz-likeness](https://wiki.bbchallenge.org/wiki/Collatz-like) seems to indicate that...
+It's [Collatz-likeness](https://wiki.bbchallenge.org/wiki/Collatz-like) seems to indicate that...
 
 <a href="https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html"><h3>BB(6,2) is hard</h3></a>
 
