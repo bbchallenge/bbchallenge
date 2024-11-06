@@ -47,6 +47,8 @@ Historical survey
 <a href="#tm25"> Turing machines with 2 states and 5 symbols</a><br>
 <a href="#tm26"> Turing machines with 2 states and 6 symbols</a><br>
 <p> </p>
+<a href="#note"> Note about terminology and notations</a><br>
+<p> </p>
 <a href="#topdown"> The top-down way</a><br>
 <p> </p>
 <a href="#pro"> Properties of functions S and Sigma</a><br>
@@ -70,7 +72,7 @@ Historical survey
 <font size="2">
 <blockquote>
   Created by Pascal Michel in 2004 <br>
-  Last update: October 2024
+  Last update: November 2024
 </blockquote>
 </font>
 </p>
@@ -1535,7 +1537,7 @@ and some <a href="adv.html"> advanced topics</a>.
 
   <li>
    Many machines with the same property have been found.
-   See <a href="https://wiki.bbchallenge.org/wiki/BB(6)"> bbchallenge wiki</a>.
+   See <a href="https://wiki.bbchallenge.org/wiki/BB(6)"> bbchallenge wiki about S(6,2)</a>.
    <p> </p>
   </li>
 
@@ -2260,14 +2262,14 @@ and some <a href="adv.html"> advanced topics</a>.
    with the same behavior. <br>
    In June 2024, it was found that there is a machine with 6 states and 2 symbols
    that has the same property.
-   See <a href=" https://wiki.bbchallenge.org/wiki/Cryptids"> bbchallenge wiki</a>
+   See <a href=" https://wiki.bbchallenge.org/wiki/Cryptids"> bbchallenge wiki about cryptids</a>
    <p> </p>
    </li>
 
    <li>
      For more informations about the studies of the busy beaver competition
      for Turing machines with 3 states and 3 symbols, see
-     <a href="https://wiki.bbchallenge.org/wiki/BB(3,3)"> bbchallenge wiki</a>
+     <a href="https://wiki.bbchallenge.org/wiki/BB(3,3)"> bbchallenge wiki about S(3,3)</a>
    <p> </p>
    </li>  
   </ul>
@@ -4231,6 +4233,89 @@ and some <a href="adv.html"> advanced topics</a>.
 
 </font>
 
+<a name="note"> </a>
+<p>
+ <font size="4">
+  <b> Note about terminology and notations </b>
+ </font>
+</p>
+
+<font size ="3">
+<ul>
+ <li> 
+  Many names are used by authors: busy beaver game, busy beaver contest,
+  busy beaver problem, busy beaver competition.
+  All of them were first used early:
+  <p> </p>
+  
+  <ul>
+   <li>
+    game by Rado (1962),
+    <p> </p>
+   </li>
+
+   <li>
+    contest and problem by Rado (1963),
+    <p> </p>
+   </li>
+
+   <li>
+    competition by Green (1964).
+    <p> </p>
+   </li>
+  </ul>
+ </li>
+
+ <li>
+  What is exactly a busy beaver is rarely specified. Let us give some
+  exceptions. For some authors, such as Green (1964) and Oberschelp et al.
+  (1988), a busy beaver is any Turing machine that participates to the
+  busy beaver competition and halts. For others, such as Dewdney (1984)
+  and Ben-Amram and Petersen (2002), a busy beaver is a winner of this
+  competition. Rado (1962) called the winner a champion, and this term
+  has been used sometimes afterwards.
+  <p> </p>
+ </li>
+
+ <li>
+  The number of ones left on the tape by the Turing machine M when
+  it stops is often called the <b>score</b> and denoted by
+  sigma(M), since Rado (1962). It is called the <b>productivity</b>
+  by Boolos and Jeffrey (1974), a term used again by Hertel (2009) and
+  Harland (2013,2016). Harland uses the term <b>activity</b>
+  for the number of moves of a Turing machine.
+  <p> </p>
+ </li>
+
+ <li>
+  Almost all authors use the notations Sigma(n)
+  and S(n) for the busy beaver functions. Notable exceptions are:
+  <p> </p>
+  
+  <ul>
+   <li>
+    ones (n) and time(n) by Ben-Amram et al. (1996) and
+    Ben-Amram and Petersen (2002),
+    <p> </p>
+   </li>
+
+   <li>
+    bb(n) and ff(n) by Harland (2013,2016,2022),
+    <p> </p>
+  </li>
+
+   <li>
+     BB(n) (= S(n)) by Aaronson (2020) and by
+     <a href="https://bbchallenge.org/story#the-busy-beaver-function-bb">
+     the bbchallenge collaboration</a>.
+    <p> </p>
+   </li>
+  </ul> 
+
+ </li>
+</ul>
+</font>
+
 <a name="topdown"> </a>
 <p>
  <font size="4">
@@ -4347,6 +4432,7 @@ and some <a href="adv.html"> advanced topics</a>.
   </li>
 
 </ul>
+</font>
 
 <a name="pro"> </a>
 <p>
