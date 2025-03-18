@@ -47,6 +47,8 @@ Historical survey
 <a href="#tm25"> Turing machines with 2 states and 5 symbols</a><br>
 <a href="#tm26"> Turing machines with 2 states and 6 symbols</a><br>
 <p> </p>
+<a href="#prob"> &quot;Probvious&quot; behavior of Turing machines</a><br>
+<p> </p>
 <a href="#note"> Note about terminology and notations</a><br>
 <p> </p>
 <a href="#topdown"> The top-down way</a><br>
@@ -72,7 +74,7 @@ Historical survey
 <font size="2">
 <blockquote>
   Created by Pascal Michel in 2004 <br>
-  Last update: January 2025
+  Last update: March 2025
 </blockquote>
 </font>
 </p>
@@ -4248,6 +4250,123 @@ and some <a href="adv.html"> advanced topics</a>.
   </tr>
  </table>
  <p> </p>
+
+</font>
+
+<a name="prob"> </a>
+<p>
+ <font size="4">
+  <b> &quot;Probvious&quot; behavior of Turing machines</b>
+ </font>
+</p>
+
+<font size ="3">
+<ul>
+ <li> 
+   The word &quot;probvious&quot;, abbreviating &quot;probabilistically
+   obvious&quot;, was coined by John H. Conway in 2013 (On
+   unsettleable arithmetic problems, The American Mathematical
+   Monthly, Vol. 120, No 3, March 2013, 192-198).<br>
+   A mathematical statement is probvious if its study leads anyone
+   to think that it is obviously true, and yet no proof of it can be
+   dreamed up.<br>
+   Many probvious statements come from Collatz-like problems, 
+   that is problems involving functions that depend on the value
+   modulo a number of the input, like the Collatz 3x + 1 function,
+   which depends on the parity (value modulo 2) of the input.
+   <p> </p>
+ </li>
+
+ <li>
+   The Turing machines with a probvious behavior on a blank tape
+   are also called <b>cryptids</b>.
+   See <a href="https://wiki.bbchallenge.org/wiki/Probvious">
+     the bbchallenge wiki about probvious</a>, and
+   <a href="https://wiki.bbchallenge.org/wiki/Cryptids">
+   about cryptids</a>.   
+   <p> </p>
+ </li>
+
+ <li>
+   In the study of the busy beaver competition, the first cryptids
+   that were found were <b>probviously non-halting Turing
+   machines</b>.<br>
+   These machines are conjectured never to halt, but this conjecture
+   depends on solving a problem out of reach of current mathematics,
+   such as a Collatz-like problem.
+   <p> </p>
+
+  <ul>
+   <li>
+    In October 2023, &quot;savask&quot; found a (3,3)-TM with this 
+    property. This machine has been nicknamed &quot;Bigfoot&quot;.
+    See <a href="https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html">
+    the analysis of Bigfoot by Shawn Ligocki</a>, and
+    <a href="https://wiki.bbchallenge.org/wiki/Bigfoot">
+    the bbchallenge wiki about Bigfoot</a>.
+    <p> </p>
+   </li>
+
+   <li>
+    In April 2024, Daniel Yuan found a (2,5)-TM with this property.
+    This machine has been nicknamed &quot;Hydra&quot;.
+    See <a href="https://www.sligocki.com/2024/05/10/bb-2-5-is-hard.html">
+    the analysis of Hydra by Shawn Ligocki</a>, and
+    <a href="https://wiki.bbchallenge.org/wiki/Hydra">
+    the bbchallenge wiki about Hydra</a>.
+    <p> </p>
+   </li>
+
+   <li>
+    In June 2024, &quot;mxdys&quot; found a (6,2)-TM with this property.
+    This machine has been nicknamed &quot;Antihydra&quot;.
+    See <a href="https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html">
+    the analysis of Antihydra by Shawn Ligocki</a>, and
+    <a href="https://wiki.bbchallenge.org/wiki/Antihydra">
+    the bbchallenge wiki about Antihydra</a>.
+    <p> </p>
+   </li>
+  </ul>
+
+  The existence of these probviously non-halting Turing machines
+  implies that a theorem about S(3,3), S(2,5) or S(6,2) would
+  give the values of these numbers on condition that some
+  probviously non-halting Turing machines actually never halt.
+  <p> </p>
+ </li>
+
+ <li>
+  More disturbing are <b>probviously halting Turing machines</b>.
+  Such machines are conjectured to halt, and so they may be winners of
+  the competition, but nobody knows when they halt.
+  <p> </p>
+
+  <ul>
+   <li>
+    In April 2024, Daniel Yuan found a probviously halting
+    (3,3)-TM. See
+    <a href="https://wiki.bbchallenge.org/wiki/1RB2LC1RC_2LC---2RB_2LA0LB0RA">
+    the bbchallenge wiki about this machine</a>.
+    <p> </p>
+   </li> 
+
+   <li>
+    In June 2024, &quot;mxdys&quot; found a probviously halting
+    (6,2)-TM. See
+    <a href="https://wiki.bbchallenge.org/wiki/1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA0LB_---0LC">
+    the bbchallenge wiki about this machine</a>.
+    <p> </p>
+   </li> 
+  </ul>
+
+  The existence of these probviously halting Turing machines
+  implies that the values of S(3,3) or S(6,2) may be a number
+  that is precisely defined as the halting time of an explicit Turing
+  machine on a blank tape, but that we will never know.
+  <p> </p>
+ </li>
+
+</ul>
 
 </font>
 
