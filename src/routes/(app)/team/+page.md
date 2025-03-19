@@ -15,7 +15,7 @@
 - Pavel Kropitz (uni)
 - [Shawn Ligocki](https://www.sligocki.com/)
 - [mei](https://github.com/meithecatte/)
-- [Tristan Stérin](https://tristan.st) (cosmo)
+- Created by [Tristan Stérin](https://tristan.st) (cosmo)
 
 ### Contributors
 
