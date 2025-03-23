@@ -8,10 +8,13 @@
 		TMDecisionStatus,
 		tm_trace_to_image,
 		tm_explore,
+		tm_blaze,
 		tmToMachineCode,
 		machineCodeToTM,
 		DB_SIZE,
-		APIDecisionStatusToTMDecisionStatus
+		APIDecisionStatusToTMDecisionStatus,
+		formatStepCountWithCommas,
+		parseFormattedStepCount
 	} from '$lib/tm';
 	import { BB5_23M_steps_halter, BB5_champion, Skelet_machines } from '$lib/machine_repertoire';
 
@@ -29,6 +32,28 @@
 		BB6 = 'BB(6)',
 		BB2x5 = 'BB(2,5)',
 		BB3x3 = 'BB(3,3)'
+	}
+
+	enum VisualizationMode {
+		DEFAULT = 'default',
+		EXPLORE = 'explore',
+		BLAZE = 'blaze'
+	}
+
+	function isDefaultMode(mode: VisualizationMode) {
+		return mode === VisualizationMode.DEFAULT;
+	}
+
+	function isExploreMode(mode: VisualizationMode) {
+		return mode === VisualizationMode.EXPLORE;
+	}
+
+	function isBlazeMode(mode: VisualizationMode) {
+		return mode === VisualizationMode.BLAZE;
+	}
+
+	function showBlazeOption(machine: any) {
+		return machine !== null && machine.symbols === 2;
 	}
 
 	function challenge_to_state_string(challenge: Challenge) {
@@ -69,13 +94,21 @@
 	//machine = b64URLSafetoTM('mAQACAAAAAQEDAAAEAQAFAQEEAQACAAAFAQECAQED');
 	//console.log(machine);
 
-	let exploreMode = false;
+	let visualizationMode = VisualizationMode.DEFAULT;
+	// Initialize previousVisualizationMode to null
+	let previousVisualizationMode: VisualizationMode | null = null;
 	let showHeadMove = true;
 
-	const nbIterDefault = 10000;
+	// Renamed from xStretch to stretch
+	let stretch = true;
+	
+	// New state for quality toggle in Blaze mode
+	let quality = true;
+
+	const nbIterDefault = 10000n;
 	const tapeWidthDefault = 400;
 	const origin_xDefault = 0.5;
-	export let nbIter = nbIterDefault;
+	export let nbIter: bigint = nbIterDefault;
 	export let tapeWidth = tapeWidthDefault;
 	export let origin_x = origin_xDefault;
 
@@ -103,23 +136,27 @@
 			secondPrefix = machineCode;
 		}
 
-		let last_add = '';
-		// if (machineStatus !== null && machineID === null) {
-		// 	last_add = `&status=${machineStatus}`;
-		// }
-
-		let simulationParametersLink = '';
+		// Create URL object to properly handle and preserve query parameters
+		const url = new URL(window.location.origin + '/' + secondPrefix);
+		
+		// Add simulation parameters
 		if (nbIter !== nbIterDefault) {
-			simulationParametersLink += `&s=${nbIter}`;
+			url.searchParams.set('s', nbIter.toString());
 		}
 		if (tapeWidth !== tapeWidthDefault) {
-			simulationParametersLink += `&w=${tapeWidth}`;
+			url.searchParams.set('w', tapeWidth.toString());
 		}
 		if (origin_x !== origin_xDefault) {
-			simulationParametersLink += `&ox=${origin_x}`;
+			url.searchParams.set('ox', origin_x.toString());
 		}
-
-		return prefix + secondPrefix + simulationParametersLink + last_add;
+		
+			// For local navigation, just return the pathname and search
+		if (!forCopy) {
+			return url.pathname + url.search;
+		}
+		
+		// For copying, return the full URL
+		return url.href;
 	}
 
 	let showRandomOptions = false;
@@ -166,6 +203,7 @@
 			machineID = null;
 			machine = machineCodeToTM(machine_code);
 			machineCode = machine_code;
+			
 			window.history.pushState({}, '', getSimulationLink());
 		}
 	}
@@ -199,7 +237,7 @@
 					console.log('Decider:', machineDecider);
 				}
 			}
-
+			
 			window.history.pushState({}, '', getSimulationLink());
 
 			console.log(machine, machineID);
@@ -221,6 +259,7 @@
 			machineCodeError = null;
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
+			
 			window.history.pushState({}, '', getSimulationLink());
 		} catch (error) {
 			machineCodeError = error;
@@ -287,6 +326,36 @@
 	}
 
 	let serverDown = false;
+
+	// Reactive statement to detect transition from Blaze to non-Blaze mode.
+	$: {
+		if (previousVisualizationMode === VisualizationMode.BLAZE && visualizationMode !== VisualizationMode.BLAZE) {
+			if (nbIter > 10000) {
+				nbIter = 10000n;
+				window.history.pushState({}, '', getSimulationLink());
+				console.log("Switched from Blaze: nbIter limited to 10,000");
+			}
+		}
+		// Update previousVisualizationMode *after* the check
+		previousVisualizationMode = visualizationMode;
+	}
+
+	// New reactive statement: when switching to Blaze mode, show simulation parameters.
+	$: if (visualizationMode === VisualizationMode.BLAZE) {
+		showSimulationParams = true;
+	}
+
+	// New reactive statement: auto-switch from Blaze to Default mode for machines with more than 2 symbols
+	$: if (machine !== null && visualizationMode === VisualizationMode.BLAZE && machine.symbols > 2) {
+		visualizationMode = VisualizationMode.DEFAULT;
+		console.log("Auto-switched from Blaze to Default mode: machine has more than 2 symbols");
+	}
+
+	// Add a new variable to hold the formatted steps value for display
+	let formattedNbIter = '';
+
+	// Update formattedNbIter whenever nbIter changes
+	$: formattedNbIter = formatStepCountWithCommas(nbIter.toString());
 </script>
 
 {#key machineID || machineCode}
@@ -434,13 +503,13 @@
 		<div class="flex flex-col">
 			<div
 				class="flex flex-col mt-3"
-				class:md:flex-row={!exploreMode}
-				class:items-start={!exploreMode}
-				class:colors={exploreMode}
+				class:md:flex-row={isDefaultMode(visualizationMode)}
+				class:items-start={isDefaultMode(visualizationMode)}
+				class:colors={isExploreMode(visualizationMode)}
 			>
 				<div class="flex flex-col items-start">
 					<MachineCanvas
-						{exploreMode}
+						visualizationMode={visualizationMode}
 						{machine}
 						{initial_tape}
 						{tapeWidth}
@@ -448,6 +517,8 @@
 						{origin_x}
 						{showHeadMove}
 						machineName={machineCode || machineID}
+						stretch={stretch}
+						quality={quality}
 					/>
 					<div class="text-xs pt-0 flex space-x-1 mt-2">
 						<!-- <div
@@ -483,68 +554,173 @@
 								<div class="flex space-x-3 text-sm">
 									<label class="flex flex-col">
 										steps
-										<input
-											class="w-[70px] text-black"
-											type="number"
-											bind:value={nbIter}
-											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
-											}}
-											min="1"
-											max="99999"
-											on:blur={(e) => {
-												nbIter = Math.max(1, Math.min(99999, Math.round(nbIter || 0)));
-												e.currentTarget.value = nbIter.toString();
-											}}
-										/></label
-									>
-									<label class="flex flex-col">
-										tape width
-										<input
-											class="w-[70px] text-black"
-											type="number"
-											bind:value={tapeWidth}
-											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
-											}}
-										/></label
-									>
-									<label class="flex flex-col">
-										x-translation
-										<input
-											class="w-[70px] text-black"
-											type="number"
-											bind:value={origin_x}
-											on:change={() => {
-												window.history.pushState({}, '', getSimulationLink());
-											}}
-											min="0"
-											max="1"
-											step="0.1"
-										/></label
-									>
+										<div class="flex items-center">
+											<input
+												class={isBlazeMode(visualizationMode) ? 'w-[150px] text-black' : 'w-[70px] text-black'}
+												type="text"
+												value={formattedNbIter}
+												on:input={(e) => {
+													// Format the input value with commas
+													const plainValue = parseFormattedStepCount(e.currentTarget.value);
+													if (!isNaN(Number(plainValue))) {
+														nbIter = BigInt(plainValue || "0"); 
+														formattedNbIter = formatStepCountWithCommas(plainValue);
+														e.currentTarget.value = formattedNbIter;
+													}
+												}}
+												on:change={(e) => {
+													const plainValue = parseFormattedStepCount(e.currentTarget.value);
+													nbIter = BigInt(plainValue || "0");
+													const url = new URL(window.location.href);
+													window.history.pushState({}, '', getSimulationLink());
+													// Update the displayed value with proper formatting
+													formattedNbIter = formatStepCountWithCommas(nbIter.toString());
+													e.currentTarget.value = formattedNbIter;
+												}}
+												on:blur={(e) => {
+													if (!isBlazeMode(visualizationMode))
+														{
+															if (isNaN(Number(nbIter)) || nbIter <= 0n) nbIter = 1n;
+															if (nbIter > 99999n) nbIter = 99999n;
+														}
+													formattedNbIter = formatStepCountWithCommas(nbIter.toString());
+													e.currentTarget.value = formattedNbIter;
+												}}
+											/>
+											{#if isBlazeMode(visualizationMode)}
+												<button 
+													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded"
+													on:click={() => {
+														nbIter =  nbIter * 10n;
+														formattedNbIter = formatStepCountWithCommas(nbIter.toString());
+														window.history.pushState({}, '', getSimulationLink());
+													}}
+												>
+													▲ ×10
+												</button>
+												<button 
+													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded"
+													on:click={() => {
+														nbIter = (nbIter > 10n) ? nbIter / 10n : 1n;
+														formattedNbIter = formatStepCountWithCommas(nbIter.toString());
+														window.history.pushState({}, '', getSimulationLink());
+													}}
+												>
+													▼ ÷10
+												</button>
+												<button 
+													class="ml-1 text-xs px-1 py-0.5 rounded"
+													class:bg-blue-600={stretch}
+													class:text-white={stretch}
+													class:border={!stretch}
+													class:bg-gray-200={!stretch}
+													class:text-gray-800={!stretch}
+													on:click={() => stretch = !stretch}
+												>
+													stretch
+												</button>
+												<button 
+													class="ml-1 text-xs px-1 py-0.5 rounded"
+													class:bg-blue-600={quality}
+													class:text-white={quality}
+													class:border={!quality}
+													class:bg-gray-200={!quality}
+													class:text-gray-800={!quality}
+													on:click={() => quality = !quality}
+													data-param="quality"
+												>
+													{quality ? 'quality' : 'speed'}
+												</button>
+												
+												<!-- Add the re-run button with active styling instead of opacity-50 -->
+												<button 
+													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded hover:bg-blue-500 active:bg-blue-700"
+													id="tm-blaze-rerun"
+													data-param="rerun"
+												>
+													re-run
+												</button>
+											{/if}
+										</div>
+									</label>
+									{#if !isBlazeMode(visualizationMode)}
+										<label class="flex flex-col">
+											tape width
+											<input
+												class="w-[70px] text-black"
+												type="number"
+												bind:value={tapeWidth}
+												on:change={() => {
+													const url = new URL(window.location.href);
+													window.history.pushState({}, '', getSimulationLink());
+												}}
+											/></label
+										>
+										<label class="flex flex-col">
+											x-translation
+											<input
+												class="w-[70px] text-black"
+												type="number"
+												bind:value={origin_x}
+												on:change={() => {
+													const url = new URL(window.location.href);
+													window.history.pushState({}, '', getSimulationLink());
+												}}
+												min="0"
+												max="1"
+												step="0.1"
+											/></label
+										>
+									{/if}
 								</div>
-								<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer">
-									<div>initial tape content</div>
-									<input bind:value={initial_tape} class="text-black" />
+								{#if !isBlazeMode(visualizationMode)}
+									<label class="text-sm mt-2 flex flex-col space-y-1 cursor-pointer">
+										<div>initial tape content</div>
+										<input bind:value={initial_tape} class="text-black" />
+									</label>
+								{/if}
+							</div>
+						{/if}
+						{#if isDefaultMode(visualizationMode)}
+							<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer">
+								<input type="checkbox" bind:checked={showHeadMove} />
+								<div>Show head movement (green for L, red for R)</div>
+							</label>
+						{/if}
+						<div class="text-sm mt-2 flex items-center">
+							<span class="mr-2">Visualization:</span>
+							<div class="flex items-center border rounded-md">
+								<label class="px-2 py-1 cursor-pointer" 
+									class:bg-blue-600={isDefaultMode(visualizationMode)} 
+									class:text-white={isDefaultMode(visualizationMode)}>
+									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.DEFAULT} />
+									Default
+								</label>
+								<div class="h-4 border-l border-gray-300"></div>
+								<label class="px-2 py-1 cursor-pointer"
+									class:bg-blue-600={isExploreMode(visualizationMode)}
+									class:text-white={isExploreMode(visualizationMode)}>
+									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.EXPLORE} />
+									Explore
+								</label>
+								
+								<div class="h-4 border-l border-gray-300"></div>
+								<label class="px-2 py-1 cursor-pointer"
+									class:bg-blue-600={isBlazeMode(visualizationMode)}
+									class:text-white={isBlazeMode(visualizationMode)}
+									class:opacity-50={!showBlazeOption(machine)}
+									class:cursor-not-allowed={!showBlazeOption(machine)}>
+									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.BLAZE}
+										disabled={!showBlazeOption(machine)} />
+									Blaze
 								</label>
 							</div>
-							{#if !exploreMode}
-								<label class="text-sm mt-2 flex items-center space-x-2 cursor-pointer">
-									<input type="checkbox" bind:checked={showHeadMove} />
-									<div>Show head movement (green for L, red for R)</div>
-								</label>
-							{/if}
-						{/if}
-						<label class="text-sm mt-1 flex items-center space-x-2 cursor-pointer">
-							<input type="checkbox" bind:checked={exploreMode} />
-							<div>Explore mode</div>
-						</label>
+						</div>
 					</div>
 				</div>
 
 				<div
-					class={!exploreMode
+					class={isDefaultMode(visualizationMode)
 						? 'mt-3 md:mt-0 md:ml-10 lg:ml-20 '
 						: 'flex w-full space-x-36 mb-5 mt-3'}
 				>

@@ -191,6 +191,17 @@ export function tm_explore(
 	initial_tape = '0',
 	height = 1000
 ) {
+	// Stop any active Blaze worker before starting the explore mode
+	if (isBlazeRunning()) {
+		stopBlazeWorker();
+	}
+
+	// Hide any existing status element from blaze mode
+	const statusElement = document.getElementById('tm-blaze-status');
+	if (statusElement) {
+		statusElement.style.display = 'none';
+	}
+
 	const history = render_history(machine, initial_tape, height);
 
 	let zoom = 10;
@@ -252,10 +263,333 @@ export function tm_explore(
 
 	ctx.resetTransform();
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	// Fix the transform matrix - change the 0 to zoomt);
 	ctx.setTransform(zoom, 0, 0, zoom, +x_offset, +y_offset);
 	render();
 
 	return () => ctx.canvas.removeEventListener('wheel', wheel);
+}
+
+// Helper function to render PNG data to canvas (without status text)
+function renderPngDataToCanvas(
+    ctx: CanvasRenderingContext2D,
+    pngData: ArrayBuffer,
+    stretch: boolean,
+    onComplete?: () => void
+): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+        // Create an object URL for the PNG data
+        const blobUrl = URL.createObjectURL(new Blob([pngData], { type: 'image/png' }));
+        
+        // Create an image and render it to the canvas
+        const image = new Image();
+        image.onload = () => {
+            // Fill the canvas with white background first
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.imageSmoothingEnabled = false;
+
+            // Determine rendering approach:
+            // 1. If stretch=true OR image is at least as large as canvas in both dimensions, stretch to fill
+            // 2. Otherwise (stretch=false AND at least one dimension is smaller), scale proportionally
+            if (stretch || (image.width >= ctx.canvas.width && image.height >= ctx.canvas.height)) {
+                // Always stretch to fill the entire canvas in these cases
+                ctx.drawImage(image, 0, 0, image.width, image.height, 0, 0, ctx.canvas.width, ctx.canvas.height);
+            } else {
+                // Only use proportional scaling when stretch=false AND image is smaller in at least one dimension
+                const scale = Math.min(ctx.canvas.height / image.height, ctx.canvas.width / image.width);
+                const x = (ctx.canvas.width - image.width * scale) / 2;
+                const y = (ctx.canvas.height - image.height * scale) / 2;
+                ctx.drawImage(image, 0, 0, image.width, image.height, x, y, image.width * scale, image.height * scale);
+            }
+
+            URL.revokeObjectURL(blobUrl);
+            
+            if (onComplete) onComplete();
+            resolve();
+        };
+        
+        image.onerror = (error) => {
+            console.error("Error loading image:", error);
+            URL.revokeObjectURL(blobUrl);
+            reject(new Error("Failed to load image"));
+        };
+        
+        image.src = blobUrl;
+    });
+}
+
+// Store the last Blaze image data and worker for reuse when toggling stretch
+let lastBlazeImageData: ArrayBuffer | null = null;
+let lastBlazeParams: {
+    machineCode: string;
+    canvasWidth: number;
+    canvasHeight: number;
+    binning: boolean;
+    stepCount: bigint;
+} | null = null;
+let activeWorker: Worker | null = null;
+let isRunningBlaze = false; // Add this to track if blaze is running
+let wasManuallyStopped = false; // Add this to track if blaze was manually stopped
+
+// Add a function to format numbers with thousand separators
+function formatWithCommas(num: string | number | bigint): string {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+// Add a function to clear the cached data that can be called from outside
+export function clearBlazeCache() {
+    lastBlazeImageData = null;
+    lastBlazeParams = null;
+    if (activeWorker) {
+        activeWorker.terminate();
+        activeWorker = null;
+    }
+    isRunningBlaze = false; // Reset the running state
+    wasManuallyStopped = false; // Reset the manually stopped state
+}
+
+// Add a function to stop the active worker
+export function stopBlazeWorker() {
+    if (activeWorker) {
+        wasManuallyStopped = true; // Set the manually stopped flag
+        activeWorker.terminate();
+        activeWorker = null;
+        isRunningBlaze = false; // Reset the running state
+        
+        // Find and update the status element immediately
+        const statusElement = document.getElementById('tm-blaze-status');
+        if (statusElement) {
+            // Extract the current status text and replace "Running" with "Stopped"
+            const currentText = statusElement.textContent || '';
+            const updatedText = currentText.replace(/Running/, 'Stopped');
+            statusElement.innerHTML = `<em>${updatedText}</em>`;
+        }
+        
+        return true; // Return true if a worker was actually stopped
+    }
+    return false; // Return false if no worker was running
+}
+
+// Add a function to check if blaze is running
+export function isBlazeRunning() {
+    return isRunningBlaze;
+}
+
+// Add a function to check if blaze was manually stopped
+export function wasBlazeManuallyStoppped() {
+    return wasManuallyStopped;
+}
+
+export async function tm_blaze(
+    ctx: CanvasRenderingContext2D,
+    machine: TM,
+    step_count = 1000n,
+    stretch = true,
+    quality = true,
+    statusElement?: HTMLElement // Optional parameter for the status element
+) {
+    // Get current machine code
+    const machineCode = tmToMachineCode(machine);
+    
+    // Check if we're just toggling stretch with the same parameters
+    const isJustTogglingStretch = lastBlazeImageData !== null && 
+                                 lastBlazeParams !== null &&
+                                 lastBlazeParams.machineCode === machineCode &&
+                                 lastBlazeParams.canvasWidth === ctx.canvas.width &&
+                                 lastBlazeParams.canvasHeight === ctx.canvas.height &&
+                                 lastBlazeParams.binning === quality &&
+                                 lastBlazeParams.stepCount === step_count;
+    
+    if (isJustTogglingStretch) {
+        // Just re-render the existing image with the new stretch setting
+        await renderPngDataToCanvas(ctx, lastBlazeImageData, stretch);
+        return;
+    }
+    
+    // Terminate any active worker before starting a new one
+    if (activeWorker) {
+        activeWorker.terminate();
+        activeWorker = null;
+    }
+    
+    // If parameters changed, clear the cached data
+    lastBlazeImageData = null;
+    
+    // Immediately set a white background to avoid black flicker
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    
+    try {
+        // Set the running state to true
+        isRunningBlaze = true;
+        
+        // Save the current parameters for future checks
+        lastBlazeParams = {
+            machineCode,
+            canvasWidth: ctx.canvas.width,
+            canvasHeight: ctx.canvas.height,
+            binning: quality,
+            stepCount: step_count
+        };
+
+        // Set binning based on the quality parameter
+        const binning = quality;
+
+        // Create a worker using the tm-worker.ts file
+        const worker = new Worker(new URL('./tm-worker.ts', import.meta.url), { type: 'module' });
+        activeWorker = worker;
+
+        // Track start time
+        const startTime = performance.now();
+
+        // Create or find status element if not provided
+        if (!statusElement) {
+            // Try to find an existing status element with our special ID
+            const existingStatusElement = document.getElementById('tm-blaze-status');
+            
+            if (existingStatusElement) {
+                // Use the existing element
+                statusElement = existingStatusElement as HTMLElement;
+                // Update styles in case they were previously set differently
+                statusElement.style.fontSize = '0.75em';
+                statusElement.style.marginBottom = '2px';
+                statusElement.style.padding = '1px';
+            } else {
+                // Create a new status element
+                statusElement = document.createElement('div');
+                statusElement.id = 'tm-blaze-status';
+                statusElement.style.fontStyle = 'italic';
+                statusElement.style.fontSize = '0.75em';
+                statusElement.style.marginBottom = '2px';
+                statusElement.style.padding = '1px';
+                
+                // Try to find the parent container of the canvas
+                const canvasParent = ctx.canvas.parentElement;
+                
+                // Insert the status element before the canvas
+                if (canvasParent) {
+                    canvasParent.insertBefore(statusElement, ctx.canvas);
+                } else {
+                    // If can't find parent, insert right before the canvas in the DOM
+                    ctx.canvas.parentNode?.insertBefore(statusElement, ctx.canvas);
+                }
+                
+            }
+        }
+
+        // Initial status update
+        statusElement.innerHTML = '<em>Time: 0.00s • Steps: 0 • Ones: 0 • Running</em>';
+        statusElement.style.display = 'block';
+        
+        // Remove the code that adds the re-run button
+        // The button is now added directly in the Svelte component
+
+        // Send data to the worker
+        const promise = new Promise<void>((resolve, reject) => {
+            worker.onmessage = async (event) => {
+                // Skip processing messages from terminated workers
+                if (worker !== activeWorker) {
+                    return;
+                }
+                
+                if (event.data.type === 'error') {
+                    if (statusElement) {
+                        statusElement.innerHTML = `<em>Error: ${event.data.message}</em>`;
+                    }
+                    isRunningBlaze = false; // Update running state on error
+                    reject(new Error(event.data.message));
+                    worker.terminate();
+                    if (activeWorker === worker) {
+                        activeWorker = null;
+                    }
+                    return;
+                }
+
+                try {
+                    // Calculate elapsed time
+                    const elapsedTime = (performance.now() - startTime) / 1000;
+                    
+                    // Update status element
+                    if (statusElement) {
+                        // Format steps with commas
+                        const stepsCompleted = event.data.stepsCompleted || 0n;
+                        const formattedSteps = formatWithCommas(stepsCompleted);
+                        
+                        // Determine machine state
+                        let machineState;
+                        if (wasManuallyStopped) {
+                            machineState = 'Stopped';
+                        } else {
+                            machineState = event.data.halted ? 'Halted' : event.data.intermediate ? 'Running' : 'Not Halted';
+                        }
+                        
+                        // Create status text with commas in Ones count
+                        const onesCount = event.data.onesCount || 0;
+                        const formattedOnesCount = formatWithCommas(onesCount);
+                        const statusText = `Time: ${elapsedTime.toFixed(2)}s • Steps: ${formattedSteps} • Ones: ${formattedOnesCount} • ${machineState}`;
+                        
+                        // Update the status element
+                        statusElement.innerHTML = `<em>${statusText}</em>`;
+                    }
+
+                    // Store the latest image data for stretch toggling
+                    // Create a copy of the buffer to ensure we keep it even if the original is detached
+                    const bufferCopy = new Uint8Array(event.data.pngData).buffer;
+                    lastBlazeImageData = bufferCopy;
+                    
+                    // Render the image data without status info
+                    await renderPngDataToCanvas(ctx, event.data.pngData, stretch);
+                    
+                    // If this is the final result, resolve the promise
+                    if (!event.data.intermediate) {
+                        isRunningBlaze = false; // Update running state when done
+                        worker.terminate();
+                        if (activeWorker === worker) {
+                            activeWorker = null;
+                        }
+                        resolve();
+                    }
+                } catch (error) {
+                    if (!event.data.intermediate) {
+                        isRunningBlaze = false; // Update running state on error
+                        worker.terminate();
+                        if (activeWorker === worker) {
+                            activeWorker = null;
+                        }
+                        reject(error);
+                    }
+                }
+            };
+
+            worker.onerror = (error) => {
+                if (statusElement) {
+                    statusElement.innerHTML = `<em>Error: ${error.message}</em>`;
+                }
+                isRunningBlaze = false; // Update running state on error
+                reject(error);
+                worker.terminate();
+                if (activeWorker === worker) {
+                    activeWorker = null;
+                }
+            };
+        });
+
+        worker.postMessage({
+            machineCode,
+            canvasWidth: ctx.canvas.width,
+            canvasHeight: ctx.canvas.height,
+            binning,
+            stepCount: step_count
+        });
+
+        // Wait for the worker to finish
+        await promise;
+    } catch (error) {
+        isRunningBlaze = false; // Update running state on error
+        console.error("Error in tm_blaze:", error);
+        throw error;
+    }
 }
 
 export function tm_trace_to_image(
@@ -268,6 +602,17 @@ export function tm_trace_to_image(
 	fitCanvas = true,
 	showHeadMove = false
 ) {
+	// Stop any active Blaze worker before starting the trace mode
+	if (isBlazeRunning()) {
+		stopBlazeWorker();
+	}
+
+	// Hide any existing status element from blaze mode
+	const statusElement = document.getElementById('tm-blaze-status');
+	if (statusElement) {
+		statusElement.style.display = 'none';
+	}
+
 	width = Math.max(1, Math.min(99_999, Math.floor(width) || 0));
 	height = Math.max(1, Math.min(99_999, Math.floor(height) || 0));
 
@@ -335,4 +680,24 @@ export function step(machine: TM, curr_state, curr_pos, tape, use_int_positions 
 	tape[f(curr_pos)] = write;
 	const next_pos = curr_pos + (move ? -1 : 1);
 	return [goto, next_pos];
+}
+
+// Function to format step count with thousand separators for input fields
+export function formatStepCountWithCommas(value: string): string {
+    // Remove any existing commas
+    const plainNumber = value.replace(/,/g, '');
+    
+    // Check if it's a valid number
+    if (!plainNumber || isNaN(Number(plainNumber))) {
+        return plainNumber; // Return as is if not a valid number
+    }
+    
+    // Format with thousand separators
+    return plainNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+// Function to convert a formatted string with commas back to a plain number
+export function parseFormattedStepCount(formattedValue: string): string {
+    // Remove all commas to get the plain number
+    return formattedValue.replace(/,/g, '');
 }
