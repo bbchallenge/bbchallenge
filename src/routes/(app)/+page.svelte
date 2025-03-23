@@ -124,8 +124,6 @@
 		origin_x = origin_xDefault;
 	}
 
-	let blazeEnabled = false;
-
 	function getSimulationLink(forCopy = false) {
 		let prefix = 'https://bbchalenge.org/';
 		if (!forCopy) {
@@ -152,12 +150,7 @@
 			url.searchParams.set('ox', origin_x.toString());
 		}
 		
-		// Preserve existing blaze parameter if it exists in current URL
-		if (window.location.search.includes('blaze')) {
-			url.searchParams.set('blaze', '');
-		}
-
-		// For local navigation, just return the pathname and search
+			// For local navigation, just return the pathname and search
 		if (!forCopy) {
 			return url.pathname + url.search;
 		}
@@ -211,18 +204,7 @@
 			machine = machineCodeToTM(machine_code);
 			machineCode = machine_code;
 			
-			// Preserve the blaze parameter when updating URL
-			const url = new URL(window.location.href);
-			const hasBlaze = url.searchParams.has('blaze');
-			
 			window.history.pushState({}, '', getSimulationLink());
-			
-			// If blaze was in URL but got removed, add it back
-			if (hasBlaze && !window.location.search.includes('blaze')) {
-				const newUrl = new URL(window.location.href);
-				newUrl.searchParams.set('blaze', '');
-				window.history.replaceState({}, '', newUrl.pathname + newUrl.search);
-			}
 		}
 	}
 
@@ -255,19 +237,8 @@
 					console.log('Decider:', machineDecider);
 				}
 			}
-
-			// Preserve the blaze parameter when updating URL
-			const url = new URL(window.location.href);
-			const hasBlaze = url.searchParams.has('blaze');
 			
 			window.history.pushState({}, '', getSimulationLink());
-			
-			// If blaze was in URL but got removed, add it back
-			if (hasBlaze && !window.location.search.includes('blaze')) {
-				const newUrl = new URL(window.location.href);
-				newUrl.searchParams.set('blaze', '');
-				window.history.replaceState({}, '', newUrl.pathname + newUrl.search);
-			}
 
 			console.log(machine, machineID);
 		} catch (error) {
@@ -289,18 +260,7 @@
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
 			
-			// Preserve the blaze parameter when updating URL
-			const url = new URL(window.location.href);
-			const hasBlaze = url.searchParams.has('blaze');
-			
 			window.history.pushState({}, '', getSimulationLink());
-			
-			// If blaze was in URL but got removed, add it back
-			if (hasBlaze && !window.location.search.includes('blaze')) {
-				const newUrl = new URL(window.location.href);
-				newUrl.searchParams.set('blaze', '');
-				window.history.replaceState({}, '', newUrl.pathname + newUrl.search);
-			}
 		} catch (error) {
 			machineCodeError = error;
 		}
@@ -348,23 +308,6 @@
 			} else if (machine.states == 3 && machine.symbols == 3) {
 				curr_challenge = Challenge.BB3x3;
 			}
-		}
-
-		// Check URL for blaze parameter
-		blazeEnabled = window.location.search.includes('blaze');
-		
-		// If blaze parameter is present but not properly formatted, fix it
-		if (blazeEnabled) {
-			const url = new URL(window.location.href);
-			if (!url.searchParams.has('blaze')) {
-				url.searchParams.set('blaze', '');
-				window.history.replaceState({}, '', url.pathname + url.search);
-			}
-		}
-
-		// Disable Blaze mode if the machine has more than 2 symbols
-		if (blazeEnabled && machine && machine.symbols !== 2) {
-			blazeEnabled = false;
 		}
 	});
 
@@ -629,12 +572,7 @@
 													const plainValue = parseFormattedStepCount(e.currentTarget.value);
 													nbIter = BigInt(plainValue || "0");
 													const url = new URL(window.location.href);
-													const hasBlaze = url.searchParams.has('blaze');
 													window.history.pushState({}, '', getSimulationLink());
-													if (hasBlaze && !window.location.search.includes('blaze')) {
-														url.searchParams.set('blaze', '');
-														window.history.replaceState({}, '', url.pathname + url.search);
-													}
 													// Update the displayed value with proper formatting
 													formattedNbIter = formatStepCountWithCommas(nbIter.toString());
 													e.currentTarget.value = formattedNbIter;
@@ -714,12 +652,7 @@
 												bind:value={tapeWidth}
 												on:change={() => {
 													const url = new URL(window.location.href);
-													const hasBlaze = url.searchParams.has('blaze');
 													window.history.pushState({}, '', getSimulationLink());
-													if (hasBlaze && !window.location.search.includes('blaze')) {
-														url.searchParams.set('blaze', '');
-														window.history.replaceState({}, '', url.pathname + url.search);
-													}
 												}}
 											/></label
 										>
@@ -731,12 +664,7 @@
 												bind:value={origin_x}
 												on:change={() => {
 													const url = new URL(window.location.href);
-													const hasBlaze = url.searchParams.has('blaze');
 													window.history.pushState({}, '', getSimulationLink());
-													if (hasBlaze && !window.location.search.includes('blaze')) {
-														url.searchParams.set('blaze', '');
-														window.history.replaceState({}, '', url.pathname + url.search);
-													}
 												}}
 												min="0"
 												max="1"
@@ -776,18 +704,16 @@
 									Explore
 								</label>
 								
-								{#if blazeEnabled}
-									<div class="h-4 border-l border-gray-300"></div>
-									<label class="px-2 py-1 cursor-pointer"
-										class:bg-blue-600={isBlazeMode(visualizationMode)}
-										class:text-white={isBlazeMode(visualizationMode)}
-										class:opacity-50={!showBlazeOption(machine)}
-										class:cursor-not-allowed={!showBlazeOption(machine)}>
-										<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.BLAZE}
-											disabled={!showBlazeOption(machine)} />
-										Blaze
-									</label>
-								{/if}
+								<div class="h-4 border-l border-gray-300"></div>
+								<label class="px-2 py-1 cursor-pointer"
+									class:bg-blue-600={isBlazeMode(visualizationMode)}
+									class:text-white={isBlazeMode(visualizationMode)}
+									class:opacity-50={!showBlazeOption(machine)}
+									class:cursor-not-allowed={!showBlazeOption(machine)}>
+									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.BLAZE}
+										disabled={!showBlazeOption(machine)} />
+									Blaze
+								</label>
 							</div>
 						</div>
 					</div>
