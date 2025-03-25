@@ -6,6 +6,8 @@ interface WorkerMessage {
 	canvasHeight: number;
 	binning: boolean;
 	stepCount: number;
+    backgroundColor: string;
+    foregroundColor: string;
 }
 
 interface WorkerResponse {
@@ -19,7 +21,7 @@ interface WorkerResponse {
 }
 
 self.onmessage = async (event: MessageEvent<WorkerMessage>) => {
-	const { machineCode, canvasWidth, canvasHeight, binning, stepCount } = event.data;
+	const { machineCode, canvasWidth, canvasHeight, binning, stepCount, backgroundColor, foregroundColor } = event.data;
 	const run_for_seconds = 0.1;
 
 	try {
@@ -48,7 +50,7 @@ self.onmessage = async (event: MessageEvent<WorkerMessage>) => {
             const response: WorkerResponse = {
                 type: 'result',
                 intermediate: stillRunning, // If stillRunning is false, this is the final result
-                pngData: spaceTimeMachine.png_data(),
+                pngData: spaceTimeMachine.to_png(backgroundColor, foregroundColor),
                 stepsCompleted: spaceTimeMachine.step_count(),
                 onesCount: spaceTimeMachine.count_ones(),
                 halted: spaceTimeMachine.is_halted()
