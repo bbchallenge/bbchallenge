@@ -202,6 +202,10 @@ export function tm_explore(
 		statusElement.style.display = 'none';
 	}
 
+	// Always use black background for Explore mode, regardless of darkMode setting
+	ctx.fillStyle = 'black';
+	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
 	const history = render_history(machine, initial_tape, height);
 
 	let zoom = 10;
@@ -617,6 +621,10 @@ export function tm_trace_to_image(
 	if (statusElement) {
 		statusElement.style.display = 'none';
 	}
+
+	// Always use black background for Default mode, regardless of darkMode setting
+	ctx.fillStyle = 'black'; 
+	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 	width = Math.max(1, Math.min(99_999, Math.floor(width) || 0));
 	height = Math.max(1, Math.min(99_999, Math.floor(height) || 0));

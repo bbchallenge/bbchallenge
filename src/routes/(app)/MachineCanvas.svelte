@@ -62,9 +62,16 @@
     let canvas: HTMLCanvasElement;
     
     const drawRect = (context: CanvasRenderingContext2D): void => {
-        // Use the current color scheme's background color
-        const colorScheme = getColorScheme(darkMode);
-        context.fillStyle = colorScheme.background;
+        // Default and Explore modes should always use dark background
+        // Blaze mode should follow the darkMode setting
+        if (isBlazeMode(visualizationMode)) {
+            const colorScheme = getColorScheme(darkMode);
+            context.fillStyle = colorScheme.background;
+        } else {
+            // Default and Explore always use dark background
+            context.fillStyle = 'black';
+        }
+        
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.fill();
     };
@@ -196,10 +203,10 @@
         }
     }
     
-    // Update the class on the canvas element to reflect dark mode
-    $: canvasClass = darkMode 
-        ? "bg-black image-render-pixel" 
-        : "bg-white image-render-pixel";
+    // Update the class on the canvas element based on mode
+    $: canvasClass = isBlazeMode(visualizationMode) 
+        ? (darkMode ? "bg-black image-render-pixel" : "bg-white image-render-pixel")
+        : "bg-slate-800 image-render-pixel"; // Default and Explore always use dark slate
     
     let drawCleanup: (() => void) | undefined;
     async function draw(): Promise<void> {
