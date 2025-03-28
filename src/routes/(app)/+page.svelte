@@ -914,14 +914,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
-	<div class="mt-5 mb-10">
-		<div class="flex justify-center">
-			<div class="container max-w-6xl">
-				<div class="flex flex-col md:flex-row md:space-x-12">
-					<div class="md:w-1/2 flex flex-col space-y-4">
+			<div class="mt-5 mb-10 flex flex-col space-y-8">
+				<div class="flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
+					<div class="flex flex-col space-y-4">
 						<News />
 						{#if curr_challenge == Challenge.BB5}
 							<DecidersAndZoology
@@ -935,7 +930,7 @@
 						{/if}
 					</div>
 
-					<div class="md:w-1/2 flex flex-col space-y-2 mt-8 md:mt-0">
+					<div class="max-w-[450px] flex flex-col space-y-2">
 						<div class="text-xl">Highlighted machines</div>
 						{#if curr_challenge == Challenge.BB5}
 							<Highlights_BB5
