@@ -917,92 +917,96 @@
 		</div>
 	</div>
 
-	<div class="mt-5 mb-10 flex flex-col space-y-8">
-		<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
-			<div class="flex flex-col space-y-4">
-				<News />
-				{#if curr_challenge == Challenge.BB5}
-					<DecidersAndZoology
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+	<div class="mt-5 mb-10">
+		<div class="flex justify-center">
+			<div class="container max-w-6xl">
+				<div class="flex flex-col md:flex-row md:space-x-12">
+					<div class="md:w-1/2 flex flex-col space-y-4">
+						<News />
+						{#if curr_challenge == Challenge.BB5}
+							<DecidersAndZoology
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-						}}
-					/>
-				{/if}
-			</div>
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+					</div>
 
-			<div class="max-w-[450px] flex flex-col space-y-2">
-				<div class="ml-2 text-xl">Highlighted machines</div>
-				{#if curr_challenge == Challenge.BB5}
-					<Highlights_BB5
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+					<div class="md:w-1/2 flex flex-col space-y-2 mt-8 md:mt-0">
+						<div class="text-xl">Highlighted machines</div>
+						{#if curr_challenge == Challenge.BB5}
+							<Highlights_BB5
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-						}}
-						on:machine_code={async (ev) => {
-							let machine_code = ev.detail.machine_code;
-							let machine_status = ev.detail.machine_status;
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
 
-							await loadMachineFromMachineCode(machine_code, machine_status);
-							defaultSimulationParameters();
-						}}
-					/>
-				{/if}
-				{#if curr_challenge == Challenge.BB6}
-					<Highlights_BB6
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB6}
+							<Highlights_BB6
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-						}}
-						on:machine_code={async (ev) => {
-							let machine_code = ev.detail.machine_code;
-							let machine_status = ev.detail.machine_status;
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
 
-							await loadMachineFromMachineCode(machine_code, machine_status);
-							defaultSimulationParameters();
-						}}
-					/>
-				{/if}
-				{#if curr_challenge == Challenge.BB2x5}
-					<Highlights_BB2x5
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB2x5}
+							<Highlights_BB2x5
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-						}}
-						on:machine_code={async (ev) => {
-							let machine_code = ev.detail.machine_code;
-							let machine_status = ev.detail.machine_status;
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
 
-							await loadMachineFromMachineCode(machine_code, machine_status);
-							defaultSimulationParameters();
-						}}
-					/>
-				{/if}
-				{#if curr_challenge == Challenge.BB3x3}
-					<Highlights_BB3x3
-						on:machine_id={async (ev) => {
-							let machine_id = ev.detail.machine_id;
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+						{#if curr_challenge == Challenge.BB3x3}
+							<Highlights_BB3x3
+								on:machine_id={async (ev) => {
+									let machine_id = ev.detail.machine_id;
 
-							await loadMachineFromID(machine_id);
-							defaultSimulationParameters();
-						}}
-						on:machine_code={async (ev) => {
-							let machine_code = ev.detail.machine_code;
-							let machine_status = ev.detail.machine_status;
+									await loadMachineFromID(machine_id);
+									defaultSimulationParameters();
+								}}
+								on:machine_code={async (ev) => {
+									let machine_code = ev.detail.machine_code;
+									let machine_status = ev.detail.machine_status;
 
-							await loadMachineFromMachineCode(machine_code, machine_status);
-							defaultSimulationParameters();
-						}}
-					/>
-				{/if}
+									await loadMachineFromMachineCode(machine_code, machine_status);
+									defaultSimulationParameters();
+								}}
+							/>
+						{/if}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
