@@ -202,6 +202,10 @@ export function tm_explore(
 		statusElement.style.display = 'none';
 	}
 
+	// Always use black background for Explore mode, regardless of darkMode setting
+	ctx.fillStyle = 'black';
+	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
 	const history = render_history(machine, initial_tape, height);
 
 	let zoom = 10;
@@ -275,6 +279,7 @@ function renderPngDataToCanvas(
     ctx: CanvasRenderingContext2D,
     pngData: ArrayBuffer,
     stretch: boolean,
+    backgroundColor: string = "white", // Add backgroundColor parameter
     onComplete?: () => void
 ): Promise<void> {
     return new Promise<void>((resolve, reject) => {
@@ -284,8 +289,8 @@ function renderPngDataToCanvas(
         // Create an image and render it to the canvas
         const image = new Image();
         image.onload = () => {
-            // Fill the canvas with white background first
-            ctx.fillStyle = 'white';
+            // Fill the canvas with the provided background color
+            ctx.fillStyle = backgroundColor; // Use the backgroundColor parameter
             ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             ctx.imageSmoothingEnabled = false;
 
@@ -387,6 +392,8 @@ export async function tm_blaze(
     step_count = 1000n,
     stretch = true,
     quality = true,
+    backgroundColor: string = "white",
+    foregroundColor: string = "orange",
     statusElement?: HTMLElement // Optional parameter for the status element
 ) {
     // Get current machine code
@@ -403,7 +410,7 @@ export async function tm_blaze(
     
     if (isJustTogglingStretch) {
         // Just re-render the existing image with the new stretch setting
-        await renderPngDataToCanvas(ctx, lastBlazeImageData, stretch);
+        await renderPngDataToCanvas(ctx, lastBlazeImageData, stretch, backgroundColor);
         return;
     }
     
@@ -416,8 +423,8 @@ export async function tm_blaze(
     // If parameters changed, clear the cached data
     lastBlazeImageData = null;
     
-    // Immediately set a white background to avoid black flicker
-    ctx.fillStyle = 'white';
+    // Immediately set background color to match the theme
+    ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     
     try {
@@ -538,8 +545,8 @@ export async function tm_blaze(
                     const bufferCopy = new Uint8Array(event.data.pngData).buffer;
                     lastBlazeImageData = bufferCopy;
                     
-                    // Render the image data without status info
-                    await renderPngDataToCanvas(ctx, event.data.pngData, stretch);
+                    // Render the image data without status info, passing the backgroundColor
+                    await renderPngDataToCanvas(ctx, event.data.pngData, stretch, backgroundColor);
                     
                     // If this is the final result, resolve the promise
                     if (!event.data.intermediate) {
@@ -580,7 +587,9 @@ export async function tm_blaze(
             canvasWidth: ctx.canvas.width,
             canvasHeight: ctx.canvas.height,
             binning,
-            stepCount: step_count
+            stepCount: step_count,
+            backgroundColor,
+            foregroundColor
         });
 
         // Wait for the worker to finish
@@ -612,6 +621,10 @@ export function tm_trace_to_image(
 	if (statusElement) {
 		statusElement.style.display = 'none';
 	}
+
+	// Always use black background for Default mode, regardless of darkMode setting
+	ctx.fillStyle = 'black'; 
+	ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 	width = Math.max(1, Math.min(99_999, Math.floor(width) || 0));
 	height = Math.max(1, Math.min(99_999, Math.floor(height) || 0));

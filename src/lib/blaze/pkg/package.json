@@ -1,7 +1,7 @@
 {
   "name": "busy_beaver_blaze",
   "type": "module",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "files": [
     "busy_beaver_blaze_bg.wasm",
     "busy_beaver_blaze.js",

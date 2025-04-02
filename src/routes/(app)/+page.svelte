@@ -104,6 +104,9 @@
 	
 	// New state for quality toggle in Blaze mode
 	let quality = true;
+	
+	// New state for light/dark mode toggle in Blaze mode
+	let darkMode = false;
 
 	const nbIterDefault = 10000n;
 	const tapeWidthDefault = 400;
@@ -405,14 +408,12 @@
 				<div>
 					{#if curr_challenge == Challenge.BB5}
 						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
-						<br /><br />
-						We have achieved
-						<a
+						<br />
+						We have reached <a
 							href="https://bbchallenge.org/story#goal"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							rel="external">our goal</a
-						>
-						of proving "<a
+						> of proving "<a
 							href="https://wiki.bbchallenge.org/wiki/BB(5)"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							rel="external">BB(5)</a
@@ -519,6 +520,7 @@
 						machineName={machineCode || machineID}
 						stretch={stretch}
 						quality={quality}
+						{darkMode}
 					/>
 					<div class="text-xs pt-0 flex space-x-1 mt-2">
 						<!-- <div
@@ -631,7 +633,17 @@
 												>
 													{quality ? 'quality' : 'speed'}
 												</button>
-												
+												<button 
+													class="ml-1 text-xs px-1 py-0.5 rounded border"
+													class:bg-white={!darkMode}
+													class:bg-black={darkMode}
+													class:text-orange-500={!darkMode}
+													class:text-white={darkMode}
+													on:click={() => darkMode = !darkMode}
+													data-param="theme"
+												>
+													{darkMode ? 'dark' : 'light'}
+												</button>
 												<!-- Add the re-run button with active styling instead of opacity-50 -->
 												<button 
 													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded hover:bg-blue-500 active:bg-blue-700"
@@ -654,8 +666,8 @@
 													const url = new URL(window.location.href);
 													window.history.pushState({}, '', getSimulationLink());
 												}}
-											/></label
-										>
+											/>
+										</label>
 										<label class="flex flex-col">
 											x-translation
 											<input
@@ -669,8 +681,8 @@
 												min="0"
 												max="1"
 												step="0.1"
-											/></label
-										>
+											/>
+										</label>
 									{/if}
 								</div>
 								{#if !isBlazeMode(visualizationMode)}
@@ -687,11 +699,11 @@
 								<div>Show head movement (green for L, red for R)</div>
 							</label>
 						{/if}
-						<div class="text-sm mt-2 flex items-center">
+						<div class="text-sm mt-2 flex items-center"> 
 							<span class="mr-2">Visualization:</span>
 							<div class="flex items-center border rounded-md">
 								<label class="px-2 py-1 cursor-pointer" 
-									class:bg-blue-600={isDefaultMode(visualizationMode)} 
+									class:bg-blue-600={isDefaultMode(visualizationMode)}
 									class:text-white={isDefaultMode(visualizationMode)}>
 									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.DEFAULT} />
 									Default
@@ -703,7 +715,6 @@
 									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.EXPLORE} />
 									Explore
 								</label>
-								
 								<div class="h-4 border-l border-gray-300"></div>
 								<label class="px-2 py-1 cursor-pointer"
 									class:bg-blue-600={isBlazeMode(visualizationMode)}
@@ -758,7 +769,7 @@
 									href="https://bbchallenge.org/method#seed-database"
 									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
 									rel="external">seed database</a
-								>:
+								>
 							</div>
 
 							<!-- {#if !preSeed} -->
@@ -768,8 +779,7 @@
 									on:click={async () => {
 										await getRandomMachine();
 										//window.history.replaceState({}, '', getSimulationLink());
-									}}>Go (R)andom</button
-								>
+									}}>Go (R)andom</button>
 								{#if curr_challenge == Challenge.BB5}
 									<div
 										class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
@@ -781,66 +791,59 @@
 									</div>
 								{/if}
 							</div>
-						</div>
-						<div class="ml-3 mt-1 text-sm">
-							<div class="ml-2 flex flex-col space-y-1">
-								<!-- {:else}
+							<!-- {:else}
 							<button
 								class="bg-blue-500 p-1 mx-3 mt-1"
 								on:click={async () => {
 									_goto('/');
-								}}>Go Random</button
+								}}>Go Random</button>
 							>
 						{/if} -->
-
-								{#if showRandomOptions}
-									<div class="mx-3">
-										<label class="flex space-x-2 items-center cursor-pointer">
-											<input type="radio" bind:group={randomType} name="randomType" value="all" />
-											<div>any machine (88,664,064)</div>
-										</label>
-										<label class="flex space-x-2 items-center cursor-pointer">
-											<input
-												type="radio"
-												bind:group={randomType}
-												name="randomType"
-												value="all_undecided"
-											/>
-											<div>
-												only undecided machine {#if metrics !== null}({numberWithCommas(
-														metrics['total_undecided']
-													)}){/if}
-											</div>
-										</label>
-										<!-- <label
-											class="mt-2 flex space-x-2 items-center  cursor-pointer w-[300px]"
-										>
-											<input
-												type="radio"
-												bind:group={randomType}
-												name="randomType"
-												value="all_undecided_apply_heuristics"
-											/>
-											<div>
-												only undecided machine not heuristically decided {#if metrics !== null}({numberWithCommas(
-														metrics['total_undecided_with_heuristcs']
-													)}){/if}
-											</div>
-										</label> -->
-									</div>
-								{/if}
-							</div>
 						</div>
+						{#if showRandomOptions}
+							<div class="mx-3">
+								<label class="flex space-x-2 items-center cursor-pointer">
+									<input type="radio" bind:group={randomType} name="randomType" value="all" />
+									<div>any machine (88,664,064)</div>
+								</label>
+								<label class="flex space-x-2 items-center cursor-pointer">
+									<input
+										type="radio"
+										bind:group={randomType}
+										name="randomType"
+										value="all_undecided"
+									/>
+									<div>
+										only undecided machine {#if metrics !== null}({numberWithCommas(
+											metrics['total_undecided']
+										)}){/if}
+									</div>
+								</label>
+								<!-- <label
+									class="mt-2 flex space-x-2 items-center  cursor-pointer w-[300px]"
+								>
+									<input
+										type="radio"
+										bind:group={randomType}
+										name="randomType"
+										value="all_undecided_apply_heuristics"
+									/>
+									<div>
+										only undecided machine not heuristically decided {#if metrics !== null}({numberWithCommas(
+											metrics['total_undecided_with_heuristcs']
+										)}){/if}
+									</div>
+								</label> -->
+							</div>
+						{/if}
 						{#if curr_challenge == Challenge.BB5}
 							<div class="ml-3 mt-2 text-sm">
-								<div>
-									From id in the <a
-										href="https://bbchallenge.org/method#seed-database"
-										class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-										rel="external">seed database</a
-									>:
+								<div>From id in the <a
+									href="https://bbchallenge.org/method#seed-database"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+									rel="external">seed database</a
+								>:
 								</div>
-
 								{#if typedMachineError}
 									<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
 								{/if}
@@ -856,16 +859,15 @@
 											await loadMachineFromID(typedMachineID);
 										}}
 									/>
-									<button class="bg-blue-500 p-1 px-2">Go </button>
+									<button class="bg-blue-500 p-1 px-2">Go</button>
 								</div>
 							</div>
 						{/if}
 						<div class="ml-3 mt-1 text-sm">
-							<div>
-								From <a
-									href="https://discuss.bbchallenge.org/t/standard-tm-text-format/60"
-									class="text-blue-400 hover:text-blue-300 cursor-pointer">standard format</a
-								>:
+							<div>From <a
+								href="https://discuss.bbchallenge.org/t/standard-tm-text-format/60"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer">standard format</a
+							>:
 							</div>
 							{#if machineCodeError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
@@ -882,11 +884,10 @@
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
 									}}
-									>Go
+								>Go
 								</button>
 							</div>
 						</div>
-
 						<!-- <div>
 							{#if history}
 								<div class="mt-0 flex flex-col">
@@ -914,7 +915,7 @@
 				</div>
 			</div>
 			<div class="mt-5 mb-10 flex flex-col space-y-8">
-				<div class=" flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
+				<div class="flex flex-col space-y-5 md:flex-row md:space-x-12 lg:space-y-0">
 					<div class="flex flex-col space-y-4">
 						<News />
 						{#if curr_challenge == Challenge.BB5}
@@ -930,7 +931,7 @@
 					</div>
 
 					<div class="max-w-[450px] flex flex-col space-y-2">
-						<div class="ml-2 text-xl">Highlighted machines</div>
+						<div class="text-xl">Highlighted machines</div>
 						{#if curr_challenge == Challenge.BB5}
 							<Highlights_BB5
 								on:machine_id={async (ev) => {

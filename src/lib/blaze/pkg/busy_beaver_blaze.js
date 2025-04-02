@@ -309,13 +309,22 @@ export class SpaceByTimeMachine {
         return ret !== 0;
     }
     /**
+     * @param {string} zero_color
+     * @param {string} one_color
      * @returns {Uint8Array}
      */
-    png_data() {
-        const ret = wasm.spacebytimemachine_png_data(this.__wbg_ptr);
-        var v1 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
+    to_png(zero_color, one_color) {
+        const ptr0 = passStringToWasm0(zero_color, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(one_color, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ret = wasm.spacebytimemachine_to_png(this.__wbg_ptr, ptr0, len0, ptr1, len1);
+        if (ret[3]) {
+            throw takeFromExternrefTable0(ret[2]);
+        }
+        var v3 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
         wasm.__wbindgen_free(ret[0], ret[1] * 1, 1);
-        return v1;
+        return v3;
     }
     /**
      * @returns {bigint}

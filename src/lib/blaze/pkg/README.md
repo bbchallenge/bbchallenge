@@ -3,20 +3,20 @@
 **A Turing machine interpreter and space-time visualizer, implemented in Rust and compiled to native & WebAssembly.**
 
 - [Run this program in your web browser](https://carlkcarlk.github.io/busy_beaver_blaze/).
-- Watch [an animation](https://youtu.be/IBcJ2vRHGAY) made with this program.
+- Watch [an animation](https://www.youtube.com/watch?v=qYi5_mNLppY) made with this program.
 
 ## Features
 
 - Run the champion [Busy Beaver](https://en.wikipedia.org/wiki/Busy_beaver) Turing machines for millions of steps in less than a second.
 - Simulate your own Turing machines.
 - Visualize space-time diagrams as the Turing machine runs.
-- Control speed, step count, and sampling vs. averaging:
+- Control speed, step count, and sampling vs. binning:
   - Millions of steps in less than a second.
   - A billion steps in about 5 seconds.
   - 50 billion steps in about 10 minutes.
 - Supports common Turing machine formats: "Symbol Major," "State Major," and ["Standard Format"](https://discuss.bbchallenge.org/t/standard-tm-text-format/60).
-- Optional **perfect averaging** for tape visualization. `Smooth` defaults to 0 for fast sampling. Higher values improve quality at the cost of speed—63 enables perfect averaging.
-- You can set settings via the URL hash fragment, for example, `#program=bb5&earlyStop=false&pixel_policy=3`. Include `run=true` to run the program immediately.
+- Optional **perfect binning** for tape visualization. By default, ever pixel in the image is the average of the (sometimes billions of) tape values that it represents.
+- You can set settings via the URL hash fragment, for example, `#program=bb5&earlyStop=false`. Include `run=true` to run the program immediately.
 
 ## Techniques
 
@@ -25,8 +25,12 @@
   - Initially records the full tape at each step.
   - If the tape or step count exceeds twice the image size, it halves the sampling rate.
   - Memory and time scale with image size, not step count or tape width.
-- Incrementing the smoothing level doubles both the amount of tape data averaged and the runtime. However, memory usage grows only linearly, assuming the number of steps is much larger than the tape width.
-- Tips on porting Rust to WASM: [Nine Rules for Running Rust in the Browser](https://medium.com/towards-data-science/nine-rules-for-running-rust-in-the-browser-8228353649d1) (*Towards Data Science*).
+- Even with pixel binning, memory use is a function
+of the image size, not of the Turing run.
+- Uses SIMD, even in WebAssembly, to speed up the pixel binning.
+- For movie creation, multithreads rendering.
+- Tips on porting Rust to WASM: [Nine Rules for Running Rust in the Browser](https://medium.com/towards-data-science/nine-rules-for-running-rust-in-the-browser-8228353649d1) in *Towards Data Science*.
+- Tips on SIMD in Rust: [Nine Rules for SIMD Acceleration of Your Rust Code](https://www.youtube.com/watch?v=IBcJ2vRHGAY) in *Towards Data Science*.
 
 ## Web App Screenshot
 
@@ -36,7 +40,7 @@ A space-time diagram of the best-known 6-state Busy Beaver after 10 billion step
 
 ## Video
 
-- [Turing Machine "BB6 Contender": 1 Billion+ Steps with Full Pixel Averaging (YouTube)](https://www.youtube.com/watch?v=jNOkv5o5cDQ)
+- [Turing Machine "BB6 Contender": 1 Trillion Steps with Exponential Acceleration (YouTube)](https://www.youtube.com/watch?v=IBcJ2vRHGAY)
 - To render a video, edit `examples/movie.rs` to set the output directory, font, etc., then run:
 
   ```bash

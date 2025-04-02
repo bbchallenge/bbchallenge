@@ -1,6 +1,7 @@
 <script lang="ts">
     import { tm_trace_to_image, tm_explore, tm_blaze, clearBlazeCache, stopBlazeWorker, isBlazeRunning, wasBlazeManuallyStoppped } from '$lib/tm';
     import { onMount, createEventDispatcher, onDestroy } from 'svelte';
+    import { getColorScheme } from '$lib/colorSchemes';
     
     // Create event dispatcher
     const dispatch = createEventDispatcher();
@@ -28,6 +29,9 @@
     
     // New quality parameter for binning control in Blaze mode
     export let quality: boolean = true;
+    
+    // New dark mode parameter for theme control in Blaze mode
+    export let darkMode: boolean = false;
     
     // Track if blaze is currently running
     let isRunning = false;
@@ -58,7 +62,16 @@
     let canvas: HTMLCanvasElement;
     
     const drawRect = (context: CanvasRenderingContext2D): void => {
-        context.fillStyle = 'black';
+        // Default and Explore modes should always use dark background
+        // Blaze mode should follow the darkMode setting
+        if (isBlazeMode(visualizationMode)) {
+            const colorScheme = getColorScheme(darkMode);
+            context.fillStyle = colorScheme.background;
+        } else {
+            // Default and Explore always use dark background
+            context.fillStyle = 'black';
+        }
+        
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.fill();
     };
@@ -175,6 +188,26 @@
         if (buttonStateTimer) clearInterval(buttonStateTimer);
     }
     
+    // Watch for dark mode changes and force a redraw
+    $: if (isBlazeMode(visualizationMode) && machine) {
+        // If we're in Blaze mode and darkMode changes, force a redraw
+        darkMode; // Add reactive dependency on darkMode
+        
+        // When darkMode changes, clear the Blaze cache to force a new render with the new colors
+        clearBlazeCache();
+        
+        // Only redraw if canvas exists
+        if (canvas) {
+            console.log("Dark mode changed, forcing redraw with new colors");
+            draw();
+        }
+    }
+    
+    // Update the class on the canvas element based on mode
+    $: canvasClass = isBlazeMode(visualizationMode) 
+        ? (darkMode ? "bg-black image-render-pixel" : "bg-white image-render-pixel")
+        : "bg-slate-800 image-render-pixel"; // Default and Explore always use dark slate
+    
     let drawCleanup: (() => void) | undefined;
     async function draw(): Promise<void> {
         if (drawCleanup) drawCleanup();
@@ -200,7 +233,7 @@
 			    break;
 			
 			case VisualizationMode.BLAZE:
-				// Pass stretch and quality parameters to tm_blaze
+				// Pass stretch, quality, and color scheme parameters to tm_blaze
 				try {
                     // Track running state before calling tm_blaze
                     isRunning = true;
@@ -209,7 +242,18 @@
                     // Update button immediately
                     updateBlazeButtonText();
                     
-                    await tm_blaze(context, machine, nbIter, stretch, quality).catch(error => {
+                    // Get color scheme based on dark mode setting
+                    const colorScheme = getColorScheme(darkMode);
+                    
+                    await tm_blaze(
+                        context, 
+                        machine, 
+                        nbIter, 
+                        stretch, 
+                        quality, 
+                        colorScheme.background, 
+                        colorScheme.foreground
+                    ).catch(error => {
                         console.error("Error in blaze visualization:", error);
                     });
                     
@@ -256,6 +300,7 @@
         showHeadMove;
         stretch; // Renamed from xStretch
         quality; // Add new dependency
+        darkMode; // Add new dark mode dependency (no actual effect yet)
         
         if (canvas) {
             draw();
@@ -264,5 +309,5 @@
 </script>
 
 <div class="relative mr-5">
-    <canvas class="bg-slate-800 image-render-pixel" bind:this={canvas} width="400" height="500" />
+    <canvas class={canvasClass} bind:this={canvas} width="400" height="500" />
 </div>
