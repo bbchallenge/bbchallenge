@@ -337,7 +337,7 @@ A decider is a program that outputs `true` if it is able to tell whether a given
 
 We expect that almost all machines of the seed database do not halt hence deciders are primarily focused on deciding that machines do not halt.
 
-To be trusted, a decider should be accompanied with a proof of correctness which certifies that the machines that it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines, see <a href="/contribute" rel="external">Contribute</a>.
+To be trusted, a decider should be accompanied by a proof of correctness that certifies that the machines it recognises do not halt. The decider's code should also be tested on a significant number of examples and counterexamples machines, see <a href="/contribute" rel="external">Contribute</a>.
 
 Deciders are closely related to the zoology of 5-state machines as we aim to decide each family of the zoo. For instance:
 
