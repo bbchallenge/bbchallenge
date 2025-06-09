@@ -34,7 +34,8 @@ Here find all the links shared in the BB5 talk at [TYPES 2025](https://msp-strat
 - [bbchallenge.org](https://bbchallenge.org)
 - [Coq-BB5](https://github.com/ccz181078/Coq-BB5)
 - [Antihydra](https://bbchallenge.org/antihydra) and [Antihydra wiki page](https://wiki.bbchallenge.org/wiki/Antihydra)
-- [Talk](https://www.youtube.com/watch?v=5X6YVEnbLZU&) given at Formalisation of Mathematics Seminar @ Cambridge
+- [Talk](https://www.youtube.com/watch?v=5X6YVEnbLZU&) and [slides](https://sakamoto.pl/~mei/bbslides/bbslides.html
+) given at Formalisation of Mathematics Seminar @ Cambridge with Maja Kądziołka (slides by Maja)
 - Quanta magazine BB5 [article](https://www.quantamagazine.org/amateur-mathematicians-find-fifth-busy-beaver-turing-machine-20240702) and [video](https://www.youtube.com/watch?v=rmx3FBPzDuk)
 - Paper:
     - [PDF](https://github.com/bbchallenge/bbchallenge-paper/blob/build-paper-pdf/bbchallenge-paper.pdf)
