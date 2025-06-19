@@ -33,6 +33,7 @@ Here find all the links shared in the BB5 talk at [TYPES 2025](https://msp-strat
 - First, [the slides](https://docs.google.com/presentation/d/1koofTIAOdk-DsKH6bnLi_jPeHG3-9vz2EcS_N5PsU-0/edit?usp=sharing)
 - [bbchallenge.org](https://bbchallenge.org)
 - [Coq-BB5](https://github.com/ccz181078/Coq-BB5)
+- [Coq-BB5 extracted outputs](https://docs.bbchallenge.org/CoqBB5_release_v1.0.0/)
 - [Antihydra](https://bbchallenge.org/antihydra) and [Antihydra wiki page](https://wiki.bbchallenge.org/wiki/Antihydra)
 - [Talk](https://www.youtube.com/watch?v=5X6YVEnbLZU&) and [slides](https://sakamoto.pl/~mei/bbslides/bbslides.html
 ) given at Formalisation of Mathematics Seminar @ Cambridge with Maja Kądziołka (slides by Maja)
