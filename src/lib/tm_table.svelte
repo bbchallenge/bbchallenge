@@ -273,6 +273,14 @@
 			>
 		</div>
 
+		<div class="text-xs mt-1">
+			<a
+				href="https://fiery.pages.dev/turing/{tmToMachineCode(machine)}"
+				target="_blank"
+				class="text-blue-400 hover:text-blue-300 cursor-pointer">View at https://fiery.pages.dev/turing/</a
+			>
+		</div>
+
 		{#if !varIsThereWikiEntry}
 			<div class="text-xs mt-1">
 				<a
