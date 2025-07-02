@@ -101,10 +101,10 @@
 
 	// Renamed from xStretch to stretch
 	let stretch = true;
-	
+
 	// New state for quality toggle in Blaze mode
 	let quality = true;
-	
+
 	// New state for light/dark mode toggle in Blaze mode
 	let darkMode = false;
 
@@ -141,7 +141,7 @@
 
 		// Create URL object to properly handle and preserve query parameters
 		const url = new URL(window.location.origin + '/' + secondPrefix);
-		
+
 		// Add simulation parameters
 		if (nbIter !== nbIterDefault) {
 			url.searchParams.set('s', nbIter.toString());
@@ -152,12 +152,12 @@
 		if (origin_x !== origin_xDefault) {
 			url.searchParams.set('ox', origin_x.toString());
 		}
-		
-			// For local navigation, just return the pathname and search
+
+		// For local navigation, just return the pathname and search
 		if (!forCopy) {
 			return url.pathname + url.search;
 		}
-		
+
 		// For copying, return the full URL
 		return url.href;
 	}
@@ -206,7 +206,7 @@
 			machineID = null;
 			machine = machineCodeToTM(machine_code);
 			machineCode = machine_code;
-			
+
 			window.history.pushState({}, '', getSimulationLink());
 		}
 	}
@@ -240,7 +240,7 @@
 					console.log('Decider:', machineDecider);
 				}
 			}
-			
+
 			window.history.pushState({}, '', getSimulationLink());
 
 			console.log(machine, machineID);
@@ -262,7 +262,7 @@
 			machineCodeError = null;
 			machineCode = machine_code;
 			machine = machineCodeToTM(machine_code);
-			
+
 			window.history.pushState({}, '', getSimulationLink());
 		} catch (error) {
 			machineCodeError = error;
@@ -332,11 +332,14 @@
 
 	// Reactive statement to detect transition from Blaze to non-Blaze mode.
 	$: {
-		if (previousVisualizationMode === VisualizationMode.BLAZE && visualizationMode !== VisualizationMode.BLAZE) {
+		if (
+			previousVisualizationMode === VisualizationMode.BLAZE &&
+			visualizationMode !== VisualizationMode.BLAZE
+		) {
 			if (nbIter > 10000) {
 				nbIter = 10000n;
 				window.history.pushState({}, '', getSimulationLink());
-				console.log("Switched from Blaze: nbIter limited to 10,000");
+				console.log('Switched from Blaze: nbIter limited to 10,000');
 			}
 		}
 		// Update previousVisualizationMode *after* the check
@@ -351,7 +354,7 @@
 	// New reactive statement: auto-switch from Blaze to Default mode for machines with more than 2 symbols
 	$: if (machine !== null && visualizationMode === VisualizationMode.BLAZE && machine.symbols > 2) {
 		visualizationMode = VisualizationMode.DEFAULT;
-		console.log("Auto-switched from Blaze to Default mode: machine has more than 2 symbols");
+		console.log('Auto-switched from Blaze to Default mode: machine has more than 2 symbols');
 	}
 
 	// Add a new variable to hold the formatted steps value for display
@@ -409,11 +412,13 @@
 					{#if curr_challenge == Challenge.BB5}
 						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
 						<br />
-						We have reached <a
+						We have reached
+						<a
 							href="https://bbchallenge.org/story#goal"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							rel="external">our goal</a
-						> of proving "<a
+						>
+						of proving "<a
 							href="https://wiki.bbchallenge.org/wiki/BB(5)"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
 							rel="external">BB(5)</a
@@ -443,7 +448,7 @@
 							</li>
 							<li>
 								We are maintaining busy beaver knowledge through our <a
-									href="https://discord.gg/3uqtPJA9Uv"
+									href="https://discord.gg/wuZhtTvYU3"
 									class="text-blue-400 hover:text-blue-300 cursor-pointer"
 									rel="external">Discord</a
 								>,
@@ -476,7 +481,7 @@
 				<div class="flex items-center space-x-1">
 					<div>
 						<a
-							href="https://discord.gg/3uqtPJA9Uv"
+							href="https://discord.gg/wuZhtTvYU3"
 							rel="external"
 							style="font-size:0.6rem"
 							class="text-blue-400 hover:text-blue-300 cursor-pointer"
@@ -510,7 +515,7 @@
 			>
 				<div class="flex flex-col items-start">
 					<MachineCanvas
-						visualizationMode={visualizationMode}
+						{visualizationMode}
 						{machine}
 						{initial_tape}
 						{tapeWidth}
@@ -518,8 +523,8 @@
 						{origin_x}
 						{showHeadMove}
 						machineName={machineCode || machineID}
-						stretch={stretch}
-						quality={quality}
+						{stretch}
+						{quality}
 						{darkMode}
 					/>
 					<div class="text-xs pt-0 flex space-x-1 mt-2">
@@ -558,21 +563,23 @@
 										steps
 										<div class="flex items-center">
 											<input
-												class={isBlazeMode(visualizationMode) ? 'w-[150px] text-black' : 'w-[70px] text-black'}
+												class={isBlazeMode(visualizationMode)
+													? 'w-[150px] text-black'
+													: 'w-[70px] text-black'}
 												type="text"
 												value={formattedNbIter}
 												on:input={(e) => {
 													// Format the input value with commas
 													const plainValue = parseFormattedStepCount(e.currentTarget.value);
 													if (!isNaN(Number(plainValue))) {
-														nbIter = BigInt(plainValue || "0"); 
+														nbIter = BigInt(plainValue || '0');
 														formattedNbIter = formatStepCountWithCommas(plainValue);
 														e.currentTarget.value = formattedNbIter;
 													}
 												}}
 												on:change={(e) => {
 													const plainValue = parseFormattedStepCount(e.currentTarget.value);
-													nbIter = BigInt(plainValue || "0");
+													nbIter = BigInt(plainValue || '0');
 													const url = new URL(window.location.href);
 													window.history.pushState({}, '', getSimulationLink());
 													// Update the displayed value with proper formatting
@@ -580,72 +587,71 @@
 													e.currentTarget.value = formattedNbIter;
 												}}
 												on:blur={(e) => {
-													if (!isBlazeMode(visualizationMode))
-														{
-															if (isNaN(Number(nbIter)) || nbIter <= 0n) nbIter = 1n;
-															if (nbIter > 99999n) nbIter = 99999n;
-														}
+													if (!isBlazeMode(visualizationMode)) {
+														if (isNaN(Number(nbIter)) || nbIter <= 0n) nbIter = 1n;
+														if (nbIter > 99999n) nbIter = 99999n;
+													}
 													formattedNbIter = formatStepCountWithCommas(nbIter.toString());
 													e.currentTarget.value = formattedNbIter;
 												}}
 											/>
 											{#if isBlazeMode(visualizationMode)}
-												<button 
+												<button
 													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded"
 													on:click={() => {
-														nbIter =  nbIter * 10n;
+														nbIter = nbIter * 10n;
 														formattedNbIter = formatStepCountWithCommas(nbIter.toString());
 														window.history.pushState({}, '', getSimulationLink());
 													}}
 												>
 													▲ ×10
 												</button>
-												<button 
+												<button
 													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded"
 													on:click={() => {
-														nbIter = (nbIter > 10n) ? nbIter / 10n : 1n;
+														nbIter = nbIter > 10n ? nbIter / 10n : 1n;
 														formattedNbIter = formatStepCountWithCommas(nbIter.toString());
 														window.history.pushState({}, '', getSimulationLink());
 													}}
 												>
 													▼ ÷10
 												</button>
-												<button 
+												<button
 													class="ml-1 text-xs px-1 py-0.5 rounded"
 													class:bg-blue-600={stretch}
 													class:text-white={stretch}
 													class:border={!stretch}
 													class:bg-gray-200={!stretch}
 													class:text-gray-800={!stretch}
-													on:click={() => stretch = !stretch}
+													on:click={() => (stretch = !stretch)}
 												>
 													stretch
 												</button>
-												<button 
+												<button
 													class="ml-1 text-xs px-1 py-0.5 rounded"
 													class:bg-blue-600={quality}
 													class:text-white={quality}
 													class:border={!quality}
 													class:bg-gray-200={!quality}
 													class:text-gray-800={!quality}
-													on:click={() => quality = !quality}
+													on:click={() => (quality = !quality)}
 													data-param="quality"
 												>
 													{quality ? 'quality' : 'speed'}
 												</button>
-												<button 
+												<button
 													class="ml-1 text-xs px-1 py-0.5 rounded border"
 													class:bg-white={!darkMode}
 													class:bg-black={darkMode}
 													class:text-orange-500={!darkMode}
 													class:text-white={darkMode}
-													on:click={() => darkMode = !darkMode}
+													on:click={() => (darkMode = !darkMode)}
 													data-param="theme"
 												>
 													{darkMode ? 'dark' : 'light'}
 												</button>
 												<!-- Add the re-run button with active styling instead of opacity-50 -->
-												<button 
+												<button
 													class="ml-1 bg-blue-600 text-white text-xs px-1 py-0.5 rounded hover:bg-blue-500 active:bg-blue-700"
 													id="tm-blaze-rerun"
 													data-param="rerun"
@@ -699,30 +705,51 @@
 								<div>Show head movement (green for L, red for R)</div>
 							</label>
 						{/if}
-						<div class="text-sm mt-2 flex items-center"> 
+						<div class="text-sm mt-2 flex items-center">
 							<span class="mr-2">Visualization:</span>
 							<div class="flex items-center border rounded-md">
-								<label class="px-2 py-1 cursor-pointer" 
+								<label
+									class="px-2 py-1 cursor-pointer"
 									class:bg-blue-600={isDefaultMode(visualizationMode)}
-									class:text-white={isDefaultMode(visualizationMode)}>
-									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.DEFAULT} />
+									class:text-white={isDefaultMode(visualizationMode)}
+								>
+									<input
+										type="radio"
+										class="hidden"
+										bind:group={visualizationMode}
+										value={VisualizationMode.DEFAULT}
+									/>
 									Default
 								</label>
 								<div class="h-4 border-l border-gray-300"></div>
-								<label class="px-2 py-1 cursor-pointer"
+								<label
+									class="px-2 py-1 cursor-pointer"
 									class:bg-blue-600={isExploreMode(visualizationMode)}
-									class:text-white={isExploreMode(visualizationMode)}>
-									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.EXPLORE} />
+									class:text-white={isExploreMode(visualizationMode)}
+								>
+									<input
+										type="radio"
+										class="hidden"
+										bind:group={visualizationMode}
+										value={VisualizationMode.EXPLORE}
+									/>
 									Explore
 								</label>
 								<div class="h-4 border-l border-gray-300"></div>
-								<label class="px-2 py-1 cursor-pointer"
+								<label
+									class="px-2 py-1 cursor-pointer"
 									class:bg-blue-600={isBlazeMode(visualizationMode)}
 									class:text-white={isBlazeMode(visualizationMode)}
 									class:opacity-50={!showBlazeOption(machine)}
-									class:cursor-not-allowed={!showBlazeOption(machine)}>
-									<input type="radio" class="hidden" bind:group={visualizationMode} value={VisualizationMode.BLAZE}
-										disabled={!showBlazeOption(machine)} />
+									class:cursor-not-allowed={!showBlazeOption(machine)}
+								>
+									<input
+										type="radio"
+										class="hidden"
+										bind:group={visualizationMode}
+										value={VisualizationMode.BLAZE}
+										disabled={!showBlazeOption(machine)}
+									/>
 									Blaze
 								</label>
 							</div>
@@ -779,7 +806,8 @@
 									on:click={async () => {
 										await getRandomMachine();
 										//window.history.replaceState({}, '', getSimulationLink());
-									}}>Go (R)andom</button>
+									}}>Go (R)andom</button
+								>
 								{#if curr_challenge == Challenge.BB5}
 									<div
 										class="text-xs text-right text-blue-400 hover:text-blue-300 cursor-pointer"
@@ -815,8 +843,8 @@
 									/>
 									<div>
 										only undecided machine {#if metrics !== null}({numberWithCommas(
-											metrics['total_undecided']
-										)}){/if}
+												metrics['total_undecided']
+											)}){/if}
 									</div>
 								</label>
 								<!-- <label
@@ -838,11 +866,12 @@
 						{/if}
 						{#if curr_challenge == Challenge.BB5}
 							<div class="ml-3 mt-2 text-sm">
-								<div>From id in the <a
-									href="https://bbchallenge.org/method#seed-database"
-									class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
-									rel="external">seed database</a
-								>:
+								<div>
+									From id in the <a
+										href="https://bbchallenge.org/method#seed-database"
+										class="text-blue-400 hover:text-blue-300 cursor-pointer underline"
+										rel="external">seed database</a
+									>:
 								</div>
 								{#if typedMachineError}
 									<div class="text-red-400 text-xs break-words w-[300px]">{typedMachineError}</div>
@@ -864,10 +893,11 @@
 							</div>
 						{/if}
 						<div class="ml-3 mt-1 text-sm">
-							<div>From <a
-								href="https://discuss.bbchallenge.org/t/standard-tm-text-format/60"
-								class="text-blue-400 hover:text-blue-300 cursor-pointer">standard format</a
-							>:
+							<div>
+								From <a
+									href="https://discuss.bbchallenge.org/t/standard-tm-text-format/60"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">standard format</a
+								>:
 							</div>
 							{#if machineCodeError}
 								<div class="text-red-400 text-xs break-words w-[300px]">{machineCodeError}</div>
@@ -884,7 +914,7 @@
 									on:click={() => {
 										loadMachineFromMachineCode(typedMachineCode);
 									}}
-								>Go
+									>Go
 								</button>
 							</div>
 						</div>

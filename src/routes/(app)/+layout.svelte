@@ -117,7 +117,7 @@
 					>
 				</li>
 				<li>
-					<a href="https://discord.gg/3uqtPJA9Uv" class="cursor-pointer"
+					<a href="https://discord.gg/wuZhtTvYU3" class="cursor-pointer"
 						><img class="w-[23px] lg:w-[26px]" src="/Discord-Logo-White.png" alt="Github logo" /></a
 					>
 				</li>
