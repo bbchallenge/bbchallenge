@@ -2,7 +2,6 @@
 	import { numberWithCommas } from '$lib/utils';
 	import Katex from './Katex.svelte';
 	import HighlightedMachine from './highlighted_machine.svelte';
-	import { BB6_Kropitz_champion_2022 } from './machine_repertoire';
 	import { TMDecisionStatus } from './tm';
 
 	// Cannot inline { .. } because of svelte
