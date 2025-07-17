@@ -6,7 +6,7 @@
 		BB5_23M_steps_halter,
 		BB5_2M_steps_halter,
 		BB5_champion,
-		BB6_Kropitz_champion_2022,
+		BB6_mxdys_champion_2025,
 		BB7_Wythagoras_champion,
 		Skelet_machines,
 		Marxen_and_Buntrock_chaotic_id,
@@ -19,7 +19,7 @@
 
 	// Cannot inline { .. } because of svelte
 	let ApproxBB72 = '\\simeq 10\\uparrow\\uparrow 5';
-	let ApproxBB6 = '\\simeq 10\\uparrow\\uparrow 15';
+	let ApproxBB6 = '> 2\\uparrow\\uparrow\\uparrow 5';
 
 	import { createEventDispatcher } from 'svelte';
 
@@ -128,11 +128,11 @@
 		>
 		<HighlightedMachine
 			on:machine_code
-			machine_code={BB6_Kropitz_champion_2022}
+			machine_code={BB6_mxdys_champion_2025}
 			machine_status={TMDecisionStatus.DECIDED_HALT}
-			ref_link="https://www.sligocki.com/2022/06/21/bb-6-2-t15.html"
-			ref_authors="Kropitz"
-			ref_year="2022">&middot;&nbsp;BB(6): <Katex math={ApproxBB6} />-halter</HighlightedMachine
+			ref_link="https://wiki.bbchallenge.org/wiki/1RB1RA_1RC1RZ_1LD0RF_1RA0LE_0LD1RC_1RA0RE"
+			ref_authors="mxdys"
+			ref_year="2025">&middot;&nbsp;BB(6): <Katex math={ApproxBB6} />-halter</HighlightedMachine
 		>
 		<!-- <HighlightedMachine
 				on:machine_code

@@ -1,6 +1,8 @@
 export const BB5_champion = '1RB1LC_1RC1RB_1RD0LE_1LA1LD_1RZ0LA'; // 47,176,870 steps
 export const BB6_Kropitz_champion_2010 = '1RB1LE_1RC1RF_1LD0RB_1RE0LC_1LA0RD_1RZ1RC';
 export const BB6_Kropitz_champion_2022 = '1RB0LD_1RC0RF_1LC1LA_0LE1RZ_1LF0RB_0RC0RE';
+export const BB6_mxdys_champion_2025_old = '1RB1LC_1LA1RE_0RD0LA_1RZ1LB_1LD0RF_0RD1RB';
+export const BB6_mxdys_champion_2025 = '1RB1RA_1RC1RZ_1LD0RF_1RA0LE_0LD1RC_1RA0RE';
 
 export const BB7_Wythagoras_champion = '1LE1RZ_1RC1RF_1LD0RB_1RE0LC_1LG0RD_1RZ1RC_1RB1LE';
 
