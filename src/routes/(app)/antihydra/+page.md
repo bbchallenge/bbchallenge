@@ -66,6 +66,7 @@ mathematics:
 and programming:
 
 ```python
+# Does this Python function halt?
 def antihydra():
     a = 8
     b = 0
@@ -76,6 +77,7 @@ def antihydra():
             b -= 1
         a += a//2
 ```
+(with numbers not overflowing, and // denoting integer division, which in this case is equivalent to one bit shift to the right >> 1)
 
 but even *attempts* at a proof have been elusive.
 
