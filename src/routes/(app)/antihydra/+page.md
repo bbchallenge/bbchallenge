@@ -52,7 +52,7 @@ The highest number of steps for 5-state machines was [recently proven to be 47,1
 
 But researchers have already encountered a difficult problem: a 6-state machine that exhibits behavior of a kind no one has ever managed to prove to halt or not. Its behavior can be described very simply in the language of English:
 
-> Starting with the number 8, and repeatedly adding half of the number to itself, rounding down (8->12->18->27->40->60->90->135->202...), will there eventually be a point where you have seen (strictly) more than twice as many odd numbers as even numbers (if so, halt)? 
+> Starting with the number 8, and repeatedly adding half of the number to itself, rounding down to get a whole number (8->12->18->27->40->60->90->135->202...), will there eventually be a point where you have seen (strictly) more than twice as many odd numbers as even numbers (if so, halt)? 
 
 mathematics:
 
