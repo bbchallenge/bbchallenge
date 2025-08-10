@@ -32,7 +32,11 @@ onMount(() => { // TODO: this shouldn't be necessary
 The strange nature of this problem has earned it the name
 </div>
 <div class="flex justify-center" style="font-size: 200%;">
-<a href="https://wiki.bbchallenge.org/wiki/Antihydra">Antihydra</a>
+Antihydra
+</div>
+<div>
+<div>Machine: <a href="https://bbchallenge.org/1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA">1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA</a></div>
+<div>Wiki page: <a href="https://wiki.bbchallenge.org/wiki/Antihydra">https://wiki.bbchallenge.org/wiki/Antihydra</a></div>
 </div>
 <div class="flex justify-center">
 <a href="https://wiki.bbchallenge.org/wiki/File:Antihydra-depiction.png"><img
@@ -50,7 +54,7 @@ Obtaining each value requires proving the behavior of all programs with that num
 
 The highest number of steps for 5-state machines was [recently proven to be 47,176,870](https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237), and with this all values of BB(n) up to BB(5) are [now known](https://www.quantamagazine.org/amateur-mathematicians-find-fifth-busy-beaver-turing-machine-20240702/). Now, work has begun to find the longest running (but halting) Turing Machine program with 6 states - the value of BB(6).
 
-But researchers have already encountered a difficult problem: a 6-state machine that exhibits behavior of a kind no one has ever managed to prove to halt or not. Its behavior can be described very simply in the language of English:
+But researchers have already encountered a difficult problem: a 6-state machine that exhibits behavior of a kind no one has ever managed to prove to halt or not. Its behavior is simple:
 
 > Starting with the number 8, and repeatedly adding half of the number to itself, rounding down to get a whole number (8->12->18->27->40->60->90->135->202...), will there eventually be a point where you have seen (strictly) more than twice as many odd numbers as even numbers (if so, halt)? 
 
@@ -81,7 +85,9 @@ def antihydra():
 
 but even *attempts* at a proof have been elusive.
 
-By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of BB(6). So it is necessary to understand its behavior in order to conclusively prove the value of BB(6). In a way it is the "first"/"shortest" Turing machine halting problem that humanity doesn't yet know how to solve.
+By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of BB(6). So it is necessary to understand its behavior in order to conclusively prove the value of BB(6). 
+
+Antihydra is the *smallest* open problem in mathematics, on the Busy Beaver scale.
 
 It's [Collatz-likeness](https://wiki.bbchallenge.org/wiki/Collatz-like) seems to indicate that...
 
