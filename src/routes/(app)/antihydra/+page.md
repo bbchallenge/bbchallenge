@@ -52,7 +52,7 @@ The highest number of steps for 5-state machines was [recently proven to be 47,1
 
 But researchers have already encountered a difficult problem: a 6-state machine that exhibits behavior of a kind no one has ever managed to prove to halt or not. Its behavior can be described very simply in the language of English:
 
-> Starting with the number 8, and repeatedly adding half of the number to itself, rounding down (8->12->18->27->40->60->90->135->202...), will there eventually be a point where you have seen (strictly) more than twice as many odd numbers as even numbers (if so, halt)? 
+> Starting with the number 8, and repeatedly adding half of the number to itself, rounding down to get a whole number (8->12->18->27->40->60->90->135->202...), will there eventually be a point where you have seen (strictly) more than twice as many odd numbers as even numbers (if so, halt)? 
 
 mathematics:
 
@@ -66,6 +66,7 @@ mathematics:
 and programming:
 
 ```python
+# Does this Python function halt?
 def antihydra():
     a = 8
     b = 0
@@ -76,10 +77,11 @@ def antihydra():
             b -= 1
         a += a//2
 ```
+(with numbers not overflowing, and // denoting integer division, which in this case is equivalent to one bit shift to the right >> 1)
 
 but even *attempts* at a proof have been elusive.
 
-By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of BB(6). So it is necessary to understand its behavior in order to conclusively prove the value of BB(6). In a way it is the "first"/"shortest" problem that humanity doesn't yet know how to solve.
+By [probabilistic argument](https://wiki.bbchallenge.org/wiki/Antihydra#Simulation) it seems [likely](https://wiki.bbchallenge.org/wiki/Probvious) that it will never halt. But nonetheless it might, and if so, might even be the longest running program and thus determine the value of BB(6). So it is necessary to understand its behavior in order to conclusively prove the value of BB(6). In a way it is the "first"/"shortest" Turing machine halting problem that humanity doesn't yet know how to solve.
 
 It's [Collatz-likeness](https://wiki.bbchallenge.org/wiki/Collatz-like) seems to indicate that...
 
