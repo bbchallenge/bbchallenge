@@ -173,6 +173,13 @@ function takeFromExternrefTable0(idx) {
     return value;
 }
 
+function passArray8ToWasm0(arg, malloc) {
+    const ptr = malloc(arg.length * 1, 1) >>> 0;
+    getUint8ArrayMemory0().set(arg, ptr / 1);
+    WASM_VECTOR_LEN = arg.length;
+    return ptr;
+}
+
 function getArrayU8FromWasm0(ptr, len) {
     ptr = ptr >>> 0;
     return getUint8ArrayMemory0().subarray(ptr / 1, ptr / 1 + len);
@@ -219,8 +226,8 @@ export class Machine {
     /**
      * @returns {number}
      */
-    count_ones() {
-        const ret = wasm.machine_count_ones(this.__wbg_ptr);
+    count_nonblanks() {
+        const ret = wasm.machine_count_nonblanks(this.__wbg_ptr);
         return ret >>> 0;
     }
     /**
@@ -309,22 +316,19 @@ export class SpaceByTimeMachine {
         return ret !== 0;
     }
     /**
-     * @param {string} zero_color
-     * @param {string} one_color
+     * @param {Uint8Array} colors
      * @returns {Uint8Array}
      */
-    to_png(zero_color, one_color) {
-        const ptr0 = passStringToWasm0(zero_color, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+    to_png(colors) {
+        const ptr0 = passArray8ToWasm0(colors, wasm.__wbindgen_malloc);
         const len0 = WASM_VECTOR_LEN;
-        const ptr1 = passStringToWasm0(one_color, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
-        const len1 = WASM_VECTOR_LEN;
-        const ret = wasm.spacebytimemachine_to_png(this.__wbg_ptr, ptr0, len0, ptr1, len1);
+        const ret = wasm.spacebytimemachine_to_png(this.__wbg_ptr, ptr0, len0);
         if (ret[3]) {
             throw takeFromExternrefTable0(ret[2]);
         }
-        var v3 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
+        var v2 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
         wasm.__wbindgen_free(ret[0], ret[1] * 1, 1);
-        return v3;
+        return v2;
     }
     /**
      * @returns {bigint}
@@ -336,8 +340,8 @@ export class SpaceByTimeMachine {
     /**
      * @returns {number}
      */
-    count_ones() {
-        const ret = wasm.spacebytimemachine_count_ones(this.__wbg_ptr);
+    count_nonblanks() {
+        const ret = wasm.spacebytimemachine_count_nonblanks(this.__wbg_ptr);
         return ret >>> 0;
     }
     /**

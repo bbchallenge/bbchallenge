@@ -126,6 +126,26 @@ export function APIDecisionStatusToTMDecisionStatus(status) {
 	return machineStatus;
 }
 
+// Palette for Blaze rendering (WASM expects a flat Uint8Array of RGB triplets)
+function defaultPaletteBytes(isDark: boolean): Uint8Array {
+	if (isDark) {
+		return new Uint8Array([
+			255, 255, 255, // white (symbol 0)
+			0, 0, 0,       // black (symbol 1)
+			128, 128, 128, // 50% gray (symbol 2)
+			64, 64, 64,    // 25% gray (symbol 3)
+			192, 192, 192  // 75% gray (symbol 4)
+		]);
+	}
+	return new Uint8Array([
+		255, 255, 255, // white (symbol 0)
+		255, 165, 0,   // orange (symbol 1)
+		255, 255, 0,   // yellow (symbol 2)
+		255, 0, 255,   // magenta (symbol 3)
+		0, 255, 255    // cyan (symbol 4)
+	]);
+}
+
 const colorList = [
 	[255, 0, 0],
 	[255, 128, 0],
@@ -393,9 +413,11 @@ export async function tm_blaze(
     stretch = true,
     quality = true,
     backgroundColor: string = "white",
-    foregroundColor: string = "orange",
+	_foregroundColor: string = "orange",
     statusElement?: HTMLElement // Optional parameter for the status element
 ) {
+	// Reference unused parameter to satisfy noUnusedParameters rule without changing API
+	void _foregroundColor;
     // Get current machine code
     const machineCode = tmToMachineCode(machine);
     
@@ -485,8 +507,8 @@ export async function tm_blaze(
             }
         }
 
-        // Initial status update
-        statusElement.innerHTML = '<em>Time: 0.00s • Steps: 0 • Ones: 0 • Running</em>';
+	// Initial status update
+	statusElement.innerHTML = '<em>Time: 0.00s • Steps: 0 • Nonzeros: 0 • Running</em>';
         statusElement.style.display = 'block';
         
         // Remove the code that adds the re-run button
@@ -531,10 +553,10 @@ export async function tm_blaze(
                             machineState = event.data.halted ? 'Halted' : event.data.intermediate ? 'Running' : 'Not Halted';
                         }
                         
-                        // Create status text with commas in Ones count
-                        const onesCount = event.data.onesCount || 0;
-                        const formattedOnesCount = formatWithCommas(onesCount);
-                        const statusText = `Time: ${elapsedTime.toFixed(2)}s • Steps: ${formattedSteps} • Ones: ${formattedOnesCount} • ${machineState}`;
+						// Create status text with commas in Nonzero count
+						const nonblankCount = event.data.nonblankCount || 0;
+						const formattedNonblankCount = formatWithCommas(nonblankCount);
+						const statusText = `Time: ${elapsedTime.toFixed(2)}s • Steps: ${formattedSteps} • Nonzeros: ${formattedNonblankCount} • ${machineState}`;
                         
                         // Update the status element
                         statusElement.innerHTML = `<em>${statusText}</em>`;
@@ -582,15 +604,18 @@ export async function tm_blaze(
             };
         });
 
-        worker.postMessage({
-            machineCode,
-            canvasWidth: ctx.canvas.width,
-            canvasHeight: ctx.canvas.height,
-            binning,
-            stepCount: step_count,
-            backgroundColor,
-            foregroundColor
-        });
+		// Build color palette from provided dark/light context
+		const isDark = (backgroundColor || '').toLowerCase() === 'black';
+		const palette = defaultPaletteBytes(isDark);
+
+		worker.postMessage({
+			machineCode,
+			canvasWidth: ctx.canvas.width,
+			canvasHeight: ctx.canvas.height,
+			binning,
+			stepCount: step_count,
+			colors: palette
+		});
 
         // Wait for the worker to finish
         await promise;
