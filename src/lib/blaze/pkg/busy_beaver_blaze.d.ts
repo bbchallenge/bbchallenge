@@ -4,7 +4,7 @@ export class Machine {
   free(): void;
   constructor(program: string);
   step(): boolean;
-  count_ones(): number;
+  count_nonblanks(): number;
   is_halted(): boolean;
   count(early_stop_is_some: boolean, early_stop_number: bigint): bigint;
   state(): number;
@@ -15,9 +15,9 @@ export class SpaceByTimeMachine {
   constructor(program: string, goal_x: number, goal_y: number, binning: boolean, skip: bigint);
   nth(n: bigint): boolean;
   step_for_secs(seconds: number, early_stop: bigint | null | undefined, loops_per_time_check: bigint): boolean;
-  to_png(zero_color: string, one_color: string): Uint8Array;
+  to_png(colors: Uint8Array): Uint8Array;
   step_count(): bigint;
-  count_ones(): number;
+  count_nonblanks(): number;
   is_halted(): boolean;
 }
 
@@ -29,14 +29,14 @@ export interface InitOutput {
   readonly spacebytimemachine_from_str: (a: number, b: number, c: number, d: number, e: number, f: bigint) => [number, number, number];
   readonly spacebytimemachine_nth: (a: number, b: bigint) => number;
   readonly spacebytimemachine_step_for_secs: (a: number, b: number, c: number, d: bigint, e: bigint) => number;
-  readonly spacebytimemachine_to_png: (a: number, b: number, c: number, d: number, e: number) => [number, number, number, number];
+  readonly spacebytimemachine_to_png: (a: number, b: number, c: number) => [number, number, number, number];
   readonly spacebytimemachine_step_count: (a: number) => bigint;
-  readonly spacebytimemachine_count_ones: (a: number) => number;
+  readonly spacebytimemachine_count_nonblanks: (a: number) => number;
   readonly spacebytimemachine_is_halted: (a: number) => number;
   readonly __wbg_machine_free: (a: number, b: number) => void;
   readonly machine_from_string: (a: number, b: number) => [number, number, number];
   readonly machine_step: (a: number) => number;
-  readonly machine_count_ones: (a: number) => number;
+  readonly machine_count_nonblanks: (a: number) => number;
   readonly machine_is_halted: (a: number) => number;
   readonly machine_count: (a: number, b: number, c: bigint) => bigint;
   readonly machine_state: (a: number) => number;
