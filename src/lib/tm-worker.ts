@@ -1,4 +1,3 @@
-/// <reference lib="webworker" />
 import init, { SpaceByTimeMachine } from './blaze/pkg/busy_beaver_blaze';
 
 interface WorkerMessage {
@@ -7,7 +6,8 @@ interface WorkerMessage {
 	canvasHeight: number;
 	binning: boolean;
 	stepCount: number;
-    colors: Uint8Array; // Color palette as flat [r,g,b,...]
+    backgroundColor: string;
+    foregroundColor: string;
 }
 
 interface WorkerResponse {
@@ -16,12 +16,12 @@ interface WorkerResponse {
     pngData?: Uint8Array;     // Optional PNG data (only for 'result')
     message?: string;         // Optional error message (only for 'error')
     stepsCompleted?: bigint;  // Number of steps completed
-    nonblankCount?: number;   // Number of non-zero symbols on the tape
+    onesCount?: number;       // Number of ones on the tape
     halted?: boolean;         // Whether the machine has halted
 }
 
 self.onmessage = async (event: MessageEvent<WorkerMessage>) => {
-	const { machineCode, canvasWidth, canvasHeight, binning, stepCount, colors } = event.data;
+	const { machineCode, canvasWidth, canvasHeight, binning, stepCount, backgroundColor, foregroundColor } = event.data;
 	const run_for_seconds = 0.1;
 
 	try {
@@ -50,23 +50,23 @@ self.onmessage = async (event: MessageEvent<WorkerMessage>) => {
             const response: WorkerResponse = {
                 type: 'result',
                 intermediate: stillRunning, // If stillRunning is false, this is the final result
-                pngData: spaceTimeMachine.to_png(colors),
+                pngData: spaceTimeMachine.to_png(backgroundColor, foregroundColor),
                 stepsCompleted: spaceTimeMachine.step_count(),
-                nonblankCount: spaceTimeMachine.count_nonblanks(),
+                onesCount: spaceTimeMachine.count_ones(),
                 halted: spaceTimeMachine.is_halted()
             };
-			self.postMessage(response, [response.pngData!.buffer]);
+            self.postMessage(response, [response.pngData!.buffer]);
             
             // If we're done, break out of the loop
             if (!stillRunning) break;
         }
 
-	} catch (error: unknown) {
+	} catch (error: any) {
 		// Send any errors back to the main thread
 		const response: WorkerResponse = {
 			type: 'error',
 			intermediate: false,
-			message: (error instanceof Error) ? error.message : String(error)
+			message: error.message
 		};
 		self.postMessage(response);
 	}
