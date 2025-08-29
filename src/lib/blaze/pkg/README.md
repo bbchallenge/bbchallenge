@@ -1,12 +1,18 @@
 # Busy Beaver Blaze
 
-**A Turing machine interpreter and space-time visualizer, implemented in Rust and compiled to native & WebAssembly.**
+**A Turing machine interpreter (in Python and Rust) and space-time visualizer (in Rust compiled to native & WebAssembly).**
 
-- [Run this program in your web browser](https://carlkcarlk.github.io/busy_beaver_blaze/).
+- [Run the visualizer in your web browser](https://carlkcarlk.github.io/busy_beaver_blaze/).
 - Watch [an animation](https://www.youtube.com/watch?v=qYi5_mNLppY) made with this program.
+
+## Articles
+
+- Python: [How to Optimize your Python Program for Slowness: Write a Short Program That Finishes After the Universe Dies](https://towardsdatascience.com/how-to-optimize-your-python-program-for-slowness/) in *Towards Data Science*.
+- Rust: [How to Optimize your Rust Program for Slowness: Write a Short Program That Finishes After the Universe Dies](https://medium.com/@carlmkadie/how-to-optimize-your-rust-program-for-slowness-eb2c1a64d184) on *Medium*.
 
 ## Features
 
+- Python notebooks for [Turing machines](notebooks/turing_machines.ipynb) and implementing [fast-growing functions](notebooks/tetration.ipynb).
 - Run the champion [Busy Beaver](https://en.wikipedia.org/wiki/Busy_beaver) Turing machines for millions of steps in less than a second.
 - Simulate your own Turing machines.
 - Visualize space-time diagrams as the Turing machine runs.

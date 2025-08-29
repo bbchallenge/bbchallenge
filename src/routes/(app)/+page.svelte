@@ -53,7 +53,8 @@
 	}
 
 	function showBlazeOption(machine: any) {
-		return machine !== null && machine.symbols === 2;
+		// Blaze now supports machines with any number of symbols
+		return machine !== null;
 	}
 
 	function challenge_to_state_string(challenge: Challenge) {
@@ -351,11 +352,7 @@
 		showSimulationParams = true;
 	}
 
-	// New reactive statement: auto-switch from Blaze to Default mode for machines with more than 2 symbols
-	$: if (machine !== null && visualizationMode === VisualizationMode.BLAZE && machine.symbols > 2) {
-		visualizationMode = VisualizationMode.DEFAULT;
-		console.log('Auto-switched from Blaze to Default mode: machine has more than 2 symbols');
-	}
+	// Blaze works for any symbol count now; no auto-switching needed.
 
 	// Add a new variable to hold the formatted steps value for display
 	let formattedNbIter = '';
