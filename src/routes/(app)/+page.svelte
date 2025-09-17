@@ -407,7 +407,7 @@
 			<div class="flex flex-col items-start">
 				<div>
 					{#if curr_challenge == Challenge.BB5}
-						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
+						There remain <strong>0</strong> machines with 5 states to decide!! 🥳
 						<br />
 						We have reached
 						<a
