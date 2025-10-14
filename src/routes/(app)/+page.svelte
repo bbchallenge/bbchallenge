@@ -407,7 +407,7 @@
 			<div class="flex flex-col items-start">
 				<div>
 					{#if curr_challenge == Challenge.BB5}
-						There remain <strong>0</strong> machine with 5 states to decide!! 🥳
+						There remain <strong>0</strong> machines with 5 states to decide!! 🥳
 						<br />
 						We have reached
 						<a
@@ -434,11 +434,16 @@
 									class="text-blue-400 hover:text-blue-300 cursor-pointer">official announcement</a
 								>
 							</li>
+							<li>
+								See the <a
+									href="https://arxiv.org/abs/2509.12337"
+									class="text-blue-400 hover:text-blue-300 cursor-pointer">human-readable paper presenting the BB(5) proof</a
+								>
+							</li>
 						</ul>
 						<br />
 						Here's what's next:
 						<ul class="list-decimal ml-10">
-							<li>We are writing a human-readable paper presenting the BB(5) proof</li>
 							<li>
 								We are working on new busy beaver values such as BB(6) and setting new goals for
 								these

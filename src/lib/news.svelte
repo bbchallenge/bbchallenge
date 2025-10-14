@@ -11,7 +11,10 @@
 		</div>
 		<ul class="flex flex-col space-y-2 mt-2 list-disc">
 			<li>
-				<a href="https://arxiv.org/abs/2509.12337">September 15th 2025</a>
+				<a href="https://arxiv.org/abs/2509.12337"
+				>
+					<span class="underline">September 15th 2025</span>
+				</a>
 			</li>
 			<li>
 				<a
