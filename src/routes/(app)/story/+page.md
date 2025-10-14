@@ -190,7 +190,9 @@ To this day, no 5-state Turing machine is known to halt after more than <span cl
 
 With the Busy Beaver Challenge, we hope to discover if that <span class="bg-[#1162D3] px-0.5">47,176,870</span> record can be beaten or not among 5-state machines. This implies to decide, for all machines with 5 states, whether they halt or not.
 
-But why focusing on 5 states? Let's first reformulate the problem in terms of busy beavers.
+<div class="bg-blue-500 p-2"><strong>Disclaimer:</strong> The search of BB(5) has been completed as of July 2nd 2024. Therefore we now know that no machine halts after more than 47,176,870 steps.</div>
+
+But why focus on 5 states? Let's first reformulate the problem in terms of busy beavers.
 
 <a id="the-busy-beaver-function-bb"></a>
 
@@ -231,7 +233,7 @@ Proving the value of BB(n) implies to be able to decipher the behavior of any ma
 
 Currently, BB(5) is unknown but is conjectured to be BB(5) = 47,176,870 [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html) [[Aaronson, 2020]](https://www.scottaaronson.com/papers/bb.pdf). The naïve space of 5-state Turing machines contains <Katex math={nbTM5}/> machines, see <a href="/method#machine-format" rel="external">Method</a> for how we can reduce and search this space efficiently.
 
-Apart from concrete values of BB, the following is also known:
+Apart from concrete values of BB, the following is also known as of May 30, 2022:
 
 - BB(5) >= 47,176,870 [[Marxen and Buntrock, 1990]](http://turbotm.de/~heiner/BB/mabu90.html)
 - BB(6) <Katex math={BB6}/> [[Kropitz, 2022]](https://www.sligocki.com/2022/06/21/bb-6-2-t15.html)
