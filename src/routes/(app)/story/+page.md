@@ -192,7 +192,7 @@ With the Busy Beaver Challenge, we hope to discover if that <span class="bg-[#11
 
 <div class="bg-blue-500 p-2"><strong>Disclaimer:</strong> The search of BB(5) has been completed as of July 2nd 2024. Therefore we now know that no machine halts after more than 47,176,870 steps.</div>
 
-But why focusing on 5 states? Let's first reformulate the problem in terms of busy beavers.
+But why focus on 5 states? Let's first reformulate the problem in terms of busy beavers.
 
 <a id="the-busy-beaver-function-bb"></a>
 
