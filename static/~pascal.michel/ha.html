@@ -4638,8 +4638,9 @@ and some <a href="adv.html"> advanced topics</a>.
   
   <ul>
    <li>
-    ones (n) and time(n) by Ben-Amram et al. (1996) and
-    Ben-Amram and Petersen (2002),
+    ones (n) and time(n) by Ben-Amram et al. (1996), by
+    Ben-Amram and Petersen (2002), and by Schitter, Abriola and
+    Gonz&aacute;lez (2025),
     <p> </p>
    </li>
 
@@ -4938,6 +4939,15 @@ and some <a href="adv.html"> advanced topics</a>.
  <p> </p>
  </li>
 
+ <li>
+ For machines with k symbols, Schitter, Abriola and Gonz&aacute;lez (2025)
+ proved that
+ <blockquote>
+ S(n,k)&nbsp;&lt;&nbsp;(nk-1)&nbsp;Sigma(n+2,k+1)+1
+ </blockquote>
+ <p> </p>
+ </li>
+
 </ul>
 </font>
 
@@ -5198,7 +5208,7 @@ can compute this function. So Turing machines are called a universal
 model of computation.<br>
 For any universal model of competition, we can define many busy beaver
 functions. Such a busy beaver function has been defined in the
-following case.
+following cases.
 <p> </p>
 
 <ul>
@@ -5244,7 +5254,40 @@ See
 <a href="https://wiki.bbchallenge.org/wiki/Busy_Beaver_for_lambda_calculus">
 the bbchallenge wiki about this function</a>, and
 <a href="https://oeis.org/A333479">the OEIS page about this function</a>.
+<p> </p>
+</li>
 
+<li>
+A busy beaver function was defined for John Conway's Fractran model
+of computation, in November 2025, by Jason Yuen (&quot;-d&quot;).
+Its formal definition is
+
+<blockquote>
+BBf(n) = the maximum runtime in state 2 for all halting 
+franctran programs of size n.
+</blockquote>
+
+<p> </p>
+For example, it is known that
+<p> </p>
+
+<ul>
+
+<li>
+BBf(19) = 370
+</li>
+
+<li>
+BBf(21) &ge; 31,957,632
+</li>
+<p> </p>
+
+</ul>
+
+See
+<a href="https://wiki.bbchallenge.org/wiki/Fractran">
+the bbchallenge wiki about this function</a>
+<p> </p>
 </li>
 
 </ul>
@@ -5301,11 +5344,11 @@ the bbchallenge wiki about this function</a>, and
     </blockquote>
 
     <blockquote>
-      BBB(3,2) &gt;= 55 (Scott Aaronson)
+      BBB(3,2) &ge; 55 (Scott Aaronson)
     </blockquote>
 
     <blockquote>
-      BBB(4,2) &gt;= 32,779,478 (Nicholas Drozd, July 2021).
+      BBB(4,2) &ge; 32,779,478 (Nicholas Drozd, July 2021).
       See <a href="https://www.sligocki.com/2021/07/17/bb-collatz.html"> analysis by Shawn Ligocki</a>
     </blockquote>
 
@@ -5320,7 +5363,7 @@ the bbchallenge wiki about this function</a>, and
     </blockquote>
     
     <blockquote>
-      BBB(2,3) &gt;= 59 (Nicholas Drozd, September 2020)
+      BBB(2,3) &ge; 59 (Nicholas Drozd, September 2020)
     </blockquote>
 
     <blockquote>
@@ -5736,6 +5779,13 @@ the bbchallenge wiki about this function</a>, and
  April 1963, 75-81.
  <p> </p>
 </li>
+
+<li>
+ Schitter T., Abriola S. and Gonz&aacute;lez N. (2025) <br>
+ A note on busy beaver bounds <br>
+ <i> Theoretical Computer Science </i> <b> 1057</b>, 2025, 115541, 15pp.
+ <p> </p>
+</li> 
 
 <li>
  St&eacute;rin T., Woods D. (2024) <br>
