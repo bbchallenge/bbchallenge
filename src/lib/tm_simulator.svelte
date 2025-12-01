@@ -23,7 +23,7 @@
 	let currState = 0;
 	let hasHalted = false;
 
-	function initalTape() {
+	function initialTape() {
 		let tape = {};
 		for (let i = -100; i < 100; i += 1) {
 			tape[i] = 0;
@@ -68,7 +68,7 @@
 		headPos = 0;
 		nbSteps = 0;
 		ox = (width - cellSize) / 2;
-		tape = initalTape();
+		tape = initialTape();
 		hasHalted = false;
 		drawTape();
 	}
@@ -94,7 +94,7 @@
 
 	onMount(() => {
 		ctx = canvas.getContext('2d');
-		tape = initalTape();
+		tape = initialTape();
 		drawTape();
 	});
 </script>
