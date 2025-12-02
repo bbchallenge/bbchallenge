@@ -17,7 +17,7 @@
 		'cyclers-run-11c0ef00e9c2-time-1000-space-500-minIndex-0-maxIndex-14322029': {
 			name: 'Cyclers',
 			url: 'https://discuss.bbchallenge.org/t/decider-cyclers/',
-			date: 'Januray 28th 2022',
+			date: 'January 28th 2022',
 			params: ['Time limit: 1000', 'Space limit: 500', 'Min index: 0', 'Max index: 14,322,029'],
 			total_decided: 11229238
 		},
