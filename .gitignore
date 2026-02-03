@@ -14,3 +14,4 @@ package-lock.json
 fetch_and_deploy.py
 venv
 deployment.log
+deploy_server.py
