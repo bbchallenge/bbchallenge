@@ -72,7 +72,7 @@ However we strongly advocate for our model where responsibility is split into tw
 
 1. Splitting responsibilities yields shorter and easier to verify/test/debug code for both phases. In particular, it is very important to establish trust in the seed database of undecided machines hence the simpler the code that generates it the better.
 
-2. Some deciders require a lot more resources than others and might only be relevant to a very small and targetted subset of machines. Hence we don't want to execute them on all enumerated machines which would considerably slow down the enumeration process.
+2. Some deciders require a lot more resources than others and might only be relevant to a very small and targeted subset of machines. Hence we don't want to execute them on all enumerated machines which would considerably slow down the enumeration process.
 
 Our approach provides modularity and hopefully facilitates reproducibility, peer reviewing, and trust in the final result.
 
