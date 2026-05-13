@@ -75,7 +75,7 @@ Historical survey
 <font size="2">
 <blockquote>
   Created by Pascal Michel in 2004 <br>
-  Last update: April 2026
+  Last update: May 2026
 </blockquote>
 </font>
 </p>
@@ -4821,6 +4821,11 @@ and some <a href="adv.html"> advanced topics</a>.
      <p> </p>
      </li>
 
+     <li>
+       In March 2026, &quot;50_ft_lock&quot; claimed that Sigma(13, 2) &gt; G.
+     <p> </p>
+     </li>
+
  </ul>
    <p> </p>
 
@@ -5286,7 +5291,7 @@ BB&lambda;(37) = 5 &times; 3<sup>3<sup>3</sup></sup></sup> + 8
 
 <li>
 BB&lambda;(38) = 5 &times; 2<sup>2<sup>16</sup></sup></sup> + 6
-&gt; 10<sup>10<sup>4</sup></sup>
+&asymp; 10<sup>19729</sup>
 </li>
 
 <li>
@@ -5447,12 +5452,33 @@ the bbchallenge wiki about this function</a>
     BBB(3,2) = 55 and BBB(2,3) = 59.
     <p> </p>
 
-    See also <a href="https://groups.google.com/g/busy-beaver-discuss">
-      the web site of the google group Busy Beaver Discuss</a>.
+    See also <a href="https://wiki.bbchallenge.org/wiki/Beeping_Busy_Beaver">
+      the bbchallenge wiki about beeping busy beavers</a>.
     <p> </p>
   </li>
-     
-  
+
+   <li>   
+    The beeping busy beaver function defined above is the beeping busy
+    beaver <b>state</b> function. Another function, the beeping busy
+    beaver <b>transition</b> function, can be defined as follows.
+
+     Let M be a Turing machine with k states and n symbols, without halting state,
+     let q be a state of machine M, and let a be symbol of machine M. <br>
+     Machine M is launched on a blank tape, and beeps when it is in state q. reading
+     symbol a <br>
+     Let s(M,q,a) be the last time that machine M beeps on state q and symbol a
+     (and s(M,q,a) is infinite if M beeps on state q and symbol a infinitely often). <br>
+     <p> </p>
+     Then the <b>beeping busy beaver transition function</b> is defined by <br>
+     <blockquote>
+       BBBt(k,n) = 1 + max{s(M,q,a) : M is a Turing machine with k states and
+       n symbols, q is a state of M, a is a symbol of M and s(M,q,a) is finite}.
+     </blockquote>
+
+     (The &quot;1 + &quot; is added for technical reasons). <br>
+     <p> </p>
+   </li>
+
 </ul>     
 
 <p> &nbsp; </p>
