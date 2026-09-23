@@ -135,7 +135,7 @@
   </td>
   <td>
    <a href="#tm33h">
-    s = 119,112,334,170,342,540, sigma = 374,676,383
+    s = 119,112,334,170,342,541, sigma = 374,676,383
    </a><br>
    <a href="#tm33g">
     s = 4,345,166,620,336,565, sigma = 95,524,079
@@ -246,7 +246,7 @@
  <font size="2">
   <blockquote>
     Created by Pascal Michel in 2004 <br>
-    Last update: June 2025
+    Last update: September 2026
   </blockquote>
  </font>
 </p>
@@ -1608,7 +1608,11 @@ Then we have:
  See also the <a href="http://turbotm.de/~heiner/BB/simLig33_b.html">
  simulation by Heiner Marxen</a>.
  See detailed analysis in <a href="http://arxiv.org/pdf/1311.1029.pdf">
- Michel (2015)</a>, Section 3.
+ Michel (2015)</a>, Section 3.<br>
+ Note: The machine that was first found had a transition A0 --> 1RB.
+ By beginning from state B, this first machine allows one more step of computation.
+ We obtain the machine below from this first machine by swapping states A and B
+ and directions L and R.
 
 </p>
 
@@ -1622,7 +1626,7 @@ for machines with 3 states and 3 symbols, since November 2007.
   <td>
    <table align="center">
     <tr> <td align="center"> Terry and Shawn Ligocki (2007)      </td> </tr>
-    <tr> <td align="center"> s(M) = 119,112,334,170,342,540 =? S(3,3) </td> </tr>
+    <tr> <td align="center"> s(M) = 119,112,334,170,342,541 =? S(3,3) </td> </tr>
     <tr> <td align="center"> sigma(M) = 374,676,383 =? Sigma(3,3) </td> </tr>
    </table>
   </td>
@@ -1639,21 +1643,21 @@ for machines with 3 states and 3 symbols, since November 2007.
     </tr>
     <tr>
      <td align="center"> A </td>
-     <td align="center">1RB</td>
+     <td align="center">0RB</td>
      <td align="center">2LA</td>
-     <td align="center">1LC</td>
+     <td align="center">1RA</td>
     </tr>
     <tr>
      <td align="center"> B </td>
-     <td align="center">0LA</td>
+     <td align="center">1LA</td>
      <td align="center">2RB</td>
-     <td align="center">1LB</td>
+     <td align="center">1RC</td>
     </tr>
     <tr>
      <td align="center"> C </td>
      <td align="center">1RH</td>
-     <td align="center">1RA</td>
-     <td align="center">1RC</td>
+     <td align="center">1LB</td>
+     <td align="center">1LC</td>
     </tr>
    </table>
   </td>
@@ -1661,7 +1665,7 @@ for machines with 3 states and 3 symbols, since November 2007.
 </table>
 
 
-Let C(n) = . . . 0(A0)2<sup>n</sup>0 . . . <br>
+Let C(n) = . . . 02<sup>n</sup>(B0)0 . . . <br>
 Then we have:
 
 <p> </p>
@@ -1669,7 +1673,7 @@ Then we have:
 <table align="center">
  <tr>
   <td> . . . 0(A0)0 . . . </td>
-  <td align="center"> --( 3 )--&gt; </td>
+  <td align="center"> --( 4 )--&gt; </td>
   <td> C(1) </td>
  </tr>
  <tr>
@@ -1695,7 +1699,7 @@ Then we have:
  <tr>
   <td> C(8k + 5) </td>
   <td align="center"> --( 112k<sup>2</sup> + 228k + 97 )--&gt; </td>
-  <td>  . . . 01(H1)2<sup>14k+9</sup>0 . . . </td>
+  <td>  . . . 02<sup>14k+9</sup>11(H0)0 . . . </td>
  </tr>
  <tr>
   <td> C(8k + 6) </td>
@@ -1718,7 +1722,7 @@ Then we have:
 
 So we have (in 34 transitions):
 <p align="center">
- . . . 0(A0)0 . . . --( 3 )--&gt;<br>
+ . . . 0(A0)0 . . . --( 4 )--&gt;<br>
  C( 1 ) --( 13 )--&gt;<br>
  C( 3 ) --( 54 )--&gt;<br>
  C( 8 ) --( 203 )--&gt;<br>
@@ -1730,7 +1734,7 @@ So we have (in 34 transitions):
  &nbsp;<br>
  C( 122,343,306 ) --( 26,193,799,261,043,238 )--&gt;<br>
  C( 214,100,789 ) --( 80,218,511,093,348,089 )--&gt;<br>
- . . . 01(H1)2<sup>374676381</sup>0 . . .
+ . . . 02<sup>374676381</sup>11(H0)0 . . .
 
 <p> </p>
 
