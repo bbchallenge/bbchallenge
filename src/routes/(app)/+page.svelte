@@ -71,9 +71,9 @@
 
 	function challenge_to_interesting_machine_file(challenge: Challenge) {
 		if (challenge == Challenge.BB6) {
-			return 'BB6_holdouts_1016.txt';
+			return 'BB6_holdouts_815.txt';
 		} else if (challenge == Challenge.BB2x5) {
-			return 'BB2x5_Coq_holdouts_83.txt';
+			return 'BB2x5_Rocq_holdouts_60.txt';
 		} else if (challenge == Challenge.BB3x3) {
 			return '3x3_holdout_6.txt';
 		}
