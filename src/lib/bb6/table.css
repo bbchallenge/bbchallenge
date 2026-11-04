@@ -1,0 +1,32 @@
+/* Responsive card layout for the BB(6) holdouts table (kept out of the .svelte file: Svelte 4.0.5 fails to minify this @media block). */
+/* phones and narrow windows: each row becomes a card */
+@media (max-width: 1023px) {
+	table.bb6,
+	table.bb6 tbody,
+	table.bb6 tr,
+	table.bb6 td {
+		display: block;
+		width: 100%;
+	}
+	table.bb6 thead {
+		position: absolute;
+		left: -9999px;
+	}
+	table.bb6 tr {
+		@apply border border-gray-700 rounded mb-2 px-1 py-1;
+	}
+	table.bb6 tr.detail {
+		@apply -mt-2 border-t-0 rounded-t-none;
+	}
+	table.bb6 td {
+		@apply border-b-0 py-1;
+	}
+	table.bb6 td[data-label]::before {
+		content: attr(data-label);
+		display: block;
+		@apply text-[0.65rem] uppercase tracking-wide text-gray-500;
+	}
+	table.bb6 td.num::before {
+		display: none;
+	}
+}
