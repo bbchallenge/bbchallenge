@@ -1,0 +1,3661 @@
+{
+	"source": "slugbird’s BB(6) Holdout Guide",
+	"url": "https://discord.com/channels/960643023006490684/1239205785913790465/1567309713971089418",
+	"as_of": "November 3, 2026",
+	"made_with": "Claude (the guide says it was written by AI agents working on the holdouts)",
+	"based_on_list": 608,
+	"status_labels": {
+		"pr": "Proof in an open PR",
+		"ready": "Proof ready, PR soon",
+		"rules": "Rules known, no proof",
+		"reported": "Reported by others",
+		"cryptid": "Cryptid",
+		"pattern": "Some structure seen",
+		"lottery": "Looks like a lottery",
+		"little": "Little known"
+	},
+	"machines": {
+		"1RB1RF_1LC1LB_1RD1LD_1RE0RA_---0LB_0LF0RC": {
+			"class": "Chaotic Bell Class 2",
+			"status": "reported",
+			"pr": null,
+			"simulated": "6.0e79"
+		},
+		"1RB1LB_1LC0RD_0LE1LA_0RF1RA_1LE0LA_---0RB": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LD_0LC0RA_1RA1LC_1RE0LC_---1RF_0RD0RB": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e14"
+		},
+		"1RB0RE_1RC0RE_1LD1RB_1LA0LA_1RF0LC_---0RC": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e11"
+		},
+		"1RB1LD_1LC0RF_0RD0LB_1LB0LE_1LA---_0RA0RF": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1RC_0LC1RE_1RA0LD_1LB0RD_0RF---_0RA0RF": {
+			"class": "Unknown",
+			"status": "pr",
+			"pr": 46,
+			"simulated": null
+		},
+		"1RB1LE_0RC1RC_0RD0RB_1RE0RF_1LA0LE_---1RB": {
+			"class": "Chaotic Fractal Type 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.3e27"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_0LA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.3e13"
+		},
+		"1RB0LD_0RC---_1LD0RF_0LE0RA_0RA1LF_0LA1LB": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "4.4e12"
+		},
+		"1RB---_0RC1RD_1LD1LF_1LE0RB_1RF1LD_1LA0LC": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.9e12"
+		},
+		"1RB0LE_1RC0LB_1RD1RF_1RE0RB_1LA0RD_0RE---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.7e14"
+		},
+		"1RB1LF_1LC1RD_1RA1LA_0RA0RE_0RC---_1RF0LC": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.2e79"
+		},
+		"1RB0LB_1RC0LA_1RD---_0RE1LD_1LF0RF_1LA1RB": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB0LA_0RC---_1RD0LE_0LC0RE_1RF0RB_1LA1RD": {
+			"class": "Shift-overflow counter",
+			"status": "little",
+			"pr": null,
+			"simulated": "8.6e12"
+		},
+		"1RB0RC_1LC1RE_0LE0LD_1LC0LB_0RA0RF_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e38"
+		},
+		"1RB0RE_0RC0RF_1LD1RA_1RE0LD_0LB1RC_1LE---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e280"
+		},
+		"1RB0LE_1RC1RF_1RD0RA_1LE0RC_1LC0LD_0RD---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e13"
+		},
+		"1RB1RE_1LC1RE_---1LD_1LE0LB_0RF0LD_1RD1RA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "5.1e79"
+		},
+		"1RB1LE_1LC0LF_1LA1RD_1LB0RD_0LC0LA_---1RA": {
+			"class": "Shift-overflow counter",
+			"status": "little",
+			"pr": null,
+			"simulated": "1e224"
+		},
+		"1RB1LD_1LC---_1RE0LD_1LC1LD_1RF0RE_1RA0RC": {
+			"class": "Structural counter + chaotic edge",
+			"status": "rules",
+			"pr": null,
+			"simulated": "6.8e16"
+		},
+		"1RB0LD_1RC0RF_1LA1RF_0LA0RE_1LD---_0RA0RD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1LD_1RC0LE_1LA1RE_0LF1LA_1RB0RB_---0LB": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RA_1LC0RF_1LD1LC_1LE0LB_0LF---_1RA1RB": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LA_1RC---_0LD1RD_0RA0RE_0RF1RC_1LF0LA": {
+			"class": "Translated Counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.4e12"
+		},
+		"1RB1RE_0RC---_1RD0RD_1LE0LF_1RA0LD_1LC1RB": {
+			"class": "Quadratic Mess",
+			"status": "reported",
+			"pr": null,
+			"simulated": "5.6e34"
+		},
+		"1RB1LC_1LC1RD_1LA0LB_0RB1RE_1RF0RA_---0RC": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RD_0LC1LD_1RA1LA_1RE1LB_---0RF_1RA1RF": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e14"
+		},
+		"1RB0RE_1RC0RA_0LD0LB_0LA1LE_1LC1LF_0LA---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pr",
+			"pr": 49,
+			"simulated": "2.5e14"
+		},
+		"1RB1RE_1LC1RC_0RF1LD_1LE0LB_1LB0RA_---1RA": {
+			"class": "Unknown",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RA_1LC1LE_1RA1LD_0LB0LC_1LF0RE_1LB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e230"
+		},
+		"1RB1LF_1LC1RB_1LF1LD_1LE0RD_1LB---_1LA0LA": {
+			"class": "Shift-overflow structural counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0RC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_1LC0RB_0LD1LA_0RA1LE_0LA0RA_1LA---": {
+			"class": "Chaotic Fractal Type 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.6e79"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_0LC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.6e13"
+		},
+		"1RB0LE_1LC1RA_1RA1LD_0LC0LA_0RE1RF_0RC---": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RF_1LC0RA_1LD1LB_0LE---_1LA0LA_1RE1LD": {
+			"class": "Quadratic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.9e36"
+		},
+		"1RB1RD_1LC0LE_1LD0LB_0RB0RA_1RD1LF_0LC---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.9e28"
+		},
+		"1RB0LA_0RC1RD_0LD1RE_1LA0RF_0RD0LD_1RD---": {
+			"class": "Chaotic Fractal Type 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "3.5e79"
+		},
+		"1RB0LE_1RC1RA_1RD0RF_1RE0RA_1LA1LD_1RA---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "9.9e12"
+		},
+		"1RB---_1LC0RF_1RF0LD_0LE1LC_0RC0LC_1RB0RA": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.0e14"
+		},
+		"1RB0RD_1RC0LF_1LA0LB_---1RE_1LB1RA_0LC0RA": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e79"
+		},
+		"1RB1LD_1LC0RD_0LA0RB_0LE1LF_1RF0LC_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e13"
+		},
+		"1RB0LF_1RC0RB_0RD1LE_0LE0RA_1LC1LA_0LD---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.7e13"
+		},
+		"1RB1RF_1LC0LA_---0LD_1LE1RB_0RA0LB_1RE0RE": {
+			"class": "Quadratic Mess",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB0LF_1RC1RB_1LD0RA_1LA0LE_0LC1LC_1LE---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "6.9e34"
+		},
+		"1RB1LD_1RC1RE_1LA0RA_1RC0LB_0LA1RF_---1RB": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "3.2e17"
+		},
+		"1RB0LD_0RC1RB_0RD0RA_1LE0RD_1LF---_0LA1LA": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LB_1RC1LC_1LD1RE_---0LA_1RE0RF_1RA0LF": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e16"
+		},
+		"1RB0LC_0LC1RF_1LE1RD_0RC1RC_0LA1LA_---1RA": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_1RC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LE_1RC0RB_1RD1LF_1LA0LC_1LD0LA_---0RE": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e218"
+		},
+		"1RB0LC_1RC0RA_1LA0LD_1LE0RB_1RD1LF_0LA---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e16"
+		},
+		"1RB1LC_0RC0RB_1LD0LA_1LE---_1LF1RA_1LA1LC": {
+			"class": "Shift-overflow counter",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LF_1LC0LD_1RD1LB_---1RE_0RA1RE_1LA0LE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_0RC0LD_1LB1RC_0LE0LF_1RD1LE_1RF1RA": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.7e19"
+		},
+		"1RB0LC_1RC1RF_1LD0RA_1LE0LD_1RC0LA_0LA---": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.9e79"
+		},
+		"1RB0RD_1RC0RA_0LA0LE_1LC1RF_1LA1LC_0RB---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.6e27"
+		},
+		"1RB1RC_1LC1LE_1RD0RA_1LB0RA_0LD1LF_1LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RC_1RC---_1LD1RE_1LE0LD_1RA0LF_0RC0RB": {
+			"class": "Quadratic Mess",
+			"status": "ready",
+			"pr": null,
+			"simulated": "6.5e79"
+		},
+		"1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LD_1RC0RB_1LA0RD_1LA0RE_1RF---_0LC0LF": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e116"
+		},
+		"1RB0RE_0RC1RE_1RD1LE_0LE---_1RA1LF_1RF0LC": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_1RC0RF_0LD0LE_1RF1LC_0LB1LE_0RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_1RC0RB_1RD1RF_1LE0LD_1RB1LA_---0RE": {
+			"class": "Unknown",
+			"status": "reported",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RD_1RC1LD_0LA1RA_1LE0RC_---1LF_0LA0LB": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.8e79"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0RD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_1RC1RE_1LA0RA_1RC0LB_0LA1RF_---1RD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "3.3e19"
+		},
+		"1RB---_0RC0LA_1LD0RB_1LE0RF_1LF1LC_1LB0LD": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0LC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1LC0RD_1LF1LA_1LB1RE_1RB1LE_---0LE": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RE_1LC1RD_1LA1LC_0RA0RB_1RF0LE_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e234"
+		},
+		"1RB0RD_1LC0LE_0RA0LB_1RC1RF_1LB1RD_0RC---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.8e34"
+		},
+		"1RB---_1LC0RB_0LD0LC_1RE1RB_1RD1LF_1LA0LE": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.8e79"
+		},
+		"1RB0LD_1RC1RB_1RD0RA_0LE1LF_---1LA_1LA0LC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e13"
+		},
+		"1RB---_0RC0RF_0RD0RA_1RE0LB_1LF0LE_1RC0LE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB---_0LC0LB_1RF0LD_1RE0RB_1LB0RC_0RD1RA": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LA_0RC1RF_0LD1RE_1LA0RB_0RD---_1RA1RD": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e114"
+		},
+		"1RB0RC_1RC1RA_1LD0RA_0LE1RA_---1LF_1RB0LF": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.4e16"
+		},
+		"1RB1LF_1RC1RF_0LD1RE_---1LC_0RB1RE_1LA0LE": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_1LC0RF_0RA0LD_1LE1LA_1RF0LF_0LC0RA": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.3e13"
+		},
+		"1RB1RF_1RC0RA_1LD1RB_1LE0LD_0RA0LB_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e60"
+		},
+		"1RB1LE_1LC1RC_1LA1RD_1LD0RB_0LC0LF_0LB---": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LE_1RC0LD_1RD1RA_1RE0RB_0LA0RF_1LE---": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RA_1RC0RE_0RD1LE_0LE---_1LF0LC_0RA1LC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LE_0LC1RE_---1LD_0RD1LA_0RF1RF_1RA0LB": {
+			"class": "Shift-overflow structural counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RB_0RC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "6.3e13"
+		},
+		"1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA0LB_---0LC": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_0RC0LA_1LD0RB_1LE1LD_1LF0LC_1LB1RE": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "6.1e12"
+		},
+		"1RB0LB_1LC1RE_1LA1LD_0RB1LF_1LA0RC_---1LC": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RB_1RC0LE_1LD1LA_---0LC_1RF1LE_1RA0RA": {
+			"class": "Cubic Mess",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_0RA0RD": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1LC0RB_0LE0LD_1LC---_0RA1LF_1LA1LF": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pr",
+			"pr": 52,
+			"simulated": "2.3e21"
+		},
+		"1RB0RD_1LC1RE_0LD1LC_1RA0LA_1RF0RC_---1RA": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e145"
+		},
+		"1RB0LA_0RC---_0RD0RF_1LD0LE_0LA1LE_1RA0RE": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "6.4e20"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0LC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1RA_1LC0RA_1LD0LC_0LE0LB_1LF1RF_1LA---": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e15"
+		},
+		"1RB0RB_1RC1RA_0LD1LC_0RA1LE_1LF0LC_---1LA": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RF_1LC1LF_---1LD_1LE0RA_1RE1LB_1RD0LD": {
+			"class": "Quadratic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.4e79"
+		},
+		"1RB0RA_1LC0RC_1LF0RD_1RA1LE_0LC---_1LD0LA": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB---_1RC1LE_0RD0RF_0RE0LA_1LF0LB_1LA1LD": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LD_1LC0RD_1LA0LC_1RE0LB_1RB1RF_0LD---": {
+			"class": "Quadratic Mess",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.6e78"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_1LC0RE_1LA0LD_0LB0LE_0RB0LF_1RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "2.0e17"
+		},
+		"1RB1RF_1LC0RD_1RE0LD_0RE0LF_0LB0RA_0LC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "9.8e13"
+		},
+		"1RB1RF_1LC0RE_1LE1LD_1RE0LC_1RA1RA_1RD---": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e187"
+		},
+		"1RB1RA_1LC0LF_1RA1LD_1LB1LE_1LC0LC_---0RA": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "5.8e12"
+		},
+		"1RB0LB_0RC0LD_1LD1RE_0LA0RF_1RB0RD_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "5.4e13"
+		},
+		"1RB0RA_1RC0RF_0RD1LE_0LE---_1LF1LE_1RA0LC": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_1RC0RA_1LA1RE_0LA0LB_0RB1RF_---1RD": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RA_0RC0LE_0LD1RA_1LB0RF_0LD1LC_1RD---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.6e17"
+		},
+		"1RB---_0RC0LF_1LD0RE_1RC0LB_1RD1RA_1LB0LC": {
+			"class": "Monotone list",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.6e14"
+		},
+		"1RB0RF_1RC0RA_1LD1RB_1LE0LD_1LB0LB_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e165"
+		},
+		"1RB0RA_1LC0RA_0LD0LC_1RD1RE_1LF0LE_---0LB": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "5.2e22"
+		},
+		"1RB---_1LC0RF_1LD0LC_0RE0LF_0RD1LA_1RB0LE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.0e17"
+		},
+		"1RB0LE_1LC0RD_0RA1LD_0LC1RA_1LF1LA_---1LA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.2e79"
+		},
+		"1RB0LC_0LA1RD_1LA0RE_1RE0RF_1LF---_1LB1RF": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e14"
+		},
+		"1RB1LA_0LC0RC_1LE1RD_1RE1RC_1LF0LA_---1LE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RE_1LC0LB_1RD0LB_1RF0LA_1RC---_0RA0LD": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "7.0e78"
+		},
+		"1RB1LF_0LC0RE_1LA1RD_0LB1LB_1RC1RD_0LD---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "10.0e78"
+		},
+		"1RB0LB_0RC0LE_1RD0RF_1LB1RB_0LA0RE_1RE---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "6.5e13"
+		},
+		"1RB0RC_0LC0LE_1RA0RD_1LB1RF_1LC1LB_0RA---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e46"
+		},
+		"1RB0RC_1LA0LD_1RB0RD_1LE0RF_0LB0RB_1RC---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.2e13"
+		},
+		"1RB0RA_1LC0RE_0LD0LB_1LA1LF_1RA0LF_1LC---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.7e17"
+		},
+		"1RB0LB_1RC0LD_0LA1RD_1LC1LE_1LF0RE_1LD---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.2e14"
+		},
+		"1RB1RF_1RC0RF_0RD0LC_1LE1RA_1LC---_1RB0RE": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e167"
+		},
+		"1RB1LF_1LC0RD_---1LD_1RB1RE_1LA0LB_0LA0LE": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.6e79"
+		},
+		"1RB1LF_1LC1RB_1LE1LD_1LB0RD_1LF---_1LA0LA": {
+			"class": "Shift-overflow structural counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LA_1LC0RD_0LD1LA_1LF0RE_1LB1RE_1RD---": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e17"
+		},
+		"1RB1RC_1LC0RC_0RA0LD_0LE---_0LF1LD_1LC1LE": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.4e40"
+		},
+		"1RB0LC_1LC0RE_1LD1LB_1LA1LD_1RF0RA_---1RE": {
+			"class": "Skelet 1-like Class 1",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LE_0RC---_1RD0LA_1RE0RA_0LF1LD_1LC1RF": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pr",
+			"pr": 45,
+			"simulated": "1.8e17"
+		},
+		"1RB1RD_0LC1RA_1LA1LC_1RA1LE_1RF0LD_---0RE": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LF_0RC1RD_1LA1LD_1LE0RA_---1LC_0LA1LA": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LA_0RC0LE_0RD1RC_1LD1RE_1LA1RF_---0RB": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE1RF": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.2e16"
+		},
+		"1RB1RA_1LC0RC_---0LD_0LE0RF_1RE0RA_0LF1LB": {
+			"class": "Cubic Mess",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LF_1LC0LA_1RA0RD_---1RE_1LA1RC_0LB0RC": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.5e79"
+		},
+		"1RB0LE_0RC---_1RD0LA_1RE0RA_1LC0LF_0RC1LC": {
+			"class": "Monotone list",
+			"status": "rules",
+			"pr": null,
+			"simulated": "4.0e15"
+		},
+		"1RB0LE_0LC0RA_1LE0RD_0RB---_0LF0LD_1LA0LF": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e36"
+		},
+		"1RB0LB_0LC0RD_1LA1LB_0RE---_0RF1RD_1RB1RE": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.4e36"
+		},
+		"1RB0RE_1LC1RA_1LD0LC_1LA0LA_1RA0RF_0RA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e158"
+		},
+		"1RB0LC_1RC0RA_1LA0LD_1LE0RB_1RB1LF_0LA---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e14"
+		},
+		"1RB0LD_1RC1RE_1LA0LD_1LB1LC_0RA1RF_1RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LE_0LC0RB_1RD1LD_1RA1LF_0LB1LE_---1LB": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e213"
+		},
+		"1RB1RF_1LC1RD_1LA1LC_1RA0RE_1RD1LA_---0LE": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RE_1LC0LE_---1LD_1LE1LB_1RA0LF_0RD1LA": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.6e79"
+		},
+		"1RB1LF_1RC1LD_1LB1LE_1LE0LD_0LA0RE_1RD---": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.8e78"
+		},
+		"1RB0RF_1LC1LF_1RD1LC_---1RE_0RC1RF_1RA0LB": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e162"
+		},
+		"1RB1RE_0LC0LF_0LA0LD_1LE1LC_1RA0LB_---0RE": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "6.9e78"
+		},
+		"1RB1RF_1LC0RE_1RD0LC_0LB0RA_1LD1RD_1RB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1RF_1LC0LB_1RE0LD_1LB0RF_0RA0RC_1RE---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.6e17"
+		},
+		"1RB1LA_1LC0RA_0LF0LD_1RE1LD_1RE0RB_---0LC": {
+			"class": "Cubic Mess",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RC_1LC0LE_1RD1RC_1LB0RA_---0LF_1RD1LF": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RA_0LC1RF_0LD1LD_1LE1LC_0RB0RA_---1RE": {
+			"class": "Chaotic Bell Class 3",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "5.1e15"
+		},
+		"1RB0LD_1RC1RE_1LA0RA_1LE1LC_1RF1RC_---1RA": {
+			"class": "Quadratic Mess",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.2e78"
+		},
+		"1RB1RA_1RC---_1RD0LD_1LE1RF_0RA1LD_0RC0LC": {
+			"class": "Cubic Mess",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.8e14"
+		},
+		"1RB1LC_1LA1LD_1LD0LC_0LE0RD_1RA1LF_1RC---": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.2e78"
+		},
+		"1RB0RF_0LC1LB_1RD1LA_1RE0LC_0RA1RD_---0RC": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.9e13"
+		},
+		"1RB1RF_0RC0LE_1RD0RF_1LB---_1LB1LE_1RA0LC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "6.7e12"
+		},
+		"1RB---_1RC0LF_1RD1RD_1RE1RA_1LF0RC_1LC1LB": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e173"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA0LF_0LC0RA_0RE---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.8e13"
+		},
+		"1RB0LC_1LA0RD_1RA0LA_1RE1RD_1RA1RF_1LC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RE_1LC0RC_1RA1LD_1RB0LA_0LC1RF_---1RD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RD_1LC1RA_---1LD_1LE0RA_1LF0LE_0RB0LB": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1RC0RA_1LA0LD_1LE0RB_1LC1LF_0LA---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e13"
+		},
+		"1RB0LA_1RC---_1RD1RA_1LE1RF_1LC1LE_0RC0RD": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e256"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LA_0RC1LF_0RD0LA_1LD0LE_1RB1LF_---1LA": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "9.9e12"
+		},
+		"1RB0RE_1LC0RA_1LD0LC_0LE0LB_1RA1RF_0LC---": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.9e17"
+		},
+		"1RB1RA_1LC0RB_1LE0LD_0LB1LD_0RA0LF_---0RE": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e17"
+		},
+		"1RB0LD_0RC1RA_1RD1RE_1LA0LE_0RA0RF_1RC---": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "3.1e79"
+		},
+		"1RB1RE_1LC0RA_1LA0LD_1LB0LF_0RB0LE_0LA---": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.6e79"
+		},
+		"1RB0RA_0RC0LD_1LA1RF_1LE1LD_1LB1RE_---1RA": {
+			"class": "Counter Class 3",
+			"status": "pr",
+			"pr": 50,
+			"simulated": null
+		},
+		"1RB0LE_1RC0RE_1RD0RA_1RE1LC_0LA0RF_1LE---": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "3.6e12"
+		},
+		"1RB0RE_1LC1LD_0RA0LD_1LB0LA_1RF1RA_---1LB": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LB_1LC0RE_1LA1LD_0LC---_0RB0RF_1RE1RB": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LD_0RC---_0RD0RF_1LE0LA_1LF1LE_1RA0RD": {
+			"class": "Unknown",
+			"status": "ready",
+			"pr": null,
+			"simulated": "3.0e17"
+		},
+		"1RB---_0RC0LA_1LD0RB_1LE0LF_1RC1LF_0LC0LB": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LC_0RC0RB_1LD0LA_1LE---_1LF0LA_1LA0LB": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e289"
+		},
+		"1RB0RF_1LC0RC_0LD1LC_1RE1LB_1RF---_1LE1RA": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.4e14"
+		},
+		"1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LD_1LC0RA_1RA1LB_1LA1LE_1RF0LC_---0RE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RB_1LC1RA_1LF0LD_0LE1LD_1LA1LC_---1LA": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE0RF": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e13"
+		},
+		"1RB1RA_0LC0RE_1LF1LD_1LA0LA_1LC1RB_---1LC": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LE_1RC1LD_1RD0LF_0LA0RD_---1LB_0LD1LF": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e204"
+		},
+		"1RB0LF_1RC0RB_0RD0RA_1RE0LD_1LF---_1LA1LF": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RC_1LC0RE_1LD0LB_1RA1LC_1RA0RF_---1RE": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1RC1RA_0RD1LE_1RE1RF_1LC0RB_---1RD": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LA_1LC0RE_---0LD_1LA0LF_1RA1RE_1LA0LB": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.7e18"
+		},
+		"1RB0LE_0LC0RF_1LD1LC_1RA0RD_0LA1LA_1RD---": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RB0RF_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e196"
+		},
+		"1RB0RE_0LC1LE_0RD1LD_1RA1LF_1LC0RA_0LB---": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.7e79"
+		},
+		"1RB0RB_1LC1RE_1LF0LD_1RA1LD_1RC1RB_---1LC": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RA_0RC0LE_1LD1RF_1LB1RD_1LD1LE_---1RA": {
+			"class": "Counter Class 3",
+			"status": "pr",
+			"pr": 53,
+			"simulated": "1e146"
+		},
+		"1RB0RC_1LC0LD_1RA0LB_1LE0RA_1RD1LF_0LC---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.3e14"
+		},
+		"1RB0LD_0LB1RC_0RD---_1RE0RF_1LF0RA_0LA0LF": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RA_0LC0RA_1LF0LD_1LE0RC_1LB1LD_1RB---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.3e13"
+		},
+		"1RB1RA_1RC0RE_1RD1LB_0LE0RF_1RA0LD_1LD---": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "6.8e12"
+		},
+		"1RB1RA_1LC0RB_1LD0LB_1RA0LE_---1LF_1LB0LA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.2e79"
+		},
+		"1RB---_0RC0LA_1LD0RB_1LE0LB_1LF0LC_1LB1RE": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "6.5e12"
+		},
+		"1RB0LD_0LC0RE_1LA0RD_0RB0LF_1RC1LA_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "reported",
+			"pr": null,
+			"simulated": "1.0e11"
+		},
+		"1RB0LC_1LC0RE_1RF1LD_1LA0LB_1RD1RA_1LB---": {
+			"class": "Bell-like",
+			"status": "pr",
+			"pr": 47,
+			"simulated": "3.5e13"
+		},
+		"1RB0RF_0LC1RE_---1LD_1LE0LB_0RF0LD_1RD1RA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.2e79"
+		},
+		"1RB1LC_1LA1RE_0RD0LA_---1LB_1LD0RF_0RE1RB": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e183"
+		},
+		"1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB1RE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.1e13"
+		},
+		"1RB1LF_0RC0RB_0LD1RB_1LE0LB_0LA1LC_0LB---": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e75"
+		},
+		"1RB1RD_1LC0LE_1RA0LB_1RA1RF_0RA0RC_1RE---": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1LA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RF_1LC1RF_1RA0LD_0LC0RE_1LD---_0RC0RD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.0e17"
+		},
+		"1RB0LE_1RC1RB_1RD0RA_0RE---_1LF1LA_1LA1LF": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0LA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LE_0RC0RA_1LC1RD_0LB0LE_1LA0LF_1LE---": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "little",
+			"pr": null,
+			"simulated": "8.0e40"
+		},
+		"1RB0RE_1LC0RE_1LA1LD_0LB1LF_1RC1RA_1LB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RE_0RC0RF_1LC1RD_1RA0LE_0RA0LD_0RA---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LF_1RC1RB_1RD0RB_0LE0LF_---1LD_0LE1LA": {
+			"class": "Chaotic Fractal Others",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LA_1RC1RE_1RD0RD_1LA1RC_1RF0LE_1RA---": {
+			"class": "Shift-overflow structural counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LB_0RC0LE_1RD0RF_1LB1RB_0LA1RB_1RE---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "4.9e13"
+		},
+		"1RB0RA_1RC1RD_1LD1LB_0RF1LE_1LE0LC_---1RA": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.7e17"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_1LA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.7e12"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RA_0LE---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "3.1e13"
+		},
+		"1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA1RF": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RD_0LC0LB_0RE0LD_1LB0RB_1RF---_0RA0RC": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_1RC0RD_1LA0RC_1RE1LB_1LF0LA_---0LE": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "8.9e12"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_1LE---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.0e13"
+		},
+		"1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e130"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1LC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LE_0RC0RB_1RD1RF_1LA0LE_0LD0LB_---0RD": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "8.0e12"
+		},
+		"1RB1RF_1RC0LD_1LB1RA_1RE1LE_0RC0LB_0RB---": {
+			"class": "Bell-like",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB0RA_0RC0LE_1LC0LD_1RA1LF_---1LD_1LD1LB": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.8e14"
+		},
+		"1RB0RC_0RC1RC_0LD0RA_1LE0LF_0LA1LC_---1LA": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.5e23"
+		},
+		"1RB1LC_1LA0RD_0LB1LF_1RE1LC_1LC0RB_0LA---": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.1e79"
+		},
+		"1RB1LC_1LA1RF_0RD1RD_0RA0LE_1LA0LE_0RC---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.0e79"
+		},
+		"1RB0RA_1LC0RD_0LD0LB_1RA0LE_1LF---_0RA1LB": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_0RC0LC_1LA1LD_1RE1LC_---1RA_0LC0RD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RE_1RC0RF_1LD1RA_1LB1LD_1RA1LB_---0LD": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.2e79"
+		},
+		"1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RA_0LB---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "9.2e12"
+		},
+		"1RB0LB_1RC1LD_1LD0RD_1LE0RC_1LF---_0LA1RF": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB0LE_1RC1RA_1LD0RE_1LA1LD_1LD0RF_0RA---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.3e13"
+		},
+		"1RB1LC_1RC0RF_1RD0LB_1RE0LD_1LF---_0RA1LA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_0LC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.4e15"
+		},
+		"1RB0LE_1RC1RB_1LD0RA_1LA1LC_0LC0LF_0RB---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_1LB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_1LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RE_1LC0RA_1LD1LB_1LE0LF_1LA0LB_1LB---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e13"
+		},
+		"1RB---_0RC0RD_1LD0RF_0LE0LC_1RA0LC_1RC0RA": {
+			"class": "Chaotic Bell Class 2",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB0LC_1LA0RE_0LD0LB_1RA1LD_0RC1RF_0RA---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.9e15"
+		},
+		"1RB0LF_1LC0RE_0LD1LC_1LA---_0RB1RA_0LE1LF": {
+			"class": "Bell eats counter",
+			"status": "pr",
+			"pr": 54,
+			"simulated": "1.8e16"
+		},
+		"1RB1LD_0RC0RF_1LC0LA_0LE1LD_1LA---_0RB0LF": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.0e20"
+		},
+		"1RB1RF_0RC0LB_1LD1RE_1LB1RF_---0RF_1RD0RA": {
+			"class": "Bell eats counter",
+			"status": "ready",
+			"pr": null,
+			"simulated": "1.0e12"
+		},
+		"1RB---_1RC0LD_0LB0RE_1LB1LC_1RD1RF_1RD1RA": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.8e20"
+		},
+		"1RB1LF_1LC0RD_0LD0LC_1RE0LA_0RA0RC_0RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RE_1LC0RA_---1LD_1LA0LF_0LB0LC_1RB0LB": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e13"
+		},
+		"1RB0RA_1RC0RD_1RD0LC_1LE1RA_---1LF_1RB0LC": {
+			"class": "Bell eats counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.5e16"
+		},
+		"1RB0LE_1LC0RA_1RD0RC_1LA0LD_1LB0LF_1LC---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB0LA_0LC0RA_1LA1LD_1LC0LE_1RF0LF_0RB---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e14"
+		},
+		"1RB0LF_1LC1RA_0RD1LB_0LA0RE_1RC1RB_---0LD": {
+			"class": "Quadratic Mess",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "5.8e77"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RD_0LC1RA_1RA1LC_0RB1LE_1RF0LD_---0RE": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e125"
+		},
+		"1RB1LD_1RC0RB_1LA1LE_1LC0LA_1LF0RD_0LB---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e83"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LB_1LA1RF_0LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB---_1LC0LD_0RF0LD_0LE0RA_0LC1RA_1RC1RD": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e80"
+		},
+		"1RB0LE_1RC0RF_0RD0RB_1RE0RC_1LA0LA_1RA---": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e79"
+		},
+		"1RB1RD_1LC0RD_0LE1RD_1RA0RB_---1LF_1RA0LF": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.9e16"
+		},
+		"1RB1RA_1LC1LD_1LD0LB_1RE0RF_---1RD_1RA1RB": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "8.7e20"
+		},
+		"1RB0LC_1LA1RF_1LD0LE_1RE0RA_1LC0RD_0RE---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.8e14"
+		},
+		"1RB0RC_1RC1LB_1LD1RA_1LE0LB_---1LF_0LF0LC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "5.0e13"
+		},
+		"1RB0RE_1LC0RA_0LD1LB_1LA1LF_0LB0RD_0LB---": {
+			"class": "Shift-overflow structural counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LE_0RC0RA_1RD1RB_0LA0RB_1LF---_1LD1LF": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.7e12"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LC_1RC0LF_0LD0RC_1RA1LE_---1LA_0LC1LF": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e193"
+		},
+		"1RB0RF_1LC1RA_0RD0LC_1LB1RE_---0RA_1RC1RA": {
+			"class": "Bell eats counter",
+			"status": "ready",
+			"pr": null,
+			"simulated": "1.0e13"
+		},
+		"1RB0LC_1RC1RA_1LD0RE_1LA1LD_0RA1RF_0LC---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.1e13"
+		},
+		"1RB0RB_1LC1RA_1LF0LD_0LE1LD_1RA1LC_---1LA": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RF_1LC1RD_1LA1LC_1RA1RE_0RB0LD_---0LC": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.7e13"
+		},
+		"1RB0LC_1LC0RB_0LE1LD_1LB1LA_0RA1LF_0LA---": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e125"
+		},
+		"1RB0RD_1LC0RA_1LF1LD_0RE0LC_---1LB_1RB1RC": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0LC0RF_1RD1LC_0RA1LE_---0LD_1LF1LA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RF_1RC0RA_1LD1RE_1LE0LE_0RA0LD_0RB---": {
+			"class": "Bell eats counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e14"
+		},
+		"1RB0RD_1RC0LF_0LA0RB_1RE---_1LB1RA_0LE0LF": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RF_1RC0RE_1LD0RB_1RE0LC_1RA0LE_0RC---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.1e15"
+		},
+		"1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RA_1LC0RD_---0LD_1LE1LF_1RA1LB_1RC0LD": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.6e14"
+		},
+		"1RB1LC_1LA0RD_1LB1LF_1LE1RE_0LA0RB_0LB---": {
+			"class": "Bell-like",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.3e79"
+		},
+		"1RB0LA_1RC---_1RD1RA_0RE1LC_1LF0RF_1LD0RC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.4e14"
+		},
+		"1RB1LE_0LC0RF_1RD0LB_1RE1RD_1RA0RC_1LB---": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "7.4e12"
+		},
+		"1RB0RB_0LC1RA_1RD1LC_1LA1LE_1LF0LD_---0LA": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e17"
+		},
+		"1RB0LA_0RC0RF_0RD0RA_1LD0LE_0LA1LE_---1LB": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.1e21"
+		},
+		"1RB1LC_1RC---_1LD1LC_1RE0LC_1RF0RE_1RA0RD": {
+			"class": "Structural counter + chaotic edge",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.6e16"
+		},
+		"1RB1LA_1LA0RC_1RD1RC_1LE0RC_---0LF_1LE0LA": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "7.7e18"
+		},
+		"1RB---_1RC1RE_1LD0LE_1RF0LC_0RD0RA_0RB1RD": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.5e79"
+		},
+		"1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1RB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_0RC1RD_0LD0RA_1RC0RE_1RF---_1LA0LB": {
+			"class": "Chaotic Bell Class 2",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e80"
+		},
+		"1RB0RE_1LC1LF_1RA0LD_1LB1LA_1RB1RC_---0LA": {
+			"class": "Quadratic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "3.4e77"
+		},
+		"1RB1RA_0LC0RF_1LD1LC_1RE1LB_---0RA_1RF0RD": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LC_1LA0RD_1LA0LA_---1RE_1RB0RF_1RC0RA": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e21"
+		},
+		"1RB---_0RC0RB_1LD1LE_1LC1RF_1RB0LE_1RA0RD": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": "1.1e79"
+		},
+		"1RB1LE_1RC1RF_0RD0LB_1LD0RA_0LA0LE_0RC---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.8e13"
+		},
+		"1RB---_1LC1RF_0LE0RD_0RB0LC_1RD0LD_0RC0RA": {
+			"class": "Shift-overflow counter",
+			"status": "pr",
+			"pr": 44,
+			"simulated": "3.0e13"
+		},
+		"1RB0LC_1RC0RC_1LD0RB_1LA0LE_1LD1LF_1LD---": {
+			"class": "Skelet 1-like Class 2",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_1LC1RC_0RA0LD_0LE1RE_0RF0LC_1RC---": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e114"
+		},
+		"1RB0RF_0LC---_1LD1LC_1RE0LA_1RA1RD_0RD1RF": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.1e16"
+		},
+		"1RB---_1RC1RF_1LD1RA_1LB0LE_1LF1LF_0RB0LD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RD_1LC0RA_1LA0LB_1RE0LC_1LC1RF_0RB---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e14"
+		},
+		"1RB0RA_0RC0RE_1LD1LF_1LE0LC_1RA0LD_0RA---": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.4e17"
+		},
+		"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RC---": {
+			"class": "Shift-overflow counter",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RC_1LC0LD_1RA0LB_1LE0RA_1RA1LF_0LC---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.4e14"
+		},
+		"1RB0RB_1LB0LC_1RD1LC_1RE0RA_0RF1RA_---1LB": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RF_1LC0RD_1LA0LD_1LE0RA_0LB---_0LB1RB": {
+			"class": "Monotone list",
+			"status": "rules",
+			"pr": null,
+			"simulated": "4.4e15"
+		},
+		"1RB0RC_0LA0RA_0LD0RA_1LE---_0LF1LB_1LA1LD": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "7.2e12"
+		},
+		"1RB1RE_1LC0RA_1RD0LB_1LB1RC_1LF0RD_---0LE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_0RC1RA_1RD1RF_1LE0LF_1RB0LD_0RE0LC": {
+			"class": "Shift-overflow structural counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1RF_1RC1LC_1LD0LE_---1LE_1RF0LB_0RA1RE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.4e12"
+		},
+		"1RB1LE_0LC0LB_1RD1LC_1RD1RA_1RF0LA_---1RE": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LB_1LC1LA_1RD0LB_1RA1RE_1RF0RD_---1RD": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "5.2e78"
+		},
+		"1RB1RF_1LC0LF_1RD0LB_0RA1RE_1RD---_0RC0LA": {
+			"class": "Shift-overflow structural counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_1RC1RA_0RD0RB_1LE---_0LA1LE_1RD1LA": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1RC1RA_0LD0LF_0LB0LE_1LA1LD_---0RA": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.6e78"
+		},
+		"1RB1LD_1RC1RE_0LA1LB_0LD1LC_1RF0RA_---0RC": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LA_1RC0RE_0LD0RF_1LA1LD_0RA1RE_---0LC": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RF_1RC0RD_1LD1LB_1RE0LC_1RA1RD_1RD---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "8.3e12"
+		},
+		"1RB1RD_1LC0RF_1LD0LB_1RE0RB_---1RA_0LA1RC": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.8e79"
+		},
+		"1RB1RA_1LC1RE_---0LD_1LE1LD_0RA0LF_1LF0LB": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_1RC0RA_1LD0RB_0LE0LC_0LA0LC_0LB---": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "pr",
+			"pr": 51,
+			"simulated": "7.5e17"
+		},
+		"1RB0RE_1RC---_0RD0RC_1LE1LF_1LD1RA_1RC0LF": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "10.0e78"
+		},
+		"1RB0RD_1LC0RA_1LA0LB_1RE0LC_1RA1RF_0RB---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "6.1e13"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0LE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0RB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RB_1LC0LF_1RD0LB_1RE1RC_0RA---_1LA1RE": {
+			"class": "Quadratic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.5e34"
+		},
+		"1RB0RF_1RC1LB_1LD1RE_1LB0LD_1RF0RC_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e183"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0LE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LE_1RC1RB_1LD0RE_1LA1LC_1RB0LF_0LC---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.9e13"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_1RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LE_0RC0RD_1LC0RB_0RE1RD_1LF1LE_0LA---": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.6e18"
+		},
+		"1RB0RC_1LC0LD_1RA0LB_1LE0RA_1LB1LF_0LC---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.9e14"
+		},
+		"1RB0RE_1RC0LE_0RD---_0RE0RA_1LF0LB_1LA1LF": {
+			"class": "Unknown",
+			"status": "ready",
+			"pr": null,
+			"simulated": "2.4e17"
+		},
+		"1RB1LC_1LC0RD_0LE1LA_---1RA_1RF0LA_0RF0RB": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "7.9e79"
+		},
+		"1RB0LA_0RC---_0RD0RF_1LD0LE_0LA1LE_0RA0LA": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.3e20"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0RC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_1LC0RE_1LA1RC_0LC0LA_0RF0RC_---0RB": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e11"
+		},
+		"1RB0RA_0RC0LB_1LD1RF_1LE1RA_1RD1RB_1LA---": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.4e78"
+		},
+		"1RB0RC_1LC1RE_1RA1LD_0LC0LA_1RF1RD_---0RD": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LF_0RC1RC_1LD0RD_0LE0LA_1RA0LB_---1LD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RE---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "6.0e14"
+		},
+		"1RB0RE_1LC0RA_0LD0LB_1RE0LB_1RF---_0RB0RC": {
+			"class": "Chaotic Bell Class 2",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_1RC1RF_1LD1RE_1LB1LD_0RB0RC_1RA0LF": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e234"
+		},
+		"1RB0RE_1RC1RE_1LD1LC_0RB0LC_1RF0RB_---1RA": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.7e12"
+		},
+		"1RB1LE_1RC1LF_0RD1RD_1LE0RE_0LA0LB_---1LE": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB---_1LC0LD_1RD0LB_0RF1RE_1RF0RA_0LE0RC": {
+			"class": "Chaotic Bell Class 2",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "5.2e79"
+		},
+		"1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB1LF": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "9.8e17"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0LB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LA_1RC1RD_0LA0LD_1RE1LC_0RF0LF_---0RA": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1LC0RE_1LD1LC_1LA1RD_---0RF_0LB0RD": {
+			"class": "Cubic Mess",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RE_1LC1RD_1LD0LD_0RE0LC_1RA1RF_0RA---": {
+			"class": "Bell eats counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e13"
+		},
+		"1RB0LE_1RC---_0RD0RE_1LE0RB_0LA0LF_0RC0LD": {
+			"class": "Quadratic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.1e80"
+		},
+		"1RB0LE_1LC1RD_1LA0RB_1RC1RB_1LF0LC_---0RC": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1RC0RF_1LA0LD_0LE0RA_0RB1LD_0LA---": {
+			"class": "Cubic Mess",
+			"status": "little",
+			"pr": null,
+			"simulated": "2.8e21"
+		},
+		"1RB1LA_1LC0RE_1LF1LD_0RB0LA_1RC1RE_---0LD": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1LA0RD_0RB0LF_1RA1RE_1RC---_1LC0LB": {
+			"class": "Monotone list",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.0e14"
+		},
+		"1RB1LE_0RC0RA_0RD1RF_1LD1LA_0LA0LE_0LB---": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.9e13"
+		},
+		"1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LE_0RC0RA_1RD1RF_1LA0LD_1LD0RF_1RB---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.5e17"
+		},
+		"1RB1LC_0LC---_1RE1LD_1RD0LA_1RF0RC_0RA1RC": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RF_1LC1RD_1LA1LC_1RA1RE_1RB0RB_---0LC": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "6.9e12"
+		},
+		"1RB0LB_1RC0LA_1LB0RD_1RE1RD_1RB1RF_1LA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.1e17"
+		},
+		"1RB0RD_1RC1RB_1LD0LA_1LE0RA_0LF---_0LA0LC": {
+			"class": "Unknown",
+			"status": "ready",
+			"pr": null,
+			"simulated": "5.6e17"
+		},
+		"1RB1LA_1LA1RC_1RD0RB_1LE1LD_---1LF_1RA0LF": {
+			"class": "Shift-overflow counter",
+			"status": "pr",
+			"pr": 43,
+			"simulated": "1e351"
+		},
+		"1RB0LC_0RC0RF_1RD0LE_1LA1RA_1LC1RB_0RB---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.0e32"
+		},
+		"1RB0LC_1RC1RE_1LA0LD_0RB0RA_1RB1RF_1RD---": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1LA0RD_1LB1LF_0LA0RE_1RD0RA_1LD---": {
+			"class": "Monotone list",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.0e14"
+		},
+		"1RB1RD_1LC0LE_1RA0LB_1RB---_0LF0RC_0RA1LE": {
+			"class": "Cubic Mess",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e21"
+		},
+		"1RB1LD_1RC0LA_1LA0RE_1LB1LA_1RF0RB_---0LB": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e14"
+		},
+		"1RB0RD_0LC0LF_1RD1LB_0RE---_1RA0LC_0LA1LF": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_1RC0RC_1LD0RE_0LB0LA_0RF1LA_---1RC": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.9e12"
+		},
+		"1RB1RE_1LC0RA_0RD1LB_---1RC_1LF1RE_0LB0LE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LC_1LA0RE_0LD---_1LB1LD_1RB1RF_0LA0RB": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "9.5e14"
+		},
+		"1RB0LD_0RC1RD_1LA1RA_1LE0LE_1RF0LA_0RA---": {
+			"class": "Bell-like",
+			"status": "pr",
+			"pr": 44,
+			"simulated": "1.4e79"
+		},
+		"1RB0LF_1RC0LB_1RD1RB_1RE1RF_1LA---_0RC1LA": {
+			"class": "Counter Class 2",
+			"status": "rules",
+			"pr": null,
+			"simulated": "9.8e12"
+		},
+		"1RB---_1RC0RA_1LD0RB_0LE0LC_1RE1LF_0RD0RB": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "little",
+			"pr": null,
+			"simulated": "2.2e46"
+		},
+		"1RB0LA_0LC0RD_0RE1LA_0RC1LB_1LE0LF_1RD---": {
+			"class": "Monotone list",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.6e16"
+		},
+		"1RB0LC_1LC0RE_1LD1LC_1LA1RD_1RF1RB_---0RB": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "6.9e20"
+		},
+		"1RB0RA_0RC1LD_0LD0RE_1LB1LE_1RA0LF_0LC---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.1e13"
+		},
+		"1RB1RF_1LC1RD_1RA1LD_1RE0LA_---0RC_0LC1RB": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LB_1RC1LC_1LD1RE_---0LA_1LE0RF_1RA0LF": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RA_1RC0RF_1RD1LE_1RE---_1LF1LE_1RA0LE": {
+			"class": "Structural counter + chaotic edge",
+			"status": "rules",
+			"pr": null,
+			"simulated": "3.4e16"
+		},
+		"1RB1LB_1RC1LE_1RD0LF_0LA0RD_---1LD_0LD1LF": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "5.0e13"
+		},
+		"1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE": {
+			"class": "Cubic Mess",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LB_0RC0LF_1LD1RE_0LA0RB_0RD0RF_0LA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.7e12"
+		},
+		"1RB0RF_1RC0LE_1LD0LC_1RE0RD_1LB0RA_1RC---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e13"
+		},
+		"1RB0RA_1LC0LE_1RA1LD_0LB1LF_1LD0RC_1LB---": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "5.1e79"
+		},
+		"1RB1LE_1LC0RA_0RF0LD_1LE1LA_1RC0LB_---1RC": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RD_0LC1RA_0RA1LC_1RA1LE_1RF0LD_---0RE": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LE_1RC---_1RD1RE_1LA0RF_0RC0LA_0LC0RB": {
+			"class": "Bell-like",
+			"status": "pr",
+			"pr": 44,
+			"simulated": "1.1e79"
+		},
+		"1RB0RE_1LC1RA_1LD0LC_0RE0LA_1RA1RF_0RA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e199"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_1LB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RB0RF_1RC---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e195"
+		},
+		"1RB0RA_0LC0RF_0LB1RD_1LE---_1RA0LF_1LE0RC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.5e17"
+		},
+		"1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0LA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_0RB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e166"
+		},
+		"1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1RC1RE_1RD0RA_0LE0RF_1RA0LD_1LD---": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.0e17"
+		},
+		"1RB1RE_1LC0LE_1RD0LB_0RA1RC_0RC0RF_1RA---": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "3.4e78"
+		},
+		"1RB0LF_1RC1RB_0RD0RC_1LE1LF_1LD---_0LB1LA": {
+			"class": "Sync bouncer counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1RE_1LC1LD_---1LA_1LB1LE_0RF0RA_1LD1RF": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LD_1RC0RC_1LD1RB_1LF0LE_0LA1LE_---1LB": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LE_0RC1RA_0LD0RB_1LA1LF_0LC1RF_---0LA": {
+			"class": "Shift-overflow counter",
+			"status": "pr",
+			"pr": 43,
+			"simulated": "1.0e80"
+		},
+		"1RB0RF_0LC---_1LD1LC_1RE0LA_1RA1RD_0RD0RF": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.8e13"
+		},
+		"1RB1LA_1RC0RF_1RD---_0LE1RB_---0LA_1LD1RF": {
+			"class": "Cubic Mess",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RF_1LC0RA_0LD0LB_1RD1LE_0RC0RA_1RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "7.3e39"
+		},
+		"1RB1LB_0RC0LD_1LD1RE_1RC0LA_1RD1RF_0RD---": {
+			"class": "Bell-like",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB0RF_1LC---_1RD0LC_0RE0RD_1LF1LC_1LE1RA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "10.0e78"
+		},
+		"1RB0RC_1LC0RB_1RE1LD_0LB0LF_---0RA_1LB1LD": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.3e14"
+		},
+		"1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RE_1RC0RC_1LD---_0LB1LE_1RF0LD_1RA1RF": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LE_1LC0RA_1LD0RC_1LE1LF_1LA0LC_0LA---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.8e13"
+		},
+		"1RB0LD_1RC---_0RD0RE_1LE0RF_0LA0LD_1RD0RB": {
+			"class": "Chaotic Bell Class 2",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.1e79"
+		},
+		"1RB0LD_0LC0RE_1LA0RD_0RB0LD_1RC1RF_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e13"
+		},
+		"1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB0LF": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.4e13"
+		},
+		"1RB0LC_0RC0RE_1RD1LF_1LE0RA_0LA0LE_0RB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RE_1LC0RA_1RE1LD_0LB0LF_1RA1RA_0LD---": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e131"
+		},
+		"1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA0RF": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.5e13"
+		},
+		"1RB1RF_0RC0RE_0RD1RA_1LE0LA_1LB0LD_0RD---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pr",
+			"pr": 49,
+			"simulated": "1.4e14"
+		},
+		"1RB0LC_1LA1RD_1LA1LF_0RE---_1RA1RE_0RB0LA": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.3e15"
+		},
+		"1RB0LF_1LC0RE_0LD1LC_1LA---_0RB1RA_1LC1LF": {
+			"class": "Bell eats counter",
+			"status": "pr",
+			"pr": 54,
+			"simulated": "1.7e16"
+		},
+		"1RB1LC_1LA1RB_1LD0LA_1RE1RD_---1RF_1LB0RF": {
+			"class": "Shift-overflow counter",
+			"status": "pr",
+			"pr": 43,
+			"simulated": "1e352"
+		},
+		"1RB0LA_1RC1RA_1RD1RE_1LC---_0RB1LF_1RA0LE": {
+			"class": "Counter Class 2",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "8.4e12"
+		},
+		"1RB0RD_1LC1RE_1LD0LC_0LE0LC_0RA0RF_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e47"
+		},
+		"1RB0LD_1LC1RE_1LF0RA_1LA1LD_1RC0RE_---1LC": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e68"
+		},
+		"1RB0LF_1LC0LA_---1RD_1RF1RE_1LF1RD_1LB0RE": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RA_1RC1RF_1LD0LC_1RA1LE_1RA0LC_---0RD": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA1LD": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB1LB_1RC1LD_1LA1RE_1RD0LA_0RB0RF_0RA---": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.3e79"
+		},
+		"1RB0RB_1LC---_0LA1LD_1RE0LC_1RF1RE_1RA0RD": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LC_1LC0RF_0LF1LD_0LE---_1RF1LC_1LE0RA": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.3e79"
+		},
+		"1RB0LC_1LA0RD_0LD1LF_0RE0RA_1LB1RE_0LB---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "little",
+			"pr": null,
+			"simulated": "8.4e13"
+		},
+		"1RB0RE_1LC0RA_1LA1LD_1LA---_0RF0LB_0LD1RE": {
+			"class": "Cubic Mess",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.2e21"
+		},
+		"1RB0RE_1LC0RA_1RF0RD_---1LE_0LB1LE_1LE1RC": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LD_0RC0LE_1RD1RA_0RE1RF_1LF0RC_0LA---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.7e20"
+		},
+		"1RB1LB_1LC0LD_---1LD_1RE0LA_0RF1RD_1RA1RE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.2e12"
+		},
+		"1RB1RD_1LC0RE_1LD1LC_1RA0LB_0RD0RF_0LC---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e13"
+		},
+		"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD0LC_0RC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "8.3e13"
+		},
+		"1RB---_0LC0RB_1RA1LD_1LE1LF_1LB0LF_0RC0LA": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e55"
+		},
+		"1RB0LF_1LC0RD_1LA1LC_---0RE_0RB1RA_1LC1LF": {
+			"class": "Bell eats counter",
+			"status": "pr",
+			"pr": 54,
+			"simulated": "1.2e16"
+		},
+		"1RB0RE_1LC1LF_1RA1LD_0LB---_1RF1LE_0LB0RA": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LF_0LC0RE_0RA1LD_1LB0LD_0RA1RC_1LA---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RA_1LC0LF_1RA1LD_1LB1LE_0LC0RD_---0RA": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.8e13"
+		},
+		"1RB0LF_1RC0RB_0RD0RA_1RE1LE_1RF---_1LA1LF": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "9.0e16"
+		},
+		"1RB0RA_1RC0RC_1LD0LE_1RA1LC_1LC0LF_0LC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e154"
+		},
+		"1RB---_1LC0LC_1RD1LB_1LE1RD_0LA1LF_1LD0RF": {
+			"class": "Shift-overflow structural counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e17"
+		},
+		"1RB---_0LC0RB_1RA1LD_0RD1LE_1LF0LA_1LB0LE": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e54"
+		},
+		"1RB1LA_1LC0RE_1LF1LD_1RE0LC_1LB1RA_---0LA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RF_1RC0RB_0RD1LF_1LE1RE_1LA---_1RA0LC": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "4.1e20"
+		},
+		"1RB0RE_1LC0RD_1LD0LD_1RA0LC_1RA1RF_1RA---": {
+			"class": "Skelet 1-like Class 2",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RA_0LC0RE_1LE1LD_0LE---_1LF0LC_1RA1LE": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e67"
+		},
+		"1RB0LF_1RC0RB_1LD0RA_0LE0LC_1LB1LF_1LD---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.7e17"
+		},
+		"1RB1RF_1LC---_1LE1RD_1RA0RC_0LF0LA_0LD0RB": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RC_1LC1RF_1RE0LD_1LC1LA_---1RD_0RB0RA": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB---_1LC1RE_0LD0LC_1RD0RB_1RF0RB_0LF1RA": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e119"
+		},
+		"1RB1RE_1LC1LA_1RA0LD_1LC0LE_0LF0RA_---1RC": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_0RC1RA_1RD1RB_1RE1LE_1LF0LA_---1LA": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.8e12"
+		},
+		"1RB0LE_0RC1RC_0RD1LA_1LD0LA_1LF1LC_---0LA": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LB_0RC0LD_1LD1RE_0LA0RB_0RD1RF_1LA---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e39"
+		},
+		"1RB0LC_1RC0RA_1LD1LA_1RE1LD_---1RF_0RD1RA": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e79"
+		},
+		"1RB0LE_1RC1RB_1LD0RA_1LA1LC_0LC1LF_0RA---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LC_1LC0RD_0LE1LA_0RF1RA_1LA0LA_---0RB": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.3e80"
+		},
+		"1RB0RF_1LC---_1LF1LD_1RE0LD_0RC0RE_1LC1RA": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": "1.1e79"
+		},
+		"1RB0RE_1LC---_0RA0LD_1LC1LD_1RF0LA_1RC1RE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.4e12"
+		},
+		"1RB1RD_1LC0RD_1RF1RB_1LE0RA_0LB0LE_---0RC": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LE_0RC0RA_1LD0LC_1LA0LB_1RA1LF_---0LC": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0RE---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RC_1LC0RE_1LD0LB_1RA1LC_1RA1RF_---1RD": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_0RC1RA_1LD1RC_1LE0RF_---1LA_1LF0LA": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.3e16"
+		},
+		"1RB1LE_1RC1RA_0LD1RB_1LE1LD_1RF0LA_---0RE": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RA_1LC0RD_0LD0LB_1RA0LE_1LF---_0RD1LB": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e16"
+		},
+		"1RB1RE_1LC0LD_1RA0LD_1LA1LB_0RC1RF_1RC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RA_1LC1LB_1RE0LD_1RA0LB_---0RF_1RC0RA": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.7e19"
+		},
+		"1RB1RD_1LC---_1RF0LD_0RE1LC_1RA1RF_1RE0LF": {
+			"class": "Counter Class 2",
+			"status": "rules",
+			"pr": null,
+			"simulated": "7.1e12"
+		},
+		"1RB---_1RC0LE_0LD0RF_1LB0RE_0RC0LE_1RD1RA": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "8.2e12"
+		},
+		"1RB1RD_1LC0RE_1LD1LC_1RA0LE_1LC0RF_0RD---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e13"
+		},
+		"1RB0LF_1RC1RB_1RD0RA_1RE0RE_1LF---_0LD1LA": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RD_1RC0RE_1RD1LB_0LE0RF_1RA0LD_1LD---": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "3.0e12"
+		},
+		"1RB1LA_1LC0RE_---0LD_1RE0LF_1RA1RE_1LA0LB": {
+			"class": "Cubic Mess",
+			"status": "little",
+			"pr": null,
+			"simulated": "7.6e18"
+		},
+		"1RB---_1RC0RD_1RD1RA_1LE1RB_0LF0LE_1RF0RD": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e89"
+		},
+		"1RB0LF_1LC1RF_---1LD_0LE0LB_0RA0LA_0RA1RB": {
+			"class": "Chaotic Bell Class 3",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.9e15"
+		},
+		"1RB1RA_1LC0RC_1RE0LD_0RE0LF_1RA---_1RB1LF": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_1LC1RD_0LE1LA_0RB1RD_---0LF_1RA1LF": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LD_1RC1RF_1LA0RA_0LA0LE_1LD1LA_0RB---": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RA_1LC0RA_0LF0LD_1LE---_0LC0LB_1LA0RE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RF_1RC1RE_0LD---_1LE1LD_1RF0RF_0RA0LB": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.2e13"
+		},
+		"1RB1LE_1LC1RE_1LE1LD_1LC0LA_1RF0LA_---0RA": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RF_1LC0RF_1LE0LD_1RC0LB_---1RA_1LB1RA": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RC_1RC1RB_1LD0RA_1LE1LD_1LF0LC_0LA---": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RF_1RC1RF_1LD0LE_---1LC_1RA1LE_1LC1RB": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_1RC1RB_1LD0RB_1LE0LD_0LF0LC_1LA1RA": {
+			"class": "Structural counter + chaotic edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.4e15"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0LE1RF_0RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RC_1LC0RE_0LD0LB_1RA1LE_1LB1RF_---0RD": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e111"
+		},
+		"1RB0RE_1LC0RA_0LD1LB_1LA1LE_0LB0LF_1LD---": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.2e79"
+		},
+		"1RB0LE_1LB1RC_0RF0RD_1RE0LA_1LA1RE_---0RB": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "4.5e79"
+		},
+		"1RB0LF_0LC1LB_0RD1LA_1RE0RA_---1RD_1RC1LF": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LC_1LA---_1LD0LA_1RE0LE_0RF1RE_1LB1RD": {
+			"class": "Chaotic Ack-like Bell",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.8e14"
+		},
+		"1RB1RF_1LC0RB_1RD0LC_1LE1RA_0RC1LB_---1RE": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e13"
+		},
+		"1RB1RC_1LC0LF_1RF0LD_0RE1LB_1RC---_1LD0RA": {
+			"class": "Bell-like",
+			"status": "pr",
+			"pr": 47,
+			"simulated": "3.1e13"
+		},
+		"1RB0LF_0RC0RB_1LC1LD_1RE0RD_---0RA_1LA0LF": {
+			"class": "Unknown",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "5.2e22"
+		},
+		"1RB1RA_1RC1LB_1LD0RA_---0LE_1LC0LF_1RE0LB": {
+			"class": "Cubic Mess",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LC_1LA1RD_1LA0LA_1LD0RE_0RF1RB_---0RC": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB1RD_1LC0LC_1RD1LB_1RF0RE_0RA1RE_---1RB": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.6e17"
+		},
+		"1RB1RD_1LC0RD_1RE0LD_0RE0LF_0LB0RA_0LC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e14"
+		},
+		"1RB0LD_0RC1RA_1RD1RF_1LA0LE_0RA0LC_0RA---": {
+			"class": "Shift-overflow structural counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LB_1LC0RE_0LE0LD_0LC---_1LA0RF_1RE1LC": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "5.1e26"
+		},
+		"1RB1RF_1LC1LF_0RE1LD_0LB1LD_---1RC_1RA0RD": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1LC0RE_1RA1LD_1LA1LC_1RF0RA_---0LA": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e14"
+		},
+		"1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RF0LE_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "reported",
+			"pr": 40,
+			"simulated": "1e169"
+		},
+		"1RB1RE_1RC0LD_1LB---_1RA1LD_1RA0RF_1RE0LC": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e16"
+		},
+		"1RB1RC_1LC1LC_1RE0LD_1LB1RF_---1RA_0RD1RD": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RF_0LC0RF_1RD1LC_---0LE_0RC1LF_1RA0LE": {
+			"class": "Cubic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RA_1LC0RE_1LE0LD_0LB1LB_1RA0LF_1LD---": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.4e39"
+		},
+		"1RB0LD_1LC0RE_---1LD_1LE1LA_1RA0LF_1LC1RE": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "5.4e12"
+		},
+		"1RB1RA_0LC0RA_1RC1LD_0LB1LE_1LF0RC_---0LD": {
+			"class": "Bell-like",
+			"status": "pr",
+			"pr": 44,
+			"simulated": "1.4e79"
+		},
+		"1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e110"
+		},
+		"1RB0RE_1LC1RD_1LA0LC_0RA1RF_1RD0LB_1RA---": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.8e79"
+		},
+		"1RB0LF_1LC0RC_1RA1LD_0RB0LE_1LC0LB_---1LA": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RF_1LC0LB_1RE1LD_1RE0LB_1RA0RE_---0RC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e17"
+		},
+		"1RB0LB_1RC1LE_1LD0RF_---1LB_0LA0LC_1LB1RA": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.1e13"
+		},
+		"1RB1RE_0LC1RF_---1LD_1LE0LD_1LA1LB_1RF0RA": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RA_1LC1RA_0LD1LD_0LE0LC_1LA0LF_---1LC": {
+			"class": "Chaotic Fractal Type 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.5e27"
+		},
+		"1RB0LD_1RC1RA_1LD0RB_1LE1LA_1RF0RC_---1RE": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0RB_1LC0LE_1RD1LB_1RA0RD_1LB0LF_0LB---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e76"
+		},
+		"1RB1RA_1RC0RF_1RD0RD_1LE---_0LC1LF_1RA0LE": {
+			"class": "Chaotic 1dCA-like in bell",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB0LC_1RC1RA_1LD0RE_1LA1LD_0RA0RF_0LD---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.4e13"
+		},
+		"1RB0RC_1LC1LA_1RD0LB_1RE1RC_1RA0RF_1RC---": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.2e13"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1LB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RB_1LC1RA_0LE1LD_0RE1LF_---1LA_1LD0LC": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_1RC1RF_1LA1RD_1RE0LB_---0RA_0LA1RC": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "3.3e19"
+		},
+		"1RB0RB_1LC1RA_0LF0LD_1LE1RB_1RA1LC_---1LA": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RD_1LC0RA_1LA0LB_1RE0LC_1LD1RF_0RB---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e15"
+		},
+		"1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE1LC": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.2e13"
+		},
+		"1RB1LE_1RC0RD_1LD0RE_0LA0LC_1LC1RF_---0RA": {
+			"class": "Shift-overflow counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1e111"
+		},
+		"1RB1RB_1LC0RE_---1LD_0RA1LB_1RA1LF_0LE1LE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LA_0LC0RE_1LD1LB_1RE1LF_1RC0RA_0RC---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0LB---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LE_1RC0RB_1LD1RC_1LA1LE_1LF0LA_1LC---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1e359"
+		},
+		"1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LA---": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB0LE_0RC1RA_1RD0RF_0LE1LD_1RA1LC_---0RE": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.8e13"
+		},
+		"1RB1RD_0RC0RD_0LD1LE_1LC0RB_1LF---_1LA0LE": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.4e20"
+		},
+		"1RB1RF_1RC0RF_0RD0LC_1LE1RA_1LC---_0LD0RE": {
+			"class": "Shift-overflow counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1e157"
+		},
+		"1RB0LC_1LA1RE_1LD1RE_1RE0LA_0RA1RF_0RB---": {
+			"class": "Bell-like",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LA_1RC0LD_1LB0RE_0LA0LC_0RD1RF_0RB---": {
+			"class": "Chaotic Bell Class 3",
+			"status": "little",
+			"pr": null,
+			"simulated": "4.7e13"
+		},
+		"1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RF1RC_1RA---": {
+			"class": "Shift-overflow counter",
+			"status": "reported",
+			"pr": 40,
+			"simulated": "1e194"
+		},
+		"1RB1LD_1RC0RB_1LA1RC_1LE0LA_1LF---_1LC---": {
+			"class": "Shift-overflow counter",
+			"status": "reported",
+			"pr": 40,
+			"simulated": "1e183"
+		},
+		"1RB0LD_0RC0RF_1LD0RB_1LE---_0LA0LB_0LE0RA": {
+			"class": "Quadratic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.2e80"
+		},
+		"1RB0RB_0LC0RA_1LE1LD_0LE---_1LF0LC_1RA1LB": {
+			"class": "Bell eats counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.3e16"
+		},
+		"1RB1LD_1RC0LA_0RD1RB_1RE0RF_0LA1LE_---0RA": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.3e13"
+		},
+		"1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LA_1RC---_0LD1RD_0RB0RE_0RF0LD_1LF0LA": {
+			"class": "Translated Counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.9e12"
+		},
+		"1RB0LF_1LC1RA_0RE0RD_---1LE_1LF1RC_1LC1LA": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB---_1RC0LE_1RD1RF_1LB0LB_0RD0LD_0RC0RA": {
+			"class": "Chaotic Bell Class 2",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.2e79"
+		},
+		"1RB0LD_0RC---_0LD0RF_1LE1LD_0LA0RD_0RB1RA": {
+			"class": "Bell eats counter",
+			"status": "pr",
+			"pr": 54,
+			"simulated": null
+		},
+		"1RB1LB_1RC0RD_0LA1RE_0RF1LC_1LA0RB_---1LC": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RD_0RC1RE_1RD0LA_1LE1LC_1RF0LD_---0RA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1LC_1LA0RE_0LD---_1RE0LF_1RF0RD_1LD0LB": {
+			"class": "Chaotic Bell Class 3",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.5e13"
+		},
+		"1RB1RA_1RC1LB_1LD0RA_1LB0LE_1LF1LD_---0LD": {
+			"class": "Cubic Mess",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "8.2e20"
+		},
+		"1RB1RE_1RC0RF_1LD1RA_1LB1LD_1RC0RC_---0LD": {
+			"class": "Spaghetti",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.0e12"
+		},
+		"1RB1LC_1RC0LD_1LA0RB_1LB1LE_1RF0LA_---0RE": {
+			"class": "Quadratic Mess",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RA_1RC1LB_0LD0RA_1RF1LE_---1LF_1LC0LF": {
+			"class": "Counter Class 3",
+			"status": "pr",
+			"pr": 50,
+			"simulated": "1e230"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB---_0RC1RC_1RD0LE_1RE0RB_1LF0RA_1LC1LF": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "6.9e37"
+		},
+		"1RB0LD_1LC1RE_1LA1RC_1RA0LC_0RF---_0LD1RB": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB0LA_1LC1RF_---1LD_1RE0LA_1RA0RB_1RE0RF": {
+			"class": "Bell eats counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.5e16"
+		},
+		"1RB1LD_1LC0RC_0RF1RA_0LE1LA_1RC0LA_---0RB": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.3e80"
+		},
+		"1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RD_1RC1RB_1LD0RA_1RA0LE_1LF0LC_---1LE": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_1RD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RD_1LC0LC_0RD0LB_1RF0LE_0RD---_0RA1RC": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "7.9e12"
+		},
+		"1RB0RC_1LC0RB_1LD0LD_1RA1LE_---0LF_1LB1LF": {
+			"class": "Bouncer + Chaotic Edge",
+			"status": "little",
+			"pr": null,
+			"simulated": "9.1e12"
+		},
+		"1RB0LE_1RC0LB_1RD0RC_1LA1RC_---1LF_1LB1LD": {
+			"class": "Unknown",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0LD---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1LD_0RC0LF_1LD1RE_0LA0RB_0RD1RB_0LD---": {
+			"class": "Shift-overflow counter",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.1e12"
+		},
+		"1RB0RD_1RC1LE_1LD---_1RF0LE_1LD1LE_1RA0RF": {
+			"class": "Structural counter + chaotic edge",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0LC_1LC0RF_1LD1RC_1LA0RE_1LB1RD_---0RD": {
+			"class": "Chaotic 1dCA-like in bouncer",
+			"status": "little",
+			"pr": null,
+			"simulated": "4.3e12"
+		},
+		"1RB1LE_0RC---_1RD0LA_1RE0RB_0LA0LF_0LD1LF": {
+			"class": "Skelet 1-like Class 1",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e20"
+		},
+		"1RB1RC_1LC1LE_1RA1RD_0RF0RE_1LA0LB_---1RA": {
+			"class": "Bell-like",
+			"status": "cryptid",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RD_1LC0RF_0LA0RA_1LE1RA_---1LB_0RA0LD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RF_0RC1RD_1LC1LA_0LE1RE_1RA0RB_---0LC": {
+			"class": "Translated Counter",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "4.6e12"
+		},
+		"1RB1RE_1LC0RF_1LA0LD_1LE1LC_0RA0LC_1RA---": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RE_1LC1LB_1LE0LD_1LE1LC_0RF1RA_---1RA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "6.6e78"
+		},
+		"1RB1LF_1LC0RD_---1LA_0LA0RE_1LA1RA_1LB0LD": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.4e79"
+		},
+		"1RB1LD_0LC1RC_1RA1RD_1LE0RB_---1LF_0LC0LA": {
+			"class": "Bell-like",
+			"status": "rules",
+			"pr": null,
+			"simulated": "2.1e79"
+		},
+		"1RB1RD_1LC0RE_1LD1LC_1RA0LB_0RD0RF_0RD---": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "2.2e13"
+		},
+		"1RB1LD_0RC1RC_1RD0RE_0LA0LF_0RF---_1RA1LA": {
+			"class": "Bell-like",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "2.3e79"
+		},
+		"1RB0RF_1RC0LD_1RD0RA_1LB1LE_0LB0RE_0RD---": {
+			"class": "Quadratic Mess",
+			"status": "rules",
+			"pr": null,
+			"simulated": "9.2e79"
+		},
+		"1RB1LD_0RC1LE_1RD0LA_1RE0RF_1LF0LC_---1LB": {
+			"class": "Quadratic Mess",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "1.5e79"
+		},
+		"1RB1LF_1RC0RA_0RD1RA_1RE1LA_0LA---_1RF0LD": {
+			"class": "Skelet 1-like Class 1",
+			"status": "little",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB0RA_1RC0LC_0LD1RF_1RA1LE_1LD0LB_0RE---": {
+			"class": "Shift-overflow counter",
+			"status": "pr",
+			"pr": 48,
+			"simulated": "1.0e76"
+		},
+		"1RB0RE_0LC0RF_1LD1LC_1RA0LD_0RD1RE_---0LB": {
+			"class": "Bell-like",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "7.0e21"
+		},
+		"1RB0RD_1LC1LB_---1LD_1RA0RE_1RD0LF_1LE0LD": {
+			"class": "Unknown",
+			"status": "rules",
+			"pr": null,
+			"simulated": "1.0e11"
+		},
+		"1RB1RC_1LC0RE_1LD0LB_1RA1LC_1RA0RF_---0RC": {
+			"class": "Shift-overflow bouncer counter",
+			"status": "lottery",
+			"pr": null,
+			"simulated": "1.0e17"
+		},
+		"1RB1RB_0LC0LD_0LE1LD_1LB0RE_1RA0RF_1RD---": {
+			"class": "Unknown",
+			"status": "reported",
+			"pr": null,
+			"simulated": null
+		},
+		"1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB0LE": {
+			"class": "Chaotic Bell Class 1",
+			"status": "pattern",
+			"pr": null,
+			"simulated": "3.0e13"
+		}
+	}
+}

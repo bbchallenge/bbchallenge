@@ -1,0 +1,242 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://bbchallenge.org/bb6/holdouts.schema.json",
+	"title": "BB(6) holdouts",
+	"description": "Format of /bb6/holdouts.json. See docs/bb6-holdouts.md.",
+	"type": "object",
+	"required": [
+		"schema_version",
+		"generated_at",
+		"list",
+		"busycoq",
+		"sources",
+		"url_templates",
+		"sheet_tabs",
+		"counts",
+		"holdouts"
+	],
+	"properties": {
+		"schema_version": { "const": 1 },
+		"generated_at": { "type": "string", "format": "date-time" },
+		"list": {
+			"type": "object",
+			"required": ["count", "published", "published_by", "discord_url", "file"],
+			"properties": {
+				"count": { "type": "integer" },
+				"published": { "type": "string", "format": "date" },
+				"published_by": { "type": "string" },
+				"discord_url": { "type": "string" },
+				"file": { "type": "string" },
+				"equivalence_file": { "type": "string" },
+				"equivalent_machines": { "type": "integer" }
+			}
+		},
+		"busycoq": {
+			"type": "object",
+			"required": ["repo", "branch", "head", "snapshot_fetched_at", "pr_snapshot"],
+			"properties": {
+				"repo": { "type": "string" },
+				"branch": { "type": "string" },
+				"head": {
+					"type": "object",
+					"required": ["sha", "date"],
+					"properties": {
+						"sha": { "type": "string" },
+						"date": { "type": "string" },
+						"message": { "type": "string" }
+					}
+				},
+				"snapshot_fetched_at": { "type": "string", "format": "date-time" },
+				"verify_files": { "type": "integer" },
+				"prs_url": { "type": "string" },
+				"pr_snapshot": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["number", "state", "head_sha", "updated_at"],
+						"properties": {
+							"number": { "type": "integer" },
+							"state": { "type": "string" },
+							"head_sha": { "type": "string" },
+							"updated_at": { "type": "string" }
+						}
+					}
+				}
+			}
+		},
+		"sources": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"required": ["name", "url", "as_of"],
+				"properties": {
+					"name": { "type": "string" },
+					"url": { "type": "string" },
+					"as_of": { "type": "string" }
+				}
+			}
+		},
+		"url_templates": { "type": "object", "additionalProperties": { "type": "string" } },
+		"sheet_tabs": { "type": "object", "additionalProperties": { "type": "string" } },
+		"counts": {
+			"type": "object",
+			"properties": {
+				"by_status": {
+					"type": "object",
+					"properties": {
+						"open": { "type": "integer" },
+						"pr_open": { "type": "integer" },
+						"solved": { "type": "integer" }
+					}
+				},
+				"with_conflicts": { "type": "integer" }
+			}
+		},
+		"holdouts": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"n",
+					"tm",
+					"aliases",
+					"class",
+					"classifications",
+					"busycoq",
+					"wiki_pages",
+					"conflicts"
+				],
+				"properties": {
+					"n": { "type": "integer", "minimum": 1 },
+					"tm": { "$ref": "#/$defs/machine" },
+					"name": { "type": ["string", "null"] },
+					"aliases": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["tm", "relation"],
+							"properties": {
+								"tm": { "$ref": "#/$defs/machine" },
+								"relation": { "enum": ["mirror", "equivalent"] }
+							}
+						}
+					},
+					"class": { "type": ["string", "null"] },
+					"classifications": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["source", "class"],
+							"properties": {
+								"source": { "enum": ["sheet", "slugbird"] },
+								"class": { "type": "string" },
+								"machine": { "$ref": "#/$defs/machine" },
+								"relation": { "enum": ["exact", "mirror", "equivalent"] },
+								"cell": { "$ref": "#/$defs/cell" }
+							}
+						}
+					},
+					"sheet": {
+						"type": ["object", "null"],
+						"properties": {
+							"status": { "type": ["string", "null"] },
+							"simulated_log10_min": { "enum": [13, 14, 15, null] },
+							"machine": { "$ref": "#/$defs/machine" },
+							"cell": { "$ref": "#/$defs/cell" }
+						}
+					},
+					"slugbird": {
+						"type": ["object", "null"],
+						"properties": {
+							"status": {
+								"enum": [
+									"pr",
+									"ready",
+									"rules",
+									"reported",
+									"cryptid",
+									"pattern",
+									"lottery",
+									"little"
+								]
+							},
+							"pr": { "type": ["integer", "null"] },
+							"simulated": { "type": ["string", "null"] }
+						}
+					},
+					"busycoq": {
+						"type": "object",
+						"required": ["status", "solved_in", "prs", "mentioned_in"],
+						"properties": {
+							"status": { "enum": ["open", "pr_open", "solved"] },
+							"solved_in": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": ["file"],
+									"properties": {
+										"file": { "type": "string" },
+										"machines": { "type": "array", "items": { "$ref": "#/$defs/machine" } }
+									}
+								}
+							},
+							"prs": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": ["number", "title", "state", "relation"],
+									"properties": {
+										"number": { "type": "integer" },
+										"title": { "type": "string" },
+										"author": { "type": "string" },
+										"state": { "type": "string" },
+										"relation": { "enum": ["proves", "mentions"] },
+										"files": { "type": "array", "items": { "type": "string" } }
+									}
+								}
+							},
+							"mentioned_in": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": ["file", "kind"],
+									"properties": {
+										"file": { "type": "string" },
+										"kind": { "enum": ["equivalence", "no-final-theorem"] },
+										"machines": { "type": "array", "items": { "$ref": "#/$defs/machine" } }
+									}
+								}
+							}
+						}
+					},
+					"wiki_pages": { "type": "array", "items": { "type": "string" } },
+					"site_page": { "type": "string" },
+					"conflicts": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["kind", "detail"],
+							"properties": {
+								"kind": {
+									"enum": ["class", "sheet-status", "slugbird-pr", "slugbird-status", "cryptid"]
+								},
+								"detail": { "type": "string" }
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"$defs": {
+		"machine": {
+			"type": "string",
+			"pattern": "^([01][LR][A-F]|---)([01][LR][A-F]|---)(_([01][LR][A-F]|---)([01][LR][A-F]|---)){5}$"
+		},
+		"cell": {
+			"type": "object",
+			"required": ["tab", "ref"],
+			"properties": { "tab": { "type": "string" }, "ref": { "type": "string" } }
+		}
+	}
+}
