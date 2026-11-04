@@ -71,7 +71,7 @@
 
 	function challenge_to_interesting_machine_file(challenge: Challenge) {
 		if (challenge == Challenge.BB6) {
-			return 'BB6_holdouts_815.txt';
+			return 'BB6_holdouts_608.txt';
 		} else if (challenge == Challenge.BB2x5) {
 			return 'BB2x5_Rocq_holdouts_60.txt';
 		} else if (challenge == Challenge.BB3x3) {
@@ -469,12 +469,26 @@
 						</ul>
 					{:else}
 						Setting the challenge's goal is work in progress.<br />Meanwhile, you can browse
-						<a
-							href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
-							rel="external"
-							class="text-blue-400 hover:text-blue-300 cursor-pointer">a list</a
-						>
-						of interesting {challenge_to_state_string(curr_challenge)} machines.
+						{#if curr_challenge == Challenge.BB6}
+							the <a
+								href="/bb6"
+								rel="external"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer">608 remaining BB(6) holdouts</a
+							>
+							(or the
+							<a
+								href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
+								rel="external"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer">plain list</a
+							>).
+						{:else}
+							<a
+								href={'/' + challenge_to_interesting_machine_file(curr_challenge)}
+								rel="external"
+								class="text-blue-400 hover:text-blue-300 cursor-pointer">a list</a
+							>
+							of interesting {challenge_to_state_string(curr_challenge)} machines.
+						{/if}
 					{/if}
 				</div>
 				<!-- <div style="font-size:0.65rem">
