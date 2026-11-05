@@ -39,7 +39,6 @@
 	let cls = '';
 	let status = 'all';
 	let sort = 'list';
-	let onlyConflicts = false;
 	let onlyWiki = false;
 	let shown = 100;
 	let expanded = new Set<number>();
@@ -70,12 +69,11 @@
 		return null;
 	}
 
-	type Filters = { q: string; cls: string; status: string; onlyConflicts: boolean; onlyWiki: boolean };
+	type Filters = { q: string; cls: string; status: string; onlyWiki: boolean };
 	// Svelte only tracks variables named inside the `$:` statement, so the filters are passed in explicitly.
 	function matches(h: Holdout, i: number, f: Filters, st: string): boolean {
 		if (f.status !== 'all' && st !== f.status) return false;
 		if (f.cls && !h.classifications.some((c) => c.class === f.cls)) return false;
-		if (f.onlyConflicts && !h.conflicts.length) return false;
 		if (f.onlyWiki && !h.wiki_pages.length) return false;
 		const typed = f.q.trim();
 		const needle = typed.toLowerCase().replace(/^#/, '');
@@ -87,7 +85,7 @@
 
 	$: rows = holdouts
 		.map((h, i) => ({ h, i }))
-		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyConflicts, onlyWiki }, ov.get(i)!.status))
+		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyWiki }, ov.get(i)!.status))
 		.sort((a, b) => {
 			switch (sort) {
 				case 'class':
@@ -108,7 +106,7 @@
 		return c;
 	})();
 	// reset paging when the filter changes
-	$: (q, cls, status, sort, onlyConflicts, onlyWiki), (shown = 100);
+	$: (q, cls, status, sort, onlyWiki), (shown = 100);
 
 	// keep the filters in the URL so a view can be shared
 	$: if (urlReady && typeof window !== 'undefined') {
@@ -117,7 +115,6 @@
 		if (cls) p.set('class', cls);
 		if (status !== 'all') p.set('status', status);
 		if (sort !== 'list') p.set('sort', sort);
-		if (onlyConflicts) p.set('conflicts', '1');
 		if (onlyWiki) p.set('wiki', '1');
 		const s = p.toString();
 		window.history.replaceState(window.history.state, '', s ? `?${s}` : window.location.pathname);
@@ -128,7 +125,7 @@
 		cls = '';
 		status = 'all';
 		sort = 'list';
-		onlyConflicts = onlyWiki = false;
+		onlyWiki = false;
 	}
 	function toggle(n: number) {
 		expanded.has(n) ? expanded.delete(n) : expanded.add(n);
@@ -153,7 +150,6 @@
 		cls = p.get('class') ?? '';
 		status = p.get('status') ?? 'all';
 		sort = p.get('sort') ?? 'list';
-		onlyConflicts = p.get('conflicts') === '1';
 		onlyWiki = p.get('wiki') === '1';
 		urlReady = true;
 		check();
@@ -327,7 +323,6 @@
 				</select>
 			</label>
 			<div class="flex items-center gap-x-5 gap-y-2 text-sm flex-wrap py-2">
-				<label class="flex items-center gap-2"><input type="checkbox" bind:checked={onlyConflicts} /> sources disagree</label>
 				<label class="flex items-center gap-2"><input type="checkbox" bind:checked={onlyWiki} /> has wiki page</label>
 				<button type="button" class="link" on:click={clear}>clear</button>
 			</div>
