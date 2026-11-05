@@ -237,8 +237,12 @@
 					<strong>one row</strong>: the others are listed as equivalent machines, and searching for any of them finds the row.
 				</p>
 				<p>
-					A <strong>machine code</strong> such as <code>1RB1RA_0LC1LE_…</code> lists, for each state A–F, what to do on a 0
-					and on a 1: the symbol to write, the direction (L/R) and the next state; <code>---</code> means halt. See
+					A <strong>machine code</strong> writes a machine as six groups separated by <code>_</code>, one for each state
+					A to F. Each group holds two instructions: what to do when the head reads a 0, then when it reads a 1. An
+					instruction is three characters: the symbol to write, the direction to move (L or R) and the next state.
+					<code>---</code> means halt. For example, holdout #1 is
+					<code class="block my-2 break-all">1RB1RF_1LC1LB_1RD1LD_1RE0RA_---0LB_0LF0RC</code>
+					Its first instruction, <code>1RB</code>, says that in state A, reading a 0, the machine writes a 1, moves right and goes to state B. See
 					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>.
 				</p>
 				<dl class="grid grid-cols-1 sm:grid-cols-[max-content_1fr] gap-x-6 gap-y-2">
