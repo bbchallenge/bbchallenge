@@ -1,5 +1,5 @@
 <script lang="ts">
-	// Holdouts on each published BB(6) list (wiki "Holdouts lists"), log scale, with a few milestones and
+	// Holdouts on each published BB(6) list (wiki "Holdouts lists"), log or linear, with a few milestones and
 	// today's count (the latest list minus the proofs merged since). One series, so no legend.
 	export let lists: { date: string; count: number; by: string; link?: string; note?: string }[];
 	/** today's count and the date it was checked; null hides the point */
@@ -11,35 +11,117 @@
 	$: shown = lists.filter((l) => l.date >= from);
 	$: before = lists.filter((l) => l.date < from);
 
-	// labels sit below-left of their point (the line falls to the right, so that corner is empty)
-	type Milestone = { date: string; label: string; href?: string; rule?: boolean; aboveRight?: boolean };
+	let scale: 'log' | 'linear' = 'log';
+
+	// `count: true` puts the count on that date in the label
+	type Milestone = { date: string; label: string; href?: string; title?: string; count?: boolean };
 	const MILESTONES: Milestone[] = [
-		{ date: '2024-05-13', label: 'Coq-BB5 deciders', aboveRight: true },
-		{ date: '2024-07-06', label: 'Antihydra: “BB(6) is Hard”', href: 'https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html', rule: true },
-		{ date: '2025-11-14', label: 'List the sheet uses' },
-		{ date: '2026-08-31', label: 'First under 1,000' }
+		{ date: '2024-05-13', label: 'Coq-BB5 deciders', count: true },
+		{
+			date: '2024-07-06',
+			label: 'Antihydra',
+			href: 'https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html',
+			title: 'Shawn Ligocki, “BB(6) is Hard (Antihydra)”'
+		},
+		{ date: '2025-11-14', label: 'List the sheet uses', count: true },
+		{ date: '2026-08-31', label: 'First under 1,000', count: true },
+		{
+			date: '2026-10-15',
+			label: 'DeepMind paper',
+			href: 'https://arxiv.org/abs/2610.22603',
+			title: 'Dos Santos et al., “At the Limits of Computability” (11 new potential Cryptids)'
+		}
 	];
 
 	let width = 640;
 	const H = 280;
-	const M = { top: 28, right: 16, bottom: 28, left: 52 };
+	const M = { top: 20, right: 16, bottom: 28, left: 52 };
 	const t = (d: string) => Date.parse(d + 'T00:00:00Z');
 	const end = today ? today.date : lists[lists.length - 1].date;
 	$: x0 = t(from);
 	$: x1 = t(end) + 20 * 864e5;
 	$: sx = (d: string) => M.left + ((t(d) - x0) / (x1 - x0)) * (width - M.left - M.right);
-	const LO = Math.log10(250),
-		HI = Math.log10(5e4);
-	const sy = (n: number) => M.top + ((HI - Math.log10(n)) / (HI - LO)) * (H - M.top - M.bottom);
+
+	// log: decades labelled, 2-9 in between as faint lines; linear: round 10k steps
+	const LO = 300,
+		HI = 5e4,
+		LIN_HI = 4e4;
+	const plotH = H - M.top - M.bottom;
+	$: sy =
+		scale === 'log'
+			? (n: number) => M.top + ((Math.log10(HI) - Math.log10(n)) / (Math.log10(HI) - Math.log10(LO))) * plotH
+			: (n: number) => M.top + ((LIN_HI - n) / LIN_HI) * plotH;
+	const MAJOR = { log: [1e3, 1e4], linear: [0, 1e4, 2e4, 3e4, 4e4] };
+	const MINOR = {
+		log: [3, 4, 5, 6, 7, 8, 9].map((k) => k * 100).concat([2, 3, 4, 5, 6, 7, 8, 9].map((k) => k * 1e3), [2e4, 3e4, 4e4, 5e4]),
+		linear: [] as number[]
+	};
+	const tickText = (v: number) => (v ? `${v / 1e3}k` : '0');
 
 	// the count holds until the next list: a step line
 	$: path =
 		shown.map((l, i) => `${i ? `H${sx(l.date)}V` : `M${sx(l.date)},`}${sy(l.count)}`).join('') +
 		(today ? `H${sx(today.date)}` : '');
 	const fmt = (n: number) => n.toLocaleString('en-US');
-	const yTicks = [1e3, 3e3, 1e4, 3e4];
 	const years = [2025, 2026];
-	const byDate = (d: string) => lists.filter((l) => l.date === d).at(-1)!;
+	/** the count in force on a date: the last list on or before it */
+	const at = (d: string) => lists.filter((l) => l.date <= d).at(-1)!;
+
+	// Direct labels. Each sits beside its point, left of it unless it would run off the plot. It takes the
+	// first offset that clears the dots and the labels already placed (today first, then right to left).
+	type Mark = { key: string; px: number; py: number; name: string; value?: number; extra?: string; href?: string; title?: string; today?: boolean };
+	type Placed = Mark & { lx: number; ly: number; anchor: 'start' | 'end' };
+	const CH = 6.6; // px per character at 12px
+	function layout(marks: Mark[], w: number): Placed[] {
+		const boxes = marks.map((m) => [m.px - 6, m.py - 6, m.px + 6, m.py + 6]);
+		const out: Placed[] = [];
+		for (const m of [...marks].sort((a, b) => Number(!!b.today) - Number(!!a.today) || b.px - a.px)) {
+			const tw = (m.name.length + (m.value === undefined ? 0 : fmt(m.value).length + 2) + (m.extra?.length ?? 0)) * CH;
+			// left of the point if it fits, else right of it, else flush with the right edge (narrow screens)
+			const left = m.px - 8 - tw >= M.left || m.px + 8 + tw > w - M.right;
+			const anchor = left ? 'end' : 'start';
+			const lx = left ? Math.min(Math.max(m.px - 8, M.left + tw), w - M.right) : m.px + 8;
+			const [x0b, x1b] = left ? [lx - tw, lx] : [lx, lx + tw];
+			// left of the point the line runs above (counts fall), so try below first; right of it, above
+			const offs = (left ? [16, -8, 30, -22, 44, -36] : [-8, 16, -22, 30, -36, 44]).concat([-50, -64, -78]);
+			let ly = m.py + offs[0];
+			for (const o of offs) {
+				const y = m.py + o;
+				if (y - 11 < 2 || y + 3 > H - M.bottom - 2) continue;
+				if (boxes.some(([a, b, c, d]) => x0b < c && x1b > a && y - 11 < d && y + 3 > b)) continue;
+				ly = y;
+				break;
+			}
+			boxes.push([x0b, ly - 11, x1b, ly + 3]);
+			out.push({ ...m, lx, ly, anchor });
+		}
+		return out;
+	}
+	$: marks = [
+		...MILESTONES.filter((m) => m.date >= from && at(m.date)).map((m) => ({
+			key: m.date,
+			px: sx(m.date),
+			py: sy(at(m.date).count),
+			name: m.label,
+			value: m.count ? at(m.date).count : undefined,
+			href: m.href,
+			title: m.title
+		})),
+		...(today
+			? [
+					{
+						key: 'today',
+						px: sx(today.date),
+						py: sy(today.count),
+						name: 'Today',
+						value: today.count,
+						extra: today.solved ? ` (${today.solved} proved since the list)` : '',
+						today: true
+					}
+			  ]
+			: [])
+	];
+	$: placed = layout(marks, width);
 
 	// hover: snap to the nearest list
 	let hover: number | null = null;
@@ -56,11 +138,17 @@
 </script>
 
 <figure class="w-full">
-	<figcaption class="mb-2">
-		<span class="font-semibold">Holdouts over time</span>
-		<span class="block text-sm text-gray-400"
-			>Each published list, log scale{#if before.length}. Before these: {before.map((l) => `${fmt(l.count)} (${l.date.slice(0, 7)})`).join(', ')}{/if}.</span
-		>
+	<figcaption class="mb-2 flex items-start justify-between gap-3">
+		<div>
+			<span class="font-semibold">Holdouts over time</span>
+			<span class="block text-sm text-gray-400"
+				>Each published list since May 2024{#if before.length}; the two from 2023 had {before.map((l) => fmt(l.count)).join(' and ')}{/if}.</span
+			>
+		</div>
+		<div class="seg" role="group" aria-label="Y-axis scale">
+			<button type="button" class:on={scale === 'log'} aria-pressed={scale === 'log'} on:click={() => (scale = 'log')}>Log</button>
+			<button type="button" class:on={scale === 'linear'} aria-pressed={scale === 'linear'} on:click={() => (scale = 'linear')}>Linear</button>
+		</div>
 	</figcaption>
 	<div class="relative" bind:clientWidth={width}>
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -72,35 +160,37 @@
 			on:pointermove={move}
 			on:pointerleave={() => (hover = null)}
 		>
-			{#each yTicks as v}
+			{#each MINOR[scale] as v}
+				<line class="grid minor" x1={M.left} x2={width - M.right} y1={sy(v)} y2={sy(v)} />
+			{/each}
+			{#each MAJOR[scale] as v}
 				<line class="grid" x1={M.left} x2={width - M.right} y1={sy(v)} y2={sy(v)} />
-				<text class="tick" x={M.left - 6} y={sy(v)} text-anchor="end" dominant-baseline="middle">{v / 1e3}k</text>
+				<text class="tick" x={M.left - 6} y={sy(v)} text-anchor="end" dominant-baseline="middle">{tickText(v)}</text>
 			{/each}
 			{#each years as y}
+				<line class="grid minor" x1={sx(`${y}-01-01`)} x2={sx(`${y}-01-01`)} y1={H - M.bottom} y2={H - M.bottom + 4} />
 				<text class="tick" x={sx(`${y}-01-01`)} y={H - 8} text-anchor="middle">{y}</text>
 			{/each}
 			<line class="axis" x1={M.left} x2={width - M.right} y1={H - M.bottom} y2={H - M.bottom} />
 
-			{#each MILESTONES.filter((m) => m.rule) as m}
-				<line class="rule" x1={sx(m.date)} x2={sx(m.date)} y1={M.top + 12} y2={H - M.bottom} />
-				<a href={m.href} rel="external"><text class="label link" x={sx(m.date) + 5} y={H - M.bottom - 8}>{m.label}</text></a>
-			{/each}
-
 			<path d={path} class="line" />
 
-			{#each MILESTONES.filter((m) => !m.rule && byDate(m.date)) as m}
-				{@const l = byDate(m.date)}
-				<circle class="dot" cx={sx(m.date)} cy={sy(l.count)} r="4" />
-				<text class="label" x={sx(m.date) + (m.aboveRight ? 6 : -6)} y={sy(l.count) + (m.aboveRight ? -10 : 16)} text-anchor={m.aboveRight ? 'start' : 'end'}
-					>{m.label}: <tspan class="value">{fmt(l.count)}</tspan></text
-				>
+			{#each placed as m (m.key)}
+				{#if Math.abs(m.ly - m.py) > 20}
+					<!-- the label had to move away from its point: a short connector says whose it is -->
+					<line class="leader" x1={m.px} y1={m.py} x2={m.anchor === 'end' ? m.lx + 2 : m.lx - 2} y2={m.ly - 4} />
+				{/if}
+				<circle class="dot" class:today={m.today} cx={m.px} cy={m.py} r={m.today ? 5 : 4} />
+				{#if m.href}
+					<a href={m.href} rel="external"
+						><text class="label link" x={m.lx} y={m.ly} text-anchor={m.anchor}>{#if m.title}<title>{m.title}</title>{/if}{m.name}</text></a
+					>
+				{:else}
+					<text class="label" x={m.lx} y={m.ly} text-anchor={m.anchor}
+						>{m.name}{#if m.value !== undefined}: <tspan class="value">{fmt(m.value)}</tspan>{/if}{m.extra ?? ''}</text
+					>
+				{/if}
 			{/each}
-			{#if today}
-				<circle class="dot today" cx={sx(today.date)} cy={sy(today.count)} r="5" />
-				<text class="label" x={sx(today.date) - 8} y={sy(today.count) + 20} text-anchor="end"
-					>Today: <tspan class="value">{fmt(today.count)}</tspan>{today.solved ? ` (${today.solved} proved since the list)` : ''}</text
-				>
-			{/if}
 
 			{#if h}
 				<line class="cross" x1={sx(h.date)} x2={sx(h.date)} y1={M.top} y2={H - M.bottom} />
@@ -150,9 +240,12 @@
 	.tick {
 		fill: #898781;
 	}
-	.rule {
-		stroke: #898781;
+	.leader {
+		stroke: #4b5563;
 		stroke-width: 1;
+	}
+	.grid.minor {
+		stroke: #1f2329;
 	}
 	.line {
 		fill: none;
@@ -171,6 +264,10 @@
 	}
 	.label {
 		fill: #c3c2b7;
+		paint-order: stroke;
+		stroke: #111827;
+		stroke-width: 4px;
+		stroke-linejoin: round;
 	}
 	.label.link {
 		text-decoration: underline;
@@ -183,6 +280,26 @@
 	.cross {
 		stroke: #6b7280;
 		stroke-width: 1;
+	}
+	.seg {
+		display: inline-flex;
+		flex: none;
+		border: 1px solid #374151;
+		border-radius: 9999px;
+		padding: 2px;
+		font-size: 0.8125rem;
+	}
+	.seg button {
+		padding: 0.15rem 0.75rem;
+		border-radius: 9999px;
+		color: #9ca3af;
+	}
+	.seg button:hover {
+		color: #f0efec;
+	}
+	.seg button.on {
+		background: #374151;
+		color: #f0efec;
 	}
 	.tip {
 		position: absolute;

@@ -91,6 +91,8 @@
 		if (m >= 10) (m /= 10), e++;
 		return `${m.toFixed(1)}e${e}`;
 	}
+	// set only when the vampire's code differs from the list's (no current row has it, so the JSON type lacks it)
+	const simMachine = (s: object) => (s as { machine?: string }).machine;
 	function simulated(h: Holdout): { text: string; log: number } | null {
 		const halt = h.simulated_halt?.steps_log10;
 		if (halt) return { text: `halts after ≈ 10^(${sci(Math.log10(halt))})`, log: halt };
@@ -364,7 +366,7 @@
 				{/each}
 			</ul>
 		</section>
-		<section>
+		<section class="min-w-0">
 			<HistoryChart
 				lists={data.history}
 				today={{ count: holdouts.length - counts.solved, solved: counts.solved, date: new Date(live?.checked_at ?? data.busycoq.snapshot_fetched_at).toISOString().slice(0, 10) }}
@@ -540,7 +542,7 @@
 										<ul>
 											{#if h.simulated_halt}
 												<li>
-													<strong>Simulated halt</strong> ({h.simulated_halt.date}): {h.simulated_halt.detail}{#if h.simulated_halt.machine}, for the equivalent {h.simulated_halt.machine}{/if}
+													<strong>Simulated halt</strong> ({h.simulated_halt.date}): {h.simulated_halt.detail}{#if simMachine(h.simulated_halt)}, for the equivalent {simMachine(h.simulated_halt)}{/if}
 													(<a class="link" href={srcUrl(h.simulated_halt.source)} rel="external">details</a>). No Rocq proof yet.
 												</li>
 											{/if}
