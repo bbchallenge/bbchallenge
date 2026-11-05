@@ -363,8 +363,9 @@
 						<td data-label="Machine">
 							<code class="tm select-all">{h.tm}</code>
 							<button class="copy" on:click={() => copy(h.tm)} aria-label="Copy machine code {h.n}">{copied === h.tm ? 'copied' : 'copy'}</button>
-							{#if h.name}<span class="badge">{h.name}</span>{/if}
-							{#if h.aliases.length}<span class="muted block">+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}</span>{/if}
+							<span class="muted block equiv" class:none={!h.aliases.length && !h.name}
+								>{#if h.name}<span class="badge">{h.name}</span>{/if}{#if h.aliases.length}+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}{:else if !h.name}&nbsp;{/if}</span
+							>
 						</td>
 						<td data-label="Class">
 							{#if h.class}
@@ -565,11 +566,10 @@
 		@apply text-gray-400 text-xs;
 	}
 	.warn {
-		display: block;
-		@apply text-yellow-300 text-xs mt-1;
+		@apply text-yellow-300 text-xs ml-1 whitespace-nowrap;
 	}
 	.badge {
-		@apply ml-1 rounded-full bg-purple-900 text-purple-100 px-2 py-0.5 text-xs;
+		@apply mr-2 rounded-full bg-purple-900 text-purple-100 px-2 py-0.5 text-xs;
 	}
 	.st {
 		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border whitespace-nowrap;
@@ -596,7 +596,7 @@
 		@apply text-gray-100 border-gray-400;
 	}
 	.exp {
-		@apply text-gray-100 tabular-nums py-1 pr-2;
+		@apply text-gray-100 tabular-nums py-1 pr-2 whitespace-nowrap;
 	}
 	.exp:hover {
 		@apply text-white;

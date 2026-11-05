@@ -50,6 +50,10 @@
 	table.bb6 td.num::before {
 		display: none;
 	}
+	/* desktop rows keep an empty line here so every row has the same height; cards don't need it */
+	table.bb6 .equiv.none {
+		display: none;
+	}
 }
 /* wide windows: a machine code stays on one line */
 @media (min-width: 1024px) {
@@ -57,6 +61,15 @@
 	table.bb6 td.links {
 		white-space: nowrap;
 		word-break: normal;
+	}
+	/* the machine cell is always two text lines (code, then equivalents or a blank line), the same as a
+	   wrapped class name, so rows keep one height */
+	table.bb6 td[data-label='Machine'],
+	table.bb6 td[data-label='Machine'] .equiv {
+		line-height: 1.5rem !important; /* beats the scoped .muted text-xs line height */
+	}
+	table.bb6 td[data-label='Machine'] {
+		white-space: nowrap;
 	}
 	/* an opened row's details fill the existing columns instead of resizing them */
 	table.bb6 tr.detail > td > div {
