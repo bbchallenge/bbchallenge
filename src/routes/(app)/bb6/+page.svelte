@@ -167,7 +167,7 @@
 
 <div class="dark w-full">
 	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
-		<h1 class="text-3xl sm:text-4xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
+		<h1 class="text-3xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
 		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
 			Every machine that still stands between us and the value of
 			<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>, with its class, its
@@ -230,8 +230,9 @@
 				<p>
 					To know BB(6), every 6-state, 2-symbol Turing machine must be shown to halt or to run forever. Almost all are
 					settled; a <a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdout</a> is a
-					machine nobody has settled yet. mxdys publishes the official list in
-					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a> whenever it changes.
+					machine nobody has settled yet. mxdys posts an updated official list in
+					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a> from time to time, so a
+					machine proved since the latest list can still be on it (this page marks those “solved since”).
 					Machines that behave identically (a left/right mirror, renamed states, or a difference that never matters) are
 					<strong>one row</strong>: the others are listed as equivalent machines, and searching for any of them finds the row.
 				</p>
@@ -291,7 +292,7 @@
 					type="search"
 					bind:value={q}
 					placeholder="#, machine code, class…"
-					class="field font-mono"
+					class="field"
 					autocomplete="off"
 					spellcheck="false"
 				/>
@@ -335,7 +336,7 @@
 		</p>
 
 		<!-- table -->
-		<table class="bb6 w-full text-[0.95rem]">
+		<table class="bb6 w-full text-base">
 			<caption class="sr-only">BB(6) holdouts</caption>
 			<thead>
 				<tr>
@@ -612,7 +613,7 @@
 		border-collapse: collapse;
 	}
 	table.bb6 th {
-		@apply text-left text-xs uppercase tracking-wide text-gray-400 border-b border-gray-600 px-3 py-3 sticky top-0 bg-gray-900;
+		@apply text-left font-semibold text-white border-b border-gray-600 px-3 py-3 sticky top-0 bg-gray-900;
 	}
 	table.bb6 td {
 		@apply px-3 py-4 align-top border-b border-gray-800;
@@ -624,7 +625,7 @@
 		@apply bg-gray-800/40 border-b border-gray-700 px-4 py-4;
 	}
 	.detail h3 {
-		@apply text-xs uppercase tracking-wide text-gray-400 mb-2;
+		@apply font-semibold text-gray-200 mb-2;
 	}
 	.detail ul {
 		@apply space-y-2;

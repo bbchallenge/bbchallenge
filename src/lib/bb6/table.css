@@ -45,7 +45,7 @@
 	table.bb6 td[data-label]::before {
 		content: attr(data-label);
 		display: block;
-		@apply text-[0.7rem] uppercase tracking-wide text-gray-500 mb-0.5;
+		@apply text-sm font-semibold text-gray-400 mb-0.5;
 	}
 	table.bb6 td.num::before {
 		display: none;
