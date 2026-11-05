@@ -151,7 +151,7 @@
 		check();
 	});
 
-	const sourceName: Record<string, string> = { sheet: 'Robin’s sheet', slugbird: 'slugbird’s guide' };
+	const sourceName: Record<string, string> = { sheet: 'RobinCodes’s sheet', slugbird: 'slugbird’s guide' };
 	const relText: Record<string, string> = {
 		exact: 'same machine',
 		mirror: 'mirror / state renaming',
@@ -228,73 +228,51 @@
 			<summary class="cursor-pointer font-semibold py-1">Background and notation</summary>
 			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
 				<p>
-					Determining BB(6) requires deciding, for every 6-state, 2-symbol machine in
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>,
-					whether it halts when started on a blank tape. Automated deciders and individual proofs have settled all but a few
-					hundred; the remainder are the
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a>. The official
-					list is maintained by mxdys and posted periodically in
-					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>, so a machine proved since
-					the latest list can still appear on it; such machines are marked “Proved”.
+					BB(6) is settled once every 6-state, 2-symbol machine in
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>
+					is shown to halt or run forever from a blank tape. The
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a> are the
+					machines still undecided. mxdys maintains the official list and posts updates in
+					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>. Each row is an
+					equivalence class (mirror images, state permutations and mxdys’s equivalence groups); a proof for any member
+					settles it.
 				</p>
 				<p>
-					Rows are equivalence classes: mirror images (L↔R), state permutations, and mxdys’s equivalence groups, which also
-					identify machines differing only in transitions that do not affect their behaviour. A proof for any member settles
-					the class. The other members are listed under each row and are matched by search.
-				</p>
-				<p>
-					Machines use the standard text format: six <code>_</code>-separated groups, one per state A–F, each giving the
-					transition on reading 0 followed by the transition on reading 1. A transition is the symbol written, the direction
-					moved and the next state, so <code>1RB</code> writes 1, moves right and enters B; <code class="whitespace-nowrap">---</code> is the undefined
-					(halting) transition. In holdout #1,
-					<code class="block my-2 break-all">1RB1RF_1LC1LB_1RD1LD_1RE0RA_---0LB_0LF0RC</code>
-					state A on 0 executes <code>1RB</code>, and state E halts on reading 0.
+					Machines are written as six <code>_</code>-separated groups, one per state A–F, each giving the transitions on
+					reading 0 and 1: <code>1RB</code> writes 1, moves right and enters B, and
+					<code class="whitespace-nowrap">---</code> halts. Holdout #1, for example:
+					<code class="block mt-2 break-all">1RB1RF_1LC1LB_1RD1LD_1RE0RA_---0LB_0LF0RC</code>
 				</p>
 				<dl class="grid grid-cols-1 sm:grid-cols-[max-content_1fr] gap-x-6 gap-y-2">
 					<dt class="font-semibold">Class</dt>
 					<dd>
-						Behavioural classification, such as
+						Informal behavioural category, e.g.
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Bell" rel="external">Bell</a>,
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Bouncer" rel="external">bouncer</a> or
-						<a class="link" href="https://wiki.bbchallenge.org/wiki/Counter" rel="external">counter</a> variants, from Robin’s
-						spreadsheet, with slugbird’s guide as a second source. These are empirical categories, not proved properties;
-						classes with a wiki page are linked.
+						<a class="link" href="https://wiki.bbchallenge.org/wiki/Counter" rel="external">counter</a>.
 					</dd>
 					<dt class="font-semibold">Cryptid</dt>
 					<dd>
-						A machine whose halting problem is equivalent to an open Collatz-type problem, so that deciding it in either
-						direction is a research question
-						(<a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptids</a>;
-						<a class="link" href="/antihydra">Antihydra</a> is the best-known example).
+						A machine whose halting is equivalent to an open Collatz-type problem
+						(<a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptids</a>, e.g.
+						<a class="link" href="/antihydra">Antihydra</a>).
 					</dd>
 					<dt class="font-semibold">busycoq</dt>
 					<dd>
-						mxdys’s repository of machine-checked proofs in Rocq (formerly Coq). A holdout leaves the list once a proof is
-						merged into its <code>BB6</code> branch. <strong>No proof</strong>: none merged or proposed.
-						<strong>Proof in PR</strong>: a proof exists in an open, not yet merged pull request. <strong>Proved</strong>: a proof has
-						been merged since the list was published.
+						mxdys’s repository of Rocq proofs; a holdout leaves the list once its proof is merged.
+						<strong>Proof in PR</strong>: a proof is in an unmerged pull request. <strong>Proved</strong>: merged since the
+						list was published.
 					</dd>
 					<dt class="font-semibold">Simulated</dt>
-					<dd>
-						How many steps the machine has been simulated without halting, i.e. a lower bound on its running time should it
-						halt. “≥&nbsp;1e15”-style figures come from the spreadsheet’s Direct Simulation tab; larger ones such as “6.0e79”,
-						from slugbird’s guide, require accelerated simulation.
-					</dd>
+					<dd>Steps simulated without halting, i.e. a lower bound on the running time if it halts.</dd>
 					<dt class="font-semibold">Tools</dt>
 					<dd>
-						<strong>viewer</strong>: this site’s space-time diagram.
-						<a class="link" href="https://fiery.pages.dev/turing" rel="external">fiery</a>: an alternative simulator and
-						viewer. <a class="link" href="https://ccz181078.github.io/TM/LongAcc/index.html" rel="external">LongAcc</a>:
-						mxdys’s accelerated simulator with longitudinal diagrams; it takes no URL parameter, so paste the code (the copy
-						button next to each machine helps).
+						<strong>viewer</strong> (this site) and
+						<a class="link" href="https://fiery.pages.dev/turing" rel="external">fiery</a> draw space-time diagrams;
+						<a class="link" href="https://ccz181078.github.io/TM/LongAcc/index.html" rel="external">LongAcc</a> takes a pasted
+						machine code.
 					</dd>
 				</dl>
-				<p class="text-gray-300">
-					The data are aggregated from four sources, with each field attributed to its source and conflicts flagged rather
-					than resolved (see <a class="link" href="#sources">sources and credits</a>). Only busycoq constitutes proof. Further
-					reading: <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6) on the wiki</a>,
-					<a class="link" href="/story" rel="external">the story</a>, <a class="link" href="/contribute" rel="external">how to contribute</a>.
-				</p>
 			</div>
 		</details>
 
@@ -432,7 +410,7 @@
 											<ul>{#each h.conflicts as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
 										{#if h.notes.length}
-											<h3 class="mt-2">Notes (not disagreements)</h3>
+											<h3 class="mt-2">Notes</h3>
 											<ul class="text-gray-300">{#each h.notes as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
 									</section>
@@ -440,7 +418,7 @@
 										<h3>Status in other sources</h3>
 										<ul>
 											<li>
-												<strong>Robin’s sheet</strong> ({data.sources.sheet.as_of}, built on the {data.sources.sheet.keyed_to_list}-machine list):
+												<strong>RobinCodes’s sheet</strong> ({data.sources.sheet.as_of}, built on the {data.sources.sheet.keyed_to_list}-machine list):
 												{#if h.sheet?.status}status <strong>{h.sheet.status}</strong>{:else}no status{/if}{#if sheetMachine(h)}, for the equivalent {sheetMachine(h)}{/if}{#if h.sheet?.cell}{' '}(<a class="link" href={sheetCell(h.sheet.cell)} rel="external">row</a>){/if}.
 											</li>
 											{#if h.slugbird}
@@ -515,47 +493,39 @@
 		<!-- sources -->
 		<section id="sources" class="mt-12 mb-16 max-w-[75ch] text-gray-200 leading-relaxed">
 			<h2 class="text-2xl font-bold mb-3">Sources and credits</h2>
-			<p class="mb-2">
-				This page aggregates existing work. Every field is generated from the sources below and attributed to them; nothing is
-				edited by hand per machine.
-			</p>
 			<ul class="list-disc ml-6 space-y-2">
 				<li>
-					<strong>The list and the equivalence groups:</strong> <a class="link" href="https://github.com/ccz181078" rel="external">mxdys</a>
-					(ccz181078), who also maintains busycoq, the proofs and the decisions on what is solved. The
+					<strong>List and equivalence groups:</strong>
+					<a class="link" href="https://github.com/ccz181078" rel="external">mxdys</a> (ccz181078): the
 					<a class="link" href={data.list.discord_url} rel="external">list of {fmtDate(data.list.published)}</a> and its
-					<a class="link" href={data.list.equivalence_file} rel="external">equivalence file</a> are used unchanged. This site’s copy of the
-					list and the older ones on the <a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">wiki</a> are kept up
-					to date by volunteers, int-y1 among them.
+					<a class="link" href={data.list.equivalence_file} rel="external">equivalence file</a>. This site’s copy and the
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">wiki’s lists</a> are kept up
+					to date by volunteers, including int-y1.
 				</li>
 				<li>
-					<strong>Classes, sheet status and simulation depth:</strong> the
-					<a class="link" href={data.sources.sheet.url} rel="external">annotated spreadsheet</a> by Robin Rovenszky (RobinCodes), exported
-					{data.sources.sheet.as_of}. It is built on the {data.sources.sheet.keyed_to_list}-machine list and is <em>not up to date</em>; its machines
-					are matched to today’s rows through the equivalence groups. Only its structured fields are used (class, status, simulation depth), each linking to its cell.
+					<strong>Classes, status and simulation depth:</strong> RobinCodes’s
+					<a class="link" href={data.sources.sheet.url} rel="external">annotated spreadsheet</a>
+					({data.sources.sheet.as_of}, built on the {data.sources.sheet.keyed_to_list}-machine list and matched to today’s
+					rows through the equivalence groups).
 				</li>
 				<li>
-					<strong>Second opinion on classes, plus a status tag:</strong> slugbird’s BB(6) Holdout Guide ({data.sources.slugbird.as_of}), which says it was
-					written by AI agents (Claude). Only its class, status tag and furthest-simulation figure are used, never its descriptions; the tag
-					is shown as slugbird’s, and a disagreement with another source is flagged.
+					<strong>Further classes, status tags and simulation figures:</strong> slugbird’s BB(6) Holdout Guide
+					({data.sources.slugbird.as_of}).
 				</li>
 				<li>
-					<strong>Proofs and pull requests:</strong> <a class="link" href="https://github.com/{data.busycoq.repo}" rel="external">busycoq</a>, branch
-					<code>BB6</code>. A holdout counts as solved when a Rocq file there ends in a completed theorem about it (or about a mirror or
-					renaming of it); as “open PR” when a pull request adds such a file and is not merged. This is checked by a program, not by a person:
-					look at the linked file before relying on it.
+					<strong>Proofs and pull requests:</strong>
+					<a class="link" href="https://github.com/{data.busycoq.repo}" rel="external">busycoq</a>, branch <code>BB6</code>,
+					read automatically; each row links the file or pull request it relies on.
 				</li>
 				<li>
-					<strong>Discord links:</strong> messages in the <a class="link" href={data.sources.discord?.url} rel="external">bbchallenge Discord</a> that
-					contain the machine's code or an equivalent one. Only the link, channel and date are kept, never the text or the author, and a
-					login is needed to open them. They are found in the maintainer's own copy of the server, which starts on
-					{data.sources.discord?.covers_from}, so older discussion is not linked.
+					<strong>Discord links:</strong> messages in the
+					<a class="link" href={data.sources.discord?.url} rel="external">bbchallenge Discord</a> that mention the machine or
+					an equivalent one, since {data.sources.discord?.covers_from}.
 				</li>
 				<li><strong>Wiki pages:</strong> the <a class="link" href="https://wiki.bbchallenge.org" rel="external">bbchallenge wiki</a> contributors.</li>
 			</ul>
 			<p class="mt-2 text-gray-300">
-				No claims are recorded here yet: to say you are working on a machine, post in
-				<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>.
+				Working on a machine? Say so in <a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>.
 			</p>
 		</section>
 	</div>

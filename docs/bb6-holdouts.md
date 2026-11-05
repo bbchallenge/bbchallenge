@@ -71,8 +71,8 @@ refresh by hand and open a PR with the result.
 | Source | Used | Not used |
 | --- | --- | --- |
 | mxdys's list and equivalence groups (Discord #bb6) | machines, order, equivalent machines | — |
-| Robin Rovenszky's spreadsheet, exported 2026-10-09 | class, Results status, "simulated at least 1e13/14/15" (derived from the Direct Simulation tab), the cell each came from | free-text notes, Discord links, the user's tracker tiers/buckets/notes |
-| slugbird's BB(6) Holdout Guide, 2026-11-03 (made with Claude) | class, status tag, PR number, furthest simulation | its descriptions |
+| RobinCodes's spreadsheet, exported 2026-10-09 | class, Results status, "simulated at least 1e13/14/15" (derived from the Direct Simulation tab), the cell each came from | free-text notes, Discord links, the user's tracker tiers/buckets/notes |
+| slugbird's BB(6) Holdout Guide, 2026-11-03 | class, status tag, PR number, furthest simulation | its descriptions |
 | busycoq (`BB6` branch and its PRs) | which holdouts have a proof, which PRs add one | — |
 | bbchallenge wiki | existence of a page for a holdout or a class | page content |
 | bbchallenge Discord (local copy of the server) | message links (channel, message id, date) for messages whose text contains the machine or an equivalent one | message text, authors, attachments. The copy only reaches back to `covers_from`. |
@@ -124,7 +124,7 @@ Top level: `schema_version`, `generated_at`, `list`, `busycoq`, `sources`, `url_
 
 - `list`: `count`, `published` (date), `published_by`, `discord_url`, `file` (the plain list), `equivalence_file`, `equivalent_machines`.
 - `busycoq`: `repo`, `branch`, `head{sha,date,message}` (the branch head the snapshot was made at), `snapshot_fetched_at`, `verify_files`, `prs_url`, `pr_snapshot[{number,state,head_sha,updated_at}]` (used by the live check).
-- `sources`: `list|sheet|slugbird|busycoq|discord|wiki`, each with `name`, `url`, `as_of` (and `by`, `keyed_to_list`, `made_with` where relevant). Read `as_of` to judge staleness.
+- `sources`: `list|sheet|slugbird|busycoq|discord|wiki`, each with `name`, `url`, `as_of` (and `by`, `keyed_to_list` where relevant). Read `as_of` to judge staleness.
 - `url_templates`: how to build links, with `{tm}`, `{wiki_page}`, `{number}`, `{file}`, `{tab_gid}`, `{ref}` placeholders. `sheet_tabs` maps a tab name to its gid.
 - `counts`: `by_status{open,pr_open,solved}`, `with_conflicts`.
 

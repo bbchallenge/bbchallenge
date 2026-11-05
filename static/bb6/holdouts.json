@@ -374,7 +374,7 @@
 			"as_of": "2026-10-30"
 		},
 		"sheet": {
-			"name": "Robin Rovenszky’s annotated BB(6) holdouts spreadsheet",
+			"name": "RobinCodes’s annotated BB(6) holdouts spreadsheet",
 			"url": "https://docs.google.com/spreadsheets/d/1mMp8bAcTFT91j7azn72liX8NSTwc2E_ozKnOGTfRCfw",
 			"as_of": "2026-10-09",
 			"keyed_to_list": 1534
@@ -382,8 +382,7 @@
 		"slugbird": {
 			"name": "slugbird’s BB(6) Holdout Guide",
 			"as_of": "November 3, 2026",
-			"url": "https://discord.com/channels/960643023006490684/1239205785913790465/1567309713971089418",
-			"made_with": "Claude (the guide says it was written by AI agents working on the holdouts)"
+			"url": "https://discord.com/channels/960643023006490684/1239205785913790465/1567309713971089418"
 		},
 		"busycoq": {
 			"name": "busycoq (verified Rocq proofs)",

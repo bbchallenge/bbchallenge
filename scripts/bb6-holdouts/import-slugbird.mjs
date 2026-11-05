@@ -47,7 +47,6 @@ const out = {
 	source: 'slugbird’s BB(6) Holdout Guide',
 	url: url ?? null,
 	as_of: asof,
-	made_with: 'Claude (the guide says it was written by AI agents working on the holdouts)',
 	based_on_list: 608,
 	status_labels: ST,
 	machines

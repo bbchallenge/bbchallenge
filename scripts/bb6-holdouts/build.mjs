@@ -218,7 +218,7 @@ const out = {
 			as_of: sheet.exported,
 			keyed_to_list: sheet.keyed_to_list
 		},
-		slugbird: { name: slug.source, as_of: slug.as_of, url: slug.url, made_with: slug.made_with },
+		slugbird: { name: slug.source, as_of: slug.as_of, url: slug.url },
 		busycoq: {
 			name: 'busycoq (verified Rocq proofs)',
 			url: `https://github.com/${busycoq.repo}/tree/${busycoq.branch}`,

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Import the structured fields we use from Robin Rovenszky's BB(6) spreadsheet.
+// Import the structured fields we use from RobinCodes's BB(6) spreadsheet.
 //
 //   node scripts/bb6-holdouts/import-sheet.mjs <csv-dir> <export-date YYYY-MM-DD> [--strikethrough <file.csv>]
 //
@@ -97,7 +97,7 @@ for (const tm of Object.keys(results)) {
 }
 
 const out = {
-	source: 'Robin Rovenszky’s annotated BB(6) holdouts spreadsheet',
+	source: 'RobinCodes’s annotated BB(6) holdouts spreadsheet',
 	url: `https://docs.google.com/spreadsheets/d/${SHEET_ID}`,
 	exported,
 	keyed_to_list: 1534,
