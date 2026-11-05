@@ -5,6 +5,7 @@
 	import data from '../../../../static/bb6/holdouts.json';
 	import { canonicalKey, TM_RE } from '$lib/bb6/tm_key.js';
 	import { fetchLive, overlay } from '$lib/bb6/busycoq_live.js';
+	import { machineCodeToTM, tm_trace_to_image } from '$lib/tm';
 	import { CLASS_WIKI, WIKI, STATUS_LABEL, STATUS_HELP, STATUS_ORDER, log10Of } from '$lib/bb6/classes.js';
 
 	type Holdout = (typeof data.holdouts)[number];
@@ -40,7 +41,6 @@
 	let status = 'all';
 	let sort = 'list';
 	let onlyWiki = false;
-	let shown = 100;
 	let expanded = new Set<number>();
 	let urlReady = false;
 
@@ -105,8 +105,6 @@
 		for (const v of ov.values()) c[v.status]++;
 		return c;
 	})();
-	// reset paging when the filter changes
-	$: (q, cls, status, sort, onlyWiki), (shown = 100);
 
 	// keep the filters in the URL so a view can be shared
 	$: if (urlReady && typeof window !== 'undefined') {
@@ -127,6 +125,14 @@
 		sort = 'list';
 		onlyWiki = false;
 	}
+	// the viewer's default picture: 10,000 steps from a blank tape, 400 cells wide
+	function diagram(canvas: HTMLCanvasElement, tm: string) {
+		tm_trace_to_image(canvas.getContext('2d')!, machineCodeToTM(tm), '0', 400, 10_000, 0.5, true, true);
+	}
+	// column headers sort like the dropdown; Simulated flips direction on a second click
+	const sortBy = (k: string) => (sort = k === 'sim' && sort === 'sim' ? 'sim-asc' : k);
+	const sortKey = (s: string) => (s === 'sim-asc' ? 'sim' : s);
+
 	function toggle(n: number) {
 		expanded.has(n) ? expanded.delete(n) : expanded.add(n);
 		expanded = expanded;
@@ -328,7 +334,7 @@
 			</div>
 		</form>
 		<p class="text-sm text-gray-400 mb-3" aria-live="polite">
-			{rows.length} of {holdouts.length} machines{rows.length > shown ? `, showing the first ${shown}` : ''}.
+			{rows.length} of {holdouts.length} machines.
 			{#if rows.length === 0}No machine matches. <button class="link" on:click={clear}>Clear the filters</button>.{/if}
 		</p>
 
@@ -338,16 +344,18 @@
 			<colgroup><col class="c-num" /><col class="c-tm" /><col class="c-cls" /><col class="c-st" /><col class="c-sim" /><col class="c-links" /></colgroup>
 			<thead>
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Machine</th>
-					<th scope="col">Class</th>
-					<th scope="col">busycoq</th>
-					<th scope="col">Simulated</th>
+					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'busycoq'], ['sim', 'Simulated']] as [k, label]}
+						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : sort === 'sim-asc' ? 'ascending' : 'descending'}>
+							{#if k === 'tm'}{label}{:else}<button class="sort" title="Sort by {label === '#' ? 'list order' : label}" on:click={() => sortBy(k)}
+									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{sort === 'sim-asc' ? '▴' : '▾'}</span></button
+								>{/if}
+						</th>
+					{/each}
 					<th scope="col">Links</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each rows.slice(0, shown) as { h, i } (h.n)}
+				{#each rows as { h, i } (h.n)}
 					{@const v = ov.get(i)}
 					{@const sim = simulated(h)}
 					<tr
@@ -402,7 +410,12 @@
 					{#if expanded.has(h.n)}
 						<tr class="detail" id="d{h.n}">
 							<td colspan="6">
-								<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 py-2">
+								<div class="flex flex-col lg:flex-row gap-6 py-2">
+								<figure class="shrink-0">
+									<canvas class="diagram" width="400" height="500" use:diagram={h.tm} aria-label="Space-time diagram of machine {h.n}" />
+									<figcaption class="muted text-xs mt-1">First 10,000 steps from a blank tape · <a class="link" href="/{h.tm}" rel="external">open in viewer</a></figcaption>
+								</figure>
+								<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 flex-1 content-start">
 									<section>
 										<h3>Classification, by source</h3>
 										<ul>
@@ -486,18 +499,13 @@
 										{/if}
 									</section>
 								</div>
+								</div>
 							</td>
 						</tr>
 					{/if}
 				{/each}
 			</tbody>
 		</table>
-		{#if rows.length > shown}
-			<p class="my-6 text-center">
-				<button class="btn" on:click={() => (shown += 200)}>Show {Math.min(200, rows.length - shown)} more</button>
-				<button class="btn" on:click={() => (shown = rows.length)}>Show all {rows.length}</button>
-			</p>
-		{/if}
 
 		<!-- sources -->
 		<section id="sources" class="mt-12 mb-16 max-w-[75ch] text-gray-200 leading-relaxed">
@@ -617,6 +625,22 @@
 	}
 	table.bb6 th {
 		@apply text-left font-semibold text-white border-b border-gray-600 px-3 py-3 sticky top-0 bg-gray-900;
+	}
+	.sort {
+		@apply font-semibold whitespace-nowrap;
+	}
+	.sort:hover {
+		@apply text-blue-300;
+	}
+	.arrow {
+		@apply ml-1 text-xs;
+	}
+	.diagram {
+		@apply bg-black;
+		width: 320px;
+		max-width: 100%;
+		height: auto;
+		image-rendering: pixelated;
 	}
 	table.bb6 td {
 		@apply px-3 py-3 align-top border-b border-gray-800;
