@@ -6,7 +6,7 @@
 //   node scripts/bb6-holdouts/build.mjs --check  exit 1 if the file on disk is out of date
 //
 // Inputs (data/bb6/sources/): list.json + the list in static/ + the equivalence groups,
-// sheet.json, slugbird.json, busycoq.json, wiki.json, names.json. See docs/bb6-holdouts.md.
+// sheet.json, slugbird.json, busycoq.json, wiki.json, notable.json. See docs/bb6-holdouts.md.
 import fs from 'node:fs';
 import { canonicalKey } from '../../src/lib/bb6/tm_key.js';
 import { isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
@@ -26,7 +26,20 @@ const sheet = rd('sheet.json');
 const slug = rd('slugbird.json');
 const busycoq = rd('busycoq.json');
 const wiki = rd('wiki.json');
-const names = rd('names.json');
+const notable = rd('notable.json');
+/** holdout index -> merged notable entries (names, community tags, notes, simulated halts) */
+const notableOf = new Map();
+for (const [code, e] of Object.entries(notable.machines)) {
+	const i = holdoutOfKey.get(canonicalKey(code));
+	if (i === undefined) continue; // decided since
+	const n = notableOf.get(i) ?? { name: null, tags: [], notes: [] };
+	n.name ??= e.name ?? null;
+	if (e.page) n.site_page = e.page;
+	for (const t of e.tags ?? []) if (!n.tags.includes(t)) n.tags.push(t);
+	n.notes.push(...(e.notes ?? []));
+	if (e.simulated_halt) n.simulated_halt = { ...e.simulated_halt, ...(code === list[i] ? {} : { machine: code }) };
+	notableOf.set(i, n);
+}
 // Optional: message links from the maintainer's local Discord copy (fetch-discord.mjs). Absent = no links.
 const discordFile = new URL('discord.json', SOURCES);
 const discord = fs.existsSync(discordFile) ? readJSON(discordFile) : null;
@@ -147,7 +160,7 @@ const holdouts = list.map((tm, i) => {
 	const primary = (sheetClass ?? classes[0])?.class ?? null;
 	const wikiPages = new Set();
 	for (const m of groups[i]) for (const t of wiki.pages[canonicalKey(m)] ?? []) wikiPages.add(t);
-	const named = names[tm];
+	const named = notableOf.get(i);
 	const { conflicts, notes } = compareSources({
 		status,
 		prs,
@@ -161,6 +174,8 @@ const holdouts = list.map((tm, i) => {
 		n: i + 1,
 		tm,
 		name: named?.name ?? null,
+		tags: named?.tags ?? [],
+		...(named?.simulated_halt ? { simulated_halt: named.simulated_halt } : {}),
 		aliases: groups[i].filter((m) => m !== tm).map((m) => ({ tm: m, relation: relation(m, tm) })),
 		class: primary,
 		classifications: classes,
@@ -168,10 +183,10 @@ const holdouts = list.map((tm, i) => {
 		slugbird: a.slugbird,
 		busycoq: { status, solved_in: a.solved_in, prs, mentioned_in: a.mentioned_in },
 		wiki_pages: [...wikiPages].sort(),
-		...(named?.page ? { site_page: named.page } : {}),
+		...(named?.site_page ? { site_page: named.site_page } : {}),
 		discord: discordLinks.get(i) ?? [],
 		conflicts,
-		notes
+		notes: [...(named?.notes ?? []).map((detail) => ({ kind: 'community', detail })), ...notes]
 	};
 });
 
@@ -234,8 +249,10 @@ const out = {
 					}
 			  }
 			: {}),
-		wiki: { name: 'bbchallenge wiki', url: 'https://wiki.bbchallenge.org', as_of: wiki.fetched_at }
+		wiki: { name: 'bbchallenge wiki', url: 'https://wiki.bbchallenge.org', as_of: wiki.fetched_at },
+		...notable.sources
 	},
+	tags: notable.tags,
 	url_templates: {
 		viewer: `${SITE}/{tm}`,
 		fiery: 'https://fiery.pages.dev/turing/{tm}',

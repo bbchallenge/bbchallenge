@@ -399,6 +399,48 @@
 			"name": "bbchallenge wiki",
 			"url": "https://wiki.bbchallenge.org",
 			"as_of": "2026-11-05T06:21:56.444Z"
+		},
+		"wiki_bb6": {
+			"name": "BB(6), section Cryptids (bbchallenge wiki)",
+			"url": "https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids",
+			"as_of": "2026-11-05"
+		},
+		"wiki_bmo": {
+			"name": "Beaver Math Olympiad (bbchallenge wiki)",
+			"url": "https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad",
+			"as_of": "2026-11-05"
+		},
+		"vampires": {
+			"name": "A family of seven vampire-like BB(6) holdouts (Thomas Reus; HALTs found by Duke)",
+			"url": "https://github.com/thomasreus-bb/bb6-vampire-family-1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---",
+			"discussion": "https://discord.com/channels/960643023006490684/1561037362581086228",
+			"as_of": "2026-11-01"
+		}
+	},
+	"tags": {
+		"Cryptid": {
+			"url": "https://wiki.bbchallenge.org/wiki/Cryptids",
+			"help": "Halting is equivalent to an open Collatz-like problem"
+		},
+		"Potential Cryptid": {
+			"url": "https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids",
+			"help": "Chaotic, but not (yet) linked to a known open problem"
+		},
+		"Probviously halting": {
+			"url": "https://wiki.bbchallenge.org/wiki/Probviously",
+			"help": "Probabilistic arguments say it halts"
+		},
+		"Probviously non-halting": {
+			"url": "https://wiki.bbchallenge.org/wiki/Probviously",
+			"help": "Probabilistic arguments say it runs forever"
+		},
+		"Energy vampire": {
+			"url": "https://github.com/thomasreus-bb/bb6-vampire-family-1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---",
+			"help": "One of seven related Bell-like machines that take an enormous amount of compute to simulate"
+		},
+		"BMO": {
+			"url": "https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad",
+			"help": "Restated as a Beaver Math Olympiad problem"
 		}
 	},
 	"url_templates": {
@@ -429,6 +471,7 @@
 			"n": 1,
 			"tm": "1RB1RF_1LC1LB_1RD1LD_1RE0RA_---0LB_0LF0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 2",
 			"classifications": [
@@ -491,6 +534,7 @@
 			"n": 2,
 			"tm": "1RB1LB_1LC0RD_0LE1LA_0RF1RA_1LE0LA_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bouncer",
 			"classifications": [
@@ -553,6 +597,7 @@
 			"n": 3,
 			"tm": "1RB1LD_0LC0RA_1RA1LC_1RE0LC_---1RF_0RD0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -604,6 +649,7 @@
 			"n": 4,
 			"tm": "1RB0RE_1RC0RE_1LD1RB_1LA0LA_1RF0LC_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -648,6 +694,7 @@
 			"n": 5,
 			"tm": "1RB1LD_1LC0RF_0RD0LB_1LB0LE_1LA---_0RA0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC1RF_1RE0LD_0LB0LD_0LF0RC_1RC0RA",
@@ -728,6 +775,7 @@
 			"n": 6,
 			"tm": "1RB1RC_0LC1RE_1RA0LD_1LB0RD_0RF---_0RA0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1RC1RA_0LA1RE_1LC0RD_0RF---_0RB0RF",
@@ -832,6 +880,7 @@
 			"n": 7,
 			"tm": "1RB1LE_0RC1RC_0RD0RB_1RE0RF_1LA0LE_---1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Fractal Type 1",
 			"classifications": [
@@ -876,6 +925,7 @@
 			"n": 8,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC0RD_1RE0LD_0RE0LD_0LB0RA_0RB---",
@@ -989,6 +1039,9 @@
 			"n": 9,
 			"tm": "1RB0LD_0RC---_1LD0RF_0LE0RA_0RA1LF_0LA1LB",
 			"name": null,
+			"tags": [
+				"BMO11"
+			],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0LC0RE_1LA0RD_0RB0LC_1RC1RF_0LD---",
@@ -1192,6 +1245,7 @@
 			"n": 10,
 			"tm": "1RB---_0RC1RD_1LD1LF_1LE0RB_1RF1LD_1LA0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bouncer",
 			"classifications": [
@@ -1236,6 +1290,7 @@
 			"n": 11,
 			"tm": "1RB0LE_1RC0LB_1RD1RF_1RE0RB_1LA0RD_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_1LC0RA_1RD0LB_1RE0LD_1RA1RF_0RB---",
@@ -1293,6 +1348,7 @@
 			"n": 12,
 			"tm": "1RB1LF_1LC1RD_1RA1LA_0RA0RE_0RC---_1RF0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -1337,6 +1393,7 @@
 			"n": 13,
 			"tm": "1RB0LB_1RC0LA_1RD---_0RE1LD_1LF0RF_1LA1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -1381,6 +1438,7 @@
 			"n": 14,
 			"tm": "1RB0LA_0RC---_1RD0LE_0LC0RE_1RF0RB_1LA1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0LA0RC_1RD0RF_1LE1RB_1RF0LE_0RA---",
@@ -1450,6 +1508,7 @@
 			"n": 15,
 			"tm": "1RB0RC_1LC1RE_0LE0LD_1LC0LB_0RA0RF_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1RC0RD_1LD1RF_0LF0LE_1LD0LC_0RB0RA",
@@ -1544,6 +1603,7 @@
 			"n": 16,
 			"tm": "1RB0RE_0RC0RF_1LD1RA_1RE0LD_0LB1RC_1LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -1588,6 +1648,7 @@
 			"n": 17,
 			"tm": "1RB0LE_1RC1RF_1RD0RA_1LE0RC_1LC0LD_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -1632,6 +1693,7 @@
 			"n": 18,
 			"tm": "1RB1RE_1LC1RE_---1LD_1LE0LB_0RF0LD_1RD1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -1676,6 +1738,7 @@
 			"n": 19,
 			"tm": "1RB1LE_1LC0LF_1LA1RD_1LB0RD_0LC0LA_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -1720,6 +1783,7 @@
 			"n": 20,
 			"tm": "1RB1LD_1LC---_1RE0LD_1LC1LD_1RF0RE_1RA0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LF_1RC0RB_1RD0RA_1RE1LF_1LA---_1LA1LF",
@@ -1787,6 +1851,7 @@
 			"n": 21,
 			"tm": "1RB0LD_1RC0RF_1LA1RF_0LA0RE_1LD---_0RA0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -1831,6 +1896,10 @@
 			"n": 22,
 			"tm": "1RB1LD_1RC0LE_1LA1RE_0LF1LA_1RB0RB_---0LB",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [
 				{
 					"tm": "1RB0RB_1RC0LA_1LD1RA_1RB1LE_0LF1LD_---0LB",
@@ -1890,6 +1959,7 @@
 			"n": 23,
 			"tm": "1RB1RA_1LC0RF_1LD1LC_1LE0LB_0LF---_1RA1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -1941,6 +2011,7 @@
 			"n": 24,
 			"tm": "1RB0LA_1RC---_0LD1RD_0RA0RE_0RF1RC_1LF0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Translated Counter",
 			"classifications": [
@@ -1985,6 +2056,7 @@
 			"n": 25,
 			"tm": "1RB1RE_0RC---_1RD0RD_1LE0LF_1RA0LD_1LC1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1LC0LC_1RE0RA_0LB---_1LF0RC_1LD1LE",
@@ -2052,6 +2124,7 @@
 			"n": 26,
 			"tm": "1RB1LC_1LC1RD_1LA0LB_0RB1RE_1RF0RA_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -2115,6 +2188,7 @@
 			"n": 27,
 			"tm": "1RB0RD_0LC1LD_1RA1LA_1RE1LB_---0RF_1RA1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -2159,6 +2233,7 @@
 			"n": 28,
 			"tm": "1RB0RE_1RC0RA_0LD0LB_0LA1LE_1LC1LF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -2214,6 +2289,7 @@
 			"n": 29,
 			"tm": "1RB1RE_1LC1RC_0RF1LD_1LE0LB_1LB0RA_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -2263,6 +2339,7 @@
 			"n": 30,
 			"tm": "1RB1RA_1LC1LE_1RA1LD_0LB0LC_1LF0RE_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -2307,6 +2384,7 @@
 			"n": 31,
 			"tm": "1RB1LF_1LC1RB_1LF1LD_1LE0RD_1LB---_1LA0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1RC1LB_1RD1RF_1RE0RE_1LB1RD_1RA0LF",
@@ -2364,6 +2442,7 @@
 			"n": 32,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -2408,6 +2487,7 @@
 			"n": 33,
 			"tm": "1RB0LF_1LC0RB_0LD1LA_0RA1LE_0LA0RA_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Fractal Type 1",
 			"classifications": [
@@ -2465,6 +2545,7 @@
 			"n": 34,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0LC0RE_0RE0LD_1LA1LB_1RF---_1LC0RB",
@@ -2707,6 +2788,7 @@
 			"n": 35,
 			"tm": "1RB0LE_1LC1RA_1RA1LD_0LC0LA_0RE1RF_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC0LE_1LA1RB_0LA0LB_0RE1RF_0RA---",
@@ -2786,6 +2868,11 @@
 			"n": 36,
 			"tm": "1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA",
 			"name": "Antihydra",
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting",
+				"BMO2"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -2856,6 +2943,7 @@
 			"n": 37,
 			"tm": "1RB0RF_1LC0RA_1LD1LB_0LE---_1LA0LA_1RE1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -2900,6 +2988,7 @@
 			"n": 38,
 			"tm": "1RB1RD_1LC0LE_1LD0LB_0RB0RA_1RD1LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -2944,6 +3033,7 @@
 			"n": 39,
 			"tm": "1RB0LA_0RC1RD_0LD1RE_1LA0RF_0RD0LD_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RA_1RD0LC_0RE1RB_0LB1RF_0RB0LB",
@@ -3008,6 +3098,7 @@
 			"n": 40,
 			"tm": "1RB0LE_1RC1RA_1RD0RF_1RE0RA_1LA1LD_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -3052,6 +3143,7 @@
 			"n": 41,
 			"tm": "1RB---_1LC0RF_1RF0LD_0LE1LC_0RC0LC_1RB0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1RC1RE_1LA0RB_0LF1LA_0LC---_0RA0LA",
@@ -3158,6 +3250,7 @@
 			"n": 42,
 			"tm": "1RB0RD_1RC0LF_1LA0LB_---1RE_1LB1RA_0LC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1LC0RD_1RE0RB_0RC0LE_1LB0LF_---1LA",
@@ -3220,6 +3313,7 @@
 			"n": 43,
 			"tm": "1RB1LD_1LC0RD_0LA0RB_0LE1LF_1RF0LC_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0RC---_1LD0RF_0LE0RC_1RC1LF_0LA1LB",
@@ -3282,6 +3376,7 @@
 			"n": 44,
 			"tm": "1RB0LF_1RC0RB_0RD1LE_0LE0RA_1LC1LA_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_0LC1RA_0RA0LD_1LE0RF_1LB0LE_0RC---",
@@ -3339,6 +3434,7 @@
 			"n": 45,
 			"tm": "1RB1RF_1LC0LA_---0LD_1LE1RB_0RA0LB_1RE0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_0LC0RE_1LE1LD_1LB0LB_1RF0RC_---0RA",
@@ -3396,6 +3492,7 @@
 			"n": 46,
 			"tm": "1RB0LF_1RC1RB_1LD0RA_1LA0LE_0LC1LC_1LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC0RE_1LD0RF_1LA1LD_0RA1RA_1RE---",
@@ -3453,6 +3550,7 @@
 			"n": 47,
 			"tm": "1RB1LD_1RC1RE_1LA0RA_1RC0LB_0LA1RF_---1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -3497,6 +3595,10 @@
 			"n": 48,
 			"tm": "1RB0LD_0RC1RB_0RD0RA_1LE0RD_1LF---_0LA1LA",
 			"name": null,
+			"tags": [
+				"Potential Cryptid",
+				"BMO8"
+			],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0RC0RF_0RD0RA_1LE0RD_1LF---_0LA1LA",
@@ -3569,6 +3671,7 @@
 			"n": 49,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -3620,6 +3723,7 @@
 			"n": 50,
 			"tm": "1RB0LB_1RC1LC_1LD1RE_---0LA_1RE0RF_1RA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -3664,6 +3768,7 @@
 			"n": 51,
 			"tm": "1RB0LC_0LC1RF_1LE1RD_0RC1RC_0LA1LA_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC1RF_1LD1RE_0LA1LA_0RC1RC_---1RA",
@@ -3758,6 +3863,7 @@
 			"n": 52,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0LC0LB_1RF0LD_1RE0RB_1LB0RC_0RD0RA",
@@ -3815,6 +3921,7 @@
 			"n": 53,
 			"tm": "1RB1LE_1RC0RB_1RD1LF_1LA0LC_1LD0LA_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1RC0RB_1RD0LF_1LA0LC_1LD0LA_---1RB",
@@ -3872,6 +3979,7 @@
 			"n": 54,
 			"tm": "1RB0LC_1RC0RA_1LA0LD_1LE0RB_1RD1LF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -3916,6 +4024,7 @@
 			"n": 55,
 			"tm": "1RB1LC_0RC0RB_1LD0LA_1LE---_1LF1RA_1LA1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LC_0RC0RB_1LD0LA_1LE---_1LF1RF_1LA1LC",
@@ -3989,6 +4098,7 @@
 			"n": 56,
 			"tm": "1RB0LF_1LC0LD_1RD1LB_---1RE_0RA1RE_1LA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LF_1LC1LE_1RD1LB_0RA1RD_---1RF_1LA0LD",
@@ -4056,6 +4166,7 @@
 			"n": 57,
 			"tm": "1RB---_0RC0LD_1LB1RC_0LE0LF_1RD1LE_1RF1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LA_0LA0RC_0RD0RE_1LC1RD_1LE1LF_1LB---",
@@ -4120,6 +4231,7 @@
 			"n": 58,
 			"tm": "1RB0LC_1RC1RF_1LD0RA_1LE0LD_1RC0LA_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -4164,6 +4276,7 @@
 			"n": 59,
 			"tm": "1RB0RD_1RC0RA_0LA0LE_1LC1RF_1LA1LC_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -4208,6 +4321,7 @@
 			"n": 60,
 			"tm": "1RB1RC_1LC1LE_1RD0RA_1LB0RA_0LD1LF_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -4252,6 +4366,7 @@
 			"n": 61,
 			"tm": "1RB0RC_1RC---_1LD1RE_1LE0LD_1RA0LF_0RC0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC1RD_1LD0LC_1RE0LF_1RA0RB_0RB0RA",
@@ -4325,6 +4440,10 @@
 			"n": 62,
 			"tm": "1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -4371,6 +4490,7 @@
 			"n": 63,
 			"tm": "1RB0LD_1RC0RB_1LA0RD_1LA0RE_1RF---_0LC0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0LC0LB_1LE0RD_1LE0RA_1RF0LD_1RC0RF",
@@ -4438,6 +4558,7 @@
 			"n": 64,
 			"tm": "1RB0RE_0RC1RE_1RD1LE_0LE---_1RA1LF_1RF0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -4482,6 +4603,7 @@
 			"n": 65,
 			"tm": "1RB0LD_1RC0RF_0LD0LE_1RF1LC_0LB1LE_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -4526,6 +4648,7 @@
 			"n": 66,
 			"tm": "1RB0LD_1RC0RB_1RD1RF_1LE0LD_1RB1LA_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1RC0RB_1RD1RF_1LA0LD_1RB0LD_---0RA",
@@ -4595,6 +4718,7 @@
 			"n": 67,
 			"tm": "1RB1RD_1RC1LD_0LA1RA_1LE0RC_---1LF_0LA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -4639,6 +4763,7 @@
 			"n": 68,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -4683,6 +4808,7 @@
 			"n": 69,
 			"tm": "1RB1LD_1RC1RE_1LA0RA_1RC0LB_0LA1RF_---1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -4727,6 +4853,7 @@
 			"n": 70,
 			"tm": "1RB---_0RC0LA_1LD0RB_1LE0RF_1LF1LC_1LB0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_1RC0RF_0LD0RE_1RF0LC_1LC---_1RA0LB",
@@ -4791,6 +4918,7 @@
 			"n": 71,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_1LA---",
@@ -4849,6 +4977,10 @@
 			"n": 72,
 			"tm": "1RB0LC_1LC0RD_1LF1LA_1LB1RE_1RB1LE_---0LE",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [
 				{
 					"tm": "1RB1LA_1LC0RE_1LF1LD_0RA0LC_1LB1RA_---0LA",
@@ -4920,6 +5052,7 @@
 			"n": 73,
 			"tm": "1RB1RE_1LC1RD_1LA1LC_0RA0RB_1RF0LE_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC1RB_1LA1LE_0LC0LA_1LF0RE_1LC---",
@@ -4977,6 +5110,7 @@
 			"n": 74,
 			"tm": "1RB0RD_1LC0LE_0RA0LB_1RC1RF_1LB1RD_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1RC0RA_0LD0RB_1LB0LE_1LC1LF_0LC---",
@@ -5044,6 +5178,14 @@
 			"n": 75,
 			"tm": "1RB---_1LC0RB_0LD0LC_1RE1RB_1RD1LF_1LA0LE",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM1 in the family; orbit O1 halts at Bell 747,242,483,684",
+				"source": "vampires"
+			},
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -5101,6 +5243,7 @@
 			"n": 76,
 			"tm": "1RB0LD_1RC1RB_1RD0RA_0LE1LF_---1LA_1LA0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -5145,6 +5288,7 @@
 			"n": 77,
 			"tm": "1RB---_0RC0RF_0RD0RA_1RE0LB_1LF0LE_1RC0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0RC0RF_0RD0RA_1RE0RD_1LF0LE_1RC0LE",
@@ -5202,6 +5346,7 @@
 			"n": 78,
 			"tm": "1RB---_0LC0LB_1RF0LD_1RE0RB_1LB0RC_0RD1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_1RC---",
@@ -5259,6 +5404,7 @@
 			"n": 79,
 			"tm": "1RB0LA_0RC1RF_0LD1RE_1LA0RB_0RD---_1RA1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -5310,6 +5456,7 @@
 			"n": 80,
 			"tm": "1RB0RC_1RC1RA_1LD0RA_0LE1RA_---1LF_1RB0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LA_1RC1RE_1LD0RE_0LF1RE_1RB0RC_---1LA",
@@ -5374,6 +5521,7 @@
 			"n": 81,
 			"tm": "1RB1LF_1RC1RF_0LD1RE_---1LC_0RB1RE_1LA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -5423,6 +5571,7 @@
 			"n": 82,
 			"tm": "1RB---_1LC0RF_0RA0LD_1LE1LA_1RF0LF_0LC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RF_0RA0LD_1LE1LA_1RB0LF_0LC0RA",
@@ -5824,6 +5973,7 @@
 			"n": 83,
 			"tm": "1RB1RF_1RC0RA_1LD1RB_1LE0LD_0RA0LB_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -5868,6 +6018,7 @@
 			"n": 84,
 			"tm": "1RB1LE_1LC1RC_1LA1RD_1LD0RB_0LC0LF_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -5917,6 +6068,7 @@
 			"n": 85,
 			"tm": "1RB0LE_1RC0LD_1RD1RA_1RE0RB_0LA0RF_1LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_0LC0RF_1RD0LB_1RE0LA_1RA1RC_1LB---",
@@ -5974,6 +6126,7 @@
 			"n": 86,
 			"tm": "1RB1RA_1RC0RE_0RD1LE_0LE---_1LF0LC_0RA1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -6018,6 +6171,7 @@
 			"n": 87,
 			"tm": "1RB1LE_0LC1RE_---1LD_0RD1LA_0RF1RF_1RA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0LC1RE_---1LD_1RB1LA_0RF1RF_1RA0LB",
@@ -6103,6 +6257,7 @@
 			"n": 88,
 			"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RB_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_0RC---_1LD1RF_0LA0RB_0RC0LD_0RD1RE",
@@ -6160,6 +6315,10 @@
 			"n": 89,
 			"tm": "1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA0LB_---0LC",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [
 				{
 					"tm": "1RB1RA_0RC1RC_1RD0LF_0LE1LE_1RA1LD_---0LC",
@@ -6321,12 +6480,18 @@
 			],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "One of a family of 16 related machines"
+				}
+			]
 		},
 		{
 			"n": 90,
 			"tm": "1RB---_0RC0LA_1LD0RB_1LE1LD_1LF0LC_1LB1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_1RC1LA_0LD0RE_1RF0LC_1LC---_1RA1RF",
@@ -6384,6 +6549,7 @@
 			"n": 91,
 			"tm": "1RB0LB_1LC1RE_1LA1LD_0RB1LF_1LA0RC_---1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -6428,6 +6594,7 @@
 			"n": 92,
 			"tm": "1RB0RB_1RC0LE_1LD1LA_---0LC_1RF1LE_1RA0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -6477,6 +6644,7 @@
 			"n": 93,
 			"tm": "1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_0RA0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_1RF0RD",
@@ -6542,6 +6710,7 @@
 			"n": 94,
 			"tm": "1RB0LC_1LC0RB_0LE0LD_1LC---_0RA1LF_1LA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LA_0RC0RF_0LD1RE_1LA0RB_1RD1RE_1RB---",
@@ -6645,6 +6814,7 @@
 			"n": 95,
 			"tm": "1RB0RD_1LC1RE_0LD1LC_1RA0LA_1RF0RC_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -6689,6 +6859,7 @@
 			"n": 96,
 			"tm": "1RB0LA_0RC---_0RD0RF_1LD0LE_0LA1LE_1RA0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1RC0LB_0RD---_0RE0RA_1LE0LF_0LB1LF",
@@ -6746,6 +6917,7 @@
 			"n": 97,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -6790,6 +6962,7 @@
 			"n": 98,
 			"tm": "1RB1RA_1LC0RA_1LD0LC_0LE0LB_1LF1RF_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LB_1RC---_1LD1LC_1RE0LC_1RF0RE_0RA0RD",
@@ -6873,6 +7046,7 @@
 			"n": 99,
 			"tm": "1RB0RB_1RC1RA_0LD1LC_0RA1LE_1LF0LC_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -6917,6 +7091,7 @@
 			"n": 100,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -6961,6 +7136,7 @@
 			"n": 101,
 			"tm": "1RB1RF_1LC1LF_---1LD_1LE0RA_1RE1LB_1RD0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC1LF_---1LD_1LE0RA_1LF1LB_1RD0LD",
@@ -7018,6 +7194,7 @@
 			"n": 102,
 			"tm": "1RB0RA_1LC0RC_1LF0RD_1RA1LE_0LC---_1LD0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Structural counter + chaotic edge",
 			"classifications": [
@@ -7062,6 +7239,7 @@
 			"n": 103,
 			"tm": "1RB---_1RC1LE_0RD0RF_0RE0LA_1LF0LB_1LA1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_1RC1RF_1LD---_1LE1RA_0LF0LB_0LA0RC",
@@ -7124,6 +7302,7 @@
 			"n": 104,
 			"tm": "1RB0LD_1LC0RD_1LA0LC_1RE0LB_1RB1RF_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0RD_1RA0LD_1LE0RC_1LC1LF_0RD---",
@@ -7191,6 +7370,7 @@
 			"n": 105,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_1RE---",
@@ -7260,6 +7440,7 @@
 			"n": 106,
 			"tm": "1RB1LD_1LC0RE_1LA0LD_0LB0LE_0RB0LF_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -7304,6 +7485,7 @@
 			"n": 107,
 			"tm": "1RB1RF_1LC0RD_1RE0LD_0RE0LF_0LB0RA_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -7348,6 +7530,7 @@
 			"n": 108,
 			"tm": "1RB1RF_1LC0RE_1LE1LD_1RE0LC_1RA1RA_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -7392,6 +7575,7 @@
 			"n": 109,
 			"tm": "1RB1RA_1LC0LF_1RA1LD_1LB1LE_1LC0LC_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC1RB_1LA0LF_1LC1LE_1LA0LA_---0RB",
@@ -7449,6 +7633,7 @@
 			"n": 110,
 			"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RF_1RB0RD_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_0RC0LD_1LD1RA_0LE0RF_1RB0LB_0RB---",
@@ -7506,6 +7691,7 @@
 			"n": 111,
 			"tm": "1RB0RA_1RC0RF_0RD1LE_0LE---_1LF1LE_1RA0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1RC0RF_0RD1LE_0LE---_1LF1LE_1RA0LE",
@@ -7568,6 +7754,7 @@
 			"n": 112,
 			"tm": "1RB1LD_1RC0RA_1LA1RE_0LA0LB_0RB1RF_---1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -7632,6 +7819,7 @@
 			"n": 113,
 			"tm": "1RB0RA_0RC0LE_0LD1RA_1LB0RF_0LD1LC_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RA_0RE0LD_0LB1LE_0LB1RF_1RC0RF",
@@ -7689,6 +7877,7 @@
 			"n": 114,
 			"tm": "1RB---_0RC0LF_1LD0RE_1RC0LB_1RD1RA_1LB0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1RC0LD_1LB0RA_0RC0LE_1LD0LC_1RD---",
@@ -7751,6 +7940,7 @@
 			"n": 115,
 			"tm": "1RB0RF_1RC0RA_1LD1RB_1LE0LD_1LB0LB_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -7802,6 +7992,7 @@
 			"n": 116,
 			"tm": "1RB0RA_1LC0RA_0LD0LC_1RD1RE_1LF0LE_---0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -7853,6 +8044,7 @@
 			"n": 117,
 			"tm": "1RB---_1LC0RF_1LD0LC_0RE0LF_0RD1LA_1RB0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LC0RA_1LD0LC_0RE0LA_0RD1LF_1RB---",
@@ -7910,6 +8102,7 @@
 			"n": 118,
 			"tm": "1RB0LE_1LC0RD_0RA1LD_0LC1RA_1LF1LA_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -7954,6 +8147,7 @@
 			"n": 119,
 			"tm": "1RB0LC_0LA1RD_1LA0RE_1RE0RF_1LF---_1LB1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LC0RA_0RB1LD_1LE0LF_1RF---_1RC1LF",
@@ -8011,6 +8205,10 @@
 			"n": 120,
 			"tm": "1RB1LA_0LC0RC_1LE1RD_1RE1RC_1LF0LA_---1LE",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [
 				{
 					"tm": "1RB1LA_1RC0RE_1LD0LA_---1LC_1LC1RF_1RC1RE",
@@ -8065,12 +8263,18 @@
 			],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "Similar to Space Needle"
+				}
+			]
 		},
 		{
 			"n": 121,
 			"tm": "1RB0RE_1LC0LB_1RD0LB_1RF0LA_1RC---_0RA0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0RA_1LF0RD_1LA0LE_1LB---_0LD0RC",
@@ -8178,6 +8382,7 @@
 			"n": 122,
 			"tm": "1RB1LF_0LC0RE_1LA1RD_0LB1LB_1RC1RD_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LC_1LA1RD_0LD---_0LE1LE_0LB0RF_1RB1RD",
@@ -8353,6 +8558,7 @@
 			"n": 123,
 			"tm": "1RB0LB_0RC0LE_1RD0RF_1LB1RB_0LA0RE_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -8397,6 +8603,7 @@
 			"n": 124,
 			"tm": "1RB0RC_0LC0LE_1RA0RD_1LB1RF_1LC1LB_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LF_0RC0RE_1LD0LA_1LB0LC_1RC1RB_0LD---",
@@ -8454,6 +8661,7 @@
 			"n": 125,
 			"tm": "1RB0RC_1LA0LD_1RB0RD_1LE0RF_0LB0RB_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_0RC0LC_1RD0RA_1LC0LF_1LF---_1LC0LA",
@@ -8516,6 +8724,7 @@
 			"n": 126,
 			"tm": "1RB0RA_1LC0RE_0LD0LB_1LA1LF_1RA0LF_1LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0RE_0LD0LB_1LA1LF_1RA0LB_1LC---",
@@ -8580,6 +8789,7 @@
 			"n": 127,
 			"tm": "1RB0LB_1RC0LD_0LA1RD_1LC1LE_1LF0RE_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_0RC1LA_1LD0RD_1LB0RA_1RF0LE_1RA---",
@@ -8649,6 +8859,7 @@
 			"n": 128,
 			"tm": "1RB1RF_1RC0RF_0RD0LC_1LE1RA_1LC---_1RB0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RE_1RC0RA_0RD0LC_1LE1RF_1LC---_1RB1RA",
@@ -8724,6 +8935,7 @@
 			"n": 129,
 			"tm": "1RB1LF_1LC0RD_---1LD_1RB1RE_1LA0LB_0LA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_1LC0RA_---1LA_1LE0LB_1RB1LF_0LE0LD",
@@ -8781,6 +8993,7 @@
 			"n": 130,
 			"tm": "1RB1LF_1LC1RB_1LE1LD_1LB0RD_1LF---_1LA0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LF_1LC1RB_0LE1LD_1LB0RD_1RF---_1LA0LA",
@@ -8855,6 +9068,7 @@
 			"n": 131,
 			"tm": "1RB0LA_1LC0RD_0LD1LA_1LF0RE_1LB1RE_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1LA---_1RD1LC_1RE0LA_0RA1RF_1LD0RF",
@@ -8919,6 +9133,7 @@
 			"n": 132,
 			"tm": "1RB1RC_1LC0RC_0RA0LD_0LE---_0LF1LD_1LC1LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Ack-like Bell",
 			"classifications": [
@@ -8963,6 +9178,7 @@
 			"n": 133,
 			"tm": "1RB0LC_1LC0RE_1LD1LB_1LA1LD_1RF0RA_---1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -9012,6 +9228,7 @@
 			"n": 134,
 			"tm": "1RB0LE_0RC---_1RD0LA_1RE0RA_0LF1LD_1LC1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -9074,6 +9291,7 @@
 			"n": 135,
 			"tm": "1RB1RD_0LC1RA_1LA1LC_1RA1LE_1RF0LD_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC1LD_0RA1LB_1LB1RE_1LF0RD_---0LE",
@@ -9182,6 +9400,7 @@
 			"n": 136,
 			"tm": "1RB1LF_0RC1RD_1LA1LD_1LE0RA_---1LC_0LA1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LF_0RC1RD_1LA1LD_1LE0RA_---1LC_0LA0RE",
@@ -9259,6 +9478,7 @@
 			"n": 137,
 			"tm": "1RB0LA_0RC0LE_0RD1RC_1LD1RE_1LA1RF_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -9303,6 +9523,7 @@
 			"n": 138,
 			"tm": "1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -9347,6 +9568,7 @@
 			"n": 139,
 			"tm": "1RB1RA_1LC0RC_---0LD_0LE0RF_1RE0RA_0LF1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC0RC_---0LD_0LE0LF_1RE0RA_0LF1LB",
@@ -9411,6 +9633,7 @@
 			"n": 140,
 			"tm": "1RB0LF_1LC0LA_1RA0RD_---1RE_1LA1RC_0LB0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -9455,6 +9678,7 @@
 			"n": 141,
 			"tm": "1RB0LE_0RC---_1RD0LA_1RE0RA_1LC0LF_0RC1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Monotone list",
 			"classifications": [
@@ -9499,6 +9723,7 @@
 			"n": 142,
 			"tm": "1RB0LE_0LC0RA_1LE0RD_0RB---_0LF0LD_1LA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LF_0RC0RF_1RD0RC_1LE0RB_0RA0LD_0LE---",
@@ -9556,6 +9781,7 @@
 			"n": 143,
 			"tm": "1RB0LB_0LC0RD_1LA1LB_0RE---_0RF1RD_1RB1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_0LC0RE_1LD1LB_1RB0LB_0RF---_0RA1RE",
@@ -9613,6 +9839,7 @@
 			"n": 144,
 			"tm": "1RB0RE_1LC1RA_1LD0LC_1LA0LA_1RA0RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -9657,6 +9884,7 @@
 			"n": 145,
 			"tm": "1RB0LC_1RC0RA_1LA0LD_1LE0RB_1RB1LF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LF_1RC0RD_1LD0LE_1RB0LC_1LA0RB_0LD---",
@@ -9714,6 +9942,7 @@
 			"n": 146,
 			"tm": "1RB0LD_1RC1RE_1LA0LD_1LB1LC_0RA1RF_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1RC0LE_1RD1RF_1LB0LE_1LC1LD_0RB1RA",
@@ -9771,6 +10000,7 @@
 			"n": 147,
 			"tm": "1RB0LE_0LC0RB_1RD1LD_1RA1LF_0LB1LE_---1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -9815,6 +10045,7 @@
 			"n": 148,
 			"tm": "1RB1RF_1LC1RD_1LA1LC_1RA0RE_1RD1LA_---0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1LC1RD_1LA1LC_1RA0RE_1RD1LA_---0LC",
@@ -9878,6 +10109,7 @@
 			"n": 149,
 			"tm": "1RB0RE_1LC0LE_---1LD_1LE1LB_1RA0LF_0RD1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -9922,6 +10154,7 @@
 			"n": 150,
 			"tm": "1RB1LF_1RC1LD_1LB1LE_1LE0LD_0LA0RE_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0LB_0LD0RC_1RE1LA_1RF1LB_1LE1LC",
@@ -10002,6 +10235,7 @@
 			"n": 151,
 			"tm": "1RB0RF_1LC1LF_1RD1LC_---1RE_0RC1RF_1RA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -10046,6 +10280,7 @@
 			"n": 152,
 			"tm": "1RB1RE_0LC0LF_0LA0LD_1LE1LC_1RA0LB_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1LC0RD_1LD1LB_0RE0RF_0RC0RA_---0LB",
@@ -10103,6 +10338,7 @@
 			"n": 153,
 			"tm": "1RB1RF_1LC0RE_1RD0LC_0LB0RA_1LD1RD_1RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RE_1RD0LC_0LB0RF_1LD1RD_1RB1RA",
@@ -10160,6 +10396,7 @@
 			"n": 154,
 			"tm": "1RB1RF_1LC0LB_1RE0LD_1LB0RF_0RA0RC_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC0LB_1RE0LD_1LB0RC_0RA0RC_1RE---",
@@ -10224,6 +10461,7 @@
 			"n": 155,
 			"tm": "1RB1LA_1LC0RA_0LF0LD_1RE1LD_1RE0RB_---0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -10273,6 +10511,7 @@
 			"n": 156,
 			"tm": "1RB1RC_1LC0LE_1RD1RC_1LB0RA_---0LF_1RD1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RC_1LA0LE_1RD1RC_1LB0RA_---0LF_1RD1LF",
@@ -10358,6 +10597,7 @@
 			"n": 157,
 			"tm": "1RB1RA_0LC1RF_0LD1LD_1LE1LC_0RB0RA_---1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -10402,6 +10642,7 @@
 			"n": 158,
 			"tm": "1RB0LD_1RC1RE_1LA0RA_1LE1LC_1RF1RC_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LB1RC_1RF1RD_1LA0RA_1LC1LD_---1RA",
@@ -10459,6 +10700,7 @@
 			"n": 159,
 			"tm": "1RB1RA_1RC---_1RD0LD_1LE1RF_0RA1LD_0RC0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -10503,6 +10745,7 @@
 			"n": 160,
 			"tm": "1RB1LC_1LA1LD_1LD0LC_0LE0RD_1RA1LF_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LC_1LA1LD_1LD0LC_0LE0RD_1RA0LF_0LC---",
@@ -10561,6 +10804,7 @@
 			"n": 161,
 			"tm": "1RB0RF_0LC1LB_1RD1LA_1RE0LC_0RA1RD_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -10605,6 +10849,7 @@
 			"n": 162,
 			"tm": "1RB1RF_0RC0LE_1RD0RF_1LB---_1LB1LE_1RA0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -10649,6 +10894,7 @@
 			"n": 163,
 			"tm": "1RB---_1RC0LF_1RD1RD_1RE1RA_1LF0RC_1LC1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RB_1RC1RF_1LD0RA_1LA1LE_1RA0LD_1RE---",
@@ -10706,6 +10952,7 @@
 			"n": 164,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA0LF_0LC0RA_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LC0RE_0RA0LD_1LA0LF_0LC0RA_0RA---",
@@ -10971,6 +11218,7 @@
 			"n": 165,
 			"tm": "1RB0LC_1LA0RD_1RA0LA_1RE1RD_1RA1RF_1LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RC_1LD0RB_1RC0LE_1LF1LE_1LC1LA",
@@ -11040,6 +11288,7 @@
 			"n": 166,
 			"tm": "1RB1RE_1LC0RC_1RA1LD_1RB0LA_0LC1RF_---1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1LC0RC_1RD1LA_1RB1RE_0LC1RF_---1RA",
@@ -11097,6 +11346,7 @@
 			"n": 167,
 			"tm": "1RB1RD_1LC1RA_---1LD_1LE0RA_1LF0LE_0RB0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_0LC0RC_1RE1LD_1LC1LF_---1RF_1RA0LD",
@@ -11154,6 +11404,7 @@
 			"n": 168,
 			"tm": "1RB0LC_1RC0RA_1LA0LD_1LE0RB_1LC1LF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -11198,6 +11449,7 @@
 			"n": 169,
 			"tm": "1RB0LA_1RC---_1RD1RA_1LE1RF_1LC1LE_0RC0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -11242,6 +11494,7 @@
 			"n": 170,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -11286,6 +11539,7 @@
 			"n": 171,
 			"tm": "1RB0LA_0RC1LF_0RD0LA_1LD0LE_1RB1LF_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_0RC1LE_0RD0LA_1LD0LA_---1LF_1RB0LF",
@@ -11371,6 +11625,7 @@
 			"n": 172,
 			"tm": "1RB0RE_1LC0RA_1LD0LC_0LE0LB_1RA1RF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -11415,6 +11670,7 @@
 			"n": 173,
 			"tm": "1RB0LE_1RC1RE_0RD1RC_1LA0LB_1LF0RB_---1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RD_1LF1LD_1RE0LC_---1RA_0LA1LF",
@@ -11473,6 +11729,7 @@
 			"n": 174,
 			"tm": "1RB1RA_1LC0RB_1LE0LD_0LB1LD_0RA0LF_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -11517,6 +11774,7 @@
 			"n": 175,
 			"tm": "1RB0LD_0RC1RA_1RD1RE_1LA0LE_0RA0RF_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -11561,6 +11819,7 @@
 			"n": 176,
 			"tm": "1RB1RE_1LC0RA_1LA0LD_1LB0LF_0RB0LE_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -11605,6 +11864,7 @@
 			"n": 177,
 			"tm": "1RB0RA_0RC0LD_1LA1RF_1LE1LD_1LB1RE_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Counter Class 3",
 			"classifications": [
@@ -11673,6 +11933,7 @@
 			"n": 178,
 			"tm": "1RB0LE_1RC0RE_1RD0RA_1RE1LC_0LA0RF_1LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_0LC0RF_1RD0LB_1RE0RB_1RA0RC_1LB---",
@@ -11730,6 +11991,10 @@
 			"n": 179,
 			"tm": "1RB0RE_1LC1LD_0RA0LD_1LB0LA_1RF1RA_---1LB",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -11776,6 +12041,10 @@
 			"n": 180,
 			"tm": "1RB0LB_1LC0RE_1LA1LD_0LC---_0RB0RF_1RE1RB",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -11821,12 +12090,18 @@
 			],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "Similar to Antihydra"
+				}
+			]
 		},
 		{
 			"n": 181,
 			"tm": "1RB0LD_0RC---_0RD0RF_1LE0LA_1LF1LE_1RA0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC0LD_1LE0RD_1RA0RC_0LF---_0LD0LB",
@@ -11900,6 +12175,7 @@
 			"n": 182,
 			"tm": "1RB---_0RC0LA_1LD0RB_1LE0LF_1RC1LF_0LC0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -11944,6 +12220,7 @@
 			"n": 183,
 			"tm": "1RB1LC_0RC0RB_1LD0LA_1LE---_1LF0LA_1LA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LC_0RC0RB_1LD0LA_1LE---_1LF1RA_1LA0LB",
@@ -12002,6 +12279,7 @@
 			"n": 184,
 			"tm": "1RB0RF_1LC0RC_0LD1LC_1RE1LB_1RF---_1LE1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Ack-like Bell",
 			"classifications": [
@@ -12046,6 +12324,7 @@
 			"n": 185,
 			"tm": "1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -12097,6 +12376,10 @@
 			"n": 186,
 			"tm": "1RB0LD_1LC0RA_1RA1LB_1LA1LE_1RF0LC_---0RE",
 			"name": null,
+			"tags": [
+				"Potential Cryptid",
+				"BMO5"
+			],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -12160,6 +12443,7 @@
 			"n": 187,
 			"tm": "1RB0RB_1LC1RA_1LF0LD_0LE1LD_1LA1LC_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -12204,6 +12488,7 @@
 			"n": 188,
 			"tm": "1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -12248,6 +12533,7 @@
 			"n": 189,
 			"tm": "1RB1RA_0LC0RE_1LF1LD_1LA0LA_1LC1RB_---1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -12297,6 +12583,7 @@
 			"n": 190,
 			"tm": "1RB1LE_1RC1LD_1RD0LF_0LA0RD_---1LB_0LD1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -12341,6 +12628,7 @@
 			"n": 191,
 			"tm": "1RB0LF_1RC0RB_0RD0RA_1RE0LD_1LF---_1LA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_0RC0RF_1RD0LC_1LE---_1LF1LE_1RA0LE",
@@ -12426,6 +12714,7 @@
 			"n": 192,
 			"tm": "1RB1RC_1LC0RE_1LD0LB_1RA1LC_1RA0RF_---1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -12470,6 +12759,7 @@
 			"n": 193,
 			"tm": "1RB0LC_1RC1RA_0RD1LE_1RE1RF_1LC0RB_---1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -12514,6 +12804,7 @@
 			"n": 194,
 			"tm": "1RB1LA_1LC0RE_---0LD_1LA0LF_1RA1RE_1LA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -12558,6 +12849,7 @@
 			"n": 195,
 			"tm": "1RB0LE_0LC0RF_1LD1LC_1RA0RD_0LA1LA_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -12602,6 +12894,7 @@
 			"n": 196,
 			"tm": "1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RB0RF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1LC1RE_1LD0LC_1RB1LD_1RA0RB_0RB---",
@@ -12659,6 +12952,7 @@
 			"n": 197,
 			"tm": "1RB0RE_0LC1LE_0RD1LD_1RA1LF_1LC0RA_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -12703,6 +12997,10 @@
 			"n": 198,
 			"tm": "1RB0RB_1LC1RE_1LF0LD_1RA1LD_1RC1RB_---1LC",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -12748,12 +13046,18 @@
 			],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "Similar to Space Needle"
+				}
+			]
 		},
 		{
 			"n": 199,
 			"tm": "1RB0RA_0RC0LE_1LD1RF_1LB1RD_1LD1LE_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Counter Class 3",
 			"classifications": [
@@ -12822,6 +13126,7 @@
 			"n": 200,
 			"tm": "1RB0RC_1LC0LD_1RA0LB_1LE0RA_1RD1LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -12866,6 +13171,7 @@
 			"n": 201,
 			"tm": "1RB0LD_0LB1RC_0RD---_1RE0RF_1LF0RA_0LA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0RC---",
@@ -12933,6 +13239,7 @@
 			"n": 202,
 			"tm": "1RB1RA_0LC0RA_1LF0LD_1LE0RC_1LB1LD_1RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0LC0RF_1LA0LD_1LE0RC_1LB1LD_1RB1RF",
@@ -12995,6 +13302,7 @@
 			"n": 203,
 			"tm": "1RB1RA_1RC0RE_1RD1LB_0LE0RF_1RA0LD_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bouncer",
 			"classifications": [
@@ -13039,6 +13347,7 @@
 			"n": 204,
 			"tm": "1RB1RA_1LC0RB_1LD0LB_1RA0LE_---1LF_1LB0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -13083,6 +13392,7 @@
 			"n": 205,
 			"tm": "1RB---_0RC0LA_1LD0RB_1LE0LB_1LF0LC_1LB1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_1RC1LA_0LD0RE_1RF0LC_1LC---_1RA0RC",
@@ -13140,6 +13450,7 @@
 			"n": 206,
 			"tm": "1RB0LD_0LC0RE_1LA0RD_0RB0LF_1RC1LA_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1RB_0LC0RF_0LC---",
@@ -13310,6 +13621,7 @@
 			"n": 207,
 			"tm": "1RB0LC_1LC0RE_1RF1LD_1LA0LB_1RD1RA_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RE_1RE0LD_1LA1LB_0LF1RA_1LB---",
@@ -13407,6 +13719,7 @@
 			"n": 208,
 			"tm": "1RB0RF_0LC1RE_---1LD_1LE0LB_0RF0LD_1RD1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0LC1RE_---1LD_1LE0LB_0RF0LD_1RD1RA",
@@ -13465,6 +13778,7 @@
 			"n": 209,
 			"tm": "1RB1LC_1LA1RE_0RD0LA_---1LB_1LD0RF_0RE1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LC_1LA1RD_1LA0LA_1LD0RE_0RF1RB_---0RE",
@@ -13550,6 +13864,7 @@
 			"n": 210,
 			"tm": "1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -13594,6 +13909,7 @@
 			"n": 211,
 			"tm": "1RB1LF_0RC0RB_0LD1RB_1LE0LB_0LA1LC_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -13638,6 +13954,7 @@
 			"n": 212,
 			"tm": "1RB1RD_1LC0LE_1RA0LB_1RA1RF_0RA0RC_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -13689,6 +14006,7 @@
 			"n": 213,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RD---",
@@ -13757,6 +14075,7 @@
 			"n": 214,
 			"tm": "1RB0RF_1LC1RF_1RA0LD_0LC0RE_1LD---_0RC0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -13801,6 +14120,7 @@
 			"n": 215,
 			"tm": "1RB0LE_1RC1RB_1RD0RA_0RE---_1LF1LA_1LA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -13852,6 +14172,7 @@
 			"n": 216,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_1LC---",
@@ -13920,6 +14241,7 @@
 			"n": 217,
 			"tm": "1RB0LE_0RC0RA_1LC1RD_0LB0LE_1LA0LF_1LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Ack-like Bell",
 			"classifications": [
@@ -13964,6 +14286,7 @@
 			"n": 218,
 			"tm": "1RB0RE_1LC0RE_1LA1LD_0LB1LF_1RC1RA_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -14008,6 +14331,7 @@
 			"n": 219,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_1RA---",
@@ -14087,6 +14411,7 @@
 			"n": 220,
 			"tm": "1RB1RE_0RC0RF_1LC1RD_1RA0LE_0RA0LD_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -14131,6 +14456,7 @@
 			"n": 221,
 			"tm": "1RB1LF_1RC1RB_1RD0RB_0LE0LF_---1LD_0LE1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Fractal Others",
 			"classifications": [
@@ -14175,6 +14501,7 @@
 			"n": 222,
 			"tm": "1RB1LA_1RC1RE_1RD0RD_1LA1RC_1RF0LE_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow structural counter",
 			"classifications": [
@@ -14219,6 +14546,7 @@
 			"n": 223,
 			"tm": "1RB0LB_0RC0LE_1RD0RF_1LB1RB_0LA1RB_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0RC0LE_1RD0RF_1LB1RB_0LA0RE_0LB---",
@@ -14299,6 +14627,7 @@
 			"n": 224,
 			"tm": "1RB0RA_1RC1RD_1LD1LB_0RF1LE_1LE0LC_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1RC1RD_1LD1LB_0RF1LE_1LB0LC_---1RA",
@@ -14357,6 +14686,7 @@
 			"n": 225,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0LC0RE_1LA0RD_0RB0LD_1RC1RF_1RC---",
@@ -14442,6 +14772,7 @@
 			"n": 226,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RA_0LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0LC0RE_1LA0RD_0RB0LC_1RC0RF_1LE---",
@@ -14670,6 +15001,7 @@
 			"n": 227,
 			"tm": "1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -14716,6 +15048,7 @@
 			"n": 228,
 			"tm": "1RB1RD_0LC0LB_0RE0LD_1LB0RB_1RF---_0RA0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0RC0RB_0LD0RA_1LE---_0LF0LC_1LB1LA",
@@ -14773,6 +15106,7 @@
 			"n": 229,
 			"tm": "1RB0LD_1RC0RD_1LA0RC_1RE1LB_1LF0LA_---0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -14817,6 +15151,7 @@
 			"n": 230,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_1LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC0RD_1RE0LD_0RE0LD_0LB0RA_1RD---",
@@ -14902,6 +15237,7 @@
 			"n": 231,
 			"tm": "1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC1RE_0LD0LC_1RD0RB_0LA0RB_1RA---",
@@ -14965,6 +15301,7 @@
 			"n": 232,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -15009,6 +15346,7 @@
 			"n": 233,
 			"tm": "1RB1LE_0RC0RB_1RD1RF_1LA0LE_0LD0LB_---0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -15053,6 +15391,7 @@
 			"n": 234,
 			"tm": "1RB1RF_1RC0LD_1LB1RA_1RE1LE_0RC0LB_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -15097,6 +15436,7 @@
 			"n": 235,
 			"tm": "1RB0RA_0RC0LE_1LC0LD_1RA1LF_---1LD_1LD1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -15141,6 +15481,7 @@
 			"n": 236,
 			"tm": "1RB0RC_0RC1RC_0LD0RA_1LE0LF_0LA1LC_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -15185,6 +15526,7 @@
 			"n": 237,
 			"tm": "1RB1LC_1LA0RD_0LB1LF_1RE1LC_1LC0RB_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RE_0LC---_1RE1LD_0LE1LB_1LC0RF_1RA1LD",
@@ -15280,6 +15622,7 @@
 			"n": 238,
 			"tm": "1RB1LC_1LA1RF_0RD1RD_0RA0LE_1LA0LE_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1LC1RF_1LA1LD_0RE1RE_0RA0LC_0RD---",
@@ -15407,6 +15750,7 @@
 			"n": 239,
 			"tm": "1RB0RA_1LC0RD_0LD0LB_1RA0LE_1LF---_0RA1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0LC1RD_1LD0LC_1RE0LF_0RF0RD_1LC0RA",
@@ -15464,6 +15808,7 @@
 			"n": 240,
 			"tm": "1RB0LF_0RC0LC_1LA1LD_1RE1LC_---1RA_0LC0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -15508,6 +15853,7 @@
 			"n": 241,
 			"tm": "1RB0RE_1RC0RF_1LD1RA_1LB1LD_1RA1LB_---0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC1RB_1LA1LF_1LC0LE_1LD1RC_---0RE",
@@ -15583,6 +15929,7 @@
 			"n": 242,
 			"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RA_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC0RD_1RE0LD_0RE0LB_0LB0RA_0RC---",
@@ -15740,6 +16087,7 @@
 			"n": 243,
 			"tm": "1RB0LB_1RC1LD_1LD0RD_1LE0RC_1LF---_0LA1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LF_1RC---_0RD1LC_1LE0RE_1LF1RA_1RA0LA",
@@ -15807,6 +16155,7 @@
 			"n": 244,
 			"tm": "1RB0LE_1RC1RA_1LD0RE_1LA1LD_1LD0RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -15851,6 +16200,7 @@
 			"n": 245,
 			"tm": "1RB1LC_1RC0RF_1RD0LB_1RE0LD_1LF---_0RA1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LF_1RC0LB_1LD---_0RE1LE_1RF1LA_1RA0RD",
@@ -15926,6 +16276,7 @@
 			"n": 246,
 			"tm": "1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -15970,6 +16321,7 @@
 			"n": 247,
 			"tm": "1RB0LE_1RC1RB_1LD0RA_1LA1LC_0LC0LF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_0LC---_1LD1LC_1RE0LA_1RA1RD_0RD0RB",
@@ -16037,6 +16389,7 @@
 			"n": 248,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -16081,6 +16434,7 @@
 			"n": 249,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -16125,6 +16479,7 @@
 			"n": 250,
 			"tm": "1RB1RE_1LC0RA_1LD1LB_1LE0LF_1LA0LB_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1RC0LF_1RD1RB_1RE0RA_1RF0RB_1LB1LE",
@@ -16182,6 +16537,7 @@
 			"n": 251,
 			"tm": "1RB---_0RC0RD_1LD0RF_0LE0LC_1RA0LC_1RC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 2",
 			"classifications": [
@@ -16226,6 +16582,7 @@
 			"n": 252,
 			"tm": "1RB0LC_1LA0RE_0LD0LB_1RA1LD_0RC1RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -16270,6 +16627,7 @@
 			"n": 253,
 			"tm": "1RB0LF_1LC0RE_0LD1LC_1LA---_0RB1RA_0LE1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell eats counter",
 			"classifications": [
@@ -16325,6 +16683,7 @@
 			"n": 254,
 			"tm": "1RB1LD_0RC0RF_1LC0LA_0LE1LD_1LA---_0RB0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_0RC0RF_1LC0LA_0LE1LD_1LA---_0RB0RC",
@@ -16382,6 +16741,7 @@
 			"n": 255,
 			"tm": "1RB1RF_0RC0LB_1LD1RE_1LB1RF_---0RF_1RD0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC1LE_0LA0RC_---0LE_1LB0LF_1LC1LE",
@@ -16462,6 +16822,7 @@
 			"n": 256,
 			"tm": "1RB---_1RC0LD_0LB0RE_1LB1LC_1RD1RF_1RD1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -16506,6 +16867,7 @@
 			"n": 257,
 			"tm": "1RB1LF_1LC0RD_0LD0LC_1RE0LA_0RA0RC_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -16550,6 +16912,7 @@
 			"n": 258,
 			"tm": "1RB1RE_1LC0RA_---1LD_1LA0LF_0LB0LC_1RB0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_1LC0RE_---1LD_1LE0LA_1RB1RF_0LB0LC",
@@ -16607,6 +16970,7 @@
 			"n": 259,
 			"tm": "1RB0RA_1RC0RD_1RD0LC_1LE1RA_---1LF_1RB0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC0RD_1RD0LC_1LE1RF_---1LA_1RB0RF",
@@ -16664,6 +17028,7 @@
 			"n": 260,
 			"tm": "1RB0LE_1LC0RA_1RD0RC_1LA0LD_1LB0LF_1LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0LB_1RE0LD_1LE0LF_1LA0RC_1LA---",
@@ -16721,6 +17086,7 @@
 			"n": 261,
 			"tm": "1RB0LA_0LC0RA_1LA1LD_1LC0LE_1RF0LF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -16765,6 +17131,7 @@
 			"n": 262,
 			"tm": "1RB0LF_1LC1RA_0RD1LB_0LA0RE_1RC1RB_---0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -16809,6 +17176,7 @@
 			"n": 263,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -16853,6 +17221,7 @@
 			"n": 264,
 			"tm": "1RB1RD_0LC1RA_1RA1LC_0RB1LE_1RF0LD_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_0LC0LA_1RA1LC_1RA1LE_1RF0LD_---0RE",
@@ -16952,6 +17321,7 @@
 			"n": 265,
 			"tm": "1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -16996,6 +17366,7 @@
 			"n": 266,
 			"tm": "1RB1LD_1RC0RB_1LA1LE_1LC0LA_1LF0RD_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -17040,6 +17411,7 @@
 			"n": 267,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LB_1LA1RF_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -17084,6 +17456,7 @@
 			"n": 268,
 			"tm": "1RB---_1LC0LD_0RF0LD_0LE0RA_0LC1RA_1RC1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_0LC0RD_1LB1LD_0RE0LF_0RB1LF_1LA---",
@@ -17152,6 +17525,7 @@
 			"n": 269,
 			"tm": "1RB0LE_1RC0RF_0RD0RB_1RE0RC_1LA0LA_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -17196,6 +17570,7 @@
 			"n": 270,
 			"tm": "1RB1RD_1LC0RD_0LE1RD_1RA0RB_---1LF_1RA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -17247,6 +17622,7 @@
 			"n": 271,
 			"tm": "1RB1RA_1LC1LD_1LD0LB_1RE0RF_---1RD_1RA1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -17291,6 +17667,7 @@
 			"n": 272,
 			"tm": "1RB0LC_1LA1RF_1LD0LE_1RE0RA_1LC0RD_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -17335,6 +17712,7 @@
 			"n": 273,
 			"tm": "1RB0RC_1RC1LB_1LD1RA_1LE0LB_---1LF_0LF0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -17379,6 +17757,7 @@
 			"n": 274,
 			"tm": "1RB0RE_1LC0RA_0LD1LB_1LA1LF_0LB0RD_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC0LE_1RD0LB_0RA1RC_0RC0LA_0RC---",
@@ -17436,6 +17815,7 @@
 			"n": 275,
 			"tm": "1RB0LE_0RC0RA_1RD1RB_0LA0RB_1LF---_1LD1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_0RC0LD_1LD0RF_0LE0LC_1LB1LD_1RA---",
@@ -17493,6 +17873,7 @@
 			"n": 276,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0LE---",
@@ -17560,6 +17941,7 @@
 			"n": 277,
 			"tm": "1RB1LC_1RC0LF_0LD0RC_1RA1LE_---1LA_0LC1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -17604,6 +17986,7 @@
 			"n": 278,
 			"tm": "1RB0RF_1LC1RA_0RD0LC_1LB1RE_---0RA_1RC1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell eats counter",
 			"classifications": [
@@ -17671,6 +18054,7 @@
 			"n": 279,
 			"tm": "1RB0LC_1RC1RA_1LD0RE_1LA1LD_0RA1RF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC1RA_1LD0RE_1LA1LD_0RA1RF_1LB---",
@@ -17733,6 +18117,7 @@
 			"n": 280,
 			"tm": "1RB0RB_1LC1RA_1LF0LD_0LE1LD_1RA1LC_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -17777,6 +18162,7 @@
 			"n": 281,
 			"tm": "1RB0RF_1LC1RD_1LA1LC_1RA1RE_0RB0LD_---0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC1RB_1LA0LF_1LC1LE_1RD0LA_---0RB",
@@ -17869,6 +18255,7 @@
 			"n": 282,
 			"tm": "1RB0LC_1LC0RB_0LE1LD_1LB1LA_0RA1LF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1RC0LB_0RD1RA_0LE1RF_1LB0RC_0RE---",
@@ -17933,6 +18320,7 @@
 			"n": 283,
 			"tm": "1RB0RD_1LC0RA_1LF1LD_0RE0LC_---1LB_1RB1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RD_1LC0RA_1LF1LD_0RE0LC_---1LB_1RB0LC",
@@ -18014,6 +18402,10 @@
 			"n": 284,
 			"tm": "1RB0LC_0LC0RF_1RD1LC_0RA1LE_---0LD_1LF1LA",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -18060,6 +18452,7 @@
 			"n": 285,
 			"tm": "1RB1RF_1RC0RA_1LD1RE_1LE0LE_0RA0LD_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell eats counter",
 			"classifications": [
@@ -18104,6 +18497,7 @@
 			"n": 286,
 			"tm": "1RB0RD_1RC0LF_0LA0RB_1RE---_1LB1RA_0LE0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -18148,6 +18542,7 @@
 			"n": 287,
 			"tm": "1RB1RF_1RC0RE_1LD0RB_1RE0LC_1RA0LE_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -18192,6 +18587,7 @@
 			"n": 288,
 			"tm": "1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -18243,6 +18639,7 @@
 			"n": 289,
 			"tm": "1RB0RA_1LC0RD_---0LD_1LE1LF_1RA1LB_1RC0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0RD_---1RD_1LF1LE_1RE0LD_1RA1LB",
@@ -18310,6 +18707,7 @@
 			"n": 290,
 			"tm": "1RB1LC_1LA0RD_1LB1LF_1LE1RE_0LA0RB_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -18354,6 +18752,7 @@
 			"n": 291,
 			"tm": "1RB0LA_1RC---_1RD1RA_0RE1LC_1LF0RF_1LD0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -18398,6 +18797,7 @@
 			"n": 292,
 			"tm": "1RB1LE_0LC0RF_1RD0LB_1RE1RD_1RA0RC_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1RC1RB_1RD0RA_1RE1LC_0LA0RF_1LE---",
@@ -18455,6 +18855,7 @@
 			"n": 293,
 			"tm": "1RB0RB_0LC1RA_1RD1LC_1LA1LE_1LF0LD_---0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -18499,6 +18900,7 @@
 			"n": 294,
 			"tm": "1RB0LA_0RC0RF_0RD0RA_1LD0LE_0LA1LE_---1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LA_0RC0RF_0RD0RA_1LD0LE_0LA1LE_---0RA",
@@ -18556,6 +18958,7 @@
 			"n": 295,
 			"tm": "1RB1LC_1RC---_1LD1LC_1RE0LC_1RF0RE_1RA0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Structural counter + chaotic edge",
 			"classifications": [
@@ -18600,6 +19003,7 @@
 			"n": 296,
 			"tm": "1RB1LA_1LA0RC_1RD1RC_1LE0RC_---0LF_1LE0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -18644,6 +19048,7 @@
 			"n": 297,
 			"tm": "1RB---_1RC1RE_1LD0LE_1RF0LC_0RD0RA_0RB1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -18688,6 +19093,7 @@
 			"n": 298,
 			"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0RC1RA_1RD0RE_1LE0RF_0LF0LE_1RB0LC",
@@ -18745,6 +19151,7 @@
 			"n": 299,
 			"tm": "1RB0LF_0RC1RD_0LD0RA_1RC0RE_1RF---_1LA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 2",
 			"classifications": [
@@ -18789,6 +19196,7 @@
 			"n": 300,
 			"tm": "1RB0RE_1LC1LF_1RA0LD_1LB1LA_1RB1RC_---0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RC_1LC1LF_1RE0LD_1LB1LE_1RB0RA_---0LE",
@@ -18851,6 +19259,7 @@
 			"n": 301,
 			"tm": "1RB1RA_0LC0RF_1LD1LC_1RE1LB_---0RA_1RF0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -18895,6 +19304,7 @@
 			"n": 302,
 			"tm": "1RB1LC_1LA0RD_1LA0LA_---1RE_1RB0RF_1RC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0LC_1RD1LB_1LC0RE_---1RF_1RD0RA",
@@ -18957,6 +19367,14 @@
 			"n": 303,
 			"tm": "1RB---_0RC0RB_1LD1LE_1LC1RF_1RB0LE_1RA0RD",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-11-01",
+				"detail": "TM2b in the family; orbit O4 halts at Bell 1,941,376,761,248",
+				"source": "vampires"
+			},
 			"aliases": [
 				{
 					"tm": "1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1RB---",
@@ -19032,6 +19450,7 @@
 			"n": 304,
 			"tm": "1RB1LE_1RC1RF_0RD0LB_1LD0RA_0LA0LE_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -19076,6 +19495,7 @@
 			"n": 305,
 			"tm": "1RB---_1LC1RF_0LE0RD_0RB0LC_1RD0LD_0RC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RB_0RD0RF_1RC---",
@@ -19151,6 +19571,7 @@
 			"n": 306,
 			"tm": "1RB0LC_1RC0RC_1LD0RB_1LA0LE_1LD1LF_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 2",
 			"classifications": [
@@ -19195,6 +19616,7 @@
 			"n": 307,
 			"tm": "1RB0LF_1LC1RC_0RA0LD_0LE1RE_0RF0LC_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -19239,6 +19661,7 @@
 			"n": 308,
 			"tm": "1RB0RF_0LC---_1LD1LC_1RE0LA_1RA1RD_0RD1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -19283,6 +19706,7 @@
 			"n": 309,
 			"tm": "1RB---_1RC1RF_1LD1RA_1LB0LE_1LF1LF_0RB0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1LC1RF_1LA0LD_1LE1LE_0RA0LC_1RA---",
@@ -19340,6 +19764,7 @@
 			"n": 310,
 			"tm": "1RB0RD_1LC0RA_1LA0LB_1RE0LC_1LC1RF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1LC1RF_1LE0LD_1LC0RE_1RD0RA_0RD---",
@@ -19397,6 +19822,7 @@
 			"n": 311,
 			"tm": "1RB0RA_0RC0RE_1LD1LF_1LE0LC_1RA0LD_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -19441,6 +19867,9 @@
 			"n": 312,
 			"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RC---",
 			"name": null,
+			"tags": [
+				"BMO10"
+			],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LC0RC_0LE0RD_0LA0RB_1LF---_1RC0LD",
@@ -19538,6 +19967,7 @@
 			"n": 313,
 			"tm": "1RB0RC_1LC0LD_1RA0LB_1LE0RA_1RA1LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -19582,6 +20012,7 @@
 			"n": 314,
 			"tm": "1RB0RB_1LB0LC_1RD1LC_1RE0RA_0RF1RA_---1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RB_1LB0LC_1RD1LC_1RE0RA_1RF1RA_---0LA",
@@ -19658,6 +20089,7 @@
 			"n": 315,
 			"tm": "1RB0RF_1LC0RD_1LA0LD_1LE0RA_0LB---_0LB1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Monotone list",
 			"classifications": [
@@ -19702,6 +20134,7 @@
 			"n": 316,
 			"tm": "1RB0RC_0LA0RA_0LD0RA_1LE---_0LF1LB_1LA1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RB_0LC0RA_1LD1LD_0LE1LB_1LA1LF_1LD---",
@@ -19836,6 +20269,7 @@
 			"n": 317,
 			"tm": "1RB1RE_1LC0RA_1RD0LB_1LB1RC_1LF0RD_---0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -19894,6 +20328,7 @@
 			"n": 318,
 			"tm": "1RB---_0RC1RA_1RD1RF_1LE0LF_1RB0LD_0RE0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0RC1RE_1RD1RF_1LA0LF_1RB---_0RA0LC",
@@ -19951,6 +20386,7 @@
 			"n": 319,
 			"tm": "1RB1RF_1RC1LC_1LD0LE_---1LE_1RF0LB_0RA1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -19995,6 +20431,9 @@
 			"n": 320,
 			"tm": "1RB1LE_0LC0LB_1RD1LC_1RD1RA_1RF0LA_---1RE",
 			"name": null,
+			"tags": [
+				"Cryptid"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -20042,12 +20481,18 @@
 				}
 			],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "Behaves like the probviously halting Cryptids, but is estimated to have a 3/5 chance of becoming a translated cycler and a 2/5 chance of halting"
+				}
+			]
 		},
 		{
 			"n": 321,
 			"tm": "1RB1LB_1LC1LA_1RD0LB_1RA1RE_1RF0RD_---1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -20092,6 +20537,7 @@
 			"n": 322,
 			"tm": "1RB1RF_1LC0LF_1RD0LB_0RA1RE_1RD---_0RC0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1LC0RA_0LE1LD_1LC---_1LA1LF_0LB0RE",
@@ -20149,6 +20595,7 @@
 			"n": 323,
 			"tm": "1RB0LF_1RC1RA_0RD0RB_1LE---_0LA1LE_1RD1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -20225,6 +20672,7 @@
 			"n": 324,
 			"tm": "1RB0LC_1RC1RA_0LD0LF_0LB0LE_1LA1LD_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -20269,6 +20717,10 @@
 			"n": 325,
 			"tm": "1RB1LD_1RC1RE_0LA1LB_0LD1LC_1RF0RA_---0RC",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -20321,12 +20773,18 @@
 				}
 			],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "Similar to Antihydra"
+				}
+			]
 		},
 		{
 			"n": 326,
 			"tm": "1RB0LA_1RC0RE_0LD0RF_1LA1LD_0RA1RE_---0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -20384,6 +20842,7 @@
 			"n": 327,
 			"tm": "1RB0RF_1RC0RD_1LD1LB_1RE0LC_1RA1RD_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1RC0RF_1RD0RE_1LE1LC_1RA0LD_1RE---",
@@ -20441,6 +20900,7 @@
 			"n": 328,
 			"tm": "1RB1RD_1LC0RF_1LD0LB_1RE0RB_---1RA_0LA1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -20485,6 +20945,7 @@
 			"n": 329,
 			"tm": "1RB1RA_1LC1RE_---0LD_1LE1LD_0RA0LF_1LF0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -20529,6 +20990,7 @@
 			"n": 330,
 			"tm": "1RB0LF_1RC0RA_1LD0RB_0LE0LC_0LA0LC_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Ack-like Bell",
 			"classifications": [
@@ -20584,6 +21046,14 @@
 			"n": 331,
 			"tm": "1RB0RE_1RC---_0RD0RC_1LE1LF_1LD1RA_1RC0LF",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM2' in the family; orbit O2 halts at Bell 731,899,010,932",
+				"source": "vampires"
+			},
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -20641,6 +21111,7 @@
 			"n": 332,
 			"tm": "1RB0RD_1LC0RA_1LA0LB_1RE0LC_1RA1RF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -20685,6 +21156,7 @@
 			"n": 333,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -20729,6 +21201,7 @@
 			"n": 334,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -20773,6 +21246,7 @@
 			"n": 335,
 			"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -20817,6 +21291,7 @@
 			"n": 336,
 			"tm": "1RB0RB_1LC0LF_1RD0LB_1RE1RC_0RA---_1LA1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -20861,6 +21336,7 @@
 			"n": 337,
 			"tm": "1RB0RF_1RC1LB_1LD1RE_1LB0LD_1RF0RC_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -20905,6 +21381,7 @@
 			"n": 338,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0LE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1LC---",
@@ -20962,6 +21439,7 @@
 			"n": 339,
 			"tm": "1RB0LE_1RC1RB_1LD0RE_1LA1LC_1RB0LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1RC1RB_1LD0RA_1LF1LC_0LC---_1RB0LA",
@@ -21019,6 +21497,7 @@
 			"n": 340,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -21063,6 +21542,7 @@
 			"n": 341,
 			"tm": "1RB0LE_0RC0RD_1LC0RB_0RE1RD_1LF1LE_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -21107,6 +21587,7 @@
 			"n": 342,
 			"tm": "1RB0RC_1LC0LD_1RA0LB_1LE0RA_1LB1LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1RC0RE_1LD0RB_1LB0LC_1RA0LD_0RC---",
@@ -21164,6 +21645,7 @@
 			"n": 343,
 			"tm": "1RB0RE_1RC0LE_0RD---_0RE0RA_1LF0LB_1LA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -21224,6 +21706,7 @@
 			"n": 344,
 			"tm": "1RB1LC_1LC0RD_0LE1LA_---1RA_1RF0LA_0RF0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LC_1LC0RD_0LE1LA_0RF1RA_1RD0LA_---0RB",
@@ -21303,6 +21786,7 @@
 			"n": 345,
 			"tm": "1RB0LA_0RC---_0RD0RF_1LD0LE_0LA1LE_0RA0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LA_0RC---_0RD0RF_1LD0LE_0LA1LE_0RA1LF",
@@ -21360,6 +21844,7 @@
 			"n": 346,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -21404,6 +21889,7 @@
 			"n": 347,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -21448,6 +21934,7 @@
 			"n": 348,
 			"tm": "1RB1LD_1LC0RE_1LA1RC_0LC0LA_0RF0RC_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -21492,6 +21979,7 @@
 			"n": 349,
 			"tm": "1RB0RA_0RC0LB_1LD1RF_1LE1RA_1RD1RB_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_0RC0LB_1LD0RF_1LE1RA_1RD1RB_0RA---",
@@ -21549,6 +22037,7 @@
 			"n": 350,
 			"tm": "1RB0RC_1LC1RE_1RA1LD_0LC0LA_1RF1RD_---0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -21598,6 +22087,7 @@
 			"n": 351,
 			"tm": "1RB1LF_0RC1RC_1LD0RD_0LE0LA_1RA0LB_---1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LF_0RC1RC_1LD0RD_0LE0LA_1RA0LB_---0LB",
@@ -21701,6 +22191,7 @@
 			"n": 352,
 			"tm": "1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1LA---",
@@ -21759,6 +22250,7 @@
 			"n": 353,
 			"tm": "1RB0RE_1LC0RA_0LD0LB_1RE0LB_1RF---_0RB0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 2",
 			"classifications": [
@@ -21808,6 +22300,7 @@
 			"n": 354,
 			"tm": "1RB---_1RC1RF_1LD1RE_1LB1LD_0RB0RC_1RA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -21852,6 +22345,7 @@
 			"n": 355,
 			"tm": "1RB0RE_1RC1RE_1LD1LC_0RB0LC_1RF0RB_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bouncer",
 			"classifications": [
@@ -21896,6 +22390,7 @@
 			"n": 356,
 			"tm": "1RB1LE_1RC1LF_0RD1RD_1LE0RE_0LA0LB_---1LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC1LF_0RD1RD_1LE0RE_0LA0LB_---0LC",
@@ -21982,6 +22477,7 @@
 			"n": 357,
 			"tm": "1RB---_1LC0LD_1RD0LB_0RF1RE_1RF0RA_0LE0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_0LA0RE_1RD---_1LE0LF_1RF0LD_0RB1RA",
@@ -22039,6 +22535,7 @@
 			"n": 358,
 			"tm": "1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -22083,6 +22580,7 @@
 			"n": 359,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -22127,6 +22625,7 @@
 			"n": 360,
 			"tm": "1RB1LA_1RC1RD_0LA0LD_1RE1LC_0RF0LF_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -22171,6 +22670,7 @@
 			"n": 361,
 			"tm": "1RB0LC_1LC0RE_1LD1LC_1LA1RD_---0RF_0LB0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -22215,6 +22715,7 @@
 			"n": 362,
 			"tm": "1RB0RE_1LC1RD_1LD0LD_0RE0LC_1RA1RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell eats counter",
 			"classifications": [
@@ -22259,6 +22760,7 @@
 			"n": 363,
 			"tm": "1RB0LE_1RC---_0RD0RE_1LE0RB_0LA0LF_0RC0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -22303,6 +22805,7 @@
 			"n": 364,
 			"tm": "1RB0LE_1LC1RD_1LA0RB_1RC1RB_1LF0LC_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -22347,6 +22850,7 @@
 			"n": 365,
 			"tm": "1RB0LC_1RC0RF_1LA0LD_0LE0RA_0RB1LD_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC1RF_1LA0LD_0LE0RA_0RB1LD_1RC---",
@@ -22413,7 +22917,12 @@
 		{
 			"n": 366,
 			"tm": "1RB1LA_1LC0RE_1LF1LD_0RB0LA_1RC1RE_---0LD",
-			"name": null,
+			"name": "Space Needle",
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting",
+				"BMO6"
+			],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -22465,6 +22974,7 @@
 			"n": 367,
 			"tm": "1RB0LC_1LA0RD_0RB0LF_1RA1RE_1RC---_1LC0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Monotone list",
 			"classifications": [
@@ -22509,6 +23019,7 @@
 			"n": 368,
 			"tm": "1RB1LE_0RC0RA_0RD1RF_1LD1LA_0LA0LE_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0RC0RE_0RD0RA_1LD1LE_1RB1LF_0LE0LF",
@@ -22578,6 +23089,10 @@
 			"n": 369,
 			"tm": "1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -22624,6 +23139,7 @@
 			"n": 370,
 			"tm": "1RB0LE_0RC0RA_1RD1RF_1LA0LD_1LD0RF_1RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_0RC0RA_1RD1RF_1LA0LD_1LD0RA_1RB---",
@@ -22705,6 +23221,7 @@
 			"n": 371,
 			"tm": "1RB1LC_0LC---_1RE1LD_1RD0LA_1RF0RC_0RA1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -22749,6 +23266,7 @@
 			"n": 372,
 			"tm": "1RB0RF_1LC1RD_1LA1LC_1RA1RE_1RB0RB_---0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RB_1LC1RE_1LD1LC_1RB0RF_1RD1RA_---0LC",
@@ -22806,6 +23324,7 @@
 			"n": 373,
 			"tm": "1RB0LB_1RC0LA_1LB0RD_1RE1RD_1RB1RF_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1RC0LD_1LB0RE_1RB0LB_1RA1RE_1LD---",
@@ -22863,6 +23382,7 @@
 			"n": 374,
 			"tm": "1RB0RD_1RC1RB_1LD0LA_1LE0RA_0LF---_0LA0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -22923,6 +23443,7 @@
 			"n": 375,
 			"tm": "1RB1LA_1LA1RC_1RD0RB_1LE1LD_---1LF_1RA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -22985,6 +23506,7 @@
 			"n": 376,
 			"tm": "1RB0LC_0RC0RF_1RD0LE_1LA1RA_1LC1RB_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -23029,6 +23551,7 @@
 			"n": 377,
 			"tm": "1RB0LC_1RC1RE_1LA0LD_0RB0RA_1RB1RF_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1RC1RA_1LD0LE_1RB0LC_0RB0RD_1RE---",
@@ -23093,6 +23616,7 @@
 			"n": 378,
 			"tm": "1RB0LC_1LA0RD_1LB1LF_0LA0RE_1RD0RA_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Monotone list",
 			"classifications": [
@@ -23137,6 +23661,7 @@
 			"n": 379,
 			"tm": "1RB1RD_1LC0LE_1RA0LB_1RB---_0LF0RC_0RA1LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_1LC0LE_1RA0LB_1RB---_0LF0RC_0RD1LE",
@@ -23221,6 +23746,7 @@
 			"n": 380,
 			"tm": "1RB1LD_1RC0LA_1LA0RE_1LB1LA_1RF0RB_---0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -23265,6 +23791,7 @@
 			"n": 381,
 			"tm": "1RB0RD_0LC0LF_1RD1LB_0RE---_1RA0LC_0LA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -23309,6 +23836,7 @@
 			"n": 382,
 			"tm": "1RB1LD_1RC0RC_1LD0RE_0LB0LA_0RF1LA_---1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -23353,6 +23881,10 @@
 			"n": 383,
 			"tm": "1RB1RE_1LC0RA_0RD1LB_---1RC_1LF1RE_0LB0LE",
 			"name": null,
+			"tags": [
+				"Potential Cryptid",
+				"BMO1"
+			],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -23411,6 +23943,7 @@
 			"n": 384,
 			"tm": "1RB1LC_1LA0RE_0LD---_1LB1LD_1RB1RF_0LA0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC0RA_1RB1LD_0LE---_1LB1LE_0LC0RB",
@@ -23468,6 +24001,7 @@
 			"n": 385,
 			"tm": "1RB0LD_0RC1RD_1LA1RA_1LE0LE_1RF0LA_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -23530,6 +24064,7 @@
 			"n": 386,
 			"tm": "1RB0LF_1RC0LB_1RD1RB_1RE1RF_1LA---_0RC1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1RC1RE_1LD---_1RF0LE_0RA1LD_1RA0LF",
@@ -23604,6 +24139,7 @@
 			"n": 387,
 			"tm": "1RB---_1RC0RA_1LD0RB_0LE0LC_1RE1LF_0RD0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Ack-like Bell",
 			"classifications": [
@@ -23648,6 +24184,7 @@
 			"n": 388,
 			"tm": "1RB0LA_0LC0RD_0RE1LA_0RC1LB_1LE0LF_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Monotone list",
 			"classifications": [
@@ -23692,6 +24229,7 @@
 			"n": 389,
 			"tm": "1RB0LC_1LC0RE_1LD1LC_1LA1RD_1RF1RB_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LA_1LC0RE_1LF1LD_1RE0LC_1RA1RE_---0LD",
@@ -23760,6 +24298,7 @@
 			"n": 390,
 			"tm": "1RB0RA_0RC1LD_0LD0RE_1LB1LE_1RA0LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -23804,6 +24343,7 @@
 			"n": 391,
 			"tm": "1RB1RF_1LC1RD_1RA1LD_1RE0LA_---0RC_0LC1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -23848,6 +24388,7 @@
 			"n": 392,
 			"tm": "1RB0LB_1RC1LC_1LD1RE_---0LA_1LE0RF_1RA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_1RC1LC_1LD1RE_---0LA_1LB0RF_1RA0LF",
@@ -23928,6 +24469,7 @@
 			"n": 393,
 			"tm": "1RB0RA_1RC0RF_1RD1LE_1RE---_1LF1LE_1RA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Structural counter + chaotic edge",
 			"classifications": [
@@ -23972,6 +24514,7 @@
 			"n": 394,
 			"tm": "1RB1LB_1RC1LE_1RD0LF_0LA0RD_---1LD_0LD1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -24016,6 +24559,9 @@
 			"n": 395,
 			"tm": "1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE",
 			"name": null,
+			"tags": [
+				"Potential Cryptid"
+			],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -24071,6 +24617,10 @@
 			"conflicts": [],
 			"notes": [
 				{
+					"kind": "community",
+					"detail": "Similar to BMO8"
+				},
+				{
 					"kind": "unverified",
 					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
 				}
@@ -24080,6 +24630,7 @@
 			"n": 396,
 			"tm": "1RB0LB_0RC0LF_1LD1RE_0LA0RB_0RD0RF_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RB_0RD0RF_0LA---",
@@ -24189,6 +24740,7 @@
 			"n": 397,
 			"tm": "1RB0RF_1RC0LE_1LD0LC_1RE0RD_1LB0RA_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -24233,6 +24785,7 @@
 			"n": 398,
 			"tm": "1RB0RA_1LC0LE_1RA1LD_0LB1LF_1LD0RC_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -24277,6 +24830,7 @@
 			"n": 399,
 			"tm": "1RB1LE_1LC0RA_0RF0LD_1LE1LA_1RC0LB_---1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -24335,6 +24889,7 @@
 			"n": 400,
 			"tm": "1RB1RD_0LC1RA_0RA1LC_1RA1LE_1RF0LD_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_0LC0LA_0RA1LC_1RA1LE_1RF0LD_---0RE",
@@ -24420,6 +24975,7 @@
 			"n": 401,
 			"tm": "1RB0LE_1RC---_1RD1RE_1LA0RF_0RC0LA_0LC0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -24482,6 +25038,7 @@
 			"n": 402,
 			"tm": "1RB0RE_1LC1RA_1LD0LC_0RE0LA_1RA1RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -24526,6 +25083,7 @@
 			"n": 403,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -24570,6 +25128,7 @@
 			"n": 404,
 			"tm": "1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RB0RF_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1LC1RE_1LD0LC_1RB1LD_1RA0RB_1RC---",
@@ -24627,6 +25186,7 @@
 			"n": 405,
 			"tm": "1RB0RA_0LC0RF_0LB1RD_1LE---_1RA0LF_1LE0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -24671,6 +25231,7 @@
 			"n": 406,
 			"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_1RD---",
@@ -24741,6 +25302,7 @@
 			"n": 407,
 			"tm": "1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -24785,6 +25347,7 @@
 			"n": 408,
 			"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -24834,6 +25397,7 @@
 			"n": 409,
 			"tm": "1RB0LC_1RC1RE_1RD0RA_0LE0RF_1RA0LD_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -24878,6 +25442,7 @@
 			"n": 410,
 			"tm": "1RB1RE_1LC0LE_1RD0LB_0RA1RC_0RC0RF_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -24922,6 +25487,7 @@
 			"n": 411,
 			"tm": "1RB0LF_1RC1RB_0RD0RC_1LE1LF_1LD---_0LB1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Sync bouncer counter",
 			"classifications": [
@@ -24966,6 +25532,10 @@
 			"n": 412,
 			"tm": "1RB1RE_1LC1LD_---1LA_1LB1LE_0RF0RA_1LD1RF",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -25012,6 +25582,7 @@
 			"n": 413,
 			"tm": "1RB1LD_1RC0RC_1LD1RB_1LF0LE_0LA1LE_---1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -25056,6 +25627,7 @@
 			"n": 414,
 			"tm": "1RB1LE_0RC1RA_0LD0RB_1LA1LF_0LC1RF_---0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -25118,6 +25690,7 @@
 			"n": 415,
 			"tm": "1RB0RF_0LC---_1LD1LC_1RE0LA_1RA1RD_0RD0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -25162,6 +25735,9 @@
 			"n": 416,
 			"tm": "1RB1LA_1RC0RF_1RD---_0LE1RB_---0LA_1LD1RF",
 			"name": null,
+			"tags": [
+				"Potential Cryptid"
+			],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0LA1RD_1RD1LC_1RE0RF_1RB---_1LB1RF",
@@ -25321,6 +25897,7 @@
 			"n": 417,
 			"tm": "1RB0RF_1LC0RA_0LD0LB_1RD1LE_0RC0RA_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -25365,6 +25942,7 @@
 			"n": 418,
 			"tm": "1RB1LB_0RC0LD_1LD1RE_1RC0LA_1RD1RF_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1LA1RE_1RD1LD_0RB0LA_1RA1RF_0RA---",
@@ -25422,6 +26000,14 @@
 			"n": 419,
 			"tm": "1RB0RF_1LC---_1RD0LC_0RE0RD_1LF1LC_1LE1RA",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM1-F in the family; orbit O2 halts at Bell 731,899,010,932",
+				"source": "vampires"
+			},
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -25479,6 +26065,7 @@
 			"n": 420,
 			"tm": "1RB0RC_1LC0RB_1RE1LD_0LB0LF_---0RA_1LB1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RB_1RE1LD_0LB0LF_---0RA_1LB0RC",
@@ -25591,6 +26178,14 @@
 			"n": 421,
 			"tm": "1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM2 in the family; orbit O2 halts at Bell 731,899,010,932",
+				"source": "vampires"
+			},
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -25689,6 +26284,7 @@
 			"n": 422,
 			"tm": "1RB0RE_1RC0RC_1LD---_0LB1LE_1RF0LD_1RA1RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -25740,6 +26336,7 @@
 			"n": 423,
 			"tm": "1RB0LE_1LC0RA_1LD0RC_1LE1LF_1LA0LC_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LA_1RC1RF_1RD0RA_1LE0RC_1RA0LD_0RD---",
@@ -25797,6 +26394,7 @@
 			"n": 424,
 			"tm": "1RB0LD_1RC---_0RD0RE_1LE0RF_0LA0LD_1RD0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 2",
 			"classifications": [
@@ -25841,6 +26439,7 @@
 			"n": 425,
 			"tm": "1RB0LD_0LC0RE_1LA0RD_0RB0LD_1RC1RF_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1LC0RE_0RA0LD_1LA1LF_0LC0RE_1LB---",
@@ -25920,6 +26519,7 @@
 			"n": 426,
 			"tm": "1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -25964,6 +26564,7 @@
 			"n": 427,
 			"tm": "1RB0LC_0RC0RE_1RD1LF_1LE0RA_0LA0LE_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -26008,6 +26609,7 @@
 			"n": 428,
 			"tm": "1RB0RE_1LC0RA_1RE1LD_0LB0LF_1RA1RA_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -26052,6 +26654,7 @@
 			"n": 429,
 			"tm": "1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -26096,6 +26699,7 @@
 			"n": 430,
 			"tm": "1RB1RF_0RC0RE_0RD1RA_1LE0LA_1LB0LD_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -26151,6 +26755,7 @@
 			"n": 431,
 			"tm": "1RB0LC_1LA1RD_1LA1LF_0RE---_1RA1RE_0RB0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -26195,6 +26800,7 @@
 			"n": 432,
 			"tm": "1RB0LF_1LC0RE_0LD1LC_1LA---_0RB1RA_1LC1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1LC0RF_0LE0RD_1LC1LD_1LA---_0RB1RA",
@@ -26264,6 +26870,7 @@
 			"n": 433,
 			"tm": "1RB1LC_1LA1RB_1LD0LA_1RE1RD_---1RF_1LB0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -26326,6 +26933,7 @@
 			"n": 434,
 			"tm": "1RB0LA_1RC1RA_1RD1RE_1LC---_0RB1LF_1RA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RF_1LD0RC_1LE1LC_1LA1LF_0LD1RB",
@@ -26396,6 +27004,7 @@
 			"n": 435,
 			"tm": "1RB0RD_1LC1RE_1LD0LC_0LE0LC_0RA0RF_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_0RC0RA_0LD0LF_1LE0LB_1RB1LC_1LD---",
@@ -26530,6 +27139,7 @@
 			"n": 436,
 			"tm": "1RB0LD_1LC1RE_1LF0RA_1LA1LD_1RC0RE_---1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC0RA_1RE1LD_1LE0LD_1RF0LB_---1RE",
@@ -26587,6 +27197,7 @@
 			"n": 437,
 			"tm": "1RB0LF_1LC0LA_---1RD_1RF1RE_1LF1RD_1LB0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -26631,6 +27242,7 @@
 			"n": 438,
 			"tm": "1RB0RA_1RC1RF_1LD0LC_1RA1LE_1RA0LC_---0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -26675,6 +27287,7 @@
 			"n": 439,
 			"tm": "1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -26719,6 +27332,7 @@
 			"n": 440,
 			"tm": "1RB1LB_1RC1LD_1LA1RE_1RD0LA_0RB0RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -26763,6 +27377,7 @@
 			"n": 441,
 			"tm": "1RB0RB_1LC---_0LA1LD_1RE0LC_1RF1RE_1RA0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -26814,6 +27429,7 @@
 			"n": 442,
 			"tm": "1RB1LC_1LC0RF_0LF1LD_0LE---_1RF1LC_1LE0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1RC0RF_0LD---_1RF1LE_0LF1LC_1LD0RA",
@@ -26893,6 +27509,7 @@
 			"n": 443,
 			"tm": "1RB0LC_1LA0RD_0LD1LF_0RE0RA_1LB1RE_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -26937,6 +27554,7 @@
 			"n": 444,
 			"tm": "1RB0RE_1LC0RA_1LA1LD_1LA---_0RF0LB_0LD1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RE_1LC0RA_1LA1LD_1LA---_0RF0LB_0LC1RE",
@@ -27005,6 +27623,7 @@
 			"n": 445,
 			"tm": "1RB0RE_1LC0RA_1RF0RD_---1LE_0LB1LE_1LE1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RE_1LC0RA_1RF0RD_---1LE_0LB1LE_1LD1RC",
@@ -27089,6 +27708,7 @@
 			"n": 446,
 			"tm": "1RB0LD_0RC0LE_1RD1RA_0RE1RF_1LF0RC_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_0RC1RD_1LD0RA_0LE---_1RF0LB_0RA0LC",
@@ -27146,6 +27766,7 @@
 			"n": 447,
 			"tm": "1RB1LB_1LC0LD_---1LD_1RE0LA_0RF1RD_1RA1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -27190,6 +27811,7 @@
 			"n": 448,
 			"tm": "1RB1RD_1LC0RE_1LD1LC_1RA0LB_0RD0RF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE0RC",
@@ -27258,6 +27880,7 @@
 			"n": 449,
 			"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD0LC_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_0RC---_1LD1RF_0LA0RB_0RC0LD_0RD0RD",
@@ -27335,6 +27958,7 @@
 			"n": 450,
 			"tm": "1RB---_0LC0RB_1RA1LD_1LE1LF_1LB0LF_0RC0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -27386,6 +28010,7 @@
 			"n": 451,
 			"tm": "1RB0LF_1LC0RD_1LA1LC_---0RE_0RB1RA_1LC1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1LC0RE_1LA0RD_1LC1LD_---0RF_0RB1RA",
@@ -27476,6 +28101,7 @@
 			"n": 452,
 			"tm": "1RB0RE_1LC1LF_1RA1LD_0LB---_1RF1LE_0LB0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RE_1LC1LF_1RA1LD_1LB---_1RF1RF_0LB0RA",
@@ -27571,6 +28197,7 @@
 			"n": 453,
 			"tm": "1RB0LF_0LC0RE_0RA1LD_1LB0LD_0RA1RC_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -27615,6 +28242,7 @@
 			"n": 454,
 			"tm": "1RB1RA_1LC0LF_1RA1LD_1LB1LE_0LC0RD_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC0LF_1RA1LD_1LB1LE_0LC0LC_---0RA",
@@ -27678,6 +28306,7 @@
 			"n": 455,
 			"tm": "1RB0LF_1RC0RB_0RD0RA_1RE1LE_1RF---_1LA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC1LB_1RD0LB_1RE0RD_0RF0RC_1RA1LA",
@@ -27745,6 +28374,7 @@
 			"n": 456,
 			"tm": "1RB0RA_1RC0RC_1LD0LE_1RA1LC_1LC0LF_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -27789,6 +28419,7 @@
 			"n": 457,
 			"tm": "1RB---_1LC0LC_1RD1LB_1LE1RD_0LA1LF_1LD0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1RC---_1RD0RD_1LE1RC_1RA1LE_1RE0LF",
@@ -27857,6 +28488,7 @@
 			"n": 458,
 			"tm": "1RB---_0LC0RB_1RA1LD_0RD1LE_1LF0LA_1LB0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0LC0RB_1RA1LD_1LE1LF_1LB0LF_1LE0LA",
@@ -27915,6 +28547,7 @@
 			"n": 459,
 			"tm": "1RB1LA_1LC0RE_1LF1LD_1RE0LC_1LB1RA_---0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -27985,6 +28618,7 @@
 			"n": 460,
 			"tm": "1RB1RF_1RC0RB_0RD1LF_1LE1RE_1LA---_1RA0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LB_1RC---_1LD1LF_1LE0LD_0LA1RF_1LC0RE",
@@ -28071,6 +28705,7 @@
 			"n": 461,
 			"tm": "1RB0RE_1LC0RD_1LD0LD_1RA0LC_1RA1RF_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 2",
 			"classifications": [
@@ -28115,6 +28750,7 @@
 			"n": 462,
 			"tm": "1RB0RA_0LC0RE_1LE1LD_0LE---_1LF0LC_1RA1LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -28159,6 +28795,7 @@
 			"n": 463,
 			"tm": "1RB0LF_1RC0RB_1LD0RA_0LE0LC_1LB1LF_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC0RB_1LD0RA_0LE0LC_1LB1LF_1LD---",
@@ -28223,6 +28860,7 @@
 			"n": 464,
 			"tm": "1RB1RF_1LC---_1LE1RD_1RA0RC_0LF0LA_0LD0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -28272,6 +28910,7 @@
 			"n": 465,
 			"tm": "1RB0RC_1LC1RF_1RE0LD_1LC1LA_---1RD_0RB0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -28316,6 +28955,7 @@
 			"n": 466,
 			"tm": "1RB---_1LC1RE_0LD0LC_1RD0RB_1RF0RB_0LF1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_0LE---",
@@ -28391,6 +29031,7 @@
 			"n": 467,
 			"tm": "1RB1RE_1LC1LA_1RA0LD_1LC0LE_0LF0RA_---1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1LC0RA_1RA0LD_1LC0LE_0LF0RA_---1RC",
@@ -28448,6 +29089,7 @@
 			"n": 468,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -28492,6 +29134,7 @@
 			"n": 469,
 			"tm": "1RB0LD_0RC1RA_1RD1RB_1RE1LE_1LF0LA_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -28536,6 +29179,7 @@
 			"n": 470,
 			"tm": "1RB0LE_0RC1RC_0RD1LA_1LD0LA_1LF1LC_---0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_0RC1RC_0RD1LA_1LD0LA_0LF1LC_---1RD",
@@ -28632,6 +29276,7 @@
 			"n": 471,
 			"tm": "1RB0LB_0RC0LD_1LD1RE_0LA0RB_0RD1RF_1LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -28692,6 +29337,7 @@
 			"n": 472,
 			"tm": "1RB0LC_1RC0RA_1LD1LA_1RE1LD_---1RF_0RD1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -28736,6 +29382,7 @@
 			"n": 473,
 			"tm": "1RB0LE_1RC1RB_1LD0RA_1LA1LC_0LC1LF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LE_1RC1RB_1LD0RA_1LA1LC_0LC1LF_1RD---",
@@ -28811,6 +29458,7 @@
 			"n": 474,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -28855,6 +29503,7 @@
 			"n": 475,
 			"tm": "1RB1LC_1LC0RD_0LE1LA_0RF1RA_1LA0LA_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -28899,6 +29548,14 @@
 			"n": 476,
 			"tm": "1RB0RF_1LC---_1LF1LD_1RE0LD_0RC0RE_1LC1RA",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-11-01",
+				"detail": "TM2b' in the family; orbit O4 halts at Bell 1,941,376,761,248",
+				"source": "vampires"
+			},
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -28961,6 +29618,7 @@
 			"n": 477,
 			"tm": "1RB0RE_1LC---_0RA0LD_1LC1LD_1RF0LA_1RC1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -29005,6 +29663,7 @@
 			"n": 478,
 			"tm": "1RB1RD_1LC0RD_1RF1RB_1LE0RA_0LB0LE_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_1LC0RD_1RF1RB_1LE0RA_0LB0LE_---1RC",
@@ -29067,6 +29726,7 @@
 			"n": 479,
 			"tm": "1RB0LE_0RC0RA_1LD0LC_1LA0LB_1RA1LF_---0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -29111,6 +29771,7 @@
 			"n": 480,
 			"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -29155,6 +29816,7 @@
 			"n": 481,
 			"tm": "1RB1RC_1LC0RE_1LD0LB_1RA1LC_1RA1RF_---1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -29199,6 +29861,7 @@
 			"n": 482,
 			"tm": "1RB0LD_0RC1RA_1LD1RC_1LE0RF_---1LA_1LF0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0RC1LF_1LD1RC_1LE0RF_---1LA_1LF0LA",
@@ -29257,6 +29920,7 @@
 			"n": 483,
 			"tm": "1RB1LE_1RC1RA_0LD1RB_1LE1LD_1RF0LA_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1RC1RA_0LD0LB_1LE1LD_1RF0LA_---0RE",
@@ -29342,6 +30006,7 @@
 			"n": 484,
 			"tm": "1RB0RA_1LC0RD_0LD0LB_1RA0LE_1LF---_0RD1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0RD_0LD0LB_1RA0LE_1LF---_1RF1LB",
@@ -29400,6 +30065,7 @@
 			"n": 485,
 			"tm": "1RB1RE_1LC0LD_1RA0LD_1LA1LB_0RC1RF_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -29444,6 +30110,7 @@
 			"n": 486,
 			"tm": "1RB1RA_1LC1LB_1RE0LD_1RA0LB_---0RF_1RC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -29488,6 +30155,7 @@
 			"n": 487,
 			"tm": "1RB1RD_1LC---_1RF0LD_0RE1LC_1RA1RF_1RE0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RC_1LA---_0RE1LD_1RF0LC_1RA1RF_1RE0LF",
@@ -29545,6 +30213,7 @@
 			"n": 488,
 			"tm": "1RB---_1RC0LE_0LD0RF_1LB0RE_0RC0LE_1RD1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -29589,6 +30258,7 @@
 			"n": 489,
 			"tm": "1RB1RD_1LC0RE_1LD1LC_1RA0LE_1LC0RF_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -29633,6 +30303,7 @@
 			"n": 490,
 			"tm": "1RB0LF_1RC1RB_1RD0RA_1RE0RE_1LF---_0LD1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -29684,6 +30355,7 @@
 			"n": 491,
 			"tm": "1RB0RD_1RC0RE_1RD1LB_0LE0RF_1RA0LD_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bouncer",
 			"classifications": [
@@ -29728,6 +30400,7 @@
 			"n": 492,
 			"tm": "1RB1LA_1LC0RE_---0LD_1RE0LF_1RA1RE_1LA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LA_1LC0RF_---0LD_1RE0LE_1LA0LB_1RA1RF",
@@ -29786,6 +30459,7 @@
 			"n": 493,
 			"tm": "1RB---_1RC0RD_1RD1RA_1LE1RB_0LF0LE_1RF0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -29830,6 +30504,7 @@
 			"n": 494,
 			"tm": "1RB0LF_1LC1RF_---1LD_0LE0LB_0RA0LA_0RA1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -29874,6 +30549,7 @@
 			"n": 495,
 			"tm": "1RB1RA_1LC0RC_1RE0LD_0RE0LF_1RA---_1RB1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_0RC1RB_1LC1RD_1RA0LE_1RB0LF_0RD1LF",
@@ -29986,6 +30662,7 @@
 			"n": 496,
 			"tm": "1RB0LD_1LC1RD_0LE1LA_0RB1RD_---0LF_1RA1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LB_1LC1RD_0LE1LA_0RB1RD_---0LF_1RA1LF",
@@ -30053,6 +30730,10 @@
 			"n": 497,
 			"tm": "1RB0LD_1RC1RF_1LA0RA_0LA0LE_1LD1LA_0RB---",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -30105,12 +30786,18 @@
 				}
 			],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "Similar to Antihydra"
+				}
+			]
 		},
 		{
 			"n": 498,
 			"tm": "1RB0RA_1LC0RA_0LF0LD_1LE---_0LC0LB_1LA0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1LC0LB_1RD0LB_0RA0RE_1RF---_0RD0RC",
@@ -30218,6 +30905,7 @@
 			"n": 499,
 			"tm": "1RB0RF_1RC1RE_0LD---_1LE1LD_1RF0RF_0RA0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC0LC_0LE0RD_1LF1LB_1LD0LC_0RA---",
@@ -30315,6 +31003,7 @@
 			"n": 500,
 			"tm": "1RB1LE_1LC1RE_1LE1LD_1LC0LA_1RF0LA_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_1LC1RE_1LE1LD_1LC1RA_1RF0LA_---0RA",
@@ -30373,6 +31062,7 @@
 			"n": 501,
 			"tm": "1RB1RF_1LC0RF_1LE0LD_1RC0LB_---1RA_1LB1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -30417,6 +31107,7 @@
 			"n": 502,
 			"tm": "1RB1RC_1RC1RB_1LD0RA_1LE1LD_1LF0LC_0LA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -30468,6 +31159,10 @@
 			"n": 503,
 			"tm": "1RB0RF_1RC1RF_1LD0LE_---1LC_1RA1LE_1LC1RB",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -30517,6 +31212,10 @@
 			"conflicts": [],
 			"notes": [
 				{
+					"kind": "community",
+					"detail": "Similar to Space Needle"
+				},
+				{
 					"kind": "one-source",
 					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
@@ -30526,6 +31225,7 @@
 			"n": 504,
 			"tm": "1RB---_1RC1RB_1LD0RB_1LE0LD_0LF0LC_1LA1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1RC1RB_1LD0RB_1LE0LD_0LF0LC_1LA0RF",
@@ -30584,6 +31284,7 @@
 			"n": 505,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0LE1RF_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0LA---",
@@ -30652,6 +31353,7 @@
 			"n": 506,
 			"tm": "1RB0RC_1LC0RE_0LD0LB_1RA1LE_1LB1RF_---0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -30696,6 +31398,7 @@
 			"n": 507,
 			"tm": "1RB0RE_1LC0RA_0LD1LB_1LA1LE_0LB0LF_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -30740,6 +31443,7 @@
 			"n": 508,
 			"tm": "1RB0LE_1LB1RC_0RF0RD_1RE0LA_1LA1RE_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -30784,6 +31488,7 @@
 			"n": 509,
 			"tm": "1RB0LF_0LC1LB_0RD1LA_1RE0RA_---1RD_1RC1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -30828,6 +31533,7 @@
 			"n": 510,
 			"tm": "1RB1LC_1LA---_1LD0LA_1RE0LE_0RF1RE_1LB1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Ack-like Bell",
 			"classifications": [
@@ -30872,6 +31578,7 @@
 			"n": 511,
 			"tm": "1RB1RF_1LC0RB_1RD0LC_1LE1RA_0RC1LB_---1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -30916,6 +31623,7 @@
 			"n": 512,
 			"tm": "1RB1RC_1LC0LF_1RF0LD_0RE1LB_1RC---_1LD0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1LC0LF_1RF0LD_0RE1LB_1RC---_1LD0RA",
@@ -30990,6 +31698,7 @@
 			"n": 513,
 			"tm": "1RB0LF_0RC0RB_1LC1LD_1RE0RD_---0RA_1LA0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -31034,6 +31743,7 @@
 			"n": 514,
 			"tm": "1RB1RA_1RC1LB_1LD0RA_---0LE_1LC0LF_1RE0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1RC1LB_1LD0RA_1LC0LE_---0LF_1RD0LB",
@@ -31118,6 +31828,7 @@
 			"n": 515,
 			"tm": "1RB1LC_1LA1RD_1LA0LA_1LD0RE_0RF1RB_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -31162,6 +31873,7 @@
 			"n": 516,
 			"tm": "1RB1RD_1LC0LC_1RD1LB_1RF0RE_0RA1RE_---1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -31206,6 +31918,7 @@
 			"n": 517,
 			"tm": "1RB1RD_1LC0RD_1RE0LD_0RE0LF_0LB0RA_0LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -31250,6 +31963,7 @@
 			"n": 518,
 			"tm": "1RB0LD_0RC1RA_1RD1RF_1LA0LE_0RA0LC_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow structural counter",
 			"classifications": [
@@ -31294,6 +32008,7 @@
 			"n": 519,
 			"tm": "1RB1LB_1LC0RE_0LE0LD_0LC---_1LA0RF_1RE1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -31338,6 +32053,9 @@
 			"n": 520,
 			"tm": "1RB1RF_1LC1LF_0RE1LD_0LB1LD_---1RC_1RA0RD",
 			"name": null,
+			"tags": [
+				"Potential Cryptid"
+			],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -31396,6 +32114,7 @@
 			"n": 521,
 			"tm": "1RB0LC_1LC0RE_1RA1LD_1LA1LC_1RF0RA_---0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -31440,6 +32159,7 @@
 			"n": 522,
 			"tm": "1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RF0LE_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1RC---_1RD1LC_1LE1RF_1LC0LE_1RA0RD",
@@ -31597,6 +32317,7 @@
 			"n": 523,
 			"tm": "1RB1RE_1RC0LD_1LB---_1RA1LD_1RA0RF_1RE0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -31648,6 +32369,7 @@
 			"n": 524,
 			"tm": "1RB1RC_1LC1LC_1RE0LD_1LB1RF_---1RA_0RD1RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -31718,6 +32440,9 @@
 			"n": 525,
 			"tm": "1RB1RF_0LC0RF_1RD1LC_---0LE_0RC1LF_1RA0LE",
 			"name": null,
+			"tags": [
+				"Potential Cryptid"
+			],
 			"aliases": [
 				{
 					"tm": "1RB1RE_0LC0RE_1RD1LC_---1LA_1RA0LF_0RC1LE",
@@ -31789,6 +32514,7 @@
 			"n": 526,
 			"tm": "1RB1RA_1LC0RE_1LE0LD_0LB1LB_1RA0LF_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -31833,6 +32559,7 @@
 			"n": 527,
 			"tm": "1RB0LD_1LC0RE_---1LD_1LE1LA_1RA0LF_1LC1RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -31877,6 +32604,7 @@
 			"n": 528,
 			"tm": "1RB1RA_0LC0RA_1RC1LD_0LB1LE_1LF0RC_---0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_0LC0RA_1RC1LD_0LB1LE_1LF0LB_---0LD",
@@ -31952,6 +32680,7 @@
 			"n": 529,
 			"tm": "1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RF_1LC1RE_0LD0LC_1RD0RB_1RA0RB_1LB---",
@@ -32046,6 +32775,7 @@
 			"n": 530,
 			"tm": "1RB0RE_1LC1RD_1LA0LC_0RA1RF_1RD0LB_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -32090,6 +32820,7 @@
 			"n": 531,
 			"tm": "1RB0LF_1LC0RC_1RA1LD_0RB0LE_1LC0LB_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC0LF_1LA0RA_0RC0LE_1LA0LC_---1LB",
@@ -32147,6 +32878,7 @@
 			"n": 532,
 			"tm": "1RB1RF_1LC0LB_1RE1LD_1RE0LB_1RA0RE_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -32191,6 +32923,7 @@
 			"n": 533,
 			"tm": "1RB0LB_1RC1LE_1LD0RF_---1LB_0LA0LC_1LB1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -32235,6 +32968,7 @@
 			"n": 534,
 			"tm": "1RB1RE_0LC1RF_---1LD_1LE0LD_1LA1LB_1RF0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_0LC1RF_---1LD_1LE0LD_1LA1LB_1RE0RA",
@@ -32387,6 +33121,7 @@
 			"n": 535,
 			"tm": "1RB0RA_1LC1RA_0LD1LD_0LE0LC_1LA0LF_---1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Fractal Type 1",
 			"classifications": [
@@ -32431,6 +33166,10 @@
 			"n": 536,
 			"tm": "1RB0LD_1RC1RA_1LD0RB_1LE1LA_1RF0RC_---1RE",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -32477,6 +33216,7 @@
 			"n": 537,
 			"tm": "1RB0RB_1LC0LE_1RD1LB_1RA0RD_1LB0LF_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -32521,6 +33261,7 @@
 			"n": 538,
 			"tm": "1RB1RA_1RC0RF_1RD0RD_1LE---_0LC1LF_1RA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bell",
 			"classifications": [
@@ -32572,6 +33313,7 @@
 			"n": 539,
 			"tm": "1RB0LC_1RC1RA_1LD0RE_1LA1LD_0RA0RF_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA0RD",
@@ -32640,6 +33382,7 @@
 			"n": 540,
 			"tm": "1RB0RC_1LC1LA_1RD0LB_1RE1RC_1RA0RF_1RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -32684,6 +33427,7 @@
 			"n": 541,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_1LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -32728,6 +33472,7 @@
 			"n": 542,
 			"tm": "1RB0RB_1LC1RA_0LE1LD_0RE1LF_---1LA_1LD0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RB_1LC1RA_0LE1LD_1RB1LF_---1LA_1LD0LC",
@@ -32798,6 +33543,7 @@
 			"n": 543,
 			"tm": "1RB1LD_1RC1RF_1LA1RD_1RE0LB_---0RA_0LA1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -32842,6 +33588,7 @@
 			"n": 544,
 			"tm": "1RB0RB_1LC1RA_0LF0LD_1LE1RB_1RA1LC_---1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -32886,6 +33633,7 @@
 			"n": 545,
 			"tm": "1RB0RD_1LC0RA_1LA0LB_1RE0LC_1LD1RF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -32930,6 +33678,7 @@
 			"n": 546,
 			"tm": "1RB1RE_1RC0RF_0LD---_1LE1LD_1RA0LB_0RE1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -32974,6 +33723,7 @@
 			"n": 547,
 			"tm": "1RB1LE_1RC0RD_1LD0RE_0LA0LC_1LC1RF_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -33018,6 +33768,7 @@
 			"n": 548,
 			"tm": "1RB1RB_1LC0RE_---1LD_0RA1LB_1RA1LF_0LE1LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -33088,6 +33839,7 @@
 			"n": 549,
 			"tm": "1RB1LA_0LC0RE_1LD1LB_1RE1LF_1RC0RA_0RC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_0LC0RE_1LD1LB_1RE0LF_1RC0RA_1LC---",
@@ -33182,6 +33934,7 @@
 			"n": 550,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE1LF_1LA0LB_0LB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -33226,6 +33979,7 @@
 			"n": 551,
 			"tm": "1RB1LE_1RC0RB_1LD1RC_1LA1LE_1LF0LA_1LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -33286,6 +34040,14 @@
 			"n": 552,
 			"tm": "1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LA---",
 			"name": null,
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM2a in the family; orbit O3 halts at Bell 1,961,935,897,288",
+				"source": "vampires"
+			},
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -33343,6 +34105,7 @@
 			"n": 553,
 			"tm": "1RB0LE_0RC1RA_1RD0RF_0LE1LD_1RA1LC_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -33387,6 +34150,7 @@
 			"n": 554,
 			"tm": "1RB1RD_0RC0RD_0LD1LE_1LC0RB_1LF---_1LA0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -33431,6 +34195,7 @@
 			"n": 555,
 			"tm": "1RB1RF_1RC0RF_0RD0LC_1LE1RA_1LC---_0LD0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -33482,6 +34247,7 @@
 			"n": 556,
 			"tm": "1RB0LC_1LA1RE_1LD1RE_1RE0LA_0RA1RF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_1LA1RF_1LD1RF_1LE0LA_0RB---_0RA1RE",
@@ -33566,6 +34332,7 @@
 			"n": 557,
 			"tm": "1RB1LA_1RC0LD_1LB0RE_0LA0LC_0RD1RF_0RB---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -33610,6 +34377,7 @@
 			"n": 558,
 			"tm": "1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RF1RC_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LA_1LC1RD_1LA0LC_1RE0RB_1RF1LB_1RA---",
@@ -33703,6 +34471,7 @@
 			"n": 559,
 			"tm": "1RB1LD_1RC0RB_1LA1RC_1LE0LA_1LF---_1LC---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_1RC0RB_1LA1RC_1LE0LA_0LF1LC_1RD---",
@@ -33846,6 +34615,7 @@
 			"n": 560,
 			"tm": "1RB0LD_0RC0RF_1LD0RB_1LE---_0LA0LB_0LE0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -33890,6 +34660,7 @@
 			"n": 561,
 			"tm": "1RB0RB_0LC0RA_1LE1LD_0LE---_1LF0LC_1RA1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell eats counter",
 			"classifications": [
@@ -33934,6 +34705,7 @@
 			"n": 562,
 			"tm": "1RB1LD_1RC0LA_0RD1RB_1RE0RF_0LA1LE_---0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 1",
 			"classifications": [
@@ -33978,6 +34750,7 @@
 			"n": 563,
 			"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LC_0RC1RF_1RD0RE_1LE0RA_0LA0LE_1LE---",
@@ -34045,6 +34818,7 @@
 			"n": 564,
 			"tm": "1RB0LA_1RC---_0LD1RD_0RB0RE_0RF0LD_1LF0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LA_1RC---_0LD1RD_0RB0RE_0RF1RC_1LF0LA",
@@ -34102,6 +34876,7 @@
 			"n": 565,
 			"tm": "1RB0LF_1LC1RA_0RE0RD_---1LE_1LF1RC_1LC1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -34166,6 +34941,7 @@
 			"n": 566,
 			"tm": "1RB---_1RC0LE_1RD1RF_1LB0LB_0RD0LD_0RC0RA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 2",
 			"classifications": [
@@ -34210,6 +34986,7 @@
 			"n": 567,
 			"tm": "1RB0LD_0RC---_0LD0RF_1LE1LD_0LA0RD_0RB1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_0RC---_0LD0RF_1LE1LD_0LA1LE_0RB1RA",
@@ -34307,6 +35084,7 @@
 			"n": 568,
 			"tm": "1RB1LB_1RC0RD_0LA1RE_0RF1LC_1LA0RB_---1LC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LE_0RC1RF_1LD1RD_1LA0LB_1RC0LD_0RC---",
@@ -34435,7 +35213,11 @@
 		{
 			"n": 569,
 			"tm": "1RB0RD_0RC1RE_1RD0LA_1LE1LC_1RF0LD_---0RA",
-			"name": null,
+			"name": "Lucy's Moonlight",
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -34482,6 +35264,7 @@
 			"n": 570,
 			"tm": "1RB1LC_1LA0RE_0LD---_1RE0LF_1RF0RD_1LD0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic Bell Class 3",
 			"classifications": [
@@ -34526,6 +35309,7 @@
 			"n": 571,
 			"tm": "1RB1RA_1RC1LB_1LD0RA_1LB0LE_1LF1LD_---0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Cubic Mess",
 			"classifications": [
@@ -34570,6 +35354,7 @@
 			"n": 572,
 			"tm": "1RB1RE_1RC0RF_1LD1RA_1LB1LD_1RC0RC_---0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Spaghetti",
 			"classifications": [
@@ -34614,6 +35399,7 @@
 			"n": 573,
 			"tm": "1RB1LC_1RC0LD_1LA0RB_1LB1LE_1RF0LA_---0RE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -34672,6 +35458,7 @@
 			"n": 574,
 			"tm": "1RB1RA_1RC1LB_0LD0RA_1RF1LE_---1LF_1LC0LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Counter Class 3",
 			"classifications": [
@@ -34727,6 +35514,7 @@
 			"n": 575,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA1RF_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB---_1LC0RD_0LD0LC_1RE0LF_0RF0RA_1RB0RC",
@@ -34809,6 +35597,7 @@
 			"n": 576,
 			"tm": "1RB---_0RC1RC_1RD0LE_1RE0RB_1LF0RA_1LC1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -34853,6 +35642,7 @@
 			"n": 577,
 			"tm": "1RB0LD_1LC1RE_1LA1RC_1RA0LC_0RF---_0LD1RB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0LD_1RC1RE_1LA1RC_1RA0LC_0RF---_0LD1RB",
@@ -34911,6 +35701,7 @@
 			"n": 578,
 			"tm": "1RB0LA_1LC1RF_---1LD_1RE0LA_1RA0RB_1RE0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell eats counter",
 			"classifications": [
@@ -34955,6 +35746,7 @@
 			"n": 579,
 			"tm": "1RB1LD_1LC0RC_0RF1RA_0LE1LA_1RC0LA_---0RB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -34999,6 +35791,7 @@
 			"n": 580,
 			"tm": "1RB0LC_0RC0RB_1LD0RE_0LE0LF_1LA0LB_0RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -35043,6 +35836,7 @@
 			"n": 581,
 			"tm": "1RB1RD_1RC1RB_1LD0RA_1RA0LE_1LF0LC_---1LE",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -35087,6 +35881,7 @@
 			"n": 582,
 			"tm": "1RB0RC_1LC0RD_0LD0LC_1RE0LA_0RA0RF_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -35131,6 +35926,7 @@
 			"n": 583,
 			"tm": "1RB1RD_1LC0LC_0RD0LB_1RF0LE_0RD---_0RA1RC",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1LC0LD_0RB0LB_0RE0LB_1RF---_0RA1RC",
@@ -35208,6 +36004,7 @@
 			"n": 584,
 			"tm": "1RB0RC_1LC0RB_1LD0LD_1RA1LE_---0LF_1LB1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bouncer + Chaotic Edge",
 			"classifications": [
@@ -35252,6 +36049,7 @@
 			"n": 585,
 			"tm": "1RB0LE_1RC0LB_1RD0RC_1LA1RC_---1LF_1LB1LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -35296,6 +36094,7 @@
 			"n": 586,
 			"tm": "1RB0LC_0RC0RF_1RD0RE_1LE0RA_0LA0LE_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -35340,6 +36139,7 @@
 			"n": 587,
 			"tm": "1RB1LD_0RC0LF_1LD1RE_0LA0RB_0RD1RB_0LD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -35384,6 +36184,7 @@
 			"n": 588,
 			"tm": "1RB0RD_1RC1LE_1LD---_1RF0LE_1LD1LE_1RA0RF",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB0RA_1RC0RE_1RD1LF_1LE---_1RA0LF_1LE1LF",
@@ -35451,6 +36252,7 @@
 			"n": 589,
 			"tm": "1RB0LC_1LC0RF_1LD1RC_1LA0RE_1LB1RD_---0RD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Chaotic 1dCA-like in bouncer",
 			"classifications": [
@@ -35495,6 +36297,7 @@
 			"n": 590,
 			"tm": "1RB1LE_0RC---_1RD0LA_1RE0RB_0LA0LF_0LD1LF",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -35539,6 +36342,10 @@
 			"n": 591,
 			"tm": "1RB1RC_1LC1LE_1RA1RD_0RF0RE_1LA0LB_---1RA",
 			"name": null,
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -35584,12 +36391,18 @@
 			],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "community",
+					"detail": "A variant of Hydra and Antihydra"
+				}
+			]
 		},
 		{
 			"n": 592,
 			"tm": "1RB1RD_1LC0RF_0LA0RA_1LE1RA_---1LB_0RA0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -35634,6 +36447,7 @@
 			"n": 593,
 			"tm": "1RB1RF_0RC1RD_1LC1LA_0LE1RE_1RA0RB_---0LC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Translated Counter",
 			"classifications": [
@@ -35678,6 +36492,7 @@
 			"n": 594,
 			"tm": "1RB1RE_1LC0RF_1LA0LD_1LE1LC_0RA0LC_1RA---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1LC1RF_1LA0LD_1LE1RD_0RA0LC_0LA---",
@@ -35757,6 +36572,7 @@
 			"n": 595,
 			"tm": "1RB1RE_1LC1LB_1LE0LD_1LE1LC_0RF1RA_---1RA",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RE_1LC1LB_1LE0LD_1RA1LC_0RF1RA_---1RA",
@@ -35815,6 +36631,7 @@
 			"n": 596,
 			"tm": "1RB1LF_1LC0RD_---1LA_0LA0RE_1LA1RA_1LB0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -35859,6 +36676,7 @@
 			"n": 597,
 			"tm": "1RB1LD_0LC1RC_1RA1RD_1LE0RB_---1LF_0LC0LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -35903,6 +36721,7 @@
 			"n": 598,
 			"tm": "1RB1RD_1LC0RE_1LD1LC_1RA0LB_0RD0RF_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RD_1LC0RE_1LD1LC_1RA0LB_0RD1RF_0LB---",
@@ -35965,6 +36784,7 @@
 			"n": 599,
 			"tm": "1RB1LD_0RC1RC_1RD0RE_0LA0LF_0RF---_1RA1LA",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -36009,6 +36829,7 @@
 			"n": 600,
 			"tm": "1RB0RF_1RC0LD_1RD0RA_1LB1LE_0LB0RE_0RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Quadratic Mess",
 			"classifications": [
@@ -36053,6 +36874,7 @@
 			"n": 601,
 			"tm": "1RB1LD_0RC1LE_1RD0LA_1RE0RF_1LF0LC_---1LB",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1LD_0RC1LE_1RD0LA_1RE0RC_1LF0LC_---1LB",
@@ -36132,6 +36954,7 @@
 			"n": 602,
 			"tm": "1RB1LF_1RC0RA_0RD1RA_1RE1LA_0LA---_1RF0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Skelet 1-like Class 1",
 			"classifications": [
@@ -36176,6 +36999,7 @@
 			"n": 603,
 			"tm": "1RB0RA_1RC0LC_0LD1RF_1RA1LE_1LD0LB_0RE---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow counter",
 			"classifications": [
@@ -36231,6 +37055,7 @@
 			"n": 604,
 			"tm": "1RB0RE_0LC0RF_1LD1LC_1RA0LD_0RD1RE_---0LB",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Bell-like",
 			"classifications": [
@@ -36275,6 +37100,7 @@
 			"n": 605,
 			"tm": "1RB0RD_1LC1LB_---1LD_1RA0RE_1RD0LF_1LE0LD",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -36319,6 +37145,7 @@
 			"n": 606,
 			"tm": "1RB1RC_1LC0RE_1LD0LB_1RA1LC_1RA0RF_---0RC",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Shift-overflow bouncer counter",
 			"classifications": [
@@ -36363,6 +37190,7 @@
 			"n": 607,
 			"tm": "1RB1RB_0LC0LD_0LE1LD_1LB0RE_1RA0RF_1RD---",
 			"name": null,
+			"tags": [],
 			"aliases": [],
 			"class": "Unknown",
 			"classifications": [
@@ -36423,6 +37251,7 @@
 			"n": 608,
 			"tm": "1RB1RA_1LC0RD_1LD1LB_1LE0LF_0RA---_0LB0LE",
 			"name": null,
+			"tags": [],
 			"aliases": [
 				{
 					"tm": "1RB1RA_1LC0RD_1LD1LB_1RA0LE_0LB0LF_0RA---",

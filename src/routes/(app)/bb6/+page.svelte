@@ -42,17 +42,26 @@
 	let sort = 'list';
 	let rev = false; // a second click on a column header reverses it
 	let onlyWiki = false;
+	let tag = '';
 	let expanded = new Set<number>();
 	let urlReady = false;
 
 	const classes = [...new Set(holdouts.map((h) => h.class).filter(Boolean) as string[])].sort();
+	// community tags (data/bb6/sources/notable.json): Cryptid, Probviously halting, Energy vampire, BMO1…
+	const tagInfo = data.tags as Record<string, { url: string; help: string }>;
+	const tagGroup = (t: string) => (/^BMO\d+$/.test(t) ? 'BMO' : t);
+	const tagCounts = new Map<string, number>();
+	for (const h of holdouts) for (const g of new Set(h.tags.map(tagGroup))) tagCounts.set(g, (tagCounts.get(g) ?? 0) + 1);
+	const tagList = Object.keys(tagInfo).filter((t) => tagCounts.has(t));
+	const named = holdouts.filter((h) => h.name);
+	const wikiOf = (h: Holdout) => h.wiki_pages.find((p) => !TM_RE.test(p)) ?? h.wiki_pages[0];
 	const keyIndex = new Map<string, number>();
 	holdouts.forEach((h, i) => {
 		keyIndex.set(canonicalKey(h.tm)!, i);
 		for (const a of h.aliases) keyIndex.set(canonicalKey(a.tm)!, i);
 	});
 	const haystack = holdouts.map((h) =>
-		[h.n, h.tm, ...h.aliases.map((a) => a.tm), h.name ?? '', h.class ?? '', ...h.classifications.map((c) => c.class)].join(' ').toLowerCase()
+		[h.n, h.tm, ...h.aliases.map((a) => a.tm), h.name ?? '', h.class ?? '', ...h.tags, ...h.classifications.map((c) => c.class)].join(' ').toLowerCase()
 	);
 
 	// One format for every figure: 1.0e15, 6.0e79, 1.0e146
@@ -70,12 +79,13 @@
 		return null;
 	}
 
-	type Filters = { q: string; cls: string; status: string; onlyWiki: boolean };
+	type Filters = { q: string; cls: string; status: string; onlyWiki: boolean; tag: string };
 	// Svelte only tracks variables named inside the `$:` statement, so the filters are passed in explicitly.
 	function matches(h: Holdout, i: number, f: Filters, st: string): boolean {
 		if (f.status !== 'all' && st !== f.status) return false;
 		if (f.cls && !h.classifications.some((c) => c.class === f.cls)) return false;
 		if (f.onlyWiki && !h.wiki_pages.length) return false;
+		if (f.tag && !(f.tag === 'named' ? h.name : h.tags.some((t) => tagGroup(t) === f.tag))) return false;
 		const typed = f.q.trim();
 		const needle = typed.toLowerCase().replace(/^#/, '');
 		if (!needle) return true;
@@ -86,7 +96,7 @@
 
 	$: rows = holdouts
 		.map((h, i) => ({ h, i }))
-		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyWiki }, ov.get(i)!.status))
+		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyWiki, tag }, ov.get(i)!.status))
 		.sort((a, b) => (rev ? -1 : 1) * cmp(a, b, sort));
 	function cmp(a: { h: Holdout; i: number }, b: { h: Holdout; i: number }, sort: string) {
 		switch (sort) {
@@ -117,6 +127,7 @@
 		if (sort !== 'list') p.set('sort', sort);
 		if (rev) p.set('rev', '1');
 		if (onlyWiki) p.set('wiki', '1');
+		if (tag) p.set('tag', tag);
 		const s = p.toString();
 		window.history.replaceState(window.history.state, '', s ? `?${s}` : window.location.pathname);
 	}
@@ -128,6 +139,12 @@
 		sort = 'list';
 		rev = false;
 		onlyWiki = false;
+		tag = '';
+	}
+	function only(t: string) {
+		clear();
+		tag = t;
+		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
 	}
 	// the viewer's default picture: 10,000 steps from a blank tape, 400 cells wide
 	function diagram(canvas: HTMLCanvasElement, tm: string) {
@@ -168,6 +185,7 @@
 		sort = p.get('sort') ?? 'list';
 		rev = p.get('rev') === '1';
 		onlyWiki = p.get('wiki') === '1';
+		tag = p.get('tag') ?? '';
 		urlReady = true;
 		check();
 	});
@@ -275,11 +293,14 @@
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Bouncer" rel="external">bouncer</a> or
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Counter" rel="external">counter</a>.
 					</dd>
-					<dt class="font-semibold">Cryptid</dt>
+					<dt class="font-semibold">Tags</dt>
 					<dd>
-						A machine whose halting is equivalent to an open Collatz-type problem
-						(<a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptids</a>, e.g.
-						<a class="link" href="/antihydra">Antihydra</a>).
+						Community labels, from the wiki’s <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids" rel="external">BB(6) page</a>
+						and <a class="link" href="https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad" rel="external">Beaver Math Olympiad</a>
+						and from Discord. A <a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptid</a> is a
+						machine whose halting is equivalent to an open Collatz-like problem (e.g. <a class="link" href="/antihydra">Antihydra</a>);
+						<a class="link" href="https://wiki.bbchallenge.org/wiki/Probvious" rel="external">probviously</a> halting or
+						non-halting means probabilistic arguments say so, without a proof.
 					</dd>
 					<dt class="font-semibold">Proof status</dt>
 					<dd>
@@ -300,8 +321,27 @@
 			</div>
 		</details>
 
+		<!-- notable machines -->
+		<section class="mb-8" aria-labelledby="notable">
+			<h2 id="notable" class="text-xl font-bold mb-3">Notable holdouts</h2>
+			<ul class="space-y-2 max-w-[90ch]">
+				<li>
+					<strong>Named:</strong>
+					{#each named as h, k}{k ? ', ' : ''}<a class="link" href={h.site_page ?? WIKI + encodeURIComponent(wikiOf(h))} rel="external">{h.name}</a>
+						<span class="muted">(#{h.n})</span>{/each}
+				</li>
+				{#each tagList as t}
+					<li>
+						<button class="tag" on:click={() => only(t)} title="Show only these">{t === 'BMO' ? 'Beaver Math Olympiad' : t}</button>
+						<span class="text-gray-300">{tagCounts.get(t)} · {tagInfo[t].help}</span>
+						(<a class="link" href={tagInfo[t].url} rel="external">{tagInfo[t].url.includes('github.com') ? 'family repository' : 'wiki'}</a>)
+					</li>
+				{/each}
+			</ul>
+		</section>
+
 		<!-- controls -->
-		<form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1fr)_auto] items-end mb-4" on:submit|preventDefault>
+		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.2fr)_auto] items-end mb-4 scroll-mt-4" on:submit|preventDefault>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Search
 				<input
@@ -318,6 +358,14 @@
 				<select bind:value={cls} class="field">
 					<option value="">All classes</option>
 					{#each classes as c}<option value={c}>{c}</option>{/each}
+				</select>
+			</label>
+			<label class="flex flex-col gap-1 text-sm text-gray-400">
+				Tag
+				<select bind:value={tag} class="field">
+					<option value="">Any</option>
+					<option value="named">Named</option>
+					{#each tagList as t}<option value={t}>{t === 'BMO' ? 'Beaver Math Olympiad' : t}</option>{/each}
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
@@ -389,9 +437,10 @@
 						<td data-label="Machine">
 							<code class="tm select-all">{h.tm}</code>
 							<button class="copy" on:click={() => copy(h.tm)} aria-label="Copy machine code {h.n}">{copied === h.tm ? 'copied' : 'copy'}</button>
-							<span class="muted block equiv" class:none={!h.aliases.length && !h.name}
-								>{#if h.name}<span class="badge">{h.name}</span>{/if}{#if h.aliases.length}+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}{:else if !h.name}&nbsp;{/if}</span
+							<span class="muted block equiv" class:none={!h.aliases.length && !h.name && !h.tags.length}
+								>{#if h.name}<span class="badge">{h.name}</span>{/if}{#each h.tags as t}<a class="tag" href={tagInfo[tagGroup(t)].url} rel="external" title={tagInfo[tagGroup(t)].help}>{t}</a>{/each}{#if h.aliases.length}+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}{:else if !h.name && !h.tags.length}&nbsp;{/if}</span
 							>
+							{#each h.notes.filter((x) => x.kind === 'community') as x}<span class="muted block">{x.detail}</span>{/each}
 						</td>
 						<td data-label="Class">
 							{#if h.class}
@@ -441,9 +490,9 @@
 											<h3 class="mt-2 !text-yellow-300">Where sources disagree</h3>
 											<ul>{#each h.conflicts as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
-										{#if h.notes.length}
+										{#if h.notes.some((c) => c.kind !== 'community')}
 											<h3 class="mt-2">Notes</h3>
-											<ul class="text-gray-300">{#each h.notes as c}<li>{c.detail}</li>{/each}</ul>
+											<ul class="text-gray-300">{#each h.notes.filter((c) => c.kind !== 'community') as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
 									</section>
 									<section>
@@ -551,6 +600,13 @@
 					<a class="link" href={data.sources.discord?.url} rel="external">bbchallenge Discord</a> that mention the machine or
 					an equivalent one, since {data.sources.discord?.covers_from}.
 				</li>
+				<li>
+					<strong>Names and tags:</strong> the wiki’s
+					<a class="link" href={data.sources.wiki_bb6.url} rel="external">BB(6) Cryptids section</a> and
+					<a class="link" href={data.sources.wiki_bmo.url} rel="external">Beaver Math Olympiad</a> page; the energy vampires
+					from Thomas Reus’s <a class="link" href={data.sources.vampires.url} rel="external">family repository</a> and the
+					<a class="link" href={data.sources.vampires.discussion} rel="external">Reus Vampires</a> thread on Discord.
+				</li>
 				<li><strong>Wiki pages:</strong> the <a class="link" href="https://wiki.bbchallenge.org" rel="external">bbchallenge wiki</a> contributors.</li>
 			</ul>
 			<p class="mt-2 text-gray-300">
@@ -592,6 +648,12 @@
 	}
 	.badge {
 		@apply mr-2 rounded-full bg-purple-900 text-purple-100 px-2 py-0.5 text-xs;
+	}
+	.tag {
+		@apply inline-block mr-1.5 mb-1 rounded-full border border-purple-400/60 text-purple-100 px-2 py-0.5 text-xs whitespace-nowrap;
+	}
+	.tag:hover {
+		@apply border-purple-200;
 	}
 	.st {
 		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border whitespace-nowrap;

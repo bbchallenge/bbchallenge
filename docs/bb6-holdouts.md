@@ -89,7 +89,12 @@ and a source still calls it unsolved or a cryptid). A source that is merely behi
 "Reported by others" (an unverified claim) and a cryptid tag only one source has. The rules are in
 `scripts/bb6-holdouts/conflicts.mjs` and tested.
 
-Nothing is written by hand per machine except `data/bb6/sources/names.json` (a name and page for Antihydra).
+The only per-machine data written by hand is `data/bb6/sources/notable.json`: names (Antihydra, Space Needle, Lucy's
+Moonlight), community tags and short remarks, copied from the wiki's [BB(6) Cryptids section](https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids)
+and [Beaver Math Olympiad](https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad) page, and the seven energy vampires
+from [Thomas Reus's family repository](https://github.com/thomasreus-bb/bb6-vampire-family-1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---).
+Each entry is keyed by a machine code and matched to its row through the equivalence groups. When the wiki changes,
+edit the file to match; only use terms the community already uses.
 
 ## The busycoq rule
 
@@ -135,6 +140,8 @@ Each element of `holdouts` (one per line of the official list, in list order):
 | `n` | 1-based position in the list; stable until the list changes |
 | `tm` | The machine as it appears in the list (the representative of its group) |
 | `name` | A name for a famous machine (Antihydra), else `null` |
+| `tags[]` | Community tags: `Cryptid`, `Probviously halting`, `Probviously non-halting`, `Potential Cryptid`, `Energy vampire`, `BMO<n>`; the top-level `tags` gives each a link and a one-line meaning |
+| `simulated_halt` | Present when an accelerated simulation found a halt that has no Rocq proof yet: `date`, `detail`, `source` (a key of `sources`) |
 | `aliases[]` | The other machines in its equivalence group: `tm`, `relation` (`mirror` = mirror/renaming, `equivalent` = mxdys's equivalence) |
 | `class` | The class to show: the sheet's if it has one, else slugbird's, else `null` |
 | `classifications[]` | Every source's class: `source` (`sheet`\|`slugbird`), `class`, and for the sheet `cell{tab,ref}`, and `machine`+`relation` when it came from an alias |
@@ -145,7 +152,7 @@ Each element of `holdouts` (one per line of the official list, in list order):
 | `site_page` | Optional path of a page on this site (Antihydra) |
 | `discord[]` | Messages mentioning the machine or an equivalent one, oldest first: `channel_id`, `channel` (name), `message` (id), `date`; link with `url_templates.discord_message`. Empty if the Discord step was never run |
 | `conflicts[]` | Real disagreements: `kind` (`class`, `solved-not-in-busycoq`, `unsolved-in-source`, `cryptid`) and a sentence `detail` |
-| `notes[]` | Differences that are not disagreements: `kind` (`behind`, `stale`, `ahead`, `unverified`, `one-source`) and `detail` |
+| `notes[]` | Differences that are not disagreements: `kind` (`behind`, `stale`, `ahead`, `unverified`, `one-source`) and `detail`; and remarks from the wiki or Discord, `kind` `community` (e.g. "Similar to Antihydra") |
 
 Example: take everything still open, longest simulated first:
 

@@ -192,6 +192,33 @@
 					"name": {
 						"type": ["string", "null"]
 					},
+					"tags": {
+						"description": "Community tags: Cryptid, Probviously halting, Probviously non-halting, Potential Cryptid, Energy vampire, BMO<n>. See the top-level tags.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"simulated_halt": {
+						"description": "Present when an accelerated simulation found a halt that has no Rocq proof yet.",
+						"type": "object",
+						"required": ["date", "detail", "source"],
+						"properties": {
+							"date": {
+								"type": "string"
+							},
+							"detail": {
+								"type": "string"
+							},
+							"source": {
+								"description": "Key in sources",
+								"type": "string"
+							},
+							"machine": {
+								"$ref": "#/$defs/machine"
+							}
+						}
+					},
 					"aliases": {
 						"type": "array",
 						"items": {
@@ -403,20 +430,36 @@
 						}
 					},
 					"notes": {
-						"description": "Differences that are not disagreements: a source behind or ahead of busycoq on the path ready -> PR -> solved, an unverified report, a claim only one source makes.",
+						"description": "Differences that are not disagreements: a source behind or ahead of busycoq on the path ready -> PR -> solved, an unverified report, a claim only one source makes. Kind \"community\": a remark from the wiki or Discord (e.g. \"Similar to Antihydra\").",
 						"type": "array",
 						"items": {
 							"type": "object",
 							"required": ["kind", "detail"],
 							"properties": {
 								"kind": {
-									"enum": ["behind", "stale", "ahead", "unverified", "one-source"]
+									"enum": ["behind", "stale", "ahead", "unverified", "one-source", "community"]
 								},
 								"detail": {
 									"type": "string"
 								}
 							}
 						}
+					}
+				}
+			}
+		},
+		"tags": {
+			"description": "Community tags used in holdouts[].tags (from data/bb6/sources/notable.json): a link and a one-line explanation each. BMO1, BMO2… share the entry \"BMO\".",
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"required": ["url", "help"],
+				"properties": {
+					"url": {
+						"type": "string"
+					},
+					"help": {
+						"type": "string"
 					}
 				}
 			}
