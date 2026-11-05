@@ -169,10 +169,11 @@
 	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
 		<h1 class="text-3xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
 		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
-			Every machine that still stands between us and the value of
-			<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>, with its class, its
-			status in <a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>
-			and links to the places people look at it.
+			The 6-state, 2-symbol Turing machines whose halting status is still undecided, and so stand between us and the value
+			of <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>. For each one: its
+			behavioural class, whether
+			<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>
+			has a proof, how far it has been simulated, and links to its space-time diagram, spreadsheet row and Discord discussion.
 		</p>
 
 		<!-- numbers -->
@@ -191,7 +192,7 @@
 		<!-- live status -->
 		<div class="rounded-lg border border-gray-700/70 bg-gray-800/40 px-4 py-3 text-sm leading-relaxed mb-6" role="status" aria-live="polite">
 			{#if liveState === 'checking'}
-				Checking busycoq on GitHub for anything newer than the snapshot…
+				Checking busycoq on GitHub for commits since the snapshot…
 			{:else if liveState === 'ok' && live}
 				<span class="text-green-300 font-semibold">Live.</span>
 				busycoq <code>BB6</code> checked {new Date(live.checked_at).toLocaleTimeString()}{live.cached ? ' (from the last 10 minutes)' : ''}:
@@ -219,70 +220,80 @@
 			>
 			<span class="block text-gray-400 text-xs mt-2">
 				Snapshot: busycoq <code>{data.busycoq.head.sha.slice(0, 7)}</code> ({fmtDate(data.busycoq.head.date)}), {data.busycoq.prs_url.includes('pulls') ? 'pull requests' : ''} as of
-				{fmtDate(data.busycoq.snapshot_fetched_at)}. The browser asks GitHub directly (no account needed, at most a few requests per visit).
+				{fmtDate(data.busycoq.snapshot_fetched_at)}. Updates are fetched in the browser from the GitHub API (unauthenticated, a few requests per visit).
 			</span>
 		</div>
 
 		<!-- intro -->
 		<details class="mb-8 rounded-lg border border-gray-700/70 px-4 py-3">
-			<summary class="cursor-pointer font-semibold py-1">What is this page, and what do the words mean?</summary>
+			<summary class="cursor-pointer font-semibold py-1">Background and notation</summary>
 			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
 				<p>
-					To know BB(6), every 6-state, 2-symbol Turing machine must be shown to halt or to run forever. Almost all are
-					settled; a <a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdout</a> is a
-					machine nobody has settled yet. mxdys posts an updated official list in
-					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a> from time to time, so a
-					machine proved since the latest list can still be on it (this page marks those “solved since”).
-					Machines that behave identically (a left/right mirror, renamed states, or a difference that never matters) are
-					<strong>one row</strong>: the others are listed as equivalent machines, and searching for any of them finds the row.
+					Determining BB(6) requires deciding, for every 6-state, 2-symbol machine in
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>,
+					whether it halts when started on a blank tape. Automated deciders and individual proofs have settled all but a few
+					hundred; the remainder are the
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a>. The official
+					list is maintained by mxdys and posted periodically in
+					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>, so a machine proved since
+					the latest list can still appear on it; such machines are marked “solved since”.
 				</p>
 				<p>
-					A <strong>machine code</strong> writes a machine as six groups separated by <code>_</code>, one for each state
-					A to F. Each group holds two instructions: what to do when the head reads a 0, then when it reads a 1. An
-					instruction is three characters: the symbol to write, the direction to move (L or R) and the next state.
-					<code>---</code> means halt. For example, holdout #1 is
+					Rows are equivalence classes: mirror images (L↔R), state permutations, and mxdys’s equivalence groups, which also
+					identify machines differing only in transitions that do not affect their behaviour. A proof for any member settles
+					the class. The other members are listed under each row and are matched by search.
+				</p>
+				<p>
+					Machines use the standard text format: six <code>_</code>-separated groups, one per state A–F, each giving the
+					transition on reading 0 followed by the transition on reading 1. A transition is the symbol written, the direction
+					moved and the next state, so <code>1RB</code> writes 1, moves right and enters B; <code class="whitespace-nowrap">---</code> is the undefined
+					(halting) transition. In holdout #1,
 					<code class="block my-2 break-all">1RB1RF_1LC1LB_1RD1LD_1RE0RA_---0LB_0LF0RC</code>
-					Its first instruction, <code>1RB</code>, says that in state A, reading a 0, the machine writes a 1, moves right and goes to state B. See
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>.
+					state A on 0 executes <code>1RB</code>, and state E halts on reading 0.
 				</p>
 				<dl class="grid grid-cols-1 sm:grid-cols-[max-content_1fr] gap-x-6 gap-y-2">
 					<dt class="font-semibold">Class</dt>
 					<dd>
-						A label for the kind of behaviour a machine shows, such as
+						Behavioural classification, such as
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Bell" rel="external">Bell</a>,
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Bouncer" rel="external">bouncer</a> or
-						<a class="link" href="https://wiki.bbchallenge.org/wiki/Counter" rel="external">counter</a> variants. The names come
-						from Robin’s sheet; they are working labels, not theorems, and only some have a wiki page (linked when they do).
+						<a class="link" href="https://wiki.bbchallenge.org/wiki/Counter" rel="external">counter</a> variants, from Robin’s
+						spreadsheet, with slugbird’s guide as a second source. These are empirical categories, not proved properties;
+						classes with a wiki page are linked.
 					</dd>
 					<dt class="font-semibold">Cryptid</dt>
 					<dd>
-						A machine whose halting would answer an open Collatz-like question, so a proof either way is a research problem.
-						<a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptids</a>,
-						<a class="link" href="/antihydra">Antihydra</a> being the best known.
+						A machine whose halting problem is equivalent to an open Collatz-type problem, so that deciding it in either
+						direction is a research question
+						(<a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptids</a>;
+						<a class="link" href="/antihydra">Antihydra</a> is the best-known example).
 					</dd>
 					<dt class="font-semibold">busycoq</dt>
 					<dd>
-						The shared repository of machine-checked (Rocq, formerly Coq) proofs. A holdout leaves the official list when a proof
-						is merged there; mxdys merges. <strong>Open</strong>: no proof. <strong>Open PR</strong>: a pull request contains a
-						proof that has not been reviewed or merged. <strong>Solved</strong>: merged.
+						mxdys’s repository of machine-checked proofs in Rocq (formerly Coq). A holdout leaves the list once a proof is
+						merged into its <code>BB6</code> branch. <strong>Open</strong>: no proof, merged or proposed.
+						<strong>Open PR</strong>: an unmerged pull request contains a proof. <strong>Solved</strong>: a proof has been
+						merged.
 					</dd>
 					<dt class="font-semibold">Simulated</dt>
 					<dd>
-						How many steps people have run it without a halt: “≥ 1e15” comes from the sheet’s Direct Simulation tab, a figure
-						like “6.0e79” from slugbird’s guide. Evidence, not a proof.
+						A lower bound on the number of steps the machine has run without halting. “≥&nbsp;1e15”-style figures come from the
+						spreadsheet’s Direct Simulation tab; larger ones such as “6.0e79”, from slugbird’s guide, require accelerated
+						simulation. Evidence of non-halting, not a proof.
 					</dd>
 					<dt class="font-semibold">Tools</dt>
 					<dd>
-						<strong>viewer</strong> is this site’s space-time diagram;
-						<a class="link" href="https://fiery.pages.dev/turing" rel="external">fiery</a> is another viewer;
-						<a class="link" href="https://ccz181078.github.io/TM/LongAcc/index.html" rel="external">LongAcc</a> draws longitudinal
-						diagrams (paste the code, it has no link-in; use the copy button).
+						<strong>viewer</strong>: this site’s space-time diagram.
+						<a class="link" href="https://fiery.pages.dev/turing" rel="external">fiery</a>: an alternative simulator and
+						viewer. <a class="link" href="https://ccz181078.github.io/TM/LongAcc/index.html" rel="external">LongAcc</a>:
+						mxdys’s accelerated simulator with longitudinal diagrams; it takes no URL parameter, so paste the code (the copy
+						button next to each machine helps).
 					</dd>
 				</dl>
 				<p class="text-gray-300">
-					The data comes from four places, each shown on the row it concerns, and disagreements are shown rather than hidden;
-					see <a class="link" href="#sources">sources and credits</a> below. Nothing here is a proof unless busycoq says so. More background:
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6) on the wiki</a>,
+					The data are aggregated from four sources, with each field attributed to its source and conflicts flagged rather
+					than resolved (see <a class="link" href="#sources">sources and credits</a>). Only busycoq constitutes proof. Further
+					reading: <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6) on the wiki</a>,
 					<a class="link" href="/story" rel="external">the story</a>, <a class="link" href="/contribute" rel="external">how to contribute</a>.
 				</p>
 			</div>
@@ -475,11 +486,11 @@
 													</li>
 												{/each}
 											</ul>
-										{:else}<p class="muted">None: this machine is alone in its group.</p>{/if}
+										{:else}<p class="muted">None (singleton group).</p>{/if}
 										{#if h.discord.length}
 											<h3 class="mt-2">Discord messages that mention it</h3>
 											<p class="muted mb-1">
-												Links only, from {data.sources.discord?.as_of.slice(0, 10)}; the copy starts at {data.sources.discord?.covers_from}. A server login is needed to open them.
+												Message links only, indexed {data.sources.discord?.as_of.slice(0, 10)} from history beginning {data.sources.discord?.covers_from}; opening them requires server membership.
 											</p>
 											<ul class="flex flex-wrap gap-x-4 gap-y-1 !space-y-0">
 												{#each [...h.discord].reverse() as l}
@@ -487,7 +498,7 @@
 												{/each}
 											</ul>
 										{/if}
-										<p class="muted mt-3">A proof for any machine in the group settles the group. Mirror images and state renamings are matched automatically.</p>
+										<p class="muted mt-3">A proof for any member settles the group. Mirror images and state permutations are detected automatically.</p>
 									</section>
 								</div>
 							</td>
@@ -507,7 +518,8 @@
 		<section id="sources" class="mt-12 mb-16 max-w-[75ch] text-gray-200 leading-relaxed">
 			<h2 class="text-2xl font-bold mb-3">Sources and credits</h2>
 			<p class="mb-2">
-				This page only collects other people’s work and shows where each fact came from. Nothing on it was written by hand per machine.
+				This page aggregates existing work. Every field is generated from the sources below and attributed to them; nothing is
+				edited by hand per machine.
 			</p>
 			<ul class="list-disc ml-6 space-y-2">
 				<li>
@@ -544,8 +556,8 @@
 				<li><strong>Wiki pages:</strong> the <a class="link" href="https://wiki.bbchallenge.org" rel="external">bbchallenge wiki</a> contributors.</li>
 			</ul>
 			<p class="mt-2 text-gray-300">
-				No claims are recorded here yet: to say you are working on a machine, use the
-				<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">Discord</a>.
+				No claims are recorded here yet: to say you are working on a machine, post in
+				<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>.
 			</p>
 		</section>
 	</div>
