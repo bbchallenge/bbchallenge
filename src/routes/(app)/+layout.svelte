@@ -97,10 +97,12 @@
 					>Contribute
 				</a>
 			</li>
-			<!-- hidden on phones: the nav is already full there; the homepage links the page too -->
+			<!-- hidden on phones: the nav is already full there; the homepage links the page too. The tighter space keeps
+			     "BB(6) Holdouts" from reading as two nav items in the monospace font -->
 			<li class="hidden sm:block">
 				<a
 					href="/bb6"
+					style="word-spacing: -0.35em"
 					class:active={currentRoute == 'bb6'}
 					on:click={() => {
 						currentRoute = 'bb6';
