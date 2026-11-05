@@ -361,7 +361,8 @@
 						Community labels, from the wiki’s <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids" rel="external">BB(6) page</a>
 						and <a class="link" href="https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad" rel="external">Beaver Math Olympiad</a>
 						and from Discord. A <a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptid</a> is a
-						machine whose halting is equivalent to an open Collatz-like problem (e.g. <a class="link" href="/antihydra">Antihydra</a>);
+						machine whose blank-tape behaviour follows a simple rule whose halting question is an unsolved, presumed-hard math problem.
+						Most known ones are <a class="link" href="https://wiki.bbchallenge.org/wiki/Collatz-like" rel="external">Collatz-like</a> (e.g. <a class="link" href="/antihydra">Antihydra</a>); others are not (e.g. Space Needle).
 						<a class="link" href="https://wiki.bbchallenge.org/wiki/Probvious" rel="external">probviously</a> halting or
 						non-halting means probabilistic arguments say so, without a proof.
 					</dd>

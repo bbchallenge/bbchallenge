@@ -432,7 +432,7 @@
 	"tags": {
 		"Cryptid": {
 			"url": "https://wiki.bbchallenge.org/wiki/Cryptids",
-			"help": "Halting is equivalent to an open Collatz-like problem"
+			"help": "Its behaviour follows a simple rule whose halting question is an unsolved, presumed-hard math problem (most known ones are Collatz-like)"
 		},
 		"Potential Cryptid": {
 			"url": "https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids",
