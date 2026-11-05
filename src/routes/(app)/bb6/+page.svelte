@@ -24,6 +24,7 @@
 	// ---- live overlay -------------------------------------------------------------------------
 	let live: any = null;
 	let liveState: 'checking' | 'ok' | 'failed' = 'checking';
+	$: changedCount = [...ov.values()].filter((v) => v.changed).length;
 	let cooling = false; // "check again" may be used once a minute
 	let coolTimer: ReturnType<typeof setTimeout> | undefined;
 	async function check(force = false) {
@@ -54,11 +55,18 @@
 		[h.n, h.tm, ...h.aliases.map((a) => a.tm), h.name ?? '', h.class ?? '', ...h.classifications.map((c) => c.class)].join(' ').toLowerCase()
 	);
 
+	// One format for every figure: 1.0e15, 6.0e79, 1.0e146
+	function sci(log: number) {
+		let e = Math.floor(log + 1e-9);
+		let m = Math.round(10 ** (log - e) * 10) / 10;
+		if (m >= 10) (m /= 10), e++;
+		return `${m.toFixed(1)}e${e}`;
+	}
 	function simulated(h: Holdout): { text: string; log: number } | null {
 		const s = h.slugbird?.simulated ? log10Of(h.slugbird.simulated) : null;
 		const k = h.sheet?.simulated_log10_min ?? null;
-		if (s !== null && (k === null || s >= k)) return { text: `${h.slugbird!.simulated}`, log: s };
-		if (k !== null) return { text: `≥ 1e${k}`, log: k };
+		if (s !== null && (k === null || s >= k)) return { text: sci(s), log: s };
+		if (k !== null) return { text: `≥ ${sci(k)}`, log: k };
 		return null;
 	}
 
@@ -189,33 +197,33 @@
 			(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">plain text</a>,
 			<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>)
 		</p>
-		<p class="flex flex-wrap gap-2 mb-6">
-			<span class="st st-open">{counts.open} with no proof</span>
-			<span class="st st-pr_open">{counts.pr_open} with a proof in an open PR</span>
-			<span class="st st-solved">{counts.solved} proved since the list</span>
+		<p class="flex flex-wrap gap-2 mb-2">
+			{#each [['open', `${counts.open} with no proof`], ['pr_open', `${counts.pr_open} with a proof in an open PR`], ['solved', `${counts.solved} proved since the list`]] as [k, label]}
+				<button class="st st-{k} chip" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}>{label}</button>
+			{/each}
 		</p>
 
 		<!-- live status -->
-		<div class="rounded-lg border border-gray-700/70 bg-gray-800/40 px-4 py-3 text-sm leading-relaxed mb-6" role="status" aria-live="polite">
+		<p class="text-sm text-gray-400 mb-6" role="status" aria-live="polite">
 			{#if liveState === 'checking'}
-				Checking busycoq on GitHub for commits since the snapshot…
+				Checking busycoq for commits since the snapshot ({data.busycoq.head.sha.slice(0, 7)})…
 			{:else if liveState === 'ok' && live}
-				<span class="text-green-300 font-semibold">Live.</span>
-				busycoq <code>BB6</code> checked {new Date(live.checked_at).toLocaleTimeString()}{live.cached ? ' (from the last 10 minutes)' : ''}:
+				busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} ·
 				{#if live.commits_ahead}
-					{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'} since the snapshot
-					(<a class="link" href={live.compare_url} rel="external">changes</a>);
-					{[...ov.values()].filter((v) => v.changed).length} holdout status{[...ov.values()].filter((v) => v.changed).length === 1 ? '' : 'es'} changed.
+					<span class="text-gray-200">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</span>
+					since {data.busycoq.head.sha.slice(0, 7)} (<a class="link" href={live.compare_url} rel="external">changes</a>),
+					{changedCount} status{changedCount === 1 ? '' : 'es'} changed
 				{:else}
-					the branch has not moved since the snapshot ({data.busycoq.head.sha.slice(0, 7)}).
+					no new commits since {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)})
 				{/if}
 				{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
 			{:else}
-				<span class="text-yellow-300 font-semibold">Live check unavailable</span> ({live?.error}). Showing the snapshot of
-				{fmtDate(data.busycoq.snapshot_fetched_at)} (busycoq <code>{data.busycoq.head.sha.slice(0, 7)}</code>), which may be out of date.
+				<span class="text-yellow-300">Live check unavailable</span> ({live?.error}); showing busycoq as of
+				{fmtDate(data.busycoq.snapshot_fetched_at)} ({data.busycoq.head.sha.slice(0, 7)})
 			{/if}
+			·
 			<button
-				class="ml-2 link disabled:opacity-50 disabled:no-underline"
+				class="link disabled:opacity-50 disabled:no-underline"
 				disabled={liveState === 'checking' || cooling}
 				on:click={() => {
 					cooling = true;
@@ -224,11 +232,7 @@
 					check(true);
 				}}>check again</button
 			>
-			<span class="block text-gray-400 text-xs mt-2">
-				Snapshot: busycoq <code>{data.busycoq.head.sha.slice(0, 7)}</code> ({fmtDate(data.busycoq.head.date)}), {data.busycoq.prs_url.includes('pulls') ? 'pull requests' : ''} as of
-				{fmtDate(data.busycoq.snapshot_fetched_at)}. Updates are fetched in the browser from the GitHub API (unauthenticated, a few requests per visit).
-			</span>
-		</div>
+		</p>
 
 		<!-- intro -->
 		<details class="mb-8 rounded-lg border border-gray-700/70 px-4 py-3">
@@ -351,7 +355,14 @@
 				{#each rows.slice(0, shown) as { h, i } (h.n)}
 					{@const v = ov.get(i)}
 					{@const sim = simulated(h)}
-					<tr class:open={expanded.has(h.n)}>
+					<tr
+						class="main"
+						class:open={expanded.has(h.n)}
+						on:click={(e) => {
+							const t = e.target;
+							if (t instanceof Element && !t.closest('a,button') && !getSelection()?.toString()) toggle(h.n);
+						}}
+					>
 						<td data-label="#" class="num">
 							<button
 								class="exp"
@@ -370,7 +381,7 @@
 						</td>
 						<td data-label="Class">
 							{#if h.class}
-								{#if CLASS_WIKI[h.class]}<a class="link" href={WIKI + CLASS_WIKI[h.class]} rel="external">{h.class}</a>{:else}{h.class}{/if}
+								{#if CLASS_WIKI[h.class]}<a class="link" href={WIKI + CLASS_WIKI[h.class]} rel="external">{h.class}</a>{:else if h.class === 'Unknown'}<span class="text-gray-400">Unknown</span>{:else}{h.class}{/if}
 							{:else}<span class="muted">none</span>{/if}
 							{#if h.conflicts.length}<span class="warn" title={h.conflicts.map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 						</td>
@@ -571,8 +582,15 @@
 	.st {
 		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border whitespace-nowrap;
 	}
-	a.st:hover {
+	a.st:hover,
+	.chip:hover {
 		filter: brightness(1.3);
+	}
+	.chip.on {
+		@apply ring-2 ring-gray-200;
+	}
+	tr.main {
+		cursor: pointer;
 	}
 	.st-open {
 		@apply border-gray-500 text-gray-100;
@@ -606,7 +624,7 @@
 		@apply text-left font-semibold text-white border-b border-gray-600 px-3 py-3 sticky top-0 bg-gray-900;
 	}
 	table.bb6 td {
-		@apply px-3 py-4 align-top border-b border-gray-800;
+		@apply px-3 py-3 align-top border-b border-gray-800;
 	}
 	table.bb6 tr.open > td {
 		@apply bg-gray-800/40;
