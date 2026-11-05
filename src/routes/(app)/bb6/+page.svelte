@@ -83,7 +83,6 @@
 	}
 	$: decidedRows = decided.filter((d) => decidedMatch(d, q, cls));
 	$: if (q.trim() && decidedRows.length && decidedRows.length < decided.length) showDecided = true;
-	const wikiOf = (h: Holdout) => h.wiki_pages.find((p) => !TM_RE.test(p)) ?? h.wiki_pages[0];
 	const keyIndex = new Map<string, number>();
 	holdouts.forEach((h, i) => {
 		keyIndex.set(canonicalKey(h.tm)!, i);
@@ -176,6 +175,14 @@
 		rev = false;
 		onlyWiki = false;
 		tag = '';
+	}
+	// a named machine: just its row, opened
+	function onlyMachine(h: Holdout) {
+		clear();
+		q = h.tm;
+		expanded.add(h.n);
+		expanded = expanded;
+		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
 	}
 	function only(t: string) {
 		clear();
@@ -398,9 +405,11 @@
 
 		<!-- quick filters: the named machines and the community tags -->
 		<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 text-sm">
-			<span>
+			<span class="flex flex-wrap items-center gap-1.5">
 				<span class="text-gray-400 mr-1">Named</span>
-				{#each named as h, k}{k ? ' · ' : ''}<a class="link" href={h.site_page ?? WIKI + encodeURIComponent(wikiOf(h))} rel="external" title="#{h.n} · {h.class ?? ''} · {h.tags.join(', ')}">{h.name}</a>{/each}
+				{#each named as h}<button class="tag named" class:on={q === h.tm} aria-pressed={q === h.tm} on:click={() => (q === h.tm ? (q = '') : onlyMachine(h))} title="#{h.n} · {h.class ?? ''} · {h.tags.join(', ')}. Click to show only this machine."
+						>{h.name}</button
+					>{/each}
 			</span>
 			<span class="flex flex-wrap items-center gap-1.5">
 				<span class="text-gray-400 mr-1">Tags</span>
@@ -804,6 +813,14 @@
 	}
 	.tag {
 		@apply inline-block mr-1.5 mb-1 rounded-full border border-purple-400/60 text-purple-100 px-2 py-0.5 text-xs whitespace-nowrap;
+	}
+	/* named machines are not tags: neutral, so the two rows read apart */
+	.tag.named {
+		@apply border-gray-500 text-gray-100;
+	}
+	.tag.named:hover,
+	.tag.named.on {
+		@apply border-gray-200 bg-gray-700/60;
 	}
 	.tag.on {
 		@apply border-purple-200 bg-purple-900/60;
