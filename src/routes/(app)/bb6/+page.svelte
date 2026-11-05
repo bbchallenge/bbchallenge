@@ -403,88 +403,56 @@
 			</div>
 		</details>
 
-		<!-- quick filters: the named machines and the community tags -->
-		<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 text-sm">
-			<span class="flex flex-wrap items-center gap-1.5">
-				<span class="text-gray-400 mr-1">Named</span>
-				{#each named as h}<button class="tag named" class:on={q === h.tm} aria-pressed={q === h.tm} on:click={() => (q === h.tm ? (q = '') : onlyMachine(h))} title="#{h.n} · {h.class ?? ''} · {h.tags.join(', ')}. Click to show only this machine."
-						>{h.name}</button
-					>{/each}
-			</span>
-			<span class="flex flex-wrap items-center gap-1.5">
-				<span class="text-gray-400 mr-1">Tags</span>
-				{#each tagList as t}
-					<button class="tag" class:on={tag === t} aria-pressed={tag === t} on:click={() => (tag === t ? (tag = '') : only(t))} title="{tagInfo[t].help}. Click to filter."
-						>{t === 'BMO' ? 'Beaver Math Olympiad' : t} <span class="muted">{tagCounts.get(t)}</span></button
-					>
-				{/each}
-			</span>
-		</div>
-
-		<!-- controls -->
-		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] items-end mb-4 scroll-mt-4" on:submit|preventDefault>
-			<label class="flex flex-col gap-1 text-sm text-gray-400">
-				Search
-				<input
-					type="search"
-					bind:value={q}
-					placeholder="Machine code, class or number"
-					class="field"
-					autocomplete="off"
-					spellcheck="false"
-				/>
-			</label>
-			<label class="flex flex-col gap-1 text-sm text-gray-400">
-				Class
-				<select bind:value={cls} class="field">
-					<option value="">All classes</option>
-					{#each classes as c}<option value={c}>{c} ({classCount.get(c)})</option>{/each}
-				</select>
-			</label>
-			<label class="flex flex-col gap-1 text-sm text-gray-400">
-				Tag
-				<select bind:value={tag} class="field">
-					<option value="">Any</option>
-					<option value="named">Named</option>
-					{#each tagList as t}<option value={t}>{t === 'BMO' ? 'Beaver Math Olympiad' : t}</option>{/each}
-				</select>
-			</label>
-			<label class="flex flex-col gap-1 text-sm text-gray-400">
-				Proof status
-				<select bind:value={status} class="field">
-					<option value="all">All</option>
-					<option value="rocq">Rocq proof (merged or in PR)</option>
-					<option value="pr_open">&nbsp;&nbsp;Proof in PR</option>
-					<option value="solved">&nbsp;&nbsp;Proved (merged)</option>
-					<option value="sim_halt">Informal: simulated halt</option>
-					<option value="open">No proof</option>
-				</select>
-			</label>
-			<label class="flex flex-col gap-1 text-sm text-gray-400">
-				Sort by
-				<select bind:value={sort} on:change={() => (rev = false)} class="field">
-					<option value="list">List order</option>
-					<option value="class">Class</option>
-					<option value="status">Status (no proof first)</option>
-					<option value="sim">Steps simulated, most first</option>
-					<option value="sim-asc">Steps simulated, fewest first</option>
-				</select>
-			</label>
+		<!-- one row of controls, then one row of quick filters, then the count -->
+		<form id="table" class="flex flex-wrap gap-2 mb-3 scroll-mt-4" on:submit|preventDefault>
+			<input
+				type="search"
+				bind:value={q}
+				aria-label="Search"
+				placeholder="Search: machine code, class or number"
+				class="field flex-[2_1_18rem]"
+				autocomplete="off"
+				spellcheck="false"
+			/>
+			<select bind:value={cls} aria-label="Class" class="field flex-[1_1_11rem]">
+				<option value="">All classes</option>
+				{#each classes as c}<option value={c}>{c} ({classCount.get(c)})</option>{/each}
+			</select>
+			<select bind:value={status} aria-label="Proof status" class="field flex-[1_1_11rem]">
+				<option value="all">Any proof status</option>
+				<option value="rocq">Rocq proof (merged or in PR)</option>
+				<option value="pr_open">&nbsp;&nbsp;Proof in PR</option>
+				<option value="solved">&nbsp;&nbsp;Proved (merged)</option>
+				<option value="sim_halt">Informal: simulated halt</option>
+				<option value="open">No proof</option>
+			</select>
+			<select bind:value={sort} on:change={() => (rev = false)} aria-label="Sort by" class="field flex-[1_1_11rem]">
+				<option value="list">Sort: list order</option>
+				<option value="class">Sort: class</option>
+				<option value="status">Sort: status, no proof first</option>
+				<option value="sim">Sort: most steps simulated</option>
+				<option value="sim-asc">Sort: fewest steps simulated</option>
+			</select>
 		</form>
-		<div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-		<p class="text-sm text-gray-400" aria-live="polite">
-			{rows.length} of {holdouts.length} machines.
-			{#if rows.length === 0}No machine matches{#if q.trim() && decidedRows.length && decidedRows.length < decided.length}
-					on today’s list; {decidedRows.length} decided since {data.base_list?.published} (below){/if}. <button class="link" on:click={clear}>Clear the filters</button>.{/if}
-		</p>
-			<div class="flex items-center gap-2">
-				<button type="button" class="pill" class:on={onlyWiki} aria-pressed={onlyWiki} on:click={() => (onlyWiki = !onlyWiki)}
-					><span class="tick" aria-hidden="true">{onlyWiki ? '✓' : '+'}</span> Has wiki page</button
+		<div class="flex flex-wrap items-center gap-x-1.5 gap-y-1 mb-4 text-sm">
+			{#each named as h}<button class="tag named" class:on={q === h.tm} aria-pressed={q === h.tm} on:click={() => (q === h.tm ? (q = '') : onlyMachine(h))} title="#{h.n} · {h.class ?? ''} · {h.tags.join(', ')}. Click to show only this machine."
+					>{h.name}</button
+				>{/each}
+			<span class="sep" aria-hidden="true" />
+			{#each tagList as t}
+				<button class="tag" class:on={tag === t} aria-pressed={tag === t} on:click={() => (tag === t ? (tag = '') : only(t))} title="{tagInfo[t].help}. Click to filter."
+					>{t === 'BMO' ? 'Beaver Math Olympiad' : t} <span class="muted">{tagCounts.get(t)}</span></button
 				>
-				<button type="button" class="pill" disabled={!filtered} on:click={clear}>Clear filters</button>
-			</div>
+			{/each}
 		</div>
-
+		<div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+		<p class="text-sm text-gray-400" aria-live="polite">
+			{rows.length} of {holdouts.length} machines{#if rows.length === 0}: none match{#if q.trim() && decidedRows.length && decidedRows.length < decided.length}
+					on today’s list; {decidedRows.length} decided since {data.base_list?.published} (below){/if}{/if}{#if filtered}
+				&nbsp;· <button class="link" on:click={clear}>Clear filters</button>{/if}
+		</p>
+			<button class="tag named" class:on={onlyWiki} aria-pressed={onlyWiki} on:click={() => (onlyWiki = !onlyWiki)}>{onlyWiki ? '✓ ' : ''}Has wiki page</button>
+		</div>
 		<!-- table -->
 		<table class="bb6 w-full text-base">
 			<caption class="sr-only">BB(6) holdouts</caption>
@@ -762,7 +730,10 @@
 		@apply decoration-white;
 	}
 	.field {
-		@apply bg-gray-800/60 border border-gray-600 rounded-md px-3 h-11 text-base text-gray-100 w-full;
+		@apply bg-gray-800/60 border border-gray-600 rounded-md px-3 h-10 text-sm text-gray-100 min-w-0;
+	}
+	.sep {
+		@apply inline-block w-px h-4 mx-2 bg-gray-600;
 	}
 	/* the native arrow sits against the edge; draw our own with room on the right */
 	select.field {
@@ -772,21 +743,6 @@
 		background-repeat: no-repeat;
 		background-position: right 0.9rem center;
 		text-overflow: ellipsis;
-	}
-	.pill {
-		@apply inline-flex items-center gap-1.5 h-9 px-3.5 rounded-md border border-gray-600 bg-gray-800/60 text-sm text-gray-200 whitespace-nowrap;
-	}
-	.pill:hover:not(:disabled) {
-		@apply border-gray-400 text-white;
-	}
-	.pill.on {
-		@apply border-blue-400 bg-blue-950 text-blue-100;
-	}
-	.pill:disabled {
-		@apply opacity-40 cursor-default;
-	}
-	.pill .tick {
-		@apply w-3 text-center;
 	}
 	.field:focus-visible,
 	button:focus-visible,
