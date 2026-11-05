@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '$lib/bb6/table.css';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
 	import data from '../../../../static/bb6/holdouts.json';
 	import { canonicalKey, TM_RE } from '$lib/bb6/tm_key.js';
@@ -14,13 +14,18 @@
 	const prUrl = (n: number) => `https://github.com/${data.busycoq.repo}/pull/${n}`;
 	const fileUrl = (f: string) => `https://github.com/${data.busycoq.repo}/blob/${data.busycoq.head.sha}/verify/${f}`;
 	const sheetMachine = (h: Holdout): string => (h.sheet as any)?.machine ?? '';
+	const discordUrl = (l: { channel_id: string; message: string }) =>
+		((data.url_templates as any).discord_message as string)
+			.replace('{channel_id}', l.channel_id)
+			.replace('{message}', l.message);
 	const author = (p: any): string => p.author ?? '';
 	const fmtDate = (s: string) => s.slice(0, 10);
 
 	// ---- live overlay -------------------------------------------------------------------------
 	let live: any = null;
 	let liveState: 'checking' | 'ok' | 'failed' = 'checking';
-	let lastForce = 0;
+	let cooling = false; // "check again" may be used once a minute
+	let coolTimer: ReturnType<typeof setTimeout> | undefined;
 	async function check(force = false) {
 		liveState = 'checking';
 		live = await fetchLive(data, { force });
@@ -57,23 +62,25 @@
 		return null;
 	}
 
-	function matches(h: Holdout, i: number): boolean {
-		const st = ov.get(i)!.status;
-		if (status === 'unsolved' && st === 'solved') return false;
-		if (status !== 'unsolved' && status !== 'all' && st !== status) return false;
-		if (cls && !h.classifications.some((c) => c.class === cls)) return false;
-		if (onlyConflicts && !h.conflicts.length) return false;
-		if (onlyWiki && !h.wiki_pages.length) return false;
-		const needle = q.trim().toLowerCase().replace(/^#/, '');
+	type Filters = { q: string; cls: string; status: string; onlyConflicts: boolean; onlyWiki: boolean };
+	// Svelte only tracks variables named inside the `$:` statement, so the filters are passed in explicitly.
+	function matches(h: Holdout, i: number, f: Filters, st: string): boolean {
+		if (f.status === 'unsolved' && st === 'solved') return false;
+		if (f.status !== 'unsolved' && f.status !== 'all' && st !== f.status) return false;
+		if (f.cls && !h.classifications.some((c) => c.class === f.cls)) return false;
+		if (f.onlyConflicts && !h.conflicts.length) return false;
+		if (f.onlyWiki && !h.wiki_pages.length) return false;
+		const typed = f.q.trim();
+		const needle = typed.toLowerCase().replace(/^#/, '');
 		if (!needle) return true;
-		if (new RegExp(`^${TM_RE.source}$`).test(q.trim())) return keyIndex.get(canonicalKey(q.trim())!) === i; // any mirror/renaming/alias
+		if (new RegExp(`^${TM_RE.source}$`).test(typed)) return keyIndex.get(canonicalKey(typed)!) === i; // any mirror/renaming/alias
 		if (/^\d+$/.test(needle)) return String(h.n) === needle;
 		return haystack[i].includes(needle);
 	}
 
 	$: rows = holdouts
 		.map((h, i) => ({ h, i }))
-		.filter(({ h, i }) => matches(h, i))
+		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyConflicts, onlyWiki }, ov.get(i)!.status))
 		.sort((a, b) => {
 			switch (sort) {
 				case 'class':
@@ -130,6 +137,8 @@
 			/* clipboard blocked: the code is selectable text anyway */
 		}
 	}
+
+	onDestroy(() => clearTimeout(coolTimer));
 
 	onMount(() => {
 		const p = new URLSearchParams(window.location.search);
@@ -195,9 +204,11 @@
 			{/if}
 			<button
 				class="ml-2 underline text-blue-300 hover:text-blue-200 disabled:opacity-50 disabled:no-underline"
-				disabled={liveState === 'checking' || Date.now() - lastForce < 60_000}
+				disabled={liveState === 'checking' || cooling}
 				on:click={() => {
-					lastForce = Date.now();
+					cooling = true;
+					clearTimeout(coolTimer);
+					coolTimer = setTimeout(() => (cooling = false), 60_000);
 					check(true);
 				}}>check again</button
 			>
@@ -355,7 +366,7 @@
 							{#if h.class}
 								{#if CLASS_WIKI[h.class]}<a class="link" href={WIKI + CLASS_WIKI[h.class]} rel="external">{h.class}</a>{:else}{h.class}{/if}
 							{:else}<span class="muted">none</span>{/if}
-							{#if h.conflicts.length}<span class="warn" title={h.conflicts.map((c) => c.detail).join('\n')}>⚠ sources differ</span>{/if}
+							{#if h.conflicts.length}<span class="warn" title={h.conflicts.map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 						</td>
 						<td data-label="busycoq">
 							<span class="st st-{v.status}" title={STATUS_HELP[v.status]}>{STATUS_LABEL[v.status]}</span>
@@ -374,6 +385,13 @@
 							{#each h.wiki_pages as p}<a class="link" href={WIKI + encodeURIComponent(p)} rel="external">wiki</a>{/each}
 							{#if h.site_page}<a class="link" href={h.site_page} rel="external">page</a>{/if}
 							{#if h.sheet?.cell}<a class="link" href={sheetCell(h.sheet.cell)} rel="external">sheet</a>{/if}
+							{#if h.discord.length}<a
+									class="link"
+									href={discordUrl(h.discord[h.discord.length - 1])}
+									rel="external"
+									title="Latest of {h.discord.length} Discord message{h.discord.length === 1 ? '' : 's'} mentioning it or an equivalent machine ({h.discord[h.discord.length - 1].date})"
+									>discord<span class="sr-only"> ({h.discord.length} messages)</span><span aria-hidden="true">·{h.discord.length}</span></a
+								>{/if}
 						</td>
 					</tr>
 					{#if expanded.has(h.n)}
@@ -391,8 +409,12 @@
 											{:else}<li class="muted">No source classifies it.</li>{/each}
 										</ul>
 										{#if h.conflicts.length}
-											<h3 class="mt-2">Where sources disagree</h3>
+											<h3 class="mt-2 !text-yellow-300">Where sources disagree</h3>
 											<ul>{#each h.conflicts as c}<li>{c.detail}</li>{/each}</ul>
+										{/if}
+										{#if h.notes.length}
+											<h3 class="mt-2">Notes (not disagreements)</h3>
+											<ul class="text-gray-300">{#each h.notes as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
 									</section>
 									<section>
@@ -444,7 +466,18 @@
 												{/each}
 											</ul>
 										{:else}<p class="muted">None: this machine is alone in its group.</p>{/if}
-										<p class="muted mt-1">A proof for any machine in the group settles the group. Mirror images and state renamings are matched automatically.</p>
+										{#if h.discord.length}
+											<h3 class="mt-2">Discord messages that mention it</h3>
+											<p class="muted mb-1">
+												Links only, from {data.sources.discord?.as_of.slice(0, 10)}; the copy starts at {data.sources.discord?.covers_from}. A server login is needed to open them.
+											</p>
+											<ul class="flex flex-wrap gap-x-3 gap-y-1">
+												{#each [...h.discord].reverse() as l}
+													<li><a class="link" href={discordUrl(l)} rel="external">#{l.channel ?? 'channel'}, {l.date}</a></li>
+												{/each}
+											</ul>
+										{/if}
+										<p class="muted mt-3">A proof for any machine in the group settles the group. Mirror images and state renamings are matched automatically.</p>
 									</section>
 								</div>
 							</td>
@@ -491,6 +524,12 @@
 					<code>BB6</code>. A holdout counts as solved when a Rocq file there ends in a completed theorem about it (or about a mirror or
 					renaming of it); as “open PR” when a pull request adds such a file and is not merged. This is checked by a program, not by a person:
 					look at the linked file before relying on it.
+				</li>
+				<li>
+					<strong>Discord links:</strong> messages in the <a class="link" href={data.sources.discord?.url} rel="external">bbchallenge Discord</a> that
+					contain the machine's code or an equivalent one. Only the link, channel and date are kept, never the text or the author, and a
+					login is needed to open them. They are found in the maintainer's own copy of the server, which starts on
+					{data.sources.discord?.covers_from}, so older discussion is not linked.
 				</li>
 				<li><strong>Wiki pages:</strong> the <a class="link" href="https://wiki.bbchallenge.org" rel="external">bbchallenge wiki</a> contributors.</li>
 			</ul>

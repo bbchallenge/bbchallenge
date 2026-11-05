@@ -20,6 +20,9 @@
 		if (pathname.includes('contribute')) {
 			return 'contribute' as const;
 		}
+		if (pathname.includes('bb6')) {
+			return 'bb6' as const;
+		}
 		return 'root' as const;
 	}
 </script>
@@ -92,6 +95,17 @@
 						currentRoute = 'contribute';
 					}}
 					>Contribute
+				</a>
+			</li>
+			<!-- hidden on phones: the nav is already full there; the homepage links the page too -->
+			<li class="hidden sm:block">
+				<a
+					href="/bb6"
+					class:active={currentRoute == 'bb6'}
+					on:click={() => {
+						currentRoute = 'bb6';
+					}}
+					>Holdouts
 				</a>
 			</li>
 			<li>
