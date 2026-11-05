@@ -39,6 +39,7 @@ jobs:
         run: |
           node scripts/bb6-holdouts/fetch-busycoq.mjs
           node scripts/bb6-holdouts/fetch-wiki.mjs
+          node scripts/bb6-holdouts/fetch-history.mjs
 
       - name: Rebuild static/bb6/holdouts.json and run the tests
         run: |
