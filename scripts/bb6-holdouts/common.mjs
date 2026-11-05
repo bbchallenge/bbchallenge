@@ -88,3 +88,18 @@ export async function gh(path, { raw = false } = {}) {
 }
 
 export { TM_RE };
+
+/**
+ * Write a snapshot file, but keep the existing one (and its `fetched_at`) when nothing but the
+ * timestamp changed, so a scheduled refresh does not produce a diff when the sources did not move.
+ * @returns {boolean} whether the file changed
+ */
+export function writeSnapshot(url, obj) {
+	const text = JSON.stringify(obj, null, '\t') + '\n';
+	if (fs.existsSync(url)) {
+		const strip = (o) => JSON.stringify({ ...o, fetched_at: null });
+		if (strip(JSON.parse(fs.readFileSync(url, 'utf8'))) === strip(obj)) return false;
+	}
+	fs.writeFileSync(url, text);
+	return true;
+}

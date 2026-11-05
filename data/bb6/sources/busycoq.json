@@ -1,7 +1,7 @@
 {
 	"repo": "ccz181078/busycoq",
 	"branch": "BB6",
-	"fetched_at": "2026-11-04T23:06:28.629Z",
+	"fetched_at": "2026-11-05T01:18:46.147Z",
 	"head": {
 		"sha": "33209bc7dc282b38c8cd6be507bfc551fea56108",
 		"date": "2026-11-03T01:43:22+08:00",
@@ -8848,44 +8848,31 @@
 			"created_at": "2026-10-02T02:22:48Z",
 			"updated_at": "2026-10-10T20:58:55Z",
 			"head_sha": "75139d84bdeffd2d5f7b41e4e02e5be8ba696000",
-			"covers": {
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
-					"Eqv464572.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
-					"Eqv464572.v"
-				],
-				"1LB1RC_0LD1RE_1LE0LD_1LC0RA_1RF0RD_---1RB": [
-					"Eqv759808.v"
-				],
-				"1LB1RC_0LD1RE_1LE0LF_1LC0RA_1RF0RD_---1RB": [
-					"Eqv759808.v"
-				]
-			},
+			"covers": {},
 			"mentions": {
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Frozen220.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				],
 				"1LB1RC_0LD1RE_1LE0LD_1LC0RA_1RF0RD_---1RB": [
+					"Eqv759808.v",
 					"Eqv759808/Frozen759.v"
 				],
 				"1LB1RC_0LD1RE_1LE0LF_1LC0RA_1RF0RD_---1RB": [
+					"Eqv759808.v",
 					"Eqv759808/Frozen759.v"
 				]
 			},
@@ -8903,44 +8890,31 @@
 			"created_at": "2026-10-01T23:09:50Z",
 			"updated_at": "2026-10-10T20:58:54Z",
 			"head_sha": "d74aa1951304afa1bf94262854cd0ba24fc425a3",
-			"covers": {
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
-					"Eqv464572.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
-					"Eqv464572.v"
-				],
-				"1LB0RC_0LD1LD_1RE1RD_0LF1RA_---1RD_1RF0RA": [
-					"Eqv582637.v"
-				],
-				"1LB0RC_0LD1LD_1RE1RD_0LF1RA_---0RA_1RF0RA": [
-					"Eqv582637.v"
-				]
-			},
+			"covers": {},
 			"mentions": {
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Frozen220.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				],
 				"1LB0RC_0LD1LD_1RE1RD_0LF1RA_---1RD_1RF0RA": [
+					"Eqv582637.v",
 					"Eqv582637/Frozen582.v"
 				],
 				"1LB0RC_0LD1LD_1RE1RD_0LF1RA_---0RA_1RF0RA": [
+					"Eqv582637.v",
 					"Eqv582637/Frozen582.v"
 				]
 			},
@@ -8963,43 +8937,35 @@
 					"EdgeTM617.v"
 				],
 				"1LB1RC_1RA0LD_0RB1RE_1LF1RC_0RA---_1RC0LB": [
-					"EdgeTM617.v",
-					"Eqv326408.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB0LC_0RD---_1RD0LE_1LC1RF_1LA1RF_0RC1RB": [
-					"Eqv326408.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
-					"Eqv464572.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
-					"Eqv464572.v"
+					"EdgeTM617.v"
 				]
 			},
 			"mentions": {
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Frozen220.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Pair220.v"
 				],
+				"1LB1RC_1RA0LD_0RB1RE_1LF1RC_0RA---_1RC0LB": [
+					"Eqv326408.v"
+				],
 				"1LB0LC_0RD---_1RD0LE_1LC1RF_1LA1RF_0RC1RB": [
+					"Eqv326408.v",
 					"Eqv326408/Frozen408.v"
 				],
 				"1LB0RC_0LC1LD_1LE0RF_0LE---_1RC1LB_1RA1LB": [
 					"Eqv326408/Frozen408.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				]
 			},
@@ -9017,32 +8983,23 @@
 			"created_at": "2026-09-30T20:04:49Z",
 			"updated_at": "2026-10-10T20:58:53Z",
 			"head_sha": "3525b4bcc1b2ea859bfb5a13356f0aa6e0422864",
-			"covers": {
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
-					"Eqv464572.v"
-				],
-				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
-					"Eqv464572.v"
-				]
-			},
+			"covers": {},
 			"mentions": {
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Frozen220.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB0LC": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				],
 				"1LB0LC_1RC0LB_1LD1RE_---0LA_0RB0RF_1RB1RE": [
+					"Eqv464572.v",
 					"Eqv464572/Frozen464Indexed.v"
 				]
 			},
@@ -9060,57 +9017,40 @@
 			"created_at": "2026-09-30T17:12:11Z",
 			"updated_at": "2026-10-10T20:58:52Z",
 			"head_sha": "f6e112f61482c7d029b00d368fd6dd47ffed4ee7",
-			"covers": {
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB0RC_1RA1LD_1RE1LD_0LA1LF_1RF0RA_0LB---": [
-					"EqvRegularPairs/Pair3_751.v"
-				],
-				"1LB0RC_1RA1LD_1RE1LD_0LA1LF_1LD0RA_0LB---": [
-					"EqvRegularPairs/Pair3_751.v"
-				],
-				"1LB1RC_1LD0LE_0RE1RD_0RF---_1RF0LA_1LE1RC": [
-					"EqvRegularPairs/Pair439_600.v"
-				],
-				"1LB1RC_1RC0LD_0RD1RE_1RF0LA_0RF---_1LD1RC": [
-					"EqvRegularPairs/Pair439_600.v"
-				],
-				"1LB1RC_1RD1LE_1LD0RF_1RF1LF_0LD---_1RA0RB": [
-					"EqvRegularPairs/Pair70_223.v"
-				],
-				"1LB1RC_0LD1LE_1LD0RF_1RF1LF_0LD---_1RA0RB": [
-					"EqvRegularPairs/Pair70_223.v"
-				]
-			},
+			"covers": {},
 			"mentions": {
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Frozen220.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB0RC_1RA1LD_1RE1LD_0LA1LF_1RF0RA_0LB---": [
-					"EqvRegularPairs/Pair3/Frozen3.v"
+					"EqvRegularPairs/Pair3/Frozen3.v",
+					"EqvRegularPairs/Pair3_751.v"
 				],
 				"1LB0RC_1RA1LD_1RE1LD_0LA1LF_1LD0RA_0LB---": [
-					"EqvRegularPairs/Pair3/Frozen3.v"
+					"EqvRegularPairs/Pair3/Frozen3.v",
+					"EqvRegularPairs/Pair3_751.v"
 				],
 				"1LB1RC_1LD0LE_0RE1RD_0RF---_1RF0LA_1LE1RC": [
-					"EqvRegularPairs/Pair439/Frozen439.v"
+					"EqvRegularPairs/Pair439/Frozen439.v",
+					"EqvRegularPairs/Pair439_600.v"
 				],
 				"1LB1RC_1RC0LD_0RD1RE_1RF0LA_0RF---_1LD1RC": [
-					"EqvRegularPairs/Pair439/Frozen439.v"
+					"EqvRegularPairs/Pair439/Frozen439.v",
+					"EqvRegularPairs/Pair439_600.v"
 				],
 				"1LB1RC_1RD1LE_1LD0RF_1RF1LF_0LD---_1RA0RB": [
-					"EqvRegularPairs/Pair70/Frozen70.v"
+					"EqvRegularPairs/Pair70/Frozen70.v",
+					"EqvRegularPairs/Pair70_223.v"
 				],
 				"1LB1RC_0LD1LE_1LD0RF_1RF1LF_0LD---_1RA0RB": [
-					"EqvRegularPairs/Pair70/Frozen70.v"
+					"EqvRegularPairs/Pair70/Frozen70.v",
+					"EqvRegularPairs/Pair70_223.v"
 				]
 			},
 			"mentioned_in_text": []
@@ -9124,20 +9064,15 @@
 			"created_at": "2026-09-30T16:17:43Z",
 			"updated_at": "2026-10-10T20:58:51Z",
 			"head_sha": "0b30894abf9b5d21ab3320520cc2a66615fa436e",
-			"covers": {
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
-					"Eqv220723.v"
-				],
-				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
-					"Eqv220723.v"
-				]
-			},
+			"covers": {},
 			"mentions": {
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LC0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Frozen220.v",
 					"Eqv220723/Pair220.v"
 				],
 				"1LB1LC_0RD1LE_1RA1RB_---1RF_1LE0LA_1RC0RF": [
+					"Eqv220723.v",
 					"Eqv220723/Pair220.v"
 				]
 			},
@@ -9155,7 +9090,8 @@
 			"created_at": "2026-09-30T16:02:35Z",
 			"updated_at": "2026-10-10T20:58:51Z",
 			"head_sha": "9d60c66928c278ff2fed8e0570a6be0d951c2b08",
-			"covers": {
+			"covers": {},
+			"mentions": {
 				"1LB1RC_1RC0LD_0RE1RA_0LF1LA_1LD0RA_---0LB": [
 					"Eqv363470.v"
 				],
@@ -9163,7 +9099,6 @@
 					"Eqv363470.v"
 				]
 			},
-			"mentions": {},
 			"mentioned_in_text": [
 				"1LB1RC_1RC0LD_0RE1RA_0LF1LA_1LD0RA_---0LB",
 				"1LB1RC_1RC0LD_0RE1RA_---1LA_1LF0RA_0LF0LB"

@@ -16,49 +16,94 @@
 		"holdouts"
 	],
 	"properties": {
-		"schema_version": { "const": 1 },
-		"generated_at": { "type": "string", "format": "date-time" },
+		"schema_version": {
+			"const": 1
+		},
+		"generated_at": {
+			"type": "string",
+			"format": "date-time"
+		},
 		"list": {
 			"type": "object",
 			"required": ["count", "published", "published_by", "discord_url", "file"],
 			"properties": {
-				"count": { "type": "integer" },
-				"published": { "type": "string", "format": "date" },
-				"published_by": { "type": "string" },
-				"discord_url": { "type": "string" },
-				"file": { "type": "string" },
-				"equivalence_file": { "type": "string" },
-				"equivalent_machines": { "type": "integer" }
+				"count": {
+					"type": "integer"
+				},
+				"published": {
+					"type": "string",
+					"format": "date"
+				},
+				"published_by": {
+					"type": "string"
+				},
+				"discord_url": {
+					"type": "string"
+				},
+				"file": {
+					"type": "string"
+				},
+				"equivalence_file": {
+					"type": "string"
+				},
+				"equivalent_machines": {
+					"type": "integer"
+				}
 			}
 		},
 		"busycoq": {
 			"type": "object",
 			"required": ["repo", "branch", "head", "snapshot_fetched_at", "pr_snapshot"],
 			"properties": {
-				"repo": { "type": "string" },
-				"branch": { "type": "string" },
+				"repo": {
+					"type": "string"
+				},
+				"branch": {
+					"type": "string"
+				},
 				"head": {
 					"type": "object",
 					"required": ["sha", "date"],
 					"properties": {
-						"sha": { "type": "string" },
-						"date": { "type": "string" },
-						"message": { "type": "string" }
+						"sha": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"message": {
+							"type": "string"
+						}
 					}
 				},
-				"snapshot_fetched_at": { "type": "string", "format": "date-time" },
-				"verify_files": { "type": "integer" },
-				"prs_url": { "type": "string" },
+				"snapshot_fetched_at": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"verify_files": {
+					"type": "integer"
+				},
+				"prs_url": {
+					"type": "string"
+				},
 				"pr_snapshot": {
 					"type": "array",
 					"items": {
 						"type": "object",
 						"required": ["number", "state", "head_sha", "updated_at"],
 						"properties": {
-							"number": { "type": "integer" },
-							"state": { "type": "string" },
-							"head_sha": { "type": "string" },
-							"updated_at": { "type": "string" }
+							"number": {
+								"type": "integer"
+							},
+							"state": {
+								"type": "string"
+							},
+							"head_sha": {
+								"type": "string"
+							},
+							"updated_at": {
+								"type": "string"
+							}
 						}
 					}
 				}
@@ -70,26 +115,54 @@
 				"type": "object",
 				"required": ["name", "url", "as_of"],
 				"properties": {
-					"name": { "type": "string" },
-					"url": { "type": "string" },
-					"as_of": { "type": "string" }
+					"name": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					},
+					"as_of": {
+						"type": "string"
+					},
+					"covers_from": {
+						"type": "string",
+						"description": "discord only: first day the local copy covers"
+					}
 				}
 			}
 		},
-		"url_templates": { "type": "object", "additionalProperties": { "type": "string" } },
-		"sheet_tabs": { "type": "object", "additionalProperties": { "type": "string" } },
+		"url_templates": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"sheet_tabs": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
 		"counts": {
 			"type": "object",
 			"properties": {
 				"by_status": {
 					"type": "object",
 					"properties": {
-						"open": { "type": "integer" },
-						"pr_open": { "type": "integer" },
-						"solved": { "type": "integer" }
+						"open": {
+							"type": "integer"
+						},
+						"pr_open": {
+							"type": "integer"
+						},
+						"solved": {
+							"type": "integer"
+						}
 					}
 				},
-				"with_conflicts": { "type": "integer" }
+				"with_conflicts": {
+					"type": "integer"
+				}
 			}
 		},
 		"holdouts": {
@@ -104,45 +177,78 @@
 					"classifications",
 					"busycoq",
 					"wiki_pages",
-					"conflicts"
+					"discord",
+					"conflicts",
+					"notes"
 				],
 				"properties": {
-					"n": { "type": "integer", "minimum": 1 },
-					"tm": { "$ref": "#/$defs/machine" },
-					"name": { "type": ["string", "null"] },
+					"n": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"tm": {
+						"$ref": "#/$defs/machine"
+					},
+					"name": {
+						"type": ["string", "null"]
+					},
 					"aliases": {
 						"type": "array",
 						"items": {
 							"type": "object",
 							"required": ["tm", "relation"],
 							"properties": {
-								"tm": { "$ref": "#/$defs/machine" },
-								"relation": { "enum": ["mirror", "equivalent"] }
+								"tm": {
+									"$ref": "#/$defs/machine"
+								},
+								"relation": {
+									"enum": ["mirror", "equivalent"]
+								}
 							}
 						}
 					},
-					"class": { "type": ["string", "null"] },
+					"class": {
+						"type": ["string", "null"]
+					},
 					"classifications": {
 						"type": "array",
 						"items": {
 							"type": "object",
 							"required": ["source", "class"],
 							"properties": {
-								"source": { "enum": ["sheet", "slugbird"] },
-								"class": { "type": "string" },
-								"machine": { "$ref": "#/$defs/machine" },
-								"relation": { "enum": ["exact", "mirror", "equivalent"] },
-								"cell": { "$ref": "#/$defs/cell" }
+								"source": {
+									"enum": ["sheet", "slugbird"]
+								},
+								"class": {
+									"type": "string"
+								},
+								"machine": {
+									"$ref": "#/$defs/machine"
+								},
+								"relation": {
+									"enum": ["exact", "mirror", "equivalent"]
+								},
+								"cell": {
+									"$ref": "#/$defs/cell"
+								}
 							}
 						}
 					},
 					"sheet": {
 						"type": ["object", "null"],
 						"properties": {
-							"status": { "type": ["string", "null"] },
-							"simulated_log10_min": { "enum": [13, 14, 15, null] },
-							"machine": { "$ref": "#/$defs/machine" },
-							"cell": { "$ref": "#/$defs/cell" }
+							"status": {
+								"type": ["string", "null"]
+							},
+							"simulated_log10_min": {
+								"enum": [13, 14, 15, null]
+							},
+							"machine": {
+								"$ref": "#/$defs/machine"
+							},
+							"cell": {
+								"$ref": "#/$defs/cell"
+							}
 						}
 					},
 					"slugbird": {
@@ -160,23 +266,36 @@
 									"little"
 								]
 							},
-							"pr": { "type": ["integer", "null"] },
-							"simulated": { "type": ["string", "null"] }
+							"pr": {
+								"type": ["integer", "null"]
+							},
+							"simulated": {
+								"type": ["string", "null"]
+							}
 						}
 					},
 					"busycoq": {
 						"type": "object",
 						"required": ["status", "solved_in", "prs", "mentioned_in"],
 						"properties": {
-							"status": { "enum": ["open", "pr_open", "solved"] },
+							"status": {
+								"enum": ["open", "pr_open", "solved"]
+							},
 							"solved_in": {
 								"type": "array",
 								"items": {
 									"type": "object",
 									"required": ["file"],
 									"properties": {
-										"file": { "type": "string" },
-										"machines": { "type": "array", "items": { "$ref": "#/$defs/machine" } }
+										"file": {
+											"type": "string"
+										},
+										"machines": {
+											"type": "array",
+											"items": {
+												"$ref": "#/$defs/machine"
+											}
+										}
 									}
 								}
 							},
@@ -186,12 +305,27 @@
 									"type": "object",
 									"required": ["number", "title", "state", "relation"],
 									"properties": {
-										"number": { "type": "integer" },
-										"title": { "type": "string" },
-										"author": { "type": "string" },
-										"state": { "type": "string" },
-										"relation": { "enum": ["proves", "mentions"] },
-										"files": { "type": "array", "items": { "type": "string" } }
+										"number": {
+											"type": "integer"
+										},
+										"title": {
+											"type": "string"
+										},
+										"author": {
+											"type": "string"
+										},
+										"state": {
+											"type": "string"
+										},
+										"relation": {
+											"enum": ["proves", "mentions"]
+										},
+										"files": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										}
 									}
 								}
 							},
@@ -201,26 +335,86 @@
 									"type": "object",
 									"required": ["file", "kind"],
 									"properties": {
-										"file": { "type": "string" },
-										"kind": { "enum": ["equivalence", "no-final-theorem"] },
-										"machines": { "type": "array", "items": { "$ref": "#/$defs/machine" } }
+										"file": {
+											"type": "string"
+										},
+										"kind": {
+											"enum": ["equivalence", "no-final-theorem"]
+										},
+										"machines": {
+											"type": "array",
+											"items": {
+												"$ref": "#/$defs/machine"
+											}
+										}
 									}
 								}
 							}
 						}
 					},
-					"wiki_pages": { "type": "array", "items": { "type": "string" } },
-					"site_page": { "type": "string" },
+					"wiki_pages": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"site_page": {
+						"type": "string"
+					},
 					"conflicts": {
+						"description": "Real disagreements: sources give different classes, or a source contradicts busycoq (says solved and busycoq has no proof; busycoq has it solved and a source still calls it unsolved).",
 						"type": "array",
 						"items": {
 							"type": "object",
 							"required": ["kind", "detail"],
 							"properties": {
 								"kind": {
-									"enum": ["class", "sheet-status", "slugbird-pr", "slugbird-status", "cryptid"]
+									"enum": ["class", "solved-not-in-busycoq", "unsolved-in-source", "cryptid"]
 								},
-								"detail": { "type": "string" }
+								"detail": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"discord": {
+						"description": "Discord messages that mention the machine or an equivalent one (links only, oldest first). Empty when the optional Discord step was never run.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["channel_id", "message", "date"],
+							"properties": {
+								"channel_id": {
+									"type": "string"
+								},
+								"channel": {
+									"type": ["string", "null"],
+									"description": "Channel name"
+								},
+								"message": {
+									"type": "string",
+									"description": "Message id"
+								},
+								"date": {
+									"type": "string",
+									"format": "date"
+								}
+							}
+						}
+					},
+					"notes": {
+						"description": "Differences that are not disagreements: a source behind or ahead of busycoq on the path ready -> PR -> solved, an unverified report, a claim only one source makes.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["kind", "detail"],
+							"properties": {
+								"kind": {
+									"enum": ["behind", "stale", "ahead", "unverified", "one-source"]
+								},
+								"detail": {
+									"type": "string"
+								}
 							}
 						}
 					}
@@ -236,7 +430,14 @@
 		"cell": {
 			"type": "object",
 			"required": ["tab", "ref"],
-			"properties": { "tab": { "type": "string" }, "ref": { "type": "string" } }
+			"properties": {
+				"tab": {
+					"type": "string"
+				},
+				"ref": {
+					"type": "string"
+				}
+			}
 		}
 	}
 }

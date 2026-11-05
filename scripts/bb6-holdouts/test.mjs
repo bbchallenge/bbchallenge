@@ -142,3 +142,74 @@ test('live: rate limit and network errors fall back to the snapshot', async () =
 	const o = overlay(data, offline);
 	assert.equal(o.get(0).status, data.holdouts[0].busycoq.status);
 });
+
+// ---- where sources disagree ---------------------------------------------------------------------
+import { compareSources } from './conflicts.mjs';
+const slug = {
+	as_of: 'November 3, 2026',
+	status_labels: {
+		ready: 'Proof ready, PR soon',
+		pr: 'Proof in an open PR',
+		reported: 'Reported by others',
+		cryptid: 'Cryptid',
+		rules: 'Rules known, no proof'
+	}
+};
+const cmp = (o) =>
+	compareSources({
+		status: 'open',
+		prs: [],
+		open: [],
+		distinct: [],
+		sheet: null,
+		slugbird: null,
+		slug,
+		...o
+	});
+
+test('a source that is behind busycoq on ready -> PR -> solved is a note, not a conflict', () => {
+	const r = cmp({ status: 'pr_open', open: [{ number: 55 }], slugbird: { status: 'ready' } });
+	assert.equal(r.conflicts.length, 0);
+	assert.equal(r.notes[0].kind, 'behind');
+	const s = cmp({ status: 'solved', slugbird: { status: 'pr', pr: 3 } });
+	assert.equal(s.conflicts.length, 0);
+	assert.equal(s.notes[0].kind, 'stale');
+});
+
+test('conflicts: different classes; a source says solved but busycoq has nothing; busycoq solved but a source says cryptid', () => {
+	assert.equal(cmp({ distinct: ['Bell', 'Counter'] }).conflicts[0].kind, 'class');
+	assert.equal(cmp({ sheet: { status: 'NONHALT' } }).conflicts[0].kind, 'solved-not-in-busycoq');
+	assert.equal(
+		cmp({ status: 'solved', slugbird: { status: 'cryptid' } }).conflicts[0].kind,
+		'unsolved-in-source'
+	);
+	assert.equal(
+		cmp({ status: 'solved', slugbird: { status: 'rules' } }).conflicts[0].kind,
+		'unsolved-in-source'
+	);
+});
+
+test('"Reported by others" and a lone cryptid tag are notes', () => {
+	const a = cmp({ slugbird: { status: 'reported', pr: 40 }, prs: [{ number: 40 }] });
+	assert.equal(a.conflicts.length, 0);
+	assert.equal(a.notes[0].kind, 'unverified');
+	const b = cmp({ slugbird: { status: 'cryptid' }, sheet: { status: null } });
+	assert.deepEqual([b.conflicts.length, b.notes[0].kind], [0, 'one-source']);
+});
+
+test('snapshot: every conflict kind is a known one and discord links are well formed', () => {
+	const kinds = new Set(['class', 'solved-not-in-busycoq', 'unsolved-in-source', 'cryptid']);
+	for (const h of data.holdouts) {
+		for (const c of h.conflicts) assert.ok(kinds.has(c.kind), c.kind);
+		for (const l of h.discord) assert.match(l.message, /^\d+$/);
+		assert.ok(Array.isArray(h.notes));
+	}
+});
+
+test('snapshot: Eqv*.v files never count as proof (solved_in, or a PR that "proves")', () => {
+	for (const h of data.holdouts) {
+		for (const f of h.busycoq.solved_in) assert.ok(!/^Eqv/.test(f.file), `${h.n} ${f.file}`);
+		for (const p of h.busycoq.prs)
+			if (p.relation === 'proves') for (const f of p.files) assert.ok(!/^Eqv/.test(f), `${h.n} PR ${p.number}`);
+	}
+});

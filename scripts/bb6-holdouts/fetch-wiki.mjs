@@ -8,7 +8,7 @@
 // machines that belong to a holdout's equivalence group.
 import fs from 'node:fs';
 import { canonicalKey, TM_RE } from '../../src/lib/bb6/tm_key.js';
-import { SOURCES, ROOT, loadHoldouts, readJSON } from './common.mjs';
+import { SOURCES, ROOT, loadHoldouts, readJSON, writeSnapshot } from './common.mjs';
 
 const API = 'https://wiki.bbchallenge.org/w/api.php';
 const meta = readJSON(new URL('list.json', SOURCES));
@@ -43,5 +43,6 @@ const out = {
 	base: 'https://wiki.bbchallenge.org/wiki/',
 	pages
 };
-fs.writeFileSync(new URL('wiki.json', SOURCES), JSON.stringify(out, null, '\t') + '\n');
+const changed = writeSnapshot(new URL('wiki.json', SOURCES), out);
+if (!changed) console.log('wiki.json: sources unchanged, file kept');
 console.log(`${Object.keys(pages).length} machines in holdout groups have a wiki page`);

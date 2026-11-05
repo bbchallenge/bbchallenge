@@ -14,10 +14,11 @@ by hand and commit. The busycoq status is refreshed in the visitor's browser (se
 | `src/lib/bb6/busycoq_rules.js` | The rule for "a file proves a machine". Shared by the page and the scripts. |
 | `src/lib/bb6/busycoq_live.js` | The browser's live check against the GitHub API, and the overlay it applies. |
 | `src/lib/bb6/classes.js`, `table.css` | Class → wiki page map, labels; responsive card layout. |
-| `static/bb6/holdouts.json` | The generated data file (schema below, JSON Schema in `static/bb6/holdouts.schema.json`). |
+| `static/bb6/holdouts.json`, `src/lib/bb6/summary.json` | The generated data file (and a 3-line summary for the homepage) (schema below, JSON Schema in `static/bb6/holdouts.schema.json`). |
 | `static/BB6_holdouts_608.txt` | mxdys's list, one machine per line, in order. |
 | `data/bb6/sources/` | One snapshot per source (inputs of the build). |
-| `scripts/bb6-holdouts/` | Importers, the build and the tests. |
+| `scripts/bb6-holdouts/` | Importers, the build (`build.mjs`, rules in `conflicts.mjs`) and the tests. |
+| `.github/workflows/bb6-holdouts.yml` | Daily scheduled refresh that opens a data-update PR (see below). |
 
 ## Refreshing the data
 
@@ -27,14 +28,18 @@ No npm dependencies. Each step writes one file under `data/bb6/sources/`; `build
 ```sh
 # 1. New official list: save it as static/BB6_holdouts_<n>.txt and its equivalence groups as
 #    data/bb6/sources/BB6_holdouts_<m>_eqv_<n>.txt, then edit data/bb6/sources/list.json
-#    (count, published, published_by, discord links, file names). Update the number in
-#    src/routes/(app)/+page.svelte too (the homepage text is hard-coded).
+#    (count, published, published_by, discord links, file names). The homepage
+#    count and file name follow from the data.
 
 # 2. busycoq: verify/ files at the head of BB6, and every PR
 node scripts/bb6-holdouts/fetch-busycoq.mjs            # --clone <dir> reuses a checkout of BB6
 
 # 3. wiki pages named after a holdout
 node scripts/bb6-holdouts/fetch-wiki.mjs
+
+# 3b. (optional, maintainers only) links to the Discord messages that mention each holdout, from a local
+#     copy of the server; skipped (and the last snapshot kept) when there is none
+node scripts/bb6-holdouts/fetch-discord.mjs [<copy-dir>]     # or set BB6_DISCORD_COPY
 
 # 4. (optional, when the sources change) Robin's sheet and slugbird's guide
 node scripts/bb6-holdouts/import-sheet.mjs <csv-dir> <export-date> [--strikethrough <file>]
@@ -46,8 +51,20 @@ node scripts/bb6-holdouts/build.mjs --check             # exit 1 if the file on 
 node --test scripts/bb6-holdouts/test.mjs
 ```
 
+Snapshots are only rewritten when their content changed (not just `fetched_at`), so re-running a fetch when
+nothing moved leaves the working tree clean.
+
 The build is deterministic: the same inputs give the same bytes. `generated_at` is the time of the newest source
 fetch, not the time of the build, so re-running it changes nothing.
+
+## Automatic refresh
+
+`.github/workflows/bb6-holdouts.yml` runs daily and on demand (`workflow_dispatch`): it runs steps 2 and 3, the build
+and the tests, and, if `data/`, `static/bb6/` or `src/lib/bb6/summary.json` changed, pushes the branch `bot/bb6-holdouts-data` and opens (or
+updates) a pull request. It needs no secrets, only the workflow's `GITHUB_TOKEN`, but the repository setting
+*Settings → Actions → General → Allow GitHub Actions to create and approve pull requests* must be on. It cannot refresh
+the official list, the sheet, slugbird's guide or the Discord links (those need a person); anyone can also do any
+refresh by hand and open a PR with the result.
 
 ## What is used from each source
 
@@ -58,11 +75,19 @@ fetch, not the time of the build, so re-running it changes nothing.
 | slugbird's BB(6) Holdout Guide, 2026-11-03 (made with Claude) | class, status tag, PR number, furthest simulation | its descriptions |
 | busycoq (`BB6` branch and its PRs) | which holdouts have a proof, which PRs add one | — |
 | bbchallenge wiki | existence of a page for a holdout or a class | page content |
+| bbchallenge Discord (local copy of the server) | message links (channel, message id, date) for messages whose text contains the machine or an equivalent one | message text, authors, attachments. The copy only reaches back to `covers_from`. |
 
 The sheet is keyed to the older 1534-machine list. Its machines are mapped to today's rows through the
 equivalence groups; each record says whether it came from the same machine (`exact`/`mirror`) or an equivalent
 one (`equivalent`). Sheet *status* is only taken from the same machine, never an equivalent one. Where sources
-disagree, nothing is overwritten: both values are shown and a `conflicts` entry is added.
+disagree, nothing is overwritten: both values are shown.
+
+*Conflict or note?* A `conflicts` entry (shown with a warning) is a real disagreement: the sources give different
+classes, or a source contradicts busycoq (it says solved and busycoq has no proof or open PR, or busycoq has it solved
+and a source still calls it unsolved or a cryptid). A source that is merely behind or ahead of busycoq on the path
+*ready → PR → solved* is not a disagreement: it goes to `notes`, which the page shows without a warning. So do slugbird's
+"Reported by others" (an unverified claim) and a cryptid tag only one source has. The rules are in
+`scripts/bb6-holdouts/conflicts.mjs` and tested.
 
 Nothing is written by hand per machine except `data/bb6/sources/names.json` (a name and page for Antihydra).
 
@@ -99,7 +124,7 @@ Top level: `schema_version`, `generated_at`, `list`, `busycoq`, `sources`, `url_
 
 - `list`: `count`, `published` (date), `published_by`, `discord_url`, `file` (the plain list), `equivalence_file`, `equivalent_machines`.
 - `busycoq`: `repo`, `branch`, `head{sha,date,message}` (the branch head the snapshot was made at), `snapshot_fetched_at`, `verify_files`, `prs_url`, `pr_snapshot[{number,state,head_sha,updated_at}]` (used by the live check).
-- `sources`: `list|sheet|slugbird|busycoq|wiki`, each with `name`, `url`, `as_of` (and `by`, `keyed_to_list`, `made_with` where relevant). Read `as_of` to judge staleness.
+- `sources`: `list|sheet|slugbird|busycoq|discord|wiki`, each with `name`, `url`, `as_of` (and `by`, `keyed_to_list`, `made_with` where relevant). Read `as_of` to judge staleness.
 - `url_templates`: how to build links, with `{tm}`, `{wiki_page}`, `{number}`, `{file}`, `{tab_gid}`, `{ref}` placeholders. `sheet_tabs` maps a tab name to its gid.
 - `counts`: `by_status{open,pr_open,solved}`, `with_conflicts`.
 
@@ -118,7 +143,9 @@ Each element of `holdouts` (one per line of the official list, in list order):
 | `busycoq` | `status`: `open` \| `pr_open` \| `solved`; `solved_in[{file,machines?}]`; `prs[{number,title,author,state,relation,files}]` (`relation`: `proves` or `mentions`); `mentioned_in[{file,kind,machines?}]` (`kind`: `equivalence` or `no-final-theorem`) |
 | `wiki_pages[]` | Wiki page titles for this holdout's machines (use `url_templates.wiki_page`) |
 | `site_page` | Optional path of a page on this site (Antihydra) |
-| `conflicts[]` | Where sources disagree: `kind` (`class`, `sheet-status`, `slugbird-pr`, `slugbird-status`, `cryptid`) and a sentence `detail` |
+| `discord[]` | Messages mentioning the machine or an equivalent one, oldest first: `channel_id`, `channel` (name), `message` (id), `date`; link with `url_templates.discord_message`. Empty if the Discord step was never run |
+| `conflicts[]` | Real disagreements: `kind` (`class`, `solved-not-in-busycoq`, `unsolved-in-source`, `cryptid`) and a sentence `detail` |
+| `notes[]` | Differences that are not disagreements: `kind` (`behind`, `stale`, `ahead`, `unverified`, `one-source`) and `detail` |
 
 Example: take everything still open, longest simulated first:
 
@@ -127,4 +154,4 @@ curl -s https://bbchallenge.org/bb6/holdouts.json |
   jq '[.holdouts[] | select(.busycoq.status != "solved")] | sort_by(-(.sheet.simulated_log10_min // 0)) | .[:10] | map({n, tm, class})'
 ```
 
-Not recorded here: who is working on a machine (there are no claims yet), per-machine notes, tiers or difficulty.
+Not recorded here: who is working on a machine (there are no claims yet), per-machine free-text notes, tiers or difficulty, and Discord message text.

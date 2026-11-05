@@ -1,6 +1,6 @@
 {
 	"schema_version": 1,
-	"generated_at": "2026-11-04T23:06:28.629Z",
+	"generated_at": "2026-11-05T01:18:46.147Z",
 	"list": {
 		"count": 608,
 		"published": "2026-10-30",
@@ -18,7 +18,7 @@
 			"date": "2026-11-03T01:43:22+08:00",
 			"message": "add FIBv7, 23 2x5 proofs"
 		},
-		"snapshot_fetched_at": "2026-11-04T23:06:28.629Z",
+		"snapshot_fetched_at": "2026-11-05T01:18:46.147Z",
 		"verify_files": 600,
 		"prs_url": "https://github.com/ccz181078/busycoq/pulls",
 		"pr_snapshot": [
@@ -388,7 +388,13 @@
 		"busycoq": {
 			"name": "busycoq (verified Rocq proofs)",
 			"url": "https://github.com/ccz181078/busycoq/tree/BB6",
-			"as_of": "2026-11-04T23:06:28.629Z"
+			"as_of": "2026-11-05T01:18:46.147Z"
+		},
+		"discord": {
+			"name": "bbchallenge Discord (message links only, from a local copy)",
+			"url": "https://discord.com/channels/960643023006490684",
+			"as_of": "2026-11-04T23:21:12.893Z",
+			"covers_from": "2026-09-21"
 		},
 		"wiki": {
 			"name": "bbchallenge wiki",
@@ -403,6 +409,7 @@
 		"wiki_page": "https://wiki.bbchallenge.org/wiki/{wiki_page}",
 		"busycoq_pr": "https://github.com/ccz181078/busycoq/pull/{number}",
 		"busycoq_file": "https://github.com/ccz181078/busycoq/blob/33209bc7dc282b38c8cd6be507bfc551fea56108/verify/{file}",
+		"discord_message": "https://discord.com/channels/960643023006490684/{channel_id}/{message}",
 		"sheet_cell": "https://docs.google.com/spreadsheets/d/1mMp8bAcTFT91j7azn72liX8NSTwc2E_ozKnOGTfRCfw/edit#gid={tab_gid}&range={ref}"
 	},
 	"sheet_tabs": {
@@ -416,7 +423,7 @@
 			"pr_open": 32,
 			"solved": 1
 		},
-		"with_conflicts": 49
+		"with_conflicts": 1
 	},
 	"holdouts": [
 		{
@@ -459,7 +466,27 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564611416441356379",
+					"date": "2026-10-27"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566423105180668077",
+					"date": "2026-11-01"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 2,
@@ -501,7 +528,27 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566886740684312748",
+					"date": "2026-11-02"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567256814645682288",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 3,
@@ -543,7 +590,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 4,
@@ -585,7 +641,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 5,
@@ -663,7 +721,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 6,
@@ -734,7 +794,40 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566949725029269595",
+					"date": "2026-11-02"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566984408131444818",
+					"date": "2026-11-03"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567150522891247783",
+					"date": "2026-11-03"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567178721234784432",
+					"date": "2026-11-03"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 7,
@@ -776,7 +869,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 8,
@@ -887,7 +982,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 9,
@@ -1088,7 +1185,9 @@
 			"wiki_pages": [
 				"1RB0LD_0LC0RE_1LA0RD_0RB0LC_1RC1RF_0LD---"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 10,
@@ -1130,7 +1229,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 11,
@@ -1185,7 +1286,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 12,
@@ -1227,7 +1330,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 13,
@@ -1269,7 +1374,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 14,
@@ -1329,7 +1436,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 15,
@@ -1421,7 +1537,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 16,
@@ -1463,7 +1581,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 17,
@@ -1505,7 +1625,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 18,
@@ -1547,7 +1669,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 19,
@@ -1589,7 +1713,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 20,
@@ -1654,7 +1780,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 21,
@@ -1696,7 +1824,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 22,
@@ -1753,7 +1883,9 @@
 			"wiki_pages": [
 				"1RB1LD_1RC0LE_1LA1RE_0LF1LA_1RB0RB_---0LB"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 23,
@@ -1797,7 +1929,14 @@
 			"wiki_pages": [
 				"1RB1RA_1LC0RF_1LD1LC_1LE0LB_0LF---_1RA1RB"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 24,
@@ -1839,7 +1978,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 25,
@@ -1899,7 +2040,14 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 26,
@@ -1948,10 +2096,19 @@
 			"wiki_pages": [
 				"1RB1LC_1LC1RD_1LA0LB_0RB1RE_1RF0RA_---0RC"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -1995,7 +2152,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 28,
@@ -2048,7 +2207,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 29,
@@ -2090,7 +2251,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 30,
@@ -2132,7 +2300,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 31,
@@ -2187,7 +2357,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 32,
@@ -2229,7 +2401,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 33,
@@ -2271,7 +2445,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555254792576835635",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 34,
@@ -2511,7 +2700,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 35,
@@ -2570,10 +2761,25 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1552812764861304843",
+					"date": "2026-09-24"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -2636,7 +2842,16 @@
 				"1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA"
 			],
 			"site_page": "/antihydra",
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566952368116076624",
+					"date": "2026-11-02"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 37,
@@ -2678,7 +2893,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 38,
@@ -2720,7 +2937,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 39,
@@ -2775,7 +2994,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 40,
@@ -2817,7 +3045,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 41,
@@ -2921,7 +3151,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 42,
@@ -2981,7 +3213,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 43,
@@ -3041,7 +3275,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 44,
@@ -3096,7 +3332,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 45,
@@ -3151,7 +3389,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 46,
@@ -3206,7 +3446,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 47,
@@ -3248,7 +3490,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 48,
@@ -3307,10 +3551,19 @@
 				"1RB0LD_0RC0RF_0RD0RA_1LE0RD_1LF---_0LA1LA",
 				"1RB0LD_0RC1RB_0RD0RA_1LE0RD_1LF---_0LA1LA"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -3354,7 +3607,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567280301573415054",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 50,
@@ -3396,7 +3658,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 51,
@@ -3470,10 +3734,25 @@
 			"wiki_pages": [
 				"1RB0LC_0LC1RF_1LE1RD_0RC1RC_0LA1LA_---1RA"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -3530,7 +3809,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 53,
@@ -3585,7 +3866,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 54,
@@ -3627,7 +3910,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 55,
@@ -3688,10 +3973,17 @@
 				]
 			},
 			"wiki_pages": [],
+			"discord": [],
 			"conflicts": [
 				{
-					"kind": "sheet-status",
-					"detail": "the sheet marks it NONHALT, but it is on the official list and busycoq has no proof"
+					"kind": "solved-not-in-busycoq",
+					"detail": "the sheet marks it NONHALT, but busycoq has no proof and no open PR"
+				}
+			],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
 				}
 			]
 		},
@@ -3753,10 +4045,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -3813,7 +4107,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 58,
@@ -3855,7 +4158,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 59,
@@ -3897,7 +4202,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 60,
@@ -3939,7 +4246,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 61,
@@ -4005,10 +4314,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Proof ready, PR soon"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof ready, PR soon\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -4054,7 +4365,9 @@
 			"wiki_pages": [
 				"1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 63,
@@ -4119,7 +4432,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 64,
@@ -4161,7 +4476,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 65,
@@ -4203,7 +4520,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 66,
@@ -4258,7 +4577,21 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566442904799551710",
+					"date": "2026-11-01"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 67,
@@ -4300,7 +4633,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 68,
@@ -4342,7 +4677,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 69,
@@ -4384,7 +4721,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 70,
@@ -4439,7 +4778,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1561877720143630400",
+					"date": "2026-10-19"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 71,
@@ -4495,7 +4843,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 72,
@@ -4566,7 +4916,9 @@
 				"1RB1LA_1LC0RE_1LF1LD_0RA0LC_1LB1RA_---0LA",
 				"1RB1LA_1LC0RE_1LF1LD_1RB0LC_1LB1RA_---0LA"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 73,
@@ -4621,7 +4973,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 74,
@@ -4686,7 +5040,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 75,
@@ -4728,7 +5084,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565557844869382316",
+					"date": "2026-10-30"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 76,
@@ -4770,7 +5141,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 77,
@@ -4825,7 +5198,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 78,
@@ -4880,7 +5255,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 79,
@@ -4922,7 +5299,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 80,
@@ -4977,7 +5363,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 81,
@@ -5019,10 +5414,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -5423,7 +5820,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 83,
@@ -5465,7 +5864,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 84,
@@ -5507,7 +5908,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 85,
@@ -5562,7 +5970,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 86,
@@ -5604,7 +6014,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 87,
@@ -5687,7 +6099,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 88,
@@ -5742,7 +6156,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 89,
@@ -5909,7 +6325,9 @@
 				"1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA1LD_---0LC",
 				"1RB1RA_0RC1RF_1LD---_0LE1LE_1RA1LD_1LD0LF"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 90,
@@ -5964,7 +6382,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 91,
@@ -6006,7 +6426,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 92,
@@ -6048,7 +6470,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 93,
@@ -6106,10 +6535,12 @@
 			"wiki_pages": [
 				"1RB1LE_1LB1LC_1RD0LE_---0RB_1RF1LA_0RA0RD"
 			],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -6205,7 +6636,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 95,
@@ -6247,7 +6687,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 96,
@@ -6302,7 +6744,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 97,
@@ -6344,7 +6788,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 98,
@@ -6425,7 +6871,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 99,
@@ -6467,7 +6915,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 100,
@@ -6509,7 +6959,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 101,
@@ -6564,7 +7016,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 102,
@@ -6606,7 +7060,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 103,
@@ -6661,10 +7117,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -6731,7 +7189,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 105,
@@ -6798,7 +7258,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 106,
@@ -6840,7 +7302,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 107,
@@ -6882,7 +7346,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 108,
@@ -6924,7 +7390,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 109,
@@ -6979,7 +7447,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 110,
@@ -7034,7 +7504,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 111,
@@ -7094,7 +7566,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 112,
@@ -7138,10 +7612,25 @@
 			"wiki_pages": [
 				"1RB1LD_1RC0RA_1LA1RE_0LA0LB_0RB1RF_---1RD"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -7198,7 +7687,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 114,
@@ -7258,7 +7749,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 115,
@@ -7300,7 +7793,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565644538503241818",
+					"date": "2026-10-30"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 116,
@@ -7342,7 +7844,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565644538503241818",
+					"date": "2026-10-30"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 117,
@@ -7397,7 +7908,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 118,
@@ -7439,7 +7952,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 119,
@@ -7494,7 +8009,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 120,
@@ -7552,7 +8069,9 @@
 			"wiki_pages": [
 				"1RB1LA_0LC0RC_1LE1RD_1RE1RC_1LF0LA_---1LE"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 121,
@@ -7650,7 +8169,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564669886733623338",
+					"date": "2026-10-27"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 122,
@@ -7823,7 +8351,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 123,
@@ -7865,7 +8395,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 124,
@@ -7920,7 +8452,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 125,
@@ -7980,7 +8514,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 126,
@@ -8035,7 +8571,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564553648946815017",
+					"date": "2026-10-27"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 127,
@@ -8095,7 +8640,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565445685057421323",
+					"date": "2026-10-29"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 128,
@@ -8161,7 +8715,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 129,
@@ -8216,7 +8779,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 130,
@@ -8288,7 +8853,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 131,
@@ -8343,7 +8910,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 132,
@@ -8385,7 +8961,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 133,
@@ -8427,7 +9005,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 134,
@@ -8480,7 +9065,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 135,
@@ -8581,10 +9175,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -8643,10 +9239,25 @@
 			"wiki_pages": [
 				"1RB1LF_0RC1RD_1LA1LD_1LE0RA_---1LC_0LA1LA"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -8690,7 +9301,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 138,
@@ -8732,7 +9345,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 139,
@@ -8790,7 +9405,14 @@
 				"1RB1RA_1LC0RC_---0LD_0LE0LF_1RE0RA_0LF1LB",
 				"1RB1RA_1LC0RC_---0LD_0LE0RF_1RE0RA_0LF1LB"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 140,
@@ -8832,7 +9454,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 141,
@@ -8874,7 +9498,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 142,
@@ -8929,7 +9555,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 143,
@@ -8984,7 +9612,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 144,
@@ -9026,7 +9656,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 145,
@@ -9081,7 +9713,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 146,
@@ -9136,7 +9770,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 147,
@@ -9178,7 +9814,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 148,
@@ -9234,7 +9872,14 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 149,
@@ -9276,7 +9921,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 150,
@@ -9354,7 +10001,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 151,
@@ -9396,7 +10045,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 152,
@@ -9451,7 +10102,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 153,
@@ -9506,7 +10159,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 154,
@@ -9561,7 +10216,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564553648946815017",
+					"date": "2026-10-27"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 155,
@@ -9603,7 +10267,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 156,
@@ -9686,7 +10357,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 157,
@@ -9728,7 +10401,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 158,
@@ -9783,7 +10458,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 159,
@@ -9825,7 +10502,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 160,
@@ -9881,7 +10560,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 161,
@@ -9923,7 +10604,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 162,
@@ -9965,7 +10648,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 163,
@@ -10020,7 +10705,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 164,
@@ -10283,7 +10970,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 165,
@@ -10338,7 +11027,21 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1559363935541534723",
+					"date": "2026-10-13"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 166,
@@ -10393,7 +11096,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 167,
@@ -10448,7 +11153,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 168,
@@ -10490,7 +11197,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 169,
@@ -10532,7 +11241,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 170,
@@ -10574,7 +11285,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 171,
@@ -10657,7 +11370,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 172,
@@ -10699,7 +11414,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 173,
@@ -10755,7 +11472,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 174,
@@ -10797,7 +11516,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 175,
@@ -10839,7 +11560,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 176,
@@ -10881,7 +11604,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 177,
@@ -10934,7 +11659,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1557025952217833632",
+					"date": "2026-10-06"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560646468002517235",
+					"date": "2026-10-16"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 178,
@@ -10989,7 +11729,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 179,
@@ -11033,7 +11775,9 @@
 			"wiki_pages": [
 				"1RB0RE_1LC1LD_0RA0LD_1LB0LA_1RF1RA_---1LB"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 180,
@@ -11082,7 +11826,9 @@
 			"wiki_pages": [
 				"1RB0LB_1LC0RE_1LA1LD_0LC---_0RB0RF_1RE1RB"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 181,
@@ -11148,10 +11894,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Proof ready, PR soon"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof ready, PR soon\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -11195,7 +11943,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 183,
@@ -11251,7 +12001,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 184,
@@ -11293,7 +12045,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 185,
@@ -11337,7 +12091,14 @@
 			"wiki_pages": [
 				"1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 186,
@@ -11386,10 +12147,19 @@
 			"wiki_pages": [
 				"1RB0LD_1LC0RA_1RA1LB_1LA1LE_1RF0LC_---0RE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -11433,7 +12203,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 188,
@@ -11475,7 +12247,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 189,
@@ -11517,10 +12291,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -11564,7 +12340,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 191,
@@ -11647,7 +12425,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 192,
@@ -11689,7 +12469,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 193,
@@ -11731,7 +12513,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 194,
@@ -11773,7 +12557,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 195,
@@ -11815,7 +12601,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 196,
@@ -11870,7 +12658,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 197,
@@ -11912,7 +12702,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 198,
@@ -11961,7 +12753,9 @@
 			"wiki_pages": [
 				"1RB0RB_1LC1RE_1LF0LD_1RA1LD_1RC1RB_---1LC"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 199,
@@ -12014,7 +12808,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1557025952217833632",
+					"date": "2026-10-06"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560646468002517235",
+					"date": "2026-10-16"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 200,
@@ -12056,7 +12865,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 201,
@@ -12121,7 +12932,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 202,
@@ -12181,7 +12994,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 203,
@@ -12223,7 +13038,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 204,
@@ -12265,7 +13082,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 205,
@@ -12320,7 +13139,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 206,
@@ -12483,7 +13304,14 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 207,
@@ -12578,7 +13406,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 208,
@@ -12634,7 +13464,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 209,
@@ -12717,7 +13549,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 210,
@@ -12759,7 +13593,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 211,
@@ -12801,7 +13637,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 212,
@@ -12845,7 +13683,14 @@
 			"wiki_pages": [
 				"1RB1RD_1LC0LE_1RA0LB_1RA1RF_0RA0RC_1RE---"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 213,
@@ -12911,7 +13756,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 214,
@@ -12953,7 +13800,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 215,
@@ -12997,7 +13846,14 @@
 			"wiki_pages": [
 				"1RB0LE_1RC1RB_1RD0RA_0RE---_1LF1LA_1LA1LF"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 216,
@@ -13063,7 +13919,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 217,
@@ -13105,7 +13963,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 218,
@@ -13147,7 +14007,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 219,
@@ -13224,7 +14086,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 220,
@@ -13266,7 +14130,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 221,
@@ -13308,7 +14174,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 222,
@@ -13350,7 +14218,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 223,
@@ -13428,7 +14298,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 224,
@@ -13484,7 +14356,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 225,
@@ -13567,7 +14441,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 226,
@@ -13793,7 +14669,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 227,
@@ -13837,7 +14715,9 @@
 			"wiki_pages": [
 				"1RB0LC_1RC1RA_1RD0RF_0LE---_1LA1LE_0RA1RF"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 228,
@@ -13892,7 +14772,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 229,
@@ -13934,7 +14816,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 230,
@@ -14017,7 +14901,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 231,
@@ -14078,7 +14964,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 232,
@@ -14120,7 +15008,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 233,
@@ -14162,7 +15052,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 234,
@@ -14204,7 +15096,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 235,
@@ -14246,7 +15140,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 236,
@@ -14288,7 +15184,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 237,
@@ -14357,7 +15255,7 @@
 						"state": "closed",
 						"relation": "proves",
 						"files": [
-							"Eqv326408.v"
+							"EdgeTM617.v"
 						]
 					}
 				],
@@ -14381,7 +15279,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 238,
@@ -14499,7 +15399,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564553648946815017",
+					"date": "2026-10-27"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 239,
@@ -14554,7 +15463,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 240,
@@ -14596,7 +15507,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 241,
@@ -14669,7 +15582,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 242,
@@ -14824,7 +15739,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 243,
@@ -14889,7 +15806,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 244,
@@ -14931,7 +15850,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 245,
@@ -14986,10 +15907,25 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562849331520864276",
+					"date": "2026-10-22"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565230636741169234",
+					"date": "2026-10-29"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -15033,7 +15969,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 247,
@@ -15098,7 +16036,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 248,
@@ -15140,7 +16080,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 249,
@@ -15182,7 +16124,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 250,
@@ -15237,7 +16181,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 251,
@@ -15279,7 +16225,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 252,
@@ -15321,7 +16269,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 253,
@@ -15374,7 +16324,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 254,
@@ -15429,7 +16381,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 255,
@@ -15495,10 +16449,19 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Proof ready, PR soon"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof ready, PR soon\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -15542,7 +16505,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 257,
@@ -15584,7 +16549,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 258,
@@ -15639,7 +16606,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 259,
@@ -15694,7 +16663,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 260,
@@ -15749,7 +16720,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 261,
@@ -15791,7 +16764,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 262,
@@ -15833,7 +16808,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 263,
@@ -15875,7 +16852,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 264,
@@ -15954,10 +16933,25 @@
 			"wiki_pages": [
 				"1RB1RD_0LC1RA_1RA1LC_0RB1LE_1RF0LD_---0RE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -16001,7 +16995,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 266,
@@ -16043,7 +17039,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 267,
@@ -16085,7 +17083,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 268,
@@ -16151,7 +17151,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 269,
@@ -16193,7 +17195,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 270,
@@ -16235,7 +17239,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 271,
@@ -16277,7 +17290,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 272,
@@ -16319,7 +17334,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 273,
@@ -16361,7 +17378,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 274,
@@ -16416,7 +17435,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 275,
@@ -16471,7 +17492,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 276,
@@ -16536,7 +17559,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 277,
@@ -16578,7 +17603,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 278,
@@ -16631,10 +17658,19 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Proof ready, PR soon"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof ready, PR soon\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -16696,7 +17732,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 280,
@@ -16738,7 +17776,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 281,
@@ -16828,7 +17868,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 282,
@@ -16883,7 +17925,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 283,
@@ -16955,7 +18006,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1552360341407801457",
+					"date": "2026-09-23"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 284,
@@ -16999,7 +18059,9 @@
 			"wiki_pages": [
 				"1RB0LC_0LC0RF_1RD1LC_0RA1LE_---0LD_1LF1LA"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 285,
@@ -17041,7 +18103,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 286,
@@ -17083,7 +18147,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 287,
@@ -17125,7 +18191,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 288,
@@ -17169,7 +18237,14 @@
 			"wiki_pages": [
 				"1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 289,
@@ -17234,7 +18309,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 290,
@@ -17276,7 +18353,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 291,
@@ -17318,7 +18397,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 292,
@@ -17373,7 +18454,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 293,
@@ -17415,7 +18498,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 294,
@@ -17470,7 +18555,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 295,
@@ -17512,7 +18599,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 296,
@@ -17554,7 +18643,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 297,
@@ -17596,7 +18687,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 298,
@@ -17651,7 +18744,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 299,
@@ -17693,7 +18788,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 300,
@@ -17753,7 +18850,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 301,
@@ -17795,7 +18894,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 302,
@@ -17855,7 +18956,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 303,
@@ -17910,7 +19013,27 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566293610503340184",
+					"date": "2026-11-01"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 304,
@@ -17952,7 +19075,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 305,
@@ -18018,7 +19143,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 306,
@@ -18060,7 +19194,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 307,
@@ -18102,7 +19238,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 308,
@@ -18144,7 +19282,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 309,
@@ -18199,7 +19339,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 310,
@@ -18254,7 +19396,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 311,
@@ -18296,7 +19440,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 312,
@@ -18386,7 +19532,14 @@
 			"wiki_pages": [
 				"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RC---"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 313,
@@ -18428,7 +19581,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 314,
@@ -18484,10 +19639,25 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560927768202584064",
+					"date": "2026-10-17"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -18531,7 +19701,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 316,
@@ -18663,7 +19835,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 317,
@@ -18707,10 +19881,19 @@
 			"wiki_pages": [
 				"1RB1RE_1LC0RA_1RD0LB_1LB1RC_1LF0RD_---0LE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -18767,7 +19950,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 319,
@@ -18809,7 +19994,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 320,
@@ -18853,7 +20040,16 @@
 			"wiki_pages": [
 				"1RB1LE_0LC0LB_1RD1LC_1RD1RA_1RF0LA_---1RE"
 			],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562849331520864276",
+					"date": "2026-10-22"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 321,
@@ -18895,7 +20091,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 322,
@@ -18950,7 +20148,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 323,
@@ -18994,10 +20194,37 @@
 			"wiki_pages": [
 				"1RB0LF_1RC1RA_0RD0RB_1LE---_0LA1LE_1RD1LA"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562580519986794497",
+					"date": "2026-10-21"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562597144513478748",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -19041,7 +20268,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 325,
@@ -19090,7 +20319,16 @@
 			"wiki_pages": [
 				"1RB1LD_1RC1RE_0LA1LB_0LD1LC_1RF0RA_---0RC"
 			],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560361125713805313",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 326,
@@ -19132,7 +20370,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1552399839269224498",
+					"date": "2026-09-23"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1552523939291471882",
+					"date": "2026-09-24"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 327,
@@ -19187,7 +20440,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 328,
@@ -19229,7 +20484,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 329,
@@ -19271,7 +20528,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 330,
@@ -19324,7 +20583,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 331,
@@ -19366,7 +20627,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565557844869382316",
+					"date": "2026-10-30"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 332,
@@ -19408,7 +20684,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 333,
@@ -19450,7 +20728,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 334,
@@ -19492,7 +20772,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 335,
@@ -19534,7 +20816,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 336,
@@ -19576,7 +20860,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 337,
@@ -19618,7 +20904,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 338,
@@ -19673,7 +20961,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 339,
@@ -19728,7 +21018,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 340,
@@ -19770,7 +21062,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 341,
@@ -19812,7 +21106,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 342,
@@ -19867,7 +21163,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 343,
@@ -19920,10 +21218,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Proof ready, PR soon"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof ready, PR soon\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -19984,7 +21284,7 @@
 						"title": "Add CTL-guarded halting equivalence for BB6 snapshot pair 363/470",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
 							"Eqv363470.v"
 						]
@@ -20002,7 +21302,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 345,
@@ -20057,7 +21359,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 346,
@@ -20099,7 +21403,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 347,
@@ -20141,7 +21447,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 348,
@@ -20183,7 +21491,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 349,
@@ -20238,7 +21548,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 350,
@@ -20280,10 +21592,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -20386,7 +21700,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 352,
@@ -20442,7 +21758,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 353,
@@ -20484,7 +21802,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 354,
@@ -20526,7 +21851,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 355,
@@ -20568,7 +21895,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 356,
@@ -20652,7 +21981,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 357,
@@ -20707,7 +22038,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 358,
@@ -20749,7 +22082,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 359,
@@ -20791,7 +22126,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 360,
@@ -20833,7 +22170,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 361,
@@ -20875,7 +22214,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 362,
@@ -20917,7 +22258,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 363,
@@ -20959,7 +22302,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 364,
@@ -21001,7 +22346,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 365,
@@ -21066,7 +22413,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 366,
@@ -21110,10 +22459,12 @@
 			"wiki_pages": [
 				"1RB1LA_1LC0RE_1LF1LD_0RB0LA_1RC1RE_---0LD"
 			],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -21157,7 +22508,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 368,
@@ -21224,7 +22577,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 369,
@@ -21268,7 +22623,9 @@
 			"wiki_pages": [
 				"1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 370,
@@ -21340,7 +22697,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564553648946815017",
+					"date": "2026-10-27"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 371,
@@ -21382,7 +22748,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 372,
@@ -21437,7 +22805,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 373,
@@ -21492,7 +22862,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 374,
@@ -21545,10 +22917,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Proof ready, PR soon"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof ready, PR soon\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -21603,7 +22977,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 376,
@@ -21645,7 +23028,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 377,
@@ -21703,7 +23088,14 @@
 				"1RB0LC_1RC1RE_1LA0LD_0RB0RA_1RB1RF_1RD---",
 				"1RB1RF_1RC1RA_1LD0LE_1RB0LC_0RB0RD_1RE---"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 378,
@@ -21745,7 +23137,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 379,
@@ -21827,7 +23221,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 380,
@@ -21869,7 +23265,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 381,
@@ -21911,7 +23309,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 382,
@@ -21953,7 +23353,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 383,
@@ -21997,10 +23399,19 @@
 			"wiki_pages": [
 				"1RB1RE_1LC0RA_0RD1LB_---1RC_1LF1RE_0LB0LE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -22057,7 +23468,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 385,
@@ -22110,7 +23523,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 386,
@@ -22182,7 +23604,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 387,
@@ -22224,7 +23648,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 388,
@@ -22266,7 +23692,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 389,
@@ -22332,7 +23760,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 390,
@@ -22374,7 +23804,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 391,
@@ -22416,7 +23848,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 392,
@@ -22494,7 +23928,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 393,
@@ -22536,7 +23972,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 394,
@@ -22578,7 +24016,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 395,
@@ -22622,7 +24062,27 @@
 			"wiki_pages": [
 				"1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE"
 			],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1552693650369024132",
+					"date": "2026-09-24"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 396,
@@ -22729,7 +24189,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 397,
@@ -22771,7 +24233,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 398,
@@ -22813,7 +24277,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 399,
@@ -22857,10 +24323,19 @@
 			"wiki_pages": [
 				"1RB1LE_1LC0RA_0RF0LD_1LE1LA_1RC0LB_---1RC"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -22927,10 +24402,25 @@
 			"wiki_pages": [
 				"1RB1RD_0LC1RA_0RA1LC_1RA1LE_1RF0LD_---0RE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -22985,7 +24475,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 402,
@@ -23027,7 +24526,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 403,
@@ -23069,7 +24570,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 404,
@@ -23124,7 +24627,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 405,
@@ -23166,7 +24671,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 406,
@@ -23234,7 +24741,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 407,
@@ -23276,7 +24785,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 408,
@@ -23318,7 +24829,14 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 409,
@@ -23360,7 +24878,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 410,
@@ -23402,7 +24922,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 411,
@@ -23444,7 +24966,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 412,
@@ -23488,7 +25012,9 @@
 			"wiki_pages": [
 				"1RB1RE_1LC1LD_---1LA_1LB1LE_0RF0RA_1LD1RF"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 413,
@@ -23530,7 +25056,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 414,
@@ -23583,7 +25111,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 415,
@@ -23625,7 +25162,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 416,
@@ -23740,7 +25279,51 @@
 			"wiki_pages": [
 				"1RB1LA_1RC0RF_1RD---_0LE1RB_---0LA_1LD1RF"
 			],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558654629821157499",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558671274044166164",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558671475999772775",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1563107175604166686",
+					"date": "2026-10-23"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1563107516202614835",
+					"date": "2026-10-23"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 417,
@@ -23782,7 +25365,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 418,
@@ -23837,7 +25422,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 419,
@@ -23879,7 +25466,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565557844869382316",
+					"date": "2026-10-30"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 420,
@@ -23938,9 +25540,10 @@
 						"title": "Prove BB6 holdout equivalence 759/808 with a counted-language invariant",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv464572.v"
+							"Eqv464572.v",
+							"Eqv464572/Frozen464Indexed.v"
 						]
 					},
 					{
@@ -23948,9 +25551,10 @@
 						"title": "Prove BB6 holdout equivalence 582/637 with a regular invariant",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv464572.v"
+							"Eqv464572.v",
+							"Eqv464572/Frozen464Indexed.v"
 						]
 					},
 					{
@@ -23958,9 +25562,10 @@
 						"title": "Prove BB6 equivalence 326/408 via a published intermediate machine",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv464572.v"
+							"Eqv464572.v",
+							"Eqv464572/Frozen464Indexed.v"
 						]
 					},
 					{
@@ -23968,9 +25573,10 @@
 						"title": "Add indexed regular invariants and BB6 equivalence 464/572",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv464572.v"
+							"Eqv464572.v",
+							"Eqv464572/Frozen464Indexed.v"
 						]
 					}
 				],
@@ -23985,7 +25591,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 421,
@@ -24027,7 +25635,63 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688456382939268",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560690690256674958",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565557844869382316",
+					"date": "2026-10-30"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565557973680529438",
+					"date": "2026-10-30"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566293879676731392",
+					"date": "2026-11-01"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566313496243601419",
+					"date": "2026-11-01"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567243458257617037",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 422,
@@ -24071,7 +25735,14 @@
 			"wiki_pages": [
 				"1RB0RE_1RC0RC_1LD---_0LB1LE_1RF0LD_1RA1RF"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 423,
@@ -24126,7 +25797,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 424,
@@ -24168,7 +25841,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 425,
@@ -24245,7 +25920,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 426,
@@ -24287,7 +25964,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 427,
@@ -24329,7 +26008,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 428,
@@ -24371,7 +26052,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 429,
@@ -24413,7 +26096,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 430,
@@ -24466,7 +26151,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 431,
@@ -24508,7 +26195,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 432,
@@ -24575,7 +26264,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 433,
@@ -24628,7 +26319,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 434,
@@ -24696,7 +26396,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 435,
@@ -24828,7 +26530,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 436,
@@ -24883,7 +26587,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 437,
@@ -24925,7 +26631,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 438,
@@ -24967,7 +26675,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 439,
@@ -25009,7 +26719,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 440,
@@ -25051,7 +26763,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 441,
@@ -25095,7 +26809,14 @@
 			"wiki_pages": [
 				"1RB0RB_1LC---_0LA1LD_1RE0LC_1RF1RE_1RA0RD"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 442,
@@ -25154,8 +26875,9 @@
 						"title": "Add four BB6 equivalences using regular reachability invariants",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
+							"EqvRegularPairs/Pair439/Frozen439.v",
 							"EqvRegularPairs/Pair439_600.v"
 						]
 					}
@@ -25171,7 +26893,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 443,
@@ -25213,7 +26937,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 444,
@@ -25279,7 +27005,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 445,
@@ -25356,10 +27084,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -25416,7 +27146,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 447,
@@ -25458,7 +27190,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 448,
@@ -25524,7 +27258,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 449,
@@ -25599,7 +27335,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 450,
@@ -25641,7 +27379,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 451,
@@ -25729,7 +27476,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 452,
@@ -25822,7 +27571,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 453,
@@ -25864,7 +27615,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 454,
@@ -25925,7 +27678,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 455,
@@ -25990,7 +27745,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 456,
@@ -26032,7 +27789,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 457,
@@ -26098,7 +27857,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 458,
@@ -26154,7 +27915,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 459,
@@ -26198,10 +27961,31 @@
 			"wiki_pages": [
 				"1RB1LA_1LC0RE_1LF1LD_1RE0LC_1LB1RA_---0LA"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565230636741169234",
+					"date": "2026-10-29"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -26274,7 +28058,22 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565315101626605571",
+					"date": "2026-10-29"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565345634771271704",
+					"date": "2026-10-29"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 461,
@@ -26316,7 +28115,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 462,
@@ -26358,7 +28159,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 463,
@@ -26413,7 +28216,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1564553648946815017",
+					"date": "2026-10-27"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 464,
@@ -26455,10 +28267,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -26502,7 +28316,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 466,
@@ -26575,7 +28391,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 467,
@@ -26630,7 +28448,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 468,
@@ -26672,7 +28492,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 469,
@@ -26714,7 +28536,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 470,
@@ -26777,9 +28601,10 @@
 						"title": "Prove BB6 holdout equivalence 582/637 with a regular invariant",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv582637.v"
+							"Eqv582637.v",
+							"Eqv582637/Frozen582.v"
 						]
 					}
 				],
@@ -26802,10 +28627,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -26860,10 +28687,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#55); slugbird's guide (November 3, 2026) says: Rules known, no proof"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Rules known, no proof\"; busycoq now has an open PR (#55)"
 				}
 			]
 		},
@@ -26907,7 +28736,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 473,
@@ -26980,7 +28811,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 474,
@@ -27022,7 +28855,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 475,
@@ -27064,7 +28899,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 476,
@@ -27106,7 +28943,27 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1566293610503340184",
+					"date": "2026-11-01"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 477,
@@ -27148,7 +29005,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 478,
@@ -27203,10 +29062,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -27250,7 +29111,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 480,
@@ -27292,7 +29155,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 481,
@@ -27334,7 +29199,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 482,
@@ -27390,7 +29257,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 483,
@@ -27455,10 +29324,25 @@
 			"wiki_pages": [
 				"1RB1LE_1RC1RA_0LD1RB_1LE1LD_1RF0LA_---0RE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -27516,7 +29400,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 485,
@@ -27558,7 +29444,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 486,
@@ -27600,7 +29488,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 487,
@@ -27655,7 +29545,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 488,
@@ -27697,7 +29589,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 489,
@@ -27739,7 +29633,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 490,
@@ -27783,7 +29679,14 @@
 			"wiki_pages": [
 				"1RB0LF_1RC1RB_1RD0RA_1RE0RE_1LF---_0LD1LA"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 491,
@@ -27825,7 +29728,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 492,
@@ -27881,7 +29786,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 493,
@@ -27923,7 +29830,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 494,
@@ -27965,7 +29874,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 495,
@@ -28075,7 +29986,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 496,
@@ -28140,7 +30053,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 497,
@@ -28189,7 +30104,16 @@
 			"wiki_pages": [
 				"1RB0LD_1RC1RF_1LA0RA_0LA0LE_1LD1LA_0RB---"
 			],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560361125713805313",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 498,
@@ -28294,7 +30218,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 499,
@@ -28389,7 +30315,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 500,
@@ -28445,7 +30373,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 501,
@@ -28487,7 +30417,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 502,
@@ -28531,7 +30463,14 @@
 			"wiki_pages": [
 				"1RB1RC_1RC1RB_1LD0RA_1LE1LD_1LF0LC_0LA---"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 503,
@@ -28575,10 +30514,19 @@
 			"wiki_pages": [
 				"1RB0RF_1RC1RF_1LD0LE_---1LC_1RA1LE_1LC1RB"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -28636,7 +30584,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 505,
@@ -28702,7 +30652,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 506,
@@ -28744,7 +30696,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 507,
@@ -28786,7 +30740,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 508,
@@ -28828,7 +30784,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 509,
@@ -28870,7 +30828,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 510,
@@ -28912,7 +30872,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 511,
@@ -28954,7 +30916,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 512,
@@ -29026,7 +30990,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 513,
@@ -29068,7 +31034,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 514,
@@ -29150,7 +31118,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 515,
@@ -29192,7 +31162,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 516,
@@ -29234,7 +31206,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 517,
@@ -29276,7 +31250,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 518,
@@ -29318,7 +31294,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 519,
@@ -29360,7 +31338,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 520,
@@ -29404,10 +31384,19 @@
 			"wiki_pages": [
 				"1RB1RF_1LC1LF_0RE1LD_0LB1LD_---1RC_1RA0RD"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -29451,7 +31440,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 522,
@@ -29570,10 +31561,43 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "slugbird-pr",
-					"detail": "slugbird's guide points to PR #40, but that PR's files do not contain a completed proof of it"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558654629821157499",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558671475999772775",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560295346536583349",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1563107175604166686",
+					"date": "2026-10-23"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1563107820390322278",
+					"date": "2026-10-23"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\" and points to PR #40; busycoq has no proof and no open PR (PR #40 only mentions it)"
 				}
 			]
 		},
@@ -29617,7 +31641,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 524,
@@ -29661,10 +31694,31 @@
 			"wiki_pages": [
 				"1RB1RC_1LC1LC_1RE0LD_1LB1RF_---1RA_0RD1RD"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565230636741169234",
+					"date": "2026-10-29"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -29723,10 +31777,19 @@
 			"wiki_pages": [
 				"1RB1RF_0LC0RF_1RD1LC_---0LE_0RC1LF_1RA0LE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -29770,7 +31833,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 527,
@@ -29812,7 +31877,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 528,
@@ -29878,7 +31945,16 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1567184717650862173",
+					"date": "2026-11-03"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 529,
@@ -29970,7 +32046,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 530,
@@ -30012,7 +32090,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 531,
@@ -30067,7 +32147,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 532,
@@ -30109,7 +32191,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 533,
@@ -30151,7 +32235,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 534,
@@ -30214,9 +32300,11 @@
 						"title": "Prove BB6 holdout equivalence 759/808 with a counted-language invariant",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv220723.v"
+							"Eqv220723.v",
+							"Eqv220723/Frozen220.v",
+							"Eqv220723/Pair220.v"
 						]
 					},
 					{
@@ -30224,9 +32312,11 @@
 						"title": "Prove BB6 holdout equivalence 582/637 with a regular invariant",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv220723.v"
+							"Eqv220723.v",
+							"Eqv220723/Frozen220.v",
+							"Eqv220723/Pair220.v"
 						]
 					},
 					{
@@ -30234,9 +32324,11 @@
 						"title": "Prove BB6 equivalence 326/408 via a published intermediate machine",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv220723.v"
+							"Eqv220723.v",
+							"Eqv220723/Frozen220.v",
+							"Eqv220723/Pair220.v"
 						]
 					},
 					{
@@ -30244,9 +32336,11 @@
 						"title": "Add indexed regular invariants and BB6 equivalence 464/572",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv220723.v"
+							"Eqv220723.v",
+							"Eqv220723/Frozen220.v",
+							"Eqv220723/Pair220.v"
 						]
 					},
 					{
@@ -30254,9 +32348,11 @@
 						"title": "Add four BB6 equivalences using regular reachability invariants",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv220723.v"
+							"Eqv220723.v",
+							"Eqv220723/Frozen220.v",
+							"Eqv220723/Pair220.v"
 						]
 					},
 					{
@@ -30264,9 +32360,11 @@
 						"title": "Add halt-tolerant regular invariants and BB6 equivalence 220/723",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv220723.v"
+							"Eqv220723.v",
+							"Eqv220723/Frozen220.v",
+							"Eqv220723/Pair220.v"
 						]
 					}
 				],
@@ -30289,7 +32387,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 535,
@@ -30331,7 +32431,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 536,
@@ -30375,7 +32477,9 @@
 			"wiki_pages": [
 				"1RB0LD_1RC1RA_1LD0RB_1LE1LA_1RF0RC_---1RE"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 537,
@@ -30417,7 +32521,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 538,
@@ -30461,7 +32567,14 @@
 			"wiki_pages": [
 				"1RB1RA_1RC0RF_1RD0RD_1LE---_0LC1LF_1RA0LE"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 539,
@@ -30527,7 +32640,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 540,
@@ -30569,7 +32684,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 541,
@@ -30611,7 +32728,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 542,
@@ -30679,7 +32798,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 543,
@@ -30721,7 +32842,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 544,
@@ -30763,7 +32886,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 545,
@@ -30805,7 +32930,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 546,
@@ -30847,7 +32974,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 547,
@@ -30889,7 +33018,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 548,
@@ -30933,10 +33064,31 @@
 			"wiki_pages": [
 				"1RB1RB_1LC0RE_---1LD_0RA1LB_1RA1LF_0LE1LE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565230636741169234",
+					"date": "2026-10-29"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -31030,7 +33182,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 550,
@@ -31072,7 +33226,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 551,
@@ -31125,10 +33281,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#57); slugbird's guide (November 3, 2026) says: Rules known, no proof"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Rules known, no proof\"; busycoq now has an open PR (#57)"
 				}
 			]
 		},
@@ -31172,7 +33330,22 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560688703855267871",
+					"date": "2026-10-16"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1565656577178992651",
+					"date": "2026-10-30"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 553,
@@ -31214,7 +33387,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 554,
@@ -31256,7 +33431,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 555,
@@ -31298,7 +33475,16 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1555244959840337973",
+					"date": "2026-10-01"
+				}
+			],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 556,
@@ -31357,8 +33543,9 @@
 						"title": "Add four BB6 equivalences using regular reachability invariants",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
+							"EqvRegularPairs/Pair3/Frozen3.v",
 							"EqvRegularPairs/Pair3_751.v"
 						]
 					}
@@ -31374,7 +33561,14 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+				}
+			]
 		},
 		{
 			"n": 557,
@@ -31416,7 +33610,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 558,
@@ -31502,10 +33698,12 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-pr",
-					"detail": "slugbird's guide points to PR #40, but that PR's files do not contain a completed proof of it"
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\" and points to PR #40; busycoq has no proof and no open PR (PR #40 only mentions it)"
 				}
 			]
 		},
@@ -31624,10 +33822,31 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "slugbird-pr",
-					"detail": "slugbird's guide points to PR #40, but that PR's files do not contain a completed proof of it"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558654629821157499",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1558671475999772775",
+					"date": "2026-10-11"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1563107175604166686",
+					"date": "2026-10-23"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "unverified",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\" and points to PR #40; busycoq has no proof and no open PR (PR #40 only mentions it)"
 				}
 			]
 		},
@@ -31671,7 +33890,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 561,
@@ -31713,7 +33934,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 562,
@@ -31755,7 +33978,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 563,
@@ -31820,7 +34045,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 564,
@@ -31875,7 +34102,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 565,
@@ -31919,10 +34148,25 @@
 			"wiki_pages": [
 				"1RB0LF_1LC1RA_0RE0RD_---1LE_1LF1RC_1LC1LA"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376168253755473",
+					"date": "2026-10-15"
+				},
+				{
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1562517603916841121",
+					"date": "2026-10-21"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -31966,7 +34210,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 567,
@@ -32061,7 +34307,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 568,
@@ -32150,8 +34398,9 @@
 						"title": "Add four BB6 equivalences using regular reachability invariants",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
+							"EqvRegularPairs/Pair70/Frozen70.v",
 							"EqvRegularPairs/Pair70_223.v"
 						]
 					}
@@ -32187,7 +34436,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 569,
@@ -32231,7 +34482,9 @@
 			"wiki_pages": [
 				"1RB0RD_0RC1RE_1RD0LA_1LE1LC_1RF0LD_---0RA"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 570,
@@ -32273,7 +34526,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 571,
@@ -32315,7 +34570,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 572,
@@ -32357,7 +34614,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 573,
@@ -32401,10 +34660,19 @@
 			"wiki_pages": [
 				"1RB1LC_1RC0LD_1LA0RB_1LB1LE_1RF0LA_---0RE"
 			],
-			"conflicts": [
+			"discord": [
 				{
-					"kind": "cryptid",
-					"detail": "slugbird's guide says cryptid; the sheet does not"
+					"channel_id": "1239205785913790465",
+					"channel": "bb6",
+					"message": "1560376720362573968",
+					"date": "2026-10-15"
+				}
+			],
+			"conflicts": [],
+			"notes": [
+				{
+					"kind": "one-source",
+					"detail": "slugbird's guide (November 3, 2026) calls it a cryptid; the sheet (built on an older list) does not mark it"
 				}
 			]
 		},
@@ -32459,7 +34727,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 575,
@@ -32539,7 +34809,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 576,
@@ -32581,7 +34853,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 577,
@@ -32637,7 +34911,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 578,
@@ -32679,7 +34955,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 579,
@@ -32721,7 +34999,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 580,
@@ -32763,7 +35043,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 581,
@@ -32805,7 +35087,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 582,
@@ -32847,7 +35131,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 583,
@@ -32922,7 +35208,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 584,
@@ -32964,7 +35252,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 585,
@@ -33006,7 +35296,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 586,
@@ -33048,7 +35340,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 587,
@@ -33090,7 +35384,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 588,
@@ -33155,7 +35451,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 589,
@@ -33197,7 +35495,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 590,
@@ -33239,7 +35539,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 591,
@@ -33288,7 +35590,9 @@
 			"wiki_pages": [
 				"1RB1RC_1LC1LE_1RA1RD_0RF0RE_1LA0LB_---1RA"
 			],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 592,
@@ -33330,7 +35634,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 593,
@@ -33372,7 +35678,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 594,
@@ -33449,7 +35757,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 595,
@@ -33505,7 +35815,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 596,
@@ -33547,7 +35859,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 597,
@@ -33589,7 +35903,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 598,
@@ -33649,7 +35965,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 599,
@@ -33691,7 +36009,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 600,
@@ -33733,7 +36053,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 601,
@@ -33792,9 +36114,10 @@
 						"title": "Prove BB6 holdout equivalence 759/808 with a counted-language invariant",
 						"author": "mira-quine",
 						"state": "closed",
-						"relation": "proves",
+						"relation": "mentions",
 						"files": [
-							"Eqv759808.v"
+							"Eqv759808.v",
+							"Eqv759808/Frozen759.v"
 						]
 					}
 				],
@@ -33809,7 +36132,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 602,
@@ -33851,7 +36176,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 603,
@@ -33904,7 +36231,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 604,
@@ -33946,7 +36275,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 605,
@@ -33988,7 +36319,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 606,
@@ -34030,7 +36363,9 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		},
 		{
 			"n": 607,
@@ -34083,10 +36418,12 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
-			"conflicts": [
+			"discord": [],
+			"conflicts": [],
+			"notes": [
 				{
-					"kind": "slugbird-status",
-					"detail": "busycoq has an open PR for it (#56); slugbird's guide (November 3, 2026) says: Reported by others"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq now has an open PR (#56)"
 				}
 			]
 		},
@@ -34153,7 +36490,9 @@
 				]
 			},
 			"wiki_pages": [],
-			"conflicts": []
+			"discord": [],
+			"conflicts": [],
+			"notes": []
 		}
 	]
 }

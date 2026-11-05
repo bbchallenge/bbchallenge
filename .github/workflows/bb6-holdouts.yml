@@ -1,0 +1,65 @@
+# Refreshes the data behind /bb6 (busycoq proofs and PRs, wiki pages) and opens a pull request when it changed.
+#
+# Needs no secrets: it uses the workflow's own GITHUB_TOKEN, and the repository setting
+#   Settings > Actions > General > Workflow permissions > "Allow GitHub Actions to create and approve pull requests".
+# It does not touch the official list, Robin's sheet, slugbird's guide or the Discord links: those need a
+# person (see docs/bb6-holdouts.md). The page itself also checks busycoq live in the browser, so a day-old
+# snapshot only matters when GitHub is unreachable for a visitor.
+name: BB(6) holdouts data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *' # daily, 05:17 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bb6-holdouts-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    # forks have no use for this
+    if: github.repository == 'bbchallenge/bbchallenge'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BRANCH: bot/bb6-holdouts-data
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch busycoq and wiki snapshots
+        run: |
+          node scripts/bb6-holdouts/fetch-busycoq.mjs
+          node scripts/bb6-holdouts/fetch-wiki.mjs
+
+      - name: Rebuild static/bb6/holdouts.json and run the tests
+        run: |
+          node scripts/bb6-holdouts/build.mjs
+          node --test scripts/bb6-holdouts/test.mjs
+
+      - name: Open or update the data-update pull request
+        run: |
+          if git diff --quiet -- data static/bb6 src/lib/bb6/summary.json; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add data static/bb6 src/lib/bb6/summary.json
+          summary="$(node -e "const d=require('./static/bb6/holdouts.json');const c=d.counts.by_status;console.log('open '+c.open+', open PR '+c.pr_open+', solved '+c.solved+'; busycoq '+d.busycoq.head.sha.slice(0,7))")"
+          git commit -m "Update BB(6) holdouts data ($summary)"
+          git push --force origin "$BRANCH"
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')" ]; then
+            gh pr create --base "${{ github.event.repository.default_branch }}" --head "$BRANCH" \
+              --title "Update BB(6) holdouts data" \
+              --body "Automatic refresh of the busycoq and wiki snapshots behind /bb6, made by \`.github/workflows/bb6-holdouts.yml\` (\`scripts/bb6-holdouts\`). No generated or hand-written text: the data comes from busycoq, the wiki and fixed rules. Now: $summary. Review the diff of \`static/bb6/holdouts.json\`; see docs/bb6-holdouts.md."
+          fi

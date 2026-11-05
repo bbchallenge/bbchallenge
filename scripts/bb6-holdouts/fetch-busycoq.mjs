@@ -15,8 +15,8 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { keysInText } from '../../src/lib/bb6/tm_key.js';
-import { hasFinalTheorem } from '../../src/lib/bb6/busycoq_rules.js';
-import { SOURCES, ROOT, loadHoldouts, gh, readJSON } from './common.mjs';
+import { hasFinalTheorem, isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
+import { SOURCES, ROOT, loadHoldouts, gh, readJSON, writeSnapshot } from './common.mjs';
 
 const REPO = 'ccz181078/busycoq';
 const BRANCH = 'BB6';
@@ -96,7 +96,8 @@ for (const p of pulls) {
 				`https://raw.githubusercontent.com/${p.head.repo.full_name}/${p.head.sha}/${f.filename}`
 			).then((r) => (r.ok ? r.text() : ''));
 		} else continue;
-		const final = hasFinalTheorem(text);
+		// Eqv*.v files only say two machines are equivalent; their theorems are not proofs of halting behaviour.
+		const final = hasFinalTheorem(text) && !isEqvFile(f.filename);
 		for (const k of holdoutKeys(text)) {
 			const bucket = final ? added : mentionedInFiles;
 			(bucket.get(k) ?? bucket.set(k, []).get(k)).push(f.filename.replace(/^verify\//, ''));
@@ -127,7 +128,8 @@ const out = {
 	hits,
 	prs
 };
-fs.writeFileSync(new URL('busycoq.json', SOURCES), JSON.stringify(out, null, '\t') + '\n');
+const changed = writeSnapshot(new URL('busycoq.json', SOURCES), out);
+if (!changed) console.log('busycoq.json: sources unchanged, file kept');
 console.log(
 	`head ${head.sha.slice(0, 7)}; ${
 		Object.keys(hits).length
