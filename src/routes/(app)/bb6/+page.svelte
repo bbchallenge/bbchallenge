@@ -197,9 +197,9 @@
 		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
 			The 6-state, 2-symbol Turing machines whose halting status is still undecided, and so stand between us and the value
 			of <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>. For each one: its
-			behavioural class, whether
-			<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>
-			has a proof, how far it has been simulated, and links to its space-time diagram, spreadsheet row and Discord discussion.
+			behavioural class, whether it has a Rocq proof in mxdys’s
+			<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq repository</a>,
+			how far it has been simulated, its space-time diagram, and links to its spreadsheet row and Discord discussion.
 		</p>
 
 		<!-- numbers -->
@@ -280,9 +280,9 @@
 						(<a class="link" href="https://wiki.bbchallenge.org/wiki/Cryptids" rel="external">Cryptids</a>, e.g.
 						<a class="link" href="/antihydra">Antihydra</a>).
 					</dd>
-					<dt class="font-semibold">busycoq</dt>
+					<dt class="font-semibold">Proof status</dt>
 					<dd>
-						mxdys’s repository of Rocq proofs; a holdout leaves the list once its proof is merged.
+						Whether busycoq, mxdys’s repository of Rocq proofs, decides the machine; a holdout leaves the list once its proof is merged.
 						<strong>Proof in PR</strong>: a proof is in an unmerged pull request. <strong>Proved</strong>: merged since the
 						list was published.
 					</dd>
@@ -320,7 +320,7 @@
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
-				busycoq status
+				Proof status
 				<select bind:value={status} class="field">
 					<option value="all">All</option>
 					<option value="open">No proof</option>
@@ -354,7 +354,7 @@
 			<colgroup><col class="c-num" /><col class="c-tm" /><col class="c-cls" /><col class="c-st" /><col class="c-sim" /><col class="c-links" /></colgroup>
 			<thead>
 				<tr>
-					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'busycoq'], ['sim', 'Simulated']] as [k, label]}
+					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'Proof status'], ['sim', 'Simulated']] as [k, label]}
 						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : ascending ? 'ascending' : 'descending'}>
 							{#if k === 'tm'}{label}{:else}<button class="sort" title="Sort by {label === '#' ? 'list order' : label}" on:click={() => sortBy(k)}
 									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{ascending ? '▴' : '▾'}</span></button
@@ -398,7 +398,7 @@
 							{:else}<span class="muted">none</span>{/if}
 							{#if h.conflicts.length}<span class="warn" title={h.conflicts.map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 						</td>
-						<td data-label="busycoq">
+						<td data-label="Proof status">
 							{#if v.status === 'pr_open'}
 								{#each v.prs.filter((p) => p.relation === 'proves' && p.state === 'open') as p}
 									<a class="st st-pr_open" href={prUrl(p.number)} rel="external" title={p.title}>Proof in PR #{p.number}</a>
