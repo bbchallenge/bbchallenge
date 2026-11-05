@@ -172,7 +172,7 @@
 </svelte:head>
 
 <div class="dark w-full">
-	<div class="max-w-[1600px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
+	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
 		<h1 class="text-3xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
 		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
 			The 6-state, 2-symbol Turing machines whose halting status is still undecided, and so stand between us and the value
@@ -336,7 +336,7 @@
 		<!-- table -->
 		<table class="bb6 w-full text-base">
 			<caption class="sr-only">BB(6) holdouts</caption>
-			<colgroup><col class="c-num" /><col class="c-tm" /><col /><col class="c-st" /><col class="c-sim" /><col class="c-links" /></colgroup>
+			<colgroup><col class="c-num" /><col class="c-tm" /><col class="c-cls" /><col class="c-st" /><col class="c-sim" /><col class="c-links" /></colgroup>
 			<thead>
 				<tr>
 					<th scope="col">#</th>
@@ -389,17 +389,8 @@
 						<td data-label="Simulated">{#if sim}{sim.text}{:else}<span class="muted">unknown</span>{/if}</td>
 						<td data-label="Links" class="links">
 							<a class="link" href="/{h.tm}" rel="external">viewer</a>
-							<a class="link" href="https://fiery.pages.dev/turing/{h.tm}" rel="external">fiery</a>
 							{#each h.wiki_pages as p}<a class="link" href={WIKI + encodeURIComponent(p)} rel="external">wiki</a>{/each}
 							{#if h.site_page}<a class="link" href={h.site_page} rel="external">page</a>{/if}
-							{#if h.sheet?.cell}<a class="link" href={sheetCell(h.sheet.cell)} rel="external">sheet</a>{/if}
-							{#if h.discord.length}<a
-									class="link"
-									href={discordUrl(h.discord[h.discord.length - 1])}
-									rel="external"
-									title="Latest of {h.discord.length} Discord message{h.discord.length === 1 ? '' : 's'} mentioning it or an equivalent machine ({h.discord[h.discord.length - 1].date})"
-									>discord<span class="sr-only"> ({h.discord.length} messages)</span><span aria-hidden="true">·{h.discord.length}</span></a
-								>{/if}
 						</td>
 					</tr>
 					{#if expanded.has(h.n)}
@@ -463,6 +454,11 @@
 										{/if}
 									</section>
 									<section>
+										<h3>Links</h3>
+										<p class="links mb-3">
+											<a class="link" href="https://fiery.pages.dev/turing/{h.tm}" rel="external">fiery</a>
+											{#if h.sheet?.cell}<a class="link" href={sheetCell(h.sheet.cell)} rel="external">sheet row</a>{/if}
+										</p>
 										<h3>Equivalent machines</h3>
 										{#if h.aliases.length}
 											<ul class="font-mono text-xs">

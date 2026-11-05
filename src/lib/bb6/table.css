@@ -79,7 +79,7 @@
 	}
 }
 /* wide windows: fixed column widths, sized for the widest row of the whole list, so filtering
-   or sorting never moves the columns; Class takes what is left */
+   or sorting never moves the columns; spare width is shared between them */
 @media (min-width: 1360px) {
 	table.bb6 {
 		table-layout: fixed;
@@ -90,6 +90,9 @@
 	table.bb6 col.c-tm {
 		width: 26.5rem;
 	}
+	table.bb6 col.c-cls {
+		width: 18rem;
+	}
 	table.bb6 col.c-st {
 		width: 9.5rem;
 	}
@@ -97,6 +100,6 @@
 		width: 7rem;
 	}
 	table.bb6 col.c-links {
-		width: 24.5rem;
+		width: 11rem;
 	}
 }
