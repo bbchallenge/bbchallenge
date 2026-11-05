@@ -59,7 +59,12 @@
 	const tagList = Object.keys(tagInfo).filter((t) => tagCounts.has(t));
 	const named = holdouts.filter((h) => h.name);
 	const PARTS = ['pr_open', 'sim_halt', 'open'] as const;
-	const PART_LABEL = { pr_open: 'Rocq proof in an open PR', sim_halt: 'simulated to a halt', open: 'no proof yet' };
+	const PART_LABEL = { pr_open: 'in an open PR, awaiting merge', solved: 'merged since the list (off the count)', sim_halt: 'simulated to a halt', open: 'no proof yet' };
+	const GROUPS = [
+		{ label: 'Rocq proof', parts: ['pr_open', 'solved'] },
+		{ label: 'Informal', parts: ['sim_halt'] },
+		{ label: 'None', parts: ['open'] }
+	] as const;
 	// a row counts under every class some source gives it, as the Class filter matches
 	const classCount = new Map(classes.map((c) => [c, holdouts.filter((h) => h.classifications.some((x) => x.class === c)).length]));
 	// machines of the older base list decided since (hidden until opened)
@@ -256,7 +261,9 @@
 				<h1 class="text-3xl font-bold mb-2">BB(6) holdouts</h1>
 				<p class="text-gray-300 mb-6 max-w-[62ch]">
 					The 6-state, 2-symbol Turing machines still standing between us and
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>.
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>: each one’s class, its Rocq proof status in
+					<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>, simulation depth,
+					space-time diagram and links.
 				</p>
 
 				<!-- the latest list minus what busycoq has proved since, so it moves with each merge -->
@@ -266,9 +273,10 @@
 						<span class="text-xl font-semibold">holdouts left</span>
 					</p>
 					<p class="text-sm text-gray-400 mt-2">
-						{holdouts.length} on mxdys’s <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)} list</a>{#if counts.solved},
-							minus {counts.solved} merged into
-							<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a> since{/if}.
+						{holdouts.length} on mxdys’s <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)} list</a>
+						(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">txt</a>,
+						<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>){#if counts.solved}, minus {counts.solved} proved since{/if}.
+						Drops with each busycoq merge.
 					</p>
 				</div>
 
@@ -276,18 +284,57 @@
 				<div class="bar mt-5" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
 					{#each PARTS as k}<span class="seg-{k}" style="flex-grow:{counts[k]}" />{/each}
 				</div>
-				<div class="mt-3 flex flex-wrap gap-x-2 text-sm">
-					{#each PARTS as k}
-						<button class="legend" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}
-							><span class="sw seg-{k}" /><strong class="tabular-nums">{counts[k]}</strong> {PART_LABEL[k]}</button
-						>
+				<!-- grouped by kind of evidence: a Rocq proof, an informal result, nothing yet -->
+				<dl class="groups mt-3 text-sm">
+					{#each GROUPS as g}
+						<dt>{g.label}</dt>
+						<dd>
+							{#each g.parts as k}
+								{#if k !== 'solved' || counts.solved}
+									<button class="legend" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}
+										><span class="sw seg-{k}" /><strong class="tabular-nums">{counts[k]}</strong> {PART_LABEL[k]}</button
+									>
+								{/if}
+							{/each}
+						</dd>
 					{/each}
-				</div>
+				</dl>
 
-				{#if data.base_list}<p class="text-sm text-gray-400 mt-5">
-					<a class="link" href="#decided" on:click={() => (showDecided = true)}>Plus the {data.base_list.decided} decided since</a> the
-					<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a>: all {data.base_list.count.toLocaleString('en-US')} are here.
-				</p>{/if}
+				<p class="text-sm text-gray-400 mt-5 mb-1">
+					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} machines of the sheet’s
+						<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a> are here: these {holdouts.length}, plus
+						<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a>.{/if}
+				</p>
+			<p class="text-sm text-gray-400" role="status" aria-live="polite">
+				{#if liveState === 'checking'}
+					Checking busycoq for commits since the snapshot ({data.busycoq.head.sha.slice(0, 7)})…
+				{:else if liveState === 'ok' && live}
+					busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} ·
+					{#if live.commits_ahead}
+						<span class="text-gray-200">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</span>
+						since {data.busycoq.head.sha.slice(0, 7)} (<a class="link" href={live.compare_url} rel="external">changes</a>),
+						{changedCount} status{changedCount === 1 ? '' : 'es'} changed
+					{:else}
+						no new commits since {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)})
+					{/if}
+					{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
+				{:else}
+					<span class="text-yellow-300">Live check unavailable</span> ({live?.error}); showing busycoq as of
+					{fmtDate(data.busycoq.snapshot_fetched_at)} ({data.busycoq.head.sha.slice(0, 7)})
+				{/if}
+				·
+				<button
+					class="link disabled:opacity-50 disabled:no-underline"
+					disabled={liveState === 'checking' || cooling}
+					on:click={() => {
+						cooling = true;
+						clearTimeout(coolTimer);
+						coolTimer = setTimeout(() => (cooling = false), 60_000);
+						check(true);
+					}}>check again</button
+				>
+			</p>
+
 			</div>
 			<section class="flex min-w-0 flex-col xl:pt-2">
 				<HistoryChart
@@ -298,8 +345,8 @@
 		</div>
 
 		<!-- intro -->
-		<details class="mb-5">
-			<summary class="cursor-pointer text-sm text-gray-400 hover:text-gray-200">Background and notation</summary>
+		<details class="mb-6 rounded-lg border border-gray-700/70 px-4 py-3">
+			<summary class="cursor-pointer font-semibold py-1">Background and notation</summary>
 			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
 				<p>
 					To determine the value of BB(6), we first need to show for every 6-state, 2-symbol machine whether it halts or
@@ -375,7 +422,7 @@
 		</div>
 
 		<!-- controls -->
-		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))] items-end mb-4 scroll-mt-4" on:submit|preventDefault>
+		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] items-end mb-4 scroll-mt-4" on:submit|preventDefault>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Search
 				<input
@@ -392,6 +439,14 @@
 				<select bind:value={cls} class="field">
 					<option value="">All classes</option>
 					{#each classes as c}<option value={c}>{c} ({classCount.get(c)})</option>{/each}
+				</select>
+			</label>
+			<label class="flex flex-col gap-1 text-sm text-gray-400">
+				Tag
+				<select bind:value={tag} class="field">
+					<option value="">Any</option>
+					<option value="named">Named</option>
+					{#each tagList as t}<option value={t}>{t === 'BMO' ? 'Beaver Math Olympiad' : t}</option>{/each}
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
@@ -429,36 +484,6 @@
 				<button type="button" class="pill" disabled={!filtered} on:click={clear}>Clear filters</button>
 			</div>
 		</div>
-
-		<p class="text-xs text-gray-500 mb-3" role="status" aria-live="polite">
-				{#if liveState === 'checking'}
-					Checking busycoq for commits since the snapshot ({data.busycoq.head.sha.slice(0, 7)})…
-				{:else if liveState === 'ok' && live}
-					busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} ·
-					{#if live.commits_ahead}
-						<span class="text-gray-200">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</span>
-						since {data.busycoq.head.sha.slice(0, 7)} (<a class="link" href={live.compare_url} rel="external">changes</a>),
-						{changedCount} status{changedCount === 1 ? '' : 'es'} changed
-					{:else}
-						no new commits since {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)})
-					{/if}
-					{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
-				{:else}
-					<span class="text-yellow-300">Live check unavailable</span> ({live?.error}); showing busycoq as of
-					{fmtDate(data.busycoq.snapshot_fetched_at)} ({data.busycoq.head.sha.slice(0, 7)})
-				{/if}
-				·
-				<button
-					class="link disabled:opacity-50 disabled:no-underline"
-					disabled={liveState === 'checking' || cooling}
-					on:click={() => {
-						cooling = true;
-						clearTimeout(coolTimer);
-						coolTimer = setTimeout(() => (cooling = false), 60_000);
-						check(true);
-					}}>check again</button
-				>
-			</p>
 
 		<!-- table -->
 		<table class="bb6 w-full text-base">
@@ -688,9 +713,7 @@
 					<strong>List and equivalence groups:</strong>
 					<a class="link" href="https://github.com/ccz181078" rel="external">mxdys</a> (ccz181078): the
 					<a class="link" href={data.list.discord_url} rel="external">list of {fmtDate(data.list.published)}</a> and its
-					<a class="link" href={data.list.equivalence_file} rel="external">equivalence file</a>. Download the list as
-					<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">txt</a> or, with everything on this page,
-					<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>. This site’s copy and the
+					<a class="link" href={data.list.equivalence_file} rel="external">equivalence file</a>. This site’s copy and the
 					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">wiki’s lists</a> are kept up
 					to date by volunteers, including int-y1.
 				</li>
@@ -841,6 +864,24 @@
 	.legend.on {
 		background: rgba(255, 255, 255, 0.1);
 		color: #f9fafb;
+	}
+	.groups {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 1rem;
+		row-gap: 0.15rem;
+		align-items: baseline;
+	}
+	.groups dt {
+		color: #9ca3af;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.groups dd {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 1rem;
 	}
 	.sw {
 		width: 10px;

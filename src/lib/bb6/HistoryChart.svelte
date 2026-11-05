@@ -6,9 +6,10 @@
 	export let today: { count: number; date: string; solved: number } | null = null;
 
 	// The 2023 lists (1,458,704 and 181,851) are a year before the next one and would flatten the rest, so the
-	// axis starts with the first list from the Coq-BB5 deciders; the table view lists them.
+	// axis starts with the first list from the Coq-BB5 deciders; the caption gives the earlier ones.
 	export let from = '2024-05-01';
 	$: shown = lists.filter((l) => l.date >= from);
+	$: before = lists.filter((l) => l.date < from);
 
 	let scale: 'log' | 'linear' = 'log';
 	let table = false;
@@ -23,6 +24,8 @@
 			href: 'https://www.sligocki.com/2024/07/06/bb-6-2-is-hard.html',
 			title: 'Shawn Ligocki, “BB(6) is Hard (Antihydra)”'
 		},
+		{ date: '2025-11-14', label: 'List the sheet uses', count: true },
+		{ date: '2026-08-31', label: 'First under 1,000', count: true },
 		{
 			date: '2026-10-15',
 			label: 'DeepMind paper',
@@ -142,7 +145,7 @@
 		<div>
 			<span class="font-semibold">Holdouts over time</span>
 			<span class="block text-sm text-gray-400"
-				>Each published list since May 2024</span
+				>Each published list since May 2024{#if before.length}; the two from 2023 had {before.map((l) => fmt(l.count)).join(' and ')}{/if}.</span
 			>
 		</div>
 		<div class="seg" role="group" aria-label="View">
