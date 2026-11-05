@@ -184,9 +184,9 @@
 			<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>)
 		</p>
 		<p class="flex flex-wrap gap-2 mb-6">
-			<span class="st st-open">{counts.open} open</span>
-			<span class="st st-pr_open">{counts.pr_open} with an open PR</span>
-			<span class="st st-solved">{counts.solved} solved since</span>
+			<span class="st st-open">{counts.open} with no proof</span>
+			<span class="st st-pr_open">{counts.pr_open} with a proof in an open PR</span>
+			<span class="st st-solved">{counts.solved} proved since the list</span>
 		</p>
 
 		<!-- live status -->
@@ -236,7 +236,7 @@
 					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a>. The official
 					list is maintained by mxdys and posted periodically in
 					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>, so a machine proved since
-					the latest list can still appear on it; such machines are marked “solved since”.
+					the latest list can still appear on it; such machines are marked “Proved”.
 				</p>
 				<p>
 					Rows are equivalence classes: mirror images (L↔R), state permutations, and mxdys’s equivalence groups, which also
@@ -271,9 +271,9 @@
 					<dt class="font-semibold">busycoq</dt>
 					<dd>
 						mxdys’s repository of machine-checked proofs in Rocq (formerly Coq). A holdout leaves the list once a proof is
-						merged into its <code>BB6</code> branch. <strong>Open</strong>: no proof, merged or proposed.
-						<strong>Open PR</strong>: an unmerged pull request contains a proof. <strong>Solved</strong>: a proof has been
-						merged.
+						merged into its <code>BB6</code> branch. <strong>No proof</strong>: none merged or proposed.
+						<strong>Proof in PR</strong>: a proof exists in an open, not yet merged pull request. <strong>Proved</strong>: a proof has
+						been merged since the list was published.
 					</dd>
 					<dt class="font-semibold">Simulated</dt>
 					<dd>
@@ -322,10 +322,10 @@
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				busycoq status
 				<select bind:value={status} class="field">
-					<option value="unsolved">Not solved yet</option>
-					<option value="open">Open, no PR</option>
-					<option value="pr_open">Open PR</option>
-					<option value="solved">Solved since the list</option>
+					<option value="unsolved">No merged proof</option>
+					<option value="open">No proof</option>
+					<option value="pr_open">Proof in PR</option>
+					<option value="solved">Proved since the list</option>
 					<option value="all">All</option>
 				</select>
 			</label>
@@ -334,7 +334,7 @@
 				<select bind:value={sort} class="field">
 					<option value="list">List order</option>
 					<option value="class">Class</option>
-					<option value="status">Status (open first)</option>
+					<option value="status">Status (no proof first)</option>
 					<option value="sim">Simulated, furthest first</option>
 					<option value="sim-asc">Simulated, least first</option>
 				</select>

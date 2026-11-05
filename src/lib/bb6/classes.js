@@ -16,15 +16,15 @@ export const WIKI = 'https://wiki.bbchallenge.org/wiki/';
 export const STATUS_ORDER = { open: 0, pr_open: 1, solved: 2 };
 
 export const STATUS_LABEL = {
-	open: 'Open',
-	pr_open: 'Open PR',
-	solved: 'Solved'
+	open: 'No proof',
+	pr_open: 'Proof in PR',
+	solved: 'Proved'
 };
 
 export const STATUS_HELP = {
-	open: 'No proof in busycoq and no open pull request that proves it.',
-	pr_open: 'A pull request on busycoq contains a proof, and it has not been merged yet.',
-	solved: 'busycoq has a completed proof (merged).'
+	open: 'No proof in busycoq, merged or proposed.',
+	pr_open: 'An open (unmerged) pull request on busycoq contains a proof.',
+	solved: 'A proof has been merged into busycoq since the list was published.'
 };
 
 /** "6.0e79" -> 79.78 ; null when unknown */
