@@ -151,6 +151,13 @@
 		check();
 	});
 
+	// where a "Proved" chip points: the proof file, else the merged pull request
+	const proofLink = (h: Holdout, v: { prs: { number: number; state: string; relation: string }[] }) => {
+		const f = h.busycoq.solved_in[0];
+		if (f) return fileUrl(f.file);
+		const m = v.prs.find((p) => p.relation === 'proves' && p.state === 'merged');
+		return m ? prUrl(m.number) : null;
+	};
 	const sourceName: Record<string, string> = { sheet: 'RobinCodes’s sheet', slugbird: 'slugbird’s guide' };
 	const relText: Record<string, string> = {
 		exact: 'same machine',
@@ -366,14 +373,16 @@
 							{#if h.conflicts.length}<span class="warn" title={h.conflicts.map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 						</td>
 						<td data-label="busycoq">
-							<span class="st st-{v.status}" title={STATUS_HELP[v.status]}>{STATUS_LABEL[v.status]}</span>
+							{#if v.status === 'pr_open'}
+								{#each v.prs.filter((p) => p.relation === 'proves' && p.state === 'open') as p}
+									<a class="st st-pr_open" href={prUrl(p.number)} rel="external" title={p.title}>Proof in PR #{p.number}</a>
+								{/each}
+							{:else if v.status === 'solved' && proofLink(h, v)}
+								<a class="st st-solved" href={proofLink(h, v)} rel="external" title="The merged proof">Proved</a>
+							{:else}
+								<span class="st st-{v.status}" title={STATUS_HELP[v.status]}>{STATUS_LABEL[v.status]}</span>
+							{/if}
 							{#if v.changed}<span class="muted block">changed since snapshot{v.via ? ` (${v.via})` : ''}</span>{/if}
-							{#each v.prs.filter((p) => p.relation === 'proves') as p}
-								<a class="link block" href={prUrl(p.number)} rel="external" title={p.title}>PR #{p.number} <span class="muted">{p.state}</span></a>
-							{/each}
-							{#each h.busycoq.solved_in as f}
-								<a class="link block" href={fileUrl(f.file)} rel="external">{f.file}</a>
-							{/each}
 						</td>
 						<td data-label="Simulated">{#if sim}{sim.text}{:else}<span class="muted">unknown</span>{/if}</td>
 						<td data-label="Links" class="links">
@@ -564,6 +573,9 @@
 	}
 	.st {
 		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border whitespace-nowrap;
+	}
+	a.st:hover {
+		filter: brightness(1.3);
 	}
 	.st-open {
 		@apply border-gray-500 text-gray-100;
