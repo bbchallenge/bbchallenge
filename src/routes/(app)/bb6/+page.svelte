@@ -509,7 +509,8 @@
 					rows through the equivalence groups).
 				</li>
 				<li>
-					<strong>Further classes, status tags and simulation figures:</strong> slugbird’s BB(6) Holdout Guide
+					<strong>Further classes, status tags and simulation figures:</strong> slugbird’s
+					<a class="link" href={data.sources.slugbird.url} rel="external">BB(6) Holdout Guide</a>
 					({data.sources.slugbird.as_of}).
 				</li>
 				<li>
