@@ -37,6 +37,9 @@ node scripts/bb6-holdouts/fetch-busycoq.mjs            # --clone <dir> reuses a 
 # 3. wiki pages named after a holdout
 node scripts/bb6-holdouts/fetch-wiki.mjs
 
+# 3a. how many holdouts each published list had (the wiki's Holdouts lists table; the page's chart)
+node scripts/bb6-holdouts/fetch-history.mjs
+
 # 3b. (optional, maintainers only) links to the Discord messages that mention each holdout, from a local
 #     copy of the server; skipped (and the last snapshot kept) when there is none
 node scripts/bb6-holdouts/fetch-discord.mjs [<copy-dir>]     # or set BB6_DISCORD_COPY
@@ -158,6 +161,9 @@ Each element of `holdouts` (one per line of the official list, in list order):
 sheet is built on) that are no longer holdouts: `n` (position in that list), `tm`, `class`, `verdict` (`halts` or
 `non-halting`, the sheet's note, else `null`), `by` (`proof` or `equivalence`) and `file`, the busycoq file that decides it.
 `fetch-busycoq.mjs` scans busycoq for these machines too; the base list is set in `list.json` (`base_list`).
+
+`history[]` is the wiki's table of published BB(6) lists, oldest first: `date`, `count`, `by`, and `link` (the Discord
+announcement) and `note` where the wiki has them.
 
 Example: take everything still open, longest simulated first:
 

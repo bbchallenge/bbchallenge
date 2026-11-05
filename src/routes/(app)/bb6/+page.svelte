@@ -2,6 +2,7 @@
 	import '$lib/bb6/table.css';
 	import { onMount, onDestroy } from 'svelte';
 	import SeoTitle from '$lib/seo_title.svelte';
+	import HistoryChart from '$lib/bb6/HistoryChart.svelte';
 	import data from '../../../../static/bb6/holdouts.json';
 	import { canonicalKey, TM_RE } from '$lib/bb6/tm_key.js';
 	import { fetchLive, overlay } from '$lib/bb6/busycoq_live.js';
@@ -343,8 +344,9 @@
 			</div>
 		</details>
 
+		<div class="grid gap-x-10 gap-y-8 xl:grid-cols-2 mb-8">
 		<!-- notable machines -->
-		<section class="mb-8" aria-labelledby="notable">
+		<section aria-labelledby="notable">
 			<h2 id="notable" class="text-xl font-bold mb-3">Notable holdouts</h2>
 			<ul class="space-y-2 max-w-[90ch]">
 				<li>
@@ -361,6 +363,13 @@
 				{/each}
 			</ul>
 		</section>
+		<section>
+			<HistoryChart
+				lists={data.history}
+				today={{ count: holdouts.length - counts.solved, solved: counts.solved, date: new Date(live?.checked_at ?? data.busycoq.snapshot_fetched_at).toISOString().slice(0, 10) }}
+			/>
+		</section>
+		</div>
 
 		<!-- controls -->
 		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.2fr)_auto] items-end mb-4 scroll-mt-4" on:submit|preventDefault>

@@ -187,6 +187,31 @@
 				}
 			}
 		},
+		"history": {
+			"description": "Each published BB(6) list (the wiki's Holdouts lists table), oldest first",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["date", "count", "by"],
+				"properties": {
+					"date": {
+						"type": "string"
+					},
+					"count": {
+						"type": "integer"
+					},
+					"by": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					},
+					"note": {
+						"type": "string"
+					}
+				}
+			}
+		},
 		"holdouts": {
 			"type": "array",
 			"items": {

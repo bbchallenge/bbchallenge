@@ -6,7 +6,7 @@
 //   node scripts/bb6-holdouts/build.mjs --check  exit 1 if the file on disk is out of date
 //
 // Inputs (data/bb6/sources/): list.json + the list in static/ + the equivalence groups,
-// sheet.json, slugbird.json, busycoq.json, wiki.json, notable.json. See docs/bb6-holdouts.md.
+// sheet.json, slugbird.json, busycoq.json, wiki.json, notable.json, history.json. See docs/bb6-holdouts.md.
 import fs from 'node:fs';
 import { canonicalKey } from '../../src/lib/bb6/tm_key.js';
 import { isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
@@ -27,6 +27,7 @@ const slug = rd('slugbird.json');
 const busycoq = rd('busycoq.json');
 const wiki = rd('wiki.json');
 const notable = rd('notable.json');
+const history = rd('history.json');
 /** holdout index -> merged notable entries (names, community tags, notes, simulated halts) */
 const notableOf = new Map();
 for (const [code, e] of Object.entries(notable.machines)) {
@@ -287,7 +288,8 @@ const out = {
 			  }
 			: {}),
 		wiki: { name: 'bbchallenge wiki', url: 'https://wiki.bbchallenge.org', as_of: wiki.fetched_at },
-		...notable.sources
+		...notable.sources,
+		history: { name: 'Holdouts lists, BB(6) (bbchallenge wiki)', url: history.source, as_of: history.fetched_at.slice(0, 10) }
 	},
 	tags: notable.tags,
 	url_templates: {
@@ -308,6 +310,7 @@ const out = {
 		by_status: countBy((h) => h.busycoq.status),
 		with_conflicts: holdouts.filter((h) => h.conflicts.length).length
 	},
+	history: history.lists,
 	holdouts,
 	decided
 };
