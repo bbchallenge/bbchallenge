@@ -58,6 +58,10 @@
 	for (const h of holdouts) for (const g of new Set(h.tags.map(tagGroup))) tagCounts.set(g, (tagCounts.get(g) ?? 0) + 1);
 	const tagList = Object.keys(tagInfo).filter((t) => tagCounts.has(t));
 	const named = holdouts.filter((h) => h.name);
+	// a row counts under every class some source gives it, as the Class filter matches
+	const classCounts = classes
+		.map((c) => [c, holdouts.filter((h) => h.classifications.some((x) => x.class === c)).length] as const)
+		.sort((x, y) => y[1] - x[1]);
 	// machines of the older base list decided since (hidden until opened)
 	type Decided = (typeof data.decided)[number];
 	const decided: Decided[] = data.decided;
@@ -169,6 +173,11 @@
 	function only(t: string) {
 		clear();
 		tag = t;
+		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
+	}
+	function onlyClass(c: string) {
+		clear();
+		cls = c;
 		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
 	}
 	// the viewer's default picture: 10,000 steps from a blank tape, 400 cells wide
@@ -371,12 +380,20 @@
 		<!-- notable machines -->
 		<section aria-labelledby="notable">
 			<h2 id="notable" class="text-xl font-bold mb-3">Notable holdouts</h2>
-			<ul class="space-y-2 max-w-[90ch]">
-				<li>
-					<strong>Named:</strong>
-					{#each named as h, k}{k ? ', ' : ''}<a class="link" href={h.site_page ?? WIKI + encodeURIComponent(wikiOf(h))} rel="external">{h.name}</a>
-						<span class="muted">(#{h.n})</span>{/each}
-				</li>
+			<ul class="space-y-2 max-w-[90ch] mb-8">
+				{#each named as h}
+					<li>
+						<a class="link font-semibold" href={h.site_page ?? WIKI + encodeURIComponent(wikiOf(h))} rel="external">{h.name}</a>
+						<span class="muted">#{h.n}</span>
+						{#if h.class}<span class="text-gray-300">· {h.class} ·</span>{/if}
+						{#each h.tags as t}<a class="tag" href={tagInfo[tagGroup(t)].url} rel="external" title={tagInfo[tagGroup(t)].help}>{t}</a>{/each}
+					</li>
+				{/each}
+			</ul>
+
+			<h2 id="tags" class="text-xl font-bold mb-3">Tags and classes</h2>
+			<p class="text-sm text-gray-400 mb-2">Click one to filter the table.</p>
+			<ul class="space-y-2 max-w-[90ch] mb-4">
 				{#each tagList as t}
 					<li>
 						<button class="tag" on:click={() => only(t)} title="Show only these">{t === 'BMO' ? 'Beaver Math Olympiad' : t}</button>
@@ -385,6 +402,12 @@
 					</li>
 				{/each}
 			</ul>
+			<p class="text-sm text-gray-400 mb-2">Classes, from RobinCodes’s sheet and slugbird’s guide (a machine counts under each class a source gives it):</p>
+			<p class="flex flex-wrap gap-x-1.5 gap-y-1 max-w-[90ch]">
+				{#each classCounts as [c, k]}
+					<button class="cls-chip" on:click={() => onlyClass(c)} title="Show only these">{c} <span class="muted">{k}</span></button>
+				{/each}
+			</p>
 		</section>
 		<section class="min-w-0">
 			<HistoryChart
@@ -785,6 +808,12 @@
 	}
 	.tag {
 		@apply inline-block mr-1.5 mb-1 rounded-full border border-purple-400/60 text-purple-100 px-2 py-0.5 text-xs whitespace-nowrap;
+	}
+	.cls-chip {
+		@apply rounded-full border border-gray-600 text-gray-200 px-2 py-0.5 text-xs whitespace-nowrap;
+	}
+	.cls-chip:hover {
+		@apply border-gray-300;
 	}
 	.tag:hover {
 		@apply border-purple-200;
