@@ -59,7 +59,12 @@
 	const tagList = Object.keys(tagInfo).filter((t) => tagCounts.has(t));
 	const named = holdouts.filter((h) => h.name);
 	const PARTS = ['pr_open', 'sim_halt', 'open'] as const;
-	const PART_LABEL = { pr_open: 'proved in an open PR, awaiting merge', sim_halt: 'simulated to a halt', open: 'with no proof' };
+	const PART_LABEL = { pr_open: 'in an open PR, awaiting merge', solved: 'merged since the list (off the count)', sim_halt: 'simulated to a halt', open: 'no proof yet' };
+	const GROUPS = [
+		{ label: 'Rocq proof', parts: ['pr_open', 'solved'] },
+		{ label: 'Informal', parts: ['sim_halt'] },
+		{ label: 'None', parts: ['open'] }
+	] as const;
 	// a row counts under every class some source gives it, as the Class filter matches
 	const classCount = new Map(classes.map((c) => [c, holdouts.filter((h) => h.classifications.some((x) => x.class === c)).length]));
 	// machines of the older base list decided since (hidden until opened)
@@ -110,7 +115,8 @@
 	type Filters = { q: string; cls: string; status: string; onlyWiki: boolean; tag: string };
 	// Svelte only tracks variables named inside the `$:` statement, so the filters are passed in explicitly.
 	function matches(h: Holdout, i: number, f: Filters, st: string): boolean {
-		if (f.status !== 'all' && st !== f.status) return false;
+		// 'rocq' is the group: a Rocq proof, merged or in a PR
+		if (f.status !== 'all' && !(f.status === 'rocq' ? st === 'pr_open' || st === 'solved' : st === f.status)) return false;
 		if (f.cls && !h.classifications.some((c) => c.class === f.cls)) return false;
 		if (f.onlyWiki && !h.wiki_pages.length) return false;
 		if (f.tag && !(f.tag === 'named' ? h.name : h.tags.some((t) => tagGroup(t) === f.tag))) return false;
@@ -271,18 +277,21 @@
 				<div class="bar mt-5" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
 					{#each PARTS as k}<span class="seg-{k}" style="flex-grow:{counts[k]}" />{/each}
 				</div>
-				<p class="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm">
-					{#each PARTS as k}
-						<button class="legend" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}
-							><span class="sw seg-{k}" /><strong class="tabular-nums">{counts[k]}</strong> {PART_LABEL[k]}</button
-						>
+				<!-- grouped by kind of evidence: a Rocq proof, an informal result, nothing yet -->
+				<dl class="groups mt-3 text-sm">
+					{#each GROUPS as g}
+						<dt>{g.label}</dt>
+						<dd>
+							{#each g.parts as k}
+								{#if k !== 'solved' || counts.solved}
+									<button class="legend" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}
+										><span class="sw seg-{k}" /><strong class="tabular-nums">{counts[k]}</strong> {PART_LABEL[k]}</button
+									>
+								{/if}
+							{/each}
+						</dd>
 					{/each}
-					{#if counts.solved}
-						<button class="legend" class:on={status === 'solved'} aria-pressed={status === 'solved'} title={status === 'solved' ? 'Show all' : 'Show only these'} on:click={() => (status = status === 'solved' ? 'all' : 'solved')}
-							><span class="sw seg-solved" /><strong class="tabular-nums">{counts.solved}</strong> proved since the list</button
-						>
-					{/if}
-				</p>
+				</dl>
 
 				<p class="text-sm text-gray-400 mt-5 mb-1">
 					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} machines of the sheet’s
@@ -368,10 +377,11 @@
 					</dd>
 					<dt class="font-semibold">Proof status</dt>
 					<dd>
-						Whether busycoq, mxdys’s repository of Rocq proofs, decides the machine; a holdout leaves the list once its proof is merged.
-						<strong>Proof in PR</strong>: a proof is in an unmerged pull request. <strong>Proved</strong>: merged since the
-						list was published. <strong>Simulated halt</strong>: an accelerated simulation found a halt, with no Rocq proof
-						yet.
+						Grouped by the kind of evidence. <strong>Rocq proof</strong>, in busycoq (mxdys’s repository of Rocq proofs):
+						<strong>Proof in PR</strong> when it is in an unmerged pull request, <strong>Proved</strong> once merged since the list was
+						published (a holdout leaves the next list then). <strong>Informal</strong>: <strong>Simulated halt</strong>, an accelerated
+						simulation found a halt, with no Rocq proof yet. <strong>None</strong>: no proof of either kind. Probviously
+						halting or non-halting is a tag, not a proof.
 					</dd>
 					<dt class="font-semibold">Steps simulated</dt>
 					<dd>Steps run from a blank tape without halting, i.e. a lower bound on the running time if it halts.</dd>
@@ -434,10 +444,11 @@
 				Proof status
 				<select bind:value={status} class="field">
 					<option value="all">All</option>
+					<option value="rocq">Rocq proof (merged or in PR)</option>
+					<option value="pr_open">&nbsp;&nbsp;Proof in PR</option>
+					<option value="solved">&nbsp;&nbsp;Proved (merged)</option>
+					<option value="sim_halt">Informal: simulated halt</option>
 					<option value="open">No proof</option>
-					<option value="sim_halt">Simulated halt</option>
-					<option value="pr_open">Proof in PR</option>
-					<option value="solved">Proved</option>
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
@@ -836,6 +847,24 @@
 	.legend.on {
 		background: rgba(255, 255, 255, 0.1);
 		color: #f9fafb;
+	}
+	.groups {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 1rem;
+		row-gap: 0.15rem;
+		align-items: baseline;
+	}
+	.groups dt {
+		color: #9ca3af;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.groups dd {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 1rem;
 	}
 	.sw {
 		width: 10px;
