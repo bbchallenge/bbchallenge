@@ -51,6 +51,28 @@
 				}
 			}
 		},
+		"base_list": {
+			"description": "The older list RobinCodes's sheet is built on; its machines that are no longer holdouts are in decided[].",
+			"type": "object",
+			"required": ["count", "published", "discord_url", "file", "decided"],
+			"properties": {
+				"count": {
+					"type": "integer"
+				},
+				"published": {
+					"type": "string"
+				},
+				"discord_url": {
+					"type": "string"
+				},
+				"file": {
+					"type": "string"
+				},
+				"decided": {
+					"type": "integer"
+				}
+			}
+		},
 		"busycoq": {
 			"type": "object",
 			"required": ["repo", "branch", "head", "snapshot_fetched_at", "pr_snapshot"],
@@ -464,6 +486,41 @@
 					},
 					"help": {
 						"type": "string"
+					}
+				}
+			}
+		},
+		"decided": {
+			"description": "Machines of base_list that are no longer holdouts, in base_list order.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["n", "tm", "class", "verdict", "by", "file", "sheet_cell"],
+				"properties": {
+					"n": {
+						"description": "1-based position in base_list",
+						"type": "integer"
+					},
+					"tm": {
+						"$ref": "#/$defs/machine"
+					},
+					"class": {
+						"type": ["string", "null"]
+					},
+					"verdict": {
+						"description": "The sheet's note, where it has one",
+						"enum": ["halts", "non-halting", null]
+					},
+					"by": {
+						"description": "proof: a busycoq file proves it; equivalence: a busycoq Eqv file relates it to a decided machine",
+						"enum": ["proof", "equivalence", null]
+					},
+					"file": {
+						"description": "Path under verify/ in busycoq (use url_templates.busycoq_file)",
+						"type": ["string", "null"]
+					},
+					"sheet_cell": {
+						"type": ["object", "null"]
 					}
 				}
 			}

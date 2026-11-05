@@ -57,6 +57,22 @@
 	for (const h of holdouts) for (const g of new Set(h.tags.map(tagGroup))) tagCounts.set(g, (tagCounts.get(g) ?? 0) + 1);
 	const tagList = Object.keys(tagInfo).filter((t) => tagCounts.has(t));
 	const named = holdouts.filter((h) => h.name);
+	// machines of the older base list decided since (hidden until opened)
+	type Decided = (typeof data.decided)[number];
+	const decided: Decided[] = data.decided;
+	let showDecided = false;
+	const decidedKey = new Map(decided.map((d) => [canonicalKey(d.tm)!, d.n]));
+	function decidedMatch(d: Decided, q: string, cls: string): boolean {
+		if (cls && d.class !== cls) return false;
+		const typed = q.trim();
+		const needle = typed.toLowerCase();
+		if (!needle) return true;
+		if (new RegExp(`^${TM_RE.source}$`).test(typed)) return decidedKey.get(canonicalKey(typed)!) === d.n;
+		if (/^#?\d+$/.test(needle)) return false; // numbers refer to today's list
+		return `${d.tm} ${d.class ?? ''} ${d.file ?? ''}`.toLowerCase().includes(needle);
+	}
+	$: decidedRows = decided.filter((d) => decidedMatch(d, q, cls));
+	$: if (q.trim() && decidedRows.length && decidedRows.length < decided.length) showDecided = true;
 	const wikiOf = (h: Holdout) => h.wiki_pages.find((p) => !TM_RE.test(p)) ?? h.wiki_pages[0];
 	const keyIndex = new Map<string, number>();
 	holdouts.forEach((h, i) => {
@@ -401,7 +417,8 @@
 		</form>
 		<p class="text-sm text-gray-400 mb-3" aria-live="polite">
 			{rows.length} of {holdouts.length} machines.
-			{#if rows.length === 0}No machine matches. <button class="link" on:click={clear}>Clear the filters</button>.{/if}
+			{#if rows.length === 0}No machine matches{#if q.trim() && decidedRows.length && decidedRows.length < decided.length}
+					on today’s list; {decidedRows.length} decided since {data.base_list?.published} (below){/if}. <button class="link" on:click={clear}>Clear the filters</button>.{/if}
 		</p>
 
 		<!-- table -->
@@ -581,6 +598,48 @@
 				{/each}
 			</tbody>
 		</table>
+
+		<!-- decided since the base list -->
+		{#if data.base_list}
+			<details class="mt-10 rounded-lg border border-gray-700/70 px-4 py-3" bind:open={showDecided}>
+				<summary class="cursor-pointer font-semibold py-1">
+					{data.base_list.decided} machines decided since the
+					{data.base_list.count}-machine list of {data.base_list.published}{#if q.trim() || cls}
+						<span class="font-normal text-gray-400"> · {decidedRows.length} match the search</span>{/if}
+				</summary>
+				<p class="text-gray-300 mt-2 mb-4 max-w-[80ch]">
+					Machines on <a class="link" href={data.base_list.discord_url} rel="external">mxdys’s list of {data.base_list.published}</a>
+					(<a class="link" href={data.base_list.file} rel="external">plain text</a>), which RobinCodes’s sheet is built on, that are
+					no longer holdouts. <strong>Proved</strong>: busycoq has a proof for this machine.
+					<strong>Equivalent</strong>: busycoq proves it equivalent to another machine that is decided. Halts / non-halting is the
+					sheet’s note, where it has one.
+				</p>
+				<table class="bb6 decided w-full text-base">
+					<caption class="sr-only">Decided since the {data.base_list.count}-machine list</caption>
+					<colgroup><col class="c-num" /><col class="c-tm" /><col class="c-cls" /><col class="c-sim" /><col class="c-links" /></colgroup>
+					<thead>
+						<tr><th scope="col" title="Position in the {data.base_list.count}-machine list">#</th><th scope="col">Machine</th><th scope="col">Class</th><th scope="col">Decided by</th><th scope="col">Links</th></tr>
+					</thead>
+					<tbody>
+						{#each decidedRows as d (d.n)}
+							<tr>
+								<td data-label="#" class="num text-gray-400 tabular-nums">{d.n}</td>
+								<td data-label="Machine"><code class="tm select-all">{d.tm}</code></td>
+								<td data-label="Class">{#if d.class}{d.class}{:else}<span class="muted">none</span>{/if}</td>
+								<td data-label="Decided by">
+									{#if d.file}<a class="st st-solved" href={fileUrl(d.file)} rel="external" title={d.file}>{d.by === 'proof' ? 'Proved' : 'Equivalent'}</a>{/if}
+									{#if d.verdict}<span class="muted ml-1">{d.verdict}</span>{/if}
+								</td>
+								<td data-label="Links" class="links">
+									<a class="link" href="/{d.tm}" rel="external">viewer</a>
+									{#if d.sheet_cell}<a class="link" href={sheetCell(d.sheet_cell)} rel="external">sheet row</a>{/if}
+								</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</details>
+		{/if}
 
 		<!-- sources -->
 		<section id="sources" class="mt-12 mb-16 max-w-[75ch] text-gray-200 leading-relaxed">

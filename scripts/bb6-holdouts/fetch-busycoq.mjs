@@ -14,15 +14,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
-import { keysInText } from '../../src/lib/bb6/tm_key.js';
+import { canonicalKey, keysInText } from '../../src/lib/bb6/tm_key.js';
 import { hasFinalTheorem, isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
-import { SOURCES, ROOT, loadHoldouts, gh, readJSON, writeSnapshot } from './common.mjs';
+import { SOURCES, ROOT, loadHoldouts, gh, parseList, read, readJSON, writeSnapshot } from './common.mjs';
 
 const REPO = 'ccz181078/busycoq';
 const BRANCH = 'BB6';
 const cloneArg = process.argv.indexOf('--clone');
 const meta = readJSON(new URL('list.json', SOURCES));
 const { holdoutOfKey } = loadHoldouts(new URL(meta.list_file, ROOT), new URL(meta.eqv_file, ROOT));
+// also look for the machines of the older base list (list.json base_list) that have since been decided
+const baseKeys = new Set(
+	meta.base_list ? parseList(read(new URL(meta.base_list.file, ROOT))).map((tm) => canonicalKey(tm)) : []
+);
 
 let dir = cloneArg >= 0 ? process.argv[cloneArg + 1] : null;
 if (!dir) {
@@ -56,7 +60,7 @@ const verify = path.join(dir, 'verify');
 			const text = fs.readFileSync(p, 'utf8');
 			const final = hasFinalTheorem(text);
 			for (const [k, code] of keysInText(text)) {
-				if (holdoutOfKey.has(k))
+				if (holdoutOfKey.has(k) || baseKeys.has(k))
 					(hits[k] ??= []).push({ file: path.relative(verify, p), as: code, final });
 			}
 		}

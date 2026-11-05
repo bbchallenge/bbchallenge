@@ -154,6 +154,11 @@ Each element of `holdouts` (one per line of the official list, in list order):
 | `conflicts[]` | Real disagreements: `kind` (`class`, `solved-not-in-busycoq`, `unsolved-in-source`, `cryptid`) and a sentence `detail` |
 | `notes[]` | Differences that are not disagreements: `kind` (`behind`, `stale`, `ahead`, `unverified`, `one-source`) and `detail`; and remarks from the wiki or Discord, `kind` `community` (e.g. "Similar to Antihydra") |
 
+`decided[]` lists the machines of the older base list (`base_list`, the 1534-machine list of 2025-11-14 that RobinCodes's
+sheet is built on) that are no longer holdouts: `n` (position in that list), `tm`, `class`, `verdict` (`halts` or
+`non-halting`, the sheet's note, else `null`), `by` (`proof` or `equivalence`) and `file`, the busycoq file that decides it.
+`fetch-busycoq.mjs` scans busycoq for these machines too; the base list is set in `list.json` (`base_list`).
+
 Example: take everything still open, longest simulated first:
 
 ```sh

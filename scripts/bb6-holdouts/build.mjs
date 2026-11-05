@@ -11,7 +11,7 @@ import fs from 'node:fs';
 import { canonicalKey } from '../../src/lib/bb6/tm_key.js';
 import { isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
 import { compareSources } from './conflicts.mjs';
-import { SOURCES, ROOT, loadHoldouts, readJSON, relation } from './common.mjs';
+import { SOURCES, ROOT, loadHoldouts, parseList, read, readJSON, relation } from './common.mjs';
 
 export const SCHEMA_VERSION = 1;
 const SITE = 'https://bbchallenge.org';
@@ -190,6 +190,32 @@ const holdouts = list.map((tm, i) => {
 	};
 });
 
+// ---- decided since the base list ---------------------------------------------------------
+// Machines on the older base list (the one the sheet is built on) that are no longer holdouts, with the busycoq
+// file that decides each and the sheet's verdict. Kept for reference; the page hides them by default.
+const VERDICT = { HALT: 'halts', NONHALT: 'non-halting', 'NONHALT (?)': 'non-halting' };
+const base = meta.base_list;
+const decided = (base ? parseList(read(new URL(base.file, ROOT))) : []).flatMap((tm, j) => {
+	const key = canonicalKey(tm);
+	if (holdoutOfKey.has(key)) return [];
+	const hits = busycoq.hits[key] ?? [];
+	const proof = hits.find((h) => h.final && !isEqvFile(h.file));
+	const eqv = hits.find((h) => isEqvFile(h.file));
+	const r = sheet.results[tm];
+	const c = sheet.classifications[tm]?.class ?? r?.class;
+	return [
+		{
+			n: j + 1,
+			tm,
+			class: c && c !== 'Unknown' ? c : null,
+			verdict: VERDICT[r?.status] ?? null,
+			by: proof ? 'proof' : eqv ? 'equivalence' : null,
+			file: (proof ?? eqv)?.file ?? null,
+			sheet_cell: r ? { tab: 'results', ref: r.cell } : null
+		}
+	];
+});
+
 const countBy = (f) => holdouts.reduce((m, h) => ((m[f(h)] = (m[f(h)] ?? 0) + 1), m), {});
 const out = {
 	schema_version: SCHEMA_VERSION,
@@ -206,6 +232,17 @@ const out = {
 		equivalence_file: meta.eqv_discord_url ?? meta.eqv_published_at,
 		equivalent_machines: groups.reduce((n, g) => n + g.length, 0)
 	},
+	...(base
+		? {
+				base_list: {
+					count: base.count,
+					published: base.published,
+					discord_url: base.published_at,
+					file: base.url,
+					decided: decided.length
+				}
+		  }
+		: {}),
 	busycoq: {
 		repo: busycoq.repo,
 		branch: busycoq.branch,
@@ -271,7 +308,8 @@ const out = {
 		by_status: countBy((h) => h.busycoq.status),
 		with_conflicts: holdouts.filter((h) => h.conflicts.length).length
 	},
-	holdouts
+	holdouts,
+	decided
 };
 
 // A tiny extra file for pages that only need the headline numbers (the homepage), so they do not pull in
