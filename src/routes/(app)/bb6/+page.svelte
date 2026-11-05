@@ -277,9 +277,9 @@
 					</dd>
 					<dt class="font-semibold">Simulated</dt>
 					<dd>
-						A lower bound on the number of steps the machine has run without halting. “≥&nbsp;1e15”-style figures come from the
-						spreadsheet’s Direct Simulation tab; larger ones such as “6.0e79”, from slugbird’s guide, require accelerated
-						simulation. Evidence of non-halting, not a proof.
+						How many steps the machine has been simulated without halting, i.e. a lower bound on its running time should it
+						halt. “≥&nbsp;1e15”-style figures come from the spreadsheet’s Direct Simulation tab; larger ones such as “6.0e79”,
+						from slugbird’s guide, require accelerated simulation.
 					</dd>
 					<dt class="font-semibold">Tools</dt>
 					<dd>
