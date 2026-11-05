@@ -154,6 +154,7 @@
 		window.history.replaceState(window.history.state, '', s ? `?${s}` : window.location.pathname);
 	}
 
+	$: filtered = !!(q || cls || tag || onlyWiki || status !== 'all' || sort !== 'list' || rev);
 	function clear() {
 		q = '';
 		cls = '';
@@ -372,13 +373,13 @@
 		</div>
 
 		<!-- controls -->
-		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.2fr)_auto] items-end mb-4 scroll-mt-4" on:submit|preventDefault>
+		<form id="table" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))] items-end mb-4 scroll-mt-4" on:submit|preventDefault>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Search
 				<input
 					type="search"
 					bind:value={q}
-					placeholder="#, machine code, class…"
+					placeholder="Machine code, class or number"
 					class="field"
 					autocomplete="off"
 					spellcheck="false"
@@ -419,16 +420,20 @@
 					<option value="sim-asc">Steps simulated, fewest first</option>
 				</select>
 			</label>
-			<div class="flex items-center gap-x-5 gap-y-2 text-sm flex-wrap py-2">
-				<label class="flex items-center gap-2"><input type="checkbox" bind:checked={onlyWiki} /> has wiki page</label>
-				<button type="button" class="link" on:click={clear}>clear</button>
-			</div>
 		</form>
-		<p class="text-sm text-gray-400 mb-3" aria-live="polite">
+		<div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+		<p class="text-sm text-gray-400" aria-live="polite">
 			{rows.length} of {holdouts.length} machines.
 			{#if rows.length === 0}No machine matches{#if q.trim() && decidedRows.length && decidedRows.length < decided.length}
 					on today’s list; {decidedRows.length} decided since {data.base_list?.published} (below){/if}. <button class="link" on:click={clear}>Clear the filters</button>.{/if}
 		</p>
+			<div class="flex items-center gap-2">
+				<button type="button" class="pill" class:on={onlyWiki} aria-pressed={onlyWiki} on:click={() => (onlyWiki = !onlyWiki)}
+					><span class="tick" aria-hidden="true">{onlyWiki ? '✓' : '+'}</span> Has wiki page</button
+				>
+				<button type="button" class="pill" disabled={!filtered} on:click={clear}>Clear filters</button>
+			</div>
+		</div>
 
 		<!-- table -->
 		<table class="bb6 w-full text-base">
@@ -707,7 +712,31 @@
 		@apply decoration-white;
 	}
 	.field {
-		@apply bg-gray-800/60 border border-gray-600 rounded-md px-3 py-2 text-base text-gray-100 w-full;
+		@apply bg-gray-800/60 border border-gray-600 rounded-md px-3 h-11 text-base text-gray-100 w-full;
+	}
+	/* the native arrow sits against the edge; draw our own with room on the right */
+	select.field {
+		appearance: none;
+		padding-right: 2.5rem;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239ca3af' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 0.9rem center;
+		text-overflow: ellipsis;
+	}
+	.pill {
+		@apply inline-flex items-center gap-1.5 h-9 px-3.5 rounded-md border border-gray-600 bg-gray-800/60 text-sm text-gray-200 whitespace-nowrap;
+	}
+	.pill:hover:not(:disabled) {
+		@apply border-gray-400 text-white;
+	}
+	.pill.on {
+		@apply border-blue-400 bg-blue-950 text-blue-100;
+	}
+	.pill:disabled {
+		@apply opacity-40 cursor-default;
+	}
+	.pill .tick {
+		@apply w-3 text-center;
 	}
 	.field:focus-visible,
 	button:focus-visible,
