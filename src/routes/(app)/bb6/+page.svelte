@@ -36,7 +36,7 @@
 	// ---- search, filter, sort ---------------------------------------------------------------
 	let q = '';
 	let cls = '';
-	let status = 'unsolved';
+	let status = 'all';
 	let sort = 'list';
 	let onlyConflicts = false;
 	let onlyWiki = false;
@@ -65,8 +65,7 @@
 	type Filters = { q: string; cls: string; status: string; onlyConflicts: boolean; onlyWiki: boolean };
 	// Svelte only tracks variables named inside the `$:` statement, so the filters are passed in explicitly.
 	function matches(h: Holdout, i: number, f: Filters, st: string): boolean {
-		if (f.status === 'unsolved' && st === 'solved') return false;
-		if (f.status !== 'unsolved' && f.status !== 'all' && st !== f.status) return false;
+		if (f.status !== 'all' && st !== f.status) return false;
 		if (f.cls && !h.classifications.some((c) => c.class === f.cls)) return false;
 		if (f.onlyConflicts && !h.conflicts.length) return false;
 		if (f.onlyWiki && !h.wiki_pages.length) return false;
@@ -108,7 +107,7 @@
 		const p = new URLSearchParams();
 		if (q) p.set('q', q);
 		if (cls) p.set('class', cls);
-		if (status !== 'unsolved') p.set('status', status);
+		if (status !== 'all') p.set('status', status);
 		if (sort !== 'list') p.set('sort', sort);
 		if (onlyConflicts) p.set('conflicts', '1');
 		if (onlyWiki) p.set('wiki', '1');
@@ -119,7 +118,7 @@
 	function clear() {
 		q = '';
 		cls = '';
-		status = 'unsolved';
+		status = 'all';
 		sort = 'list';
 		onlyConflicts = onlyWiki = false;
 	}
@@ -144,7 +143,7 @@
 		const p = new URLSearchParams(window.location.search);
 		q = p.get('q') ?? '';
 		cls = p.get('class') ?? '';
-		status = p.get('status') ?? 'unsolved';
+		status = p.get('status') ?? 'all';
 		sort = p.get('sort') ?? 'list';
 		onlyConflicts = p.get('conflicts') === '1';
 		onlyWiki = p.get('wiki') === '1';
@@ -322,11 +321,10 @@
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				busycoq status
 				<select bind:value={status} class="field">
-					<option value="unsolved">No proof or Proof in PR</option>
+					<option value="all">All</option>
 					<option value="open">No proof</option>
 					<option value="pr_open">Proof in PR</option>
 					<option value="solved">Proved</option>
-					<option value="all">All statuses</option>
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
