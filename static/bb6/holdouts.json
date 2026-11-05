@@ -1,6 +1,6 @@
 {
 	"schema_version": 1,
-	"generated_at": "2026-11-05T01:18:46.147Z",
+	"generated_at": "2026-11-05T06:21:56.444Z",
 	"list": {
 		"count": 608,
 		"published": "2026-10-30",
@@ -398,7 +398,7 @@
 		"wiki": {
 			"name": "bbchallenge wiki",
 			"url": "https://wiki.bbchallenge.org",
-			"as_of": "2026-11-04T23:04:04.269Z"
+			"as_of": "2026-11-05T06:21:56.444Z"
 		}
 	},
 	"url_templates": {
@@ -1182,7 +1182,7 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB0LD_0LC0RE_1LA0RD_0RB0LC_1RC1RF_0LD---"
+				"Beaver_Math_Olympiad"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -1926,7 +1926,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1RA_1LC0RF_1LD1LC_1LE0LB_0LF---_1RA1RB"
+				"1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -2838,7 +2838,7 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA"
+				"Antihydra"
 			],
 			"site_page": "/antihydra",
 			"discord": [
@@ -3547,7 +3547,6 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB0LD_0RC0RF_0RD0RA_1LE0RD_1LF---_0LA1LA",
 				"1RB0LD_0RC1RB_0RD0RA_1LE0RD_1LF---_0LA1LA"
 			],
 			"discord": [
@@ -4911,9 +4910,7 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB0LC_1LC0RD_1LF1LA_1LB1RE_1RB1LE_---0LE",
-				"1RB1LA_1LC0RE_1LF1LD_0RA0LC_1LB1RA_---0LA",
-				"1RB1LA_1LC0RE_1LF1LD_1RB0LC_1LB1RA_---0LA"
+				"1RB0LC_1LC0RD_1LF1LA_1LB1RE_1RB1LE_---0LE"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -6320,9 +6317,7 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA0LB_---0LC",
-				"1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA1LD_---0LC",
-				"1RB1RA_0RC1RF_1LD---_0LE1LE_1RA1LD_1LD0LF"
+				"1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA0LB_---0LC"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -9401,7 +9396,6 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB1RA_1LC0RC_---0LD_0LE0LF_1RE0RA_0LF1LB",
 				"1RB1RA_1LC0RC_---0LD_0LE0RF_1RE0RA_0LF1LB"
 			],
 			"discord": [],
@@ -13680,7 +13674,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1RD_1LC0LE_1RA0LB_1RA1RF_0RA0RC_1RE---"
+				"1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -13843,7 +13837,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB0LE_1RC1RB_1RD0RA_0RE---_1LF1LA_1LA1LF"
+				"1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -19529,7 +19523,7 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RC---"
+				"Beaver_Math_Olympiad"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -19878,7 +19872,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1RE_1LC0RA_1RD0LB_1LB1RC_1LF0RD_---0LE"
+				"1RB0LD_1LC0RA_1RA1LB_1LA1LE_1RF0LC_---0RE"
 			],
 			"discord": [
 				{
@@ -22456,7 +22450,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1LA_1LC0RE_1LF1LD_0RB0LA_1RC1RE_---0LD"
+				"Space_Needle"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -22620,7 +22614,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---"
+				"1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -23084,8 +23078,7 @@
 				]
 			},
 			"wiki_pages": [
-				"1RB0LC_1RC1RE_1LA0LD_0RB0RA_1RB1RF_1RD---",
-				"1RB1RF_1RC1RA_1LD0LE_1RB0LC_0RB0RD_1RE---"
+				"1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -25732,7 +25725,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB0RE_1RC0RC_1LD---_0LB1LE_1RF0LD_1RA1RF"
+				"1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -26806,7 +26799,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB0RB_1LC---_0LA1LD_1RE0LC_1RF1RE_1RA0RD"
+				"1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -29676,7 +29669,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB0LF_1RC1RB_1RD0RA_1RE0RE_1LF---_0LD1LA"
+				"1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -30460,7 +30453,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1RC_1RC1RB_1LD0RA_1LE1LD_1LF0LC_0LA---"
+				"1RB0RE_0RC---_1LD1LE_1LE1LD_1RF0LC_1RA1RF"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -32564,7 +32557,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1RA_1RC0RF_1RD0RD_1LE---_0LC1LF_1RA0LE"
+				"1RB---_0RC1RD_1LA0LA_1LE0RB_1LF1LE_1LC0LD"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -34479,7 +34472,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB0RD_0RC1RE_1RD0LA_1LE1LC_1RF0LD_---0RA"
+				"Lucy's_Moonlight"
 			],
 			"discord": [],
 			"conflicts": [],
@@ -34657,7 +34650,7 @@
 				"mentioned_in": []
 			},
 			"wiki_pages": [
-				"1RB1LC_1RC0LD_1LA0RB_1LB1LE_1RF0LA_---0RE"
+				"1RB0LD_1LC0RA_1RA1LB_1LA1LE_1RF0LC_---0RE"
 			],
 			"discord": [
 				{
