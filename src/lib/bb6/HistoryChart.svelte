@@ -12,6 +12,7 @@
 	$: before = lists.filter((l) => l.date < from);
 
 	let scale: 'log' | 'linear' = 'log';
+	let table = false;
 
 	// `count: true` puts the count on that date in the label
 	type Milestone = { date: string; label: string; href?: string; title?: string; count?: boolean };
@@ -33,8 +34,10 @@
 		}
 	];
 
+	// the plot fills its box: 280px, or more when the column beside it is taller
 	let width = 640;
-	const H = 280;
+	let boxH = 0;
+	$: H = Math.max(280, boxH);
 	const M = { top: 20, right: 16, bottom: 28, left: 52 };
 	const t = (d: string) => Date.parse(d + 'T00:00:00Z');
 	const end = today ? today.date : lists[lists.length - 1].date;
@@ -46,7 +49,7 @@
 	const LO = 300,
 		HI = 5e4,
 		LIN_HI = 4e4;
-	const plotH = H - M.top - M.bottom;
+	$: plotH = H - M.top - M.bottom;
 	$: sy =
 		scale === 'log'
 			? (n: number) => M.top + ((Math.log10(HI) - Math.log10(n)) / (Math.log10(HI) - Math.log10(LO))) * plotH
@@ -72,7 +75,7 @@
 	type Mark = { key: string; px: number; py: number; name: string; value?: number; extra?: string; href?: string; title?: string; today?: boolean };
 	type Placed = Mark & { lx: number; ly: number; anchor: 'start' | 'end' };
 	const CH = 6.6; // px per character at 12px
-	function layout(marks: Mark[], w: number): Placed[] {
+	function layout(marks: Mark[], w: number, h: number): Placed[] {
 		const boxes = marks.map((m) => [m.px - 6, m.py - 6, m.px + 6, m.py + 6]);
 		const out: Placed[] = [];
 		for (const m of [...marks].sort((a, b) => Number(!!b.today) - Number(!!a.today) || b.px - a.px)) {
@@ -87,7 +90,7 @@
 			let ly = m.py + offs[0];
 			for (const o of offs) {
 				const y = m.py + o;
-				if (y - 11 < 2 || y + 3 > H - M.bottom - 2) continue;
+				if (y - 11 < 2 || y + 3 > h - M.bottom - 2) continue;
 				if (boxes.some(([a, b, c, d]) => x0b < c && x1b > a && y - 11 < d && y + 3 > b)) continue;
 				ly = y;
 				break;
@@ -121,7 +124,7 @@
 			  ]
 			: [])
 	];
-	$: placed = layout(marks, width);
+	$: placed = layout(marks, width, H);
 
 	// hover: snap to the nearest list
 	let hover: number | null = null;
@@ -137,7 +140,7 @@
 	$: h = hover === null ? null : shown[hover];
 </script>
 
-<figure class="w-full">
+<figure class="flex w-full flex-1 flex-col">
 	<figcaption class="mb-2 flex items-start justify-between gap-3">
 		<div>
 			<span class="font-semibold">Holdouts over time</span>
@@ -145,14 +148,32 @@
 				>Each published list since May 2024{#if before.length}; the two from 2023 had {before.map((l) => fmt(l.count)).join(' and ')}{/if}.</span
 			>
 		</div>
-		<div class="seg" role="group" aria-label="Y-axis scale">
-			<button type="button" class:on={scale === 'log'} aria-pressed={scale === 'log'} on:click={() => (scale = 'log')}>Log</button>
-			<button type="button" class:on={scale === 'linear'} aria-pressed={scale === 'linear'} on:click={() => (scale = 'linear')}>Linear</button>
+		<div class="seg" role="group" aria-label="View">
+			<button type="button" class:on={!table && scale === 'log'} aria-pressed={!table && scale === 'log'} on:click={() => ((scale = 'log'), (table = false))}>Log</button>
+			<button type="button" class:on={!table && scale === 'linear'} aria-pressed={!table && scale === 'linear'} on:click={() => ((scale = 'linear'), (table = false))}>Linear</button>
+			<button type="button" class:on={table} aria-pressed={table} on:click={() => (table = true)}>Table</button>
 		</div>
 	</figcaption>
-	<div class="relative" bind:clientWidth={width}>
+	<div class="relative min-h-[280px] flex-1" bind:clientWidth={width} bind:clientHeight={boxH}>
+		{#if table}
+		<div class="absolute inset-0 overflow-y-auto">
+			<table class="text-sm">
+				<thead><tr><th class="text-left pr-6">List</th><th class="text-right pr-6">Holdouts</th><th class="text-left">Shared by</th></tr></thead>
+				<tbody>
+					{#each [...lists].reverse() as l}
+						<tr>
+							<td class="pr-6">{#if l.link}<a class="underline" href={l.link} rel="external">{l.date}</a>{:else}{l.date}{/if}</td>
+							<td class="text-right tabular-nums pr-6">{fmt(l.count)}</td>
+							<td>{l.by}</td>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+		{:else}
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<svg
+			class="absolute inset-0"
 			{width}
 			height={H}
 			role="img"
@@ -204,22 +225,8 @@
 				{#if h.note}<br /><span class="text-gray-400">{h.note}</span>{/if}
 			</div>
 		{/if}
+		{/if}
 	</div>
-	<details class="text-sm mt-1">
-		<summary class="cursor-pointer text-gray-400">As a table</summary>
-		<table class="text-sm mt-2">
-			<thead><tr><th class="text-left pr-6">List</th><th class="text-right pr-6">Holdouts</th><th class="text-left">Shared by</th></tr></thead>
-			<tbody>
-				{#each [...lists].reverse() as l}
-					<tr>
-						<td class="pr-6">{#if l.link}<a class="underline" href={l.link} rel="external">{l.date}</a>{:else}{l.date}{/if}</td>
-						<td class="text-right tabular-nums pr-6">{fmt(l.count)}</td>
-						<td>{l.by}</td>
-					</tr>
-				{/each}
-			</tbody>
-		</table>
-	</details>
 </figure>
 
 <style>

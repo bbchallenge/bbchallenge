@@ -256,7 +256,7 @@
 <div class="dark w-full">
 	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
 		<!-- the count, with how it moves, beside the chart of how it got here -->
-		<div class="grid gap-x-12 gap-y-8 xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] items-start mt-8 mb-8">
+		<div class="grid gap-x-12 gap-y-8 xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] mt-8 mb-8">
 			<div class="min-w-0">
 				<h1 class="text-3xl font-bold mb-2">BB(6) holdouts</h1>
 				<p class="text-gray-300 mb-6 max-w-[62ch]">
@@ -336,7 +336,7 @@
 			</p>
 
 			</div>
-			<section class="min-w-0 xl:pt-2">
+			<section class="flex min-w-0 flex-col xl:pt-2">
 				<HistoryChart
 					lists={data.history}
 					today={{ count: holdouts.length - counts.solved, solved: counts.solved, date: new Date(live?.checked_at ?? data.busycoq.snapshot_fetched_at).toISOString().slice(0, 10) }}
