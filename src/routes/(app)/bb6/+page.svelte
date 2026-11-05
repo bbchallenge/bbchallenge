@@ -58,10 +58,10 @@
 	for (const h of holdouts) for (const g of new Set(h.tags.map(tagGroup))) tagCounts.set(g, (tagCounts.get(g) ?? 0) + 1);
 	const tagList = Object.keys(tagInfo).filter((t) => tagCounts.has(t));
 	const named = holdouts.filter((h) => h.name);
+	const PARTS = ['pr_open', 'sim_halt', 'open'] as const;
+	const PART_LABEL = { pr_open: 'proved in an open PR, awaiting merge', sim_halt: 'simulated to a halt', open: 'with no proof' };
 	// a row counts under every class some source gives it, as the Class filter matches
-	const classCounts = classes
-		.map((c) => [c, holdouts.filter((h) => h.classifications.some((x) => x.class === c)).length] as const)
-		.sort((x, y) => y[1] - x[1]);
+	const classCount = new Map(classes.map((c) => [c, holdouts.filter((h) => h.classifications.some((x) => x.class === c)).length]));
 	// machines of the older base list decided since (hidden until opened)
 	type Decided = (typeof data.decided)[number];
 	const decided: Decided[] = data.decided;
@@ -140,6 +140,7 @@
 				return a.h.n - b.h.n;
 		}
 	}
+	$: left = holdouts.length - counts.solved;
 	$: counts = (() => {
 		const c = { open: 0, sim_halt: 0, pr_open: 0, solved: 0 };
 		for (const v of st.values()) c[v]++;
@@ -173,11 +174,6 @@
 	function only(t: string) {
 		clear();
 		tag = t;
-		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
-	}
-	function onlyClass(c: string) {
-		clear();
-		cls = c;
 		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
 	}
 	// the viewer's default picture: 10,000 steps from a blank tape, 400 cells wide
@@ -246,81 +242,94 @@
 
 <div class="dark w-full">
 	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
-		<h1 class="text-3xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
-		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
-			The 6-state, 2-symbol Turing machines whose halting status is still undecided, and so stand between us and the value
-			of <a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>. For each one: its
-			behavioural class, whether it has a Rocq proof in mxdys’s
-			<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq repository</a>,
-			how far it has been simulated, its space-time diagram, and links to its spreadsheet row and Discord discussion.
-		</p>
+		<!-- the count, with how it moves, beside the chart of how it got here -->
+		<div class="grid gap-x-12 gap-y-8 xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] items-start mt-8 mb-8">
+			<div class="min-w-0">
+				<h1 class="text-3xl font-bold mb-2">BB(6) holdouts</h1>
+				<p class="text-gray-300 mb-6 max-w-[62ch]">
+					The 6-state, 2-symbol Turing machines still standing between us and
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>: each one’s class, its Rocq proof status in
+					<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>, simulation depth,
+					space-time diagram and links.
+				</p>
 
-		<!-- numbers: the latest list minus what busycoq has proved since, so it moves with each merge -->
-		<div class="mb-2" aria-live="polite">
-			<p class="flex items-baseline gap-3">
-				<strong class="text-5xl font-bold tabular-nums">{holdouts.length - counts.solved}</strong>
-				<span class="text-xl font-semibold">holdouts left</span>
-			</p>
-			<p class="text-gray-300 mt-1 max-w-[80ch]">
-				mxdys’s latest list, <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)}</a>
-				(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">plain text</a>,
-				<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>), has {holdouts.length}.
-				{#if counts.solved}{counts.solved} {counts.solved === 1 ? 'has' : 'have'} been proved in busycoq since{:else}None has been proved in busycoq since{/if},
-				so this count drops with each merge rather than waiting for the next list.
-			</p>
-		</div>
-		<p class="flex flex-wrap items-center gap-2 mb-2">
-			<span class="text-sm text-gray-400">Of these {holdouts.length - counts.solved}:</span>
-			{#each [['pr_open', `${counts.pr_open} proved in an open PR, awaiting merge`], ['sim_halt', `${counts.sim_halt} simulated to a halt`], ['open', `${counts.open} with no proof`]] as [k, label]}
-				<button class="st st-{k} chip" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}>{label}</button>
-			{/each}
-			{#if counts.solved}
-				<span class="text-sm text-gray-400 ml-2">Off the count:</span>
-				<button class="st st-solved chip" class:on={status === 'solved'} aria-pressed={status === 'solved'} title={status === 'solved' ? 'Show all' : 'Show only these'} on:click={() => (status = status === 'solved' ? 'all' : 'solved')}>{counts.solved} proved since the list</button>
-			{/if}
-		</p>
-		{#if data.base_list}
-			<p class="text-sm text-gray-400 mt-3 mb-3 max-w-[90ch]">
-				All {data.base_list.count.toLocaleString('en-US')} machines of the
-				<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a> that RobinCodes’s sheet uses
-				are on this page: the {holdouts.length} rows below are the latest list (some rows stand for several equivalent machines of the older one), and the
-				<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a> are listed after the table.
-			</p>
-		{/if}
+				<!-- the latest list minus what busycoq has proved since, so it moves with each merge -->
+				<div aria-live="polite">
+					<p class="flex items-baseline gap-3">
+						<strong class="text-6xl font-bold tabular-nums leading-none">{left}</strong>
+						<span class="text-xl font-semibold">holdouts left</span>
+					</p>
+					<p class="text-sm text-gray-400 mt-2">
+						{holdouts.length} on mxdys’s <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)} list</a>
+						(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">txt</a>,
+						<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>){#if counts.solved}, minus {counts.solved} proved since{/if}.
+						Drops with each busycoq merge.
+					</p>
+				</div>
 
-		<!-- live status -->
-		<p class="text-sm text-gray-400 mb-6" role="status" aria-live="polite">
-			{#if liveState === 'checking'}
-				Checking busycoq for commits since the snapshot ({data.busycoq.head.sha.slice(0, 7)})…
-			{:else if liveState === 'ok' && live}
-				busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} ·
-				{#if live.commits_ahead}
-					<span class="text-gray-200">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</span>
-					since {data.busycoq.head.sha.slice(0, 7)} (<a class="link" href={live.compare_url} rel="external">changes</a>),
-					{changedCount} status{changedCount === 1 ? '' : 'es'} changed
+				<!-- what the count is made of: one bar, its legend doubles as the status filter -->
+				<div class="bar mt-5" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
+					{#each PARTS as k}<span class="seg-{k}" style="flex-grow:{counts[k]}" />{/each}
+				</div>
+				<p class="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm">
+					{#each PARTS as k}
+						<button class="legend" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}
+							><span class="sw seg-{k}" /><strong class="tabular-nums">{counts[k]}</strong> {PART_LABEL[k]}</button
+						>
+					{/each}
+					{#if counts.solved}
+						<button class="legend" class:on={status === 'solved'} aria-pressed={status === 'solved'} title={status === 'solved' ? 'Show all' : 'Show only these'} on:click={() => (status = status === 'solved' ? 'all' : 'solved')}
+							><span class="sw seg-solved" /><strong class="tabular-nums">{counts.solved}</strong> proved since the list</button
+						>
+					{/if}
+				</p>
+
+				<p class="text-sm text-gray-400 mt-5 mb-1">
+					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} machines of the sheet’s
+						<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a> are here: these {holdouts.length}, plus
+						<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a>.{/if}
+				</p>
+			<p class="text-sm text-gray-400" role="status" aria-live="polite">
+				{#if liveState === 'checking'}
+					Checking busycoq for commits since the snapshot ({data.busycoq.head.sha.slice(0, 7)})…
+				{:else if liveState === 'ok' && live}
+					busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} ·
+					{#if live.commits_ahead}
+						<span class="text-gray-200">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</span>
+						since {data.busycoq.head.sha.slice(0, 7)} (<a class="link" href={live.compare_url} rel="external">changes</a>),
+						{changedCount} status{changedCount === 1 ? '' : 'es'} changed
+					{:else}
+						no new commits since {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)})
+					{/if}
+					{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
 				{:else}
-					no new commits since {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)})
+					<span class="text-yellow-300">Live check unavailable</span> ({live?.error}); showing busycoq as of
+					{fmtDate(data.busycoq.snapshot_fetched_at)} ({data.busycoq.head.sha.slice(0, 7)})
 				{/if}
-				{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
-			{:else}
-				<span class="text-yellow-300">Live check unavailable</span> ({live?.error}); showing busycoq as of
-				{fmtDate(data.busycoq.snapshot_fetched_at)} ({data.busycoq.head.sha.slice(0, 7)})
-			{/if}
-			·
-			<button
-				class="link disabled:opacity-50 disabled:no-underline"
-				disabled={liveState === 'checking' || cooling}
-				on:click={() => {
-					cooling = true;
-					clearTimeout(coolTimer);
-					coolTimer = setTimeout(() => (cooling = false), 60_000);
-					check(true);
-				}}>check again</button
-			>
-		</p>
+				·
+				<button
+					class="link disabled:opacity-50 disabled:no-underline"
+					disabled={liveState === 'checking' || cooling}
+					on:click={() => {
+						cooling = true;
+						clearTimeout(coolTimer);
+						coolTimer = setTimeout(() => (cooling = false), 60_000);
+						check(true);
+					}}>check again</button
+				>
+			</p>
+
+			</div>
+			<section class="min-w-0 xl:pt-2">
+				<HistoryChart
+					lists={data.history}
+					today={{ count: holdouts.length - counts.solved, solved: counts.solved, date: new Date(live?.checked_at ?? data.busycoq.snapshot_fetched_at).toISOString().slice(0, 10) }}
+				/>
+			</section>
+		</div>
 
 		<!-- intro -->
-		<details class="mb-8 rounded-lg border border-gray-700/70 px-4 py-3">
+		<details class="mb-6 rounded-lg border border-gray-700/70 px-4 py-3">
 			<summary class="cursor-pointer font-semibold py-1">Background and notation</summary>
 			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
 				<p>
@@ -376,45 +385,20 @@
 			</div>
 		</details>
 
-		<div class="grid gap-x-10 gap-y-8 xl:grid-cols-2 mb-8">
-		<!-- notable machines -->
-		<section aria-labelledby="notable">
-			<h2 id="notable" class="text-xl font-bold mb-3">Notable holdouts</h2>
-			<ul class="space-y-2 max-w-[90ch] mb-8">
-				{#each named as h}
-					<li>
-						<a class="link font-semibold" href={h.site_page ?? WIKI + encodeURIComponent(wikiOf(h))} rel="external">{h.name}</a>
-						<span class="muted">#{h.n}</span>
-						{#if h.class}<span class="text-gray-300">· {h.class} ·</span>{/if}
-						{#each h.tags as t}<a class="tag" href={tagInfo[tagGroup(t)].url} rel="external" title={tagInfo[tagGroup(t)].help}>{t}</a>{/each}
-					</li>
-				{/each}
-			</ul>
-
-			<h2 id="tags" class="text-xl font-bold mb-3">Tags and classes</h2>
-			<p class="text-sm text-gray-400 mb-2">Click one to filter the table.</p>
-			<ul class="space-y-2 max-w-[90ch] mb-4">
+		<!-- quick filters: the named machines and the community tags -->
+		<div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 text-sm">
+			<span>
+				<span class="text-gray-400 mr-1">Named</span>
+				{#each named as h, k}{k ? ' · ' : ''}<a class="link" href={h.site_page ?? WIKI + encodeURIComponent(wikiOf(h))} rel="external" title="#{h.n} · {h.class ?? ''} · {h.tags.join(', ')}">{h.name}</a>{/each}
+			</span>
+			<span class="flex flex-wrap items-center gap-1.5">
+				<span class="text-gray-400 mr-1">Tags</span>
 				{#each tagList as t}
-					<li>
-						<button class="tag" on:click={() => only(t)} title="Show only these">{t === 'BMO' ? 'Beaver Math Olympiad' : t}</button>
-						<span class="text-gray-300">{tagCounts.get(t)} · {tagInfo[t].help}</span>
-						(<a class="link" href={tagInfo[t].url} rel="external">{tagInfo[t].url.includes('github.com') ? 'family repository' : 'wiki'}</a>)
-					</li>
+					<button class="tag" class:on={tag === t} aria-pressed={tag === t} on:click={() => (tag === t ? (tag = '') : only(t))} title="{tagInfo[t].help}. Click to filter."
+						>{t === 'BMO' ? 'Beaver Math Olympiad' : t} <span class="muted">{tagCounts.get(t)}</span></button
+					>
 				{/each}
-			</ul>
-			<p class="text-sm text-gray-400 mb-2">Classes, from RobinCodes’s sheet and slugbird’s guide (a machine counts under each class a source gives it):</p>
-			<p class="flex flex-wrap gap-x-1.5 gap-y-1 max-w-[90ch]">
-				{#each classCounts as [c, k]}
-					<button class="cls-chip" on:click={() => onlyClass(c)} title="Show only these">{c} <span class="muted">{k}</span></button>
-				{/each}
-			</p>
-		</section>
-		<section class="min-w-0">
-			<HistoryChart
-				lists={data.history}
-				today={{ count: holdouts.length - counts.solved, solved: counts.solved, date: new Date(live?.checked_at ?? data.busycoq.snapshot_fetched_at).toISOString().slice(0, 10) }}
-			/>
-		</section>
+			</span>
 		</div>
 
 		<!-- controls -->
@@ -434,7 +418,7 @@
 				Class
 				<select bind:value={cls} class="field">
 					<option value="">All classes</option>
-					{#each classes as c}<option value={c}>{c}</option>{/each}
+					{#each classes as c}<option value={c}>{c} ({classCount.get(c)})</option>{/each}
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
@@ -809,11 +793,54 @@
 	.tag {
 		@apply inline-block mr-1.5 mb-1 rounded-full border border-purple-400/60 text-purple-100 px-2 py-0.5 text-xs whitespace-nowrap;
 	}
-	.cls-chip {
-		@apply rounded-full border border-gray-600 text-gray-200 px-2 py-0.5 text-xs whitespace-nowrap;
+	.tag.on {
+		@apply border-purple-200 bg-purple-900/60;
 	}
-	.cls-chip:hover {
-		@apply border-gray-300;
+	.bar {
+		display: flex;
+		gap: 2px;
+		height: 12px;
+		border-radius: 4px;
+		overflow: hidden;
+		max-width: 36rem;
+	}
+	.bar span {
+		min-width: 4px;
+	}
+	.seg-pr_open {
+		background: #3987e5;
+	}
+	.seg-sim_halt {
+		background: #d6a23a;
+	}
+	.seg-open {
+		background: #4b5563;
+	}
+	/* not part of the bar (it is off the count), so an outline rather than a fill */
+	.seg-solved {
+		border: 2px solid #3fa66b;
+	}
+	.legend {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		border-radius: 4px;
+		padding: 0.1rem 0.3rem;
+		margin-left: -0.3rem;
+		color: #d1d5db;
+	}
+	.legend:hover {
+		background: rgba(255, 255, 255, 0.06);
+	}
+	.legend.on {
+		background: rgba(255, 255, 255, 0.1);
+		color: #f9fafb;
+	}
+	.sw {
+		width: 10px;
+		height: 10px;
+		border-radius: 2px;
+		flex: none;
 	}
 	.tag:hover {
 		@apply border-purple-200;
