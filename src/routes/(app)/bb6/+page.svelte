@@ -300,8 +300,8 @@
 		</details>
 
 		<!-- controls -->
-		<form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 items-end mb-4" on:submit|preventDefault>
-			<label class="lg:col-span-2 flex flex-col gap-1 text-sm text-gray-400">
+		<form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1.4fr)_minmax(0,1fr)_auto] items-end mb-4" on:submit|preventDefault>
+			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Search
 				<input
 					type="search"
@@ -322,11 +322,11 @@
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				busycoq status
 				<select bind:value={status} class="field">
-					<option value="unsolved">No merged proof</option>
+					<option value="unsolved">No proof or Proof in PR</option>
 					<option value="open">No proof</option>
 					<option value="pr_open">Proof in PR</option>
-					<option value="solved">Proved since the list</option>
-					<option value="all">All</option>
+					<option value="solved">Proved</option>
+					<option value="all">All statuses</option>
 				</select>
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
@@ -598,7 +598,7 @@
 		@apply ml-1 rounded-full bg-purple-900 text-purple-100 px-2 py-0.5 text-xs;
 	}
 	.st {
-		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border;
+		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border whitespace-nowrap;
 	}
 	.st-open {
 		@apply border-gray-500 text-gray-100;
