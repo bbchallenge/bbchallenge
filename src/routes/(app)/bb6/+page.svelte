@@ -252,14 +252,14 @@
 			<summary class="cursor-pointer font-semibold py-1">Background and notation</summary>
 			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
 				<p>
-					BB(6) is settled once every 6-state, 2-symbol machine in
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>
-					is shown to halt or run forever from a blank tape. The
+					To determine the value of BB(6), we first need to show for every 6-state, 2-symbol machine whether it halts or
+					runs forever starting from an all-0 tape. To save time, we enumerate all 6-state machines using
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>. The
 					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a> are the
 					machines still undecided. mxdys maintains the official list and posts updates in
-					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>. Each row is an
-					equivalence class (mirror images, state permutations and mxdys’s equivalence groups); a proof for any member
-					settles it.
+					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>. Each row in the
+					table contains either one Turing machine or a group of Turing machines with similar behavior that have been
+					shown to have the same halting status.
 				</p>
 				<p>
 					Machines are written as six <code>_</code>-separated groups, one per state A–F, each giving the transitions on
@@ -287,14 +287,14 @@
 						<strong>Proof in PR</strong>: a proof is in an unmerged pull request. <strong>Proved</strong>: merged since the
 						list was published.
 					</dd>
-					<dt class="font-semibold">Simulated</dt>
-					<dd>Steps simulated without halting, i.e. a lower bound on the running time if it halts.</dd>
+					<dt class="font-semibold">Steps simulated</dt>
+					<dd>Steps run from a blank tape without halting, i.e. a lower bound on the running time if it halts.</dd>
 					<dt class="font-semibold">Tools</dt>
 					<dd>
 						<strong>viewer</strong> (this site) and
 						<a class="link" href="https://fiery.pages.dev/turing" rel="external">fiery</a> draw space-time diagrams;
-						<a class="link" href="https://ccz181078.github.io/TM/LongAcc/index.html" rel="external">LongAcc</a> takes a pasted
-						machine code.
+						<a class="link" href="https://ccz181078.github.io/TM/LongAcc/index.html" rel="external">LongAcc</a> runs a simulation with
+						longitudinal acceleration.
 					</dd>
 				</dl>
 			</div>
@@ -335,8 +335,8 @@
 					<option value="list">List order</option>
 					<option value="class">Class</option>
 					<option value="status">Status (no proof first)</option>
-					<option value="sim">Simulated, furthest first</option>
-					<option value="sim-asc">Simulated, least first</option>
+					<option value="sim">Steps simulated, most first</option>
+					<option value="sim-asc">Steps simulated, fewest first</option>
 				</select>
 			</label>
 			<div class="flex items-center gap-x-5 gap-y-2 text-sm flex-wrap py-2">
@@ -355,7 +355,7 @@
 			<colgroup><col class="c-num" /><col class="c-tm" /><col class="c-cls" /><col class="c-st" /><col class="c-sim" /><col class="c-links" /></colgroup>
 			<thead>
 				<tr>
-					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'Proof status'], ['sim', 'Simulated']] as [k, label]}
+					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'Proof status'], ['sim', 'Steps simulated']] as [k, label]}
 						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : ascending ? 'ascending' : 'descending'}>
 							{#if k === 'tm'}{label}{:else}<button class="sort" title="Sort by {label === '#' ? 'list order' : label}" on:click={() => sortBy(k)}
 									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{rev || sort === 'sim-asc' ? '▴' : '▾'}</span></button
@@ -411,7 +411,7 @@
 							{/if}
 							{#if v.changed}<span class="muted block">changed since snapshot{v.via ? ` (${v.via})` : ''}</span>{/if}
 						</td>
-						<td data-label="Simulated">{#if sim}{sim.text}{:else}<span class="muted">unknown</span>{/if}</td>
+						<td data-label="Steps simulated">{#if sim}{sim.text}{:else}<span class="muted">unknown</span>{/if}</td>
 						<td data-label="Links" class="links">
 							<a class="link" href="/{h.tm}" rel="external">viewer</a>
 							{#each h.wiki_pages as p}<a class="link" href={WIKI + encodeURIComponent(p)} rel="external">wiki</a>{/each}
