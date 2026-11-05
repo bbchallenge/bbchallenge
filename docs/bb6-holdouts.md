@@ -141,7 +141,7 @@ Each element of `holdouts` (one per line of the official list, in list order):
 | `tm` | The machine as it appears in the list (the representative of its group) |
 | `name` | A name for a famous machine (Antihydra), else `null` |
 | `tags[]` | Community tags: `Cryptid`, `Probviously halting`, `Probviously non-halting`, `Potential Cryptid`, `Energy vampire`, `BMO<n>`; the top-level `tags` gives each a link and a one-line meaning |
-| `simulated_halt` | Present when an accelerated simulation found a halt that has no Rocq proof yet: `date`, `detail`, `source` (a key of `sources`) |
+| `simulated_halt` | Present when an accelerated simulation found a halt that has no Rocq proof yet: `date`, `detail`, `source` (a key of `sources`), `steps_log10` (estimated log10 of its running time). The page shows such a machine's status as *Simulated halt* while busycoq has no proof |
 | `aliases[]` | The other machines in its equivalence group: `tm`, `relation` (`mirror` = mirror/renaming, `equivalent` = mxdys's equivalence) |
 | `class` | The class to show: the sheet's if it has one, else slugbird's, else `null` |
 | `classifications[]` | Every source's class: `source` (`sheet`\|`slugbird`), `class`, and for the sheet `cell{tab,ref}`, and `machine`+`relation` when it came from an alias |

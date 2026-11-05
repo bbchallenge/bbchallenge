@@ -13,16 +13,18 @@ export const CLASS_WIKI = {
 export const WIKI = 'https://wiki.bbchallenge.org/wiki/';
 
 /** Order busycoq statuses for sorting: most actionable first. */
-export const STATUS_ORDER = { open: 0, pr_open: 1, solved: 2 };
+export const STATUS_ORDER = { open: 0, sim_halt: 1, pr_open: 2, solved: 3 };
 
 export const STATUS_LABEL = {
 	open: 'No proof',
+	sim_halt: 'Simulated halt',
 	pr_open: 'Proof in PR',
 	solved: 'Proved'
 };
 
 export const STATUS_HELP = {
 	open: 'No proof in busycoq, merged or proposed.',
+	sim_halt: 'An accelerated simulation found a halt; there is no Rocq proof yet.',
 	pr_open: 'An open (unmerged) pull request on busycoq contains a proof.',
 	solved: 'A proof has been merged into busycoq since the list was published.'
 };

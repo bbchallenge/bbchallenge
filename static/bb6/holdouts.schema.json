@@ -214,6 +214,10 @@
 								"description": "Key in sources",
 								"type": "string"
 							},
+							"steps_log10": {
+								"description": "Estimated log10 of the number of steps before it halts (the source's estimate)",
+								"type": "number"
+							},
 							"machine": {
 								"$ref": "#/$defs/machine"
 							}

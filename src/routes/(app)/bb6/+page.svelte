@@ -21,6 +21,7 @@
 			.replace('{message}', l.message);
 	const author = (p: any): string => p.author ?? '';
 	const fmtDate = (s: string) => s.slice(0, 10);
+	const srcUrl = (k: string): string => (data.sources as Record<string, { url: string }>)[k]?.url ?? '';
 
 	// ---- live overlay -------------------------------------------------------------------------
 	let live: any = null;
@@ -34,6 +35,8 @@
 		liveState = live.ok ? 'ok' : 'failed';
 	}
 	$: ov = overlay(data, live);
+	// busycoq's status, except that a machine with no proof but a simulated halt shows that instead
+	$: st = new Map([...ov].map(([i, v]) => [i, v.status === 'open' && holdouts[i].simulated_halt ? 'sim_halt' : v.status]));
 
 	// ---- search, filter, sort ---------------------------------------------------------------
 	let q = '';
@@ -72,6 +75,8 @@
 		return `${m.toFixed(1)}e${e}`;
 	}
 	function simulated(h: Holdout): { text: string; log: number } | null {
+		const halt = h.simulated_halt?.steps_log10;
+		if (halt) return { text: `halts after ≈ 10^(${sci(Math.log10(halt))})`, log: halt };
 		const s = h.slugbird?.simulated ? log10Of(h.slugbird.simulated) : null;
 		const k = h.sheet?.simulated_log10_min ?? null;
 		if (s !== null && (k === null || s >= k)) return { text: sci(s), log: s };
@@ -96,14 +101,14 @@
 
 	$: rows = holdouts
 		.map((h, i) => ({ h, i }))
-		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyWiki, tag }, ov.get(i)!.status))
+		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyWiki, tag }, st.get(i)!))
 		.sort((a, b) => (rev ? -1 : 1) * cmp(a, b, sort));
 	function cmp(a: { h: Holdout; i: number }, b: { h: Holdout; i: number }, sort: string) {
 		switch (sort) {
 			case 'class':
 				return (a.h.class ?? '~').localeCompare(b.h.class ?? '~') || a.h.n - b.h.n;
 			case 'status':
-				return STATUS_ORDER[ov.get(a.i)!.status] - STATUS_ORDER[ov.get(b.i)!.status] || a.h.n - b.h.n;
+				return STATUS_ORDER[st.get(a.i)!] - STATUS_ORDER[st.get(b.i)!] || a.h.n - b.h.n;
 			case 'sim':
 				return (simulated(b.h)?.log ?? -1) - (simulated(a.h)?.log ?? -1) || a.h.n - b.h.n;
 			case 'sim-asc':
@@ -113,8 +118,8 @@
 		}
 	}
 	$: counts = (() => {
-		const c = { open: 0, pr_open: 0, solved: 0 };
-		for (const v of ov.values()) c[v.status]++;
+		const c = { open: 0, sim_halt: 0, pr_open: 0, solved: 0 };
+		for (const v of st.values()) c[v]++;
 		return c;
 	})();
 
@@ -229,7 +234,7 @@
 			<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>)
 		</p>
 		<p class="flex flex-wrap gap-2 mb-2">
-			{#each [['open', `${counts.open} with no proof`], ['pr_open', `${counts.pr_open} with a proof in an open PR`], ['solved', `${counts.solved} proved since the list`]] as [k, label]}
+			{#each [['open', `${counts.open} with no proof`], ['sim_halt', `${counts.sim_halt} simulated to a halt`], ['pr_open', `${counts.pr_open} with a proof in an open PR`], ['solved', `${counts.solved} proved since the list`]] as [k, label]}
 				<button class="st st-{k} chip" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}>{label}</button>
 			{/each}
 		</p>
@@ -306,7 +311,8 @@
 					<dd>
 						Whether busycoq, mxdys’s repository of Rocq proofs, decides the machine; a holdout leaves the list once its proof is merged.
 						<strong>Proof in PR</strong>: a proof is in an unmerged pull request. <strong>Proved</strong>: merged since the
-						list was published.
+						list was published. <strong>Simulated halt</strong>: an accelerated simulation found a halt, with no Rocq proof
+						yet.
 					</dd>
 					<dt class="font-semibold">Steps simulated</dt>
 					<dd>Steps run from a blank tape without halting, i.e. a lower bound on the running time if it halts.</dd>
@@ -373,6 +379,7 @@
 				<select bind:value={status} class="field">
 					<option value="all">All</option>
 					<option value="open">No proof</option>
+					<option value="sim_halt">Simulated halt</option>
 					<option value="pr_open">Proof in PR</option>
 					<option value="solved">Proved</option>
 				</select>
@@ -455,6 +462,8 @@
 								{/each}
 							{:else if v.status === 'solved' && proofLink(h, v)}
 								<a class="st st-solved" href={proofLink(h, v)} rel="external" title="The merged proof">Proved</a>
+							{:else if st.get(i) === 'sim_halt' && h.simulated_halt}
+								<a class="st st-sim_halt" href={srcUrl(h.simulated_halt.source)} rel="external" title="{STATUS_HELP.sim_halt} {h.simulated_halt.detail}.">Simulated halt</a>
 							{:else}
 								<span class="st st-{v.status}" title={STATUS_HELP[v.status]}>{STATUS_LABEL[v.status]}</span>
 							{/if}
@@ -498,6 +507,12 @@
 									<section>
 										<h3>Status in other sources</h3>
 										<ul>
+											{#if h.simulated_halt}
+												<li>
+													<strong>Simulated halt</strong> ({h.simulated_halt.date}): {h.simulated_halt.detail}{#if h.simulated_halt.machine}, for the equivalent {h.simulated_halt.machine}{/if}
+													(<a class="link" href={srcUrl(h.simulated_halt.source)} rel="external">details</a>). No Rocq proof yet.
+												</li>
+											{/if}
 											<li>
 												<strong>RobinCodes’s sheet</strong> ({data.sources.sheet.as_of}, built on the {data.sources.sheet.keyed_to_list}-machine list):
 												{#if h.sheet?.status}status <strong>{h.sheet.status}</strong>{:else}no status{/if}{#if sheetMachine(h)}, for the equivalent {sheetMachine(h)}{/if}{#if h.sheet?.cell}{' '}(<a class="link" href={sheetCell(h.sheet.cell)} rel="external">row</a>){/if}.
@@ -670,6 +685,9 @@
 	}
 	.st-open {
 		@apply border-gray-500 text-gray-100;
+	}
+	.st-sim_halt {
+		@apply border-amber-400 text-amber-200 bg-amber-950;
 	}
 	.st-pr_open {
 		@apply border-blue-400 text-blue-200 bg-blue-950;

@@ -52,7 +52,8 @@
 			"simulated_halt": {
 				"date": "2026-11-01",
 				"detail": "TM2b in the family; orbit O4 halts at Bell 1,941,376,761,248",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 683718960000.0
 			}
 		},
 		"1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE": {
@@ -76,7 +77,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM1 in the family; orbit O1 halts at Bell 747,242,483,684",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 263165740000.0
 			}
 		},
 		"1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LA---": {
@@ -86,7 +88,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM2a in the family; orbit O3 halts at Bell 1,961,935,897,288",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 690959520000.0
 			}
 		},
 		"1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---": {
@@ -96,7 +99,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM2 in the family; orbit O2 halts at Bell 731,899,010,932",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 257762040000.0
 			}
 		},
 		"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RC---": {
@@ -193,7 +197,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM2' in the family; orbit O2 halts at Bell 731,899,010,932",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 257762040000.0
 			}
 		},
 		"1RB0RF_1LC---_1LF1LD_1RE0LD_0RC0RE_1LC1RA": {
@@ -203,7 +208,8 @@
 			"simulated_halt": {
 				"date": "2026-11-01",
 				"detail": "TM2b' in the family; orbit O4 halts at Bell 1,941,376,761,248",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 683718960000.0
 			}
 		},
 		"1RB0RF_1LC---_1RD0LC_0RE0RD_1LF1LC_1LE1RA": {
@@ -213,7 +219,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM1-F in the family; orbit O2 halts at Bell 731,899,010,932",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 257762040000.0
 			}
 		},
 		"1RB0RF_1RC1RF_1LD0LE_---1LC_1RA1LE_1LC1RB": {

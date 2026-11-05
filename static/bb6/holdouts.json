@@ -5184,7 +5184,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM1 in the family; orbit O1 halts at Bell 747,242,483,684",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 263165740000
 			},
 			"aliases": [],
 			"class": "Bell-like",
@@ -19373,7 +19374,8 @@
 			"simulated_halt": {
 				"date": "2026-11-01",
 				"detail": "TM2b in the family; orbit O4 halts at Bell 1,941,376,761,248",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 683718960000
 			},
 			"aliases": [
 				{
@@ -21052,7 +21054,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM2' in the family; orbit O2 halts at Bell 731,899,010,932",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 257762040000
 			},
 			"aliases": [],
 			"class": "Bell-like",
@@ -26006,7 +26009,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM1-F in the family; orbit O2 halts at Bell 731,899,010,932",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 257762040000
 			},
 			"aliases": [],
 			"class": "Bell-like",
@@ -26184,7 +26188,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM2 in the family; orbit O2 halts at Bell 731,899,010,932",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 257762040000
 			},
 			"aliases": [],
 			"class": "Bell-like",
@@ -29554,7 +29559,8 @@
 			"simulated_halt": {
 				"date": "2026-11-01",
 				"detail": "TM2b' in the family; orbit O4 halts at Bell 1,941,376,761,248",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 683718960000
 			},
 			"aliases": [],
 			"class": "Bell-like",
@@ -34046,7 +34052,8 @@
 			"simulated_halt": {
 				"date": "2026-10-30",
 				"detail": "TM2a in the family; orbit O3 halts at Bell 1,961,935,897,288",
-				"source": "vampires"
+				"source": "vampires",
+				"steps_log10": 690959520000
 			},
 			"aliases": [],
 			"class": "Bell-like",
