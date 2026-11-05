@@ -272,7 +272,7 @@
 						<strong class="text-6xl font-bold tabular-nums leading-none">{left}</strong>
 						<span class="text-xl font-semibold">holdouts left</span>
 					</p>
-					<p class="text-sm text-gray-400 mt-2">
+					<p class="text-sm text-gray-400 mt-3">
 						{holdouts.length} on mxdys’s <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)} list</a>
 						(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">txt</a>,
 						<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>){#if counts.solved}, minus {counts.solved} proved since{/if}.
@@ -281,11 +281,11 @@
 				</div>
 
 				<!-- what the count is made of: one bar, its legend doubles as the status filter -->
-				<div class="bar mt-5" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
+				<div class="bar mt-7" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
 					{#each PARTS as k}<span class="seg-{k}" style="flex-grow:{counts[k]}" />{/each}
 				</div>
 				<!-- grouped by kind of evidence: a Rocq proof, an informal result, nothing yet -->
-				<dl class="groups mt-3 text-sm">
+				<dl class="groups mt-4 text-sm">
 					{#each GROUPS as g}
 						<dt>{g.label}</dt>
 						<dd>
@@ -300,10 +300,11 @@
 					{/each}
 				</dl>
 
-				<p class="text-sm text-gray-400 mt-5 mb-1">
+				<div class="mt-7 pt-4 border-t border-gray-700/50 space-y-1.5">
+				<p class="text-sm text-gray-400">
 					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} machines of the sheet’s
 						<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a> are here: these {holdouts.length}, plus
-						<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a>.{/if}
+						<a class="link whitespace-nowrap" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a>.{/if}
 				</p>
 			<p class="text-sm text-gray-400" role="status" aria-live="polite">
 				{#if liveState === 'checking'}
@@ -334,6 +335,7 @@
 					}}>check again</button
 				>
 			</p>
+				</div>
 
 			</div>
 			<section class="flex min-w-0 flex-col xl:pt-2">
@@ -824,8 +826,8 @@
 	.groups {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		column-gap: 1rem;
-		row-gap: 0.15rem;
+		column-gap: 1.25rem;
+		row-gap: 0.6rem;
 		align-items: baseline;
 	}
 	.groups dt {
@@ -836,8 +838,9 @@
 	}
 	.groups dd {
 		display: flex;
-		flex-wrap: wrap;
-		column-gap: 1rem;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 0.3rem;
 	}
 	.sw {
 		width: 10px;
