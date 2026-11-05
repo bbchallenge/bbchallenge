@@ -105,7 +105,7 @@
 					on:click={() => {
 						currentRoute = 'bb6';
 					}}
-					>Holdouts
+					>BB(6) Holdouts
 				</a>
 			</li>
 			<li>
