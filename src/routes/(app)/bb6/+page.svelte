@@ -166,9 +166,9 @@
 </svelte:head>
 
 <div class="dark w-full">
-	<div class="max-w-[1500px] mx-auto px-1 sm:px-4 font-sans text-gray-100 leading-normal">
-		<h1 class="text-2xl sm:text-3xl font-bold mt-4 mb-1">BB(6) holdouts</h1>
-		<p class="text-gray-300 mb-3">
+	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
+		<h1 class="text-3xl sm:text-4xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
+		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
 			Every machine that still stands between us and the value of
 			<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>, with its class, its
 			status in <a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>
@@ -176,18 +176,20 @@
 		</p>
 
 		<!-- numbers -->
-		<p class="mb-3" aria-live="polite">
+		<p class="mb-3 text-base sm:text-lg" aria-live="polite">
 			<strong>{holdouts.length}</strong> machines on
 			<a class="link" href={data.list.discord_url} rel="external">mxdys’s list of {fmtDate(data.list.published)}</a>
 			(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">plain text</a>,
-			<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>):
+			<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>)
+		</p>
+		<p class="flex flex-wrap gap-2 mb-6">
 			<span class="st st-open">{counts.open} open</span>
 			<span class="st st-pr_open">{counts.pr_open} with an open PR</span>
 			<span class="st st-solved">{counts.solved} solved since</span>
 		</p>
 
 		<!-- live status -->
-		<div class="rounded border border-gray-700 bg-gray-800/60 px-3 py-2 text-sm mb-4" role="status" aria-live="polite">
+		<div class="rounded-lg border border-gray-700/70 bg-gray-800/40 px-4 py-3 text-sm leading-relaxed mb-6" role="status" aria-live="polite">
 			{#if liveState === 'checking'}
 				Checking busycoq on GitHub for anything newer than the snapshot…
 			{:else if liveState === 'ok' && live}
@@ -206,7 +208,7 @@
 				{fmtDate(data.busycoq.snapshot_fetched_at)} (busycoq <code>{data.busycoq.head.sha.slice(0, 7)}</code>), which may be out of date.
 			{/if}
 			<button
-				class="ml-2 underline text-blue-300 hover:text-blue-200 disabled:opacity-50 disabled:no-underline"
+				class="ml-2 link disabled:opacity-50 disabled:no-underline"
 				disabled={liveState === 'checking' || cooling}
 				on:click={() => {
 					cooling = true;
@@ -215,16 +217,16 @@
 					check(true);
 				}}>check again</button
 			>
-			<span class="block text-gray-400 text-xs mt-1">
+			<span class="block text-gray-400 text-xs mt-2">
 				Snapshot: busycoq <code>{data.busycoq.head.sha.slice(0, 7)}</code> ({fmtDate(data.busycoq.head.date)}), {data.busycoq.prs_url.includes('pulls') ? 'pull requests' : ''} as of
 				{fmtDate(data.busycoq.snapshot_fetched_at)}. The browser asks GitHub directly (no account needed, at most a few requests per visit).
 			</span>
 		</div>
 
 		<!-- intro -->
-		<details class="mb-4 rounded border border-gray-700 px-3 py-2">
-			<summary class="cursor-pointer font-semibold">What is this page, and what do the words mean?</summary>
-			<div class="mt-2 space-y-2 text-gray-200 max-w-[80ch]">
+		<details class="mb-8 rounded-lg border border-gray-700/70 px-4 py-3">
+			<summary class="cursor-pointer font-semibold py-1">What is this page, and what do the words mean?</summary>
+			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
 				<p>
 					To know BB(6), every 6-state, 2-symbol Turing machine must be shown to halt or to run forever. Almost all are
 					settled; a <a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdout</a> is a
@@ -238,7 +240,7 @@
 					and on a 1: the symbol to write, the direction (L/R) and the next state; <code>---</code> means halt. See
 					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>.
 				</p>
-				<dl class="grid grid-cols-1 sm:grid-cols-[max-content_1fr] gap-x-4 gap-y-1">
+				<dl class="grid grid-cols-1 sm:grid-cols-[max-content_1fr] gap-x-6 gap-y-2">
 					<dt class="font-semibold">Class</dt>
 					<dd>
 						A label for the kind of behaviour a machine shows, such as
@@ -282,8 +284,8 @@
 		</details>
 
 		<!-- controls -->
-		<form class="grid gap-2 sm:grid-cols-2 lg:grid-cols-6 items-end mb-2" on:submit|preventDefault>
-			<label class="lg:col-span-2 flex flex-col text-sm">
+		<form class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 items-end mb-4" on:submit|preventDefault>
+			<label class="lg:col-span-2 flex flex-col gap-1 text-sm text-gray-400">
 				Search
 				<input
 					type="search"
@@ -294,14 +296,14 @@
 					spellcheck="false"
 				/>
 			</label>
-			<label class="flex flex-col text-sm">
+			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Class
 				<select bind:value={cls} class="field">
 					<option value="">All classes</option>
 					{#each classes as c}<option value={c}>{c}</option>{/each}
 				</select>
 			</label>
-			<label class="flex flex-col text-sm">
+			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				busycoq status
 				<select bind:value={status} class="field">
 					<option value="unsolved">Not solved yet</option>
@@ -311,7 +313,7 @@
 					<option value="all">All</option>
 				</select>
 			</label>
-			<label class="flex flex-col text-sm">
+			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Sort by
 				<select bind:value={sort} class="field">
 					<option value="list">List order</option>
@@ -321,19 +323,19 @@
 					<option value="sim-asc">Simulated, least first</option>
 				</select>
 			</label>
-			<div class="flex items-center gap-3 text-sm flex-wrap">
-				<label class="flex items-center gap-1"><input type="checkbox" bind:checked={onlyConflicts} /> sources disagree</label>
-				<label class="flex items-center gap-1"><input type="checkbox" bind:checked={onlyWiki} /> has wiki page</label>
-				<button type="button" class="underline text-blue-300 hover:text-blue-200" on:click={clear}>clear</button>
+			<div class="flex items-center gap-x-5 gap-y-2 text-sm flex-wrap py-2">
+				<label class="flex items-center gap-2"><input type="checkbox" bind:checked={onlyConflicts} /> sources disagree</label>
+				<label class="flex items-center gap-2"><input type="checkbox" bind:checked={onlyWiki} /> has wiki page</label>
+				<button type="button" class="link" on:click={clear}>clear</button>
 			</div>
 		</form>
-		<p class="text-sm text-gray-300 mb-2" aria-live="polite">
+		<p class="text-sm text-gray-400 mb-3" aria-live="polite">
 			{rows.length} of {holdouts.length} machines{rows.length > shown ? `, showing the first ${shown}` : ''}.
-			{#if rows.length === 0}No machine matches. <button class="underline text-blue-300" on:click={clear}>Clear the filters</button>.{/if}
+			{#if rows.length === 0}No machine matches. <button class="link" on:click={clear}>Clear the filters</button>.{/if}
 		</p>
 
 		<!-- table -->
-		<table class="bb6 w-full text-sm">
+		<table class="bb6 w-full text-[0.95rem]">
 			<caption class="sr-only">BB(6) holdouts</caption>
 			<thead>
 				<tr>
@@ -400,7 +402,7 @@
 					{#if expanded.has(h.n)}
 						<tr class="detail" id="d{h.n}">
 							<td colspan="6">
-								<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3 py-1">
+								<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 py-2">
 									<section>
 										<h3>Classification, by source</h3>
 										<ul>
@@ -474,7 +476,7 @@
 											<p class="muted mb-1">
 												Links only, from {data.sources.discord?.as_of.slice(0, 10)}; the copy starts at {data.sources.discord?.covers_from}. A server login is needed to open them.
 											</p>
-											<ul class="flex flex-wrap gap-x-3 gap-y-1">
+											<ul class="flex flex-wrap gap-x-4 gap-y-1 !space-y-0">
 												{#each [...h.discord].reverse() as l}
 													<li><a class="link" href={discordUrl(l)} rel="external">#{l.channel ?? 'channel'}, {l.date}</a></li>
 												{/each}
@@ -490,19 +492,19 @@
 			</tbody>
 		</table>
 		{#if rows.length > shown}
-			<p class="my-3 text-center">
+			<p class="my-6 text-center">
 				<button class="btn" on:click={() => (shown += 200)}>Show {Math.min(200, rows.length - shown)} more</button>
 				<button class="btn" on:click={() => (shown = rows.length)}>Show all {rows.length}</button>
 			</p>
 		{/if}
 
 		<!-- sources -->
-		<section id="sources" class="mt-8 mb-10 max-w-[90ch] text-gray-200">
-			<h2 class="text-xl font-bold mb-2">Sources and credits</h2>
+		<section id="sources" class="mt-12 mb-16 max-w-[75ch] text-gray-200 leading-relaxed">
+			<h2 class="text-2xl font-bold mb-3">Sources and credits</h2>
 			<p class="mb-2">
 				This page only collects other people’s work and shows where each fact came from. Nothing on it was written by hand per machine.
 			</p>
-			<ul class="list-disc ml-6 space-y-1">
+			<ul class="list-disc ml-6 space-y-2">
 				<li>
 					<strong>The list and the equivalence groups:</strong> <a class="link" href="https://github.com/ccz181078" rel="external">mxdys</a>
 					(ccz181078), who also maintains busycoq, the proofs and the decisions on what is solved. The
@@ -546,13 +548,13 @@
 
 <style lang="postcss">
 	.link {
-		@apply text-blue-400 underline-offset-2 cursor-pointer;
+		@apply text-white underline underline-offset-2 decoration-gray-500 cursor-pointer;
 	}
 	.link:hover {
-		@apply text-blue-300 underline;
+		@apply decoration-white;
 	}
 	.field {
-		@apply bg-gray-800 border border-gray-600 rounded px-2 py-1 text-gray-100 w-full;
+		@apply bg-gray-800/60 border border-gray-600 rounded-md px-3 py-2 text-base text-gray-100 w-full;
 	}
 	.field:focus-visible,
 	button:focus-visible,
@@ -563,7 +565,7 @@
 		@apply outline outline-2 outline-offset-2 outline-blue-400;
 	}
 	.btn {
-		@apply border border-gray-600 rounded px-3 py-1 mx-1;
+		@apply border border-gray-600 rounded-md px-4 py-2 mx-1;
 	}
 	.btn:hover {
 		@apply bg-gray-800;
@@ -573,16 +575,16 @@
 	}
 	.warn {
 		display: block;
-		@apply text-yellow-300 text-xs;
+		@apply text-yellow-300 text-xs mt-1;
 	}
 	.badge {
-		@apply ml-1 rounded bg-purple-900 text-purple-100 px-1.5 py-0.5 text-xs;
+		@apply ml-1 rounded-full bg-purple-900 text-purple-100 px-2 py-0.5 text-xs;
 	}
 	.st {
-		@apply inline-block rounded px-2 py-0.5 text-xs font-semibold border;
+		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border;
 	}
 	.st-open {
-		@apply border-gray-400 text-gray-100;
+		@apply border-gray-500 text-gray-100;
 	}
 	.st-pr_open {
 		@apply border-blue-400 text-blue-200 bg-blue-950;
@@ -591,16 +593,16 @@
 		@apply border-green-400 text-green-200 bg-green-950;
 	}
 	code.tm {
-		@apply text-[0.8rem] break-all;
+		@apply text-[0.85rem] break-all;
 	}
 	.copy {
-		@apply ml-1 text-xs text-gray-400 underline;
+		@apply ml-2 text-xs text-gray-400 border border-gray-600 rounded-full px-2 py-0.5;
 	}
 	.copy:hover {
-		@apply text-gray-200;
+		@apply text-gray-100 border-gray-400;
 	}
 	.exp {
-		@apply text-gray-100 tabular-nums;
+		@apply text-gray-100 tabular-nums py-1 pr-2;
 	}
 	.exp:hover {
 		@apply text-white;
@@ -610,25 +612,25 @@
 		border-collapse: collapse;
 	}
 	table.bb6 th {
-		@apply text-left text-xs uppercase tracking-wide text-gray-400 border-b border-gray-600 px-2 py-1 sticky top-0 bg-gray-900;
+		@apply text-left text-xs uppercase tracking-wide text-gray-400 border-b border-gray-600 px-3 py-3 sticky top-0 bg-gray-900;
 	}
 	table.bb6 td {
-		@apply px-2 py-1.5 align-top border-b border-gray-800;
+		@apply px-3 py-4 align-top border-b border-gray-800;
 	}
 	table.bb6 tr.open > td {
-		@apply bg-gray-800/50;
+		@apply bg-gray-800/40;
 	}
 	table.bb6 tr.detail > td {
-		@apply bg-gray-800/50 border-b border-gray-700;
+		@apply bg-gray-800/40 border-b border-gray-700 px-4 py-4;
 	}
 	.detail h3 {
-		@apply text-xs uppercase tracking-wide text-gray-400 mb-1;
+		@apply text-xs uppercase tracking-wide text-gray-400 mb-2;
 	}
 	.detail ul {
-		@apply space-y-1;
+		@apply space-y-2;
 	}
 	.links a + a {
-		@apply ml-2;
+		@apply ml-3;
 	}
 
 </style>
