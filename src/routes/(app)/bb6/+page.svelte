@@ -140,6 +140,7 @@
 		else if (sort === k) rev = !rev;
 		else (sort = k), (rev = false);
 	}
+	// aria-sort says the real direction; the arrow is ▾ for a column's default order, ▴ once reversed
 	$: ascending = sort === 'sim' ? false : sort === 'sim-asc' ? true : !rev;
 
 	function toggle(n: number) {
@@ -357,7 +358,7 @@
 					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'Proof status'], ['sim', 'Simulated']] as [k, label]}
 						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : ascending ? 'ascending' : 'descending'}>
 							{#if k === 'tm'}{label}{:else}<button class="sort" title="Sort by {label === '#' ? 'list order' : label}" on:click={() => sortBy(k)}
-									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{ascending ? '▴' : '▾'}</span></button
+									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{rev || sort === 'sim-asc' ? '▴' : '▾'}</span></button
 								>{/if}
 						</th>
 					{/each}
