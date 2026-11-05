@@ -172,7 +172,7 @@
 </svelte:head>
 
 <div class="dark w-full">
-	<div class="max-w-[1400px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
+	<div class="max-w-[1600px] mx-auto px-0 sm:px-4 lg:px-6 font-sans text-gray-100 leading-relaxed">
 		<h1 class="text-3xl font-bold mt-8 mb-4">BB(6) holdouts</h1>
 		<p class="text-gray-200 text-base sm:text-lg mb-6 max-w-[70ch]">
 			The 6-state, 2-symbol Turing machines whose halting status is still undecided, and so stand between us and the value
@@ -336,6 +336,7 @@
 		<!-- table -->
 		<table class="bb6 w-full text-base">
 			<caption class="sr-only">BB(6) holdouts</caption>
+			<colgroup><col class="c-num" /><col class="c-tm" /><col /><col class="c-st" /><col class="c-sim" /><col class="c-links" /></colgroup>
 			<thead>
 				<tr>
 					<th scope="col">#</th>
