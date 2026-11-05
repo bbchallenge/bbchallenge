@@ -246,18 +246,38 @@
 			how far it has been simulated, its space-time diagram, and links to its spreadsheet row and Discord discussion.
 		</p>
 
-		<!-- numbers -->
-		<p class="mb-3 text-base sm:text-lg" aria-live="polite">
-			<strong>{holdouts.length}</strong> machines on
-			<a class="link" href={data.list.discord_url} rel="external">mxdys’s list of {fmtDate(data.list.published)}</a>
-			(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">plain text</a>,
-			<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>)
-		</p>
-		<p class="flex flex-wrap gap-2 mb-2">
-			{#each [['open', `${counts.open} with no proof`], ['sim_halt', `${counts.sim_halt} simulated to a halt`], ['pr_open', `${counts.pr_open} with a proof in an open PR`], ['solved', `${counts.solved} proved since the list`]] as [k, label]}
+		<!-- numbers: the latest list minus what busycoq has proved since, so it moves with each merge -->
+		<div class="mb-2" aria-live="polite">
+			<p class="flex items-baseline gap-3">
+				<strong class="text-5xl font-bold tabular-nums">{holdouts.length - counts.solved}</strong>
+				<span class="text-xl font-semibold">holdouts left</span>
+			</p>
+			<p class="text-gray-300 mt-1 max-w-[80ch]">
+				mxdys’s latest list, <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)}</a>
+				(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">plain text</a>,
+				<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>), has {holdouts.length}.
+				{#if counts.solved}{counts.solved} {counts.solved === 1 ? 'has' : 'have'} been proved in busycoq since{:else}None has been proved in busycoq since{/if},
+				so this count drops with each merge rather than waiting for the next list.
+			</p>
+		</div>
+		<p class="flex flex-wrap items-center gap-2 mb-2">
+			<span class="text-sm text-gray-400">Of these {holdouts.length - counts.solved}:</span>
+			{#each [['pr_open', `${counts.pr_open} proved in an open PR, awaiting merge`], ['sim_halt', `${counts.sim_halt} simulated to a halt`], ['open', `${counts.open} with no proof`]] as [k, label]}
 				<button class="st st-{k} chip" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}>{label}</button>
 			{/each}
+			{#if counts.solved}
+				<span class="text-sm text-gray-400 ml-2">Off the count:</span>
+				<button class="st st-solved chip" class:on={status === 'solved'} aria-pressed={status === 'solved'} title={status === 'solved' ? 'Show all' : 'Show only these'} on:click={() => (status = status === 'solved' ? 'all' : 'solved')}>{counts.solved} proved since the list</button>
+			{/if}
 		</p>
+		{#if data.base_list}
+			<p class="text-sm text-gray-400 mt-3 mb-3 max-w-[90ch]">
+				All {data.base_list.count.toLocaleString('en-US')} machines of the
+				<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a> that RobinCodes’s sheet uses
+				are on this page: the {holdouts.length} rows below are the latest list (some rows stand for several equivalent machines of the older one), and the
+				<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a> are listed after the table.
+			</p>
+		{/if}
 
 		<!-- live status -->
 		<p class="text-sm text-gray-400 mb-6" role="status" aria-live="polite">
@@ -617,7 +637,7 @@
 
 		<!-- decided since the base list -->
 		{#if data.base_list}
-			<details class="mt-10 rounded-lg border border-gray-700/70 px-4 py-3" bind:open={showDecided}>
+			<details id="decided" class="mt-10 rounded-lg border border-gray-700/70 px-4 py-3 scroll-mt-4" bind:open={showDecided}>
 				<summary class="cursor-pointer font-semibold py-1">
 					{data.base_list.decided} machines decided since the
 					{data.base_list.count}-machine list of {data.base_list.published}{#if q.trim() || cls}
