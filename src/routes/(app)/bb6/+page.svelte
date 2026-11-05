@@ -40,6 +40,7 @@
 	let cls = '';
 	let status = 'all';
 	let sort = 'list';
+	let rev = false; // a second click on a column header reverses it
 	let onlyWiki = false;
 	let expanded = new Set<number>();
 	let urlReady = false;
@@ -86,20 +87,21 @@
 	$: rows = holdouts
 		.map((h, i) => ({ h, i }))
 		.filter(({ h, i }) => matches(h, i, { q, cls, status, onlyWiki }, ov.get(i)!.status))
-		.sort((a, b) => {
-			switch (sort) {
-				case 'class':
-					return (a.h.class ?? '~').localeCompare(b.h.class ?? '~') || a.h.n - b.h.n;
-				case 'status':
-					return STATUS_ORDER[ov.get(a.i)!.status] - STATUS_ORDER[ov.get(b.i)!.status] || a.h.n - b.h.n;
-				case 'sim':
-					return (simulated(b.h)?.log ?? -1) - (simulated(a.h)?.log ?? -1) || a.h.n - b.h.n;
-				case 'sim-asc':
-					return (simulated(a.h)?.log ?? 1e9) - (simulated(b.h)?.log ?? 1e9) || a.h.n - b.h.n;
-				default:
-					return a.h.n - b.h.n;
-			}
-		});
+		.sort((a, b) => (rev ? -1 : 1) * cmp(a, b, sort));
+	function cmp(a: { h: Holdout; i: number }, b: { h: Holdout; i: number }, sort: string) {
+		switch (sort) {
+			case 'class':
+				return (a.h.class ?? '~').localeCompare(b.h.class ?? '~') || a.h.n - b.h.n;
+			case 'status':
+				return STATUS_ORDER[ov.get(a.i)!.status] - STATUS_ORDER[ov.get(b.i)!.status] || a.h.n - b.h.n;
+			case 'sim':
+				return (simulated(b.h)?.log ?? -1) - (simulated(a.h)?.log ?? -1) || a.h.n - b.h.n;
+			case 'sim-asc':
+				return (simulated(a.h)?.log ?? 1e9) - (simulated(b.h)?.log ?? 1e9) || a.h.n - b.h.n;
+			default:
+				return a.h.n - b.h.n;
+		}
+	}
 	$: counts = (() => {
 		const c = { open: 0, pr_open: 0, solved: 0 };
 		for (const v of ov.values()) c[v.status]++;
@@ -113,6 +115,7 @@
 		if (cls) p.set('class', cls);
 		if (status !== 'all') p.set('status', status);
 		if (sort !== 'list') p.set('sort', sort);
+		if (rev) p.set('rev', '1');
 		if (onlyWiki) p.set('wiki', '1');
 		const s = p.toString();
 		window.history.replaceState(window.history.state, '', s ? `?${s}` : window.location.pathname);
@@ -123,15 +126,21 @@
 		cls = '';
 		status = 'all';
 		sort = 'list';
+		rev = false;
 		onlyWiki = false;
 	}
 	// the viewer's default picture: 10,000 steps from a blank tape, 400 cells wide
 	function diagram(canvas: HTMLCanvasElement, tm: string) {
 		tm_trace_to_image(canvas.getContext('2d')!, machineCodeToTM(tm), '0', 400, 10_000, 0.5, true, true);
 	}
-	// column headers sort like the dropdown; Simulated flips direction on a second click
-	const sortBy = (k: string) => (sort = k === 'sim' && sort === 'sim' ? 'sim-asc' : k);
+	// column headers sort like the dropdown; a second click reverses
 	const sortKey = (s: string) => (s === 'sim-asc' ? 'sim' : s);
+	function sortBy(k: string) {
+		if (k === 'sim' && sortKey(sort) === 'sim') sort = sort === 'sim' ? 'sim-asc' : 'sim';
+		else if (sort === k) rev = !rev;
+		else (sort = k), (rev = false);
+	}
+	$: ascending = sort === 'sim' ? false : sort === 'sim-asc' ? true : !rev;
 
 	function toggle(n: number) {
 		expanded.has(n) ? expanded.delete(n) : expanded.add(n);
@@ -156,6 +165,7 @@
 		cls = p.get('class') ?? '';
 		status = p.get('status') ?? 'all';
 		sort = p.get('sort') ?? 'list';
+		rev = p.get('rev') === '1';
 		onlyWiki = p.get('wiki') === '1';
 		urlReady = true;
 		check();
@@ -320,7 +330,7 @@
 			</label>
 			<label class="flex flex-col gap-1 text-sm text-gray-400">
 				Sort by
-				<select bind:value={sort} class="field">
+				<select bind:value={sort} on:change={() => (rev = false)} class="field">
 					<option value="list">List order</option>
 					<option value="class">Class</option>
 					<option value="status">Status (no proof first)</option>
@@ -345,9 +355,9 @@
 			<thead>
 				<tr>
 					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'busycoq'], ['sim', 'Simulated']] as [k, label]}
-						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : sort === 'sim-asc' ? 'ascending' : 'descending'}>
+						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : ascending ? 'ascending' : 'descending'}>
 							{#if k === 'tm'}{label}{:else}<button class="sort" title="Sort by {label === '#' ? 'list order' : label}" on:click={() => sortBy(k)}
-									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{sort === 'sim-asc' ? '▴' : '▾'}</span></button
+									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{ascending ? '▴' : '▾'}</span></button
 								>{/if}
 						</th>
 					{/each}
