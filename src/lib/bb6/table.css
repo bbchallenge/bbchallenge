@@ -58,4 +58,10 @@
 		white-space: nowrap;
 		word-break: normal;
 	}
+	/* an opened row's details fill the existing columns instead of resizing them */
+	table.bb6 tr.detail > td > div {
+		width: 0;
+		min-width: 100%;
+		overflow-wrap: anywhere;
+	}
 }

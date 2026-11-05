@@ -462,19 +462,15 @@
 													</li>
 												{/each}
 											</ul>
-										{:else}<p class="muted">None (singleton group).</p>{/if}
+										{:else}<p class="muted">None.</p>{/if}
 										{#if h.discord.length}
-											<h3 class="mt-2">Discord messages that mention it</h3>
-											<p class="muted mb-1">
-												Message links only, indexed {data.sources.discord?.as_of.slice(0, 10)} from history beginning {data.sources.discord?.covers_from}; opening them requires server membership.
-											</p>
+											<h3 class="mt-2">Discord mentions</h3>
 											<ul class="flex flex-wrap gap-x-4 gap-y-1 !space-y-0">
 												{#each [...h.discord].reverse() as l}
 													<li><a class="link" href={discordUrl(l)} rel="external">#{l.channel ?? 'channel'}, {l.date}</a></li>
 												{/each}
 											</ul>
 										{/if}
-										<p class="muted mt-3">A proof for any member settles the group. Mirror images and state permutations are detected automatically.</p>
 									</section>
 								</div>
 							</td>
