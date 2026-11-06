@@ -272,20 +272,17 @@
 						<strong class="text-6xl font-bold tabular-nums leading-none">{left}</strong>
 						<span class="text-xl font-semibold">holdouts left</span>
 					</p>
-					<p class="text-sm text-gray-400 mt-3">
-						{holdouts.length} on mxdys’s <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)} list</a>
-						(<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">txt</a>,
-						<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>){#if counts.solved}, minus {counts.solved} proved since{/if}.
-						Drops with each busycoq merge.
+					<p class="text-sm text-gray-400 mt-2">
+						{holdouts.length} on the <a class="link" href={data.list.discord_url} rel="external">{fmtDate(data.list.published)} list</a>{#if counts.solved}, minus {counts.solved} proved since{/if}.
 					</p>
 				</div>
 
 				<!-- what the count is made of: one bar, its legend doubles as the status filter -->
-				<div class="bar mt-7" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
+				<div class="bar mt-5" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
 					{#each PARTS as k}<span class="seg-{k}" style="flex-grow:{counts[k]}" />{/each}
 				</div>
 				<!-- grouped by kind of evidence: a Rocq proof, an informal result, nothing yet -->
-				<dl class="groups mt-4 text-sm">
+				<dl class="groups mt-3 text-sm">
 					{#each GROUPS as g}
 						<dt>{g.label}</dt>
 						<dd>
@@ -300,42 +297,34 @@
 					{/each}
 				</dl>
 
-				<div class="mt-7 pt-4 border-t border-gray-700/50 space-y-1.5">
-				<p class="text-sm text-gray-400">
-					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} machines of the sheet’s
-						<a class="link" href={data.base_list.discord_url} rel="external">{data.base_list.published} list</a> are here: these {holdouts.length}, plus
-						<a class="link whitespace-nowrap" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a>.{/if}
-				</p>
-			<p class="text-sm text-gray-400" role="status" aria-live="polite">
-				{#if liveState === 'checking'}
-					Checking busycoq for commits since the snapshot ({data.busycoq.head.sha.slice(0, 7)})…
-				{:else if liveState === 'ok' && live}
-					busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} ·
-					{#if live.commits_ahead}
-						<span class="text-gray-200">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</span>
-						since {data.busycoq.head.sha.slice(0, 7)} (<a class="link" href={live.compare_url} rel="external">changes</a>),
-						{changedCount} status{changedCount === 1 ? '' : 'es'} changed
+				<!-- one line: the decided machines are here too, and how fresh the busycoq status is -->
+				<p class="text-sm text-gray-400 mt-4" role="status" aria-live="polite">
+					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} here, incl.
+						<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a> ·{/if}
+					{#if liveState === 'checking'}
+						checking busycoq…
+					{:else if liveState === 'ok' && live}
+						<span title="busycoq {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)}); the page checks for newer commits"
+							>busycoq checked {new Date(live.checked_at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}</span
+						>{#if live.commits_ahead}:
+							<a class="link text-gray-200" href={live.compare_url} rel="external">{live.commits_ahead} new commit{live.commits_ahead === 1 ? '' : 's'}</a>,
+							{changedCount} status{changedCount === 1 ? '' : 'es'} changed{/if}
+						{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
 					{:else}
-						no new commits since {data.busycoq.head.sha.slice(0, 7)} ({fmtDate(data.busycoq.head.date)})
+						<span class="text-yellow-300" title={live?.error}>busycoq check failed</span>, showing {fmtDate(data.busycoq.snapshot_fetched_at)}
 					{/if}
-					{#each live.notes as n}<span class="block text-yellow-300">{n}</span>{/each}
-				{:else}
-					<span class="text-yellow-300">Live check unavailable</span> ({live?.error}); showing busycoq as of
-					{fmtDate(data.busycoq.snapshot_fetched_at)} ({data.busycoq.head.sha.slice(0, 7)})
-				{/if}
-				·
-				<button
-					class="link disabled:opacity-50 disabled:no-underline"
-					disabled={liveState === 'checking' || cooling}
-					on:click={() => {
-						cooling = true;
-						clearTimeout(coolTimer);
-						coolTimer = setTimeout(() => (cooling = false), 60_000);
-						check(true);
-					}}>check again</button
-				>
-			</p>
-				</div>
+					·
+					<button
+						class="link disabled:opacity-50 disabled:no-underline"
+						disabled={liveState === 'checking' || cooling}
+						on:click={() => {
+							cooling = true;
+							clearTimeout(coolTimer);
+							coolTimer = setTimeout(() => (cooling = false), 60_000);
+							check(true);
+						}}>check again</button
+					>
+				</p>
 
 			</div>
 			<section class="flex min-w-0 flex-col xl:pt-2">
@@ -683,7 +672,9 @@
 					<strong>List and equivalence groups:</strong>
 					<a class="link" href="https://github.com/ccz181078" rel="external">mxdys</a> (ccz181078): the
 					<a class="link" href={data.list.discord_url} rel="external">list of {fmtDate(data.list.published)}</a> and its
-					<a class="link" href={data.list.equivalence_file} rel="external">equivalence file</a>. This site’s copy and the
+					<a class="link" href={data.list.equivalence_file} rel="external">equivalence file</a>. Download the list as
+					<a class="link" href="/BB6_holdouts_{data.list.count}.txt" rel="external">txt</a> or, with everything on this page,
+					<a class="link" href="/bb6/holdouts.json" rel="external">JSON</a>. This site’s copy and the
 					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">wiki’s lists</a> are kept up
 					to date by volunteers, including int-y1.
 				</li>
@@ -826,8 +817,8 @@
 	.groups {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		column-gap: 1.25rem;
-		row-gap: 0.6rem;
+		column-gap: 1rem;
+		row-gap: 0.25rem;
 		align-items: baseline;
 	}
 	.groups dt {
@@ -840,7 +831,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		row-gap: 0.3rem;
+		row-gap: 0.1rem;
 	}
 	.sw {
 		width: 10px;
