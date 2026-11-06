@@ -108,7 +108,7 @@
 				out.push({ ...m, lx: m.px + 9, ly: m.py + 4, anchor: 'start' });
 				continue;
 			}
-			const tw = (m.name.length + (m.href ? 2 : 0) + (m.value === undefined ? 0 : fmt(m.value).length + 2) + (m.extra?.length ?? 0)) * CH;
+			const tw = (m.name.length + (m.value === undefined ? 0 : fmt(m.value).length + 2) + (m.extra?.length ?? 0)) * CH;
 			// left of the point if it fits, else right of it, else flush with the right edge (narrow screens)
 			const left = m.px - 8 - tw >= M.left || m.px + 8 + tw > w - M.right;
 			const anchor = left ? 'end' : 'start';
@@ -242,7 +242,9 @@
 					<text class="label sub" x={m.lx} y={m.ly + 13}>today</text>
 				{:else if m.href}
 					<a href={m.href} rel="external"
-						><text class="label link" x={m.lx} y={m.ly} text-anchor={m.anchor}>{#if m.title}<title>{m.title}</title>{/if}{m.name} ↗</text></a
+						><text class="label link" x={m.lx} y={m.ly} text-anchor={m.anchor}>{#if m.title}<title>{m.title}</title>{/if}{m.name}</text
+						><!-- drawn, not text-decoration: the label's halo would paint over a real underline -->
+						<line class="underline" x1={m.anchor === 'end' ? m.lx - m.name.length * CH : m.lx} x2={m.anchor === 'end' ? m.lx : m.lx + m.name.length * CH} y1={m.ly + 3} y2={m.ly + 3} /></a
 					>
 				{:else}
 					<text class="label" x={m.lx} y={m.ly} text-anchor={m.anchor}
@@ -298,14 +300,18 @@
 		stroke-width: 2;
 		stroke-linejoin: round;
 	}
+	/* milestones stand apart from the line; today and the hover point stay the line's blue */
 	.dot {
-		fill: #3987e5;
+		fill: #f0efec;
 		stroke: #111827;
 		stroke-width: 2;
 	}
 	.dot.today {
 		fill: #111827;
 		stroke: #3987e5;
+	}
+	.dot.hover {
+		fill: #3987e5;
 	}
 	.label {
 		fill: #c3c2b7;
@@ -319,6 +325,12 @@
 	}
 	a:hover .label.link {
 		fill: #dbeafe;
+	}
+	.underline {
+		stroke: #93c5fd;
+		stroke-width: 1;
+		stroke-dasharray: 2 2;
+		opacity: 0.7;
 	}
 	.label.sub {
 		fill: #898781;
