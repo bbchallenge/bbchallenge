@@ -280,9 +280,7 @@
 				<h1 class="text-3xl font-bold mb-2">BB(6) holdouts</h1>
 				<p class="text-gray-300 mb-6 max-w-[62ch]">
 					The 6-state, 2-symbol Turing machines still standing between us and
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>: each one’s class, its Rocq proof status in
-					<a class="link" href="https://github.com/{data.busycoq.repo}/tree/{data.busycoq.branch}" rel="external">busycoq</a>, simulation depth,
-					space-time diagram and links.
+					<a class="link" href="https://wiki.bbchallenge.org/wiki/BB(6)" rel="external">BB(6)</a>.
 				</p>
 
 				<!-- the latest list minus what busycoq has proved since, so it moves with each merge -->
@@ -354,20 +352,20 @@
 			</section>
 		</div>
 
-		<!-- intro -->
+		<!-- background, then the notation box -->
+		<p class="mb-4 text-gray-200 max-w-[75ch]">
+			To determine the value of BB(6), we first need to show for every 6-state, 2-symbol machine whether it halts or
+			runs forever starting from an all-0 tape. To save time, we enumerate all 6-state machines using
+			<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>. The
+			<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a> are the
+			machines still undecided. mxdys maintains the official list and posts updates in
+			<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>. Each row in the
+			table contains either one Turing machine or a group of Turing machines with similar behavior that have been
+			shown to have the same halting status.
+		</p>
 		<details class="mb-6 rounded-lg border border-gray-700/70 px-4 py-3">
-			<summary class="cursor-pointer font-semibold py-1">Background and notation</summary>
+			<summary class="cursor-pointer font-semibold py-1">Notation</summary>
 			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
-				<p>
-					To determine the value of BB(6), we first need to show for every 6-state, 2-symbol machine whether it halts or
-					runs forever starting from an all-0 tape. To save time, we enumerate all 6-state machines using
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>. The
-					<a class="link" href="https://wiki.bbchallenge.org/wiki/Holdouts_lists" rel="external">holdouts</a> are the
-					machines still undecided. mxdys maintains the official list and posts updates in
-					<a class="link" href="https://discord.gg/wuZhtTvYU3" rel="external">#bb6 on Discord</a>. Each row in the
-					table contains either one Turing machine or a group of Turing machines with similar behavior that have been
-					shown to have the same halting status.
-				</p>
 				<p>
 					Machines are written as six <code>_</code>-separated groups, one per state A–F, each giving the transitions on
 					reading 0 and 1: <code>1RB</code> writes 1, moves right and enters B, and
@@ -401,7 +399,7 @@
 						halting or non-halting is a tag, not a proof.
 					</dd>
 					<dt class="font-semibold">Steps simulated</dt>
-					<dd>Steps run from a blank tape without halting, i.e. a lower bound on the running time if it halts.</dd>
+					<dd>How far it has been simulated: steps run from a blank tape without halting, i.e. a lower bound on its running time if it halts.</dd>
 					<dt class="font-semibold">Tools</dt>
 					<dd>
 						<strong>viewer</strong> (this site) and
@@ -708,7 +706,7 @@
 					to date by volunteers, including int-y1.
 				</li>
 				<li>
-					<strong>Classes, status and simulation depth:</strong> RobinCodes’s
+					<strong>Classes, proof status and steps simulated:</strong> RobinCodes’s
 					<a class="link" href={data.sources.sheet.url} rel="external">annotated spreadsheet</a>
 					({data.sources.sheet.as_of}, built on the {data.sources.sheet.keyed_to_list}-machine list and matched to today’s
 					rows through the equivalence groups).
