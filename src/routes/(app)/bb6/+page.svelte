@@ -352,8 +352,9 @@
 			</section>
 		</div>
 
-		<!-- background, then the notation box -->
-		<p class="mb-4 text-gray-200 max-w-[75ch]">
+		<!-- background, then the notation box: one centred column -->
+		<div class="mx-auto max-w-[75ch] mb-8">
+		<p class="mb-3 text-gray-200">
 			To determine the value of BB(6), we first need to show for every 6-state, 2-symbol machine whether it halts or
 			runs forever starting from an all-0 tape. To save time, we enumerate all 6-state machines using
 			<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>. The
@@ -363,9 +364,12 @@
 			table contains either one Turing machine or a group of Turing machines with similar behavior that have been
 			shown to have the same halting status.
 		</p>
-		<details class="mb-6 rounded-lg border border-gray-700/70 px-4 py-3">
-			<summary class="cursor-pointer font-semibold py-1">Notation</summary>
-			<div class="mt-3 space-y-3 text-gray-200 max-w-[75ch]">
+		<details class="notation">
+			<summary
+				class="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-gray-700 px-3 py-1 text-sm font-medium text-gray-300 hover:border-gray-500 hover:text-white"
+				><span class="chev" aria-hidden="true">▸</span> Notation</summary
+			>
+			<div class="mt-3 space-y-3 rounded-lg border border-gray-700/70 px-4 py-3 text-gray-200">
 				<p>
 					Machines are written as six <code>_</code>-separated groups, one per state A–F, each giving the transitions on
 					reading 0 and 1: <code>1RB</code> writes 1, moves right and enters B, and
@@ -410,6 +414,7 @@
 				</dl>
 			</div>
 		</details>
+		</div>
 
 		<!-- one row of controls, then one row of quick filters, then the count -->
 		<form id="table" class="flex flex-wrap gap-2 mb-3 scroll-mt-4" on:submit|preventDefault>
@@ -743,6 +748,16 @@
 </div>
 
 <style lang="postcss">
+	.notation > summary::-webkit-details-marker {
+		display: none;
+	}
+	.notation .chev {
+		display: inline-block;
+		transition: transform 0.15s;
+	}
+	.notation[open] .chev {
+		transform: rotate(90deg);
+	}
 	.link {
 		@apply text-white underline underline-offset-2 decoration-gray-500 cursor-pointer;
 	}
