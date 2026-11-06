@@ -1,6 +1,6 @@
 {
 	"schema_version": 1,
-	"generated_at": "2026-11-06T01:18:02.078Z",
+	"generated_at": "2026-11-06T05:22:09.139Z",
 	"list": {
 		"count": 608,
 		"published": "2026-10-30",
@@ -25,10 +25,16 @@
 			"date": "2026-11-03T01:43:22+08:00",
 			"message": "add FIBv7, 23 2x5 proofs"
 		},
-		"snapshot_fetched_at": "2026-11-06T01:18:02.078Z",
+		"snapshot_fetched_at": "2026-11-06T05:22:09.139Z",
 		"verify_files": 600,
 		"prs_url": "https://github.com/ccz181078/busycoq/pulls",
 		"pr_snapshot": [
+			{
+				"number": 58,
+				"state": "open",
+				"head_sha": "8c7f40a1e0ca6dc020a6144f7692435ee9127af1",
+				"updated_at": "2026-11-06T05:14:35Z"
+			},
 			{
 				"number": 57,
 				"state": "open",
@@ -104,14 +110,14 @@
 			{
 				"number": 45,
 				"state": "open",
-				"head_sha": "7920bd2017e4daf3af8c597e91623670a68f9947",
-				"updated_at": "2026-11-05T08:48:59Z"
+				"head_sha": "a93e2b467e0c0f761e3212a4717b84c8396a9c76",
+				"updated_at": "2026-11-06T02:11:27Z"
 			},
 			{
 				"number": 44,
 				"state": "open",
-				"head_sha": "f870311ed2e887b7698cfbf749a7789132e9e7ea",
-				"updated_at": "2026-11-03T14:28:32Z"
+				"head_sha": "c94a67d0268be7dbe4bde021c26b29eec541df4f",
+				"updated_at": "2026-11-06T02:27:30Z"
 			},
 			{
 				"number": 43,
@@ -389,12 +395,22 @@
 		"slugbird": {
 			"name": "slugbird’s BB(6) Holdout Guide",
 			"as_of": "November 3, 2026",
-			"url": "https://discord.com/channels/960643023006490684/1239205785913790465/1567309713971089418"
+			"url": "https://discord.com/channels/960643023006490684/1239205785913790465/1567309713971089418",
+			"status_labels": {
+				"pr": "Proof in an open PR",
+				"ready": "Proof ready, PR soon",
+				"rules": "Rules known, no proof",
+				"reported": "Reported by others",
+				"cryptid": "Cryptid",
+				"pattern": "Some structure seen",
+				"lottery": "Looks like a lottery",
+				"little": "Little known"
+			}
 		},
 		"busycoq": {
 			"name": "busycoq (verified Rocq proofs)",
 			"url": "https://github.com/ccz181078/busycoq/tree/BB6",
-			"as_of": "2026-11-06T01:18:02.078Z"
+			"as_of": "2026-11-06T05:22:09.139Z"
 		},
 		"discord": {
 			"name": "bbchallenge Discord (message links only, from a local copy)",
@@ -477,7 +493,7 @@
 			"sim_halt": 7,
 			"solved": 1
 		},
-		"with_conflicts": 1
+		"with_conflicts": 0
 	},
 	"history": [
 		{
@@ -4423,9 +4439,20 @@
 				"simulated": null
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 58,
+						"title": "Prove 1RB1LC_0RC0RB_1LD0LA_1LE---_1LF1RA_1LA1LC nonhalting: a shift-overflow counter",
+						"author": "DennisKoshta",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"ShiftOverflowCounter_F1C.v"
+						]
+					}
+				],
 				"mentioned_in": [
 					{
 						"file": "Eqv_v3.v",
@@ -4440,16 +4467,15 @@
 			},
 			"wiki_pages": [],
 			"discord": [],
-			"conflicts": [
-				{
-					"kind": "solved-not-in-busycoq",
-					"detail": "the sheet marks it NONHALT, but busycoq has no proof and no open PR"
-				}
-			],
+			"conflicts": [],
 			"notes": [
 				{
-					"kind": "unverified",
-					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+					"kind": "behind",
+					"detail": "the sheet marks it NONHALT; busycoq has an open PR (#58), not yet merged"
+				},
+				{
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq now has an open PR (#58)"
 				}
 			]
 		},
@@ -19897,7 +19923,7 @@
 				"prs": [
 					{
 						"number": 44,
-						"title": "Prove four BB(6) machines nonhalting: LongLoop, register machines, pushdown saturation",
+						"title": "Prove three BB(6) machines nonhalting: LongLoop, register machines",
 						"author": "alkrssve",
 						"state": "open",
 						"relation": "proves",
@@ -24394,20 +24420,9 @@
 				"simulated": "1.4e79"
 			},
 			"busycoq": {
-				"status": "pr_open",
+				"status": "open",
 				"solved_in": [],
-				"prs": [
-					{
-						"number": 44,
-						"title": "Prove four BB(6) machines nonhalting: LongLoop, register machines, pushdown saturation",
-						"author": "alkrssve",
-						"state": "open",
-						"relation": "proves",
-						"files": [
-							"M_1RB0LD_0RC1RD_1LA1RA_1LE0LE_1RF0LA_0RAHHH.v"
-						]
-					}
-				],
+				"prs": [],
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
@@ -24420,7 +24435,12 @@
 				}
 			],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "ahead",
+					"detail": "slugbird's guide (November 3, 2026) says \"Proof in an open PR\" (PR #44), but no open busycoq PR contains a proof of it (it may have been closed)"
+				}
+			]
 		},
 		{
 			"n": 386,
@@ -25373,7 +25393,7 @@
 				"prs": [
 					{
 						"number": 44,
-						"title": "Prove four BB(6) machines nonhalting: LongLoop, register machines, pushdown saturation",
+						"title": "Prove three BB(6) machines nonhalting: LongLoop, register machines",
 						"author": "alkrssve",
 						"state": "open",
 						"relation": "proves",
@@ -33010,7 +33030,7 @@
 				"prs": [
 					{
 						"number": 44,
-						"title": "Prove four BB(6) machines nonhalting: LongLoop, register machines, pushdown saturation",
+						"title": "Prove three BB(6) machines nonhalting: LongLoop, register machines",
 						"author": "alkrssve",
 						"state": "open",
 						"relation": "proves",

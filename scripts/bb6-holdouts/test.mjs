@@ -155,7 +155,7 @@ test('live: rate limit and network errors fall back to the snapshot', async () =
 });
 
 // ---- where sources disagree ---------------------------------------------------------------------
-import { compareSources } from './conflicts.mjs';
+import { compareSources } from '../../src/lib/bb6/conflicts.js';
 const slug = {
 	as_of: 'November 3, 2026',
 	status_labels: {

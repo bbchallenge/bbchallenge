@@ -10,7 +10,7 @@
 import fs from 'node:fs';
 import { canonicalKey } from '../../src/lib/bb6/tm_key.js';
 import { isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
-import { compareSources } from './conflicts.mjs';
+import { compareSources } from '../../src/lib/bb6/conflicts.js';
 import { SOURCES, ROOT, loadHoldouts, parseList, read, readJSON, relation } from './common.mjs';
 
 export const SCHEMA_VERSION = 1;
@@ -271,7 +271,7 @@ const out = {
 			as_of: sheet.exported,
 			keyed_to_list: sheet.keyed_to_list
 		},
-		slugbird: { name: slug.source, as_of: slug.as_of, url: slug.url },
+		slugbird: { name: slug.source, as_of: slug.as_of, url: slug.url, status_labels: slug.status_labels },
 		busycoq: {
 			name: 'busycoq (verified Rocq proofs)',
 			url: `https://github.com/${busycoq.repo}/tree/${busycoq.branch}`,

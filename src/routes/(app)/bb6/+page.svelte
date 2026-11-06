@@ -6,6 +6,7 @@
 	import data from '../../../../static/bb6/holdouts.json';
 	import { canonicalKey, TM_RE } from '$lib/bb6/tm_key.js';
 	import { fetchLive, overlay } from '$lib/bb6/busycoq_live.js';
+	import { compareSources } from '$lib/bb6/conflicts.js';
 	import { machineCodeToTM, tm_trace_to_image } from '$lib/tm';
 	import { CLASS_WIKI, WIKI, STATUS_LABEL, STATUS_HELP, STATUS_ORDER, log10Of } from '$lib/bb6/classes.js';
 
@@ -38,6 +39,24 @@
 	$: ov = overlay(data, live);
 	// busycoq's status, except that a machine with no proof but a simulated halt shows that instead
 	$: st = new Map([...ov].map(([i, v]) => [i, v.status === 'open' && holdouts[i].simulated_halt ? 'sim_halt' : v.status]));
+	// where the sources disagree, judged against busycoq as the live check sees it (the snapshot's verdict goes
+	// stale as soon as a PR opens, merges or drops a proof)
+	$: srcs = new Map(
+		[...ov].map(([i, v]) => {
+			const h = holdouts[i];
+			if (!live?.ok) return [i, { conflicts: h.conflicts, notes: h.notes }];
+			const r = compareSources({
+				status: v.status,
+				prs: v.prs,
+				open: v.prs.filter((p) => p.relation === 'proves' && p.state === 'open'),
+				distinct: [...new Set(h.classifications.map((c) => c.class).filter((c) => c && c !== 'Unknown'))],
+				sheet: h.sheet,
+				slugbird: h.slugbird,
+				slug: data.sources.slugbird
+			});
+			return [i, { conflicts: r.conflicts, notes: [...h.notes.filter((n) => n.kind === 'community'), ...r.notes] }];
+		})
+	);
 
 	// ---- search, filter, sort ---------------------------------------------------------------
 	let q = '';
@@ -462,6 +481,7 @@
 			<tbody>
 				{#each rows as { h, i }, k (h.n)}
 					{@const v = ov.get(i)}
+					{@const src = srcs.get(i)}
 					{@const sim = simulated(h)}
 					<tr
 						class="main"
@@ -487,13 +507,13 @@
 							<span class="muted block equiv" class:none={!h.aliases.length && !h.name && !h.tags.length}
 								>{#if h.name}<span class="badge">{h.name}</span>{/if}{#each h.tags as t}<a class="tag" href={tagInfo[tagGroup(t)].url} rel="external" title={tagInfo[tagGroup(t)].help}>{t}</a>{/each}{#if h.aliases.length}+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}{:else if !h.name && !h.tags.length}&nbsp;{/if}</span
 							>
-							{#each h.notes.filter((x) => x.kind === 'community') as x}<span class="muted block whitespace-normal">{x.detail}</span>{/each}
+							{#each src.notes.filter((x) => x.kind === 'community') as x}<span class="muted block whitespace-normal">{x.detail}</span>{/each}
 						</td>
 						<td data-label="Class">
 							{#if h.class}
 								{#if CLASS_WIKI[h.class]}<a class="link" href={WIKI + CLASS_WIKI[h.class]} rel="external">{h.class}</a>{:else if h.class === 'Unknown'}<span class="text-gray-400">Unknown</span>{:else}{h.class}{/if}
 							{:else}<span class="muted">not classified</span>{/if}
-							{#if h.conflicts.some((c) => c.kind === 'class')}<span class="warn" title={h.conflicts.filter((c) => c.kind === 'class').map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
+							{#if src.conflicts.some((c) => c.kind === 'class')}<span class="warn" title={src.conflicts.filter((c) => c.kind === 'class').map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 						</td>
 						<td data-label="Proof status">
 							{#if v.status === 'pr_open'}
@@ -507,7 +527,7 @@
 							{:else}
 								<span class="st st-{v.status}" title={STATUS_HELP[v.status]}>{STATUS_LABEL[v.status]}</span>
 							{/if}
-							{#if h.conflicts.some((c) => c.kind !== 'class')}<span class="warn" title={h.conflicts.filter((c) => c.kind !== 'class').map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
+							{#if src.conflicts.some((c) => c.kind !== 'class')}<span class="warn" title={src.conflicts.filter((c) => c.kind !== 'class').map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 							{#if v.changed}<span class="muted block">changed since snapshot{v.via ? ` (${v.via})` : ''}</span>{/if}
 						</td>
 						<td data-label="Steps simulated">{#if sim}{sim.text}{:else}<span class="muted">unknown</span>{/if}</td>
@@ -536,13 +556,13 @@
 												</li>
 											{:else}<li class="muted">No source classifies it.</li>{/each}
 										</ul>
-										{#if h.conflicts.length}
+										{#if src.conflicts.length}
 											<h3 class="mt-2 !text-yellow-300">Where sources disagree</h3>
-											<ul>{#each h.conflicts as c}<li>{c.detail}</li>{/each}</ul>
+											<ul>{#each src.conflicts as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
-										{#if h.notes.some((c) => c.kind !== 'community')}
+										{#if src.notes.some((c) => c.kind !== 'community')}
 											<h3 class="mt-2">Notes</h3>
-											<ul class="text-gray-300">{#each h.notes.filter((c) => c.kind !== 'community') as c}<li>{c.detail}</li>{/each}</ul>
+											<ul class="text-gray-300">{#each src.notes.filter((c) => c.kind !== 'community') as c}<li>{c.detail}</li>{/each}</ul>
 										{/if}
 									</section>
 									<section>

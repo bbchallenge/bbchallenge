@@ -1,7 +1,7 @@
 {
 	"repo": "ccz181078/busycoq",
 	"branch": "BB6",
-	"fetched_at": "2026-11-06T01:18:02.078Z",
+	"fetched_at": "2026-11-06T05:22:09.139Z",
 	"head": {
 		"sha": "33209bc7dc282b38c8cd6be507bfc551fea56108",
 		"date": "2026-11-03T01:43:22+08:00",
@@ -16045,6 +16045,25 @@
 	},
 	"prs": [
 		{
+			"number": 58,
+			"title": "Prove 1RB1LC_0RC0RB_1LD0LA_1LE---_1LF1RA_1LA1LC nonhalting: a shift-overflow counter",
+			"author": "DennisKoshta",
+			"state": "open",
+			"draft": false,
+			"created_at": "2026-11-06T05:14:35Z",
+			"updated_at": "2026-11-06T05:14:35Z",
+			"head_sha": "8c7f40a1e0ca6dc020a6144f7692435ee9127af1",
+			"covers": {
+				"1LB1RC_0LC0LB_1RD0RA_1RE---_1RF1LA_1RA1RC": [
+					"ShiftOverflowCounter_F1C.v"
+				]
+			},
+			"mentions": {},
+			"mentioned_in_text": [
+				"1LB1RC_0LC0LB_1RD0RA_1RE---_1RF1LA_1RA1RC"
+			]
+		},
+		{
 			"number": 57,
 			"title": "Prove 1RB1LE_1RC0RB_1LD1RC_1LA1LE_1LF0LA_1LC--- nonhalting: an invariant on a run of ones in a counter",
 			"author": "alkrssve",
@@ -16330,8 +16349,8 @@
 			"state": "open",
 			"draft": false,
 			"created_at": "2026-11-03T14:30:03Z",
-			"updated_at": "2026-11-05T08:48:59Z",
-			"head_sha": "7920bd2017e4daf3af8c597e91623670a68f9947",
+			"updated_at": "2026-11-06T02:11:27Z",
+			"head_sha": "a93e2b467e0c0f761e3212a4717b84c8396a9c76",
 			"covers": {
 				"1LB0RC_0LD---_0RE1RF_1LF0RA_1RD1LE_1LC0LA": [
 					"M_1RB0LE_0RCHHH_1RD0LA_1RE0RA_0LF1LD_1LC1RF.v"
@@ -16344,17 +16363,14 @@
 		},
 		{
 			"number": 44,
-			"title": "Prove four BB(6) machines nonhalting: LongLoop, register machines, pushdown saturation",
+			"title": "Prove three BB(6) machines nonhalting: LongLoop, register machines",
 			"author": "alkrssve",
 			"state": "open",
 			"draft": false,
 			"created_at": "2026-11-03T14:28:32Z",
-			"updated_at": "2026-11-03T14:28:32Z",
-			"head_sha": "f870311ed2e887b7698cfbf749a7789132e9e7ea",
+			"updated_at": "2026-11-06T02:27:30Z",
+			"head_sha": "c94a67d0268be7dbe4bde021c26b29eec541df4f",
 			"covers": {
-				"1LB0RC_0LD1LC_1RE0RE_1RA1LA_1LF0RA_0LA---": [
-					"M_1RB0LD_0RC1RD_1LA1RA_1LE0LE_1RF0LA_0RAHHH.v"
-				],
 				"1LB0RC_1LD---_0LD0RA_1LE1LC_1RA0LF_0RD0LB": [
 					"M_1RB0LE_1RCHHH_1RD1RE_1LA0RF_0RC0LA_0LC0RB.v"
 				],
@@ -16370,7 +16386,6 @@
 				"1LB---_1RC1LD_0RE0LF_0LC0LA_1LF0RF_0LB0RC",
 				"1LB0RC_1LD---_0LD0RA_1LE1LC_1RA0LF_0RD0LB",
 				"1LB1LA_0RC0LA_1LC1RD_0RB1RE_1RF0LC_---0RD",
-				"1LB0RC_0LD1LC_1RE0RE_1RA1LA_1LF0RA_0LA---",
 				"1LB0RB_0LC0RD_1RD1LE_0RA0LB_0LD0LF_1LC---",
 				"1LB1LA_0RC0LA_1LC1RD_0RB1RE_1RF0RB_---0RD"
 			]
