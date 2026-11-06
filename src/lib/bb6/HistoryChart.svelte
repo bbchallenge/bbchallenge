@@ -41,7 +41,7 @@
 	// room on the right for today's count at the end of the line
 	$: M = { top: 20, right: today ? 48 : 16, bottom: 28, left: 52 };
 	const t = (d: string) => Date.parse(d + 'T00:00:00Z');
-	const end = today ? today.date : lists[lists.length - 1].date;
+	$: end = today ? today.date : lists[lists.length - 1].date;
 	$: x0 = t(from);
 	$: x1 = t(end) + 20 * 864e5;
 	$: sx = (d: string) => M.left + ((t(d) - x0) / (x1 - x0)) * (width - M.left - M.right);
@@ -66,9 +66,13 @@
 	const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	$: months = (() => {
 		const out: { d: string; m: number; y: number }[] = [];
-		const a = new Date(x0), b = new Date(x1);
-		for (let y = a.getUTCFullYear(), m = a.getUTCMonth() + 1; y < b.getUTCFullYear() || (y === b.getUTCFullYear() && m <= b.getUTCMonth()); m === 11 ? ((m = 0), y++) : m++)
-			out.push({ d: `${y}-${String(m + 1).padStart(2, '0')}-01`, m, y });
+		// the first of each month after the axis start, up to its end
+		const a = new Date(x0);
+		for (let i = 1; ; i++) {
+			const d = new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + i, 1));
+			if (d.getTime() > x1) break;
+			out.push({ d: d.toISOString().slice(0, 10), m: d.getUTCMonth(), y: d.getUTCFullYear() });
+		}
 		return out;
 	})();
 	$: quarterLabels = months.length && (width - M.left - M.right) / months.length >= 12;
@@ -102,6 +106,7 @@
 	function layout(marks: Mark[], w: number, h: number, sg: number[][]): Placed[] {
 		const boxes = marks.map((m) => [m.px - 6, m.py - 6, m.px + 6, m.py + 6]);
 		const out: Placed[] = [];
+		const leaders: number[][] = []; // connectors drawn so far: later labels keep off them too
 		for (const m of [...marks].sort((a, b) => Number(!!b.today) - Number(!!a.today) || b.px - a.px)) {
 			// today's count sits just right of the line's end, in the margin kept for it
 			if (m.today) {
@@ -115,15 +120,17 @@
 			const lx = left ? Math.min(Math.max(m.px - 8, M.left + tw), w - M.right) : m.px + 8;
 			const [x0b, x1b] = left ? [lx - tw, lx] : [lx, lx + tw];
 			// left of the point the line runs above (counts fall), so try below first; right of it, above
-			const offs = (left ? [16, -8, 30, -22, 44, -36, 58, 72, 86] : [-8, 16, -22, 30, -36, 44, -50]).concat([-50, -64, -78, -92]);
+			const offs = (left ? [16, -8, 30, -22, 44, -36, 58, 72, 86] : [-8, 16, -22, 30, -36, 44, -50]).concat([-50, -64, -78, -92, 100, -106, 114, -120]);
 			const fits = (y: number, line: boolean) =>
 				y - 11 >= 2 &&
 				y + 3 <= h - M.bottom - 2 &&
 				!boxes.some(([a, b, c, d]) => x0b < c && x1b > a && y - 11 < d && y + 3 > b) &&
-				!(line && crosses(sg, x0b - 2, y - 12, x1b + 2, y + 4));
+				!(line && crosses(sg, x0b - 2, y - 12, x1b + 2, y + 4)) &&
+				!crosses(leaders, x0b - 2, y - 12, x1b + 2, y + 4);
 			const o = offs.find((o) => fits(m.py + o, true)) ?? offs.find((o) => fits(m.py + o, false)) ?? offs[0];
 			const ly = m.py + o;
 			boxes.push([x0b, ly - 11, x1b, ly + 3]);
+			if (Math.abs(ly - m.py) > 20) leaders.push([m.px, m.py, left ? lx + 2 : lx - 2, ly - 4]);
 			out.push({ ...m, lx, ly, anchor });
 		}
 		return out;
@@ -244,7 +251,7 @@
 					<a href={m.href} rel="external"
 						><text class="label link" x={m.lx} y={m.ly} text-anchor={m.anchor}>{#if m.title}<title>{m.title}</title>{/if}{m.name}</text
 						><!-- drawn, not text-decoration: the label's halo would paint over a real underline -->
-						<line class="underline" x1={m.anchor === 'end' ? m.lx - m.name.length * CH : m.lx} x2={m.anchor === 'end' ? m.lx : m.lx + m.name.length * CH} y1={m.ly + 3} y2={m.ly + 3} /></a
+						<line class="ul" x1={m.anchor === 'end' ? m.lx - m.name.length * CH : m.lx} x2={m.anchor === 'end' ? m.lx : m.lx + m.name.length * CH} y1={m.ly + 3} y2={m.ly + 3} /></a
 					>
 				{:else}
 					<text class="label" x={m.lx} y={m.ly} text-anchor={m.anchor}
@@ -288,7 +295,7 @@
 		fill: #898781;
 	}
 	.leader {
-		stroke: #4b5563;
+		stroke: #6b7280;
 		stroke-width: 1;
 	}
 	.grid.minor {
@@ -326,7 +333,7 @@
 	a:hover .label.link {
 		fill: #dbeafe;
 	}
-	.underline {
+	.ul {
 		stroke: #93c5fd;
 		stroke-width: 1;
 		stroke-dasharray: 2 2;

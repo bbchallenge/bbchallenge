@@ -307,7 +307,8 @@ const out = {
 	},
 	sheet_tabs: sheet.tabs,
 	counts: {
-		by_status: countBy((h) => h.busycoq.status),
+		// as the page shows them: an open holdout with a simulated halt is counted as sim_halt
+		by_status: countBy((h) => (h.busycoq.status === 'open' && h.simulated_halt ? 'sim_halt' : h.busycoq.status)),
 		with_conflicts: holdouts.filter((h) => h.conflicts.length).length
 	},
 	history: history.lists,

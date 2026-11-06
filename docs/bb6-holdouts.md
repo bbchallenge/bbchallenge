@@ -134,7 +134,7 @@ Top level: `schema_version`, `generated_at`, `list`, `busycoq`, `sources`, `url_
 - `busycoq`: `repo`, `branch`, `head{sha,date,message}` (the branch head the snapshot was made at), `snapshot_fetched_at`, `verify_files`, `prs_url`, `pr_snapshot[{number,state,head_sha,updated_at}]` (used by the live check).
 - `sources`: `list|sheet|slugbird|busycoq|discord|wiki`, each with `name`, `url`, `as_of` (and `by`, `keyed_to_list` where relevant). Read `as_of` to judge staleness.
 - `url_templates`: how to build links, with `{tm}`, `{wiki_page}`, `{number}`, `{file}`, `{tab_gid}`, `{ref}` placeholders. `sheet_tabs` maps a tab name to its gid.
-- `counts`: `by_status{open,pr_open,solved}`, `with_conflicts`.
+- `counts`: `by_status{open,sim_halt,pr_open,solved}`, `with_conflicts`.
 
 Each element of `holdouts` (one per line of the official list, in list order):
 

@@ -48,7 +48,8 @@ jobs:
 
       - name: Open or update the data-update pull request
         run: |
-          if git diff --quiet -- data static/bb6 src/lib/bb6/summary.json; then
+          # --porcelain also lists new (untracked) files, which git diff does not
+          if [ -z "$(git status --porcelain -- data static/bb6 src/lib/bb6/summary.json)" ]; then
             echo "Nothing changed."
             exit 0
           fi
@@ -56,7 +57,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$BRANCH"
           git add data static/bb6 src/lib/bb6/summary.json
-          summary="$(node -e "const d=require('./static/bb6/holdouts.json');const c=d.counts.by_status;console.log('open '+c.open+', open PR '+c.pr_open+', solved '+c.solved+'; busycoq '+d.busycoq.head.sha.slice(0,7))")"
+          summary="$(node -e "const d=require('./static/bb6/holdouts.json');const c=d.counts.by_status;console.log('open '+(c.open??0)+', simulated halt '+(c.sim_halt??0)+', open PR '+(c.pr_open??0)+', solved '+(c.solved??0)+'; busycoq '+d.busycoq.head.sha.slice(0,7))")"
           git commit -m "Update BB(6) holdouts data ($summary)"
           git push --force origin "$BRANCH"
           if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')" ]; then

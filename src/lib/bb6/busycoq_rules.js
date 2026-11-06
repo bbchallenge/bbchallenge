@@ -6,11 +6,36 @@
 // Files that merely mention a machine (Eqv*.v equivalence lemmas, rule-reduction files for cryptids, partial
 // analyses) lack such a statement. This is a heuristic, and it is what decides "solved", so the build script
 // records the verdict for every hit.
+import { keysInText } from './tm_key.js';
+
 export const FINAL_THEOREM_RE =
 	/\b(?:Theorem|Lemma|Corollary|Fact)\s+[\w']+[^:.]*:\s*(?:~\s*)?\(?\s*halts(?:_in|_at_trans)?\b[^.]*\bc0\b/;
 
-/** Does this text (a whole file, or the lines a diff adds) contain a completed proof statement? */
-export const hasFinalTheorem = (text) => FINAL_THEOREM_RE.test(text) && !/\bAdmitted\b/.test(text);
+/** Rocq source without its comments. Comments (* ... *) nest; an unclosed one runs to the end of the text. */
+export function stripComments(text) {
+	let out = '',
+		depth = 0;
+	for (let i = 0; i < text.length; i++) {
+		if (text[i] === '(' && text[i + 1] === '*') depth++, i++;
+		else if (depth && text[i] === '*' && text[i + 1] === ')') depth--, i++;
+		else if (!depth) out += text[i];
+	}
+	return out;
+}
+
+/** Does this text (a whole file, or the lines a diff adds) contain a completed proof statement? Comments are
+ * ignored; a proof left unfinished (Admitted, Abort) does not count. */
+export function hasFinalTheorem(text) {
+	const code = stripComments(text);
+	return FINAL_THEOREM_RE.test(code) && !/\b(?:Admitted|Abort)\b/.test(code);
+}
+
+/** Canonical keys of the machines a verify/ file proves: those named outside comments in a file with a completed
+ * proof. Eqv*.v files prove none. */
+export function provedKeys(file, text) {
+	if (isEqvFile(file) || !hasFinalTheorem(text)) return new Set();
+	return new Set(keysInText(stripComments(text)).keys());
+}
 
 /** Equivalence lemmas ("halts tm <-> halts tm'") live in Eqv*.v files: they merge machines, they do not prove any. */
 export const isEqvFile = (file) => /(^|\/)Eqv/.test(file);

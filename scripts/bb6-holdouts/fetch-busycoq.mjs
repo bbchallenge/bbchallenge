@@ -5,8 +5,9 @@
 //
 // 1. Scans every verify/**/*.v file at the head of BB6 for machine codes (any mirror/renaming) that
 //    belong to a holdout's equivalence group.
-// 2. Lists every pull request against BB6 and, for each, which holdout machines appear in the lines it
-//    adds under verify/ (and in its title/description).
+// 2. Lists every pull request against BB6 and, for each, which holdout machines the verify/*.v files it
+//    changes prove (judged on the whole file at the PR head), and which appear in the lines it adds (and in its
+//    title/description).
 //
 // Writes data/bb6/sources/busycoq.json. Needs `git`, and a GitHub token (GITHUB_TOKEN, or `gh auth
 // login`) for the ~60 API calls. Pass --clone <dir> to reuse an existing checkout of the BB6 branch.
@@ -15,7 +16,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { canonicalKey, keysInText } from '../../src/lib/bb6/tm_key.js';
-import { hasFinalTheorem, isEqvFile } from '../../src/lib/bb6/busycoq_rules.js';
+import { provedKeys } from '../../src/lib/bb6/busycoq_rules.js';
 import { SOURCES, ROOT, loadHoldouts, gh, parseList, read, readJSON, writeSnapshot } from './common.mjs';
 
 const REPO = 'ccz181078/busycoq';
@@ -58,10 +59,11 @@ const verify = path.join(dir, 'verify');
 		else if (e.name.endsWith('.v')) {
 			nFiles++;
 			const text = fs.readFileSync(p, 'utf8');
-			const final = hasFinalTheorem(text);
+			const file = path.relative(verify, p);
+			const proved = provedKeys(file, text); // machines named only in comments are mentions
 			for (const [k, code] of keysInText(text)) {
 				if (holdoutOfKey.has(k) || baseKeys.has(k))
-					(hits[k] ??= []).push({ file: path.relative(verify, p), as: code, final });
+					(hits[k] ??= []).push({ file, as: code, final: proved.has(k) });
 			}
 		}
 	}
@@ -78,7 +80,7 @@ for (let page = 1; ; page++) {
 	if (batch.length < 100) break;
 }
 for (const p of pulls) {
-	const added = new Map(); // key -> files in which the PR adds it together with a final theorem
+	const added = new Map(); // key -> files of the PR that prove it
 	const mentionedInFiles = new Map(); // key -> files in which it only appears
 	const files = [];
 	for (let page = 1; ; page++) {
@@ -87,25 +89,27 @@ for (const p of pulls) {
 		if (batch.length < 100) break;
 	}
 	for (const f of files) {
-		if (!f.filename.startsWith('verify/') || !f.filename.endsWith('.v')) continue;
-		let text;
-		if (f.patch)
-			text = f.patch
-				.split('\n')
-				.filter((l) => l.startsWith('+'))
-				.join('\n');
-		else if (f.status !== 'removed' && p.head.repo) {
-			// GitHub omits the patch of very large diffs: fall back to the whole file at the PR head.
-			text = await fetch(
-				`https://raw.githubusercontent.com/${p.head.repo.full_name}/${p.head.sha}/${f.filename}`
-			).then((r) => (r.ok ? r.text() : ''));
-		} else continue;
-		// Eqv*.v files only say two machines are equivalent; their theorems are not proofs of halting behaviour.
-		const final = hasFinalTheorem(text) && !isEqvFile(f.filename);
-		for (const k of holdoutKeys(text)) {
-			const bucket = final ? added : mentionedInFiles;
-			(bucket.get(k) ?? bucket.set(k, []).get(k)).push(f.filename.replace(/^verify\//, ''));
-		}
+		if (!f.filename.startsWith('verify/') || !f.filename.endsWith('.v') || f.status === 'removed')
+			continue;
+		const name = f.filename.replace(/^verify\//, '');
+		const addedLines = (f.patch ?? '')
+			.split('\n')
+			.filter((l) => l.startsWith('+'))
+			.join('\n');
+		// Judge the whole file at the PR head, not the added lines: a proof is often finished by editing a file
+		// (Admitted -> Qed, a theorem added under an unchanged TM_from_str line).
+		const whole = p.head.repo
+			? await fetch(
+					`https://raw.githubusercontent.com/${p.head.repo.full_name}/${p.head.sha}/${f.filename}`
+			  ).then((r) => (r.ok ? r.text() : null))
+			: null;
+		const text = whole ?? addedLines;
+		const proved = provedKeys(f.filename, text);
+		for (const k of proved)
+			if (holdoutOfKey.has(k)) (added.get(k) ?? added.set(k, []).get(k)).push(name);
+		// mentions: what the PR's own lines name (all of the file when GitHub shows no diff)
+		for (const k of holdoutKeys(f.patch ? addedLines : text))
+			if (!proved.has(k)) (mentionedInFiles.get(k) ?? mentionedInFiles.set(k, []).get(k)).push(name);
 	}
 	prs.push({
 		number: p.number,

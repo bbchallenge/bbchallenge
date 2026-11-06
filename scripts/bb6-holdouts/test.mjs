@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { canonicalKey, keysInText } from '../../src/lib/bb6/tm_key.js';
-import { hasFinalTheorem } from '../../src/lib/bb6/busycoq_rules.js';
+import { hasFinalTheorem, provedKeys } from '../../src/lib/bb6/busycoq_rules.js';
 import { fetchLive, overlay } from '../../src/lib/bb6/busycoq_live.js';
 
 const data = JSON.parse(
@@ -32,6 +32,17 @@ test('final theorem detection', () => {
 	assert.ok(hasFinalTheorem('Theorem halt: halts tm c0.'));
 	assert.ok(!hasFinalTheorem('Lemma R2 a n: halts tm (S0 0 1 n).'));
 	assert.ok(!hasFinalTheorem('Theorem nonhalt: ~halts tm c0.\nAdmitted.'));
+	assert.ok(!hasFinalTheorem('Theorem nonhalt: ~halts tm c0.\nAbort.'));
+	// comments (which nest) are ignored: an "Admitted" there does not reject a proof, a theorem there is none
+	assert.ok(hasFinalTheorem('Theorem nonhalt: ~halts tm c0.\nQed. (* was (* nested *) Admitted *)'));
+	assert.ok(!hasFinalTheorem('(* Theorem nonhalt: ~halts tm c0. *)'));
+	const a = '1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA';
+	const b = '1RB0LB_1LC0RE_1LA1LD_0LC---_0RB0RF_1RE1RB';
+	const proved = provedKeys(
+		'Antihydra.v',
+		`Definition tm := TM_from_str "${a}".\n(* see also ${b} *)\nTheorem nonhalt: ~halts tm c0.\nQed.`
+	);
+	assert.deepEqual([...proved], [canonicalKey(a)]);
 });
 
 test('snapshot: every holdout appears once, aliases are unique', () => {
@@ -126,7 +137,7 @@ test('live: rate limit and network errors fall back to the snapshot', async () =
 		fetch: async () => ({
 			ok: false,
 			status: 403,
-			headers: new Headers({ 'x-ratelimit-reset': '1' }),
+			headers: new Headers({ 'x-ratelimit-reset': '1', 'x-ratelimit-remaining': '0' }),
 			json: async () => ({})
 		})
 	});

@@ -1,6 +1,6 @@
 {
 	"schema_version": 1,
-	"generated_at": "2026-11-05T20:16:33.707Z",
+	"generated_at": "2026-11-06T01:18:02.078Z",
 	"list": {
 		"count": 608,
 		"published": "2026-10-30",
@@ -25,7 +25,7 @@
 			"date": "2026-11-03T01:43:22+08:00",
 			"message": "add FIBv7, 23 2x5 proofs"
 		},
-		"snapshot_fetched_at": "2026-11-05T20:16:33.707Z",
+		"snapshot_fetched_at": "2026-11-06T01:18:02.078Z",
 		"verify_files": 600,
 		"prs_url": "https://github.com/ccz181078/busycoq/pulls",
 		"pr_snapshot": [
@@ -394,7 +394,7 @@
 		"busycoq": {
 			"name": "busycoq (verified Rocq proofs)",
 			"url": "https://github.com/ccz181078/busycoq/tree/BB6",
-			"as_of": "2026-11-05T20:16:33.707Z"
+			"as_of": "2026-11-06T01:18:02.078Z"
 		},
 		"discord": {
 			"name": "bbchallenge Discord (message links only, from a local copy)",
@@ -472,8 +472,9 @@
 	},
 	"counts": {
 		"by_status": {
-			"open": 575,
+			"open": 568,
 			"pr_open": 32,
+			"sim_halt": 7,
 			"solved": 1
 		},
 		"with_conflicts": 1
@@ -40676,7 +40677,7 @@
 			"class": "Bell eats counter",
 			"verdict": null,
 			"by": "proof",
-			"file": "BECv9.v",
+			"file": "SOMDCv6.v",
 			"sheet_cell": {
 				"tab": "results",
 				"ref": "A1034"
@@ -43076,7 +43077,7 @@
 			"class": "Shift-overflow bouncer counter",
 			"verdict": null,
 			"by": "proof",
-			"file": "PR_SOBCv10.v",
+			"file": "SOBCv10.v",
 			"sheet_cell": {
 				"tab": "results",
 				"ref": "A584"

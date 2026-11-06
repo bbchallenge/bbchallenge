@@ -70,14 +70,18 @@
 	// machines of the older base list decided since (hidden until opened)
 	type Decided = (typeof data.decided)[number];
 	const decided: Decided[] = data.decided;
+	const TM_EXACT = new RegExp(`^${TM_RE.source}$`);
 	let showDecided = false;
+	// phones show the first rows as cards, the rest on request: 608 cards are a very long page
+	const PHONE_ROWS = 50;
+	let allRows = false;
 	const decidedKey = new Map(decided.map((d) => [canonicalKey(d.tm)!, d.n]));
 	function decidedMatch(d: Decided, q: string, cls: string): boolean {
 		if (cls && d.class !== cls) return false;
 		const typed = q.trim();
 		const needle = typed.toLowerCase();
 		if (!needle) return true;
-		if (new RegExp(`^${TM_RE.source}$`).test(typed)) return decidedKey.get(canonicalKey(typed)!) === d.n;
+		if (TM_EXACT.test(typed)) return decidedKey.get(canonicalKey(typed)!) === d.n;
 		if (/^#?\d+$/.test(needle)) return false; // numbers refer to today's list
 		return `${d.tm} ${d.class ?? ''} ${d.file ?? ''}`.toLowerCase().includes(needle);
 	}
@@ -122,7 +126,7 @@
 		const typed = f.q.trim();
 		const needle = typed.toLowerCase().replace(/^#/, '');
 		if (!needle) return true;
-		if (new RegExp(`^${TM_RE.source}$`).test(typed)) return keyIndex.get(canonicalKey(typed)!) === i; // any mirror/renaming/alias
+		if (TM_EXACT.test(typed)) return keyIndex.get(canonicalKey(typed)!) === i; // any mirror/renaming/alias
 		if (/^\d+$/.test(needle)) return String(h.n) === needle;
 		return haystack[i].includes(needle);
 	}
@@ -163,16 +167,14 @@
 		if (onlyWiki) p.set('wiki', '1');
 		if (tag) p.set('tag', tag);
 		const s = p.toString();
-		window.history.replaceState(window.history.state, '', s ? `?${s}` : window.location.pathname);
+		window.history.replaceState(window.history.state, '', (s ? `?${s}` : window.location.pathname) + window.location.hash);
 	}
 
-	$: filtered = !!(q || cls || tag || onlyWiki || status !== 'all' || sort !== 'list' || rev);
+	$: filtered = !!(q || cls || tag || onlyWiki || status !== 'all');
 	function clear() {
 		q = '';
 		cls = '';
 		status = 'all';
-		sort = 'list';
-		rev = false;
 		onlyWiki = false;
 		tag = '';
 	}
@@ -182,11 +184,6 @@
 		q = h.tm;
 		expanded.add(h.n);
 		expanded = expanded;
-		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
-	}
-	function only(t: string) {
-		clear();
-		tag = t;
 		document.getElementById('table')?.scrollIntoView({ behavior: 'smooth' });
 	}
 	// the viewer's default picture: 10,000 steps from a blank tape, 400 cells wide
@@ -200,7 +197,7 @@
 		else if (sort === k) rev = !rev;
 		else (sort = k), (rev = false);
 	}
-	// aria-sort says the real direction; the arrow is ▾ for a column's default order, ▴ once reversed
+	// aria-sort and the arrow say the real direction: ▴ ascending, ▾ descending
 	$: ascending = sort === 'sim' ? false : sort === 'sim-asc' ? true : !rev;
 
 	function toggle(n: number) {
@@ -214,7 +211,8 @@
 			copied = tm;
 			setTimeout(() => (copied = ''), 1500);
 		} catch {
-			/* clipboard blocked: the code is selectable text anyway */
+			copied = 'failed ' + tm;
+			setTimeout(() => (copied = ''), 1500);
 		}
 	}
 
@@ -229,12 +227,14 @@
 		rev = p.get('rev') === '1';
 		onlyWiki = p.get('wiki') === '1';
 		tag = p.get('tag') ?? '';
+		if (window.location.hash === '#decided') showDecided = true;
 		urlReady = true;
 		check();
 	});
 
 	// where a "Proved" chip points: the proof file, else the merged pull request
 	const proofLink = (h: Holdout, v: { prs: { number: number; state: string; relation: string }[] }) => {
+		if ('proof_url' in v && v.proof_url) return v.proof_url as string;
 		const f = h.busycoq.solved_in[0];
 		if (f) return fileUrl(f.file);
 		const m = v.prs.find((p) => p.relation === 'proves' && p.state === 'merged');
@@ -299,7 +299,7 @@
 
 				<!-- one line: the decided machines are here too, and how fresh the busycoq status is -->
 				<p class="text-sm text-gray-400 mt-4" role="status" aria-live="polite">
-					{#if data.base_list}All {data.base_list.count.toLocaleString('en-US')} here, incl.
+					{#if data.base_list}<span class="cursor-help underline decoration-dotted decoration-gray-500 underline-offset-2" title="Every machine of the {data.base_list.count.toLocaleString('en-US')}-machine list of {data.base_list.published} is on this page: {holdouts.length} on today’s list, {data.base_list.decided} decided since (below), and the other {data.base_list.count - holdouts.length - data.base_list.decided} as equivalents of a machine on today’s list (‘+N equivalent machines’ in its row).">All {data.base_list.count.toLocaleString('en-US')} here</span>, incl.
 						<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a> ·{/if}
 					{#if liveState === 'checking'}
 						checking busycoq…
@@ -431,15 +431,14 @@
 				>{/each}
 			<span class="sep" aria-hidden="true" />
 			{#each tagList as t}
-				<button class="tag" class:on={tag === t} aria-pressed={tag === t} on:click={() => (tag === t ? (tag = '') : only(t))} title="{tagInfo[t].help}. Click to filter."
+				<button class="tag" class:on={tag === t} aria-pressed={tag === t} on:click={() => (tag = tag === t ? '' : t)} title="{tagInfo[t].help}. Click to filter."
 					>{t === 'BMO' ? 'Beaver Math Olympiad' : t} <span class="muted">{tagCounts.get(t)}</span></button
 				>
 			{/each}
 		</div>
 		<div class="flex flex-wrap items-center justify-between gap-2 mb-3">
 		<p class="text-sm text-gray-400" aria-live="polite">
-			{rows.length} of {holdouts.length} machines{#if rows.length === 0}: none match{#if q.trim() && decidedRows.length && decidedRows.length < decided.length}
-					on today’s list; {decidedRows.length} decided since {data.base_list?.published} (below){/if}{/if}{#if filtered}
+			{rows.length} of {holdouts.length} machines{#if rows.length === 0}: none match{#if q.trim() && decidedRows.length && decidedRows.length < decided.length}{' '}on today’s list; {decidedRows.length} decided since {data.base_list?.published} (below){/if}{/if}{#if filtered}
 				&nbsp;· <button class="link" on:click={clear}>Clear filters</button>{/if}
 		</p>
 			<button class="tag named" class:on={onlyWiki} aria-pressed={onlyWiki} on:click={() => (onlyWiki = !onlyWiki)}>{onlyWiki ? '✓ ' : ''}Has wiki page</button>
@@ -453,7 +452,7 @@
 					{#each [['list', '#'], ['tm', 'Machine'], ['class', 'Class'], ['status', 'Proof status'], ['sim', 'Steps simulated']] as [k, label]}
 						<th scope="col" aria-sort={k === 'tm' || sortKey(sort) !== k ? undefined : ascending ? 'ascending' : 'descending'}>
 							{#if k === 'tm'}{label}{:else}<button class="sort" title="Sort by {label === '#' ? 'list order' : label}" on:click={() => sortBy(k)}
-									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{rev || sort === 'sim-asc' ? '▴' : '▾'}</span></button
+									>{label}<span class="arrow" class:invisible={sortKey(sort) !== k}>{ascending ? '▴' : '▾'}</span></button
 								>{/if}
 						</th>
 					{/each}
@@ -461,12 +460,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each rows as { h, i } (h.n)}
+				{#each rows as { h, i }, k (h.n)}
 					{@const v = ov.get(i)}
 					{@const sim = simulated(h)}
 					<tr
 						class="main"
 						class:open={expanded.has(h.n)}
+						class:more={k >= PHONE_ROWS && !allRows}
 						on:click={(e) => {
 							const t = e.target;
 							if (t instanceof Element && !t.closest('a,button') && !getSelection()?.toString()) toggle(h.n);
@@ -483,17 +483,17 @@
 						</td>
 						<td data-label="Machine">
 							<code class="tm">{h.tm}</code>
-							<button class="copy" on:click={() => copy(h.tm)} aria-label="Copy machine code {h.n}">{copied === h.tm ? 'copied' : 'copy'}</button>
+							<button class="copy" on:click={() => copy(h.tm)} aria-label="Copy machine code {h.n}">{copied === h.tm ? 'copied' : copied === 'failed ' + h.tm ? 'select it to copy' : 'copy'}</button>
 							<span class="muted block equiv" class:none={!h.aliases.length && !h.name && !h.tags.length}
 								>{#if h.name}<span class="badge">{h.name}</span>{/if}{#each h.tags as t}<a class="tag" href={tagInfo[tagGroup(t)].url} rel="external" title={tagInfo[tagGroup(t)].help}>{t}</a>{/each}{#if h.aliases.length}+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}{:else if !h.name && !h.tags.length}&nbsp;{/if}</span
 							>
-							{#each h.notes.filter((x) => x.kind === 'community') as x}<span class="muted block">{x.detail}</span>{/each}
+							{#each h.notes.filter((x) => x.kind === 'community') as x}<span class="muted block whitespace-normal">{x.detail}</span>{/each}
 						</td>
 						<td data-label="Class">
 							{#if h.class}
 								{#if CLASS_WIKI[h.class]}<a class="link" href={WIKI + CLASS_WIKI[h.class]} rel="external">{h.class}</a>{:else if h.class === 'Unknown'}<span class="text-gray-400">Unknown</span>{:else}{h.class}{/if}
-							{:else}<span class="muted">none</span>{/if}
-							{#if h.conflicts.length}<span class="warn" title={h.conflicts.map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
+							{:else}<span class="muted">not classified</span>{/if}
+							{#if h.conflicts.some((c) => c.kind === 'class')}<span class="warn" title={h.conflicts.filter((c) => c.kind === 'class').map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 						</td>
 						<td data-label="Proof status">
 							{#if v.status === 'pr_open'}
@@ -507,12 +507,13 @@
 							{:else}
 								<span class="st st-{v.status}" title={STATUS_HELP[v.status]}>{STATUS_LABEL[v.status]}</span>
 							{/if}
+							{#if h.conflicts.some((c) => c.kind !== 'class')}<span class="warn" title={h.conflicts.filter((c) => c.kind !== 'class').map((c) => c.detail).join('\n')}>⚠ sources disagree</span>{/if}
 							{#if v.changed}<span class="muted block">changed since snapshot{v.via ? ` (${v.via})` : ''}</span>{/if}
 						</td>
 						<td data-label="Steps simulated">{#if sim}{sim.text}{:else}<span class="muted">unknown</span>{/if}</td>
 						<td data-label="Links" class="links">
 							<a class="link" href="/{h.tm}" rel="external">viewer</a>
-							{#each h.wiki_pages as p}<a class="link" href={WIKI + encodeURIComponent(p)} rel="external">wiki</a>{/each}
+							{#each h.wiki_pages as p}<a class="link" href={WIKI + encodeURIComponent(p)} rel="external" title="Wiki: {p}" aria-label="Wiki: {p}">wiki</a>{/each}
 							{#if h.site_page}<a class="link" href={h.site_page} rel="external">page</a>{/if}
 						</td>
 					</tr>
@@ -575,9 +576,12 @@
 												{/each}
 											</ul>
 										{/if}
-										{#if h.busycoq.mentioned_in.length}
-											<h3 class="mt-2">Mentioned in busycoq, not proved there</h3>
+										{#if h.busycoq.solved_in.length || h.busycoq.mentioned_in.length}
+											<h3 class="mt-2">busycoq files</h3>
 											<ul>
+												{#each h.busycoq.solved_in as f}
+													<li><a class="link" href={fileUrl(f.file)} rel="external">{f.file}</a> <span class="muted">the proof</span></li>
+												{/each}
 												{#each h.busycoq.mentioned_in as f}
 													<li>
 														<a class="link" href={fileUrl(f.file)} rel="external">{f.file}</a>
@@ -621,14 +625,17 @@
 				{/each}
 			</tbody>
 		</table>
+		{#if rows.length > PHONE_ROWS && !allRows}
+			<button class="link block mx-auto mt-2 lg:hidden" on:click={() => (allRows = true)}>Show all {rows.length} machines</button>
+		{/if}
 
 		<!-- decided since the base list -->
 		{#if data.base_list}
 			<details id="decided" class="mt-10 rounded-lg border border-gray-700/70 px-4 py-3 scroll-mt-4" bind:open={showDecided}>
 				<summary class="cursor-pointer font-semibold py-1">
 					{data.base_list.decided} machines decided since the
-					{data.base_list.count}-machine list of {data.base_list.published}{#if q.trim() || cls}
-						<span class="font-normal text-gray-400"> · {decidedRows.length} match the search</span>{/if}
+					{data.base_list.count}-machine list of {data.base_list.published}{#if q.trim() || cls}{' '}
+						<span class="font-normal text-gray-400">· {decidedRows.length} match the search</span>{/if}
 				</summary>
 				<p class="text-gray-300 mt-2 mb-4 max-w-[80ch]">
 					Machines on <a class="link" href={data.base_list.discord_url} rel="external">mxdys’s list of {data.base_list.published}</a>
@@ -637,6 +644,7 @@
 					<strong>Equivalent</strong>: busycoq proves it equivalent to another machine that is decided. Halts / non-halting is the
 					sheet’s note, where it has one.
 				</p>
+				{#if showDecided}
 				<table class="bb6 decided w-full text-base">
 					<caption class="sr-only">Decided since the {data.base_list.count}-machine list</caption>
 					<colgroup><col class="c-num" /><col class="c-tm" /><col class="c-cls" /><col class="c-sim" /><col class="c-links" /></colgroup>
@@ -648,7 +656,7 @@
 							<tr>
 								<td data-label="#" class="num text-gray-400 tabular-nums">{d.n}</td>
 								<td data-label="Machine"><code class="tm">{d.tm}</code></td>
-								<td data-label="Class">{#if d.class}{d.class}{:else}<span class="muted">none</span>{/if}</td>
+								<td data-label="Class">{#if d.class}{d.class}{:else}<span class="muted">not classified</span>{/if}</td>
 								<td data-label="Decided by">
 									{#if d.file}<a class="st st-solved" href={fileUrl(d.file)} rel="external" title={d.file}>{d.by === 'proof' ? 'Proved' : 'Equivalent'}</a>{/if}
 									{#if d.verdict}<span class="muted ml-1">{d.verdict}</span>{/if}
@@ -661,6 +669,7 @@
 						{/each}
 					</tbody>
 				</table>
+				{/if}
 			</details>
 		{/if}
 
@@ -745,12 +754,6 @@
 	summary:focus-visible {
 		@apply outline outline-2 outline-offset-2 outline-blue-400;
 	}
-	.btn {
-		@apply border border-gray-600 rounded-md px-4 py-2 mx-1;
-	}
-	.btn:hover {
-		@apply bg-gray-800;
-	}
 	.muted {
 		@apply text-gray-400 text-xs;
 	}
@@ -799,6 +802,7 @@
 		border: 2px solid #3fa66b;
 	}
 	.legend {
+		text-align: left;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
@@ -846,12 +850,6 @@
 		@apply inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold border whitespace-nowrap;
 	}
 	a.st:hover,
-	.chip:hover {
-		filter: brightness(1.3);
-	}
-	.chip.on {
-		@apply ring-2 ring-gray-200;
-	}
 	tr.main {
 		cursor: pointer;
 	}
@@ -868,7 +866,8 @@
 		@apply border-green-400 text-green-200 bg-green-950;
 	}
 	code.tm {
-		@apply text-[0.85rem] break-all;
+		@apply break-all;
+		font-size: min(0.85rem, 3.4vw); /* a whole machine code fits one line of a phone card */
 	}
 	.copy {
 		@apply ml-2 text-xs text-gray-400 border border-gray-600 rounded-full px-2 py-0.5;
@@ -904,15 +903,6 @@
 		max-width: 100%;
 		height: auto;
 		image-rendering: pixelated;
-	}
-	table.bb6 td {
-		@apply px-3 py-3 align-top border-b border-gray-800;
-	}
-	table.bb6 tr.open > td {
-		@apply bg-gray-800/40;
-	}
-	table.bb6 tr.detail > td {
-		@apply bg-gray-800/40 border-b border-gray-700 px-4 py-4;
 	}
 	.detail h3 {
 		@apply font-semibold text-gray-200 mb-2;
