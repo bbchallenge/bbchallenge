@@ -482,7 +482,7 @@
 							>
 						</td>
 						<td data-label="Machine">
-							<code class="tm select-all">{h.tm}</code>
+							<code class="tm">{h.tm}</code>
 							<button class="copy" on:click={() => copy(h.tm)} aria-label="Copy machine code {h.n}">{copied === h.tm ? 'copied' : 'copy'}</button>
 							<span class="muted block equiv" class:none={!h.aliases.length && !h.name && !h.tags.length}
 								>{#if h.name}<span class="badge">{h.name}</span>{/if}{#each h.tags as t}<a class="tag" href={tagInfo[tagGroup(t)].url} rel="external" title={tagInfo[tagGroup(t)].help}>{t}</a>{/each}{#if h.aliases.length}+{h.aliases.length} equivalent machine{h.aliases.length === 1 ? '' : 's'}{:else if !h.name && !h.tags.length}&nbsp;{/if}</span
@@ -647,7 +647,7 @@
 						{#each decidedRows as d (d.n)}
 							<tr>
 								<td data-label="#" class="num text-gray-400 tabular-nums">{d.n}</td>
-								<td data-label="Machine"><code class="tm select-all">{d.tm}</code></td>
+								<td data-label="Machine"><code class="tm">{d.tm}</code></td>
 								<td data-label="Class">{#if d.class}{d.class}{:else}<span class="muted">none</span>{/if}</td>
 								<td data-label="Decided by">
 									{#if d.file}<a class="st st-solved" href={fileUrl(d.file)} rel="external" title={d.file}>{d.by === 'proof' ? 'Proved' : 'Equivalent'}</a>{/if}
