@@ -351,7 +351,7 @@
 
 		<!-- background, then the notation box: one centred column -->
 		<div class="mx-auto max-w-[75ch] mb-8">
-		<p class="mb-3 text-gray-200">
+		<p class="mb-2 text-gray-200">
 			To determine the value of BB(6), we first need to show for every 6-state, 2-symbol machine whether it halts or
 			runs forever starting from an all-0 tape. To save time, we enumerate all 6-state machines using
 			<a class="link" href="https://wiki.bbchallenge.org/wiki/Tree_Normal_Form" rel="external">Tree Normal Form</a>. The
@@ -363,8 +363,8 @@
 		</p>
 		<details class="notation">
 			<summary
-				class="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-gray-700 px-3 py-1 text-sm font-medium text-gray-300 hover:border-gray-500 hover:text-white"
-				><span class="chev" aria-hidden="true">▸</span> Notation</summary
+				class="inline-flex cursor-pointer list-none items-center gap-1 text-sm text-gray-400 hover:text-white"
+				>Notation and terms <span class="chev" aria-hidden="true">›</span></summary
 			>
 			<div class="mt-3 space-y-3 rounded-lg border border-gray-700/70 px-4 py-3 text-gray-200">
 				<p>

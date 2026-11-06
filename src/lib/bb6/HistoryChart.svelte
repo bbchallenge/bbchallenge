@@ -160,18 +160,32 @@
 	];
 	$: placed = layout(marks, width, H, segs);
 
-	// hover: snap to the nearest list
+	// hover: snap to the nearest list, or to today's count at the line's end
+	type Pt = { date: string; count: number; by?: string; note?: string; today?: boolean };
+	$: pts = [...shown, ...(today ? [{ date: today.date, count: today.count, today: true }] : [])] as Pt[];
 	let hover: number | null = null;
 	function move(e: PointerEvent) {
 		const r = (e.currentTarget as SVGElement).getBoundingClientRect();
 		const px = e.clientX - r.left;
+		const py = e.clientY - r.top;
+		// only inside the plot (with a little slack past the end point), not over the axes
+		if (px < M.left - 8 || px > width - M.right + 24 || py < M.top - 8 || py > H - M.bottom + 4) {
+			hover = null;
+			return;
+		}
 		let best = 0;
-		shown.forEach((l, i) => {
-			if (Math.abs(sx(l.date) - px) < Math.abs(sx(shown[best].date) - px)) best = i;
+		pts.forEach((p, i) => {
+			if (Math.abs(sx(p.date) - px) < Math.abs(sx(pts[best].date) - px)) best = i;
 		});
 		hover = best;
 	}
-	$: h = hover === null ? null : shown[hover];
+	$: h = hover === null ? null : pts[hover] ?? null;
+
+	// the table scrolls inside the chart's box: a fade at the bottom says there is more
+	let atEnd = false;
+	function scrolled(el: HTMLElement) {
+		atEnd = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+	}
 </script>
 
 <figure class="flex w-full flex-1 flex-col">
@@ -185,19 +199,26 @@
 	</figcaption>
 	<div class="relative min-h-[280px] flex-1" bind:clientWidth={width} bind:clientHeight={boxH}>
 		{#if table}
-		<div class="absolute inset-0 overflow-y-auto">
-			<table class="text-sm">
-				<thead><tr><th class="text-left pr-6">List</th><th class="text-right pr-6">Holdouts</th><th class="text-left">Shared by</th></tr></thead>
-				<tbody>
-					{#each [...lists].reverse() as l}
-						<tr>
-							<td class="pr-6">{#if l.link}<a class="underline" href={l.link} rel="external">{l.date}</a>{:else}{l.date}{/if}</td>
-							<td class="text-right tabular-nums pr-6">{fmt(l.count)}</td>
-							<td>{l.by}</td>
-						</tr>
-					{/each}
-				</tbody>
-			</table>
+		<div class="tcard absolute inset-0">
+			<div class="tscroll" on:scroll={(e) => scrolled(e.currentTarget)} use:scrolled>
+				<table class="w-full text-sm">
+					<thead>
+						<tr><th class="text-left">List</th><th class="text-right">Holdouts</th><th class="text-left">Shared by</th></tr>
+					</thead>
+					<tbody>
+						{#each [...lists].reverse() as l}
+							<tr>
+								<td>{#if l.link}<a class="tlink" href={l.link} rel="external">{l.date}</a>{:else}{l.date}{/if}</td>
+								<td class="text-right tabular-nums">{fmt(l.count)}</td>
+								<td class="text-gray-300">{l.by}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+			<div class="fade" class:gone={atEnd} aria-hidden="true">
+				<span>{lists.length} lists · scroll for older ↓</span>
+			</div>
 		</div>
 		{:else}
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -255,15 +276,23 @@
 			{/each}
 
 			{#if h}
-				<line class="cross" x1={sx(h.date)} x2={sx(h.date)} y1={M.top} y2={H - M.bottom} />
-				<circle class="dot hover" cx={sx(h.date)} cy={sy(h.count)} r="5" />
+				<!-- a guide from the point down to the axis; it glides between points rather than jumping -->
+				<g class="glide" style="transform: translate({sx(h.date)}px, 0)">
+					<line class="cross" x1="0" x2="0" y1={sy(h.count)} y2={H - M.bottom} />
+				</g>
+				<g class="glide" style="transform: translate({sx(h.date)}px, {sy(h.count)}px)">
+					<circle class="dot hover" r="5" />
+				</g>
 			{/if}
 		</svg>
 		{#if h}
-			<div class="tip" style="left:{Math.min(Math.max(sx(h.date) - 110, 0), width - 230)}px; top:{Math.max(sy(h.count) - 92, 0)}px">
-				<strong>{fmt(h.count)}</strong> holdouts · {h.date}<br />
-				<span class="text-gray-400">shared by {h.by}</span>
-				{#if h.note}<br /><span class="text-gray-400">{h.note}</span>{/if}
+			<!-- a readout in the plot's top-right corner: the line falls, so nothing is drawn there -->
+			<div class="tip" style="right:{M.right}px; top:{M.top}px">
+				<div><strong>{fmt(h.count)}</strong> {h.today ? 'today' : 'holdouts'}</div>
+				<div class="text-gray-400">
+					{#if h.today}latest list minus {today?.solved} proved since{:else}{h.date} · shared by {h.by}{/if}
+				</div>
+				{#if h.note}<div class="text-gray-400">{h.note}</div>{/if}
 			</div>
 		{/if}
 		{/if}
@@ -347,6 +376,16 @@
 	.cross {
 		stroke: #6b7280;
 		stroke-width: 1;
+		stroke-dasharray: 3 3;
+	}
+	.glide {
+		transition: transform 0.12s ease-out;
+		pointer-events: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.glide {
+			transition: none;
+		}
 	}
 	.seg {
 		display: inline-flex;
@@ -370,13 +409,77 @@
 	}
 	.tip {
 		position: absolute;
-		width: 230px;
+		max-width: 18rem;
+		text-align: right;
 		pointer-events: none;
-		background: #1f2937;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		border-radius: 6px;
-		padding: 6px 8px;
+		background: rgba(17, 24, 39, 0.85);
+		border: 1px solid #374151;
+		border-radius: 8px;
+		padding: 6px 10px;
 		font-size: 12px;
-		line-height: 1.4;
+		line-height: 1.45;
+	}
+	.tip strong {
+		font-size: 14px;
+	}
+	/* table view: a card of its own, header pinned, and a fade with a hint while there is more below */
+	.tcard {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border: 1px solid #374151;
+		border-radius: 10px;
+		background: #161e2b;
+	}
+	.tscroll {
+		flex: 1;
+		min-height: 0;
+		overflow-y: auto;
+		scrollbar-width: thin;
+		scrollbar-color: #4b5563 transparent;
+	}
+	.tcard th {
+		position: sticky;
+		top: 0;
+		background: #1c2535;
+		padding: 0.5rem 1rem;
+		font-weight: 600;
+		color: #d1d5db;
+		border-bottom: 1px solid #374151;
+	}
+	.tcard td {
+		padding: 0.35rem 1rem;
+		border-top: 1px solid rgba(55, 65, 81, 0.45);
+	}
+	.tcard tbody tr:first-child td {
+		border-top: none;
+	}
+	.tcard tbody tr:hover {
+		background: rgba(55, 65, 81, 0.35);
+	}
+	.tlink {
+		color: #fff;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		text-decoration-color: #6b7280;
+	}
+	.tlink:hover {
+		text-decoration-color: #fff;
+	}
+	.fade {
+		position: absolute;
+		inset: auto 0 0 0;
+		height: 3rem;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		padding-bottom: 0.4rem;
+		pointer-events: none;
+		background: linear-gradient(to top, #161e2b 35%, rgba(22, 30, 43, 0));
+		font-size: 11px;
+		color: #9ca3af;
+	}
+	.fade.gone {
+		display: none;
 	}
 </style>
