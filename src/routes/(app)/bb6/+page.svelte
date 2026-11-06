@@ -286,7 +286,7 @@
 				<!-- the latest list minus what busycoq has proved since, so it moves with each merge -->
 				<div aria-live="polite">
 					<p class="flex items-baseline gap-3">
-						<strong class="text-6xl font-bold tabular-nums leading-none">{left}</strong>
+						<strong class="text-6xl font-bold leading-none">{left}</strong>
 						<span class="text-xl font-semibold">holdouts left</span>
 					</p>
 					<p class="text-sm text-gray-400 mt-2">
@@ -298,24 +298,21 @@
 				<div class="bar mt-5" role="img" aria-label="{counts.pr_open} proved in an open PR, {counts.sim_halt} simulated to a halt, {counts.open} with no proof">
 					{#each PARTS as k}<span class="seg-{k}" style="flex-grow:{counts[k]}" />{/each}
 				</div>
-				<!-- grouped by kind of evidence: a Rocq proof, an informal result, nothing yet -->
-				<dl class="groups mt-3 text-sm">
-					{#each GROUPS as g}
-						<dt>{g.label}</dt>
-						<dd>
-							{#each g.parts as k}
-								{#if k !== 'solved' || counts.solved}
-									<button class="legend" class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}
-										><span class="sw seg-{k}" /><strong class="tabular-nums">{counts[k]}</strong> {PART_LABEL[k]}</button
-									>
-								{/if}
-							{/each}
-						</dd>
+				<!-- one tile per part of the bar, in its order, then what was merged since (off the count); each filters the table -->
+				<div class="tiles mt-4">
+					{#each [...PARTS, 'solved'] as k}
+						{#if k !== 'solved' || counts.solved}
+							<button class="tile" class:off={k === 'solved'} class:on={status === k} aria-pressed={status === k} title={status === k ? 'Show all' : 'Show only these'} on:click={() => (status = status === k ? 'all' : k)}>
+								<span class="tile-k"><span class="sw seg-{k}" />{GROUPS.find((g) => g.parts.includes(k))?.label}</span>
+								<strong class="tile-v">{counts[k]}</strong>
+								<span class="tile-l">{PART_LABEL[k]}</span>
+							</button>
+						{/if}
 					{/each}
-				</dl>
+				</div>
 
 				<!-- one line: the decided machines are here too, and how fresh the busycoq status is -->
-				<p class="text-sm text-gray-400 mt-4" role="status" aria-live="polite">
+				<p class="text-xs text-gray-400 mt-4" role="status" aria-live="polite">
 					{#if data.base_list}<span class="cursor-help underline decoration-dotted decoration-gray-500 underline-offset-2" title="Every machine of the {data.base_list.count.toLocaleString('en-US')}-machine list of {data.base_list.published} is on this page: {holdouts.length} on today’s list, {data.base_list.decided} decided since (below), and the other {data.base_list.count - holdouts.length - data.base_list.decided} as equivalents of a machine on today’s list (‘+N equivalent machines’ in its row).">All {data.base_list.count.toLocaleString('en-US')} here</span>, incl.
 						<a class="link" href="#decided" on:click={() => (showDecided = true)}>{data.base_list.decided} decided since</a> ·{/if}
 					{#if liveState === 'checking'}
@@ -813,8 +810,8 @@
 	.bar {
 		display: flex;
 		gap: 2px;
-		height: 12px;
-		border-radius: 4px;
+		height: 8px;
+		border-radius: 9999px;
 		overflow: hidden;
 		max-width: 36rem;
 	}
@@ -834,41 +831,54 @@
 	.seg-solved {
 		border: 2px solid #3fa66b;
 	}
-	.legend {
-		text-align: left;
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
-		border-radius: 4px;
-		padding: 0.1rem 0.3rem;
-		margin-left: -0.3rem;
-		color: #d1d5db;
-	}
-	.legend:hover {
-		background: rgba(255, 255, 255, 0.06);
-	}
-	.legend.on {
-		background: rgba(255, 255, 255, 0.1);
-		color: #f9fafb;
-	}
-	.groups {
+	.tiles {
 		display: grid;
-		grid-template-columns: auto 1fr;
-		column-gap: 1rem;
-		row-gap: 0.25rem;
-		align-items: baseline;
+		grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+		gap: 0.5rem;
+		max-width: 36rem;
 	}
-	.groups dt {
-		color: #9ca3af;
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-	}
-	.groups dd {
+	.tile {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		row-gap: 0.1rem;
+		gap: 0.15rem;
+		text-align: left;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 0.5rem;
+		padding: 0.6rem 0.75rem;
+		transition: background-color 0.15s, border-color 0.15s;
+	}
+	.tile:hover {
+		background: rgba(255, 255, 255, 0.04);
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+	.tile.on {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.45);
+	}
+	/* off the count: not part of the bar */
+	.tile.off {
+		border-style: dashed;
+	}
+	.tile-k {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: #9ca3af;
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.tile-v {
+		font-size: 1.5rem;
+		font-weight: 600;
+		line-height: 1.2;
+		color: #f9fafb;
+	}
+	.tile-l {
+		color: #d1d5db;
+		font-size: 0.8rem;
+		line-height: 1.3;
 	}
 	.sw {
 		width: 10px;

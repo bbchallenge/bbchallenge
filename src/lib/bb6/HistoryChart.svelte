@@ -6,10 +6,9 @@
 	export let today: { count: number; date: string; solved: number } | null = null;
 
 	// The 2023 lists (1,458,704 and 181,851) are a year before the next one and would flatten the rest, so the
-	// axis starts with the first list from the Coq-BB5 deciders; the caption gives the earlier ones.
+	// axis starts with the first list from the Coq-BB5 deciders (the table view lists them all).
 	export let from = '2024-05-01';
 	$: shown = lists.filter((l) => l.date >= from);
-	$: before = lists.filter((l) => l.date < from);
 
 	let scale: 'log' | 'linear' = 'log';
 	let table = false;
@@ -177,12 +176,7 @@
 
 <figure class="flex w-full flex-1 flex-col">
 	<figcaption class="mb-2 flex items-start justify-between gap-3">
-		<div>
-			<span class="font-semibold">Holdouts over time</span>
-			<span class="block text-sm text-gray-400"
-				>Each published list since May 2024{#if before.length}; the two from 2023 had {before.map((l) => fmt(l.count)).join(' and ')}{/if}.</span
-			>
-		</div>
+		<span class="font-semibold">Holdouts over time</span>
 		<div class="seg" role="group" aria-label="View">
 			<button type="button" class:on={!table && scale === 'log'} aria-pressed={!table && scale === 'log'} on:click={() => ((scale = 'log'), (table = false))}>Log</button>
 			<button type="button" class:on={!table && scale === 'linear'} aria-pressed={!table && scale === 'linear'} on:click={() => ((scale = 'linear'), (table = false))}>Linear</button>
