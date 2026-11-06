@@ -38,14 +38,15 @@
 	let width = 640;
 	let boxH = 0;
 	$: H = Math.max(280, boxH);
-	const M = { top: 20, right: 16, bottom: 28, left: 52 };
+	// room on the right for today's count at the end of the line
+	$: M = { top: 20, right: today ? 48 : 16, bottom: 28, left: 52 };
 	const t = (d: string) => Date.parse(d + 'T00:00:00Z');
 	const end = today ? today.date : lists[lists.length - 1].date;
 	$: x0 = t(from);
 	$: x1 = t(end) + 20 * 864e5;
 	$: sx = (d: string) => M.left + ((t(d) - x0) / (x1 - x0)) * (width - M.left - M.right);
 
-	// log: decades labelled, 2-9 in between as faint lines; linear: round 10k steps
+	// log: 1-2-5 steps labelled up to the top of the axis, the rest as faint lines; linear: round 10k steps
 	const LO = 300,
 		HI = 5e4,
 		LIN_HI = 4e4;
@@ -54,47 +55,74 @@
 		scale === 'log'
 			? (n: number) => M.top + ((Math.log10(HI) - Math.log10(n)) / (Math.log10(HI) - Math.log10(LO))) * plotH
 			: (n: number) => M.top + ((LIN_HI - n) / LIN_HI) * plotH;
-	const MAJOR = { log: [1e3, 1e4], linear: [0, 1e4, 2e4, 3e4, 4e4] };
+	const MAJOR = { log: [500, 1e3, 2e3, 5e3, 1e4, 2e4, 5e4], linear: [0, 1e4, 2e4, 3e4, 4e4] };
 	const MINOR = {
-		log: [3, 4, 5, 6, 7, 8, 9].map((k) => k * 100).concat([2, 3, 4, 5, 6, 7, 8, 9].map((k) => k * 1e3), [2e4, 3e4, 4e4, 5e4]),
+		log: [300, 400, 600, 700, 800, 900, 3e3, 4e3, 6e3, 7e3, 8e3, 9e3, 3e4, 4e4],
 		linear: [] as number[]
 	};
-	const tickText = (v: number) => (v ? `${v / 1e3}k` : '0');
+	const tickText = (v: number) => (v >= 1e3 ? `${v / 1e3}k` : `${v}`);
+
+	// x axis: a tick each month, the year at each January, and Apr/Jul/Oct when there is room
+	const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	$: months = (() => {
+		const out: { d: string; m: number; y: number }[] = [];
+		const a = new Date(x0), b = new Date(x1);
+		for (let y = a.getUTCFullYear(), m = a.getUTCMonth() + 1; y < b.getUTCFullYear() || (y === b.getUTCFullYear() && m <= b.getUTCMonth()); m === 11 ? ((m = 0), y++) : m++)
+			out.push({ d: `${y}-${String(m + 1).padStart(2, '0')}-01`, m, y });
+		return out;
+	})();
+	$: quarterLabels = months.length && (width - M.left - M.right) / months.length >= 12;
 
 	// the count holds until the next list: a step line
 	$: path =
 		shown.map((l, i) => `${i ? `H${sx(l.date)}V` : `M${sx(l.date)},`}${sy(l.count)}`).join('') +
 		(today ? `H${sx(today.date)}` : '');
 	const fmt = (n: number) => n.toLocaleString('en-US');
-	const years = [2025, 2026];
 	/** the count in force on a date: the last list on or before it */
 	const at = (d: string) => lists.filter((l) => l.date <= d).at(-1)!;
 
 	// Direct labels. Each sits beside its point, left of it unless it would run off the plot. It takes the
-	// first offset that clears the dots and the labels already placed (today first, then right to left).
+	// first offset that clears the line, the dots and the labels already placed (today first, then right to left).
 	type Mark = { key: string; px: number; py: number; name: string; value?: number; extra?: string; href?: string; title?: string; today?: boolean };
 	type Placed = Mark & { lx: number; ly: number; anchor: 'start' | 'end' };
 	const CH = 6.6; // px per character at 12px
-	function layout(marks: Mark[], w: number, h: number): Placed[] {
+	/** the step line as segments [x0, y0, x1, y1] */
+	$: segs = (() => {
+		const pts = shown.map((l) => [sx(l.date), sy(l.count)]);
+		if (today) pts.push([sx(today.date), sy(today.count)]);
+		const out: number[][] = [];
+		for (let i = 1; i < pts.length; i++) {
+			const [xa, ya] = pts[i - 1], [xb, yb] = pts[i];
+			out.push([xa, ya, xb, ya], [xb, ya, xb, yb]);
+		}
+		return out;
+	})();
+	const crosses = (sg: number[][], a: number, b: number, c: number, d: number) =>
+		sg.some(([x0, y0, x1, y1]) => Math.max(x0, x1) >= a && Math.min(x0, x1) <= c && Math.max(y0, y1) >= b && Math.min(y0, y1) <= d);
+	function layout(marks: Mark[], w: number, h: number, sg: number[][]): Placed[] {
 		const boxes = marks.map((m) => [m.px - 6, m.py - 6, m.px + 6, m.py + 6]);
 		const out: Placed[] = [];
 		for (const m of [...marks].sort((a, b) => Number(!!b.today) - Number(!!a.today) || b.px - a.px)) {
-			const tw = (m.name.length + (m.value === undefined ? 0 : fmt(m.value).length + 2) + (m.extra?.length ?? 0)) * CH;
+			// today's count sits just right of the line's end, in the margin kept for it
+			if (m.today) {
+				out.push({ ...m, lx: m.px + 9, ly: m.py + 4, anchor: 'start' });
+				continue;
+			}
+			const tw = (m.name.length + (m.href ? 2 : 0) + (m.value === undefined ? 0 : fmt(m.value).length + 2) + (m.extra?.length ?? 0)) * CH;
 			// left of the point if it fits, else right of it, else flush with the right edge (narrow screens)
 			const left = m.px - 8 - tw >= M.left || m.px + 8 + tw > w - M.right;
 			const anchor = left ? 'end' : 'start';
 			const lx = left ? Math.min(Math.max(m.px - 8, M.left + tw), w - M.right) : m.px + 8;
 			const [x0b, x1b] = left ? [lx - tw, lx] : [lx, lx + tw];
 			// left of the point the line runs above (counts fall), so try below first; right of it, above
-			const offs = (left ? [16, -8, 30, -22, 44, -36] : [-8, 16, -22, 30, -36, 44]).concat([-50, -64, -78]);
-			let ly = m.py + offs[0];
-			for (const o of offs) {
-				const y = m.py + o;
-				if (y - 11 < 2 || y + 3 > h - M.bottom - 2) continue;
-				if (boxes.some(([a, b, c, d]) => x0b < c && x1b > a && y - 11 < d && y + 3 > b)) continue;
-				ly = y;
-				break;
-			}
+			const offs = (left ? [16, -8, 30, -22, 44, -36, 58, 72, 86] : [-8, 16, -22, 30, -36, 44, -50]).concat([-50, -64, -78, -92]);
+			const fits = (y: number, line: boolean) =>
+				y - 11 >= 2 &&
+				y + 3 <= h - M.bottom - 2 &&
+				!boxes.some(([a, b, c, d]) => x0b < c && x1b > a && y - 11 < d && y + 3 > b) &&
+				!(line && crosses(sg, x0b - 2, y - 12, x1b + 2, y + 4));
+			const o = offs.find((o) => fits(m.py + o, true)) ?? offs.find((o) => fits(m.py + o, false)) ?? offs[0];
+			const ly = m.py + o;
 			boxes.push([x0b, ly - 11, x1b, ly + 3]);
 			out.push({ ...m, lx, ly, anchor });
 		}
@@ -116,15 +144,15 @@
 						key: 'today',
 						px: sx(today.date),
 						py: sy(today.count),
-						name: 'Today',
+						name: 'today',
 						value: today.count,
-						extra: today.solved ? ` (${today.solved} proved since the list)` : '',
+						title: `${fmt(today.count)} today: the latest list minus ${today.solved} proved since`,
 						today: true
 					}
 			  ]
 			: [])
 	];
-	$: placed = layout(marks, width, H);
+	$: placed = layout(marks, width, H, segs);
 
 	// hover: snap to the nearest list
 	let hover: number | null = null;
@@ -188,9 +216,16 @@
 				<line class="grid" x1={M.left} x2={width - M.right} y1={sy(v)} y2={sy(v)} />
 				<text class="tick" x={M.left - 6} y={sy(v)} text-anchor="end" dominant-baseline="middle">{tickText(v)}</text>
 			{/each}
-			{#each years as y}
-				<line class="grid minor" x1={sx(`${y}-01-01`)} x2={sx(`${y}-01-01`)} y1={H - M.bottom} y2={H - M.bottom + 4} />
-				<text class="tick" x={sx(`${y}-01-01`)} y={H - 8} text-anchor="middle">{y}</text>
+			{#each months as mo}
+				{#if mo.m === 0}
+					<line class="grid minor" x1={sx(mo.d)} x2={sx(mo.d)} y1={M.top} y2={H - M.bottom} />
+				{/if}
+				<line class="axis" x1={sx(mo.d)} x2={sx(mo.d)} y1={H - M.bottom} y2={H - M.bottom + (mo.m % 3 ? 3 : 5)} />
+				{#if mo.m === 0}
+					<text class="tick year" x={sx(mo.d)} y={H - 8} text-anchor="middle">{mo.y}</text>
+				{:else if quarterLabels && mo.m % 3 === 0}
+					<text class="tick" x={sx(mo.d)} y={H - 8} text-anchor="middle">{MON[mo.m]}</text>
+				{/if}
 			{/each}
 			<line class="axis" x1={M.left} x2={width - M.right} y1={H - M.bottom} y2={H - M.bottom} />
 
@@ -202,9 +237,12 @@
 					<line class="leader" x1={m.px} y1={m.py} x2={m.anchor === 'end' ? m.lx + 2 : m.lx - 2} y2={m.ly - 4} />
 				{/if}
 				<circle class="dot" class:today={m.today} cx={m.px} cy={m.py} r={m.today ? 5 : 4} />
-				{#if m.href}
+				{#if m.today}
+					<text class="label" x={m.lx} y={m.ly}>{#if m.title}<title>{m.title}</title>{/if}<tspan class="value">{fmt(m.value ?? 0)}</tspan></text>
+					<text class="label sub" x={m.lx} y={m.ly + 13}>today</text>
+				{:else if m.href}
 					<a href={m.href} rel="external"
-						><text class="label link" x={m.lx} y={m.ly} text-anchor={m.anchor}>{#if m.title}<title>{m.title}</title>{/if}{m.name}</text></a
+						><text class="label link" x={m.lx} y={m.ly} text-anchor={m.anchor}>{#if m.title}<title>{m.title}</title>{/if}{m.name} ↗</text></a
 					>
 				{:else}
 					<text class="label" x={m.lx} y={m.ly} text-anchor={m.anchor}
@@ -277,8 +315,17 @@
 		stroke-linejoin: round;
 	}
 	.label.link {
-		text-decoration: underline;
-		text-decoration-color: #6b7280;
+		fill: #93c5fd;
+	}
+	a:hover .label.link {
+		fill: #dbeafe;
+	}
+	.label.sub {
+		fill: #898781;
+		font-size: 11px;
+	}
+	.tick.year {
+		fill: #c3c2b7;
 	}
 	.value {
 		fill: #f0efec;
