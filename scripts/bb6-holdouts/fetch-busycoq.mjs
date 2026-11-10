@@ -16,7 +16,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { canonicalKey, keysInText } from '../../src/lib/bb6/tm_key.js';
-import { provedKeys } from '../../src/lib/bb6/busycoq_rules.js';
+import { provedByFile } from '../../src/lib/bb6/busycoq_rules.js';
 import { SOURCES, ROOT, loadHoldouts, gh, parseList, read, readJSON, writeSnapshot } from './common.mjs';
 
 const REPO = 'ccz181078/busycoq';
@@ -52,22 +52,25 @@ const head = {
 const hits = {};
 let nFiles = 0;
 const verify = path.join(dir, 'verify');
+const entries = [];
 (function walk(d) {
 	for (const e of fs.readdirSync(d, { withFileTypes: true })) {
 		const p = path.join(d, e.name);
 		if (e.isDirectory()) walk(p);
-		else if (e.name.endsWith('.v')) {
-			nFiles++;
-			const text = fs.readFileSync(p, 'utf8');
-			const file = path.relative(verify, p);
-			const proved = provedKeys(file, text); // machines named only in comments are mentions
-			for (const [k, code] of keysInText(text)) {
-				if (holdoutOfKey.has(k) || baseKeys.has(k))
-					(hits[k] ??= []).push({ file, as: code, final: proved.has(k) });
-			}
-		}
+		else if (e.name.endsWith('.v')) entries.push([path.relative(verify, p), fs.readFileSync(p, 'utf8')]);
 	}
 })(verify);
+nFiles = entries.length;
+const provedIn = provedByFile(entries); // machines named only in comments are mentions
+for (const [file, text] of entries) {
+	const proved = provedIn.get(file);
+	for (const [k, code] of keysInText(text)) {
+		if (holdoutOfKey.has(k) || baseKeys.has(k)) (hits[k] ??= []).push({ file, as: code, final: proved.has(k) });
+	}
+	for (const k of proved) // proved by its folder (the machine is named in a sibling file)
+		if ((holdoutOfKey.has(k) || baseKeys.has(k)) && !keysInText(text).has(k))
+			(hits[k] ??= []).push({ file, as: null, final: true });
+}
 
 /** Keys of holdout machines in `text`, mapped to the holdout index. */
 const holdoutKeys = (text) => [...keysInText(text).keys()].filter((k) => holdoutOfKey.has(k));
@@ -88,10 +91,10 @@ for (const p of pulls) {
 		files.push(...batch);
 		if (batch.length < 100) break;
 	}
+	const judged = [];
 	for (const f of files) {
 		if (!f.filename.startsWith('verify/') || !f.filename.endsWith('.v') || f.status === 'removed')
 			continue;
-		const name = f.filename.replace(/^verify\//, '');
 		const addedLines = (f.patch ?? '')
 			.split('\n')
 			.filter((l) => l.startsWith('+'))
@@ -103,8 +106,12 @@ for (const p of pulls) {
 					`https://raw.githubusercontent.com/${p.head.repo.full_name}/${p.head.sha}/${f.filename}`
 			  ).then((r) => (r.ok ? r.text() : null))
 			: null;
-		const text = whole ?? addedLines;
-		const proved = provedKeys(f.filename, text);
+		judged.push({ f, addedLines, text: whole ?? addedLines });
+	}
+	const provedIn = provedByFile(judged.map((j) => [j.f.filename, j.text]));
+	for (const { f, addedLines, text } of judged) {
+		const name = f.filename.replace(/^verify\//, '');
+		const proved = provedIn.get(f.filename);
 		for (const k of proved)
 			if (holdoutOfKey.has(k)) (added.get(k) ?? added.set(k, []).get(k)).push(name);
 		// mentions: what the PR's own lines name (all of the file when GitHub shows no diff)

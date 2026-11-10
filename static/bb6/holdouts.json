@@ -1,6 +1,6 @@
 {
 	"schema_version": 1,
-	"generated_at": "2026-11-06T05:22:09.139Z",
+	"generated_at": "2026-11-10T00:00:02.365Z",
 	"list": {
 		"count": 608,
 		"published": "2026-10-30",
@@ -25,10 +25,28 @@
 			"date": "2026-11-03T01:43:22+08:00",
 			"message": "add FIBv7, 23 2x5 proofs"
 		},
-		"snapshot_fetched_at": "2026-11-06T05:22:09.139Z",
+		"snapshot_fetched_at": "2026-11-10T00:00:02.365Z",
 		"verify_files": 600,
 		"prs_url": "https://github.com/ccz181078/busycoq/pulls",
 		"pr_snapshot": [
+			{
+				"number": 61,
+				"state": "open",
+				"head_sha": "a0b65b28f872d586ece568d65eb0bdda270603f5",
+				"updated_at": "2026-11-09T10:07:10Z"
+			},
+			{
+				"number": 60,
+				"state": "open",
+				"head_sha": "d9055e123b87ccf59804728c015fe9760e4ecd54",
+				"updated_at": "2026-11-07T12:21:47Z"
+			},
+			{
+				"number": 59,
+				"state": "open",
+				"head_sha": "f23281d54209989b12b2a8a4a7f9a58ab9ec19f9",
+				"updated_at": "2026-11-06T13:18:42Z"
+			},
 			{
 				"number": 58,
 				"state": "open",
@@ -410,7 +428,7 @@
 		"busycoq": {
 			"name": "busycoq (verified Rocq proofs)",
 			"url": "https://github.com/ccz181078/busycoq/tree/BB6",
-			"as_of": "2026-11-06T05:22:09.139Z"
+			"as_of": "2026-11-10T00:00:02.365Z"
 		},
 		"discord": {
 			"name": "bbchallenge Discord (message links only, from a local copy)",
@@ -488,8 +506,8 @@
 	},
 	"counts": {
 		"by_status": {
-			"open": 568,
-			"pr_open": 32,
+			"open": 562,
+			"pr_open": 38,
 			"sim_halt": 7,
 			"solved": 1
 		},
@@ -3394,15 +3412,31 @@
 				"simulated": "2.9e28"
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 61,
+						"title": "Translated cycler proof for 1RB1RD_1LC0LE_1LD0LB_0RB0RA_1RD1LF_0LC---",
+						"author": "thomasreus-bb",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"PR_LongTranslatedCycler.v"
+						]
+					}
+				],
 				"mentioned_in": []
 			},
 			"wiki_pages": [],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Rules known, no proof\"; busycoq now has an open PR (#61)"
+				}
+			]
 		},
 		{
 			"n": 39,
@@ -6679,9 +6713,20 @@
 				"simulated": "6.3e13"
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 59,
+						"title": "Prove three BB(6) machines halt: one doubling law, E1 = 1RF, 1RB or 0LC",
+						"author": "alkrssve",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"M_1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RCHHH.v"
+						]
+					}
+				],
 				"mentioned_in": [
 					{
 						"file": "Eqv_v3.v",
@@ -6695,7 +6740,12 @@
 			"wiki_pages": [],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Rules known, no proof\"; busycoq now has an open PR (#59)"
+				}
+			]
 		},
 		{
 			"n": 89,
@@ -20310,9 +20360,20 @@
 				"simulated": null
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 59,
+						"title": "Prove three BB(6) machines halt: one doubling law, E1 = 1RF, 1RB or 0LC",
+						"author": "alkrssve",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"M_1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RCHHH.v"
+						]
+					}
+				],
 				"mentioned_in": [
 					{
 						"file": "Eqv_Misc.v",
@@ -20345,8 +20406,8 @@
 			"conflicts": [],
 			"notes": [
 				{
-					"kind": "unverified",
-					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq now has an open PR (#59)"
 				}
 			]
 		},
@@ -21013,9 +21074,20 @@
 				"simulated": null
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 60,
+						"title": "Prove two BB(6) holdouts halt: Lopsided Camper (1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE) and 1RB0LF_1RC1RA_0RD0RB_1LE---_0LA1LE_1RD1LA",
+						"author": "Yeyito777",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"Halt_1RB0LF_1RC1RA/Final.v"
+						]
+					}
+				],
 				"mentioned_in": []
 			},
 			"wiki_pages": [
@@ -24974,9 +25046,20 @@
 				"simulated": null
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 60,
+						"title": "Prove two BB(6) holdouts halt: Lopsided Camper (1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE) and 1RB0LF_1RC1RA_0RD0RB_1LE---_0LA1LE_1RD1LA",
+						"author": "Yeyito777",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"LopsidedCamper/Halts273.v"
+						]
+					}
+				],
 				"mentioned_in": []
 			},
 			"wiki_pages": [
@@ -25003,8 +25086,8 @@
 					"detail": "Similar to BMO8"
 				},
 				{
-					"kind": "unverified",
-					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq has no proof and no open PR"
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) lists it as \"Reported by others\"; busycoq now has an open PR (#60)"
 				}
 			]
 		},
@@ -28316,9 +28399,20 @@
 				"simulated": "8.3e13"
 			},
 			"busycoq": {
-				"status": "open",
+				"status": "pr_open",
 				"solved_in": [],
-				"prs": [],
+				"prs": [
+					{
+						"number": 59,
+						"title": "Prove three BB(6) machines halt: one doubling law, E1 = 1RF, 1RB or 0LC",
+						"author": "alkrssve",
+						"state": "open",
+						"relation": "proves",
+						"files": [
+							"M_1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RCHHH.v"
+						]
+					}
+				],
 				"mentioned_in": [
 					{
 						"file": "Eqv_v3.v",
@@ -28336,7 +28430,12 @@
 			"wiki_pages": [],
 			"discord": [],
 			"conflicts": [],
-			"notes": []
+			"notes": [
+				{
+					"kind": "behind",
+					"detail": "slugbird's guide (November 3, 2026) says \"Rules known, no proof\"; busycoq now has an open PR (#59)"
+				}
+			]
 		},
 		{
 			"n": 450,

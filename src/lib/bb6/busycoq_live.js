@@ -15,7 +15,7 @@
 //   3. PRs the snapshot has not seen (or whose head moved): their changed files, to see which holdouts they prove.
 // A changed file is judged whole, at the new commit, since a proof is often finished by editing a file.
 import { canonicalKey } from './tm_key.js';
-import { provedKeys, isEqvFile, BUSYCOQ_REPO, BUSYCOQ_BRANCH } from './busycoq_rules.js';
+import { provedByFile, isEqvFile, BUSYCOQ_REPO, BUSYCOQ_BRANCH } from './busycoq_rules.js';
 
 export const CACHE_MINUTES = 10;
 export const MAX_PR_FETCHES = 6;
@@ -41,7 +41,8 @@ export function indexHoldouts(holdouts) {
  */
 async function provedBy(files, keyToIndex, f, repo, sha, budget) {
 	const judged = await Promise.all(
-		files.map(async (x) => {
+		// shallow files first: with a folder of many job files, the read budget goes to the theorem and the machine
+		[...files].sort((a, b) => a.filename.split('/').length - b.filename.split('/').length).map(async (x) => {
 			if (!x.filename.startsWith('verify/') || !x.filename.endsWith('.v') || isEqvFile(x.filename))
 				return null;
 			if (x.status === 'removed') return null;
@@ -62,16 +63,18 @@ async function provedBy(files, keyToIndex, f, repo, sha, budget) {
 					.filter((l) => l.startsWith('+'))
 					.join('\n');
 			if (!whole) budget.missed = true;
-			return text === null ? null : [x.filename.replace(/^verify\//, ''), provedKeys(x.filename, text)];
+			return text === null ? null : [x.filename, text];
 		})
 	);
 	/** @type {Map<number, string[]>} */
 	const out = new Map();
-	for (const [file, keys] of judged.filter(Boolean))
+	for (const [path, keys] of provedByFile(judged.filter(Boolean))) {
+		const file = path.replace(/^verify\//, '');
 		for (const k of keys) {
 			const i = keyToIndex.get(k);
 			if (i !== undefined) out.set(i, [...(out.get(i) ?? []), file]);
 		}
+	}
 	return out;
 }
 

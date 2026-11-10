@@ -2,14 +2,15 @@
 // (scripts/bb6-holdouts/fetch-busycoq.mjs) and by the live check in the browser (busycoq_live.js).
 
 // A completed proof ends in a top-level statement about the machine run from the blank tape c0:
-//   Theorem nonhalt: ~halts tm c0.      Theorem halt: halts tm c0.      (also halts_in / halts_at_trans forms)
+//   Theorem nonhalt: ~halts tm c0.      Theorem halt: halts tm c0.      (also halts_in / halts_at_trans forms, and a
+//   qualified machine: halts T343.tm c0)
 // Files that merely mention a machine (Eqv*.v equivalence lemmas, rule-reduction files for cryptids, partial
 // analyses) lack such a statement. This is a heuristic, and it is what decides "solved", so the build script
 // records the verdict for every hit.
 import { keysInText } from './tm_key.js';
 
 export const FINAL_THEOREM_RE =
-	/\b(?:Theorem|Lemma|Corollary|Fact)\s+[\w']+[^:.]*:\s*(?:~\s*)?\(?\s*halts(?:_in|_at_trans)?\b[^.]*\bc0\b/;
+	/\b(?:Theorem|Lemma|Corollary|Fact)\s+[\w']+[^:.]*:\s*(?:~\s*)?\(?\s*halts(?:_in|_at_trans)?\b(?:[^.]|\.(?=[\w']))*\bc0\b/;
 
 /** Rocq source without its comments. Comments (* ... *) nest; an unclosed one runs to the end of the text. */
 export function stripComments(text) {
@@ -35,6 +36,32 @@ export function hasFinalTheorem(text) {
 export function provedKeys(file, text) {
 	if (isEqvFile(file) || !hasFinalTheorem(text)) return new Set();
 	return new Set(keysInText(stripComments(text)).keys());
+}
+
+/** The folder a verify/ file is in, or null for a file directly in verify/. */
+const folderOf = (file) => {
+	const d = file.slice(0, Math.max(file.lastIndexOf('/'), 0));
+	return d && d !== 'verify' ? d : null;
+};
+
+/** provedKeys for a set of files ([path, text] pairs), plus one rule across files: a proof split into a folder of
+ * files (the final theorem in one, `Definition tm := …` in another) proves the machine its folder names, when the
+ * folder's files name exactly one machine outside comments. */
+export function provedByFile(entries) {
+	const out = new Map(entries.map(([file, text]) => [file, provedKeys(file, text)]));
+	const named = new Map(); // folder -> keys its files name outside comments
+	for (const [file, text] of entries) {
+		const d = folderOf(file);
+		if (!d || isEqvFile(file)) continue;
+		const keys = named.get(d) ?? named.set(d, new Set()).get(d);
+		for (const k of keysInText(stripComments(text)).keys()) keys.add(k);
+	}
+	for (const [file, text] of entries) {
+		const keys = named.get(folderOf(file) ?? '');
+		if (keys?.size === 1 && !out.get(file).size && !isEqvFile(file) && hasFinalTheorem(text))
+			out.set(file, new Set(keys));
+	}
+	return out;
 }
 
 /** Equivalence lemmas ("halts tm <-> halts tm'") live in Eqv*.v files: they merge machines, they do not prove any. */
