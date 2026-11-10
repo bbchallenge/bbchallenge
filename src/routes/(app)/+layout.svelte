@@ -20,6 +20,9 @@
 		if (pathname.includes('contribute')) {
 			return 'contribute' as const;
 		}
+		if (pathname.includes('bb6')) {
+			return 'bb6' as const;
+		}
 		return 'root' as const;
 	}
 </script>
@@ -94,6 +97,19 @@
 					>Contribute
 				</a>
 			</li>
+			<!-- hidden on phones: the nav is already full there; the homepage links the page too. The tighter space keeps
+			     "BB(6) Holdouts" from reading as two nav items in the monospace font -->
+			<li class="hidden sm:block">
+				<a
+					href="/bb6"
+					style="word-spacing: -0.35em"
+					class:active={currentRoute == 'bb6'}
+					on:click={() => {
+						currentRoute = 'bb6';
+					}}
+					>BB(6) Holdouts
+				</a>
+			</li>
 			<li>
 				<a
 					href="/team"
@@ -118,7 +134,7 @@
 				</li>
 				<li>
 					<a href="https://discord.gg/wuZhtTvYU3" class="cursor-pointer"
-						><img class="w-[23px] lg:w-[26px]" src="/Discord-Logo-White.png" alt="Github logo" /></a
+						><img class="w-[23px] lg:w-[26px]" src="/Discord-Logo-White.png" alt="Discord logo" /></a
 					>
 				</li>
 			</div>

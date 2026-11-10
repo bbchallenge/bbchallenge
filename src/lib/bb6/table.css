@@ -1,0 +1,122 @@
+/* Responsive card layout for the BB(6) holdouts table (kept out of the .svelte file: Svelte 4.0.5 fails to minify this @media block). */
+/* base cell styles live here, not in the page's scoped <style>: scoped rules out-rank the card rules below */
+table.bb6 td {
+	@apply px-3 py-3 align-top border-b border-gray-800;
+}
+table.bb6 tr.open > td {
+	@apply bg-gray-800/40;
+}
+table.bb6 tr.detail > td {
+	@apply bg-gray-800/40 border-b border-gray-700 px-4 py-4;
+}
+/* phones and narrow windows: each row becomes a card, its fields in two columns */
+@media (max-width: 1023px) {
+	table.bb6,
+	table.bb6 tbody {
+		display: block;
+		width: 100%;
+	}
+	table.bb6 tr.more,
+	table.bb6 tr.more + tr.detail {
+		display: none;
+	}
+	table.bb6 thead {
+		position: absolute;
+		left: -9999px;
+	}
+	table.bb6 tr {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 1rem;
+		@apply border border-gray-700/70 rounded-lg mb-4 px-4 py-3 bg-gray-800/20;
+	}
+	table.bb6 tr.open,
+	table.bb6 tr.detail {
+		@apply rounded-b-none bg-gray-800/40;
+	}
+	table.bb6 tr.detail {
+		@apply rounded-b-lg;
+	}
+	table.bb6 tr.open > td,
+	table.bb6 tr.detail > td {
+		@apply bg-transparent px-0;
+	}
+	table.bb6 tr.detail > td {
+		@apply border-b-0 py-1;
+	}
+	table.bb6 tr.detail {
+		display: block;
+		@apply -mt-4 border-t-0 rounded-t-none;
+	}
+	table.bb6 td {
+		display: block;
+		@apply border-b-0 px-0 py-1.5;
+	}
+	table.bb6 td.num,
+	table.bb6 td[data-label='Machine'] {
+		grid-column: 1 / -1;
+	}
+	table.bb6 td[data-label='Links'] {
+		grid-column: 1 / -1;
+	}
+	table.bb6 td[data-label]::before {
+		content: attr(data-label);
+		display: block;
+		@apply text-sm font-semibold text-gray-400 mb-0.5;
+	}
+	table.bb6 td.num::before {
+		display: none;
+	}
+	/* desktop rows keep an empty line here so every row has the same height; cards don't need it */
+	table.bb6 .equiv.none {
+		display: none;
+	}
+}
+/* wide windows: a machine code stays on one line */
+@media (min-width: 1024px) {
+	table.bb6 code.tm,
+	table.bb6 td.links {
+		white-space: nowrap;
+		word-break: normal;
+	}
+	/* the machine cell is always two text lines (code, then equivalents or a blank line), the same as a
+	   wrapped class name, so rows keep one height */
+	table.bb6 td[data-label='Machine'],
+	table.bb6 td[data-label='Machine'] .equiv {
+		line-height: 1.5rem !important; /* beats the scoped .muted text-xs line height */
+	}
+	table.bb6 td[data-label='Machine'] {
+		white-space: nowrap;
+	}
+	/* an opened row's details fill the existing columns instead of resizing them */
+	table.bb6 tr.detail > td > div {
+		width: 0;
+		min-width: 100%;
+		overflow-wrap: anywhere;
+	}
+}
+/* wide windows: fixed column widths, sized for the widest row of the whole list, so filtering
+   or sorting never moves the columns; spare width is shared between them */
+@media (min-width: 1360px) {
+	table.bb6 {
+		table-layout: fixed;
+	}
+	table.bb6 col.c-num {
+		width: 4.5rem;
+	}
+	table.bb6 col.c-tm {
+		width: 26.5rem;
+	}
+	table.bb6 col.c-cls {
+		width: 18rem;
+	}
+	table.bb6 col.c-st {
+		width: 9.5rem;
+	}
+	table.bb6 col.c-sim {
+		width: 10.5rem;
+	}
+	table.bb6 col.c-links {
+		width: 11rem;
+	}
+}

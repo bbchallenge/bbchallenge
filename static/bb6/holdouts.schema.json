@@ -1,0 +1,572 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://bbchallenge.org/bb6/holdouts.schema.json",
+	"title": "BB(6) holdouts",
+	"description": "Format of /bb6/holdouts.json. See docs/bb6-holdouts.md.",
+	"type": "object",
+	"required": [
+		"schema_version",
+		"generated_at",
+		"list",
+		"busycoq",
+		"sources",
+		"url_templates",
+		"sheet_tabs",
+		"counts",
+		"holdouts"
+	],
+	"properties": {
+		"schema_version": {
+			"const": 1
+		},
+		"generated_at": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"list": {
+			"type": "object",
+			"required": ["count", "published", "published_by", "discord_url", "file"],
+			"properties": {
+				"count": {
+					"type": "integer"
+				},
+				"published": {
+					"type": "string",
+					"format": "date"
+				},
+				"published_by": {
+					"type": "string"
+				},
+				"discord_url": {
+					"type": "string"
+				},
+				"file": {
+					"type": "string"
+				},
+				"equivalence_file": {
+					"type": "string"
+				},
+				"equivalent_machines": {
+					"type": "integer"
+				}
+			}
+		},
+		"base_list": {
+			"description": "The older list RobinCodes's sheet is built on; its machines that are no longer holdouts are in decided[].",
+			"type": "object",
+			"required": ["count", "published", "discord_url", "file", "decided"],
+			"properties": {
+				"count": {
+					"type": "integer"
+				},
+				"published": {
+					"type": "string"
+				},
+				"discord_url": {
+					"type": "string"
+				},
+				"file": {
+					"type": "string"
+				},
+				"decided": {
+					"type": "integer"
+				}
+			}
+		},
+		"busycoq": {
+			"type": "object",
+			"required": ["repo", "branch", "head", "snapshot_fetched_at", "pr_snapshot"],
+			"properties": {
+				"repo": {
+					"type": "string"
+				},
+				"branch": {
+					"type": "string"
+				},
+				"head": {
+					"type": "object",
+					"required": ["sha", "date"],
+					"properties": {
+						"sha": {
+							"type": "string"
+						},
+						"date": {
+							"type": "string"
+						},
+						"message": {
+							"type": "string"
+						}
+					}
+				},
+				"snapshot_fetched_at": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"verify_files": {
+					"type": "integer"
+				},
+				"prs_url": {
+					"type": "string"
+				},
+				"pr_snapshot": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["number", "state", "head_sha", "updated_at"],
+						"properties": {
+							"number": {
+								"type": "integer"
+							},
+							"state": {
+								"type": "string"
+							},
+							"head_sha": {
+								"type": "string"
+							},
+							"updated_at": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		},
+		"sources": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"required": ["name", "url", "as_of"],
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					},
+					"as_of": {
+						"type": "string"
+					},
+					"covers_from": {
+						"type": "string",
+						"description": "discord only: first day the local copy covers"
+					}
+				}
+			}
+		},
+		"url_templates": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"sheet_tabs": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"counts": {
+			"type": "object",
+			"properties": {
+				"by_status": {
+					"type": "object",
+					"properties": {
+						"open": {
+							"type": "integer"
+						},
+						"pr_open": {
+							"type": "integer"
+						},
+						"solved": {
+							"type": "integer"
+						}
+					}
+				},
+				"with_conflicts": {
+					"type": "integer"
+				}
+			}
+		},
+		"history": {
+			"description": "Each published BB(6) list (the wiki's Holdouts lists table), oldest first",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["date", "count", "by"],
+				"properties": {
+					"date": {
+						"type": "string"
+					},
+					"count": {
+						"type": "integer"
+					},
+					"by": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					},
+					"note": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"holdouts": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"n",
+					"tm",
+					"aliases",
+					"class",
+					"classifications",
+					"busycoq",
+					"wiki_pages",
+					"discord",
+					"conflicts",
+					"notes"
+				],
+				"properties": {
+					"n": {
+						"type": "integer",
+						"minimum": 1
+					},
+					"tm": {
+						"$ref": "#/$defs/machine"
+					},
+					"name": {
+						"type": ["string", "null"]
+					},
+					"tags": {
+						"description": "Community tags: Cryptid, Probviously halting, Probviously non-halting, Potential Cryptid, Energy vampire, BMO<n>. See the top-level tags.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"simulated_halt": {
+						"description": "Present when an accelerated simulation found a halt that has no Rocq proof yet.",
+						"type": "object",
+						"required": ["date", "detail", "source"],
+						"properties": {
+							"date": {
+								"type": "string"
+							},
+							"detail": {
+								"type": "string"
+							},
+							"source": {
+								"description": "Key in sources",
+								"type": "string"
+							},
+							"steps_log10": {
+								"description": "Estimated log10 of the number of steps before it halts (the source's estimate)",
+								"type": "number"
+							},
+							"machine": {
+								"$ref": "#/$defs/machine"
+							}
+						}
+					},
+					"aliases": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["tm", "relation"],
+							"properties": {
+								"tm": {
+									"$ref": "#/$defs/machine"
+								},
+								"relation": {
+									"enum": ["mirror", "equivalent"]
+								}
+							}
+						}
+					},
+					"class": {
+						"type": ["string", "null"]
+					},
+					"classifications": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["source", "class"],
+							"properties": {
+								"source": {
+									"enum": ["sheet", "slugbird"]
+								},
+								"class": {
+									"type": "string"
+								},
+								"machine": {
+									"$ref": "#/$defs/machine"
+								},
+								"relation": {
+									"enum": ["exact", "mirror", "equivalent"]
+								},
+								"cell": {
+									"$ref": "#/$defs/cell"
+								}
+							}
+						}
+					},
+					"sheet": {
+						"type": ["object", "null"],
+						"properties": {
+							"status": {
+								"type": ["string", "null"]
+							},
+							"simulated_log10_min": {
+								"enum": [13, 14, 15, null]
+							},
+							"machine": {
+								"$ref": "#/$defs/machine"
+							},
+							"cell": {
+								"$ref": "#/$defs/cell"
+							}
+						}
+					},
+					"slugbird": {
+						"type": ["object", "null"],
+						"properties": {
+							"status": {
+								"enum": [
+									"pr",
+									"ready",
+									"rules",
+									"reported",
+									"cryptid",
+									"pattern",
+									"lottery",
+									"little"
+								]
+							},
+							"pr": {
+								"type": ["integer", "null"]
+							},
+							"simulated": {
+								"type": ["string", "null"]
+							}
+						}
+					},
+					"busycoq": {
+						"type": "object",
+						"required": ["status", "solved_in", "prs", "mentioned_in"],
+						"properties": {
+							"status": {
+								"enum": ["open", "pr_open", "solved"]
+							},
+							"solved_in": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": ["file"],
+									"properties": {
+										"file": {
+											"type": "string"
+										},
+										"machines": {
+											"type": "array",
+											"items": {
+												"$ref": "#/$defs/machine"
+											}
+										}
+									}
+								}
+							},
+							"prs": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": ["number", "title", "state", "relation"],
+									"properties": {
+										"number": {
+											"type": "integer"
+										},
+										"title": {
+											"type": "string"
+										},
+										"author": {
+											"type": "string"
+										},
+										"state": {
+											"type": "string"
+										},
+										"relation": {
+											"enum": ["proves", "mentions"]
+										},
+										"files": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							},
+							"mentioned_in": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": ["file", "kind"],
+									"properties": {
+										"file": {
+											"type": "string"
+										},
+										"kind": {
+											"enum": ["equivalence", "no-final-theorem"]
+										},
+										"machines": {
+											"type": "array",
+											"items": {
+												"$ref": "#/$defs/machine"
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					"wiki_pages": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"site_page": {
+						"type": "string"
+					},
+					"conflicts": {
+						"description": "Real disagreements: sources give different classes, or a source contradicts busycoq (says solved and busycoq has no proof; busycoq has it solved and a source still calls it unsolved).",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["kind", "detail"],
+							"properties": {
+								"kind": {
+									"enum": ["class", "solved-not-in-busycoq", "unsolved-in-source", "cryptid"]
+								},
+								"detail": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"discord": {
+						"description": "Discord messages that mention the machine or an equivalent one (links only, oldest first). Empty when the optional Discord step was never run.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["channel_id", "message", "date"],
+							"properties": {
+								"channel_id": {
+									"type": "string"
+								},
+								"channel": {
+									"type": ["string", "null"],
+									"description": "Channel name"
+								},
+								"message": {
+									"type": "string",
+									"description": "Message id"
+								},
+								"date": {
+									"type": "string",
+									"format": "date"
+								}
+							}
+						}
+					},
+					"notes": {
+						"description": "Differences that are not disagreements: a source behind or ahead of busycoq on the path ready -> PR -> solved, an unverified report, a claim only one source makes. Kind \"community\": a remark from the wiki or Discord (e.g. \"Similar to Antihydra\").",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["kind", "detail"],
+							"properties": {
+								"kind": {
+									"enum": ["behind", "stale", "ahead", "unverified", "one-source", "community"]
+								},
+								"detail": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"tags": {
+			"description": "Community tags used in holdouts[].tags (from data/bb6/sources/notable.json): a link and a one-line explanation each. BMO1, BMO2… share the entry \"BMO\".",
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"required": ["url", "help"],
+				"properties": {
+					"url": {
+						"type": "string"
+					},
+					"help": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"decided": {
+			"description": "Machines of base_list that are no longer holdouts, in base_list order.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["n", "tm", "class", "verdict", "by", "file", "sheet_cell"],
+				"properties": {
+					"n": {
+						"description": "1-based position in base_list",
+						"type": "integer"
+					},
+					"tm": {
+						"$ref": "#/$defs/machine"
+					},
+					"class": {
+						"type": ["string", "null"]
+					},
+					"verdict": {
+						"description": "The sheet's note, where it has one",
+						"enum": ["halts", "non-halting", null]
+					},
+					"by": {
+						"description": "proof: a busycoq file proves it; equivalence: a busycoq Eqv file relates it to a decided machine",
+						"enum": ["proof", "equivalence", null]
+					},
+					"file": {
+						"description": "Path under verify/ in busycoq (use url_templates.busycoq_file)",
+						"type": ["string", "null"]
+					},
+					"sheet_cell": {
+						"type": ["object", "null"]
+					}
+				}
+			}
+		}
+	},
+	"$defs": {
+		"machine": {
+			"type": "string",
+			"pattern": "^([01][LR][A-F]|---)([01][LR][A-F]|---)(_([01][LR][A-F]|---)([01][LR][A-F]|---)){5}$"
+		},
+		"cell": {
+			"type": "object",
+			"required": ["tab", "ref"],
+			"properties": {
+				"tab": {
+					"type": "string"
+				},
+				"ref": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

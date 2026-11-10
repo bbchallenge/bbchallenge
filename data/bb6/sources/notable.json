@@ -1,0 +1,332 @@
+{
+	"_comment": "Hand-curated: names, community tags and notes for individual holdouts, each from the source named. Tags are terms the community uses; see docs/bb6-holdouts.md.",
+	"sources": {
+		"wiki_bb6": {
+			"name": "BB(6), section Cryptids (bbchallenge wiki)",
+			"url": "https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids",
+			"as_of": "2026-11-05"
+		},
+		"wiki_bmo": {
+			"name": "Beaver Math Olympiad (bbchallenge wiki)",
+			"url": "https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad",
+			"as_of": "2026-11-05"
+		},
+		"vampires": {
+			"name": "A family of seven vampire-like BB(6) holdouts (Thomas Reus; HALTs found by Duke)",
+			"url": "https://github.com/thomasreus-bb/bb6-vampire-family-1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---",
+			"discussion": "https://discord.com/channels/960643023006490684/1561037362581086228",
+			"as_of": "2026-11-01"
+		}
+	},
+	"tags": {
+		"Cryptid": {
+			"url": "https://wiki.bbchallenge.org/wiki/Cryptids",
+			"help": "Its behaviour follows a simple rule whose halting question is an unsolved, presumed-hard math problem (most known ones are Collatz-like)"
+		},
+		"Potential Cryptid": {
+			"url": "https://wiki.bbchallenge.org/wiki/BB(6)#Cryptids",
+			"help": "Chaotic, but not (yet) linked to a known open problem"
+		},
+		"Probviously halting": {
+			"url": "https://wiki.bbchallenge.org/wiki/Probviously",
+			"help": "Probabilistic arguments say it halts"
+		},
+		"Probviously non-halting": {
+			"url": "https://wiki.bbchallenge.org/wiki/Probviously",
+			"help": "Probabilistic arguments say it runs forever"
+		},
+		"Energy vampire": {
+			"url": "https://github.com/thomasreus-bb/bb6-vampire-family-1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---",
+			"help": "One of seven related Bell-like machines that take an enormous amount of compute to simulate"
+		},
+		"BMO": {
+			"url": "https://wiki.bbchallenge.org/wiki/Beaver_Math_Olympiad",
+			"help": "Restated as a Beaver Math Olympiad problem"
+		}
+	},
+	"machines": {
+		"1RB---_0RC0RB_1LD1LE_1LC1RF_1RB0LE_1RA0RD": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-11-01",
+				"detail": "TM2b in the family; orbit O4 halts at Bell 1,941,376,761,248",
+				"source": "vampires",
+				"steps_log10": 683718960000.0
+			}
+		},
+		"1RB---_0RC0RD_1LD1RB_0LE0LC_1RA0LF_1LD1LE": {
+			"tags": [
+				"Potential Cryptid"
+			],
+			"notes": [
+				"Similar to BMO8"
+			]
+		},
+		"1RB---_0RC0RE_1RD1RF_1LE0LB_1RC0LD_1RC1RA": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB---_1LC0RB_0LD0LC_1RE1RB_1RD1LF_1LA0LE": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM1 in the family; orbit O1 halts at Bell 747,242,483,684",
+				"source": "vampires",
+				"steps_log10": 263165740000.0
+			}
+		},
+		"1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LA---": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM2a in the family; orbit O3 halts at Bell 1,961,935,897,288",
+				"source": "vampires",
+				"steps_log10": 690959520000.0
+			}
+		},
+		"1RB0LA_0RC0RB_1LD1LA_1LC1RE_1RF0RD_1LC---": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM2 in the family; orbit O2 halts at Bell 731,899,010,932",
+				"source": "vampires",
+				"steps_log10": 257762040000.0
+			}
+		},
+		"1RB0LB_0RC0LD_1LD1RE_0LA0RF_0RD1RF_0RC---": {
+			"tags": [
+				"BMO10"
+			]
+		},
+		"1RB0LB_1LC0RE_1LA1LD_0LC---_0RB0RF_1RE1RB": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"Similar to Antihydra"
+			]
+		},
+		"1RB0LC_0LC0RF_1RD1LC_0RA1LE_---0LD_1LF1LA": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB0LC_1LC0RD_1LF1LA_1LB1RE_1RB1LE_---0LE": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB0LD_0LC0RE_1LA0RD_0RB0LC_1RC1RF_0LD---": {
+			"tags": [
+				"BMO11"
+			]
+		},
+		"1RB0LD_0RC1RB_0RD0RA_1LE0RD_1LF---_0LA1LA": {
+			"tags": [
+				"Potential Cryptid",
+				"BMO8"
+			]
+		},
+		"1RB0LD_1LC0RA_1RA1LB_1LA1LE_1RF0LC_---0RE": {
+			"tags": [
+				"Potential Cryptid",
+				"BMO5"
+			]
+		},
+		"1RB0LD_1RC1RA_1LD0RB_1LE1LA_1RF0RC_---1RE": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB0LD_1RC1RF_1LA0RA_0LA0LE_1LD1LA_0RB---": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"Similar to Antihydra"
+			]
+		},
+		"1RB0RB_1LC1RE_1LF0LD_1RA1LD_1RC1RB_---1LC": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"Similar to Space Needle"
+			]
+		},
+		"1RB0RD_0RC1RE_1RD0LA_1LE1LC_1RF0LD_---0RA": {
+			"name": "Lucy's Moonlight",
+			"wiki": "Lucy's_Moonlight",
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB0RE_1LC0RA_1LA1LD_1LC1LF_0LC0LB_1LE---": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB0RE_1LC1LD_0RA0LD_1LB0LA_1RF1RA_---1LB": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB0RE_1RC---_0RD0RC_1LE1LF_1LD1RA_1RC0LF": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM2' in the family; orbit O2 halts at Bell 731,899,010,932",
+				"source": "vampires",
+				"steps_log10": 257762040000.0
+			}
+		},
+		"1RB0RF_1LC---_1LF1LD_1RE0LD_0RC0RE_1LC1RA": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-11-01",
+				"detail": "TM2b' in the family; orbit O4 halts at Bell 1,941,376,761,248",
+				"source": "vampires",
+				"steps_log10": 683718960000.0
+			}
+		},
+		"1RB0RF_1LC---_1RD0LC_0RE0RD_1LF1LC_1LE1RA": {
+			"tags": [
+				"Energy vampire"
+			],
+			"simulated_halt": {
+				"date": "2026-10-30",
+				"detail": "TM1-F in the family; orbit O2 halts at Bell 731,899,010,932",
+				"source": "vampires",
+				"steps_log10": 257762040000.0
+			}
+		},
+		"1RB0RF_1RC1RF_1LD0LE_---1LC_1RA1LE_1LC1RB": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"Similar to Space Needle"
+			]
+		},
+		"1RB1LA_0LC0RC_1LE1RD_1RE1RC_1LF0LA_---1LE": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"Similar to Space Needle"
+			]
+		},
+		"1RB1LA_1LC0RE_1LF1LD_0RB0LA_1RC1RE_---0LD": {
+			"name": "Space Needle",
+			"wiki": "Space_Needle",
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting",
+				"BMO6"
+			]
+		},
+		"1RB1LA_1RC0RF_1RD---_0LE1RB_---0LA_1LD1RF": {
+			"tags": [
+				"Potential Cryptid"
+			]
+		},
+		"1RB1LD_1RC0LE_1LA1RE_0LF1LA_1RB0RB_---0LB": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB1LD_1RC1RE_0LA1LB_0LD1LC_1RF0RA_---0RC": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"Similar to Antihydra"
+			]
+		},
+		"1RB1LE_0LC0LB_1RD1LC_1RD1RA_1RF0LA_---1RE": {
+			"tags": [
+				"Cryptid"
+			],
+			"notes": [
+				"Behaves like the probviously halting Cryptids, but is estimated to have a 3/5 chance of becoming a translated cycler and a 2/5 chance of halting"
+			]
+		},
+		"1RB1RA_0LC1LE_1LD1LC_1LA0LB_1LF1RE_---0RA": {
+			"name": "Antihydra",
+			"page": "/antihydra",
+			"wiki": "Antihydra",
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting",
+				"BMO2"
+			]
+		},
+		"1RB1RA_0RC1RC_1LD0LF_0LE1LE_1RA0LB_---0LC": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			],
+			"notes": [
+				"One of a family of 16 related machines"
+			]
+		},
+		"1RB1RC_1LC1LE_1RA1RD_0RF0RE_1LA0LB_---1RA": {
+			"tags": [
+				"Cryptid",
+				"Probviously non-halting"
+			],
+			"notes": [
+				"A variant of Hydra and Antihydra"
+			]
+		},
+		"1RB1RE_1LC0RA_0RD1LB_---1RC_1LF1RE_0LB0LE": {
+			"tags": [
+				"Potential Cryptid",
+				"BMO1"
+			]
+		},
+		"1RB1RE_1LC1LD_---1LA_1LB1LE_0RF0RA_1LD1RF": {
+			"tags": [
+				"Cryptid",
+				"Probviously halting"
+			]
+		},
+		"1RB1RF_0LC0RF_1RD1LC_---0LE_0RC1LF_1RA0LE": {
+			"tags": [
+				"Potential Cryptid"
+			]
+		},
+		"1RB1RF_1LC1LF_0RE1LD_0LB1LD_---1RC_1RA0RD": {
+			"tags": [
+				"Potential Cryptid"
+			]
+		}
+	}
+}

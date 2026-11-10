@@ -1,0 +1,350 @@
+{
+	"source": "https://wiki.bbchallenge.org/wiki/Holdouts_lists#BB(6)",
+	"fetched_at": "2026-11-05T20:19:08.546Z",
+	"lists": [
+		{
+			"date": "2023-05-10",
+			"count": 1458704,
+			"by": "sligocki",
+			"note": "This was posted to the BBChallenge Forum (before Discord)"
+		},
+		{
+			"date": "2023-05-27",
+			"count": 181851,
+			"by": "sligocki",
+			"note": "This was posted to the BBChallenge Forum (before Discord)"
+		},
+		{
+			"date": "2024-05-13",
+			"count": 35788,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1239628496184279080",
+			"note": "C++ version of the deciders from Coq-BB5 ran on Shawns 181,851 holdouts"
+		},
+		{
+			"date": "2024-05-28",
+			"count": 18560,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1245116022873264129"
+		},
+		{
+			"date": "2024-06-07",
+			"count": 12325,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1248708916381220954",
+			"note": "Some equivalent machines are removed."
+		},
+		{
+			"date": "2024-06-13",
+			"count": 12091,
+			"by": "tjligocki",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1250895665719148595",
+			"note": "Work done with @Shawn Ligocki"
+		},
+		{
+			"date": "2024-06-20",
+			"count": 10944,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1253466035189846056"
+		},
+		{
+			"date": "2024-06-21",
+			"count": 10020,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1253478694798884934",
+			"note": "Work done by Justin Blanchard"
+		},
+		{
+			"date": "2024-06-24",
+			"count": 9853,
+			"by": "Justin Blanchard",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1254684723955896362"
+		},
+		{
+			"date": "2024-06-28",
+			"count": 9366,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1256254912573079572"
+		},
+		{
+			"date": "2024-07-05",
+			"count": 7449,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1258810921879605298"
+		},
+		{
+			"date": "2024-07-06",
+			"count": 7430,
+			"by": "Justin Blanchard",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1259011186192552068",
+			"note": "Work done by Justin Blanchard"
+		},
+		{
+			"date": "2024-07-06",
+			"count": 7296,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1259131753176498216"
+		},
+		{
+			"date": "2024-07-14",
+			"count": 7255,
+			"by": "Justin Blanchard",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1262126923321180250",
+			"note": "Work done by Justin Blanchard"
+		},
+		{
+			"date": "2024-07-15",
+			"count": 7013,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1262276904887521300"
+		},
+		{
+			"date": "2024-07-28",
+			"count": 6417,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1267013907910758451"
+		},
+		{
+			"date": "2024-08-04",
+			"count": 5877,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1269612923127599164"
+		},
+		{
+			"date": "2024-09-02",
+			"count": 5394,
+			"by": "mxdys"
+		},
+		{
+			"date": "2024-09-07",
+			"count": 4986,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1282002734912110655"
+		},
+		{
+			"date": "2024-09-23",
+			"count": 4741,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1287580515938865225"
+		},
+		{
+			"date": "2024-10-19",
+			"count": 4521,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1297163115179278336"
+		},
+		{
+			"date": "2024-11-08",
+			"count": 4408,
+			"by": "mxdys"
+		},
+		{
+			"date": "2024-11-25",
+			"count": 4319,
+			"by": "tjligocki",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1310648046576730124",
+			"note": "Keeping track of BB(6) progress - informal."
+		},
+		{
+			"date": "2025-03-01",
+			"count": 3571,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1345246656769163284"
+		},
+		{
+			"date": "2025-06-18",
+			"count": 3335,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1384957116376158228"
+		},
+		{
+			"date": "2025-07-05",
+			"count": 3094,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1390953522379489401"
+		},
+		{
+			"date": "2025-07-13",
+			"count": 2891,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1393808719615361205"
+		},
+		{
+			"date": "2025-07-29",
+			"count": 2728,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1399783936019664896"
+		},
+		{
+			"date": "2025-08-30",
+			"count": 2592,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1411308408220549140"
+		},
+		{
+			"date": "2025-09-21",
+			"count": 1691,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1419290767767240734"
+		},
+		{
+			"date": "2025-10-20",
+			"count": 1618,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1429892916763033601"
+		},
+		{
+			"date": "2025-11-14",
+			"count": 1534,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1438983076662477004"
+		},
+		{
+			"date": "2025-11-28",
+			"count": 1416,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1443989662019354647"
+		},
+		{
+			"date": "2025-12-16",
+			"count": 1343,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1450455364179857410"
+		},
+		{
+			"date": "2025-12-30",
+			"count": 1326,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1455369448264568904"
+		},
+		{
+			"date": "2026-01-29",
+			"count": 1314,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1466438332677619956"
+		},
+		{
+			"date": "2026-02-19",
+			"count": 1226,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1473945366821998684"
+		},
+		{
+			"date": "2026-02-28",
+			"count": 1214,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1477224991136419983"
+		},
+		{
+			"date": "2026-03-25",
+			"count": 1161,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1486207538843222116"
+		},
+		{
+			"date": "2026-04-25",
+			"count": 1119,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1497651809773289552",
+			"note": "Reduction by equivalences, one halting TM"
+		},
+		{
+			"date": "2026-04-29",
+			"count": 1104,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1499000732236382358",
+			"note": "More reduction by equivalences"
+		},
+		{
+			"date": "2026-06-29",
+			"count": 1094,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1521203430046171146"
+		},
+		{
+			"date": "2026-07-28",
+			"count": 1064,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1531681818439319604"
+		},
+		{
+			"date": "2026-08-15",
+			"count": 1016,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1538109685033607198"
+		},
+		{
+			"date": "2026-08-30",
+			"count": 1003,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1543436534831906926"
+		},
+		{
+			"date": "2026-08-31",
+			"count": 999,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1543878992195620884"
+		},
+		{
+			"date": "2026-09-08",
+			"count": 964,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1546881471556620339"
+		},
+		{
+			"date": "2026-09-16",
+			"count": 855,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1549771931677364264",
+			"note": "Most holdouts solved between holdout lists since November 28, 2025."
+		},
+		{
+			"date": "2026-09-24",
+			"count": 815,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1552681541401059350"
+		},
+		{
+			"date": "2026-09-30",
+			"count": 797,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1554765260735512616"
+		},
+		{
+			"date": "2026-10-07",
+			"count": 778,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1557353710101995550"
+		},
+		{
+			"date": "2026-10-10",
+			"count": 740,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1558585686288891986"
+		},
+		{
+			"date": "2026-10-15",
+			"count": 698,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1560185889290985532"
+		},
+		{
+			"date": "2026-10-16",
+			"count": 663,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1560559556164063242"
+		},
+		{
+			"date": "2026-10-24",
+			"count": 623,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1563505561905926175"
+		},
+		{
+			"date": "2026-10-30",
+			"count": 608,
+			"by": "mxdys",
+			"link": "https://discord.com/channels/960643023006490684/1239205785913790465/1565584609176195113"
+		}
+	]
+}

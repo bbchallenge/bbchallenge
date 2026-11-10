@@ -1,0 +1,19 @@
+{
+	"name": "BB(6) holdouts, mxdys, 608 machines",
+	"count": 608,
+	"published": "2026-10-30",
+	"published_by": "mxdys (ccz181078)",
+	"published_at": "https://discord.com/channels/960643023006490684/1239205785913790465/1565640345843138560",
+	"list_file": "static/BB6_holdouts_608.txt",
+	"eqv_file": "data/bb6/sources/BB6_holdouts_1303_eqv_608.txt",
+	"eqv_published_at": "https://discord.com/channels/960643023006490684/1239205785913790465/1565584609176195113",
+	"base_list": {
+		"count": 1534,
+		"published": "2025-11-14",
+		"published_by": "mxdys (ccz181078)",
+		"published_at": "https://discord.com/channels/960643023006490684/1239205785913790465/1438983076662477004",
+		"file": "data/bb6/sources/BB6_holdouts_1534.txt",
+		"url": "https://wiki.bbchallenge.org/w/images/0/02/BB6_holdouts_1534.txt",
+		"why": "The list RobinCodes's sheet is built on; machines on it that are no longer holdouts are shown as decided."
+	}
+}
